@@ -1,0 +1,446 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 22.2 Erstellen von EXE-Dateien &#8211; py2exe</title>
+<meta name="title" content="Galileo Computing :: Python - 22.2 Erstellen von EXE-Dateien &#8211; py2exe">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 22.2 Erstellen von EXE-Dateien &#8211; py2exe">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_22_001.htm">
+<link rel="next" href="python_kapitel_22_003.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_22_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_22_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94" class="navnav">22 Distribution von Python-Projekten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_22_001.htm#mj64ee18645f12f18ca41aa2aba4278a95" class="navnav">22.1 Erstellen von Distributionen &#8211; distutils</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_001.htm#mjd062fe88624640aca3dd7ca5f366ff29" class="navnav">22.1.1 Schreiben des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_001.htm#mj9f066c9d92b6d7dcf270ed4cf60583fb" class="navnav">22.1.2 Das Installationsscript</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_001.htm#mjdf66abaa6ad486ebac737695c294c5af" class="navnav">22.1.3 Erstellen einer Quellcodedistribution</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_001.htm#mj5f04e5c2f5345507fdb4b8a8d871ed0d" class="navnav">22.1.4 Erstellen einer Binärdistribution</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_001.htm#mjf90e2c2119474162405f6f0db25a3647" class="navnav">22.1.5 Beispiel für die Verwendung einer Distribution</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjc2cee80dc9718d0e3e25546aec72d8fc" class="navh">22.2 Erstellen von EXE-Dateien &#8211; py2exe</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_22_003.htm#mj0bef9a124d280985e3b409b607fef68f" class="navnav">22.3 Automatisches Erstellen einer Dokumentation &#8211; epydoc</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_003.htm#mj8fc2fbeb9e5e9e128e03a4c57e85d86a" class="navnav">22.3.1 Docstrings und ihre Formatierung für epydoc</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjc2cee80dc9718d0e3e25546aec72d8fc" name="mjc2cee80dc9718d0e3e25546aec72d8fc"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">22.2</span><span class="cfett"> Erstellen von EXE-Dateien &#8211; py2exe</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Thema dieses Kapitels ist eine Erweiterung des Pakets <span class="clisting">distutils</span> namens <span class="clisting">py2exe</span>. Durch das Modul <span class="clisting">py2exe</span> (sprich: <span class="ckursiv">py to exe</span>) wird es möglich, ein Python-Programm zusammen mit dem Python-Interpreter zu einer einzelnen ausführbaren Datei (Windows-EXE) zu schnüren, sodass das fertige Programm auch in Umgebungen ausgeführt werden kann, in denen keine Python-Installation vorhanden ist. Beachten Sie, dass <span class="clisting">py2exe</span> kein Installer ist, sondern dass das Programm über die resultierende EXE direkt ausführbar ist. Beachten Sie außerdem, dass <span class="clisting">py2exe</span> eine EXE erzeugt, die sich ausschließlich unter Windows ausführen lässt und dass das Erstellen einer ausführbaren Datei mit <span class="clisting">py2exe</span> ebenfalls unter Windows geschehen muss.</p>
+<p>Das Modul <span class="clisting">py2exe</span> ist nicht im Lieferumfang von Python enthalten. Sie müssen es von der Website des Open-Source-Projekts unter <a href="http://www.py2exe.org">http://www.py2exe.org</a> herunterladen.</p>
+<p>In diesem Kapitel soll ein kleines Beispielprogramm geschrieben werden, das dann mittels <span class="clisting">py2exe</span> in eine für sich stehende ausführbare Datei verwandelt werden soll. Hier sehen Sie zunächst den Quelltext des Beispielprogramms:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> random<span class="cfett"> 
+import</span> sys<br>
+<span class="cfett">def</span> verwirble_text(text): 
+    liste = [] 
+   <span class="cfett"> for</span> wort<span class="cfett"> in</span> text.split(): 
+        w = list(wort[1:-1]) 
+        random.shuffle(w) 
+        w = "".join(w) 
+        liste.append("".join([wort[0], w, wort[-1]])) 
+   <span class="cfett"> return</span> " ".join(liste)<br>
+<span class="cfett">if</span> __name__ == "__main__": 
+    text = u""" Hallo 
+    Python erm\u00F6glicht einen glatten \u00DCbergang von 
+    kleinen, einfachen Scripten zu sehr komplexen Anwendungen. 
+    Dieses Buch vermittelt umfassende Python-Kenntnisse 
+    """ 
+   <span class="cfett"> print</span> verwirble_text(text)</pre></div>
+<p>Es handelt sich dabei um die Funktion <span class="clisting">verwirble_text</span> des vorherigen Beispielprogramms, die dahingehend erweitert wurde, dass sie automatisch einen »verwirbelten« Beispieltext ausgibt, wenn das Programm ausgeführt wird.</p>
+<p>Da <span class="clisting">py2exe</span> eine Erweiterung des Pakets <span class="clisting">distutils</span> ist, müssen wir auch in diesem Fall die Programmdatei <span class="ckursiv">setup.py</span> implementieren. Bezogen auf unser obiges Beispielprogramm sieht sie folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> py2exe.build_exe<span class="cfett"> import</span> py2exe<span class="cfett"> 
+from</span> distutils.core<span class="cfett"> import</span> setup<br>
+setup( 
+      […] 
+      console=["programm.py"] 
+      )</pre></div>
+<p>Statt der Auslassungszeichen stehen die üblichen Parameter der Funktion <span class="clisting">setup</span> im Quellcode, über die beispielsweise der Name oder die E-Mail-Adresse des Autors angegeben werden kann. Um das Installationsscript für <span class="clisting">py2exe</span> nutzbar zu machen, muss durch den Schlüsselwortparameter <span class="clisting">console</span> eine Liste mit mindestens einem Eintrag übergeben werden. Jeder Eintrag steht dabei für den Namen einer Programmdatei, die später zu einem eigenständigen ausführbaren Programm werden soll. In unserem Fall soll dies nur für die Programmdatei <span class="ckursiv">programm.py</span> durchgeführt werden.</p>
+<p>Beachten Sie, dass alle Programmdateien, die für den Schlüsselwortparameter <span class="clisting">console</span> übergeben werden, später als reine Konsolenanwendung enden. Alternativ kann der Parameter <span class="clisting">windows</span> für eine Anwendung mit grafischer Benutzeroberfläche verwendet werden.</p>
+<p>Nachdem das Installationsscript fertig ist, kann die ausführbare Datei erzeugt werden. Dazu muss das Installationsscript <span class="ckursiv">setup.py</span> mit dem Argument <span class="clisting">py2exe</span> aufgerufen werden:</p>
+<div class="listing"><pre class="prettyprint">setup.py py2exe</pre></div>
+<p>Der Rest geschieht automatisch. Nachdem sich das Installationsscript beendet hat, finden Sie im Programmverzeichnis zwei Unterordner namens <span class="ckursiv">build</span> und <span class="ckursiv">dist</span>. Der erste Ordner enthält temporäre Dateien von <span class="clisting">py2exe</span> und kann problemlos gelöscht werden. Im Ordner <span class="ckursiv">dist</span> ist die fertige Distribution Ihres Python-Programms enthalten. Das beinhaltet nicht nur die ausführbare Datei, in unserem Fall <span class="ckursiv">programm.exe</span>, sondern noch weitere ausführbare und nicht-ausführbare Dateien, die für das endgültige Programm wichtig sind. So sind beispielsweise der Python-Interpreter in der DLL <span class="ckursiv">Python25.dll</span> und die benötigten Teile der Standardbibliothek im Archiv <span class="ckursiv">library.zip</span> ausgelagert.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Im Verzeichnis <span class="ckursiv">dist</span> finden Sie neben den angesprochenen Dateien vor allem auch die DLL <span class="ckursiv">MSVCR71.dll</span>. Diese Datei stammt von Microsoft und sollte Ihrem Programm daher nur beiliegen, wenn Sie die Erlaubnis dazu haben.</p>
+</td>
+</tr>
+</table><br><p>Neben <span class="ckursiv">MSVCR71.dll</span> werden noch weitere DLLs benötigt, damit Ihr Programm ausgeführt werden kann. Welche das sind, teilt Ihnen das Installationsscript mit, kurz bevor es sich beendet:</p>
+<div class="listing"><pre class="prettyprint">*** binary dependencies *** 
+Your executable(s) also depend on these dlls which are not included, 
+you may or may not need to distribute them. 
+Make sure you have the license if you distribute any of them, and 
+make sure you don't distribute files belonging to the operating  
+system. 
+   ADVAPI32.dll - C:\WINDOWS\system32\ADVAPI32.dll 
+   USER32.dll - C:\WINDOWS\system32\USER32.dll 
+   SHELL32.dll - C:\WINDOWS\system32\SHELL32.dll 
+   KERNEL32.dll - C:\WINDOWS\system32\KERNEL32.dll</pre></div>
+<p>Beachten Sie, dass die hier aufgelisteten DLLs im Gegensatz zu <span class="ckursiv">MSVCR71.dll</span> auf jeder Windows-Installation verfügbar sein sollten.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Das Modul <span class="clisting">py2exe</span> arbeitet problemlos mit einem Großteil der Standardbibliothek von Python zusammen. Auch viele Bibliotheken von Drittanbietern funktionieren einwandfrei. Trotzdem sind in einigen Fällen einige Tricks vonnöten, um ein bestimmtes Modul oder Paket mit <span class="clisting">py2exe</span> lauffähig zu machen. Für solche Fälle listet die Website <a href="http://www.py2exe.org">http://www.py2exe.org</a> unter dem Stichwort »Working with various packages and modules« Tipps für bestimmte Pakete und Module auf.</p>
+</td>
+</tr>
+</table><br><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_22_002.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="22.2 Erstellen von EXE-Dateien &#8211; py2exe"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_22_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_22_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

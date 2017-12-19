@@ -1,0 +1,777 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 8.6 Mappings</title>
+<meta name="title" content="Galileo Computing :: Python - 8.6 Mappings">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 8.6 Mappings">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_08_005.htm">
+<link rel="next" href="python_kapitel_08_007.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_08_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_08_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d" class="navnav">8 Basisdatentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_001.htm#mjc72b335a8a5f76207edbafa941f933de" class="navnav">8.1 Operatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_002.htm#mj6409c0926804636387412c613b7b7be5" class="navnav">8.2 Das Nichts &#8211; NoneType</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_003.htm#mj6cf370d61a53204c7a0195c414bc872b" class="navnav">8.3 Numerische Datentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mj867e954dbc429fc5bec56a0c953d45d8" class="navnav">8.3.1 Ganze Zahlen &#8211; int, long</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mj6d41cdafb4b90464f2c005027f9c91d5" class="navnav">8.3.2 Gleitkommazahlen &#8211; float</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mjfb4d02fccab9edcdc5ad084f35eaeaa6" class="navnav">8.3.3 Boolesche Werte &#8211; bool</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mje0a568fae09049a37bd3c3eec46428e7" class="navnav">8.3.4 Komplexe Zahlen &#8211; complex</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_004.htm#mj59a6387bf7db64f12c8c0e08237ac604" class="navnav">8.4 Methoden und Parameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_005.htm#mj3d61fb54438f66879e52e5a74e2e25a3" class="navnav">8.5 Sequenzielle Datentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_005.htm#mj706b778fd2162b5144d8f07b6222092d" class="navnav">8.5.1 Listen &#8211; list</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_005.htm#mj91f49981165d738734c4d64190f3f2cf" class="navnav">8.5.2 Unveränderliche Listen &#8211; tuple</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_005.htm#mjeb87145a10dfeb18cb5b0215f08f30ad" class="navnav">8.5.3 Strings &#8211; str, unicode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj5492a22c8e50d661f8f6ed931b282817" class="navh">8.6 Mappings</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj40cd82a0f398e53c7af3f38de47c4b46" class="navh">8.6.1 Dictionary &#8211; dict</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_007.htm#mja76bcb53bc9fb07ee9aacd533d393490" class="navnav">8.7 Mengen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_007.htm#mj85ece89f8351590b611dc9cb7fe22c36" class="navnav">8.7.1 Mengen &#8211; set</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_007.htm#mjefba418c399f3218461e693613231aeb" class="navnav">8.7.2 Unveränderliche Mengen &#8211; frozenset</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj5492a22c8e50d661f8f6ed931b282817" name="mj5492a22c8e50d661f8f6ed931b282817"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">8.6</span><span class="cfett"> Mappings</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Die Kategorie <span class="ckursiv">Mappings</span> (dt. <span class="ckursiv">Zuordnungen</span>) enthält Datentypen, die eine Zuordnung zwischen verschiedenen Objekten herstellen.</p><a id="mj40cd82a0f398e53c7af3f38de47c4b46" name="mj40cd82a0f398e53c7af3f38de47c4b46"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">8.6.1</span><span class="cfett"> <a id="Rxx_ref180696573" name="Rxx_ref180696573"></a><a id="Rxx_ref180696571" name="Rxx_ref180696571"></a>Dictionary &#8211; dict</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Der einzige Datentyp der Kategorie Mappings ist das <span class="ckursiv">Dictionary</span>, wofür in Python der Name <span class="clisting">dict</span> verwendet wird. Der Name des Datentyps gibt dabei schon einen guten Hinweis darauf, was sich dahinter verbirgt. Ein Dictionary enthält beliebig viele <span class="ckursiv">Schlüssel/Wert-Paare</span> (engl. <span class="ckursiv">key/value pairs</span>), wobei der Schlüssel nicht unbedingt, wie bei einer Liste, eine ganze Zahl sein muss. Vielleicht ist Ihnen dieser Datentyp schon von einer anderen Programmiersprache her bekannt, wo er als <span class="ckursiv">assoziatives Array</span> (u. a. in PHP), <span class="ckursiv">Map</span> (u. a. in C++) oder <span class="ckursiv">Hash</span> (u. a. in Perl) bezeichnet wird. Der Datentyp <span class="clisting">dict</span> ist mutable, also veränderlich.</p>
+<p>Im folgenden Beispiel wird erklärt, wie ein <span class="clisting">dict</span> mit mehreren Schlüssel/Wert-Paaren innerhalb von geschweiften Klammern erzeugt wird. Außerdem wird die Assoziation mit einem Wörterbuch ersichtlich:</p>
+<div class="listing"><pre class="prettyprint">woerterbuch =<span class="cfett"> {</span>"Germany"<span class="cfett"> :</span> "Deutschland"<span class="cfett">,</span> "Spain"<span class="cfett"> :</span> "Spanien"<span class="cfett">}</span></pre></div>
+<p>In diesem Fall wurde ein <span class="clisting">dict</span> mit zwei Einträgen angelegt, die durch ein Komma getrennt werden. Beim ersten wurde dem Schlüssel <span class="clisting">"Germany"</span> der Wert <span class="clisting">"Deutschland"</span> zugewiesen. Schlüssel und Wert werden durch einen Doppelpunkt voneinander getrennt. Beachten Sie, dass Sie nicht gezwungen sind, alle Paare in eine Zeile zu schreiben. Innerhalb der geschweiften Klammern können Sie Ihren Quellcode beliebig formatieren:</p>
+<div class="listing"><pre class="prettyprint">woerterbuch =<span class="cfett"> {</span> 
+              "Germany"<span class="cfett"> :</span> "Deutschland"<span class="cfett">,</span> 
+              "Spain"<span class="cfett"> :</span> "Spanien"<span class="cfett">,</span> 
+              "France"<span class="cfett"> :</span> "Frankreich" 
+             <span class="cfett"> }</span></pre></div>
+<p>Hinter dem letzten Schlüssel/Wert-Paar kann ein weiteres Komma stehen, es wird aber nicht benötigt. Jeder Schlüssel muss im Dictionary eindeutig sein, es darf also kein zweiter Schlüssel mit demselben Namen existieren. Formal ist folgendes zwar möglich, es bewirkt aber nur, dass das erste Schlüssel/Wert-Paar überschrieben wird.</p>
+<div class="listing"><pre class="prettyprint">d =<span class="cfett"> {</span> 
+    "Germany"<span class="cfett"> :</span> "Deutschland"<span class="cfett">,</span> 
+    "Germany"<span class="cfett"> :</span> "Pusemuckel" 
+   <span class="cfett"> }</span></pre></div>
+<p>Im Gegensatz dazu brauchen die Werte eines Dictionarys nicht eindeutig sein, dürfen also ruhig mehrfach vorkommen:</p>
+<div class="listing"><pre class="prettyprint">d =<span class="cfett"> {</span> 
+    "Germany"<span class="cfett"> :</span> "Deutschland"<span class="cfett">,</span> 
+    "Allemagne"<span class="cfett"> :</span> "Deutschland" 
+   <span class="cfett"> }</span></pre></div>
+<p>In den bisherigen Beispielen waren bei allen Paaren sowohl der Schlüssel als auch der Wert ein String. Das muss nicht unbedingt sein:</p>
+<div class="listing"><pre class="prettyprint">mapping =<span class="cfett"> {</span> 
+          0<span class="cfett"> :</span> 1<span class="cfett">,</span> 
+          "abc"<span class="cfett"> :</span> 0.5<span class="cfett">,</span> 
+          1.2e22<span class="cfett"> :</span> [1,2,3,4], 
+          (1,3,3,7)<span class="cfett"> :</span> "def" 
+         <span class="cfett"> }</span></pre></div>
+<p>In einem Dictionary können beliebige Instanzen, seien sie mutable oder immutable, als Werte verwendet werden. Bei dem Schlüssel ist zu beachten, dass nur Instanzen unveränderlicher (immutable) Datentypen verwendet werden dürfen. Dabei handelt es sich um alle bisher besprochenen Datentypen mit Ausnahme der Listen und der Dictionarys selbst. Versuchen wir beispielsweise, ein Dictionary zu erstellen, in dem eine Liste als Schlüssel verwendet wird, so meldet sich der Interpreter mit einem entsprechenden Fehler:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d = {[1,2,3] : "abc"} 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+TypeError: list objects are unhashable</pre></div>
+<p>Diese Beschränkung rührt daher, dass die Schlüssel eines Dictionarys anhand eines aus ihrem Wert errechneten <span class="ckursiv">Hash-Werts</span> verwaltet werden. Prinzipiell lässt sich aus jedem Objekt ein Hash-Wert berechnen, bei veränderlichen Objekten macht dies jedoch wenig Sinn, da sich der Hash-Wert bei Veränderung des Objekts ebenfalls ändern würde. Eine solche Veränderung würde beispielsweise die Schlüsselverwaltung eines Dictionarys zerstören. Aus diesem Grund sind veränderliche Objekte »unhashable«, wie in der obigen Fehlermeldung gesagt wird.</p>
+<p>Bei einem Dictionary handelt es sich um ein iterierbares Objekt. Es ist daher möglich, ein Dictionary in einer <span class="clisting">for</span>-Schleife zu durchlaufen. Dabei wird nicht über das komplette Dictionary iteriert, sondern nur über alle Schlüssel. Im folgenden Beispiel durchlaufen wir alle Schlüssel unseres Wörterbuchs und geben sie mittels <span class="clisting">print</span> aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> key<span class="cfett"> in</span> woerterbuch: 
+   <span class="cfett"> print</span> key</pre></div>
+<p>Die Ausgabe des Codes sieht erwartungsgemäß folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">Germany 
+Spain 
+France</pre></div>
+<p>Selbstverständlich kann in einer solchen Schleife auch auf die Werte des Dictionarys zugegriffen werden. Dazu bedient man sich des Zugriffsoperators, den wir im Folgenden unter anderem behandeln werden. Beachten Sie, dass Sie die Größe des Dictionarys nicht verändern dürfen, während es in einer Schleife durchlaufen wird. Die Größe des Dictionarys würde zum Beispiel durch das Hinzufügen oder Löschen eines Schlüssel/Wert-Paares beeinflusst. Sollten Sie es dennoch versuchen, bekommen Sie folgende Fehlermeldung angezeigt:</p>
+<div class="listing"><pre class="prettyprint">Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+RuntimeError: dictionary changed size during iteration</pre></div>
+<p>Diese Beschränkung gilt ausschließlich für Operationen, die die Größe des Dictionarys beeinflussen, also beispielsweise das Hinzufügen und Entfernen von Einträgen. Sollten Sie in einer Schleife lediglich den korrelierenden Wert eines Schlüssels ändern, tritt keinerlei Fehler auf.</p>
+<h4 class="t4"><span class="cfett">Operatoren</span></h4>
+<p>Bisher haben Sie gelernt, was ein Dictionary ist und wie es erzeugt wird. Außerdem sind wir auf einige Besonderheiten eingegangen. Nachfolgend besprechen wir die für Dictionarys verfügbaren Operatoren.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.26    </strong>Operatoren eines Dictionarys
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">len(s)</span></p>
+</td>
+<td class="tabellentext">
+<p>Liefert die Anzahl aller im Dictionary <span class="clisting">s</span> enthaltenen Elemente.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d[k]</span></p>
+</td>
+<td class="tabellentext">
+<p>Zugriff auf den Wert mit dem Schlüssel <span class="clisting">k</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>del <span class="clisting">d[k]</span></p>
+</td>
+<td class="tabellentext">
+<p>Löschen des Schlüssels <span class="clisting">k</span> und seines Wertes</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">k</span> in <span class="clisting">d</span></p>
+</td>
+<td class="tabellentext">
+<p>True, wenn sich der Schlüssel <span class="clisting">k</span> in <span class="clisting">d</span> befindet</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">k</span> not in <span class="clisting">d</span></p>
+</td>
+<td class="tabellentext">
+<p>True, wenn sich der Schlüssel <span class="clisting">k</span> nicht in <span class="clisting">d</span> befindet</p>
+</td>
+</tr>
+</table><br><p>Nachfolgend besprechen wir die Operatoren eines Dictionarys im Detail. Die meisten der Operatoren werden anhand des Dictionarys <span class="clisting">woerterbuch</span> erklärt, das wir zu Beginn dieses Kapitels eingeführt haben.</p>
+<h5 class="t5"><span class="cfett">Länge eines Dictionarys</span></h5>
+<p>Um die Länge eines Dictionarys zu bestimmen, wird die eingebaute Funktion <span class="clisting">len</span> verwendet. Die Länge entspricht dabei der Anzahl von Schlüssel/Wert-Paaren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; len(woerterbuch) 
+3</pre></div>
+<h5 class="t5"><span class="cfett">Zugriff auf einen Wert</span></h5>
+<p>Um in einem Dictionary auf einen Wert zugreifen zu können, wird der entsprechende Schlüssel in eckigen Klammern hinter den Namen des Dictionarys geschrieben. Bei dem im zweiten Beispiel angelegten Wörterbuch könnte ein solcher Zugriff folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; woerterbuch<span class="cfett">[</span>"Germany"<span class="cfett">]</span> 
+'Deutschland'</pre></div>
+<p>Dabei erfolgt der Zugriff, indem Werte miteinander verglichen werden und nicht Identitäten. Das liegt daran, dass die Schlüssel eines Dictionarys intern durch ihren Hash-Wert repräsentiert werden, der ausschließlich anhand des Wertes einer Instanz gebildet wird. In der Praxis bedeutet dies, dass beispielsweise die Zugriffe <span class="clisting">d[1]</span> und <span class="clisting">d[1.0]</span> äquivalent sind.</p>
+<p>Zu guter Letzt werfen wir noch einen Blick darauf, was passiert, wenn auf einen Wert zugegriffen werden soll, der nicht existiert. Der Interpreter antwortet mit einer Fehlermeldung:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d = {} 
+&gt;&gt;&gt; d[100] 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+KeyError: 100</pre></div>
+<h5 class="t5"><span class="cfett">Löschen eines Schlüssel/Wert-Paares</span></h5>
+<p>Um in einem Dictionary einen Eintrag zu löschen, kann das Schlüsselwort <span class="clisting">del</span> in Kombination mit dem Zugriffsoperator verwendet werden. Im folgenden Beispiel wird der Eintrag <span class="clisting">"Germany" : "Deutschland"</span> aus dem Dictionary entfernt werden.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">del</span> woerterbuch["Germany"]</pre></div>
+<p>Das Dictionary selbst existiert auch dann noch, wenn es durch Entfernen des letzten Eintrags leer geworden ist.</p>
+<h5 class="t5"><span class="cfett">Auf bestimmte Schlüssel testen</span></h5>
+<p>Um ein Dictionary auf bestimmte Schlüssel zu testen, werden die Operatoren <span class="clisting">in</span> und <span class="clisting">not in</span> verwendet. Sie prüfen, ob sich ein Schlüssel im Dictionary befindet oder nicht, und geben das entsprechende Ergebnis als Wahrheitswert zurück:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; "France"<span class="cfett"> in</span> woerterbuch 
+True 
+&gt;&gt;&gt; "Spain"<span class="cfett"> not in</span> woerterbuch 
+False</pre></div>
+<h4 class="t4"><span class="cfett">Methoden</span></h4>
+<p>Neben den Operatoren sind für Dictionarys eine ganze Reihe von Methoden definiert, die die Arbeit mit Dictionarys erleichtern. Parameter in eckigen Klammern können, je nach Verwendung der Methode, weggelassen werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.27    </strong>Methoden eines Dictionarys
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Methode</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.clear()</span></p>
+</td>
+<td class="tabellentext">
+<p>Löscht den Inhalt des Dictionarys <span class="clisting">d</span>. Das Dictionary selbst bleibt bestehen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.copy()</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Kopie von <span class="clisting">d</span>. Beachten Sie, dass nur das Dictionary selbst kopiert wird. Alle Werte bleiben Referenzen auf dieselben Instanzen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.has_key(k)</span></p>
+</td>
+<td class="tabellentext">
+<p>Äquivalent zu <span class="clisting">k in d</span>. Bitte nicht benutzen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.items()</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Liste, die alle Schlüssel/Wert-Paare von <span class="clisting">d</span> als Tupel enthält.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.keys()</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Liste aller Schlüssel von <span class="clisting">d</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.values()</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Liste aller Werte von <span class="clisting">d</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.update(d2)</span></p>
+</td>
+<td class="tabellentext">
+<p>Fügt ein Dictionary <span class="clisting">d2</span> zu <span class="clisting">d</span> hinzu und überschreibt gegebenenfalls die Werte von bereits vorhandenen Schlüsseln.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.fromkeys(seq[, value])</span></p>
+</td>
+<td class="tabellentext">
+<p>Erstellt ein neues Dictionary mit den Werten der Liste <span class="clisting">seq</span> als Schlüssel und setzt jeden Wert initial auf <span class="clisting">value</span>.</p>
+<p>Beachten Sie, dass diese Methode nichts am Dictionary <span class="clisting">d</span> ändert.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.get(k[, x])</span></p>
+</td>
+<td class="tabellentext">
+<p>Liefert <span class="clisting">d[k]</span>, wenn der Schlüssel <span class="clisting">k</span> vorhanden ist, ansonsten <span class="clisting">x</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.setdefault(k[, x])</span></p>
+</td>
+<td class="tabellentext">
+<p>Das Gegenteil von <span class="clisting">get</span>. Setzt <span class="clisting">d[k] = x</span>, wenn der Schlüssel <span class="clisting">k</span> nicht vorhanden ist.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.popitem()</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt ein willkürliches Schlüssel/Wert-Paar von <span class="clisting">d</span> zurück und entfernt es aus dem Dictionary.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.iteritems()</span></p>
+</td>
+<td class="tabellentext">
+<p>Erlaubt es, in einer <span class="clisting">for</span>-Schleife alle Schlüssel/Wert-Paare von <span class="clisting">d</span> zu durchlaufen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.iterkeys()</span></p>
+</td>
+<td class="tabellentext">
+<p>Erlaubt es, in einer <span class="clisting">for</span>-Schleife alle Schlüssel von <span class="clisting">d</span> zu durchlaufen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d.itervalues()</span></p>
+</td>
+<td class="tabellentext">
+<p>Erlaubt es, in einer <span class="clisting">for</span>-Schleife alle Werte von <span class="clisting">d</span> zu durchlaufen.</p>
+</td>
+</tr>
+</table><br><p>Jetzt möchten wir alle Methoden detailliert und jeweils mit einem kurzen Beispiel im interaktiven Modus erläutern. Alle Beispiele werden dabei in folgendem Kontext erklärt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d = {"k1" : "v1", "k2": "v2", "k3": "v3"}</pre></div>
+<p>Es ist also in jedem Beispiel ein Dictionary <span class="clisting">d</span> mit drei Schlüssel/Wert-Paaren vorhanden. In den Beispielen werden wir das Dictionary verändern und uns vom Interpreter seinen Wert ausgeben lassen. Die Ausgabe des unveränderten Dictionarys sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d 
+{'k3': 'v3', 'k2': 'v2', 'k1': 'v1'}</pre></div>
+<p>Sie können dabei jedes Beispiel für sich betrachten und von diesen Grundvoraussetzungen ausgehen. Änderungen, die in einem Beispiel an dem Dictionary <span class="clisting">d</span> durchgeführt werden, wirken sich nicht auf die Folgebeispiele aus.</p>
+<h5 class="t5"><span class="cfett">d.clear()</span></h5>
+<p>Die Methode <span class="clisting">clear</span> löscht alle Schlüssel/Wert-Paare von <span class="clisting">d</span>. Sie hat dabei nicht den gleichen Effekt wie <span class="clisting">del d</span>, da das Dictionary selbst nicht gelöscht, sondern nur geleert wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.clear() 
+&gt;&gt;&gt; d 
+{}</pre></div>
+<h5 class="t5"><span class="cfett">d.copy()</span></h5>
+<p>Die Methode <span class="clisting">copy</span> erzeugt eine Kopie des Dictionarys <span class="clisting">d</span>. Beachten Sie, dass zwar das Dictionary selbst kopiert wird, es sich bei den Werten aber nach wie vor um Referenzen auf dieselben Objekte handelt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; e = d.copy() 
+{'k3': 'v3', 'k2': 'v2', 'k1': 'v1'}</pre></div>
+<h5 class="t5"><span class="cfett">d.has_key(k)</span></h5>
+<p>Die Methode <span class="clisting">has_key</span> prüft, ob ein bestimmter Schlüssel im Dictionary <span class="clisting">d</span> enthalten ist, und gibt das Ergebnis als booleschen Wert zurück. Der Schlüssel, nach dem gesucht wird, wird der Methode als Parameter übergeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.has_key("k3") 
+True 
+&gt;&gt;&gt; d.has_key(123)<br>
+False</pre></div>
+<p>Die Methode <span class="clisting">has_key</span> kann damit als äquivalent zum Operator <span class="clisting">in</span> betrachtet werden. Sie sollten die Verwendung des Operators bevorzugen, da <span class="clisting">has_key</span> in zukünftigen Versionen von Python entfernt werden könnte.</p>
+<h5 class="t5"><span class="cfett">d.items()</span></h5>
+<p>Die Methode <span class="clisting">items</span> erzeugt eine Liste, die alle Schlüssel/Wert-Paare des Dictionarys <span class="clisting">d</span> enthält. Jedes Paar wird dabei in einem Tupel gespeichert. Diese Liste ist, wie das Dictionary selbst, nicht sortiert:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.items() 
+[('k3', 'v3'), ('k2', 'v2'), ('k1', 'v1')]</pre></div>
+<h5 class="t5"><span class="cfett">d.keys()</span></h5>
+<p>Die Methode <span class="clisting">keys</span> funktioniert ähnlich wie <span class="clisting">items</span>, mit dem Unterschied, dass die erzeugte Liste nicht die Schlüssel/Wert-Paare enthält, sondern nur die Schlüssel:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.keys() 
+['k3', 'k2', 'k1']</pre></div>
+<h5 class="t5"><span class="cfett">d.values()</span></h5>
+<p>Die Methode <span class="clisting">values</span> ist das Gegenstück zu <span class="clisting">keys</span>. Statt der Schlüssel enthält die erzeugte Liste alle Werte des Dictionarys:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.values() 
+['v3', 'v2', 'v1']</pre></div>
+<h5 class="t5"><span class="cfett">d.update(d2)</span></h5>
+<p>Die Methode <span class="clisting">update</span> erweitert das Dictionary <span class="clisting">d</span> um die Schlüssel und Werte des Dictionarys <span class="ckursiv">d2</span>, das der Methode als Parameter übergeben wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.update({"k4" : "v4"}) 
+&gt;&gt;&gt; d 
+{'k3': 'v3', 'k2': 'v2', 'k1': 'v1', 'k4': 'v4'}</pre></div>
+<p>Sollten beide Dictionarys über einen gleichen Schlüssel verfügen, so wird der mit diesem Schlüssel verbundene Wert in <span class="clisting">d</span> mit dem aus <span class="ckursiv">d2</span> überschrieben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.update({"k1" : "python rulez"}) 
+{'k3': 'v3', 'k2': 'v2', 'k1': 'python rulez'}</pre></div>
+<h5 class="t5"><span class="cfett">d.fromkeys(seq[, value])</span></h5>
+<p>Die Methode <span class="clisting">fromkeys</span> erzeugt ein neues Dictionary und verwendet dabei die Einträge der Liste <span class="ckursiv">seq</span> als Schlüssel. Der Parameter <span class="ckursiv">value</span> ist optional. Sollte er jedoch angegeben werden, so wird er als Wert eines jeden Schlüssel/Wert-Paars verwendet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.fromkeys([1,2,3], "python") 
+{1: 'python', 2: 'python', 3: 'python'}</pre></div>
+<p>Wird der Parameter <span class="ckursiv">value</span> ausgelassen, so wird stets <span class="clisting">None</span> als Wert eingetragen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.fromkeys([1,2,3]) 
+{1: None, 2: None, 3: None}</pre></div>
+<h5 class="t5"><span class="cfett">d.get(k[, x])</span></h5>
+<p>Die Methode <span class="clisting">get</span> ermöglicht den Zugriff auf einen Wert des Dictionarys. Im Gegensatz zum Zugriffsoperator wird aber keine Exception erzeugt, wenn der Schlüssel nicht vorhanden ist. Stattdessen wird in diesem Fall der optionale Parameter <span class="ckursiv">x</span> zurückgegeben. Sollte <span class="ckursiv">x</span> nicht angegeben worden sein, so wird er als <span class="clisting">None</span> angenommen. Die Methode <span class="clisting">get</span> kann also als Ersatz für folgenden Code gesehen werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if</span> k<span class="cfett"> in</span> d: 
+    wert = k[d]<span class="cfett"> 
+else</span>: 
+    wert = x</pre></div>
+<p>Die Methode <span class="clisting">get</span> kann folgendermaßen verwendet werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.get("k2", 1337) 
+'v2' 
+&gt;&gt;&gt; d.get("k5", 1337) 
+1337</pre></div>
+<h5 class="t5"><span class="cfett">d.setdefault(k[, x])</span></h5>
+<p>Die Methode <span class="clisting">setdefault</span> fügt das Schlüssel/Wert-Paar <span class="clisting">{</span><span class="ckursiv">k</span> <span class="clisting">:</span> <span class="ckursiv">x</span><span class="clisting">}</span> zum Dictionary <span class="clisting">d</span> hinzu, sollte der Schlüssel <span class="ckursiv">k</span> nicht vorhanden sein:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.setdefault("k2", 1337) 
+'v2' 
+&gt;&gt;&gt; d.setdefault("k5", 1337) 
+1337 
+&gt;&gt;&gt; d 
+{'k3': 'v3', 'k2': 'v2', 'k1': 'v1', 'k5': 1337}</pre></div>
+<h5 class="t5"><span class="cfett">d.popitem()</span></h5>
+<p>Die Methode <span class="clisting">popitem</span> gibt ein willkürliches Schlüssel/Wert-Paar als Tupel zurück und entfernt es aus dem Dictionary. Beachten Sie, dass das zurückgegebene Paar zwar willkürlich, aber nicht zufällig ist:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d.popitem() 
+('k3', 'v3') 
+&gt;&gt;&gt; d 
+{'k2': 'v2', 'k1': 'v1'}</pre></div>
+<p>Sollte <span class="clisting">d</span> leer sein, so wird eine entsprechende Exception erzeugt:</p>
+<div class="listing"><pre class="prettyprint">Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+KeyError: 'popitem(): dictionary is empty'</pre></div>
+<h5 class="t5"><span class="cfett">d.iteritems()</span></h5>
+<p>Die Methode <span class="clisting">iteritems</span> erlaubt es, in einer <span class="clisting">for</span>-Schleife über alle Schlüssel/Wert-Paare zu iterieren. Das könnte zum Beispiel folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> paar<span class="cfett"> in</span> d.iteritems(): 
+   <span class="cfett"> print</span> paar</pre></div>
+<p>In jedem Schleifendurchlauf enthält die Variable <span class="clisting">paar</span> das jeweilige Schlüssel/Wert-Paar als Tupel. Dementsprechend sieht die Ausgabe des Beispiels aus:</p>
+<div class="listing"><pre class="prettyprint">('k3', 'v3') 
+('k2', 'v2') 
+('k1', 'v1')</pre></div>
+<h5 class="t5"><span class="cfett">d.iterkeys()</span></h5>
+<p>Die Methode <span class="clisting">iterkeys</span> erlaubt es, in einer <span class="clisting">for</span>-Schleife alle Schlüssel zu durchlaufen. Im folgenden Beispiel werden alle Schlüssel mittels <span class="clisting">print</span> ausgegeben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> key<span class="cfett"> in</span> d.iterkeys(): 
+   <span class="cfett"> print</span> key</pre></div>
+<p>Wir haben eingangs gesagt, dass es keiner speziellen Methode bedarf, um alle Schlüssel eines Dictionarys zu durchlaufen. Die Methode <span class="clisting">iterkeys</span> kann problemlos durch folgenden Code umgangen werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> key<span class="cfett"> in</span> d: 
+   <span class="cfett"> print</span> key</pre></div>
+<p>Beide Beispiele sind äquivalent und erzeugen folgende Ausgabe:</p>
+<div class="listing"><pre class="prettyprint">k3 
+k2 
+k1</pre></div>
+<h5 class="t5"><span class="cfett">d.itervalues()</span></h5>
+<p>Die Methode <span class="clisting">itervalues</span> verhält sich ähnlich wie <span class="clisting">iterkeys</span>, mit dem Unterschied, dass sie es ermöglicht, alle Werte zu durchlaufen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> value<span class="cfett"> in</span> d.itervalues(): 
+   <span class="cfett"> print</span> value</pre></div>
+<p>Das Beispiel erzeugt folgende Ausgabe:</p>
+<div class="listing"><pre class="prettyprint">v3 
+v2 
+v1</pre></div><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_08_006.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="8.6 Mappings"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_08_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_08_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

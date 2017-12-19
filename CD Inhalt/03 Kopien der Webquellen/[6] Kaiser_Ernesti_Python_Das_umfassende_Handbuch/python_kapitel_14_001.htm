@@ -1,0 +1,528 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 14 Mathematik</title>
+<meta name="title" content="Galileo Computing :: Python - 14 Mathematik">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 14 Mathematik">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_13_011.htm">
+<link rel="next" href="python_kapitel_14_002.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_13_011.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_14_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj22b60f53fd2027b93c076a524242b35b" class="navh">14 Mathematik</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj2cb050cd7bbf40a09eb11432c870c670" class="navh">14.1 Mathematische Funktionen &#8211; math, cmath</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_14_002.htm#mj9f3c50af5de62466ef98ce91d249e0c6" class="navnav">14.2 Zufallszahlengenerator &#8211; random</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_14_003.htm#mj49765c6f376136810bb7924c627a79aa" class="navnav">14.3 Präzise Dezimalzahlen &#8211; decimal</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_14_003.htm#mj4e888ad0fd7d2a3a6be65b421d28e34c" class="navnav">14.3.1 Verwendung des Datentyps</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_14_003.htm#mj5795605d42f137ce647d77406a92e919" class="navnav">14.3.2 Nichtnumerische Werte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_14_003.htm#mje08e567d1bd96359837f69ad18503f24" class="navnav">14.3.3 Das Context-Objekt</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em><span class="ckursiv">»Jede mathematische Formel in einem Buch halbiert die Verkaufszahlen  dieses Buches« 
+&#8211; Stephen Hawking</span></em></p><a id="mj22b60f53fd2027b93c076a524242b35b" name="mj22b60f53fd2027b93c076a524242b35b"></a><h1 class="t1"><span class="cfett">14</span><span class="cfett"> Mathematik</span></h1>
+<p>Herzlich willkommen zum dritten Teil dieses Buches. Hier möchten wir uns intensiv mit der Standardbibliothek von Python auseinandersetzen und alle wichtigen Module besprechen. Außerdem werden wir die eine oder andere Drittanbieterbibliothek behandeln. Wir beginnen mit den Modulen der Standardbibliothek, mit deren Hilfe sich im weitesten Sinne mathematische Berechnungen durchführen lassen.</p><a id="mj2cb050cd7bbf40a09eb11432c870c670" name="mj2cb050cd7bbf40a09eb11432c870c670"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">14.1</span><span class="cfett"> Mathematische Funktionen &#8211; math, cmath</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Modul <span class="clisting">math</span> ist Teil der Standardbibliothek und stellt mathematische Funktionen und Konstanten bereit. Beachten Sie, dass <span class="clisting">math</span> den komplexen Zahlenraum &#8211; und damit den Datentyp <span class="clisting">complex</span> &#8211; vollständig ignoriert. Das heißt vor allem, dass eine in <span class="clisting">math</span> enthaltene Funktion niemals einen komplexen Parameter akzeptiert oder ein komplexes Ergebnis zurückgibt. So wird die Berechnung der Quadratwurzel von <span class="clisting">-1</span> unter Verwendung der Bibliothek <span class="clisting">math</span> beispielsweise stets eine Exception werfen.</p>
+<p>Sollte ein komplexes Ergebnis ausdrücklich gewünscht sein, so kann anstelle von <span class="clisting">math</span> das Modul <span class="clisting">cmath</span> verwendet werden, in dem die Funktionen von <span class="clisting">math</span> enthalten sind, die eine sinnvolle Erweiterung auf den komplexen Zahlen haben.</p>
+<p>Im Folgenden werden alle Funktionen von <span class="clisting">math</span> aufgelistet und besprochen. Sollte ein Äquivalent in <span class="clisting">cmath</span> existieren, finden Sie eine entsprechende Anmerkung vor.</p>
+<p>Bevor Sie die nachfolgenden Beispiele im interaktiven Modus verwenden können, müssen Sie das Modul <span class="clisting">math</span> einbinden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> math</pre></div>
+<h4 class="t4"><span class="cfett">Mathematische Konstanten</span></h4>
+<h5 class="t5"><span class="cfett">math.pi</span></h5>
+<p>Die Kreiszahl Pi (
+    <span class="clisting">&#960;</span>
+  ).</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.pi 
+3.1415926535897931</pre></div>
+<p>Die Konstante ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h5 class="t5"><span class="cfett">math.e</span></h5>
+<p>Die Eulersche Zahl e.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.e 
+2.7182818284590451</pre></div>
+<p>Die Konstante ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h4 class="t4"><span class="cfett">Zahlentheoretische Funktionen</span></h4>
+<h5 class="t5"><span class="cfett">math.ceil(x)</span></h5>
+<p>Die Funktion <span class="clisting">ceil</span> (für engl. <span class="ckursiv">ceiling</span>, dt. <span class="ckursiv">Zimmerdecke</span>) gibt die kleinste ganze Zahl zurück, die größer oder gleich <span class="ckursiv">x</span> ist. Der Parameter <span class="ckursiv">x</span> muss eine Instanz eines numerischen Datentyps sein. Der Rückgabewert ist eine Gleitkommazahl.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.ceil(3.5) 
+4.0 
+&gt;&gt;&gt; math.ceil(2) 
+2.0</pre></div>
+<h5 class="t5"><span class="cfett">math.fabs(x)</span></h5>
+<p>Gibt den Betrag von <span class="ckursiv">x</span> zurück. Im Gegensatz zur Built-in Function <span class="clisting">abs</span> ist der Rückgabewert von <span class="clisting">fabs</span> immer eine Gleitkommazahl.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.fabs(-7) 
+7.0 
+&gt;&gt;&gt; math.fabs(-7.5) 
+7.5</pre></div>
+<h5 class="t5"><span class="cfett">math.floor(x)</span></h5>
+<p>Die Funktion <span class="clisting">floor</span> (dt. <span class="ckursiv">Fußboden</span>) gibt die größte ganze Zahl zurück, die kleiner oder gleich <span class="ckursiv">x</span> ist. Die Funktion ist damit das Gegenstück zu <span class="clisting">ceil</span>. Das Ergebnis wird immer als Gleitkommazahl zurückgegeben.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.floor(1.9) 
+1.0 
+&gt;&gt;&gt; math.floor(-2.3) 
+-3.0</pre></div>
+<h5 class="t5"><span class="cfett">math.fmod(x, y)</span></h5>
+<p>Berechnet <span class="ckursiv">x</span> Modulo <span class="ckursiv">y</span>. Beachten Sie, dass diese Funktion nicht immer dasselbe Ergebnis berechnet wie <span class="ckursiv">x</span> <span class="clisting">%</span> <span class="ckursiv">y</span>. So gibt <span class="clisting">fmod</span> das Ergebnis beispielsweise mit dem Vorzeichen von <span class="ckursiv">x</span> zurück, während <span class="ckursiv">x</span><span class="clisting">%</span><span class="ckursiv">y</span> das Ergebnis mit dem Vorzeichen von <span class="ckursiv">y</span> zurückgibt. Generell gilt, dass <span class="clisting">fmod</span> bei Modulo-Operationen mit Gleitkommazahlen und der Modulo-Operator <span class="clisting">%</span> bei Operationen mit ganzen Zahlen bevorzugt werden sollte.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.fmod(7.5, 3.5) 
+0.5</pre></div>
+<h5 class="t5"><span class="cfett">math.frexp(x)</span></h5>
+<p>Extrahiert Mantisse und Exponent der übergebenen Zahl <span class="ckursiv">x</span>. Das Ergebnis ist ein Tupel der Form <span class="clisting">(m, e)</span>, wobei <span class="clisting">m</span> für die Mantisse und <span class="clisting">e</span> für den Exponenten steht. Mantisse und Exponent sind dabei im Kontext der Formel</p><span class="ckursiv">x = m · 2</span><span class="ckursiv"><sup>e  </sup></span><p>zu sehen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.frexp(2.5) 
+(0.625, 2) 
+&gt;&gt;&gt; math.frexp(-7.0e12) 
+(-0.79580786405131221, 43)</pre></div>
+<h5 class="t5"><span class="cfett">math.ldexp(m, e)</span></h5>
+<p>Diese Funktion ist das Gegenstück zu <span class="clisting">frexp</span>. Sie berechnet m · 2<sup>e  </sup> und gibt das Ergebnis als Gleitkommazahl zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.ldexp(0.625, 2) 
+2.5</pre></div>
+<h5 class="t5"><span class="cfett">math.modf(x)</span></h5>
+<p>Gibt den Nachkomma- und den Vorkommaanteil von <span class="ckursiv">x</span> als Gleitkommazahlen in einem Tupel zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.modf(10.5) 
+(0.5, 10.0)</pre></div>
+<h4 class="t4"><span class="cfett">Exponential- und Logarithmusfunktionen</span></h4>
+<h5 class="t5"><span class="cfett">math.exp(x)</span></h5>
+<p>Berechnet <span class="ckursiv">e</span><sup>x  </sup>, wobei <span class="ckursiv">e</span> für die Eulersche Zahl steht. Das Ergebnis ist immer eine Gleitkommazahl.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.exp(1.0) 
+2.7182818284590451 
+&gt;&gt;&gt; math.exp(10) 
+22026.465794806718</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h5 class="t5"><span class="cfett">math.log(x[, base])</span></h5>
+<p>Berechnet den Logarithmus von <span class="ckursiv">x</span> zur Basis <span class="ckursiv">base</span>. Wenn <span class="ckursiv">base</span> nicht angegeben wurde, wird der Logarithmus Naturalis, also der Logarithmus zur Basis <span class="clisting">e</span> berechnet.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.log(1) 
+0.0 
+&gt;&gt;&gt; math.log(32, 2) 
+5.0</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h5 class="t5"><span class="cfett">math.log10(x)</span></h5>
+<p>Berechnet den dekadischen Logarithmus von <span class="ckursiv">x</span>, also den Logarithmus von <span class="ckursiv">x</span> zur Basis <span class="clisting">10</span>. Der Aufruf dieser Funktion ist damit äquivalent zu <span class="clisting">math.log(x, 10)</span>.</p>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h5 class="t5"><span class="cfett">math.pow(x, y)</span></h5>
+<p>Berechnet <span class="ckursiv">x</span><sup>y  </sup>. Es können für <span class="ckursiv">x</span>, insbesondere aber auch für <span class="ckursiv">y</span>, negative Zahlen oder Gleitkommazahlen übergeben werden. Beachten Sie dabei aber, dass <span class="ckursiv">x</span> und <span class="ckursiv">y</span> nicht beide negativ sein dürfen, da das Ergebnis sonst eine komplexe Zahl wäre. Diese Funktion ist äquivalent zur Built-in Function <span class="clisting">pow</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; pow(2, 3) 
+8 
+&gt;&gt;&gt; pow(100, 0.5) 
+10.0</pre></div>
+<h5 class="t5"><span class="cfett">math.sqrt(x)</span></h5>
+<p>Berechnet die Quadratwurzel von <span class="ckursiv">x</span>, wobei <span class="ckursiv">x</span> größer oder gleich <span class="clisting">0</span> sein muss. Das Ergebnis ist immer eine Gleitkommazahl.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.sqrt(100) 
+10.0</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h4 class="t4"><span class="cfett">Trigonometrische Funktionen</span></h4>
+<h5 class="t5"><span class="cfett">math.acos(x)</span></h5>
+<p>Berechnet den Arkuskosinus von <span class="ckursiv">x</span>. Der Arkuskosinus ist die Umkehrfunktion des Kosinus. Der Parameter <span class="ckursiv">x</span> muss eine Gleitkommazahl im Zahlenraum von <span class="clisting">-1</span> bis <span class="clisting">1</span> sein. Der Rückgabewert von <span class="clisting">acos</span> ist ebenfalls eine Gleitkommazahl und wird im Bogenmaß angegeben.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.acos(0.5) 
+1.0471975511965979</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h5 class="t5"><span class="cfett">math.asin(x)</span></h5>
+<p>Berechnet den Arkussinus von <span class="ckursiv">x</span>. Der Arkussinus ist die Umkehrfunktion des Sinus. Der Parameter <span class="ckursiv">x</span> muss eine Gleitkommazahl im Zahlenraum von <span class="clisting">-1</span> bis <span class="clisting">1</span> sein. Der Rückgabewert von <span class="clisting">asin</span> ist ebenfalls eine Gleitkommazahl und wird im Bogenmaß angegeben.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.asin(0.5) 
+0.52359877559829893</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h5 class="t5"><span class="cfett">math.atan(x)</span></h5>
+<p>Berechnet den Arkustangens von <span class="ckursiv">x</span>. Der Arkustangens ist die Umkehrfunktion des Tangens. Der Rückgabewert von <span class="clisting">atan</span> ist eine Gleitkommazahl, wird im Bogenmaß angegeben und liegt im Bereich von &#8211; 
+    <span class="clisting">&#960;</span>
+   / 2 bis + 
+    <span class="clisting">&#960;</span>
+   / 2.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.atan(0.5) 
+0.46364760900080609</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h5 class="t5"><span class="cfett">math.atan2(y, x)</span></h5>
+<p>Berechnet <span class="clisting">atan(</span><span class="ckursiv">y</span> <span class="clisting">/</span> <span class="ckursiv">x</span><span class="clisting">)</span>. Im Gegensatz zur <span class="clisting">atan</span>-Funktion können die Vorzeichen der Parameter <span class="ckursiv">x</span> und <span class="ckursiv">y</span> beachtet und somit der Quadrant des Ergebnisses berechnet werden. Mithilfe der Funktion <span class="clisting">atan2</span> lassen sich beispielsweise kartesische Koordinaten in Polarkoordinaten umrechnen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.atan2(1, 1) 
+0.78539816339744828 
+&gt;&gt;&gt; math.atan2(-1, -1) 
+-2.3561944901923448</pre></div>
+<h5 class="t5"><span class="cfett">math.cos(x)</span></h5>
+<p>Berechnet den Kosinus von <span class="ckursiv">x</span>. Der Parameter <span class="ckursiv">x</span> muss im Bogenmaß angegeben werden.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.cos(math.pi) 
+-1.0</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h5 class="t5"><span class="cfett">math.hypot(x, y)</span></h5>
+<p>Berechnet die Euklidische Norm des Vektors <span class="clisting">(</span><span class="ckursiv">x</span><span class="clisting">,</span><span class="ckursiv">y</span><span class="clisting">)</span>. Die Euklidische Norm eines Vektors entspricht der Länge des Vektors und ist definiert als:</p>
+<p>Der Funktionsname <span class="clisting">hypot</span> kommt daher, dass das Ergebnis der Berechnung gleichbedeutend ist mit der Länge der Hypotenuse eines rechtwinkligen Dreiecks mit den Kathetenlängen <span class="ckursiv">x</span> und <span class="ckursiv">y</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.hypot(5, 7) 
+8.6023252670426267</pre></div>
+<h5 class="t5"><span class="cfett">math.sin(x)</span></h5>
+<p>Berechnet den Sinus von <span class="ckursiv">x</span>. Der Parameter <span class="ckursiv">x</span> muss im Bogenmaß angegeben werden.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.sin(math.pi/2) 
+1.0</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h5 class="t5"><span class="cfett">math.tan(x)</span></h5>
+<p>Berechnet den Tangens von <span class="ckursiv">x</span>. Der Parameter <span class="ckursiv">x</span> muss im Bogenmaß angegeben werden.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.sin(math.pi/2) 
+1.0</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h4 class="t4"><span class="cfett">Winkelfunktionen</span></h4>
+<h5 class="t5"><span class="cfett">math.degrees(x)</span></h5>
+<p>Rechnet den Winkel <span class="ckursiv">x</span> vom Bogenmaß in Grad um. Das Ergebnis ist immer eine Gleitkommazahl und wird nach der Formal 360 <span class="ckursiv">x</span> / 2 
+    <span class="clisting">&#960;</span>
+   berechnet.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.degrees(math.pi/2) 
+90.0</pre></div>
+<h5 class="t5"><span class="cfett">math.radians(x)</span></h5>
+<p>Rechnet den Winkel <span class="ckursiv">x</span> von Grad ins Bogenmaß um. Das Ergebnis ist immer eine Gleitkommazahl und wird nach der Formel 2
+    <span class="clisting">&#960;</span>
+   · <span class="ckursiv">x</span> / 360 berechnet.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.radians(180.0) 
+3.1415926535897931</pre></div>
+<h4 class="t4"><span class="cfett">Hyperbolische Funktionen</span></h4>
+<h5 class="t5"><span class="cfett">math.cosh(x)</span></h5>
+<p>Berechnet den Kosinus Hyperbolicus von <span class="ckursiv">x</span>. Das Ergebnis ist eine Gleitkommazahl.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.cosh(1.0) 
+1.5430806348152437</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h5 class="t5"><span class="cfett">math.sinh(x)</span></h5>
+<p>Berechnet den Sinus Hyperbolicus von <span class="ckursiv">x</span>. Das Ergebnis ist eine Gleitkommazahl.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.sinh(1.0) 
+1.1752011936438014</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p>
+<h5 class="t5"><span class="cfett">math.tanh(x)</span></h5>
+<p>Berechnet den Tangens Hyperbolicus von <span class="ckursiv">x</span>. Das Ergebnis ist eine Gleitkommazahl.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; math.tanh(1.0) 
+0.76159415595576485</pre></div>
+<p>Die Funktion ist auch in <span class="clisting">cmath</span> vorhanden.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_14_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="14 Mathematik"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_13_011.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_14_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

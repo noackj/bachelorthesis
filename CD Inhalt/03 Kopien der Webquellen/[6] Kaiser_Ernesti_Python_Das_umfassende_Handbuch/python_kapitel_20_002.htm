@@ -1,0 +1,614 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 20.2 Zugriff auf Ressourcen im Internet &#8211; urllib</title>
+<meta name="title" content="Galileo Computing :: Python - 20.2 Zugriff auf Ressourcen im Internet &#8211; urllib">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 20.2 Zugriff auf Ressourcen im Internet &#8211; urllib">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_20_001.htm">
+<link rel="next" href="python_kapitel_20_003.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_20_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_20_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d" class="navnav">20 Netzwerkkommunikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_001.htm#mja62901950a4d46ed586c0cbeca851b76" class="navnav">20.1 Socket API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjec5a627b57a6f464cae8952dff1b29bd" class="navnav">20.1.1 Client/Server-Systeme</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj30aa144d06bfbda567b400e1c9aabe0b" class="navnav">20.1.2 UDP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj39991ea943a5ced16cfb0f82e23d6267" class="navnav">20.1.3 TCP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj3e26029cb2fe9761934cae397c7bee0c" class="navnav">20.1.4 Blockierende und nicht-blockierende Sockets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj71cca1384f82cf8c9383ca0a725fb00d" class="navnav">20.1.5 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjeff502fc2c89cbfcde6b121f1c9c6ae2" class="navnav">20.1.6 Netzwerk-Byte-Order</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjc0a8ce33f2ca54a6aff578a363939704" class="navnav">20.1.7 Multiplexende Server &#8211; select</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjb11f39ffbe49131e4aeb49e5298e5be5" class="navnav">20.1.8 SocketServer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mja7bd045128f3673afe68420a4ddae7b6" class="navh">20.2 Zugriff auf Ressourcen im Internet &#8211; urllib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjdb126d022da9199ad232014227ef993f" class="navh">20.2.1 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_003.htm#mjf2c50a134584c3cd96329ea233243a0a" class="navnav">20.3 Einlesen einer URL &#8211; urlparse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_004.htm#mjc608fa65c6e2a85e9c55bcbb0179eda7" class="navnav">20.4 FTP &#8211; ftplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_005.htm#mjf9b67beb12a70b4a0b02609da6bc5dee" class="navnav">20.5 E-Mail</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mjbf78b46f8a9a493e9d5a75011df76d08" class="navnav">20.5.1 SMTP &#8211; smtplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mjef70cbc06d943ba00c671366c1934c64" class="navnav">20.5.2 POP3 &#8211; poplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mj44a18a19feec0481e1774cbf0fdaf877" class="navnav">20.5.3 IMAP4 &#8211; imaplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mj14c7624ff8d2c29622f837a39bdaf02f" class="navnav">20.5.4 Erstellen komplexer E-Mails &#8211; email</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_006.htm#mj1783a4c1d0411ed0f8998971f7b75ad8" class="navnav">20.6 Telnet &#8211; telnetlib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_007.htm#mj49407e7b67376a73ea92fcad6b9a616e" class="navnav">20.7 XML-RPC</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mj7e91c239d3a86b2c7b8b2a950e27939f" class="navnav">20.7.1 Der Server</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mjf943ea1a64037f0c66254a4608ef8942" class="navnav">20.7.2 Der Client</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mj20962ea6eea7210a5efc5fed2b83ecb3" class="navnav">20.7.3 Multicall</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mjd2ea8b459e41a939f259057acdc43e98" class="navnav">20.7.4 Einschränkungen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mja7bd045128f3673afe68420a4ddae7b6" name="mja7bd045128f3673afe68420a4ddae7b6"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">20.2</span><span class="cfett"> Zugriff auf Ressourcen im Internet &#8211; urllib</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Modul <span class="clisting">urllib</span> bietet eine komfortable Schnittstelle, um auf Dateien im Internet zuzugreifen. Die zentrale Funktion dieser Bibliothek ist <span class="clisting">urlopen</span>, die der Funktion <span class="clisting">open</span> ähnelt, bis auf die Tatsache, dass statt eines Dateinamens eine URL übergeben wird. Außerdem können auf dem resultierenden Dateiobjekt aus naheliegendem Grunde keine Schreiboperationen durchgeführt werden.</p><a id="mjdb126d022da9199ad232014227ef993f" name="mjdb126d022da9199ad232014227ef993f"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">20.2.1</span><span class="cfett"> Verwendung des Moduls</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Im Folgenden sollen die wichtigsten im Modul <span class="clisting">urllib</span> enthaltenen Funktionen detailliert besprochen werden.</p>
+<h5 class="t5"><span class="cfett">urllib.urlopen(url[, data[, proxies]])</span></h5>
+<p>Die Funktion <span class="clisting">urlopen</span> greift auf die durch URL adressierte Netzwerkressource zu und gibt ein geöffnetes Dateiobjekt auf dieser Ressource zurück. Damit ermöglicht die Funktion es beispielsweise, den Quelltext einer Website herunterzuladen und wie eine lokale Datei einzulesen.</p>
+<p>Wenn bei der URL kein Protokoll wie beispielsweise <span class="clisting">http://</span> oder <span class="clisting">ftp://</span> angegeben wurde, wird angenommen, dass die URL auf eine Ressource der lokalen Festplatte verweist. Für Zugriffe auf die lokale Festplatte kann das Protokoll <span class="clisting">file://</span> angegeben werden.</p>
+<p>Wenn kein Zugriff auf die Ressource erlangt werden kann, weil die Ressource beispielsweise nicht existiert oder der entsprechende Server nicht erreichbar ist, wird eine <span class="clisting">IOError</span>-Exception geworfen.</p>
+<p>Das von der Funktion <span class="clisting">urlopen</span> zurückgegebene Dateiobjekt ist ein dateiähnliches Objekt (engl. <span class="ckursiv">file-like object</span>), da es nur eine Untermenge der Funktionalität eines echten Dateiobjekts bereitstellt. Die folgende Tabelle zeigt die verfügbaren Methoden des zurückgegebenen dateiähnlichen Objekts mit einer kurzen Beschreibung.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 20.3    </strong>Methoden des datei-ähnlichen Objekts
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Methode</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">read([size])</span></p>
+</td>
+<td class="tabellentext">
+<p>Liest <span class="clisting">size</span> Byte aus der Ressource aus. Wenn <span class="clisting">size</span> nicht angegeben wurde, wird der komplette Inhalt ausgelesen.</p>
+<p>Die gelesenen Daten werden als String zurückgegeben.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">readline([size])</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Liest eine Zeile aus der Ressource aus. Wenn <span class="clisting">size</span> angegeben wurde, werden maximal <span class="clisting">size</span> Byte gelesen.</p>
+<p>Die gelesenen Daten werden als String zurückgegeben.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">readlines([sizehint])</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Liest alle Zeilen der Ressource aus und gibt diese in Form einer Liste von Strings zurück. Wenn <span class="clisting">sizehint</span> angegeben wurde, wird nur so lange gelesen, bis ungefähr <span class="clisting">sizehint</span> Bytes gelesen wurden.<a href="#Rxx81270"><sup>1  </sup></a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">fileno()</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Gibt den Dateideskriptor der geöffneten Ressource als ganze Zahl zurück.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">close()</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Schließt das geöffnete Objekt. Nach Aufruf dieser Methode sind keine weiteren Operationen mehr möglich.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">info()</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Gibt ein dictionary-ähnliches Objekt zurück, das Metainformationen der heruntergeladenen Seite enthält.</p>
+<p>Im Anschluss an diese Tabelle werden wir uns eingehend mit der von <span class="clisting">info</span> zurückgegebenen Instanz beschäftigen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">geturl()</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Gibt einen String mit der URL der Ressource zurück.</p>
+</td>
+</tr>
+</table><br><p>Die Methode <span class="clisting">info</span> des datei-ähnlichen Objekts stellt eine Instanz bereit, die verschiedene Informationen über die Netzwerkressource enthält. Auf diese Informationen kann wie bei einem Dictionary zugegriffen werden, weswegen die von <span class="clisting">info</span> zurückgegebene Instanz auch <span class="ckursiv">dictionary-ähnliches Objekt</span> genannt wird. Dazu folgendes Beispiel: [In diesem Zusammenhang bedeutet »ungefähr«, dass die Anzahl der zu lesenden Bytes möglicherweise zu einer internen Puffergröße aufgerundet wird.
+] </p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; f = urllib.urlopen("http://www.galileo-press.de") 
+&gt;&gt;&gt; d = f.info() 
+&lt;httplib.HTTPMessage instance at 0x8106c8c&gt; 
+&gt;&gt;&gt; d.keys() 
+['content-length', 'expires', 'server', 'connection', 
+'cache-control', 'date', 'content-type']</pre></div>
+<p>Im Beispiel wurde auf die Internetressource <a href="http://www.galileo-press.de">http://www.galileo-press.de</a> zugegriffen und durch Aufruf der Methode <span class="clisting">info</span> das dictionary-ähnliche Objekt erzeugt, das Informationen zu der Website enthält. Durch die Methode <span class="clisting">keys</span> eines Dictionarys lassen sich alle enthaltenen Schlüssel anzeigen. Welche Informationen enthalten sind, hängt vom verwendeten Protokoll ab. Beim HTTP-Protokoll enthält das dictionary-ähnliche Objekt alle vom Server gesendeten Informationen. So können beispielsweise über die Schlüssel <span class="clisting">"content-length"</span> und <span class="clisting">"server"</span> die Größe der heruntergeladenen Datei in Byte bzw. der Identifikationsstring der Serversoftware ausgelesen werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d["content-length"] 
+'26180' 
+&gt;&gt;&gt; d["server"] 
+'Zope/(Zope 2.7.6-final, python 2.3.5, linux2) ZServer/1.1'</pre></div>
+<p>Beachten Sie, dass es sich bei dem in diesem Fall verwendeten Server <span class="ckursiv">Zope</span> um einen Webserver für Python handelt.</p>
+<p>Außerdem unterstützen Instanzen des datei-ähnlichen Objekts das Iteratorkonzept. Das heißt, dass sich <span class="clisting">urlopen</span> folgendermaßen verwenden lässt:</p>
+<div class="listing"><pre class="prettyprint">f = urllib.urlopen("http://www.galileo-press.de")<span class="cfett"> 
+for</span> zeile<span class="cfett"> in</span> f: 
+   <span class="cfett"> print</span> zeile 
+f.close()</pre></div>
+<p>Dieser Beispielcode würde zeilenweise über den Quelltext von www.galileo-press.de iterieren und in jedem Iterationsschritt die aktuelle Zeile auf dem Bildschirm ausgeben.</p>
+<p>Wenn das verwendete Protokoll <span class="clisting">http</span> ist, kann der optionale Parameter <span class="ckursiv">data</span> dazu verwendet werden, POST-Parameter an die Ressource zu übermitteln. Für den Parameter <span class="ckursiv">data</span> müssen diese POST-Werte speziell aufbereitet werden. Dazu wird die Funktion <span class="clisting">urlencode</span> verwendet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; prm = urllib.urlencode({"prm1" : "wert1", "prm2" : "wert2"}) 
+&gt;&gt;&gt; f = urllib.urlopen("http://www.beispiel.de", prm)</pre></div>
+<p>Beachten Sie, dass neben POST eine weitere Methode zur Parameterübergabe an eine Website namens GET existiert. Bei GET werden die Parameter direkt in die URL geschrieben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; f = urllib.urlopen("http://www.beispiel.de?prm1=wert1")</pre></div>
+<p>Wenn in Ihrem System für bestimmte Protokolle ein Proxy eingestellt ist, beispielsweise über eine Umgebungsvariable oder die Systemkonfiguration, wird diese Einstellung von <span class="clisting">urlopen</span> respektiert und der Proxy verwendet. Es ist aber auch möglich, durch Angabe des dritten Parameters, <span class="ckursiv">proxies,</span> die zu verwendenden Proxys direkt anzugeben. Hier muss ein Dictionary übergeben werden, das die Protokolle als Schlüssel und die Adresse des jeweiligen Proxys als Wert enthält. Ein Aufruf von <span class="clisting">urlopen</span> unter Verwendung eines Proxys für HTTP- und FTP-Verbindungen sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; proxies = { 
+...     "http" : "http://www.proxy.de:8081", 
+...     "ftp" : "http://www.proxy.de:21" 
+...     } 
+&gt;&gt;&gt; f = urllib.urlopen("http://www.google.de", None, proxies)</pre></div>
+<h5 class="t5"><span class="cfett">urllib.urlretrieve(url[, filename[, reporthook[, data]]])</span></h5>
+<p>Macht den Inhalt der Ressource, auf die die URL <span class="ckursiv">url</span> verweist, unter einem lokalen Dateinamen verfügbar. Dazu wird der Inhalt der Ressource heruntergeladen oder kopiert, sofern dies notwendig ist. Wenn sich die Ressource bereits auf der lokalen Festplatte befindet, wird sie nicht kopiert. Die Funktion <span class="clisting">urlretrieve</span> gibt ein Tupel mit zwei Elementen zurück: dem Dateinamen der lokalen Datei und dem Rückgabewert der <span class="clisting">info</span>-Methode des datei-ähnlichen Objekts:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; urllib.urlretrieve("http://www.galileo-press.de") 
+('/tmp/tmpHqjxaL', &lt;httplib.HTTPMessage instance at 0xb78d36ec&gt;)</pre></div>
+<p>Durch Angabe eines Dateinamens als zweiten Parameter kann festgelegt werden, wohin die heruntergeladene Ressource kopiert werden soll. Wenn dieser Parameter angegeben wurde, werden auch lokale Ressourcen kopiert. Normalerweise werden heruntergeladene Ressourcen als temporäre Dateien im entsprechenden Verzeichnis des Betriebssystems gespeichert.</p>
+<p>Als dritter Parameter kann ein Funktionsobjekt übergeben werden. Diese Funktion wird aus <span class="clisting">urlretrieve</span> heraus einmal aufgerufen, wenn die Verbindung zur Netzwerkressource hergestellt wurde, und dann öfter, wenn ein Block der Ressource heruntergeladen wurde. Der Callback-Funktion werden drei Parameter übergeben: die Anzahl der bisher übertragenen Blöcke, die Größe eines Blocks in Byte und die Gesamtgröße der Ressource in Byte. Mithilfe dieses dritten Parameters lässt sich also eine Statusanzeige des Downloads realisieren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> def</span> f(blocks, blocksize, size): 
+...    <span class="cfett"> print</span> "Status: %d%%" % (blocksize*blocks*100/size) 
+... 
+&gt;&gt;&gt; url = "http://www.galileo-press.de" 
+&gt;&gt;&gt; res = urllib.urlretrieve(url, "datei.html", f) 
+Status: 0% 
+Status: 29% 
+Status: 58% 
+Status: 87% 
+Status: 116% 
+&gt;&gt;&gt; res 
+('datei.html', &lt;httplib.HTTPMessage instance at 0xb78d39ac&gt;)</pre></div>
+<p>Dass die Statusanzeige <span class="clisting">116</span>  % anzeigt, liegt daran, dass das letzte Paket nicht die volle Größe hat.</p>
+<p>Der vierte Parameter, <span class="ckursiv">data,</span> entspricht dem Parameter <span class="ckursiv">data</span> der Funktion <span class="clisting">urlopen</span> und wird auch so verwendet.</p>
+<h5 class="t5"><span class="cfett">urllib.quote(string[, safe])</span></h5>
+<p>Ersetzt Sonderzeichen, die in einer URL nicht als solche vorkommen dürfen, durch Escape-Sequenzen der Form <span class="clisting">%xx</span>, wie sie in URLs verwendet werden dürfen. Durch den optionalen Parameter <span class="ckursiv">safe</span>, einen String, können Zeichen angegeben werden, die nicht in eine Escape-Sequenz umgewandelt werden sollen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; urllib.quote("www.test.de/hallo welt.html") 
+'www.test.de/hallo%20welt.html'</pre></div>
+<h5 class="t5"><span class="cfett">urllib.unquote(string)</span></h5>
+<p>Die Funktion <span class="clisting">unquote</span> ist das Gegenstück von <span class="clisting">quote</span>. Escape-Sequenzen der Form <span class="clisting">%xx</span> im String <span class="ckursiv">string</span> werden durch das Sonderzeichen ersetzt, und der resultierende String wird zurückgegeben.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; urllib.unquote("www.test.de/hallo%20welt.html") 
+'www.test.de/hallo welt.html'</pre></div>
+<h5 class="t5"><span class="cfett">urllib.urlencode(query[, doseq])</span></h5>
+<p>Erzeugt aus den Schlüssel/Wert-Paaren des Dictionarys <span class="ckursiv">query</span> einen String des folgenden Formats:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; urllib.urlencode({"abc" : 1, "def" : "ghi"}) 
+'abc=1&amp;def=ghi'</pre></div>
+<p>Ein solcher String enthält Parameter, die per POST oder GET an ein serverseitiges Script übergeben werden können. Der Rückgabewert der Funktion <span class="clisting">urlencode</span> kann als Parameter <span class="ckursiv">data</span> der Funktionen <span class="clisting">urlopen</span> und <span class="clisting">urlretrieve</span> übergeben werden.</p>
+<p>Wenn das übergebene Dictionary Sequenzen als Werte enthält und der optionale Parameter <span class="ckursiv">doseq</span> <span class="clisting">True</span> ist, werden diese Sequenzen zu eigenen Schlüssel/Wert-Paaren aufgebrochen. Dabei wird als Parametername der Schlüssel der jeweiligen Sequenz im Dictionary verwendet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; urllib.urlencode({"abc" : [1,2,3], "def" : "ghi"}, True) 
+'abc=1&amp;abc=2&amp;abc=3&amp;def=ghi' 
+&gt;&gt;&gt; urllib.urlencode({"abc" : [1,2,3], "def" : "ghi"}, False) 
+'abc=%5B1%2C+2%2C+3%5D&amp;def=ghi'</pre></div>
+<p>Wenn für <span class="ckursiv">doseq</span> <span class="clisting">False</span> übergeben wird, werden eventuell vorhandene Sequenzen als Text in den Parameterstring eingetragen.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_20_002.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="20.2 Zugriff auf Ressourcen im Internet &#8211; urllib"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_20_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_20_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

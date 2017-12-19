@@ -1,0 +1,758 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 22 Distribution von Python-Projekten</title>
+<meta name="title" content="Galileo Computing :: Python - 22 Distribution von Python-Projekten">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 22 Distribution von Python-Projekten">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_21_007.htm">
+<link rel="next" href="python_kapitel_22_002.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_21_007.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_22_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj7398fb17f09867fc123360d9b3066e94" class="navh">22 Distribution von Python-Projekten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj64ee18645f12f18ca41aa2aba4278a95" class="navh">22.1 Erstellen von Distributionen &#8211; distutils</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd062fe88624640aca3dd7ca5f366ff29" class="navh">22.1.1 Schreiben des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj9f066c9d92b6d7dcf270ed4cf60583fb" class="navh">22.1.2 Das Installationsscript</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjdf66abaa6ad486ebac737695c294c5af" class="navh">22.1.3 Erstellen einer Quellcodedistribution</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj5f04e5c2f5345507fdb4b8a8d871ed0d" class="navh">22.1.4 Erstellen einer Binärdistribution</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjf90e2c2119474162405f6f0db25a3647" class="navh">22.1.5 Beispiel für die Verwendung einer Distribution</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_22_002.htm#mjc2cee80dc9718d0e3e25546aec72d8fc" class="navnav">22.2 Erstellen von EXE-Dateien &#8211; py2exe</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_22_003.htm#mj0bef9a124d280985e3b409b607fef68f" class="navnav">22.3 Automatisches Erstellen einer Dokumentation &#8211; epydoc</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_003.htm#mj8fc2fbeb9e5e9e128e03a4c57e85d86a" class="navnav">22.3.1 Docstrings und ihre Formatierung für epydoc</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em><span class="ckursiv">»The process of preparing programs for a digital computer is especially attractive, not only because it can be economically and scientifically rewarding, but also because it can be an aesthetic experience much like composing poetry or music.&#8221; 
+ &#8211; Donald E. Knuth</span></em></p><a id="mj7398fb17f09867fc123360d9b3066e94" name="mj7398fb17f09867fc123360d9b3066e94"></a><h1 class="t1"><span class="cfett">22</span><span class="cfett"> Distribution von Python-Projekten</span></h1>
+<p>Es ist anzunehmen, dass Sie im Laufe dieses Buches bereits das eine oder andere eigenständige Python-Programm geschrieben haben. Vielleicht haben Sie sogar schon ein Programm oder Modul in Python geschrieben, das auch für andere Leute von Nutzen sein könnte. In diesem Moment stellt sich zwangsläufig die Frage, wie ein Python-Programm oder -Modul adäquat veröffentlicht werden kann. Idealerweise sollte es so geschehen, dass der Benutzer kein Experte sein muss, um es zu installieren.</p>
+<p>Dazu ist in Pythons Standardbibliothek vor allem das Modul <span class="clisting">distutils</span> enthalten, mit dem sich fertige Distributionen Ihres Programms oder Moduls erstellen lassen. Danach werden wir uns mit dem Drittanbietermodul <span class="clisting">py2exe</span> beschäftigen, das Ihr Python-Programm zusammen mit dem gesamten Python-Interpreter zu einer einzigen ausführbaren Datei zusammenschweißt.</p>
+<p>Zum Schluss gehen wir noch auf das Drittanbietermodul <span class="clisting">epydoc</span> ein, mit dem sich sehr bequem eine Dokumentation zu Ihrem Programm oder Modul generieren lässt.</p><a id="mj64ee18645f12f18ca41aa2aba4278a95" name="mj64ee18645f12f18ca41aa2aba4278a95"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">22.1</span><span class="cfett"> Erstellen von Distributionen &#8211; distutils</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Paket <span class="clisting">distutils</span> zielt auf die Distribution von Python-Modulen ab. Selbstverständlich könnte man einfach den Quellcode des Moduls ins Internet stellen und dazu eine Installationsanweisung liefern. Das scheint zwar aus Sicht des Entwicklers erst einmal sehr bequem zu sein, ist aber aus Sicht des Benutzers nicht gerade komfortabel. Der Benutzer muss dann, um das Programm zu installieren, von Hand allerlei Dateien kopieren und sich dabei immer strikt an gewisse Regeln halten. Das kann man von einem Benutzer nicht verlangen. Der Installationsprozess soll durch das Paket <span class="clisting">distutils</span> automatisiert werden, indem sogenannte <span class="ckursiv">Distributionen</span> erstellt werden.</p>
+<p>Bei einer Distribution unterscheidet man grundsätzlich zwei Typen:</p>
+<ul class="gp">
+<li>Eine sogenannte <span class="ckursiv">Quellcodedistribution</span> (engl. <span class="ckursiv">source distribution</span>) ist ein Archiv, das den Quellcode Ihres Moduls enthält. Zusätzlich zu dem Quellcode existiert ein Installationsscript namens <span class="ckursiv">setup.py</span>, das die Installation des Moduls durchführt. Der Benutzer braucht diese Art einer Distribution also nur herunterzuladen, zu entpacken und das Installationsscript zu starten. Der Vorteil einer Quellcodedistribution ist ihre Plattformunabhängigkeit. Es muss also nur eine Distribution erstellt werden, die für jedes unterstützte Betriebssystem verwendet werden kann.</li>
+</ul>
+<ul class="gp">
+<li>Eine sogenannte <span class="ckursiv">Binärdistribution</span> (engl. <span class="ckursiv">binary distribution</span>) ist eine ausführbare Datei, die die Installation Ihres Moduls automatisch durchführt. Der Benutzer braucht diese Art einer Distribution also nur herunterzuladen und auszuführen. Eine Binärdistribution ist für den Benutzer besonders komfortabel, da er nur zwei Arbeitsschritte auszuführen hat. Allerdings bedeutet eine Binärdistribution mehr Aufwand für den Entwickler, denn das Installationsprogramm muss für verschiedene Plattformen erstellt werden.</li>
+</ul>
+<p>Zum Erstellen einer Distribution sind mit dem <span class="clisting">distutils</span>-Paket im Allgemeinen folgende Arbeitsschritte nötig:</p>
+<ul class="gp">
+<li>Schreiben Ihres Moduls oder Pakets [Eigentlich handelt es sich dabei nicht um einen Arbeitsschritt zum Erstellen einer Distribution. Dennoch ist es einleuchtenderweise eine unverzichtbare Voraussetzung.
+ Beachten Sie, dass Sie auch mehrere Module und/oder Pakete in eine gemeinsame Distribution verpacken können. Näheres dazu erfahren Sie im Laufe des Kapitels.
+] </li>
+</ul>
+<ul class="gp">
+<li>Schreiben des Installationsscripts <span class="ckursiv">setup.py</span></li>
+</ul>
+<ul class="gp">
+<li>Erstellen einer Quellcodedistribution bzw. einer Binärdistribution</li>
+</ul>
+<p>Diese Arbeitsschritte sollen in den folgenden Abschnitten detailliert besprochen werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Grundsätzlich lassen sich mit <span class="clisting">distutils</span> nicht nur Distributionen von Modulen oder Paketen erstellen, sondern auch von <span class="ckursiv">Extensions</span> (dt. <span class="ckursiv">Erweiterungen</span>). Solche Extensions können später wie ein Modul oder Paket eingebunden werden, sind aber im Gegensatz zu normalen Modulen oder Paketen in einer anderen Programmiersprache, üblicherweise C oder C++, geschrieben. Wir werden in Abschnitt <a href="./python_kapitel_26_002.htm#Rxx_ref180764858">26.2.3</a>, »<a href="./python_kapitel_26_002.htm#Rxx_ref180764858">Erzeugen der Extension</a>«, auch auf die Verwendung von <span class="clisting">distutils</span> im Zusammenhang mit Extensions eingehen.</p>
+</td>
+</tr>
+</table><br><a id="mjd062fe88624640aca3dd7ca5f366ff29" name="mjd062fe88624640aca3dd7ca5f366ff29"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">22.1.1</span><span class="cfett"> Schreiben des Moduls</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Dieser Punkt sollte so weit klar sein. Rufen Sie sich aber noch mal ins Gedächtnis, dass es einen Unterschied zwischen einem <span class="ckursiv">Modul</span> und einem <span class="ckursiv">Paket</span> gibt. Während ein Modul aus nur einer Programmdatei besteht, ist ein Paket ein Ordner, der mehrere Untermodule oder -Pakete enthalten kann. Ein Paket erkennt man an der Programmdatei <span class="ckursiv">__init__.py</span> im Paketverzeichnis. Die Unterscheidung der Begriffe <span class="ckursiv">Modul</span> und <span class="ckursiv">Paket</span> wird beim Erstellen des Installationsscripts noch eine Rolle spielen.</p>
+<p>An dieser Stelle soll das Beispielmodul entwickelt werden, auf das wir uns im gesamten Kapitel beziehen werden. Dabei handelt es sich um ein sehr einfaches Modul, um die grundlegende Funktionalität von <span class="clisting">distutils</span> zu demonstrieren. Bemerkungen zu komplexeren Distributionen, die beispielsweise Pakete oder Ähnliches enthalten, finden Sie an der jeweiligen Stelle im Text.</p>
+<p>Sinn und Zweck des Beispielmoduls ist es, einen beliebigen Text so zu verändern, dass er sich ähnlich wie dieser liest:</p>
+<p><em><span class="ckursiv">Nach eienr Stidue der Cmabridge Uinverstiaet, ist es eagl in wlehcer Reiehnfogle die Bchustebaen in Woeretrn vokrmomen.</span></em></p>
+<p><em><span class="ckursiv">Es ist nur withcig, dsas der ertse und lettze Bchusatbe an der ricthgien Stlele snid. Der Rset knan total falcsh sein und man knan es onhe Porbelme leesn.</span></em></p>
+<p><em><span class="ckursiv">Das ist so, wiel das mneschilcge Geihrn nihct jeedn Bchustbaen liset sodnern das Wrot als gaznes.</span></em></p>
+<p>Das Modul stellt dabei eine Funktion <span class="clisting">verwirble_text</span> bereit, die einen String übergeben bekommt und diesen dann so »verwirbelt« zurückgibt, dass nur der erste und letzte Buchstabe sicher auf ihrem Platz bleiben.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> random<br>
+<span class="cfett">def</span> verwirble_text(text): 
+    liste = [] 
+   <span class="cfett"> for</span> wort<span class="cfett"> in</span> text.split(): 
+        w = list(wort[1:-1]) 
+        random.shuffle(w) 
+        liste.append("".join([wort[0], "".join(w), wort[-1]])) 
+   <span class="cfett"> return</span> " ".join(liste)</pre></div>
+<p>Die Funktion iteriert in einer Schleife über alle im übergebenen String enthaltenen Wörter. Bei jedem Schleifendurchlauf wird der Teilstring aus dem jeweiligen Wort extrahiert, der verwirbelt werden soll. Dabei wird sichergestellt, dass der erste und der letzte Buchstabe nicht in diesen Teilstring mit aufgenommen werden. Zum Verwirbeln der Buchstaben wird die Funktion <span class="clisting">shuffle</span> des Moduls <span class="clisting">random</span> verwendet. Schlussendlich werden der verwirbelte String, der Anfangsbuchstabe und der Endbuchstabe zusammengefügt und an den resultierenden Text angehängt.</p>
+<p>Beachten Sie, dass die Funktion der Einfachheit halber von einem absolut gutartigen String ausgeht. Das bedeutet insbesondere, dass der String keine Satzzeichen enthalten sollte.</p>
+<p>Im Folgenden soll nun eine Distribution dieses Moduls <span class="clisting">verwirbeln</span> erstellt werden, damit auch andere Python-Programmierer möglichst komfortabel in den Genuss dieses überaus mächtigen Werkzeugs gelangen können.</p><a id="mj9f066c9d92b6d7dcf270ed4cf60583fb" name="mj9f066c9d92b6d7dcf270ed4cf60583fb"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">22.1.2</span><span class="cfett"> Das Installationsscript</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Der erste Schritt zur Distribution des eigenen Moduls ist das Erstellen eines <span class="ckursiv">Installationsscript</span><span class="ckursiv">s</span>. Dies ist eine Python-Programmdatei namens <span class="ckursiv">setup.py</span>, über die später das Erstellen der Distribution abläuft. Auch die Installation einer Quellcodedistribution aufseiten des Benutzers geschieht durch Aufruf dieser Programmdatei.</p>
+<p>In unserem Beispiel muss im Installationsscript nur die Funktion <span class="clisting">setup</span> des Moduls <span class="clisting">distutils.core</span> aufgerufen werden.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> distutils.core<span class="cfett"> import</span> setup<br>
+setup( 
+     name = "verwirbeln", 
+     version = "1.0", 
+     author = "Micky Maus", 
+     author_email = "micky@maus.de", 
+     py_modules = ["verwirbeln"] 
+     )</pre></div>
+<p>Diese Funktion bekommt verschiedene <span class="ckursiv">keyword arguments</span> übergeben, die Informationen über das Modul enthalten. Zusätzlich bekommt die Funktion über den Parameter <span class="clisting">py_modules</span> alle Programmdateien übergeben, die der Distribution angehören sollen. Auf diese Weise ist es auch möglich, mehrere selbst geschriebene Module in einer Distribution anzubieten.</p>
+<p>Das ist tatsächlich schon alles. Diese Programmdatei kann jetzt dazu verwendet werden, das Modul auf einem beliebigen Rechner mit Python-Installation zu installieren oder eine Distribution des Moduls zu erstellen. Wie das im Einzelnen funktioniert, klären wir später, zunächst betrachten wir einmal die Funktion <span class="clisting">setup</span>.</p>
+<h5 class="t5"><span class="cfett">distutils.core.setup(arguments)</span></h5>
+<p>Die Funktion <span class="clisting">setup</span> des Moduls <span class="clisting">distutils.core</span> muss in der Programmdatei <span class="ckursiv">setup.py</span> aufgerufen werden und stößt den jeweils gewünschten Installationsprozess an. Dazu müssen der Funktion verschiedene <span class="ckursiv">keyword arguments</span> übergeben werden, die Informationen über das Modul bzw. Paket bereitstellen. Die folgende Tabelle listet die wichtigsten möglichen Argumente auf und klärt kurz ihre Bedeutung.</p>
+<p>Wenn nichts anderes angegeben ist, handelt es sich bei den jeweiligen Parametern um Strings.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 22.1    </strong>Mögliche Schlüsselwortparameter für »setup«
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Parametername</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">name</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Name der Distribution</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">version</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die Versionsnummer der Distribution</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">description</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Eine kurze Beschreibung der Distribution</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">long_description</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Eine ausführliche Beschreibung der Distribution</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">author</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Name des Autors</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">author_email</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die E-Mail-Adresse des Autors</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">maintainer</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Name des Paketverwalters (Maintainer), sofern dies nicht der Autor selbst ist</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">maintainer_email</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die E-Mail-Adresse des Paketverwalters</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">url</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die URL einer Homepage mit weiteren Informationen zur Distribution</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">download_url</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die URL, unter der die Distribution direkt heruntergeladen werden kann</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">packages</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Eine Liste von Strings, die die Namen aller Pakete enthält, die in der Distribution enthalten sein sollen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">package_dir</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Ein Dictionary, über das Pakete in Unterverzeichnissen in die Distribution aufgenommen werden können. Näheres zur Verwendung von <span class="clisting">package_dir</span> folgt weiter unten.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">package_data</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Ein Dictionary, über das Dateien, die zu einem Paket gehören, mit in die Distribution aufgenommen werden können. Näheres zur Verwendung von <span class="clisting">package_data</span> finden Sie weiter unten.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">py_modules</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Eine Liste von Strings, die die Namen aller Python-Module enthält, die in der Distribution enthalten sein sollen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">scripts</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Eine Liste von Strings, die die Namen aller Scriptdateien enthält, die in der Distribution enthalten sein sollen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">data_files</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Eine Liste von Tupeln, über die zusätzliche Dateien in die Distribution mit aufgenommen werden können. Näheres zur Verwendung von <span class="clisting">data_files</span> finden Sie weiter unten.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">ext_modules</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Eine Liste von <span class="clisting">distutils.core.Extension</span>-Instanzen, die die Namen aller Python-Erweiterungen enthält, die kompiliert werden und in der Distribution enthalten sein sollen. Näheres zu diesem Thema erfahren Sie in Abschnitt <a href="./python_kapitel_26_002.htm#Rxx_ref180775240">26.2</a>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">script_name</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Name des Installationsscripts, das in der Distribution verwendet werden soll. Dieser Parameter ist mit <span class="clisting">sys.argv[0]</span>, also dem Namen des Scripts vorbelegt, das gerade ausgeführt wird.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">license</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Ein String, der die Lizenz angibt, unter der die Distribution veröffentlicht wird.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">console</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Pfad zu einer Programmdatei, die mithilfe von <span class="clisting">py2exe</span> zu einer ausführbaren Windows-Konsolenanwendung gemacht werden soll<a href="#Rxx73458"><sup>2  </sup></a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">window</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Pfad zu einer Programmdatei, die mithilfe von <span class="clisting">py2exe</span> zu einer ausführbaren Windows-EXE gemacht werden soll. Dieser Parameter eignet sich für Programme mit grafischer Benutzeroberfläche, da kein Konsolenfenster angezeigt wird.</p>
+</td>
+</tr>
+</table><br><h4 class="t4"><span class="cfett">Distribution von Paketen</span></h4>
+<p>Wenn Ihr Projekt statt aus einzelnen Modulen aus einem oder mehreren Paketen besteht, müssen Sie die Namen aller Pakete, die in die Distribution aufgenommen werden sollen, über den Schlüsselwortparameter <span class="clisting">packages</span> angeben: [Näheres zu <span class="clisting">py2exe</span> erfahren Sie in Abschnitt <a href="#Rxx_ref179828328">22.2</a>.
+] </p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> distutils.core<span class="cfett"> import</span> setup<br>
+setup( 
+     […] 
+     packages = ["paket1", "paket2", "paket1.unterpaket1"] 
+     )</pre></div>
+<p>In diesem Fall werden die Pakete <span class="clisting">paket1</span> und <span class="clisting">paket2</span>, die sich im Hauptverzeichnis befinden müssen, in die Distribution aufgenommen. Zusätzlich wird noch das Paket <span class="clisting">unterpaket1</span> aufgenommen, das sich innerhalb des Pakets <span class="clisting">paket1</span> befindet. Beachten Sie, dass Sie durchaus sowohl Pakete über <span class="clisting">packages</span>, als auch einzelne Module über <span class="clisting">py_modules</span> in die Distribution aufnehmen können.</p>
+<p>Natürlich möchte Sie niemand dazu zwingen, das Installationsscript im Hauptordner abzulegen, in dem möglicherweise bereits relativ viele Programmdateien liegen. Oftmals existiert neben dem Installationsscript ein Ordner <span class="ckursiv">src</span> oder <span class="ckursiv">source</span>, in dem sich dann die Module oder Pakete der Distribution befinden. Um solch einen Unterordner im Installationsscript bekannt zu machen, wird der Schlüsselwortparameter <span class="clisting">package_dir</span> beim Aufruf von <span class="clisting">setup</span> übergeben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> distutils.core<span class="cfett"> import</span> setup<br>
+setup( 
+     […] 
+     package_dir = {"" : "src"}, 
+     packages = ["paket1", "paket2", "paket1.unterpaket1"] 
+     )</pre></div>
+<h4 class="t4"><span class="cfett">Distribution zusätzlicher Dateien</span></h4>
+<p>Neben Modulen und Paketen können noch weitere Dateien zu Ihrem Projekt gehören und sollten damit auch Platz in der Distribution finden. Dazu zählen zunächst einfache Scriptdateien. Diese implementieren beispielsweise ein Tool, das im Zusammenhang mit Ihrem Paket steht. Der Unterschied zwischen einem Modul und einer Scriptdatei ist der, dass das Modul selbst keinen Python-Code ausführt, sondern nur Funktionen oder Klassen bereitstellt, während eine Scriptdatei ein lauffähiges Programm enthält. Solche Scriptdateien können beim Aufruf von <span class="clisting">setup</span> durch den Schlüsselwortparameter <span class="clisting">scripts</span> übergeben werden. Dabei muss für <span class="clisting">scripts</span>, wie für andere Parameter auch, eine Liste von Strings übergeben werden, die jeweils einen Dateinamen enthalten.</p>
+<p>Ein kleiner Service, den das Paket <span class="clisting">distutils</span> in Bezug auf Scriptdateien durchführt, ist das automatische Anpassen der Shebang-Zeile an das Betriebssystem, auf dem die Distribution installiert wird.</p>
+<p>Die nächste Kategorie zusätzlicher Dateien sind Ressourcen, die von bestimmten Paketen benötigt werden und in diesen enthalten sind. Beispielsweise könnte das Paket <span class="clisting">paket1</span> die beiden Dateien <span class="ckursiv">hallo.txt</span> und <span class="ckursiv">welt.txt</span> erfordern. In einem solchen Fall können diese Dateien über den Schlüsselwortparameter <span class="clisting">package_data</span> in Form eines Dictionarys übergeben werden:</p>
+<div class="listing"><pre class="prettyprint">setup( 
+     […] 
+     packages = ["paket1", "paket2", "paket1.unterpaket1"], 
+     package_data = {"paket1" : ["hallo.txt", "welt.txt"]} 
+     )</pre></div>
+<p>Anstatt jede Datei einzeln anzugeben, können auch Wildcards verwendet werden. So würde der Wert <span class="clisting">["*.txt"]</span> alle Textdateien einbinden, die sich im Verzeichnis des Paketes <span class="clisting">paket1</span> befinden.</p>
+<p>Zu guter Letzt ist es möglich, sonstige Dateien mit in die Distribution aufzunehmen. Dazu zählen alle Dateien, die in keine der vorherigen Kategorien passen, beispielsweise Konfigurationsdateien, Hilfeseiten oder Ähnliches. Diese Dateien können über den Schlüsselwortparameter <span class="clisting">data_files</span> beim Funktionsaufruf von <span class="clisting">setup</span> als Liste von Tupeln übergeben werden:</p>
+<div class="listing"><pre class="prettyprint">setup( 
+     […] 
+     data_files = [("grafiken", ["test1.bmp", "test2.bmp"]) 
+                   ("config", ["programm.cfg"])] 
+     )</pre></div>
+<p>In diesem Fall werden die Dateien <span class="ckursiv">test1.bmp</span> und <span class="ckursiv">test2.bmp</span> aus dem Verzeichnis <span class="ckursiv">grafiken</span> sowie die Datei <span class="ckursiv">programm.cfg</span> aus dem Verzeichnis <span class="ckursiv">config</span> in die Distribution übernommen. Die Verzeichnisse verstehen sich relativ zum Pfad des Installationsscripts. Beachten Sie, dass hier durchaus auch absolute Pfade, beispielsweise für eine systemweite Konfigurationsdatei, angegeben werden können.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Beachten Sie allgemein, dass Sie Ordner innerhalb eines Pfades immer durch einen einfachen Slash (/) voneinander trennen sollten. Das Paket <span class="clisting">distutils</span> kümmert sich dann um die korrekte »Übersetzung« des Pfades in das Format des jeweiligen Betriebssystems.</p>
+</td>
+</tr>
+</table><br><a id="mjdf66abaa6ad486ebac737695c294c5af" name="mjdf66abaa6ad486ebac737695c294c5af"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">22.1.3</span><span class="cfett"> Erstellen einer Quellcodedistribution</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nachdem das Installationsscript geschrieben wurde, kann mit dessen Hilfe eine Quellcodedistribution Ihres Pakets oder Moduls erstellt werden. Dazu wechseln Sie in das Verzeichnis, in dem das Installationsscript liegt, und führen es mit dem Argument <span class="clisting">sdist</span> aus:</p>
+<p><span class="clisting">setup.py sdist</span></p>
+<p>Dieser Befehl erzeugt die Quellcodedistribution im Unterordner <span class="clisting">dist</span> nach dem Namensschema <span class="ckursiv">Projektname-Version.Format</span>. Dabei kann das Format des Archivs über die Option <span class="clisting">--formats</span> angegeben werden. Es ist zudem möglich, eine Distribution in mehreren Archivformaten zu erstellen:</p>
+<div class="listing"><pre class="prettyprint">setup.py sdist --formats=zip,gztar</pre></div>
+<p>Mögliche Werte sind dabei <span class="clisting">zip</span> für ein zip-Archiv (<span class="ckursiv">*.zip</span>), <span class="clisting">gztar</span> für ein gz-komprimiertes tar-Archiv (<span class="ckursiv">*.tar.gz</span>), <span class="clisting">bztar</span> für ein bz2-komprimiertes tar-Archiv (<span class="ckursiv">*.tar.bz2</span>), <span class="clisting">ztar</span> für ein Z-komprimiertes tar-Archiv (<span class="ckursiv">*.tar.Z</span>) sowie <span class="clisting">tar</span> für ein unkomprimiertes tar-Archiv. Wenn die Option <span class="clisting">--formats</span> nicht angegeben wurde, wird unter Windows ein zip-Archiv und unter Unix-Systemen ein gz-komprimiertes tar-Archiv erstellt.</p>
+<p>In das Archiv werden alle Dateien aufgenommen, die im Installationsscript eingetragen wurden. Zusätzlich wird eine Datei namens <span class="ckursiv">README</span> oder <span class="ckursiv">README.txt</span> automatisch in das Archiv mit aufgenommen, sofern eine solche im selben Ordner wie das Installationsscript existiert.</p>
+<p>Das resultierende Archiv, die Quellcodedistribution, kann jetzt veröffentlicht und verbreitet werden. Der Benutzer, der diese Distribution herunterlädt, kann Ihr Modul bzw. Ihr Paket so installieren, wie in Abschnitt <a href="#Rxx_ref178330217">22.1.5</a> beschrieben wird.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Beim Erstellen einer Distribution wird eine Datei namens <span class="ckursiv">MANIFEST</span> erzeugt. Diese Textdatei enthält die Pfade zu allen Dateien, die in die Distribution mit aufgenommen werden. Beim erneuten Erstellen der Distribution werden diese Pfade aus der <span class="ckursiv">MANIFEST</span>-Datei wieder ausgelesen, sofern die Datei existiert.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+Wenn das Installationsscript aktueller ist als die <span class="ckursiv">MANIFEST</span>-Datei, wird die <span class="ckursiv">MANIFEST</span>-Datei beim nächsten Erstellvorgang aktualisiert. Trotzdem ist es gelegentlich notwendig, dieses Aktualisieren explizit zu erzwingen:</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">setup.py sdist --force-manifest 
+setup.py sdist --manifest-only</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+Mit diesen Aufrufen von <span class="ckursiv">setup.py</span> wird das Aktualisieren der <span class="ckursiv">MANIFEST</span>-Datei vor dem Erstellen der Distribution erzwungen bzw. ausschließlich die <span class="ckursiv">MANIFEST</span>-Datei aktualisiert.</p>
+</td>
+</tr>
+</table><br><a id="mj5f04e5c2f5345507fdb4b8a8d871ed0d" name="mj5f04e5c2f5345507fdb4b8a8d871ed0d"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">22.1.4</span><span class="cfett"> Erstellen einer Binärdistribution</span>  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Neben einer Quellcodedistribution ist das Erstellen einer Binärdistribution von besonderem Interesse, da diese den wenigsten Installationsaufwand hat. Umgekehrt bedeutet es allerdings mehr Arbeit für Sie, da für verschiedene Betriebssysteme ganz unterschiedliche Formate für Binärdistributionen erstellt werden müssen. Das prominenteste dieser Formate ist ein Windows Installer, aber auch RPM-Pakete für RPM-basierende Linux-Distributionen können erstellt werden.</p>
+<p>Beachten Sie, dass Sie neben einer Binärdistribution stets auch eine Quellcodedistribution Ihres Projekts veröffentlichen sollten, da es Betriebssysteme gibt, die weder mit einem RPM-Paket noch mit einem Windows Installer etwas anfangen können.</p>
+<p>Zum Erzeugen einer Binärdistribution wird das Installationsscript mit den folgenden Argumenten aufgerufen werden:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 22.2    </strong>Mögliche Schlüsselwortparameter für »setup«
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Argument</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">bdist_rpm</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein RPM-Paket für RPM-basierende Linux-Distributionen wie beispielsweise Fedora Core oder SuSE.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">bdist_wininst</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt einen Windows Installer, der dazu da ist, ein Modul bzw. Paket auf einem Windows-System zu installieren.</p>
+<p>Es wird die ausführbare Datei <span class="ckursiv">Projektname-Version-win32.exe</span> im Unterordner <span class="ckursiv">dist</span> erzeugt.</p>
+</td>
+</tr>
+</table><br><p>Da alle Informationen, die zum Erstellen der Binärdistribution benötigt werden, bereits im Installationsscript angegeben wurden, ist das Erzeugen einer Binärdistribution tatsächlich mit den folgenden Aufrufen von <span class="ckursiv">setup.py</span> erledigt:</p>
+<div class="listing"><pre class="prettyprint">setup.py bdist_wininst 
+setup.py bdist_rpm</pre></div>
+<p>Beachten Sie allgemein, dass eine Binärdistribution unabhängig von einer Quellcodedistribution erzeugt werden kann. Es ist aber sinnvoll, ein Projekt sowohl in Form einer Binärdistribution für Windows als auch in Form einer Quellcodedistribution für andere Betriebssysteme anzubieten.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Solange Ihr Projekt aus reinen Python-Modulen besteht, also weder Pakte noch Extensions beinhaltet, kann die Installationsdatei für Windows auch unter anderen Betriebssystemen, beispielsweise unter Linux, erzeugt werden. Sobald aber Pakete oder Erweiterungen enthalten sind, muss dafür ein Windows-System verwendet werden.</p>
+</td>
+</tr>
+</table><br><a id="mjf90e2c2119474162405f6f0db25a3647" name="mjf90e2c2119474162405f6f0db25a3647"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">22.1.5</span><span class="cfett"> Beispiel für die Verwendung einer Distribution</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nachdem Sie jetzt das grundlegende Handwerkszeug zum Erstellen einer Binär- und Quellcodedistribution erlernt haben, sollen hier noch ein paar Worte zur Verwendung der Distributionen selbst folgen.</p>
+<p>Zu einer Binärdistribution brauchen wir dabei nicht besonders viel zu sagen, denn die Installationsprozedur entspricht dem auf dem jeweiligen Betriebssystem üblichen Vorgehen.</p>
+<p>Wie eine Quellcodedistribution installiert wird, ist hingegen nicht ganz intuitiv und sollte bei Ihren eigenen Distributionen unbedingt in einer Readme-Datei erklärt werden. Die Installation einer Quellcodedistribution verläuft nach dem folgenden Schema:</p>
+<ul class="gp">
+<li>Herunterladen der Distribution</li>
+</ul>
+<ul class="gp">
+<li>Entpacken des Archivs</li>
+</ul>
+<ul class="gp">
+<li>Ausführen der Programmdatei <span class="ckursiv">setup.py</span> mit dem Argument <span class="clisting">install</span></li>
+</ul>
+<p>Sie sehen, dass auch für die Installation einer Distribution die Programmdatei <span class="ckursiv">setup.py</span> verantwortlich ist:</p>
+<div class="listing"><pre class="prettyprint">setup.py install</pre></div>
+<p>Wenn die Programmdatei <span class="ckursiv">setup.py</span> mit dem Argument <span class="clisting">install</span> ausgeführt wird, installiert sie die Distribution in die Python-Umgebung, die auf dem System installiert ist. Beachten Sie, dass dafür, je nach System, Administrator- oder Root-Rechte erforderlich sind.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_22_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="22 Distribution von Python-Projekten"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_21_007.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_22_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

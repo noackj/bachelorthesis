@@ -1,0 +1,871 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 8.7 Mengen</title>
+<meta name="title" content="Galileo Computing :: Python - 8.7 Mengen">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 8.7 Mengen">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_08_006.htm">
+<link rel="next" href="python_kapitel_09_001.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_08_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_09_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d" class="navnav">8 Basisdatentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_001.htm#mjc72b335a8a5f76207edbafa941f933de" class="navnav">8.1 Operatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_002.htm#mj6409c0926804636387412c613b7b7be5" class="navnav">8.2 Das Nichts &#8211; NoneType</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_003.htm#mj6cf370d61a53204c7a0195c414bc872b" class="navnav">8.3 Numerische Datentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mj867e954dbc429fc5bec56a0c953d45d8" class="navnav">8.3.1 Ganze Zahlen &#8211; int, long</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mj6d41cdafb4b90464f2c005027f9c91d5" class="navnav">8.3.2 Gleitkommazahlen &#8211; float</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mjfb4d02fccab9edcdc5ad084f35eaeaa6" class="navnav">8.3.3 Boolesche Werte &#8211; bool</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mje0a568fae09049a37bd3c3eec46428e7" class="navnav">8.3.4 Komplexe Zahlen &#8211; complex</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_004.htm#mj59a6387bf7db64f12c8c0e08237ac604" class="navnav">8.4 Methoden und Parameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_005.htm#mj3d61fb54438f66879e52e5a74e2e25a3" class="navnav">8.5 Sequenzielle Datentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_005.htm#mj706b778fd2162b5144d8f07b6222092d" class="navnav">8.5.1 Listen &#8211; list</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_005.htm#mj91f49981165d738734c4d64190f3f2cf" class="navnav">8.5.2 Unveränderliche Listen &#8211; tuple</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_005.htm#mjeb87145a10dfeb18cb5b0215f08f30ad" class="navnav">8.5.3 Strings &#8211; str, unicode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_006.htm#mj5492a22c8e50d661f8f6ed931b282817" class="navnav">8.6 Mappings</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_006.htm#mj40cd82a0f398e53c7af3f38de47c4b46" class="navnav">8.6.1 Dictionary &#8211; dict</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mja76bcb53bc9fb07ee9aacd533d393490" class="navh">8.7 Mengen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj85ece89f8351590b611dc9cb7fe22c36" class="navh">8.7.1 Mengen &#8211; set</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjefba418c399f3218461e693613231aeb" class="navh">8.7.2 Unveränderliche Mengen &#8211; frozenset</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mja76bcb53bc9fb07ee9aacd533d393490" name="mja76bcb53bc9fb07ee9aacd533d393490"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">8.7</span><span class="cfett"> <a id="Rxx_ref180777755" name="Rxx_ref180777755"></a>Mengen</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Eine <span class="ckursiv">Menge</span> (engl. <span class="ckursiv">set</span>) ist eine ungeordnete Ansammlung von Elementen. Jedes Element kann sich dabei nur einmal in der Menge befinden. In Python gibt es zur Darstellung von Mengen zwei Basisdatentypen: <span class="clisting">set</span> für eine veränderliche Menge sowie <span class="clisting">frozenset</span> für eine unveränderliche Menge: <span class="clisting">set</span> ist demnach mutable, <span class="clisting">frozenset</span> immutable.</p>
+<p>Eine leere Instanz der Datentypen <span class="clisting">set</span> und <span class="clisting">frozenset</span> wird folgendermaßen erzeugt:</p>
+<div class="listing"><pre class="prettyprint">s = set() 
+fs = frozenset()</pre></div>
+<p>Wenn die Menge bereits zum Zeitpunkt der Instanziierung Elemente enthalten soll, so muss ein iterierbares Objekt als Parameter übergeben werden, das alle gewünschten Elemente enthält, in diesem Fall zum Beispiel eine Liste:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; set([1,2,3,99,-7]) 
+set([99, 1, 2, 3, -7])</pre></div>
+<p>Wir werden hier stets Listen verwenden, da ihre Verwendung am einfachsten zu durchschauen ist. Tupel, Strings, Dictionarys oder gar Mengen selbst funktionieren zur Initialisierung eines Sets oder Frozensets problemlos. Im Falle eines Strings wird das <span class="clisting">set</span> aus allen Buchstaben und im Falle eines Dictionarys aus allen Schlüsseln zusammengesetzt. Da in einer Menge kein Element mehrfach vorkommen darf, werden Dubletten herausgefiltert. Es kommt deswegen jedoch nicht zu einem Fehler.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; set("Python") 
+set(['h', 'o', 'n', 'P', 't', 'y']) 
+&gt;&gt;&gt; frozenset({0:"a", 1:"b", 2:"c"}) 
+frozenset([0, 1, 2])</pre></div>
+<p>An diesem Beispiel ist sehr schön zu sehen, dass die Reihenfolge der in einem <span class="clisting">set</span> enthaltenen Werte willkürlich ist. Beachten Sie, dass sie dennoch nicht zufällig ist, sondern von bestimmten interpreterspezifischen Faktoren abhängt.</p>
+<p>Mithilfe der Methode <span class="clisting">values</span> eines Dictionarys lassen sich auch die Werte ins Set übertragen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d = ({0 : "a", 1 : "b", 2 : "c"}) 
+&gt;&gt;&gt; set(d.values()) 
+set(['a', 'c', 'b'])</pre></div>
+<p>Bei einer Menge handelt es sich um ein iterierbares Objekt, das problemlos in einer <span class="clisting">for</span>-Schleife durchlaufen werden kann. Dazu folgendes Beispiel:</p>
+<div class="listing"><pre class="prettyprint">menge = set([1, 100, "a", 0.5])<span class="cfett"> 
+for</span> element<span class="cfett"> in</span> menge: 
+   <span class="cfett"> print</span> element</pre></div>
+<p>Dieser Code würde folgende Ausgabe erzeugen:</p>
+<div class="listing"><pre class="prettyprint">a 
+1 
+100 
+0.5</pre></div>
+<h4 class="t4"><span class="cfett">Operatoren</span></h4>
+<p>Die Datentypen <span class="clisting">set</span> und <span class="clisting">frozenset</span> verfügen über eine gemeinsame Schnittstelle, die im Folgenden näher erläutert werden soll. Wir möchten damit beginnen, alle gemeinsamen Operatoren zu behandeln. Der Einfachheit halber werden wir uns bei der Beschreibung der Operatoren ausschließlich auf den Datentyp <span class="clisting">set</span> beziehen. Dennoch können sie und auch die Methoden, die später beschrieben werden, für <span class="clisting">frozenset</span> genauso verwendet werden. [Eine Menge T wird »echte Teilmenge« einer zweiten Menge M genannt, wenn T Teilmenge von M ist und weniger Elemente als M enthält.
+] </p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.28    </strong>Operatoren der Datentypen set und frozenset
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">len(s)</span></p>
+</td>
+<td class="tabellentext">
+<p>Liefert die Anzahl aller im Set <span class="clisting">s</span> enthaltenen Elemente.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x</span> in <span class="clisting">s</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn <span class="clisting">x</span> im Set <span class="clisting">s</span> enthalten ist, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x</span> not in <span class="clisting">s</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn <span class="clisting">x</span> nicht im Set <span class="clisting">s</span> enthalten ist. Andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s &lt;= t</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn es sich bei der Menge <span class="clisting">s</span> um eine Teilmenge der Menge <span class="clisting">t</span> handelt, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s &lt; t</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn es sich bei der Menge <span class="clisting">s</span> um eine echte Teilmenge<a href="#Rxx86285">11</a> der Menge <span class="clisting">t</span> handelt, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s &gt;= t</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn es sich bei der Menge <span class="clisting">t</span> um eine Teilmenge der Menge <span class="clisting">s</span> handelt, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s &gt; t</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn es sich bei der Menge <span class="clisting">t</span> um eine echte Teilmenge der Menge <span class="clisting">s</span> handelt, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s | t</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein neues Set, das alle Elemente von <span class="clisting">s</span> und <span class="clisting">t</span> enthält.</p>
+<p>Diese Operation bildet also die Vereinigungsmenge zweier Mengen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s &amp; t</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein neues Set, das die Objekte enthält, die sowohl Element der Menge <span class="clisting">s</span> als auch Element der Menge <span class="clisting">t</span> sind.</p>
+<p>Diese Operation bildet also die Schnittmenge zweier Sets.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s</span> &#8211; <span class="clisting">t</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein neues Set mit allen Elementen von <span class="clisting">s</span>, außer denen, die auch in <span class="clisting">t</span> enthalten sind.</p>
+<p>Diese Operation erzeugt also die Differenz zweier Mengen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s ^ t</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein neues Set, das alle Objekte enthält, die entweder in <span class="clisting">s</span> oder in <span class="clisting">t</span> vorkommen, nicht aber in beiden.</p>
+<p>Diese Operation bildet also die symmetrische Differenz zweier Mengen.</p>
+</td>
+</tr>
+</table><br><p>Im Folgenden werden alle Operatoren anhand von Beispielen anschaulich beschrieben. Die Beispiele sind dabei in diesem Kontext zu sehen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = set([0,1,2,3,4,5,6,7,8,9]) 
+&gt;&gt;&gt; t = set([6,7,8,9,10,11,12,13,14,15])</pre></div>
+<p>Es existieren also zwei Mengen namens <span class="clisting">s</span> und <span class="clisting">t</span>, die aus Gründen der Übersichtlichkeit jeweils ausschließlich über numerische Elemente verfügen. Die Mengen überschneiden sich in einem gewissen Bereich. Grafisch kann die Ausgangssituation folgendermaßen veranschaulicht werden. Der dunkelgraue Bereich entspricht der Schnittmenge von <span class="clisting">s</span> und <span class="clisting">t</span>.</p>
+<div class="bildbox">
+<p><a name="IDAIVSQ"></a><a onClick="OpenWin('bilder/set-base.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinset-base.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 8.7    </strong>Die Ausgangssituation</p>
+<h5 class="t5"><span class="cfett">Anzahl der Elemente</span></h5>
+<p>Um die Anzahl der Elemente zu bestimmen, die in einer Menge enthalten sind, wird &#8211; wie schon bei den sequenziellen Datentypen sowie dem Dictionary &#8211; die eingebaute Funktion <span class="clisting">len</span> verwendet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; len(s) 
+10</pre></div>
+<h5 class="t5"><span class="cfett">Ist ein Element im Set enthalten?</span></h5>
+<p>Um zu testen, ob ein Element in einem Set enthalten ist, dient der Operator <span class="clisting">in</span>. Zudem kann sein Gegenstück <span class="clisting">not in</span> verwendet werden, um das Gegenteil zu prüfen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 10<span class="cfett"> in</span> s 
+False 
+&gt;&gt;&gt; 10<span class="cfett"> not in</span> t 
+False</pre></div>
+<h5 class="t5"><span class="cfett">Handelt es sich um eine Teilmenge?</span></h5>
+<p>Um zu testen, ob es sich bei einem Set um eine Teilmenge eines anderen Sets handelt, werden die Operatoren <span class="clisting">&lt;=</span> und <span class="clisting">&gt;=</span>, sowie <span class="clisting">&lt;</span> und <span class="clisting">&gt;</span> für echte Teilmengen, verwendet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; u = set([4,5,6]) 
+&gt;&gt;&gt; u &lt;= s 
+True 
+&gt;&gt;&gt; u &lt; s 
+True 
+&gt;&gt;&gt; u &gt;= s 
+False 
+&gt;&gt;&gt; u &lt;= t 
+False</pre></div>
+<p>Beachten Sie den Unterschied zwischen <span class="ckursiv">Teilmenge</span> (<span class="clisting">&lt;=</span>, <span class="clisting">&gt;=</span>) und <span class="ckursiv">echter Teilmenge</span> (<span class="clisting">&lt;</span>, <span class="clisting">&gt;</span>) an folgendem Beispiel:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; m = set([1,2,3]) 
+&gt;&gt;&gt; n = set([1,2,3]) 
+&gt;&gt;&gt; m &lt;= n 
+True 
+&gt;&gt;&gt; m &lt; n 
+False</pre></div>
+<h5 class="t5"><span class="cfett">Vereinigung zweier Mengen</span></h5>
+<p>Um zwei Mengen zusammenzufügen, kann der Operator <span class="clisting">|</span> verwendet werden. Es wird ein neues Set erzeugt, das alle Elemente enthält, die in <span class="clisting">s</span> oder in <span class="clisting">t</span> enthalten sind:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s | t 
+set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])</pre></div>
+<p>Bezogen auf unsere Grafik bedeutet das Folgendes:</p>
+<div class="bildbox">
+<p><a name="IDAVXSQ"></a><a onClick="OpenWin('bilder/set-combine.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinset-combine.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 8.8    </strong>Vereinigungsmenge von <span class="clisting">s</span> und <span class="clisting">t</span></p>
+<h5 class="t5"><span class="cfett">Schnittmenge</span></h5>
+<p>Um die Schnittmenge zweier Mengen zu bestimmen, wird der Operator <span class="clisting">&amp;</span> verwendet. Es wird ein neues Set erzeugt, das alle Elemente enthält, die sowohl im ersten als auch im zweiten Operanden enthalten sind.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s &amp; t 
+set([8, 9, 6, 7])</pre></div>
+<p>Auch die Auswirkungen dieses Operators können wir veranschaulichen:</p>
+<div class="bildbox">
+<p><a name="IDAQYSQ"></a><a onClick="OpenWin('bilder/set-intersect.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinset-intersect.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 8.9    </strong>Schnittmenge von <span class="clisting">s</span> und <span class="clisting">t</span></p>
+<h5 class="t5"><span class="cfett">Differenz zweier Mengen</span></h5>
+<p>Um die Differenz zweier Mengen zu bestimmen, wird der Operator <span class="clisting">-</span> verwendet. Es wird ein neues Set erzeugt, das alle Elemente des ersten Operanden enthält, die nicht zugleich im zweiten Operanden enthalten sind:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s - t 
+set([0, 1, 2, 3, 4, 5]) 
+&gt;&gt;&gt; t - s 
+set([10, 11, 12, 13, 14, 15])</pre></div>
+<p>Grafisch bedeutet dies:</p>
+<div class="bildbox">
+<p><a name="IDADZSQ"></a><a onClick="OpenWin('bilder/set-diff.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinset-diff.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 8.10    </strong>Differenz von <span class="clisting">s</span> und <span class="clisting">t</span></p>
+<h5 class="t5"><span class="cfett">Symmetrische Differenz zweier Mengen</span></h5>
+<p>Um die symmetrische Differenz zweier Mengen zu bestimmen, wird der Operator <span class="clisting">^</span> verwendet. Es wird ein neues Set erzeugt, das alle Elemente enthält, die entweder im ersten oder im zweiten Operanden vorkommen, nicht aber in beiden gleichzeitig:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s ^ t 
+set([0, 1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15])</pre></div>
+<p>Gönnen wir uns einen letzten Blick auf unsere Grafik:</p>
+<div class="bildbox">
+<p><a name="IDAWZSQ"></a><a onClick="OpenWin('bilder/set-symdiff.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinset-symdiff.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 8.11    </strong>Symmetrische Differenz von <span class="clisting">s</span> und <span class="clisting">t</span></p>
+<h4 class="t4"><span class="cfett">Methoden</span></h4>
+<p>Die Datentypen <span class="clisting">set</span> und <span class="clisting">frozenset</span> verfügen über eine recht überschaubare Liste von Methoden, die in ihrem Zweck sogar größtenteils gleichbedeutend mit einem der bereits diskutierten Operatoren sind. Sie haben dennoch ihre Daseinsberechtigung, da sie aufgrund ihres Namens im Quelltext selbsterklärend sind &#8211; ganz im Gegensatz zu einem Operator, dessen Sinn sich erst nach intensiver Beschäftigung mit <span class="clisting">set</span> und <span class="clisting">frozenset</span> erschließt:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.29    </strong>Methoden der Datentypen set und frozenset
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Methode</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.issubset(t)</span></p>
+</td>
+<td class="tabellentext">
+<p>Äquivalent zu <span class="clisting">s &lt;= t</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.issuperset(t)</span></p>
+</td>
+<td class="tabellentext">
+<p>Äquivalent zu <span class="clisting">s &gt;= t</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.union(t)</span></p>
+</td>
+<td class="tabellentext">
+<p>Äquivalent zu <span class="clisting">s | t</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.intersection(t)</span></p>
+</td>
+<td class="tabellentext">
+<p>Äquivalent zu <span class="clisting">s &amp; t</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.difference(t)</span></p>
+</td>
+<td class="tabellentext">
+<p>Äquivalent zu <span class="clisting">s</span> &#8211; <span class="clisting">t</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.symmetric_difference(t)</span></p>
+</td>
+<td class="tabellentext">
+<p>Äquivalent zu <span class="clisting">s ^ t</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.copy()</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Kopie des Sets <span class="clisting">s</span></p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">s.copy()</span></h5>
+<p>Um eine Kopie eines Sets zu erzeugen, wird die Methode <span class="clisting">copy</span> verwendet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; m = s.copy() 
+&gt;&gt;&gt; m 
+set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) 
+&gt;&gt;&gt; m<span class="cfett"> is</span> s 
+False 
+&gt;&gt;&gt; m == s 
+True</pre></div>
+<p>Wichtig ist, dass nur das Set selbst kopiert wird. Bei den enthaltenen Elementen handelt es sich sowohl in der ursprünglichen Menge als auch in der Kopie um Referenzen auf dieselben Objekte. Dies ist Ihnen bereits aus Abschnitt <a href="#Rxx_ref171538727">8.5.1</a>, »<a href="#Rxx_ref171538732">Listen &#8211; list</a>«, geläufig.</p><a id="mj85ece89f8351590b611dc9cb7fe22c36" name="mj85ece89f8351590b611dc9cb7fe22c36"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">8.7.1</span><span class="cfett"> Mengen &#8211; set</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das <span class="clisting">set</span> bietet, als Datentyp für veränderliche Mengen, einige Operatoren und Methoden, die über den eben besprochenen Grundbestand hinausgehen. Beachten Sie, dass alle hier eingeführten Operatoren und Methoden nicht für <span class="clisting">frozenset</span> verfügbar sind. Zuallererst möchten wir darauf eingehen, dass auch hier wie selbstverständlich erweiterte Zuweisungen für die oben eingeführten Operatoren verwendet werden dürfen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.30    </strong>Operatoren des Datentyps set
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Entsprechung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s |= t</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">s = s | t</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s &amp;= t</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">s = s &amp; t</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s -= t</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">s = s &#8211; t</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s ^= t</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">s = s ^ t</pre></div>
+</td>
+</tr>
+</table><br><p>Neben diesen neuen Operatoren stellt ein <span class="clisting">set</span> fünf neue Methoden bereit, die es vom <span class="clisting">frozenset</span> unterscheiden. Des Weiteren existieren auch für erweiterte Zuweisungsoperatoren Alternativen in Form einer Methode:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.31    </strong>Methoden des Datentyps set
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Methode</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.update(t)</span></p>
+</td>
+<td class="tabellentext">
+<p>Äquivalent zu <span class="clisting">s |= t</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.intersection_update(t)</span></p>
+</td>
+<td class="tabellentext">
+<p>Äquivalent zu <span class="clisting">s &amp;= t</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.difference_update(t)</span></p>
+</td>
+<td class="tabellentext">
+<p>Äquivalent zu <span class="clisting">s -= t</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.symmetric_difference_update(t)</span></p>
+</td>
+<td class="tabellentext">
+<p>Äquivalent zu <span class="clisting">s ^= t</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.add(e)</span></p>
+</td>
+<td class="tabellentext">
+<p>Fügt das Objekt <span class="clisting">e</span> als Element in das Set <span class="clisting">s</span> ein.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.remove(e)</span></p>
+</td>
+<td class="tabellentext">
+<p>Löscht das Element <span class="clisting">e</span> aus dem Set <span class="clisting">s</span>.  Sollte <span class="clisting">e</span> nicht vorhanden sein, wird eine Exception erzeugt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.discard(e)</span></p>
+</td>
+<td class="tabellentext">
+<p>Löscht das Element <span class="clisting">e</span> aus dem Set <span class="clisting">s</span>.  Sollte <span class="clisting">e</span> nicht vorhanden sein, wird dies ignoriert.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.clear()</span></p>
+</td>
+<td class="tabellentext">
+<p>Löscht alle Elemente des Sets <span class="clisting">s</span>, jedoch nicht das Set selbst.</p>
+</td>
+</tr>
+</table><br><p>Diese Methoden möchten wir nachfolgend anhand eines Beispiels erläutern. Die Beispiele sind dabei in diesem Kontext zu sehen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = set([1,2,3,4,5]) 
+&gt;&gt;&gt; s 
+set([1, 2, 3, 4, 5])</pre></div>
+<h5 class="t5"><span class="cfett">s.add(e)</span></h5>
+<p>Die Methode <span class="clisting">add</span> fügt ein Element <span class="ckursiv">e</span> in das Set <span class="clisting">s</span> ein:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s.add(6) 
+&gt;&gt;&gt; s 
+set([1, 2, 3, 4, 5, 6])</pre></div>
+<p>Sollte <span class="ckursiv">e</span> bereits im Set vorhanden sein, so wird dies ignoriert.</p>
+<h5 class="t5"><span class="cfett">s.remove(e)</span></h5>
+<p>Die Methode <span class="clisting">remove</span> löscht das Element <span class="ckursiv">e</span> aus dem Set <span class="clisting">s</span>:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s.remove(5) 
+&gt;&gt;&gt; s 
+set([1, 2, 3, 4, 6])</pre></div>
+<p>Sollte das zu löschende Element nicht im Set vorhanden sein, so wird eine Fehlermeldung erzeugt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s.remove(17) 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+KeyError: 17</pre></div>
+<h5 class="t5"><span class="cfett">s.discard(e)</span></h5>
+<p>Die Methode <span class="clisting">discard</span> löscht ein Element <span class="ckursiv">e</span> aus dem Set <span class="clisting">s</span>.  Der einzige Unterschied zur Methode <span class="clisting">remove</span> besteht darin, dass keine Fehlermeldung erzeugt wird, wenn <span class="ckursiv">e</span> nicht in <span class="clisting">s</span> vorhanden ist:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s.discard(5) 
+&gt;&gt;&gt; s 
+set([1, 2, 3, 4]) 
+&gt;&gt;&gt; s.discard(17) 
+&gt;&gt;&gt; s 
+set([1, 2, 3, 4])</pre></div>
+<h5 class="t5"><span class="cfett">s.clear()</span></h5>
+<p>Die Methode <span class="clisting">clear</span> entfernt alle Elemente aus dem Set <span class="clisting">s</span>.  Das Set selbst bleibt nach dem Aufruf von <span class="clisting">clear</span> jedoch weiterhin vorhanden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s.clear() 
+&gt;&gt;&gt; s 
+set([])</pre></div><a id="mjefba418c399f3218461e693613231aeb" name="mjefba418c399f3218461e693613231aeb"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">8.7.2</span><span class="cfett"> Unveränderliche Mengen &#8211; frozenset</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Da es sich bei einem <span class="clisting">frozenset</span> lediglich um eine Version des <span class="clisting">set</span> handelt, die nach dem Erstellen nicht mehr verändert werden darf, wurden alle Operatoren und Methoden bereits im Rahmen der Grundfunktionalität zu Beginn des Kapitels erklärt. Beachten Sie, dass ein <span class="clisting">frozenset</span> nicht nur selbst unveränderlich ist, sondern auch nur unveränderliche Elemente enthalten darf:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; frozenset([1, 2, 3, 4]) 
+frozenset([1, 2, 3, 4]) 
+&gt;&gt;&gt; frozenset([[1, 2], [3, 4]]) 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+TypeError: list objects are unhashable</pre></div>
+<p>Welche Vorteile bietet nun das explizite Behandeln einer Menge als unveränderlich? Nun, neben gewissen Vorteilen in puncto Geschwindigkeit und Speichereffizienz kommt, wir erinnern uns, als Schlüssel eines Dictionarys nur ein unveränderliches Objekt in Frage. Innerhalb eines Dictionarys kann also ein <span class="clisting">frozenset</span> sowohl als Schlüssel als auch als Wert verwendet werden. Das möchten wir im folgenden Beispiel veranschaulichen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d = {frozenset([1,2,3,4]) : "Hello World"} 
+&gt;&gt;&gt; d 
+{frozenset([1, 2, 3, 4]): 'Hello World'}</pre></div>
+<p>Im Gegensatz dazu passiert Folgendes, wenn versucht wird, ein <span class="clisting">set</span> als Schlüssel zu verwenden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d = {set([1,2,3,4]) : "Hello World"} 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+TypeError: set objects are unhashable</pre></div>
+<p>Mit dem <span class="clisting">set</span> haben wir den letzten Basisdatentyp behandelt. Freuen Sie sich nun darauf, das Gelernte anzuwenden. Im nächsten Kapitel werden wir über die verschiedenen Wege sprechen, wie ein Programm mit dem Benutzer interagieren kann.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_08_007.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="8.7 Mengen"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_08_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_09_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

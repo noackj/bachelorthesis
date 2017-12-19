@@ -1,0 +1,5 @@
+FAS - Fahrerassistenzsystem
+ADAS - Advanced Driving Assistant System
+ATS - ADAS Test System
+TDC - Test Drive Creator
+TDA - Test Drive Assistant

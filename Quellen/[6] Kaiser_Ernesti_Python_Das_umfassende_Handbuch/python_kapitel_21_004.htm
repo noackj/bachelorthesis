@@ -1,0 +1,645 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 21.4 Logdateien &#8211; logging</title>
+<meta name="title" content="Galileo Computing :: Python - 21.4 Logdateien &#8211; logging">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 21.4 Logdateien &#8211; logging">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_21_003.htm">
+<link rel="next" href="python_kapitel_21_005.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_21_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_21_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5" class="navnav">21 Debugging</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_001.htm#mjc9ed2f03eb0e2dc23b8fcfef30a0e880" class="navnav">21.1 Der Debugger</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_002.htm#mj7bb4e0fdebd5dc9dfe18d833bb52d5db" class="navnav">21.2 Inspizieren von Instanzen &#8211; inspect</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_002.htm#mj30443824b855deb14b2106456abba8ae" class="navnav">21.2.1 Datentypen, Attribute und Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_002.htm#mj26cf2cec03b118c739fc0c825d9ea501" class="navnav">21.2.2 Quellcode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_002.htm#mj8b1fd73c253dea118d50990cc7b54bb3" class="navnav">21.2.3 Klassen und Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_003.htm#mjbfa58d234253bf05a2380680f0407805" class="navnav">21.3 Formatierte Ausgabe von Instanzen &#8211; pprint</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj9d693b2a9ceb411a7e63099048b7290f" class="navh">21.4 Logdateien &#8211; logging</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0ed595222838429b2af6515588091b69" class="navh">21.4.1 Das Meldungsformat anpassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj53cbe44b8a4f8b6f2d1151cf0c78a680" class="navh">21.4.2 Logging Handler</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_005.htm#mj0006b6d104143c9d0eb05fe0e3418768" class="navnav">21.5 Automatisiertes Testen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_005.htm#mj283ed24cbfec45887f9207dc538785ba" class="navnav">21.5.1 Testfälle in Docstrings &#8211; doctest</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_005.htm#mj833e694a147693a7840c4727b047fd14" class="navnav">21.5.2 Unit Tests &#8211; unittest</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_006.htm#mjf3af0f14f9fbd165ee0566cf30eb3f53" class="navnav">21.6 Traceback-Objekte &#8211; traceback</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_007.htm#mjd9a88b16927a4a97c0d43c013cd80600" class="navnav">21.7 Analyse des Laufzeitverhaltens</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_007.htm#mj2c6ec836b07cb7f425660b5bd840b9c7" class="navnav">21.7.1 Laufzeitmessung &#8211; timeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_007.htm#mj37c250b6464b8c5c176a4619f7669d53" class="navnav">21.7.2 Profiling &#8211; cProfile</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_007.htm#mj17fb8dda4fb94ebbed32afccbbfe12cb" class="navnav">21.7.3 Tracing &#8211; trace</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj9d693b2a9ceb411a7e63099048b7290f" name="mj9d693b2a9ceb411a7e63099048b7290f"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">21.4</span><span class="cfett"> Logdateien &#8211; logging</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Modul <span class="clisting">logging</span> stellt ein flexibles Interface zum Protokollieren eines Programmlaufs bereit. Protokolliert wird der Programmablauf, indem an unterschiedlichen Stellen im Programm Meldungen an das <span class="clisting">logging</span>-Modul abgesetzt werden. Diese Meldungen können unterschiedliche Dringlichkeitsstufen haben. So gibt es beispielsweise Fehlermeldungen, Warnungen oder Informationen. Das Modul <span class="clisting">logging</span> kann diese Meldungen auf vielfältige Weise verarbeiten. Üblich ist es, die Meldung mit einem Timestamp zu versehen und entweder auf dem Bildschirm auszugeben oder in eine Datei zu schreiben.</p>
+<p>In diesem Kapitel soll die Verwendung des Moduls <span class="clisting">logging</span> anhand mehrerer Beispiele im interaktiven Modus gezeigt werden. Um die Beispielprogramme korrekt ausführen zu können, muss zuvor das Modul <span class="clisting">logging</span> eingebunden sein:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> logging</pre></div>
+<p>Bevor Meldungen an den sogenannten <span class="ckursiv">Logger</span> geschickt werden können, muss dieser durch Aufruf der Funktion <span class="clisting">basicConfig</span> initialisiert werden. Die Funktion <span class="clisting">basicConfig</span> bekommt verschiedene Schlüsselwortparameter übergeben. Im folgenden Beispiel wird ein Logger eingerichtet, der alle eingehenden Meldungen in die Logdatei <span class="ckursiv">programm.log</span> schreibt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; logging.basicConfig( 
+...     filename = "programm.log", 
+...     filemode = "a")</pre></div>
+<p>Über den Schlüsselwortparameter <span class="clisting">filemode</span> kann der Modus angegeben werden, in dem die Logdatei geöffnet werden soll. Eine Liste aller verfügbaren Modi und ihrer Bedeutung finden Sie in Abschnitt <a href="./python_kapitel_09_003.htm#Rxx_ref173232059">9.3.4</a>. Der Parameter ist mit <span class="clisting">"a"</span> für »append« vorbelegt und könnte hier auch weggelassen werden.</p>
+<p>Jetzt können mithilfe der im Modul enthaltenen Funktion <span class="clisting">log</span> Meldungen an den Logger übergeben werden. Die Funktion <span class="ckursiv">log</span> bekommt dabei die Dringlichkeitsstufe der Meldung als ersten und die Meldung selbst in Form eines Strings als zweiten Parameter übergeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; logging.log(logging.ERROR, "Ein Fehler ist aufgetreten") 
+&gt;&gt;&gt; logging.log(logging.INFO, "Dies ist eine Information")</pre></div>
+<p>Durch das Aufrufen der Funktion <span class="clisting">shutdown</span> wird der Logger korrekt deinitialisiert, und eventuell noch anstehende Schreiboperationen werden durchgeführt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; logging.shutdown()</pre></div>
+<p>Natürlich sind nicht nur die Dringlichkeitsstufen <span class="clisting">ERROR</span> und <span class="clisting">INFO</span> verfügbar. Die folgende Tabelle listet alle vordefinierten Stufen auf, aus denen Sie wählen können. Die Tabelle ist dabei nach Dringlichkeit geordnet, wobei die dringendste Stufe zuletzt aufgeführt wird.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 21.2    </strong>Vordefinierte Dringlichkeitsstufen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Level</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">loggin.DEBUG</span></p>
+</td>
+<td class="tabellentext">
+<p>Eine Meldung, die nur für den Programmierer zur Fehlersuche interessant ist</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">loggin.INFO</span></p>
+</td>
+<td class="tabellentext">
+<p>Eine Informationsmeldung über den Programmstatus</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">loggin.WARNING</span></p>
+</td>
+<td class="tabellentext">
+<p>Eine Warnmeldung, die auf einen möglichen Fehler hinweist</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">loggin.ERROR</span></p>
+</td>
+<td class="tabellentext">
+<p>Eine Fehlermeldung, nach der das Programm weiterarbeiten kann</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">loggin.CRITICAL</span></p>
+</td>
+<td class="tabellentext">
+<p>Eine Meldung über einen kritischen Fehler, der das sofortige Beenden des Programms oder der aktuell durchgeführten Operation zur Folge hat</p>
+</td>
+</tr>
+</table><br><p>Beachten Sie, dass aus Gründen des Komforts zu jeder Dringlichkeitsstufe eine eigene Funktion existiert. So sind die beiden Funktionsaufrufe von <span class="clisting">logging.log</span> aus dem letzten Beispiel äquivalent zu:</p>
+<div class="listing"><pre class="prettyprint">logging.error("Ein Fehler ist aufgetreten") 
+logging.info("Dies ist eine Information")</pre></div>
+<p>Wenn Sie sich die Logdatei nach dem Aufruf dieser beiden Funktionen ansehen, werden Sie feststellen, dass es lediglich einen einzigen Eintrag gibt:</p>
+<div class="listing"><pre class="prettyprint">ERROR:root:Ein Fehler ist aufgetreten</pre></div>
+<p>Das liegt daran, dass der Logger in seiner Basiskonfiguration nur Meldungen loggt, deren Dringlichkeit größer oder gleich der einer Warnung sind. Um auch Debug- und Info-Meldungen mitzuloggen, muss beim Aufruf der Funktion <span class="clisting">basicConfig</span> im Schlüsselwortparameter <span class="clisting">level</span> ein geeigneter Wert übergeben werden:</p>
+<div class="listing"><pre class="prettyprint">logging.basicConfig( 
+    filename="programm.log", 
+    level = logging.DEBUG) 
+logging.error("Ein Fehler ist aufgetreten") 
+logging.info("Dies ist eine Information")</pre></div>
+<p>In diesem Beispiel wurde die Mindestdringlichkeit auf <span class="clisting">DEBUG</span> gesetzt. Das bedeutet, dass alle Meldungen, die mindestens eine Dringlichkeit von <span class="clisting">DEBUG</span> haben, geloggt werden. Folglich erscheinen auch beide Meldungen in der Logdatei:</p>
+<div class="listing"><pre class="prettyprint">ERROR:root:Ein Fehler ist aufgetreten 
+INFO:root:Dies ist eine Information</pre></div><a id="mj0ed595222838429b2af6515588091b69" name="mj0ed595222838429b2af6515588091b69"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">21.4.1</span><span class="cfett"> Das Meldungsformat anpassen</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zu Beginn von Abschnitt <a href="#Rxx_ref181612868">21.4</a> wurde erwähnt, dass man Einträge in einer Logdatei gerne mit der Uhrzeit versieht, zu der die Meldung eingegangen ist. Eine solche Uhrzeit wird aber, wie in den vorangegangenen Beispielen zu sehen war, standardmäßig nicht angezeigt. Es gibt allerdings eine Möglichkeit, das Format der geloggten Meldung anzupassen. Dazu muss beim Funktionsaufruf von <span class="clisting">basicConfig</span> der Schlüsselwortparameter <span class="clisting">format</span> übergeben werden:</p>
+<div class="listing"><pre class="prettyprint">logging.basicConfig( 
+    filename="programm.log", 
+    level = logging.DEBUG, 
+    format = "%(asctime)s [%(levelname)-8s] %(message)s") 
+logging.error("Ein Fehler ist aufgetreten") 
+logging.info("Dies ist eine Information") 
+logging.error("Und schon wieder ein Fehler")</pre></div>
+<p>Sie sehen, dass ein Format-String übergeben wurde, der die Vorlage für eine Meldung enthält, wie sie später in der Logdatei stehen soll. Beachten Sie, dass es sich dabei um die bekannte String-Formatierung handelt, bei der die Bezeichner <span class="clisting">asctime</span> für den Timestamp, <span class="clisting">levelname</span> für die Dringlichkeitsstufe und <span class="clisting">message</span> für die Meldung verwendet wurden. Die von diesem Beispiel generierten Meldungen sehen folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">2007-09-27 03:28:55,811 [ERROR   ] Ein Fehler ist aufgetreten 
+2007-09-27 03:29:00,690 [INFO    ] Dies ist eine Information 
+2007-09-27 03:29:12,686 [ERROR   ] Und schon wieder ein Fehler</pre></div>
+<p>Die folgende Tabelle listet die wichtigsten Bezeichner auf, die innerhalb des <span class="clisting">format</span>-Formatstrings verwendet werden dürfen. Beachten Sie, dass einige der Bezeichner je nach Kontext, in dem die Meldung erzeugt wird, keine Bedeutung haben.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 21.3    </strong>Bezeichner im Formatstring
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Level</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">%(levelname)s</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die Dringlichkeitsstufe der Meldung</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">%(pathname)s</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Pfad zur Programmdatei, in der die Meldung abgesetzt wurde</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">%(filename)s</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Dateiname der Programmdatei, in der die Meldung abgesetzt wurde</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">%(module)s</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Name des Moduls, in dem die Meldung abgesetzt wurde. Der Modulname entspricht dem Dateinamen ohne Dateiendung.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">%(funcName)s</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Name der Funktion, in der die Meldung abgesetzt wurde</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">%(lineno)s</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die Quellcodezeile, in der die Meldung abgesetzt wurde</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">%(asctime)s</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Zeitpunkt der Meldung. Beachten Sie, dass das Datums- und Zeitformat beim Funktionsaufruf von <span class="clisting">basicConfig</span> über den Parameter <span class="clisting">datefmt</span> angegeben werden kann. Näheres dazu folgt im Anschluss an diese Tabelle.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">%(thread)s</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die ID des Threads, in dem die Meldung abgesetzt wurde</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">%(process)s</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die ID des Prozesses, in dem die Meldung abgesetzt wurde</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">%(message)s</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Text der Meldung</p>
+</td>
+</tr>
+</table><br><p>Was uns an diesen Meldungen vielleicht noch stört, ist das Format des Timestamps. Zum einen wird das amerikanische Datumsformat verwendet, und zum anderen ist eine Auflösung bis auf die Millisekunde genau für unsere Zwecke ein bisschen zu fein. Das Format des Timestamps kann beim Aufruf von <span class="clisting">basicConfig</span> über den Schlüsselwortparameter <span class="clisting">datefmt</span> angegeben werden:</p>
+<div class="listing"><pre class="prettyprint">logging.basicConfig( 
+    filename="programm.log", 
+    level = logging.DEBUG, 
+    format = "%(asctime)s %(levelname)s: %(message)s", 
+    datefmt = "%d.%m.%Y %H:%M:%S") 
+logging.error("Ein Fehler ist aufgetreten")</pre></div>
+<p>Die in der Vorlage für das Datumsformat verwendeten Platzhalter wurden in Abschnitt <a href="./python_kapitel_16_001.htm#Rxx_ref177933518">16.1</a> eingeführt. Die von diesem Beispiel erzeugte Meldung sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">27.09.2007 03:38:49 ERROR: Ein Fehler ist aufgetreten</pre></div><a id="mj53cbe44b8a4f8b6f2d1151cf0c78a680" name="mj53cbe44b8a4f8b6f2d1151cf0c78a680"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">21.4.2</span><span class="cfett"> Logging Handler</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bisher wurde ausschließlich besprochen, wie das Modul <span class="clisting">logging</span> dazu verwendet werden kann, alle eingehenden Meldungen in eine Datei zu schreiben. Tatsächlich ist das Modul in dieser Beziehung sehr flexibel und erlaubt es, nicht nur in Dateien, sondern beispielsweise auch in Streams zu schreiben oder die Meldungen über eine Netzwerkverbindung zu schicken. Dafür werden sogenannte Logging Handler verwendet. Um genau zu sein, haben wir in den vorherigen Abschnitten bereits einen impliziten Handler verwendet, ohne uns darüber im Klaren zu sein.</p>
+<p>Um einen speziellen Handler einzurichten, muss eine Instanz der Handler-Klasse erzeugt werden. Diese kann dann vom Logger verwendet werden. Im folgenden Beispiel sollen alle Meldungen auf einen Stream, nämlich <span class="clisting">sys.stdout</span>, geschrieben werden. Dazu wird die Handler-Klasse <span class="clisting">logging.StreamHandler</span> verwendet.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> logging<span class="cfett"> 
+import</span> sys<br>
+handler = logging.StreamHandler(sys.stdout) 
+frm = logging.Formatter("%(asctime)s %(levelname)s: %(message)s", 
+                              "%d.%m.%Y %H:%M:%S") 
+handler.setFormatter(frm)<br>
+logger = logging.getLogger() 
+logger.addHandler(handler) 
+logger.setLevel(logging.DEBUG)<br>
+logger.critical("Ein wirklich kritischer Fehler") 
+logger.warning("Und eine Warnung hinterher") 
+logger.info("Dies hingegen ist nur eine Info")</pre></div>
+<p>Zunächst wird der Handler, in diesem Fall ein <span class="clisting">StreamHandler</span>, instanziiert. Im nächsten Schritt wird eine Instanz der Klasse <span class="clisting">Formatter</span> erzeugt. Diese Klasse kapselt die Formatierungsanweisungen, die wir in den vorherigen Beispielen beim Aufruf der Funktion <span class="clisting">basicConfig</span> übergeben haben. Mithilfe der Methode <span class="clisting">set</span> <span class="clisting">Formatter</span> werden dem Handler die Formatierungsanweisungen bekannt gegeben.</p>
+<p>Um den Handler beim Logger zu registrieren, benötigen wir Zugriff auf die bisher implizit verwendete Logger-Instanz. Diesen Zugriff erlangen wir über die Funktion <span class="clisting">logging.getLogger</span>. Danach wird über <span class="clisting">addHandler</span> der Handler hinzugefügt und über <span class="clisting">setLevel</span> die gewünschte Dringlichkeitsstufe eingestellt.</p>
+<p>Beachten Sie, dass die Meldungen im Folgenden nicht über Funktionen des Moduls <span class="clisting">logging</span>, sondern über die Methoden <span class="clisting">critical</span>, <span class="clisting">warning</span> und <span class="clisting">info</span> der <span class="clisting">Logger</span>-Instanz <span class="clisting">logger</span> abgesetzt werden. Das Beispielprogramm gibt folgenden Text auf dem Bildschirm aus:</p>
+<div class="listing"><pre class="prettyprint">27.09.2007 17:21:46 CRITICAL: Ein wirklich kritischer Fehler 
+27.09.2007 17:21:46 WARNING: Und eine Warnung hinterher 
+27.09.2007 17:21:46 INFO: Dies hingegen ist nur eine Info</pre></div>
+<p>Im Folgenden sollen die wichtigsten zusätzlichen Handler-Klassen beschrieben werden, die im Modul <span class="clisting">logging</span> enthalten sind.</p>
+<h5 class="t5"><span class="cfett">logging.FileHandler(filename[, mode)</span></h5>
+<p>Dieser Handler schreibt die Logeinträge in die Datei <span class="ckursiv">filename</span>. Dabei wird die Datei im Modus <span class="clisting">mode</span> geöffnet. Beachten Sie, dass der Handler <span class="clisting">FileHandler</span> auch implizit durch Angabe der Schlüsselwortparameter <span class="clisting">filename</span> und <span class="clisting">filemode</span> beim Aufruf der Funktion <span class="clisting">basicConfig</span> verwendet werden kann.</p>
+<h5 class="t5"><span class="cfett">logging.StreamHandler([stream])</span></h5>
+<p>Dieser Handler schreibt die Logeinträge in den Stream <span class="ckursiv">stream</span>. Beachten Sie, dass der Handler <span class="clisting">StreamHandler</span> auch implizit durch Angabe des Schlüsselwortparameters <span class="clisting">stream</span> beim Aufruf der Funktion <span class="clisting">basicConfig</span> verwendet werden kann.</p>
+<h5 class="t5"><span class="cfett">logging.handler.SocketHandler(host, port)</span></h5>
+<p>Dieser Handler sendet die Logeinträge über eine TCP-Netzwerkschnittstelle an den Rechner mit dem Hostnamen <span class="ckursiv">host</span> unter Verwendung des Ports <span class="ckursiv">port</span>. Beachten Sie, dass die Meldungen komprimiert werden und der Rechner, der die Logeinträge entgegennimmt, diese speziell entpacken muss. Aus Platzgründen werden wir darauf hier nicht eingehen, Sie finden aber ein ausführliches Beispielprogramm in der Dokumentation des Moduls <span class="clisting">logging</span> unter dem Stichwort »<span class="ckursiv">Sending and receiving events across a network</span>«.</p>
+<h5 class="t5"><span class="cfett">logging.handler.DatagramHandler(host, port)</span></h5>
+<p>Dieser Handler sendet die Logeinträge über eine UDP-Netzwerkschnittstelle und wird ähnlich verwendet wie der Handler <span class="clisting">SocketHandler</span>.</p>
+<h5 class="t5"><span class="cfett">logging.handler.SMTPHandler(mailhost, fromaddr, toaddr, subject)</span></h5>
+<p>Dieser Handler sendet die Logeinträge als E-Mail an die Adresse <span class="ckursiv">toaddr</span>. Dabei wird <span class="ckursiv">subject</span> als Betreff und <span class="ckursiv">fromaddr</span> als Absenderadresse eingetragen. Über den Parameter <span class="ckursiv">mailhost</span> wird der zu verwendende SMTP-Server angegeben.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_21_004.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="21.4 Logdateien &#8211; logging"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_21_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_21_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

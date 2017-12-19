@@ -1,0 +1,694 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 20.4 FTP &#8211; ftplib</title>
+<meta name="title" content="Galileo Computing :: Python - 20.4 FTP &#8211; ftplib">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 20.4 FTP &#8211; ftplib">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_20_003.htm">
+<link rel="next" href="python_kapitel_20_005.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_20_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_20_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d" class="navnav">20 Netzwerkkommunikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_001.htm#mja62901950a4d46ed586c0cbeca851b76" class="navnav">20.1 Socket API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjec5a627b57a6f464cae8952dff1b29bd" class="navnav">20.1.1 Client/Server-Systeme</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj30aa144d06bfbda567b400e1c9aabe0b" class="navnav">20.1.2 UDP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj39991ea943a5ced16cfb0f82e23d6267" class="navnav">20.1.3 TCP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj3e26029cb2fe9761934cae397c7bee0c" class="navnav">20.1.4 Blockierende und nicht-blockierende Sockets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj71cca1384f82cf8c9383ca0a725fb00d" class="navnav">20.1.5 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjeff502fc2c89cbfcde6b121f1c9c6ae2" class="navnav">20.1.6 Netzwerk-Byte-Order</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjc0a8ce33f2ca54a6aff578a363939704" class="navnav">20.1.7 Multiplexende Server &#8211; select</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjb11f39ffbe49131e4aeb49e5298e5be5" class="navnav">20.1.8 SocketServer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_002.htm#mja7bd045128f3673afe68420a4ddae7b6" class="navnav">20.2 Zugriff auf Ressourcen im Internet &#8211; urllib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_002.htm#mjdb126d022da9199ad232014227ef993f" class="navnav">20.2.1 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_003.htm#mjf2c50a134584c3cd96329ea233243a0a" class="navnav">20.3 Einlesen einer URL &#8211; urlparse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjc608fa65c6e2a85e9c55bcbb0179eda7" class="navh">20.4 FTP &#8211; ftplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_005.htm#mjf9b67beb12a70b4a0b02609da6bc5dee" class="navnav">20.5 E-Mail</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mjbf78b46f8a9a493e9d5a75011df76d08" class="navnav">20.5.1 SMTP &#8211; smtplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mjef70cbc06d943ba00c671366c1934c64" class="navnav">20.5.2 POP3 &#8211; poplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mj44a18a19feec0481e1774cbf0fdaf877" class="navnav">20.5.3 IMAP4 &#8211; imaplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mj14c7624ff8d2c29622f837a39bdaf02f" class="navnav">20.5.4 Erstellen komplexer E-Mails &#8211; email</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_006.htm#mj1783a4c1d0411ed0f8998971f7b75ad8" class="navnav">20.6 Telnet &#8211; telnetlib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_007.htm#mj49407e7b67376a73ea92fcad6b9a616e" class="navnav">20.7 XML-RPC</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mj7e91c239d3a86b2c7b8b2a950e27939f" class="navnav">20.7.1 Der Server</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mjf943ea1a64037f0c66254a4608ef8942" class="navnav">20.7.2 Der Client</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mj20962ea6eea7210a5efc5fed2b83ecb3" class="navnav">20.7.3 Multicall</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mjd2ea8b459e41a939f259057acdc43e98" class="navnav">20.7.4 Einschränkungen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjc608fa65c6e2a85e9c55bcbb0179eda7" name="mjc608fa65c6e2a85e9c55bcbb0179eda7"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">20.4</span><span class="cfett"> FTP &#8211; ftplib</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Modul <span class="clisting">ftplib</span> ermöglicht es einer Anwendung, sich mit einem FTP-Server zu verbinden und Operationen auf diesem durchzuführen. <span class="ckursiv">FTP</span> steht für <span class="ckursiv">File Transfer Protocol</span> und bezeichnet ein Netzwerkprotokoll, das für Dateiübertragungen in TCP/IP-Netzwerken entwickelt wurde. Gerade im Internet ist FTP sehr verbreitet. So geschehen beispielsweise Dateiübertragungen auf einen Webserver üblicherweise via FTP.</p>
+<p>Das Protokoll FTP ist sehr einfach aufgebaut und besteht aus einer umfangreichen Anzahl von Befehlen, die auch von Menschen gelesen werden können. Im Prinzip könnte man also auch direkt mit dem FTP-Server kommunizieren, ohne eine abstrahierende Bibliothek zwischenzuschalten. Die folgende Tabelle listet die wichtigsten FTP-Befehle auf und erläutert kurz ihre Bedeutung. Sie werden sehen, dass sich das Modul <span class="clisting">ftplib</span> sehr stark an diese Befehle anlehnt und man deshalb gut beraten ist, sich zumindest einen Überblick über die FTP-Befehle zu verschaffen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 20.5    </strong>FTP-Befehle
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Befehl</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">OPEN</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Baut eine Verbindung zu einem FTP-Server auf.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">USER</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Überträgt einen Benutzernamen zum Login an den FTP-Server.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">PASS</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Überträgt ein Passwort zum Login an den FTP-Server.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">CWD</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Ändert das aktuelle Arbeitsverzeichnis auf dem FTP-Server. (<span class="clisting">CWD</span> steht für »<span class="ckursiv">change working directory</span>«.)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">PWD</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Gibt das aktuelle Arbeitsverzeichnis auf dem FTP-Server zurück. (<span class="clisting">PWD</span> steht für »<span class="ckursiv">print working directory</span>«.)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">DELE</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Löscht eine Datei auf dem FTP-Server. (<span class="clisting">DELE</span> steht für »<span class="ckursiv">delete</span>«.)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">LIST</span> 
+LS</pre></div>
+</td>
+<td class="tabellentext">
+<p>Überträgt eine Liste aller im Arbeitsverzeichnis enthaltenen Dateien und Ordner. Die Liste wird über den Datenkanal übermittelt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">MKD</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Erstellt ein Verzeichnis auf dem FTP-Server. (<span class="clisting">MKD</span> steht für »<span class="ckursiv">make directory</span>«.)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">RMD</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Löscht ein Verzeichnis auf dem FTP-Server. (<span class="clisting">RMD</span> steht für »<span class="ckursiv">remove directory</span>«.)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">RETR</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Überträgt eine Datei vom FTP-Server. (<span class="clisting">RETR</span> steht für »<span class="ckursiv">retrieve</span>«.)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">STOR</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Überträgt eine Datei vom Client an den FTP-Server. (<span class="clisting">STOR</span> steht für »<span class="ckursiv">store</span>«.)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">QUIT</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Beendet die Verbindung zwischen Server und Client.</p>
+</td>
+</tr>
+</table><br><p>Die Kommunikation mit einem FTP-Server läuft auf zwei Kanälen ab: auf dem Steuerkanal zum Senden von Befehlen an den Server und auf dem Datenkanal zum Empfangen von Daten. Diese Trennung von Kommando- und Übertragungsebene ermöglicht es, dass auch während einer laufenden Datenübertragung Befehle, beispielsweise zum Abbruch der Übertragung, an den Server gesendet werden können. Grundsätzlich kann eine Datenübertragung in zwei Modi ablaufen. Im sogenannten <span class="ckursiv">aktiven Modus</span> fordert der Client eine Datei an und öffnet gleichzeitig einen Port, über den dann die Übertragung der Datei ablaufen soll. Dem gegenüber steht der <span class="ckursiv">passive Modus</span>, bei dem der Client den Server instruiert, einen Port zu öffnen, um die Datenübertragung durchzuführen. Das hat den Vorteil, dass auch Datenübertragungen mit Clients stattfinden können, die für den Server nicht direkt adressierbar sind, weil sie beispielsweise hinter einem Router oder einer Firewall stehen.</p>
+<p>So viel zu den theoretischen Grundlagen. Ab jetzt werden wir behandeln, wie das Modul <span class="clisting">ftplib</span> zur Kommunikation mit einem FTP-Server verwendet werden kann. Das Modul <span class="clisting">ftplib</span> stellt die Klasse <span class="clisting">FTP</span> zur Verfügung, die es einer Anwendung ermöglicht, sich mit einem FTP-Server zu verbinden und die dort unterstützten Operationen auszuführen. Mit diesem Modul kann man also einen vollwertigen FTP-Client implementieren.</p>
+<p>Bereits beim Instanziieren der Klasse <span class="clisting">FTP</span> kann eine Verbindung mit einem FTP-Server hergestellt werden. Dazu muss dem Konstruktor mindestens die Adresse des FTP-Servers als String übergeben werden. Der Konstruktor der Klasse <span class="clisting">FTP</span> hat folgende Schnittstelle:</p>
+<p><span class="ckursiv">FTP([host[, user[, passwd[, acct]]]])</span></p>
+<p>Der Konstruktor erzeugt eine Instanz der Klasse <span class="clisting">FTP</span>, die mit dem FTP-Server <span class="ckursiv">host</span> verbunden ist. Bei der Anmeldung an diesem Server werden der Benutzername <span class="ckursiv">user</span>, das Passwort <span class="ckursiv">passwd</span> und, sofern notwendig, der Account <span class="ckursiv">acct</span> verwendet.</p>
+<h4 class="t4"><span class="cfett">Die Klasse FTP</span></h4>
+<p>Im Folgenden sollen die wichtigsten Methoden einer <span class="clisting">FTP</span>-Instanz erläutert werden. Um die folgenden Beispiele ausführen zu können, müssen Sie sowohl das Modul <span class="clisting">ftplib</span> importieren als auch eine <span class="clisting">FTP</span>-Instanz <span class="clisting">ftp</span> erzeugen, die mit einem FTP-Server Ihrer Wahl verbunden ist:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> ftplib 
+&gt;&gt;&gt; ftp = ftplib.FTP("ftp://ftp.test.de")</pre></div>
+<p>Im Folgenden sei <span class="clisting">f</span> eine Instanz der Klasse <span class="clisting">ftplib.FTP</span>.</p>
+<h5 class="t5"><span class="cfett">f.connect(host[, port])</span></h5>
+<p>Verbindet zu dem FTP-Server <span class="ckursiv">host</span> unter Verwendung des Ports <span class="ckursiv">port</span>. Diese Methode sollte nicht aufgerufen werden, wenn bei der Instanziierung der Klasse <span class="clisting">FTP</span> bereits die Adresse des FTP-Servers übergeben wurde.</p>
+<h5 class="t5"><span class="cfett">f.getwelcome()</span></h5>
+<p>Gibt die Willkommensnachricht des verbundenen FTP-Servers als String zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ftp.getwelcome() 
+'220 Welcome to xyz FTP server. Please login...'</pre></div>
+<h5 class="t5"><span class="cfett">f.login([user[, passwd[, acct]]])</span></h5>
+<p>Loggt sich auf dem verbundenen FTP-Server ein. Beachten Sie, dass die Methode <span class="clisting">connect</span> unbedingt aufgerufen werden muss, bevor ein Login durchgeführt werden kann.</p>
+<p>Die Parameter haben dieselbe Bedeutung wie die des Konstruktors der Klasse <span class="clisting">FTP</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ftp.login("<span class="clistingk">Benutzername</span>", "<span class="clistingk">Passwort</span>") 
+'230 User<span class="clistingk"> Benutzername</span> logged in'</pre></div>
+<p>Wenn die Methode <span class="clisting">login</span> aufgerufen wird, obwohl der Client bereits eingeloggt ist, wird eine <span class="clisting">ftplib.error_perm</span>-Exception geworfen.</p>
+<h5 class="t5"><span class="cfett">f.abort()</span></h5>
+<p>Unterbricht einen laufenden Dateitransfer. Beachten Sie, dass eine solche Unterbrechung je nach Server nicht zu jedem Zeitpunkt durchgeführt werden kann.</p>
+<h5 class="t5"><span class="cfett">f.sendcmd(command)</span></h5>
+<p>Schickt den Kommandostring <span class="ckursiv">command</span> an den verbundenen FTP-Server und gibt dessen Antwort ebenfalls als String zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ftp.sendcmd("PWD") 
+'257 "/" is the current directory'</pre></div>
+<h5 class="t5"><span class="cfett">f.retrbinary(command, callback[, maxblocksize])</span></h5>
+<p>Leitet einen Datentransfer im Binärmodus ein. Dazu muss als erster Parameter ein entsprechendes FTP-Kommando übergeben werden, aufgrund dessen der Server einen Datentransfer über den Datenkanal startet. Für einen simplen Dateitransfer dient das Kommando »<span class="clisting">RETR</span> <span class="ckursiv">dateiname</span>«.</p>
+<p>An zweiter Stelle muss ein Funktionsobjekt übergeben werden. Die dahinter stehende Funktion muss exakt einen Parameter akzeptieren. Nach jedem erfolgreich übermittelten Block wird die Funktion <span class="ckursiv">callback</span> aufgerufen. Die übertragenen Binärdaten werden dabei als Parameter in Form eines Strings übergeben.</p>
+<p>Über den Parameter <span class="ckursiv">maxblocksize</span> kann die maximale Größe der Blöcke angegeben werden, in die die Datei zum Herunterladen aufgeteilt wird.</p>
+<div class="listing"><pre class="prettyprint">bild = ""<span class="cfett"> 
+def</span> f(data): 
+   <span class="cfett"> global</span> bild 
+    bild += data 
+ftp.retrbinary("RETR bild.jpg", f)</pre></div>
+<p>Das Beispielprogramm lädt die Bilddatei <span class="ckursiv">bild.jpg</span> aus dem aktuellen Arbeitsverzeichnis des FTP-Servers herunter und speichert die Binärdaten im String <span class="clisting">bild</span>.</p>
+<p>Alternativ könnte auch ein <span class="clisting">LIST</span>-Kommando abgesetzt werden, aufgrund dessen der Verzeichnisinhalt ebenfalls über den Datenkanal geschickt wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> def</span> f(data): 
+...    <span class="cfett"> print</span> data 
+... 
+&gt;&gt;&gt; ftp.retrbinary("LIST", f) 
+drwxr-xr-x  11 user   group       360 Sep  5 02:45 . 
+drwxr-xr-x  11 user   group       360 Sep  5 02:45 .. 
+drwxr-xr-x   4 user   group        96 Jun 20  2006 ordner1 
+[…]</pre></div>
+<h5 class="t5"><span class="cfett">f.retrlines(command[, callback])</span></h5>
+<p>Leitet einen Dateitransfer im ASCII-Modus ein. Dazu muss als erster Parameter ein entsprechendes FTP-Kommando übergeben werden. Für einen simplen Dateitransfer wäre dies »<span class="clisting">RETR</span> <span class="ckursiv">dateiname</span>«. Möglich wäre aber beispielsweise auch, den Inhalt des Arbeitsverzeichnisses durch ein <span class="clisting">LIST</span>-Kommando zu übertragen.</p>
+<p>Eine Dateiübertragung im ASCII-Modus geschieht zeilenweise. Das heißt, die Callback-Funktion <span class="ckursiv">callback</span> wird nach jeder vollständig übertragenen Zeile aufgerufen. Sie bekommt dabei die gelesene Zeile als Parameter übergeben. Beachten Sie, dass das abschließende Newline-Zeichen nicht mit übergeben wird.</p>
+<p>Wenn keine Callback-Funktion angegeben wurde, werden die übertragenen Daten ausgegeben.</p>
+<div class="listing"><pre class="prettyprint">text = ""<span class="cfett"> 
+def</span> f(data): 
+   <span class="cfett"> global</span> text 
+    text = "".join((text, data, "\n")) 
+ftp.retrlines("RETR text.txt", f)</pre></div>
+<p>Dieses Beispielprogramm lädt die Textdatei <span class="ckursiv">text.txt</span> zeilenweise herunter und fügt die heruntergeladenen Zeilen im String <span class="clisting">text</span> wieder zu einem Gesamttext zusammen.</p>
+<h5 class="t5"><span class="cfett">f.set_pasv(boolean)</span></h5>
+<p>Wenn für <span class="ckursiv">boolean</span> <span class="clisting">False</span> übergeben wird, wird die <span class="clisting">FTP</span>-Instanz in den sogenannten aktiven Zustand versetzt. Ein Wert von <span class="clisting">True</span> versetzt sie zurück in den passiven Zustand. Beachten Sie, dass der Client im aktiven Zustand für den Server erreichbar sein muss, sich also nicht hinter einer Firewall oder einem Router befinden darf.</p>
+<h5 class="t5"><span class="cfett">f.storbinary(command, file[, blocksize])</span></h5>
+<p>Leitet einen Datei-Upload ein. Dabei muss als erster Parameter ein entsprechender FTP-Befehl übergeben werden. Für einen simplen Datei-Upload lautet dieser Befehl »<span class="clisting">STOR</span> <span class="ckursiv">datei</span>«, wobei <span class="ckursiv">datei</span> der Zielname der Datei auf dem FTP-Server ist. Als zweiter Parameter muss ein geöffnetes Dateiobjekt übergeben werden, dessen Inhalt hochgeladen werden soll.</p>
+<p>Optional kann in Form des dritten Parameters, <span class="ckursiv">blocksize</span>, die maximale Größe der Datenblöcke angegeben werden, in denen die Datei hochgeladen wird.</p>
+<p>Das folgende Beispielprogramm führt einen binären Datei-Upload durch:</p>
+<div class="listing"><pre class="prettyprint">f = open("bla.txt", "r") 
+ftp.storbinary("STOR hallo.txt", f) 
+f.close()</pre></div>
+<p>Beachten Sie, dass die Datei im lokalen Arbeitsverzeichnis <span class="ckursiv">bla.txt</span> heißt, auf den Server jedoch unter dem Namen <span class="ckursiv">hallo.txt</span> hochgeladen wird.</p>
+<h5 class="t5"><span class="cfett">f.storlines(command, file)</span></h5>
+<p>Verhält sich ähnlich wie <span class="clisting">storbinary</span> mit dem Unterschied, dass die Datei im ASCII-Modus zeilenweise hochgeladen wird. Die Parameter <span class="ckursiv">command</span> und <span class="ckursiv">file</span> können wie bei <span class="clisting">storbinary</span> verwendet werden.</p>
+<h5 class="t5"><span class="cfett">f.nlst([dirname])</span></h5>
+<p>Gibt eine Liste mit dem Inhalt des aktuellen Arbeitsverzeichnisses auf dem FTP-Server zurück. Über den optionalen Parameter <span class="ckursiv">dirname</span> kann ein Unterverzeichnis angegeben werden, dessen Inhalt aufgelistet werden soll:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ftp.nlst() 
+['.', '..', 'ordner1', 'ordner2', 'hallo.txt'] 
+&gt;&gt;&gt; ftp.nlst("ordner1") 
+[' ordner1/.', ' ordner1/..', ' ordner1/test.py']</pre></div>
+<p>Neben den im Arbeitsverzeichnis existierenden Ordnern und Dateien sind die Verweise auf das aktuelle Verzeichnis (<span class="clisting">.</span>) und das übergeordnete Verzeichnis (<span class="clisting">..</span>) in der Liste enthalten.</p>
+<h5 class="t5"><span class="cfett">f.dir([dirname[, callback]])</span></h5>
+<p>Gibt den Inhalt des aktuellen Arbeitsverzeichnisses auf dem FTP-Server in Form einer Aufzählung auf dem Bildschirm aus, wie sie vom FTP-Befehl <span class="clisting">LIST</span> erzeugt würde. Optional kann über den Parameter <span class="ckursiv">dirname</span> ein Unterverzeichnis angegeben werden, dessen Inhalt ausgegeben werden soll.</p>
+<p>Außerdem kann eine Callback-Funktion übergeben werden, die anstelle einer Bildschirmausgabe aufgerufen wird. Die Callback-Funktion <span class="ckursiv">callback</span> muss über die gleiche Schnittstelle verfügen wie die, die bei <span class="clisting">retrlines</span> angegeben werden kann.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ftp.dir() 
+drwxr-xr-x  11 user   group       360 Sep  5 02:45 . 
+drwxr-xr-x  11 user   group       360 Sep  5 02:45 .. 
+[…]</pre></div>
+<h5 class="t5"><span class="cfett">f.rename(fromname, toname)</span></h5>
+<p>Benennt die Datei <span class="ckursiv">fromname</span> auf dem FTP-Server nach <span class="ckursiv">toname</span> um.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ftp.rename("ordner", "ordner2") 
+'250 Rename successful'</pre></div>
+<p>Es erübrigt sich zu sagen, dass der Ordner, der umbenannt werden soll, existieren muss. Ist dies nicht der Fall, wird eine <span class="clisting">ftplib.error_perm</span>-Exception geworfen.</p>
+<h5 class="t5"><span class="cfett">f.delete(filename)</span></h5>
+<p>Löscht die Datei <span class="ckursiv">filename</span> auf dem FTP-Server.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ftp.delete("hallo.txt") 
+'250 DELE command successful'</pre></div>
+<p>Auch hier wird eine <span class="clisting">ftplib.error_perm</span>-Exception geworfen, wenn die zu löschende Datei nicht existiert.</p>
+<h5 class="t5"><span class="cfett">f.cwd(pathname)</span></h5>
+<p>Ändert das aktuelle Arbeitsverzeichnis auf dem FTP-Server in <span class="ckursiv">pathname</span>. Sollte das Verzeichnis <span class="ckursiv">pathname</span> nicht existieren, wird eine <span class="clisting">ftplib.error_perm</span>-Exception geworfen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ftp.cwd("ordner") 
+'250 CWD command successful'</pre></div>
+<h5 class="t5"><span class="cfett">f.mkd(pathname)</span></h5>
+<p>Erzeugt das Verzeichnis <span class="ckursiv">pathname</span> auf dem FTP-Server. Die Methode <span class="clisting">mkd</span> gibt den Pfad zu dem neu erstellten Verzeichnis zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ftp.mkd("ordner") 
+'/ordner'</pre></div>
+<p>Beachten Sie, dass kein Verzeichnis dieses Namens bereits existieren darf. In einem solchen Fall würde eine <span class="clisting">ftplib.error_perm</span>-Exception geworfen.</p>
+<h5 class="t5"><span class="cfett">f.pwd()</span></h5>
+<p>Gibt den Pfad des aktuellen Arbeitsverzeichnisses auf dem FTP-Server zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ftp.pwd() 
+'/'</pre></div>
+<h5 class="t5"><span class="cfett">f.rmd(dirname)</span></h5>
+<p>Löscht das Verzeichnis <span class="ckursiv">dirname</span> auf dem FTP-Server. Beachten Sie, dass das Verzeichnis <span class="ckursiv">dirname</span> vorhanden und leer sein muss, damit es erfolgreich gelöscht werden kann. Im Fehlerfall wird eine <span class="clisting">ftplib.error_perm</span>-Exception geworfen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ftp.rmd("ordner") 
+'250 RMD command successful'</pre></div>
+<h5 class="t5"><span class="cfett">f.size(filename)</span></h5>
+<p>Ermittelt die Dateigröße der Datei <span class="ckursiv">filename</span> auf dem FTP-Server. Wenn sie sich ermitteln ließ, wird die Dateigröße als ganze Zahl zurückgegeben, andernfalls ist der Rückgabewert <span class="clisting">None</span>. Beachten Sie, dass das dieser Methode zugrunde liegende FTP-Kommando <span class="clisting">SIZE</span> nicht standardisiert ist und somit nicht von allen FTP-Servern unterstützt wird.</p>
+<h5 class="t5"><span class="cfett">f.quit()</span></h5>
+<p>Beendet die Verbindung zum FTP-Server, indem ihm ein <span class="clisting">QUIT</span>-Befehl gesendet wird. Dies ist die saubere Art, die Verbindung zu kappen, könnte aber eine Exception verursachen, wenn der Server mit einem Fehlercode antworten sollte.</p>
+<p>Der Aufruf von <span class="clisting">quit</span> erübrigt einen weiteren Aufruf von <span class="clisting">close</span>.</p>
+<h5 class="t5"><span class="cfett">f.close()</span></h5>
+<p>Beendet die Verbindung, ohne den FTP-Server darüber in Kenntnis zu setzen. Beachten Sie, dass dieselbe FTP-Instanz nach Aufruf dieser Funktion nicht wieder per <span class="clisting">login</span> mit einem FTP-Server verbunden werden kann. Dazu sollte eine neue Instanz erzeugt werden.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_20_004.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="20.4 FTP &#8211; ftplib"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_20_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_20_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

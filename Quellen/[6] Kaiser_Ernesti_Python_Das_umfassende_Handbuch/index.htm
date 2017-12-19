@@ -1,0 +1,1382 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python</title>
+<meta name="title" content="Galileo Computing :: Python">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="description" content="Python – Das umfassende Handbuch">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="next" href="python_kapitel_01_001.htm"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin =window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="navh2" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_01_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav">&gt;&gt; Download (Zip, ca. 4,8 MB)</a></td>
+<td width="80%">Dieses Buch bietet sowohl eine <strong>umfassende Einführung</strong> in die Sprache Python <em>(aktuell zur Version 2.5)</em> als auch <strong>viele weiterführende Kapitel zu fortgeschrittenen Themen</strong> wie GUI-Entwicklung, Web-Programmierung mit Django oder Netzwerkkommunikation. Nach der Lektüre sind Sie in der Lage, Python professionell einzusetzen. Die Einführung erfolgt systematisch vom ersten einfachen Programm bis hin zu komplexen objektorientierten Programmen. Das Buch ist konsequent praxisorientiert und zum Lernen und Nachschlagen hervorragend geeignet.<br><br>Nutzen Sie die HTML-Version zum Reinschnuppern oder als immer verfügbare Ergänzung zu Ihrem Buch.<br><br>Auf unserer Katalogseite steht Ihnen ab sofort zusätzlich eine <a href="http://www.galileocomputing.de/1626?GPP=oppy"><strong>Volltextsuche im Buch</strong></a> zur Verfügung.<br><br>Die gedruckte Version des Buches erhalten Sie in unserem Online-Shop - versandkostenfrei innerhalb Deutschlands und Österreichs.<br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><img src="common/pfeil_rechts5.gif" alt="" border="0">Zum Online-Shop</a></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+  <h1 class="t1">Inhaltsverzeichnis</h1>
+  <h2 class="inhalt1">
+    <a href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_01_001.htm#mj29886c6820eefbea9042877eb9337c5f">1.1 Warum haben wir dieses Buch geschrieben?</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_01_002.htm#mj69f8dbbcc58b01d18d7c5f4ddc4add09">1.2 Was leistet dieses Buch und was nicht?</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_01_003.htm#mj16f770362cea7ed6894f8d9da109c64b">1.3 Wie ist dieses Buch aufgebaut?</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_01_004.htm#mj11651bbaca9b7e2004857f6fc0f47d0c">1.4 Wer sollte dieses Buch wie lesen?</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_01_005.htm#mj4733e50dfcd031b6c0108b18a5c1e40a">1.5 Danksagung</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_02_001.htm#mj15c639a9d7a8412fc83a6465289c3eb2">2.1 Geschichte und Entstehung</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_02_002.htm#mj77aca5890e70b20c476bcf89035f903d">2.2 Grundlegende Konzepte</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_02_003.htm#mj21207201187c2521e3de769ed5fc951c">2.3 Einsatzmöglichkeiten und Stärken</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_02_004.htm#mj51201e4d56b3959549a42c8c3edbc7b7">2.4 Aktuelle Einsatzgebiete</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_03_001.htm#mjaa87adb907a417f2e7508eb807f4e906">3.1 Die Verwendung von Python</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_03_001.htm#mje64e31e67b124e07b152788d16cb578b">3.1.1 Windows</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_03_001.htm#mja02e1e873f297b77f3829e9fc4cca8df">3.1.2 Linux</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_03_001.htm#mjd058c0baec7245b69bba56fde97850a8">3.1.3 Mac  OS X</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_03_002.htm#mjfd80be0e5ad22d36cd76c70a27ca0396">3.2 Tippen, kompilieren, testen</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_03_002.htm#mj4db1b0ff2c89fff1471c984000cae3f5">3.2.1 Shebang</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_03_002.htm#mjc295877158585ae364204c0ea3bc8bae">3.2.2 Interne Abläufe</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_04_001.htm#mj1e1a9ec0f4fc78e166ab9432ffdf3874">4.1 Ganze Zahlen</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_04_002.htm#mj846d8883f9f18022fc13804e4720dc14">4.2 Gleitkommazahlen</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_04_003.htm#mjc73c6b6416fcd4f430a3bcdc4f2774b4">4.3 Zeichenketten</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_04_004.htm#mjdb9681fb866d5f78a12fca9df13714ee">4.4 Variablen</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_04_004.htm#mj82f59151a9c860f9ad8ae0677dae07ef">4.5 Logische Ausdrücke</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_04_006.htm#mja5e702ce1709d13aaf9f61230e585bcb">4.6 Bildschirmausgaben</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_05_001.htm#mj8368878dd8f2aba5a3669b0b5693237f">5.1 Grundstruktur eines Python-Programms</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_05_002.htm#mj83b554a635b0f208af41da6b6f8bc232">5.2 Das erste Programm</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_05_003.htm#mj878ac2a7ab10e5a0e2c9d8a8f6e43426">5.3 Kommentare</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_05_004.htm#mj3bb960be09032058d4496fa5b0212f0f">5.4 Der Fehlerfall</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_06_001.htm#mj315802685528763e7aacb6283d198a6c">6.1 Fallunterscheidungen</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_06_001.htm#mj2406a4e6f0bfa83434576c10466ac71c">6.1.1 If, elif, else</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_06_001.htm#mjf200b575b5f73f6e31fb422467445f17">6.1.2 Conditional expressions</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_06_002.htm#mj42c01733d4c5b057a5ca2e4649a9fbd0">6.2 Schleifen</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_06_002.htm#mj5d66d3bd2c2c62ca5faf5d2726e071dc">6.2.1 While-Schleife</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_06_002.htm#mj2b109b8dbf1d0132f67082039b96e9c1">6.2.2 Vorzeitiger Abbruch einer Schleife</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_06_002.htm#mjcc2c8dc99efa68e9920df8bbee6ad07a">6.2.3 Vorzeitiger Abbruch eines Schleifendurchlaufs</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_06_002.htm#mj73e80e87b47ab3e6447afd4694a80c3c">6.2.4 For-Schleife</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_06_003.htm#mj4ef30095cc7c666bd28b73e0f3e69634">6.3 Die pass-Anweisung</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_07_001.htm#mjd7f773bb6ec90e21084d622d8bfe87ad">7.1 Die Struktur von Instanzen</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_07_002.htm#mj53ebdeab73ffc29637ebce6d88f66ae9">7.2 Referenzen und Instanzen freigeben</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_07_003.htm#mj1f1e9070e501141de82b0e3a209d4b74">7.3 Mutable vs. immutable Datentypen</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_08_001.htm#mjc72b335a8a5f76207edbafa941f933de">8.1 Operatoren</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_08_002.htm#mj6409c0926804636387412c613b7b7be5">8.2 Das Nichts &#8211; NoneType</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_08_003.htm#mj6cf370d61a53204c7a0195c414bc872b">8.3 Numerische Datentypen</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_08_003.htm#mj867e954dbc429fc5bec56a0c953d45d8">8.3.1 Ganze Zahlen &#8211; int, long</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_08_003.htm#mj6d41cdafb4b90464f2c005027f9c91d5">8.3.2 Gleitkommazahlen &#8211; float</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_08_003.htm#mjfb4d02fccab9edcdc5ad084f35eaeaa6">8.3.3 Boolesche Werte &#8211; bool</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_08_003.htm#mje0a568fae09049a37bd3c3eec46428e7">8.3.4 Komplexe Zahlen &#8211; complex</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_08_004.htm#mj59a6387bf7db64f12c8c0e08237ac604">8.4 Methoden und Parameter</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_08_004.htm#mj3d61fb54438f66879e52e5a74e2e25a3">8.5 Sequenzielle Datentypen</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_08_004.htm#mj706b778fd2162b5144d8f07b6222092d">8.5.1 Listen &#8211; list</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_08_004.htm#mj91f49981165d738734c4d64190f3f2cf">8.5.2 Unveränderliche Listen &#8211; tuple</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_08_004.htm#mjeb87145a10dfeb18cb5b0215f08f30ad">8.5.3 Strings &#8211; str, unicode</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_08_006.htm#mj5492a22c8e50d661f8f6ed931b282817">8.6 Mappings</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_08_006.htm#mj40cd82a0f398e53c7af3f38de47c4b46">8.6.1 Dictionary &#8211; dict</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_08_007.htm#mja76bcb53bc9fb07ee9aacd533d393490">8.7 Mengen</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_08_007.htm#mj85ece89f8351590b611dc9cb7fe22c36">8.7.1 Mengen &#8211; set</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_08_007.htm#mjefba418c399f3218461e693613231aeb">8.7.2 Unveränderliche Mengen &#8211; frozenset</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_09_001.htm#mje3f21bf4453c496b348aedd2885a9be8">9.1 Bildschirmausgaben</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_09_002.htm#mj49c928ba352990cbb589d4e766232117">9.2 Tastatureingaben</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_09_003.htm#mjee715ebd4cb57ea71d18e730beda809d">9.3 Dateien</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_09_003.htm#mj43036b22986c06b3d873886bf8ab81c3">9.3.1 Datenströme</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_09_003.htm#mjf25a0f6f7736a878d5dabdac21d3a754">9.3.2 Daten aus einer Datei auslesen</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_09_003.htm#mj5f2eea63ac9295fe7d517241f3bae93b">9.3.3 Daten in eine Datei schreiben</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_09_003.htm#mjca7424dda57d0e881fcbddf831a4a523">9.3.4 Verwendung des Dateiobjekts</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_10_001.htm#mj09f8fc7cd397c85e68c486c4f8c23371">10.1 Schreiben einer Funktion</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_10_002.htm#mjb0543028fb36dd992a5468749d4e2322">10.2 Funktionsparameter</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_10_002.htm#mj7f6364b3829638603c24a5fbdfe74b83">10.2.1 Optionale Parameter</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_10_002.htm#mjd543abc1f8ddb8851edb2623a91b8a01">10.2.2 Schlüsselwortparameter</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_10_002.htm#mjaeb836cdaea4f289f632e77a56b1a846">10.2.3 Beliebige Anzahl von Parametern</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_10_002.htm#mj37c2f289a83862df51a8cbf09c92a0ab">10.2.4 Seiteneffekte</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_10_003.htm#mj059a39fd6da28e4c821353683ab127e3">10.3 Zugriff auf globale Variablen</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_10_004.htm#mjd857b534e6d9959b74c4f922d307567f">10.4 Lokale Funktionen</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_10_004.htm#mja7e8dc4f714c5b63ace484edfa46dec6">10.5 Anonyme Funktionen</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_10_006.htm#mj11d1c0afd8d1f242c2d55c438071985b">10.6 Rekursion</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_10_007.htm#mj910f2916637bb5b0e239d985f67cf614">10.7 Vordefinierte Funktionen</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_11_001.htm#mj2335c624c9da3d181d6690581e1569b3">11.1 Einbinden externer Programmbibliotheken</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_11_002.htm#mj1ab0044c3b39b2d348a72f101f4a9f91">11.2 Eigene Module</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_11_002.htm#mj63bdbd76c0f33790236839a3eefa2e58">11.2.1 Modulinterne Referenzen</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_11_003.htm#mj49609264548f8a9cd20fce19718f24d4">11.3 Pakete</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_11_003.htm#mj0c0c563a330093e6bc0f05ae10c9a379">11.3.1 Importieren aller Module eines Pakets</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_11_003.htm#mj0bca3fd09de7f0361295a31c6ff35d00">11.3.2 Relative Importanweisungen</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_11_004.htm#mjdf230712c7c69e2318f2d9d3701f9b09">11.4 Built-in Functions</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_12_001.htm#mj7a7b81e033ac96b42cc3067c82e646eb">12.1 Klassen</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_12_001.htm#mjdb02db3d15cc2f5101b2883eb37f636d">12.1.1 Definieren von Methoden</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_12_001.htm#mja573271b00198256bf4fb374b9401db8">12.1.2 Konstruktor, Destruktor und die Erzeugung von Attributen</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_12_001.htm#mj4e0c3a6a090bfdc9ee72a89c385b9ec3">12.1.3 Private Member</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_12_001.htm#mj3a2d8e94e02c540670bf279c0853ba45">12.1.4 Versteckte Setter und Getter</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_12_001.htm#mj3e4e56aa5753c3e37aad343804cfe6b5">12.1.5 Statische Member</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_12_002.htm#mj0ca8f9d3196e5a5fef88a593d630bc3d">12.2 Vererbung</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_12_002.htm#mja9ad55f483dad0b289bb6a13fc9dd3fa">12.2.1 Mehrfachvererbung</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_12_003.htm#mjc3a7810b0ba9ea9f34ae37cd13c50834">12.3 Magic Members</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_12_003.htm#mj6e5a6c5d5aae415228091d3e090f2ede">12.3.1 Allgemeine Magic Members</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_12_003.htm#mja67cc5e385a7e4eb847df8e2bbd716f5">12.3.2 Datentypen emulieren</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_12_004.htm#mj23414ecf2422550b1bf894fb9eda94a3">12.4 Objektphilosophie</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_13_001.htm#mj9c47e95ef0de2b51b8795360350d0a36">13.1 Exception Handling</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_13_001.htm#mj3f943e2f2b146758936395ab700b1a95">13.1.1 Eingebaute Exceptions</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_13_001.htm#mj9a39e9bacbeb90df594e637f72c3e6ab">13.1.2 Werfen einer Exception</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_13_001.htm#mj2bf223cf5076971dac89ce850f422655">13.1.3 Abfangen einer Exception</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_13_001.htm#mj895579472648ac2c14f13006f018c0ab">13.1.4 Eigene Exceptions</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_13_001.htm#mjb2e82a98750dc84939d28981bc7dd025">13.1.5 Erneutes Werfen einer Exception</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_13_002.htm#mjde4dfaadeda6f0449d0fe28c495d80eb">13.2 List Comprehensions</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_13_003.htm#mj4f43dabfe129e9471aaf49d6abe8d0cc">13.3 Docstrings</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_13_004.htm#mjac0bfc00292240b2c8d8cf0edee8f986">13.4 Generatoren</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_13_004.htm#mj9d03049cdb368743dcb32d8c937ad98d">13.5 Iteratoren</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_13_006.htm#mjaa7fba753afb73402cf1ee2f39350c3f">13.6 Interpreter im Interpreter</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_13_007.htm#mjdd13a8178c498ff3a23ce9a22856d14d">13.7 Geplante Sprachelemente</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_13_008.htm#mj7d0d3991b4235110254b1112cbcd4a2b">13.8 Die with-Anweisung</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_13_009.htm#mj9d7c6bf482ebc41e3bd636b21d9fede6">13.9 Function Decorator</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_13_010.htm#mjca1b2081508a228232b78471117cf515">13.10 assert</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_13_011.htm#mj46ff656653ce2b43f6d5afd3cc57ec7f">13.11 Weitere Aspekte der Syntax</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_13_011.htm#mj5cfc92f112171ba0c9429fe827eea9bf">13.11.1 Umbrechen langer Zeilen</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_13_011.htm#mj4ca46e5125c65f2879f164b604d1a3c4">13.11.2 Zusammenfügen mehrerer Zeilen</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_13_011.htm#mj139c488059c2024c3467473548c00f3e">13.11.3 String conversions</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_14_001.htm#mj2cb050cd7bbf40a09eb11432c870c670">14.1 Mathematische Funktionen &#8211; math, cmath</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_14_002.htm#mj9f3c50af5de62466ef98ce91d249e0c6">14.2 Zufallszahlengenerator &#8211; random</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_14_003.htm#mj49765c6f376136810bb7924c627a79aa">14.3 Präzise Dezimalzahlen &#8211; decimal</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_14_003.htm#mj4e888ad0fd7d2a3a6be65b421d28e34c">14.3.1 Verwendung des Datentyps</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_14_003.htm#mj5795605d42f137ce647d77406a92e919">14.3.2 Nichtnumerische Werte</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_14_003.htm#mje08e567d1bd96359837f69ad18503f24">14.3.3 Das Context-Objekt</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_15_001.htm#mja4473ac1ba316915e0babca11a8da8bb">15.1 Arbeiten mit Zeichenketten &#8211; string</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_15_001.htm#mjffb3eaecf6f022fba9c382281039e1f4">15.1.1 Ein einfaches Template-System</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_15_002.htm#mjfff4c0e49e3ce9cc0a8c9564481427d7">15.2 Reguläre Ausdrücke &#8211; re</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_15_002.htm#mj350df4bbe1fc40b2383902428f773443">15.2.1 Syntax regulärer Ausdrücke</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_15_002.htm#mje2892cbdcf90c75a9fe751806a9aaee2">15.2.2 Verwendung des Moduls</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_15_002.htm#mj0f265a514db5f52d8a351509e27721a6">15.2.3 Ein einfaches Beispielprogramm &#8211; Searching</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_15_002.htm#mj0cde82e9966520be22a4f0e68fb21b1b">15.2.4 Ein komplexeres Beispielprogramm &#8211; Matching</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_15_003.htm#mjd5ef935d1adf28dba4334a71430462ea">15.3 Lokalisierung von Programmen &#8211; gettext</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_15_003.htm#mj4c1776a3aa44f85fc20003168f9f4f1e">15.3.1 Beispiel für die Verwendung von gettext</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_15_004.htm#mj87a84b7015cd8d0a141c5afe54900c1d">15.4 Hash-Funktionen &#8211; hashlib</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_15_004.htm#mjd834b0cbb61632e77231d6b49e4a92c4">15.4.1 Verwendung des Moduls</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_15_004.htm#mj486d70e7dfe4371bd25cab78c02a8287">15.4.2 Beispiel</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_15_004.htm#mjb3dcfcf1eb0fa47456ec0ef65592aee4">15.5 Dateiinterface für Strings &#8211; StringIO</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_16_001.htm#mjcff2c67a55dd9f24a68b0f1ff3efa605">16.1 Elementare Zeitfunktionen &#8211; time</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_16_002.htm#mj22c67d1cbc74eec9b9fd87fab425a1c0">16.2 Komfortable Datumsfunktionen &#8211; datetime</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_16_002.htm#mjfc03e19de98197eaefe9b62134ce4452">16.2.1 datetime.date</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_16_002.htm#mj446442de94a61999e10e143c04a7c091">16.2.2 datetime.time</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_16_002.htm#mj95e5ef0248164d2f711ef8d5955c9a05">16.2.3 datetime.datetime</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_17_001.htm#mj77e936b71966154869b7d24a1574b1df">17.1 Funktionen des Betriebssystems &#8211; os</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_17_001.htm#mj3ff7a541af35722b98a3a8fd78f762ff">17.1.1 Zugriff auf den eigenen Prozess und andere Prozesse</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_17_001.htm#mj9ed2c275d7bfba6527100a0e902359a9">17.1.2 Zugriff auf das Dateisystem</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_17_002.htm#mj5ab2f76578af6aa33e677a2a7512c746">17.2 Umgang mit Pfaden &#8211; os.path</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_17_003.htm#mj97b5c269a76139d85f7ed0c69a992072">17.3 Zugriff auf die Laufzeitumgebung &#8211; sys</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_17_003.htm#mjff3bf28f7c46dba2812a48ea44e6c439">17.3.1 Konstanten</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_17_003.htm#mj5712860f2c6affdb1abfb994add18e1f">17.3.2 Exceptions</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_17_003.htm#mj711f6ced68c90e735afd07cedd438f99">17.3.3 Hooks</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_17_003.htm#mj10a59e950befd97269ece0155ad0a2db">17.3.4 Sonstige Funktionen</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_17_004.htm#mjc5f177869459290f657b77629ea88776">17.4 Informationen über das System &#8211; platform</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_17_004.htm#mj33d8f846c9c856f68871e8b0263b2819">17.4.1 Funktionen</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_17_004.htm#mj811770aef1f82a99f21bfeae941a3fe6">17.5 Kommandozeilenparameter &#8211; optparse</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_17_004.htm#mj71f8556c1b5b0cd6ec963d0aaffa2296">17.5.1 Taschenrechner &#8211; ein einfaches Beispiel</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_17_004.htm#mja82de697442f64f8b7d1386535b413c3">17.5.2 Weitere Verwendungsmöglichkeiten</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_17_006.htm#mjc96b1149114c87b8cb9ce33af7a7f2d0">17.6 Kopieren von Instanzen &#8211; copy</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_17_007.htm#mj8b1cfd55535f4741469c6ea432d9a846">17.7 Zugriff auf das Dateisystem &#8211; shutil</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_17_008.htm#mj764aaa21ce7136bc5cea7bf42d82c9da">17.8 Das Programmende &#8211; atexit</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_18_001.htm#mjbf5e4ade8eab89f6f38e27e52d4fb3a6">18.1 Prozesse, Multitasking und Threads</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_18_002.htm#mj8df3749afa9265d105055a0e5e3d35bd">18.2 Die Thread-Unterstützung in Python</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_18_003.htm#mjcb7a5e18f4352910d7d91cdfac8cb38e">18.3 Das Modul thread</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_18_003.htm#mjf9e26c833e319410aedb07ec0d5dfaad">18.3.1 Datenaustausch zwischen Threads &#8211; locking</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_18_004.htm#mj6a088c87255d78ab32cc053633b5d48b">18.4 Das Modul threading</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_18_004.htm#mj9f5e460ed95970296446db73290809ac">18.4.1 Locking im threading-Modul</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_18_004.htm#mj70765f3b6cc492e932e491217076cfce">18.4.2 Worker-Threads und Queues</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_18_004.htm#mj1dc7e2a20934612976e86acb1b483fa6">18.4.3 Ereignisse definieren &#8211; threading.Event</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_18_004.htm#mjd9b2d0c7393ea3ddc0ae0af913a6f6c3">18.4.4 Eine Funktion zeitlich versetzt ausführen &#8211; threading.Timer</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_19_001.htm#mj50322fedc1f8490eef0fafc7d36e87ec">19.1 Komprimierte Dateien lesen und schreiben &#8211; gzStandardbibliothekgzipip</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_19_002.htm#mjfb129af936cf736637fadc5cdc7fb80f">19.2 XML</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_19_002.htm#mj7b6b6575efca95cb4e2a8271bedd2fd8">19.2.1 DOM &#8211; Document Object Model</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_19_002.htm#mj814634fd2dce5dc0aee7c29e59536e3d">19.2.2 SAX &#8211; Simple API for XML</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_19_002.htm#mj10de3bcca53a40f74b605ca1b6763f1e">19.2.3 ElementTree</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_19_003.htm#mj080f219370513600ef96af394d02fbee">19.3 Datenbanken</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_19_003.htm#mjea5883d439a425e2f974548b406b56c0">19.3.1 Pythons eingebaute Datenbank &#8211; sqlite3</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_19_003.htm#mjd4e355cc1c649fc6067edb05093491f1">19.3.2 MySQLdb</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_19_004.htm#mjeb8a39f5c42513f80eca039dfe9b1c06">19.4 Serialisierung von Instanzen &#8211; pickle</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_19_004.htm#mj068051f9093b3bd5bfc5628714320a14">19.5 Das Tabellenformat CSV &#8211; csv</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_19_006.htm#mjcc3ffbef726889b6a10108557bca2ef2">19.6 Temporäre Dateien &#8211; tempfile</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_20_001.htm#mja62901950a4d46ed586c0cbeca851b76">20.1 Socket API</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_001.htm#mjec5a627b57a6f464cae8952dff1b29bd">20.1.1 Client/Server-Systeme</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_001.htm#mj30aa144d06bfbda567b400e1c9aabe0b">20.1.2 UDP</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_001.htm#mj39991ea943a5ced16cfb0f82e23d6267">20.1.3 TCP</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_001.htm#mj3e26029cb2fe9761934cae397c7bee0c">20.1.4 Blockierende und nicht-blockierende Sockets</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_001.htm#mj71cca1384f82cf8c9383ca0a725fb00d">20.1.5 Verwendung des Moduls</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_001.htm#mjeff502fc2c89cbfcde6b121f1c9c6ae2">20.1.6 Netzwerk-Byte-Order</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_001.htm#mjc0a8ce33f2ca54a6aff578a363939704">20.1.7 Multiplexende Server &#8211; select</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_001.htm#mjb11f39ffbe49131e4aeb49e5298e5be5">20.1.8 SocketServer</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_20_002.htm#mja7bd045128f3673afe68420a4ddae7b6">20.2 Zugriff auf Ressourcen im Internet &#8211; urllib</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_002.htm#mjdb126d022da9199ad232014227ef993f">20.2.1 Verwendung des Moduls</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_20_003.htm#mjf2c50a134584c3cd96329ea233243a0a">20.3 Einlesen einer URL &#8211; urlparse</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_20_004.htm#mjc608fa65c6e2a85e9c55bcbb0179eda7">20.4 FTP &#8211; ftplib</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_20_004.htm#mjf9b67beb12a70b4a0b02609da6bc5dee">20.5 E-Mail</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_004.htm#mjbf78b46f8a9a493e9d5a75011df76d08">20.5.1 SMTP &#8211; smtplib</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_004.htm#mjef70cbc06d943ba00c671366c1934c64">20.5.2 POP3 &#8211; poplib</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_004.htm#mj44a18a19feec0481e1774cbf0fdaf877">20.5.3 IMAP4 &#8211; imaplib</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_004.htm#mj14c7624ff8d2c29622f837a39bdaf02f">20.5.4 Erstellen komplexer E-Mails &#8211; email</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_20_006.htm#mj1783a4c1d0411ed0f8998971f7b75ad8">20.6 Telnet &#8211; telnetlib</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_20_007.htm#mj49407e7b67376a73ea92fcad6b9a616e">20.7 XML-RPC</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_007.htm#mj7e91c239d3a86b2c7b8b2a950e27939f">20.7.1 Der Server</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_007.htm#mjf943ea1a64037f0c66254a4608ef8942">20.7.2 Der Client</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_007.htm#mj20962ea6eea7210a5efc5fed2b83ecb3">20.7.3 Multicall</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_20_007.htm#mjd2ea8b459e41a939f259057acdc43e98">20.7.4 Einschränkungen</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_21_001.htm#mjc9ed2f03eb0e2dc23b8fcfef30a0e880">21.1 Der Debugger</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_21_002.htm#mj7bb4e0fdebd5dc9dfe18d833bb52d5db">21.2 Inspizieren von Instanzen &#8211; inspect</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_21_002.htm#mj30443824b855deb14b2106456abba8ae">21.2.1 Datentypen, Attribute und Methoden</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_21_002.htm#mj26cf2cec03b118c739fc0c825d9ea501">21.2.2 Quellcode</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_21_002.htm#mj8b1fd73c253dea118d50990cc7b54bb3">21.2.3 Klassen und Funktionen</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_21_003.htm#mjbfa58d234253bf05a2380680f0407805">21.3 Formatierte Ausgabe von Instanzen &#8211; pprint</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_21_004.htm#mj9d693b2a9ceb411a7e63099048b7290f">21.4 Logdateien &#8211; logging</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_21_004.htm#mj0ed595222838429b2af6515588091b69">21.4.1 Das Meldungsformat anpassen</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_21_004.htm#mj53cbe44b8a4f8b6f2d1151cf0c78a680">21.4.2 Logging Handler</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_21_004.htm#mj0006b6d104143c9d0eb05fe0e3418768">21.5 Automatisiertes Testen</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_21_004.htm#mj283ed24cbfec45887f9207dc538785ba">21.5.1 Testfälle in Docstrings &#8211; doctest</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_21_004.htm#mj833e694a147693a7840c4727b047fd14">21.5.2 Unit Tests &#8211; unittest</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_21_006.htm#mjf3af0f14f9fbd165ee0566cf30eb3f53">21.6 Traceback-Objekte &#8211; traceback</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_21_007.htm#mjd9a88b16927a4a97c0d43c013cd80600">21.7 Analyse des Laufzeitverhaltens</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_21_007.htm#mj2c6ec836b07cb7f425660b5bd840b9c7">21.7.1 Laufzeitmessung &#8211; timeit</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_21_007.htm#mj37c250b6464b8c5c176a4619f7669d53">21.7.2 Profiling &#8211; cProfile</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_21_007.htm#mj17fb8dda4fb94ebbed32afccbbfe12cb">21.7.3 Tracing &#8211; trace</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_22_001.htm#mj64ee18645f12f18ca41aa2aba4278a95">22.1 Erstellen von Distributionen &#8211; distutils</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_22_001.htm#mjd062fe88624640aca3dd7ca5f366ff29">22.1.1 Schreiben des Moduls</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_22_001.htm#mj9f066c9d92b6d7dcf270ed4cf60583fb">22.1.2 Das Installationsscript</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_22_001.htm#mjdf66abaa6ad486ebac737695c294c5af">22.1.3 Erstellen einer Quellcodedistribution</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_22_001.htm#mj5f04e5c2f5345507fdb4b8a8d871ed0d">22.1.4 Erstellen einer Binärdistribution</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_22_001.htm#mjf90e2c2119474162405f6f0db25a3647">22.1.5 Beispiel für die Verwendung einer Distribution</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_22_002.htm#mjc2cee80dc9718d0e3e25546aec72d8fc">22.2 Erstellen von EXE-Dateien &#8211; py2exe</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_22_003.htm#mj0bef9a124d280985e3b409b607fef68f">22.3 Automatisches Erstellen einer Dokumentation &#8211; epydoc</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_22_003.htm#mj8fc2fbeb9e5e9e128e03a4c57e85d86a">22.3.1 Docstrings und ihre Formatierung für epydoc</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_23_001.htm#mj643dd9719df74332b7c12ca74810aeba">23.1 Die Optimize-Option</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_23_002.htm#mj3d3cfec586c2718b5fefe685744e915a">23.2 Strings</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_23_003.htm#mj7a79d7caa379673ca3c6c4e7bdbba474">23.3 Funktionsaufrufe</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_23_004.htm#mjeec7203b5d11a25bb36a7ac8c184594c">23.4 Schleifen</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_23_004.htm#mj58a89362ffe0162943cc0f3d0feb2a51">23.5 C</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_23_006.htm#mj55363e90de200bc03a104f343faaf227">23.6 Lookup</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_23_007.htm#mj9996cc0b0fbcb4f5222957bd430bdf12">23.7 Lokale Referenzen</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_23_008.htm#mjd7cdf1684f737b4368041c20bed61d8b">23.8 Exceptions</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_23_009.htm#mj1b4145b7a8a1e7090d2d46322920478e">23.9 Keyword arguments</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_24_001.htm#mj7e4bb4efefd7ce44aa67ef15eb795819">24.1 Toolkits</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_24_002.htm#mj410d039d691c33c9eaae3c5d98711ba6">24.2 Einführung in PyQt</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_002.htm#mj1684f423c06c11a7858373f78c379bd3">24.2.1 Installation</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_002.htm#mjdcac6d188caaadff2d97262b63d1924c">24.2.2 Grundlegende Konzepte von Qt</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_24_003.htm#mjfc92f7f0a3a50a7adbdab1fd29bafccb">24.3 Entwicklungsprozess</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_003.htm#mj9db1bbea0411d23987eec58164bfcca2">24.3.1 Erstellen des Dialogs</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_003.htm#mj07a1c3efb2f661d7025237efdab7d505">24.3.2 Schreiben des Programms</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_24_004.htm#mj4fe5432befd9b269f465778525b31a3e">24.4 Signale und Slots</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_24_004.htm#mjc3b7342ca80134e5e7ffe20ceb05f0c2">24.5 Überblick über das Qt-Framework</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_24_006.htm#mjbee8e14f9a227769775f297cf44af44f">24.6 Zeichenfunktionalität</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_006.htm#mj6baaa60f60c4ee337c7f2618558965cc">24.6.1 Werkzeuge</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_006.htm#mj09ce1ef12f59e463f2d0b2a627f3dff8">24.6.2 Koordinatensystem</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_006.htm#mj4e47879515982231ab3e15a2f80dd87e">24.6.3 Einfache Formen</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_006.htm#mj23c5f85dbd4874e55733f08c53200348">24.6.4 Grafiken</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_006.htm#mjef9e638bd97da97f7d98650a62ad3aef">24.6.5 Text</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_006.htm#mj9f1387a929546375d73241894c08fedd">24.6.6 Eye-Candy</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_24_007.htm#mj1ea36fb17db37638e0480e8c9937e6d1">24.7 Model-View-Architektur</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_007.htm#mj5c95ff8527068d367a6f8d8f25d15ed8">24.7.1 Beispielprojekt: Ein Adressbuch</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_007.htm#mjd71e703821b611cbd37eefb80cb38244">24.7.2 Auswählen von Einträgen</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_007.htm#mjd504a61938116a86354b4928b72c8220">24.7.3 Editieren von Einträgen</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_24_008.htm#mj2109c1a87ec1a3262198a32ccd4d37da">24.8 Wichtige Widgets</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mjd7810289c9aed6f9c751881e1018465c">24.8.1 QCheckBox</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj2049b0d4b09d164f2476d7dfc2ec45d2">24.8.2 QComboBox</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj295c86558eb7790a1caad3caadcbd14c">24.8.3 QDateEdit</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj59aa1db582f3b839a69b147bc0487858">24.8.4 QDateTimeEdit</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj3da964dfd16810d718e1b2d9bcb688fc">24.8.5 QDial</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj48fac9fb739a93491b1db3d33005834f">24.8.6 QDialog</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mjb7c1c34af70ba881939ed78c8f09cb4a">24.8.7 QGLWidget</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mjd53a9048d9c571639ee4ddf703314dfd">24.8.8 QLineEdit</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj753a3b774e44a835d684a14b3db04bdf">24.8.9 QListView</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj174335c173cec288eda1580821430bde">24.8.10 QListWidget</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mjeb6c6758021833d8054cc62bbcca6e9d">24.8.11 QProgressBar</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj23d215e0756bba97ab8dcb09790ac00f">24.8.12 QPushButton</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj3376ce50168855804718b93fce86d2bd">24.8.13 QRadioButton</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj94112aa4fd117f48c3d39f9618b58181">24.8.14 QScrollArea</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mjfddd4b80d093f9d97306b20f84578ee3">24.8.15 QSlider</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj5a52f70c91ed3907254124d05e894fe8">24.8.16 QTableView</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mjcbe42edfb63ff02ed61c895f76d00c1d">24.8.17 QTableWidget</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj3e9d765f8b7dbd06d7b2a84a17401cf8">24.8.18 QTabWidget</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj176a65642a71e61180f6f59b6579e7dd">24.8.19 QTextEdit</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj37ef18de50443152c7f3bd72d6ea7b60">24.8.20 QTimeEdit</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj170d41005e686d65c1a2e6da1ac5d9d3">24.8.21 QTreeView</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mj6abe0a2a3e93af31dcf36fb5a6f44975">24.8.22 QTreeWidget</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_24_008.htm#mjeb86779df41a41f7511c860b831f87b0">24.8.23 QWidget</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_25_001.htm#mjdd2204be5ba4b589f486242a81296d16">25.1 Installation</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_25_002.htm#mj282c78d53879441971cf422f7721f36b">25.2 Konzepte und Besonderheiten im Überblick</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_25_003.htm#mje3062b1da2ff670ce178312184ec8595">25.3 Erstellen eines neuen Django-Projekts</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_25_004.htm#mjd017713d500039b7388cd6501ad75461">25.4 Erstellung der Applikation</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_25_004.htm#mjbec4cf343a331c2f9b5c108a6dba8c3b">25.5 Djangos Administrationsoberfläche</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_25_006.htm#mj191bf16ca79b0cc7c1219aeea3c3f8ea">25.6 Unser Projekt wird öffentlich</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_25_007.htm#mj1431bc22cc78c16b5a7d0e21d6379f28">25.7 Djangos Template-System</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_25_008.htm#mj9e4c615e6b781e13841677e90a85ec7f">25.8 Verarbeitung von Formulardaten</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_26_001.htm#mj79293d95df76d9b449a1e6e806fd1fa1">26.1 Dynamisch ladbare Bibliotheken &#8211; ctypes</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_26_001.htm#mj1c24ac56e553b4b791199dbfcba82c9b">26.1.1 Ein einfaches Beispiel</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_26_001.htm#mje61621c82f7956ef7804559ec3d1346d">26.1.2 Die eigene Bibliothek</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_26_001.htm#mjcfd01d151b691d22000db87b26aabc88">26.1.3 Schnittstellenbeschreibung</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_26_001.htm#mj39ee465fe9dbac00d4eef8eee39b23db">26.1.4 Verwendung des Moduls</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_26_002.htm#mje3a3733f3f8de78f7ba77dd8e0ac5901">26.2 Schreiben von Extensions</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_26_002.htm#mj4dea29d71bb2ed5b16ac651367b420d4">26.2.1 Ein einfaches Beispiel</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_26_002.htm#mj07ab783270f2137d940528c629ec76b2">26.2.2 Exceptions</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_26_002.htm#mj4d44675e63b648fe7fb94e305a18b192">26.2.3 Erzeugen der Extension</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_26_002.htm#mj082b77d3a9087beb91b7ee7b4fb57796">26.2.4 Reference Counting</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_26_003.htm#mjc6b49d1c4e0ceb18304013caf898a2e0">26.3 Python als eingebettete Skriptsprache</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_26_003.htm#mj0d2f049d403e75f2bad50133564f01e5">26.3.1 Ein einfaches Beispiel</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_26_003.htm#mj2ba31933b924c7593b5e7dfb0e8d423a">26.3.2 Ein komplexeres Beispiel</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_26_003.htm#mj62d29fde1147d5eccb00da7f6cafa3d6">26.3.3 Python-API-Referenz</a>
+  </h5>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_27_001.htm#mjbf3ceadf199494f6f0284d8d66eb3443">27.1 Dateien direkt mit einem bestimmten Encoding lesen</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_27_002.htm#mje3bc4be9a372b50eb8ad0f281f1dbed8">27.2 URLs im Standardbrowser öffnen &#8211; webbrowser</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_27_003.htm#mj83d32a36ef4d67c61f192b43fa15c2e3">27.3 Funktionsschnittstellen vereinfachen &#8211; functools</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_27_004.htm#mjba0fc20263bb19c7d1c556142952e07a">27.4 Versteckte Passworteingaben &#8211; getpass</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_27_004.htm#mj95e0c2ac64a94bbb2081d1613bf63d04">27.5 Kommandozeilen-Interpreter &#8211; cmd</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_28_001.htm#mja6eec1cb454cafa6bb0dd8e7e529ea12">28.1 Python 3000</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_28_002.htm#mj1666944be83d23c0809e5640a5ba5eb9">28.2 Python 2.6</a>
+  </h3>
+  <div align="center"><img src="common/jupiters.gif" border="0" alt="Galileo Computing"></div>
+<h2 class="inhalt1">
+    <a href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a>
+  </h2>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_A_001.htm#mjc54aa458385cd5ca912d2b5c6fc864c0">A.1 Entwicklungsumgebungen</a>
+  </h3>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_A_001.htm#mj03f9bc3c08e27807d0aa6eb0774dd028">A.1.1 Eclipse</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_A_001.htm#mjab52fe201bf66bb303129193ade2997a">A.1.2 Eric4</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_A_001.htm#mjda915be8ce550c510e96a9a3bb37307f">A.1.3 Komodo IDE</a>
+  </h5>
+  <h5 class="inhalt3">
+    <a href="python_kapitel_A_001.htm#mj9c0503e171548cb851aced8b62b17cfe">A.1.4 Wing IDE</a>
+  </h5>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_A_002.htm#mj2146e2393a9c5a7a5df0543ec9f586d4">A.2 Reservierte Wörter</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_A_003.htm#mjef34c3d115e05ab63f4a425b4c448872">A.3 Operatorrangfolge</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_A_004.htm#mj4e8301d7d65c0513d8630d9a0d039113">A.4 Built-in Exceptions</a>
+  </h3>
+  <h3 class="inhalt2">
+    <a href="python_kapitel_A_004.htm#mjcde9811c267ad6db00eb9cfe45550754">A.5 Built-in Functions</a>
+  </h3>
+<br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_01_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="1 Einleitung"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_01_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

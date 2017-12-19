@@ -1,0 +1,625 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 26.3 Python als eingebettete Skriptsprache</title>
+<meta name="title" content="Galileo Computing :: Python - 26.3 Python als eingebettete Skriptsprache">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 26.3 Python als eingebettete Skriptsprache">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_26_002.htm">
+<link rel="next" href="python_kapitel_27_001.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_26_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_27_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f" class="navnav">26 Anbindung an andere Programmiersprachen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_26_001.htm#mj79293d95df76d9b449a1e6e806fd1fa1" class="navnav">26.1 Dynamisch ladbare Bibliotheken &#8211; ctypes</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_001.htm#mj1c24ac56e553b4b791199dbfcba82c9b" class="navnav">26.1.1 Ein einfaches Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_001.htm#mje61621c82f7956ef7804559ec3d1346d" class="navnav">26.1.2 Die eigene Bibliothek</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_001.htm#mjcfd01d151b691d22000db87b26aabc88" class="navnav">26.1.3 Schnittstellenbeschreibung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_001.htm#mj39ee465fe9dbac00d4eef8eee39b23db" class="navnav">26.1.4 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_26_002.htm#mje3a3733f3f8de78f7ba77dd8e0ac5901" class="navnav">26.2 Schreiben von Extensions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_002.htm#mj4dea29d71bb2ed5b16ac651367b420d4" class="navnav">26.2.1 Ein einfaches Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_002.htm#mj07ab783270f2137d940528c629ec76b2" class="navnav">26.2.2 Exceptions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_002.htm#mj4d44675e63b648fe7fb94e305a18b192" class="navnav">26.2.3 Erzeugen der Extension</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_002.htm#mj082b77d3a9087beb91b7ee7b4fb57796" class="navnav">26.2.4 Reference Counting</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjc6b49d1c4e0ceb18304013caf898a2e0" class="navh">26.3 Python als eingebettete Skriptsprache</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0d2f049d403e75f2bad50133564f01e5" class="navh">26.3.1 Ein einfaches Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj2ba31933b924c7593b5e7dfb0e8d423a" class="navh">26.3.2 Ein komplexeres Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj62d29fde1147d5eccb00da7f6cafa3d6" class="navh">26.3.3 Python-API-Referenz</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjc6b49d1c4e0ceb18304013caf898a2e0" name="mjc6b49d1c4e0ceb18304013caf898a2e0"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">26.3</span><span class="cfett"> Python als eingebettete Skriptsprache</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>In den vorangegangenen Abschnitten haben Sie Möglichkeiten kennengelernt, in C geschriebene Programmteile von einem Python-Programm aus aufzurufen und somit beispielsweise laufzeitkritische Teile in ein C-Programm auszulagern.</p>
+<p>In diesem Kapitel soll der entgegengesetzte Weg beschritten werden: Wir möchten Python-Programme aus einem C-Programm heraus ausführen können, Python also als eine Art eingebettete Scriptsprache (engl. <span class="ckursiv">embedded script language</span>) verwenden. [Ein Beispiel für eine solche eingebettete Skriptsprache ist <em><strong>Lua</strong></em>, die besonders häufig als Skriptsprache für Computerspiele eingesetzt wird.
+]  Auf diese Weise können wir bestimmte Teile des Programms in Python schreiben, für die Python aufgrund seiner Flexibilität einfach besser geeignet ist.</p><a id="mj0d2f049d403e75f2bad50133564f01e5" name="mj0d2f049d403e75f2bad50133564f01e5"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">26.3.1</span><span class="cfett"> Ein einfaches Beispiel</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zum Einstieg soll ein C-Programm erstellt werden, das ein möglichst simples Python-Programm ausführt. Dieses Python-Programm soll lediglich ein bisschen Text und eine Zufallszahl auf dem Bildschirm ausgeben.</p>
+<p>Das folgende C-Programm führt ein solches Python-Script aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">#include</span> &lt;Python.h&gt;<br>
+<span class="cfett">const char</span> *programm = 
+"import random\n" 
+"print 'Guten Tag, die Zahl ist:', random.randint(0, 100)\n" 
+"print 'Das war ... Python'\n";<br>
+<span class="cfett">int</span> main(<span class="cfett">int</span> argc,<span class="cfett"> char</span> *argv[]) 
+    { 
+    Py_Initialize(); 
+    PyRun_SimpleString(programm); 
+    Py_Finalize(); 
+    }</pre></div>
+<p>Zunächst wird die Header-Datei der Python API eingebunden. Sie sehen, dass sowohl zum Erweitern als auch zum Einbetten von Python dieselbe API verwendet wird. Danach wird der String <span class="clisting">programm</span> angelegt, der den Python-Code enthält, der später ausgeführt werden soll.</p>
+<p>In der Hauptfunktion <span class="clisting">main</span> wird der Python-Interpreter zuerst durch Aufruf von <span class="clisting">Py_Initialize</span> initialisiert. Danach wird das zuvor im String <span class="clisting">programm</span> abgelegte Python-Script durch Aufruf der Funktion <span class="clisting">PyRun_SimpleString</span> ausgeführt und der Interpreter schlussendlich durch die Funktion <span class="clisting">Py_Finalize</span> wieder beendet.</p>
+<p>Statt der Funktion <span class="clisting">PyRun_SimpleString</span> hätte auch die Funktion <span class="clisting">PyRun_Simple</span> <span class="clisting">File</span> aufgerufen werden können, um den Python-Code aus einer Datei zu lesen.</p>
+<p>Wichtig ist, dass dem Compiler das Verzeichnis bekannt ist, in dem die Header-Datei <span class="ckursiv">Python.h</span> liegt. Außerdem muss das Programm gegen die Python API gelinkt werden. Diese ist als dynamische Bibliothek <span class="ckursiv">python25.lib</span> im Unterordner <span class="ckursiv">lib</span> Ihrer Python-Installation zu finden. [Diese Angabe bezieht sich auf Windows. Unter Linux wird die Bibliothek in den meisten Fällen in das Verzeichnis für systemweite Bibliotheken <span class="ckursiv">/usr/lib</span> installiert. Beim Linken Ihres Programms mit dem GCC können Sie die Python 2.5-Bibliothek mit der Option <span class="clisting">-lpython2.5</span> einbinden.
+]  Wenn sowohl das Kompilieren als auch das Linken ohne Probleme vonstatten gegangen ist, werden Sie feststellen, dass das Programm tatsächlich funktioniert:</p>
+<div class="listing"><pre class="prettyprint">Guten Tag, die Zufallszahl ist: 64 
+Das war ... Python</pre></div>
+<p>Sie sehen, dass wir uns für dieses Beispielprogramm einer sehr abstrakten Schnittstelle bedient haben, denn es ist beispielsweise nicht möglich, mit dem Python-Script zu interagieren. Das Python-Script läuft bislang völlig autonom, und es können keine Werte zwischen ihm und dem C-Programm ausgetauscht werden. Aber gerade die Interaktion mit dem Hauptprogramm macht die Qualität einer eingebetteten Scriptsprache aus.</p><a id="mj2ba31933b924c7593b5e7dfb0e8d423a" name="mj2ba31933b924c7593b5e7dfb0e8d423a"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">26.3.2</span><span class="cfett"> Ein komplexeres Beispiel</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Sie haben sicherlich erkannt, dass das vorangegangene Beispielprogramm noch nicht der Stein der Weisen war. In diesem Abschnitt soll ein besseres, komplexeres Programm entwickelt werden, das dazu in der Lage ist, Funktionen eines Python-Scripts direkt aufzurufen und Werte über die Funktionsschnittstelle zu schicken bzw. entgegenzunehmen. Außerdem soll das C-Programm dazu in der Lage sein, eigene Funktionen zu definieren, die aus dem Python-Script heraus aufgerufen werden können. Sie werden feststellen, dass auch dies dem Schreiben von Erweiterungen stark ähnelt.</p>
+<p>Das folgende C-Programm soll ein Python-Script laden, das eine Funktion <span class="clisting">entscheide</span> implementiert. Diese Funktion soll sich für einen von zwei übergebenen Strings entscheiden. Die Funktion könnte beispielsweise deshalb in ein Python-Script ausgelagert worden sein, weil man es dem Anwender ermöglichen will, die Funktion selbst zu implementieren und das Programm somit an die eigenen Bedürfnisse anzupassen.</p>
+<p>Der Quellcode des Beispielprogramms sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">#include</span> &lt;Python.h&gt;<br>
+<span class="cfett">int</span> main(<span class="cfett">int</span> argc,<span class="cfett"> char</span> *argv[]) 
+    { 
+   <span class="cfett"> char</span> *ergebnis; 
+    PyObject *modul, *funk, *prm, *ret;<br>
+    Py_Initialize(); 
+    PySys_SetPath("."); 
+    modul = PyImport_ImportModule("script");<br>
+   <span class="cfett"> if</span>(modul) 
+        { 
+        funk = PyObject_GetAttrString(modul, "entscheide"); 
+        prm = Py_BuildValue("(ss)", "Hallo", "Welt"); 
+        ret = PyObject_CallObject(funk, prm);<br>
+        ergebnis = PyString_AsString(ret); 
+        printf("Das Script hat sich fuer '%s' entschieden\n", 
+                                                       ergebnis);<br>
+        Py_DECREF(prm); 
+        Py_DECREF(ret); 
+        Py_DECREF(funk); 
+        Py_DECREF(modul); 
+        } 
+   <span class="cfett"> else</span> 
+        printf("Fehler: Modul nicht gefunden\n"); 
+    Py_Finalize(); 
+    }</pre></div>
+<p>In der Hauptfunktion <span class="clisting">main</span> des C-Programms wird zunächst der Python-Interpreter durch Aufruf von <span class="clisting">Py_Initialize</span> initialisiert. Danach wird durch die Funktion <span class="clisting">PySys_SetPath</span> das lokale Programmverzeichnis als einziger Ordner festgelegt, aus dem Module importiert werden können. Beachten Sie, dass dieser Funktionsaufruf sowohl dem C- als auch dem Python-Programm verbietet, globale Module wie beispielsweise <span class="clisting">math</span> einzubinden. Wenn Sie solche Module benötigen, dürfen Sie die Import-Pfade nicht, wie es in diesem Beispiel geschehen ist, überschreiben, sondern Sie sollten sich den Pfad mit <span class="clisting">Py_GetPath</span> holen, ihn um das Verzeichnis <span class="clisting">.</span> erweitern und mit <span class="clisting">PySys_SetPath</span> setzen. Beachten Sie, dass das lokale Programmverzeichnis standardmäßig nicht als <span class="clisting">import</span>-Pfad eingetragen ist.</p>
+<p>Durch Aufruf der Funktion <span class="clisting">PyImport_ImportModule</span> wird ein Modul eingebunden und als <span class="clisting">PyObject</span>-Pointer zurückgegeben. Beachten Sie, dass, wenn die entsprechenden Pfade festgelegt wurden, sowohl lokale als auch globale Module mit dieser Funktion eingebunden werden können. Nachfolgend prüfen wir, ob das Modul erfolgreich geladen wurde. Bei einem Misserfolg gibt die Funktion <span class="clisting">PyImport_ImportModule</span> wie die meisten anderen Funktionen, die einen <span class="clisting">PyObject</span>-Pointer zurückgeben, <span class="clisting">NULL</span> zurück. Beachten Sie, dass es immer ratsam ist, die zurückgegebenen <span class="clisting">PyObject</span>-Pointer auf <span class="clisting">NULL</span> zu testen. Im Beispielprogramm wurde dies nur exemplarisch bei <span class="clisting">modul</span> gemacht.</p>
+<p>Nachfolgend wird durch Aufruf der Funktion <span class="clisting">PyObject_GetAttrString</span> ein Pointer auf die Funktion <span class="clisting">entscheide</span> des Moduls <span class="clisting">script</span> erstellt. Um die Funktion aufrufen zu können, müssen die Funktionsparameter in Form eines Tupels übergeben werden. Dazu erzeugen wir mittels <span class="clisting">Py_BuildValue</span> ein neues Tupel, das die beiden Strings <span class="clisting">"Hallo"</span> und <span class="clisting">"Welt"</span> enthält, von denen die Funktion <span class="clisting">entscheide</span> einen auswählen soll.</p>
+<p>Durch Aufruf der Funktion <span class="clisting">PyObject_CallObject</span> wird die Funktion <span class="clisting">funk</span> schlussendlich aufgerufen und ihr Rückgabewert ebenfalls in Form eines Pointers auf <span class="clisting">PyObject</span> zurückgegeben. Da es sich bei dem Rückgabewert um einen String handelt, können wir diesen mittels <span class="clisting">PyString_AsString</span> zu einem C-String konvertieren und dann mit <span class="clisting">printf</span> ausgeben.</p>
+<p>Die in diesem Beispiel aufgerufene Python-Funktion <span class="clisting">entscheide</span> sieht folgendermaßen aus und befindet sich in der Programmdatei <span class="ckursiv">script.py</span>:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span><span class="clisting"> entscheide(a, b):</span> 
+   <span class="cfett"> return</span><span class="clisting"> (a</span><span class="cfett"> if</span><span class="clisting"> min(a) &lt; min(b)</span><span class="cfett"> else</span><span class="clisting"> b)</span></pre></div>
+<p>Die Funktion bekommt zwei Strings <span class="clisting">a</span> und <span class="clisting">b</span> übergeben und gibt einen der beiden zurück. Die Entscheidung, welcher der beiden Strings zurückgegeben wird, hängt davon ab, in welchem der alphabetisch kleinste Buchstabe enthalten ist.</p>
+<p>Im nächsten Beispielprogramm soll es dem Python-Script ermöglicht werden, bestimmte Funktionen des C-Programms aufzurufen. Es soll dem Script also gewissermaßen eine API zur Verfügung gestellt werden, die es verwenden kann. Diese Idee liegt nicht nur gedanklich sehr nah an den in Abschnitt <a href="#Rxx_ref180775240">26.2</a> besprochenen Extensions, sondern wird auch ganz ähnlich umgesetzt. Der Quelltext des Beispielprogramms sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">#include</span> &lt;Python.h&gt;<br>
+<span class="cfett">static</span> PyObject *testfunktion(PyObject *self, PyObject *args) 
+    { 
+   <span class="cfett"> int</span> a, b; 
+   <span class="cfett"> if</span>(!PyArg_ParseTuple(args, "ii", &amp;a, &amp;b)) 
+       <span class="cfett"> return</span> NULL; 
+   <span class="cfett"> return</span> Py_BuildValue("i", a + b); 
+    }<br>
+<span class="cfett">static</span> PyMethodDef MethodTable[] = 
+    { 
+    {"testfunktion", testfunktion, METH_VARARGS, "Testfunktion"}, 
+    {NULL, NULL, 0, NULL} 
+    };<br>
+<span class="cfett">int</span> main(<span class="cfett">int</span> argc,<span class="cfett"> char</span> *argv[]) 
+    { 
+    FILE *f;<br>
+    Py_Initialize(); 
+    PySys_SetPath("."); 
+    Py_InitModule("api", MethodTable);<br>
+    f = fopen("script.py", "r"); 
+    PyRun_SimpleFile(f, "script.py"); 
+    fclose(f);<br>
+    Py_Finalize(); 
+    }</pre></div>
+<p>Zunächst wird die Funktion <span class="clisting">testfunktion</span> definiert, die später dem Python-Script zur Verfügung gestellt werden soll. Im Beispiel berechnet die Funktion schlicht die Summe zweier ganzer Zahlen, die ihr als Parameter übergeben werden. Danach wird eine <span class="clisting">MethodeTable</span> erstellt, ganz als würden wir eine Erweiterung schreiben. Und wie bei einer Erweiterung auch, wird die Funktion <span class="clisting">test</span> <span class="clisting">funktion</span> dem Python-Script später über ein Modul zur Verfügung stehen.</p>
+<p>Dieses Modul, im Beispiel <span class="clisting">api</span> genannt, wird durch den Aufruf der Funktion <span class="clisting">Py_InitModule</span> eingerichtet. Schlussendlich brauchen wir nur noch die Funktion <span class="clisting">PyRun_SimpleFile</span> aufzurufen, um das Python-Script <span class="ckursiv">script.py</span> zu interpretieren. Der Funktion <span class="clisting">PyRun_SimpleFile</span> muss dabei ein geöffnetes Dateiobjekt übergeben werden.</p>
+<p>Das Python-Script, das von diesem C-Programm aufgerufen wird, könnte beispielsweise folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> api<span class="cfett"> 
+print</span> "Zwei plus zwei ist:", api.testfunktion(2, 2)</pre></div><a id="mj62d29fde1147d5eccb00da7f6cafa3d6" name="mj62d29fde1147d5eccb00da7f6cafa3d6"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">26.3.3</span><span class="cfett"> Python-API-Referenz</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nachdem die Python API in den Themenbereichen »Erweitern und Einbetten von Python« bereits verwendet wurde, soll an dieser Stelle eine kleine Referenz dieser API stehen. Beachten Sie dabei, dass die Python API sehr umfangreich ist und in diesem Abschnitt keinesfalls vollständig behandelt werden kann. Aus diesem Grund beschränken wir uns auf die Beschreibung der Funktionen der Python API, die in den Beispielprogrammen der vorherigen Abschnitte vorgekommen sind.</p>
+<p>Die Funktionen sind in alphabetischer Reihenfolge aufgeführt.</p>
+<h5 class="t5"><span class="cfett">PyObject *Py_BuildValue(const char *format, …)</span></h5>
+<p>Erzeugt eine Instanz eines Python-Datentyps mit einem bestimmten Wert. Der String <span class="ckursiv">format</span> spezifiziert dabei den Datentyp. Die folgende Tabelle listet die wichtigsten Werte für <span class="ckursiv">format</span> mit ihrer jeweiligen Bedeutung auf.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 26.3    </strong>Mögliche Angaben im Formatstring
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Formatstring</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">"<span class="clisting">s</span>"</pre></div>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Instanz des Python-Datentyps <span class="clisting">str</span> aus einem C-String (<span class="clisting">char *</span>).</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">"<span class="clisting">u</span>"</pre></div>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Instanz des Python-Datentyps <span class="clisting">unicode</span> aus einem C-Buffer mit Unicode-Daten (<span class="clisting">Py_UNICODE *</span>).</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">"<span class="clisting">i</span>"</pre></div>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Instanz des Python-Datentyps <span class="clisting">int</span> aus einem C-Integer (<span class="clisting">int</span>).</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">"<span class="clisting">c</span>"</pre></div>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Instanz des Python-Datentyps <span class="clisting">str</span> aus einem C-Zeichen (<span class="clisting">char</span>). Der resultierende String hat die Länge 1.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">"<span class="clisting">d</span>"</pre></div>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Instanz des Python-Datentyps <span class="clisting">float</span> aus einer C-Gleitkommazahl (<span class="clisting">double</span>). Analog dazu existiert <span class="clisting">"d"</span> für den C-Datentyp <span class="clisting">float</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">"<span class="clisting">(…)</span>"</pre></div>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Instanz des Python-Datentyps <span class="clisting">tuple</span>. Anstelle der Auslassungszeichen müssen die Datentypen der Elemente des Tupels angegeben werden. <span class="clisting">"(iii)"</span> würde beispielsweise ein Tupel mit drei ganzzahligen Elementen erzeugen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">"<span class="clisting">[…]</span>"</pre></div>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Instanz des Python-Datentyps <span class="clisting">list</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">"<span class="clisting">{…}</span>"</pre></div>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Instanz des Python-Datentyps <span class="clisting">dict</span>.</p>
+</td>
+</tr>
+</table><br><p>Beachten Sie, dass ein C-String, der an die Funktion <span class="clisting">Py_BuildValue</span> übergeben wird, um einen Python-String zu erzeugen, stets kopiert wird. Das bedeutet insbesondere, dass Sie jeden dynamisch allokierten String wieder freigeben müssen, selbst wenn er an die Funktion <span class="clisting">Py_BuiltValue</span> übergeben wurde.</p>
+<h5 class="t5"><span class="cfett">void Py_Finalize()</span></h5>
+<p>Die Funktion <span class="clisting">Py_Finalize</span> deinitialisiert den Python-Interpreter und gibt den vom Interpreter belegten Speicher frei. Diese Funktion sollte beim Embedding des Python-Interpreters aufgerufen werden, wenn der Interpreter nicht mehr benötigt wird.</p>
+<h5 class="t5"><span class="cfett">void Py_INCREF(PyObject *o), 
+void Py_DECREF(PyObject *o)</span></h5>
+<p>Die Makros <span class="clisting">Py_INCREF</span> und <span class="clisting">Py_DECREF</span> erhöhen (inkrementieren) bzw. verringern (dekrementieren) den Reference Count der Instanz <span class="clisting">o</span> um 1.</p>
+<h5 class="t5"><span class="cfett">void Py_Initialize()</span></h5>
+<p>Die Funktion <span class="clisting">Py_Initialize</span> initialisiert den Python-Interpreter und sollte aufgerufen werden, bevor der Interpreter beim Embedding eingesetzt wird.</p>
+<h5 class="t5"><span class="cfett">PyObject *Py_InitModule(char *name, PyMethodDef *methods))</span></h5>
+<p>Erzeugt ein Python-Modul mit dem Namen <span class="ckursiv">name</span>. Das Modul enthält den Inhalt, der von der Method Table <span class="ckursiv">methods</span> vorgeschrieben wird. Das erstellte Modul wird in Form einers <span class="clisting">PyObject</span>-Pointers zurückgegeben.</p>
+<p>Beachten Sie, dass es sich bei dem zurückgegebenen Pointer um eine geliehene Referenz handelt, dass Sie also den Referenzzähler nicht dekrementieren müssen.</p>
+<h5 class="t5"><span class="cfett">void Py_XINCREF(PyObject *o), 
+void Py_XDECREF(PyObject *o)</span></h5>
+<p>Die Makros <span class="clisting">Py_XINCREF</span> und <span class="clisting">Py_XDECREF</span> erhöhen bzw. verringern den Reference Count der Instanz <span class="clisting">o</span> um 1. Dabei prüfen die Makros vorher, ob für <span class="clisting">o NULL</span> übergeben wurde.</p>
+<h5 class="t5"><span class="cfett">int PyArg_ParseTuple(PyObject *args, const char *format, …)</span></h5>
+<p>Die Funktion <span class="clisting">PyArg_ParseTuple</span> liest die einer Funktion übergebenen Argumente aus und speichert sie in lokale Variablen. Als erster Parameter muss ein Tupel übergeben werden, das die Parameter enthält. Ein solches Tupel bekommt jede Python-Funktion in C übergeben. Beachten Sie, dass mit <span class="clisting">PyArg_ParseTuple</span> nur Positionsargumente ausgelesen werden können.</p>
+<p>Der zweite Parameter <span class="ckursiv">format</span> ist ein String, ähnlich dem Formatstring von <span class="clisting">Py_BuildValue</span> und legt fest, wie viele Parameter ausgelesen werden sollen und welche Datentypen diese haben. Zum Schluss akzeptiert die Funktion <span class="clisting">PyArg_Parse</span> <span class="clisting">Tuple</span> beliebig viele Pointer auf Variablen, die mit den ausgelesenen Werten gefüllt werden sollen.</p>
+<p>Im Erfolgsfall gibt die Funktion <span class="clisting">True</span> zurück. Bei einem Fehler wirft die Funktion eine entsprechende Exception und gibt <span class="clisting">False</span> zurück.</p>
+<h5 class="t5"><span class="cfett">void PyErr_SetString(PyObject *type, PyObject *value)</span></h5>
+<p>Die Funktion <span class="clisting">PyErr_SetString</span> wirft eine Python-Exception. Sie bekommt den Typ der auszulösenden Exception als ersten Parameter übergeben. Das kann eine der vordefinierten Standardexceptions, beispielsweise <span class="clisting">PyExc_NameError</span> oder <span class="clisting">PyExc_ValueError</span>, sein. Als zweiter Parameter wird der Wert der Exception übergeben, üblicherweise ein String, der eine Fehlermeldung enthält.</p>
+<p>Beachten Sie, dass Sie den Reference Count einer Standardexception nicht erhöhen müssen, wenn Sie sie an <span class="clisting">PyErr_SetString</span> übergeben.</p>
+<h5 class="t5"><span class="cfett">PyObject *PyImport_ImportModule(char *name, PyObject *globals, PyObject *locals, PyObject *fromlist)</span></h5>
+<p>Diese C-Funktion lädt ein Python-Modul und ist äquivalent zu einem Aufruf der Built-in Function <span class="clisting">__import__</span> aus Python heraus. Im einfachsten Fall braucht nur der Parameter <span class="ckursiv">name</span> übergeben werden, der den Namen des zu ladenden Moduls enthält.</p>
+<p>Beachten Sie, dass Sie das lokale Programmverzeichnis zuerst mittels <span class="clisting">PySys_Set</span> <span class="clisting">Path</span> einrichten müssen, bevor lokale Module eingebunden werden können.</p>
+<h5 class="t5"><span class="cfett">void PyMem_Free(void *p)</span></h5>
+<p>Die Funktion <span class="clisting">PyMem_Free</span> gibt den allokierten Speicherblock frei, auf den <span class="clisting">p</span> zeigt.</p>
+<h5 class="t5"><span class="cfett">void *PyMem_Malloc(size_t n)</span></h5>
+<p>Die Funktion <span class="clisting">PyMem_Malloc</span> allokiert einen Speicherbereich der Größe <span class="clisting">n</span> und gibt einen Pointer auf den allokierten Speicher zurück.</p>
+<h5 class="t5"><span class="cfett">PyObject *PyObject_CallObject(PyObject *callable_object, PyObject *args)</span></h5>
+<p>Die Funktion <span class="clisting">PyObject_CallObject</span> ruft das aufrufbare Objekt <span class="ckursiv">callable_objekt</span>, beispielsweise also ein Funktions- oder Methodenobjekt, auf und übergibt dabei die Parameter <span class="ckursiv">args</span>. Wenn keine Parameter übergeben werden sollen, kann für <span class="ckursiv">args</span> <span class="clisting">NULL</span> übergeben werden.</p>
+<p>Das Ergebnis des Objektaufrufs wird als Rückgabewert zurückgegeben. Bei einem Fehler wird <span class="clisting">NULL</span> zurückgegeben.</p>
+<h5 class="t5"><span class="cfett">PyObject *PyObject_GetAttrString(PyObject *o, const char *attr_name)</span></h5>
+<p>Gibt eine Referenz auf das Attribut mit dem Namen <span class="ckursiv">attr_name</span> der Instanz <span class="ckursiv">o</span> zurück. Im Fehlerfall wird <span class="clisting">NULL</span> zurückgegeben.</p>
+<h5 class="t5"><span class="cfett">int PyRun_SimpleFile(FILE *fp, const char *filename)</span></h5>
+<p>Die Funktion <span class="clisting">PyRun_SimpleFile</span> führt eine Python-Programmdatei aus. Dabei wird der Inhalt der Programmdatei in Form eines geöffneten Datei-Pointers übergeben. Zusätzlich sollte der Dateiname der Programmdatei als zweiter Parameter übergeben werden.</p>
+<p>Die Funktion gibt <span class="clisting">0</span> zurück, wenn der Code erfolgreich ausgeführt wurde, und <span class="clisting">–1</span>, wenn ein Fehler aufgetreten ist.</p>
+<h5 class="t5"><span class="cfett">int PyRun_SimpleString(const char *command)</span></h5>
+<p>Die Funktion <span class="clisting">PyRun_SimpleString</span> verhält sich ähnlich wie <span class="clisting">PyRun_SimpleFile</span> mit dem Unterschied, dass der auszuführende Python-Code aus dem String <span class="ckursiv">command</span> statt aus einer Datei gelesen wird.</p>
+<h5 class="t5"><span class="cfett">char *PyString_AsString(PyObject *string)</span></h5>
+<p>Gibt den internen C-Buffer des Python-Strings <span class="clisting">string</span> zurück. Beachten Sie, dass Sie nur dann in den zurückgegebenen Buffer schreiben dürfen, wenn Sie ihn zuvor beispielsweise mit der Funktion <span class="clisting">PyString_FromStringAndSize</span> selbst erstellt haben.</p>
+<h5 class="t5"><span class="cfett">PyObject *PyString_FromStringAndSize(const char *v, Py_ssize_t len)</span></h5>
+<p>Erzeugt eine Instanz des Python-Datentyps <span class="clisting">str</span> mit der Länge <span class="ckursiv">len</span> und dem Inhalt des C-Strings <span class="ckursiv">v</span>. Für <span class="ckursiv">v</span> kann <span class="clisting">NULL</span> übergeben werden. Die Funktion gibt eine Referenz auf die erzeugte Instanz zurück.</p>
+<h5 class="t5"><span class="cfett">void PySys_SetPath(char *path)</span></h5>
+<p>Über die Funktion <span class="clisting">PySys_SetPath</span> können die Verzeichnisse festgelegt werden, in denen nach Modulen gesucht wird. Die Funktion entspricht damit dem Schreiben des Strings <span class="clisting">sys.path</span> in Python. Umgekehrt können die gesetzten Verzeichnisse über die Funktion <span class="clisting">PySys_GetPath</span> ausgelesen werden.</p>
+<p> </p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_26_003.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="26.3 Python als eingebettete Skriptsprache"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_26_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_27_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

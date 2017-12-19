@@ -1,0 +1,818 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 19.2 XML</title>
+<meta name="title" content="Galileo Computing :: Python - 19.2 XML">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 19.2 XML">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_19_001.htm">
+<link rel="next" href="python_kapitel_19_003.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_19_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_19_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166" class="navnav">19 Datenspeicherung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_001.htm#mj50322fedc1f8490eef0fafc7d36e87ec" class="navnav">19.1 Komprimierte Dateien lesen und schreiben &#8211; gzStandardbibliothekgzipip</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjfb129af936cf736637fadc5cdc7fb80f" class="navh">19.2 XML</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj7b6b6575efca95cb4e2a8271bedd2fd8" class="navh">19.2.1 DOM &#8211; Document Object Model</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj814634fd2dce5dc0aee7c29e59536e3d" class="navh">19.2.2 SAX &#8211; Simple API for XML</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj10de3bcca53a40f74b605ca1b6763f1e" class="navh">19.2.3 ElementTree</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_003.htm#mj080f219370513600ef96af394d02fbee" class="navnav">19.3 Datenbanken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_19_003.htm#mjea5883d439a425e2f974548b406b56c0" class="navnav">19.3.1 Pythons eingebaute Datenbank &#8211; sqlite3</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_19_003.htm#mjd4e355cc1c649fc6067edb05093491f1" class="navnav">19.3.2 MySQLdb</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_004.htm#mjeb8a39f5c42513f80eca039dfe9b1c06" class="navnav">19.4 Serialisierung von Instanzen &#8211; pickle</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_005.htm#mj068051f9093b3bd5bfc5628714320a14" class="navnav">19.5 Das Tabellenformat CSV &#8211; csv</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_006.htm#mjcc3ffbef726889b6a10108557bca2ef2" class="navnav">19.6 Temporäre Dateien &#8211; tempfile</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjfb129af936cf736637fadc5cdc7fb80f" name="mjfb129af936cf736637fadc5cdc7fb80f"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">19.2</span><span class="cfett"> <a id="Rxx_ref180677619" name="Rxx_ref180677619"></a>XML</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Modul <span class="clisting">xml</span> der Standardbibliothek erlaubt es, XML-Dateien einzulesen. XML (kurz für »Extensible Markup Language«) ist eine standardisierte Beschreibungssprache, die es ermöglicht, komplexe, hierarchisch aufgebaute Datenstrukturen in einem lesbaren Textformat abzuspeichern. XML kann daher sehr gut zum Datenaustausch bzw. zur Datenspeicherung verwendet werden.</p>
+<p>Besonders in der Welt des Internets finden sich viele auf XML basierende Beschreibungssprachen, wie beispielsweise XHTML, RSS, MathML oder SVG.</p>
+<p>An dieser Stelle soll eine kurze Einführung in XML gegeben werden. Dazu dient folgende, einfache XML-Datei, die eine Möglichkeit aufzeigt, wie der Inhalt eines Python-Dictionarys dauerhaft abgespeichert werden könnte:</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+&lt;dictionary&gt; 
+    &lt;eintrag&gt; 
+        &lt;schluessel&gt;Hallo&lt;/schluessel&gt; 
+        &lt;wert&gt;0&lt;/wert&gt; 
+    &lt;/eintrag&gt; 
+    &lt;eintrag&gt; 
+        &lt;schluessel&gt;Welt&lt;/schluessel&gt; 
+        &lt;wert&gt;1&lt;/wert&gt; 
+    &lt;/eintrag&gt; 
+&lt;/dictionary&gt;</pre></div>
+<p>Die erste Zeile der Datei ist die sogenannte <span class="ckursiv">XML-Deklaration</span>. Diese optionale Angabe kennzeichnet die verwendete Version von XML und vor allem, was viel wichtiger ist, das Encoding, in dem die Datei gespeichert wurde. Durch Angabe des Encodings, in diesem Fall UTF-8, können auch Umlaute und andere Sonderzeichen korrekt verarbeitet werden.</p>
+<p>Abgesehen von der XML-Deklaration besteht ein XML-Dokument aus sogenannten <span class="ckursiv">Tag</span><span class="ckursiv">s</span>. Tags können wie Klammern geöffnet und geschlossen werden und stellen damit eine Art Gruppe dar, die weitere Tags enthalten kann. Jedes Tag hat einen Namen, den sogenannten <span class="ckursiv">Tag-Name</span><span class="ckursiv">n</span>. Um ein Tag zu öffnen, wird dieser Tag-Name in spitze Klammern geschrieben. Ein schließendes Tag besteht aus dem Tag-Namen, der zusammen mit einem Slash ebenfalls in spitze Klammern geschrieben wird. Das folgende Beispiel zeigt ein öffnendes Tag, direkt gefolgt von dem entsprechenden schließenden Tag.</p>
+<div class="listing"><pre class="prettyprint">&lt;wert&gt;&lt;/wert&gt;</pre></div>
+<p>Innerhalb eines Tags können sowohl Text als auch weitere Tags stehen. Auf diese Weise kann eine hierarchische Struktur erstellt werden, die dazu in der Lage ist, auch komplexe Datensätze abzubilden.</p>
+<p>Zudem können bei einem Tag sogenannte <span class="ckursiv">Attribut</span><span class="ckursiv">e</span> angegeben werden. Dazu soll das vorherige Beispiel dahingehend erweitert werden, dass der Datentyp der Schlüssel und Werte des abzubildenden Dictionarys als Attribut des jeweiligen <span class="clisting">schluessel</span>- bzw. <span class="clisting">wert</span>-Tags gespeichert werden kann.</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+&lt;dictionary&gt; 
+    &lt;eintrag&gt; 
+        &lt;schluessel typ="str"&gt;Hallo&lt;/schluessel&gt; 
+        &lt;wert typ="int"&gt;0&lt;/wert&gt; 
+    &lt;/eintrag&gt; 
+    &lt;eintrag&gt; 
+        &lt;schluessel typ="str"&gt;Welt&lt;/schluessel&gt; 
+        &lt;wert typ="int"&gt;1&lt;/wert&gt; 
+    &lt;/eintrag&gt; 
+&lt;/dictionary&gt;</pre></div>
+<p>Ein Attribut stellt im Prinzip ein Schlüssel/Wert-Paar dar. Im Beispiel wurde jedem <span class="clisting">schluessel</span>- und <span class="clisting">wert</span>-Tag ein Attribut <span class="clisting">typ</span> verpasst, über das der Datentyp des Schlüssels bzw. des Werts angegeben werden kann. Beachten Sie, dass der Wert eines XML-Attributs stets in Anführungszeichen zu schreiben ist.</p>
+<p>Zum Einlesen von XML-Dateien stellt Python, wie die meisten anderen Programmiersprachen oder XML-Bibliotheken auch, zwei sogenannte <span class="ckursiv">Parser</span> zur Verfügung. Der Begriff des Parsers ist nicht auf XML beschränkt, sondern bezeichnet ganz allgemein ein Programm, das eine Syntaxanalyse bestimmter Daten eines speziellen Formats leistet. Die beiden im Modul <span class="clisting">xml</span> enthaltenen Parser heißen <span class="clisting">dom</span> und <span class="clisting">sax</span> und implementieren zwei unterschiedliche Herangehensweisen an das XML-Dokument. Aus diesem Grund ist es sinnvoll, beide getrennt und ausführlich zu besprechen, was in den nächsten beiden Kapiteln geschehen soll. Das Thema des dritten Unterkapitels soll eine relativ neue Herangehensweise an XML-Daten namens <span class="clisting">ElementTree</span> sein.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Eine Besonderheit bei XML-Tags stellen sogenannte <span class="ckursiv">körperlose Tags</span> dar. Solche Tags spielen in den Beispielen, die in diesem Buch vorgestellt werden, keine Rolle, sind jedoch in einigen Fällen durchaus sinnvoll. Ein körperloses Tag sieht folgendermaßen aus:</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">&lt;tag attr="wert" /&gt;</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+Ein körperloses Tag ist öffnendes und schließendes Tag zugleich und darf demzufolge nur über Attribute verfügen. Ein solches Tag kann keinen Text oder weitere Tags enthalten. Von einem XML-Parser wird ein körperloses Tag behandelt, als stünde <span class="clisting">&lt;tag</span> <span class="clisting">attr="wert"&gt;&lt;/tag&gt;</span> in der XML-Datei.</p>
+</td>
+</tr>
+</table><br><a id="mj7b6b6575efca95cb4e2a8271bedd2fd8" name="mj7b6b6575efca95cb4e2a8271bedd2fd8"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">19.2.1</span><span class="cfett"> DOM &#8211; Document Object Model</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das <span class="ckursiv">Document Object Model</span>, kurz DOM, ist eine Schnittstelle, die vom <span class="ckursiv">World Wide Web Consortium</span> (W3C) standardisiert wurde und es ermöglicht, auf einzelne Elemente einer XML-Datei zuzugreifen und diese zu modifizieren. Dazu wird die Datei vollständig eingelesen und zu einer baumartigen Struktur aufbereitet. Jedes Tag wird durch eine Klasse repräsentiert, den sogenannten <span class="ckursiv">Knoten</span> (engl. <span class="ckursiv">node</span>). Durch Methoden und Attribute dieser Klasse können die enthaltenen Informationen ausgelesen oder verändert werden.</p>
+<p>Das DOM ist vor allem dann interessant, wenn ein wahlfreier Zugriff auf die XML-Daten möglich sein muss. Unter einem <span class="ckursiv">wahlfreien Zugriff</span> versteht man den punktuellen Zugriff auf verschiedene, voneinander unabhängige Teile des Datensatzes. Das Gegenteil des wahlfreien Zugriffs wäre das sequenzielle Einlesen der XML-Datei.</p>
+<p>Da die Datei stets vollständig eingelesen wird, ist die Verwendung von DOM sehr speicherintensiv. Im Gegensatz dazu liest das Konkurrenzmodell SAX immer nur kleine Teile der XML-Daten ein und stellt sie sofort zur Weiterverarbeitung zur Verfügung. Diese Herangehensweise benötigt weniger Arbeitsspeicher und erlaubt es, Teile der gespeicherten Daten bereits zu verwenden, beispielsweise anzuzeigen, während die Datei selbst noch nicht vollständig eingelesen ist. Ein wahlfreier Zugriff auf die XML-Daten und die Manipulation selbiger ist mit SAX allerdings nicht möglich.</p>
+<p>Jetzt möchten wir darauf zu sprechen kommen, wie die XML-Daten bei Verwendung eines DOM-Parsers aufbereitet werden. Betrachten Sie dazu noch einmal unser vorheriges Beispiel einer XML-Datei:</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+&lt;dictionary&gt; 
+    &lt;eintrag&gt; 
+        &lt;schluessel typ="str"&gt;Hallo&lt;/schluessel&gt; 
+        &lt;wert typ="int"&gt;0&lt;/wert&gt; 
+    &lt;/eintrag&gt; 
+    &lt;eintrag&gt; 
+        &lt;schluessel typ="str"&gt;Welt&lt;/schluessel&gt; 
+        &lt;wert typ="int"&gt;1&lt;/wert&gt; 
+    &lt;/eintrag&gt; 
+&lt;/dictionary&gt;</pre></div>
+<p>Unter Verwendung eines DOM-Parsers werden die XML-Daten zu einem sogenannten <span class="ckursiv">Baum</span> aufbereitet. Ein Baum besteht aus einzelnen Klassen, den sogenannten Knoten. Jede dieser Knotenklassen enthält verschiedene Referenzen auf benachbarte Knoten, nämlich:</p>
+<ul class="gp">
+<li>sein <span class="ckursiv">Elternelement</span> (engl. <span class="ckursiv">parent</span>). Das ist der Knoten, der im Baum direkt über diesem Knoten steht.</li>
+</ul>
+<ul class="gp">
+<li>seine <span class="ckursiv">Kindelement</span><span class="ckursiv">e</span> (engl. <span class="ckursiv">children</span>). Das sind alle Knoten, die im Baum direkt unter diesem Knoten stehen.</li>
+</ul>
+<ul class="gp">
+<li>seine <span class="ckursiv">Geschwisterelement</span><span class="ckursiv">e</span> (engl. <span class="ckursiv">siblings</span>). Das sind alle Knoten, die im Baum direkt neben diesem Knoten stehen und dasselbe Elternelement haben.</li>
+</ul>
+<p>Somit enthält jeder Knoten des Baumes Referenzen zu allen umliegenden, auch verwandten Knoten. Auf diese Weise lässt sich der Baum vollständig durchlaufen und verarbeiten.</p>
+<p>Die aus dem obigen Beispiel erzeugte Baumstruktur sieht folgendermaßen aus:</p>
+<div class="bildbox">
+<p><a name="IDA3QSQ"></a><a onClick="OpenWin('bilder/xml-dom.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinxml-dom.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 19.1    </strong>Vom DOM-Parser erzeugter Baum</p>
+<p>Dabei handelt es sich bei <span class="clisting">Document</span>, <span class="clisting">Element</span> und <span class="clisting">Text</span> um die grundlegenden Knotenklassen, aus denen ein DOM-Baum aufgebaut ist. Die <span class="clisting">Document</span>-Instanz ist einmalig und entspricht der <span class="ckursiv">Wurzel</span> des Baumes (engl. <span class="ckursiv">root</span>). Sie enthält eine Referenz auf alle Tags erster Ordnung, wie in diesem Fall beispielsweise das Tag <span class="clisting">dictionary</span>. Diesem Knoten sind mehrere Instanzen der Klasse <span class="clisting">Element</span> untergeordnet, die jeweils ein <span class="clisting">eintrag</span>-Tag repräsentieren. Durch Attribute dieser Klasse können Informationen wie der Tag-Name, enthaltene XML-Attribute oder Ähnliches abgerufen werden.</p>
+<p>Beachten Sie zum einen, dass in <a href="#Rxx_ref181507772">Abbildung 19.1</a> aus Gründen der Übersichtlichkeit keine Geschwisterbeziehungen eingezeichnet wurden, und zum anderen, dass die Attribute der Elemente <span class="clisting">schluessel</span> und <span class="clisting">wert</span> keine eigenständigen Instanzen einer Knotenklasse sind, sondern Teil des Elementknotens.</p>
+<p>Neben den Klassen <span class="clisting">Document</span> und <span class="clisting">Element</span> existieren Instanzen einer weiteren Klasse namens <span class="clisting">Text</span>. Diese Instanzen enthalten Text, der innerhalb eines Tags geschrieben wurde.</p>
+<p>Abgesehen von den hier aufgelisteten Klassen gibt es noch weitere Knotenklassen, die allerdings nur in Spezialfällen im Baum vorkommen. So existiert beispielsweise die Klasse <span class="clisting">Comment</span> für ein Kommentar-Tag in der XML-Datei. Wir möchten uns in diesem Kapitel auf das Wesentliche, das heißt auf die Klassen <span class="clisting">Document</span>, <span class="clisting">Element</span> und <span class="clisting">Text</span>, beschränken.</p>
+<h4 class="t4"><span class="cfett">Beispiel</span></h4>
+<p>An dieser Stelle soll die Verwendung von DOM an einem einfachen Beispiel gezeigt werden. Dazu rufen wir uns erneut unsere Beispieldatei ins Gedächtnis, deren Zweck es war, den Inhalt eines Python-Dictionarys abzubilden:</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+&lt;dictionary&gt; 
+    &lt;eintrag&gt; 
+        &lt;schluessel typ="str"&gt;Hallo&lt;/schluessel&gt; 
+        &lt;wert typ="int"&gt;0&lt;/wert&gt; 
+    &lt;/eintrag&gt; 
+&lt;/dictionary&gt;</pre></div>
+<p>Die Datei besteht aus einem Tag erster Ordnung namens <span class="clisting">dictionary</span>, in dem mehrere <span class="clisting">eintrag</span>-Tags vorkommen dürfen. Jedes <span class="clisting">eintrag</span>-Tag enthält zwei untergeordnete Tags namens <span class="clisting">schluessel</span> und <span class="clisting">wert</span>, die gemeinsam jeweils ein Schlüssel/Wert-Paar des Dictionarys repräsentieren. Der Datentyp des Schlüssels bzw. des Wertes wird über das Attribut <span class="clisting">typ</span> festgelegt, das bei den Tags <span class="clisting">schluessel</span> und <span class="clisting">wert</span> vorkommen muss.</p>
+<p>Das Beispielprogramm soll dazu in der Lage sein, eine solche XML-Datei einzulesen und das entsprechende Dictionary daraus zu rekonstruieren. Im Folgenden soll der Quelltext des Beispielprogramms besprochen werden.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span><span class="clisting"> xml.dom</span><span class="clisting">.minidom</span><span class="cfett"> as</span><span class="clisting"> dom</span><br>
+<span class="cfett">def</span><span class="clisting"> _knoten_auslesen(knoten):</span> 
+   <span class="cfett"> return</span><span class="clisting"> eval("%s('%s')" % (knoten.getAttribute("typ"),</span> 
+                             <span class="clisting"> knoten.firstChild.data.strip()))</span></pre></div>
+<p>In der ersten Zeile wird der DOM-Parser eingebunden und unter dem Namensraum <span class="clisting">dom</span> verfügbar gemacht. Für dieses Beispiel wurde der Parser <span class="clisting">xml.dom.minidom</span> eingebunden, der eine grundlegende und simple Implementation darstellt, die in den meisten Fällen genügen sollte. Abgesehen von dem Minidom-Parser existieren noch weitere spezielle DOM-Parser im Paket <span class="clisting">xml.dom</span>.</p>
+<p>Danach wird die Funktion <span class="clisting">_knoten_auslesen</span> definiert. Der Funktionsname beginnt mit einem Unterstrich, da es sich um eine Hilfsfunktion handelt, die für sich allein keinen Wert darstellt. Die Aufgabe der Funktion <span class="clisting">_knoten_auslesen</span> ist es, aus einer <span class="clisting">Element</span>-Instanz das Attribut <span class="clisting">typ</span> auszulesen und den im Element enthaltenen Text in den angegebenen Datentyp zu konvertieren. Dazu wird dynamisch ein String erzeugt, der beispielsweise für den Typ <span class="clisting">int</span> und den Text <span class="clisting">"123"</span> zu  <span class="clisting">"int('123')"</span> wird. Dieser String wird mittels <span class="clisting">eval</span> interpretiert und zurückgegeben. Beachten Sie, dass aus Gründen der Übersichtlichkeit alle Konsistenzprüfungen weggelassen wurden. In einem normalen Programm sollte in der Funktion <span class="clisting">_knoten_auslesen</span> beispielsweise geprüft werden, ob ein Attribut <span class="clisting">typ</span> überhaupt existiert oder ob der dort angegebene Datentyp gültig ist.</p>
+<p>Das Auslesen eines XML-Attributs geschieht über die Methode <span class="clisting">getAttribute</span> einer Element-Instanz. Um den vom Tag umschlossenen Text auszulesen, wird über das Attribut <span class="clisting">firstChild</span> das erste Kindelement der übergebenen Element-Instanz angesprochen. Dabei handelt es sich um die jeweilige <span class="clisting">Text</span>-Instanz. Über das Attribut <span class="clisting">data</span> dieser <span class="clisting">Text</span>-Instanz kann der enthaltene Text ausgelesen werden.</p>
+<p>Beachten Sie beim Arbeiten mit <span class="clisting">Text</span>-Instanzen, dass der DOM-Standard vorsieht, dass Whitespace-Zeichen, auch wenn sie nur aus Formatierungsgründen in der XML-Datei stehen, später im Baum wiederzufinden sind. Aus diesem Grund müssen wir eventuell vorkommende Whitespace-Zeichen durch Aufruf der String-Methode <span class="clisting">strip</span> entfernen.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span><span class="clisting"> lade_dict(dateiname):</span> 
+   <span class="clisting"> d = {}</span> 
+   <span class="clisting"> baum = dom.parse(dateiname)</span><br>
+   <span class="cfett"> for</span><span class="clisting"> eintrag</span><span class="cfett"> in</span><span class="clisting"> baum.firstChild.childNodes:</span> 
+       <span class="cfett"> if</span><span class="clisting"> eintrag.nodeName == "eintrag":</span> 
+           <span class="clisting"> schluessel = wert = None</span><br>
+           <span class="cfett"> for</span><span class="clisting"> knoten</span><span class="cfett"> in</span><span class="clisting"> eintrag.childNodes:</span> 
+               <span class="cfett"> if</span><span class="clisting"> knoten.nodeName == "schluessel":</span> 
+                   <span class="clisting"> schluessel = _knoten_auslesen(knoten)</span> 
+               <span class="cfett"> elif</span><span class="clisting"> knoten.nodeName == "wert":</span> 
+                   <span class="clisting"> wert = _knoten_auslesen(knoten)</span><br>
+           <span class="clisting"> d[schluessel] = wert</span> 
+   <span class="cfett"> return</span><span class="clisting"> d</span></pre></div>
+<p>Danach wird die Hauptfunktion <span class="clisting">lade_dict</span> definiert. Die Aufgabe dieser Funktion ist es, eine XML-Datei, deren Dateinamen sie übergeben bekommt, zu öffnen, die enthaltenen Informationen zu extrahieren, in das Dictionary <span class="clisting">d</span> zu schreiben und das entstandene Dictionary zurückzugeben.</p>
+<p>Zunächst wird durch Aufruf der Funktion <span class="clisting">parse</span> des <span class="clisting">minidom</span>-Parsers das XML-Dokument eingelesen und zu einer Baumstruktur aufbereitet. Die Referenz <span class="clisting">baum</span> referenziert jetzt eine Instanz der Klasse <span class="clisting">Document</span>, über die auf alle Elemente des Dokuments zugegriffen werden kann. Alternativ hätte auch die Methode <span class="clisting">parse</span> <span class="clisting">String</span> des <span class="clisting">minidom</span>-Parsers aufgerufen werden können, wenn die XML-Daten in Form eines Strings vorliegen würden.</p>
+<p>Dann soll über alle <span class="clisting">eintrag</span>-Tags iteriert und das jeweilige Schlüssel/Wert-Paar ins Dictionary <span class="clisting">d</span> eingefügt werden. Dazu nutzen wir die Attribute der Klasse <span class="clisting">Node</span>, von der sowohl <span class="clisting">Document</span> als auch <span class="clisting">Element</span> abgeleitet sind. Von der <span class="clisting">Document</span>-Instanz <span class="clisting">baum</span> aus erreichen wir über das Attribut <span class="clisting">baum.firstChild</span> das erste Kindelement, also die <span class="clisting">Element</span>-Instanz, die das <span class="clisting">dictionary</span>-Tag repräsentiert. Genau genommen interessieren wir uns jedoch auch nicht für das <span class="clisting">dictionary</span>-Tag, sondern für alle diesem Tag direkt untergeordneten Elemente. Diese können wir über das Attribut <span class="clisting">childNodes</span> erreichen, das eine Liste aller Kindelemente bereitstellt. Über diese Liste wird in einer <span class="clisting">for</span>-Schleife iteriert.</p>
+<p>Innerhalb der <span class="clisting">for</span>-Schleife wird zunächst geprüft, ob es sich tatsächlich um den Knoten eines <span class="clisting">eintrag</span>-Tags handelt. Dazu wird das Attribut <span class="clisting">nodeName</span> verwendet, das jede <span class="clisting">Node</span>-Instanz, also jeder Knoten besitzt. Beachten Sie wie bereits gesagt, dass der DOM-Standard vorschreibt, auch Whitespaces, die zur Formatierung der XML-Datei eingesetzt wurden, in Form von <span class="clisting">Text</span>-Instanzen im DOM-Baum einzutragen. Diese <span class="clisting">Text</span>-Instanzen werden hier ebenfalls herausgefiltert, ihr <span class="clisting">nodeName</span>-Wert ist <span class="clisting">"#text"</span>. Zudem werden zwei Referenzen namens <span class="clisting">schluessel</span> und <span class="clisting">wert</span> angelegt, die später zum Aufbau des Dictionarys verwendet werden.</p>
+<p>In der darauf folgenden <span class="clisting">for</span>-Schleife wird über alle Kindelemente des <span class="clisting">eintrag</span>-Tags iteriert. Je nachdem, ob es sich bei dem aktuellen Kindelement um ein <span class="clisting">schluessel</span>- oder ein <span class="clisting">wert</span>-Tag handelt, wird das Ergebnis des Funktionsaufrufs von <span class="clisting">_knoten_auslesen</span> dem Namen <span class="clisting">schluessel</span> bzw. <span class="clisting">wert</span> zugewiesen. Nachdem die innere Schleife durchlaufen ist, werden Schlüssel und Wert ins Dictionary <span class="clisting">d</span> eingetragen.</p>
+<p>Beachten Sie unbedingt, dass wir in diesem Beispiel davon ausgehen, dass die XML-Datei exakt unseren Ansprüchen entspricht. In einem wirklichen Programm sollten Sie grundsätzlich davon ausgehen, dass auch fehlerhafte Angaben vorkommen, und diese entsprechend behandeln. Auch der sorglose Umgang mit dem Attribut <span class="clisting">typ</span> (direktes Übergeben nach <span class="clisting">eval</span>) sollte in einem fertigen Programm so nicht vorkommen.</p>
+<p>Dieses Beispiel sollte einen kurzen Überblick über die Verwendung des DOM-Baumes bieten. Im Folgenden werden die Klassen <span class="clisting">Node</span>, <span class="clisting">Document</span>, <span class="clisting">Element</span> und <span class="clisting">Text</span> besprochen, aus denen ein DOM-Baum zusammengesetzt ist.</p>
+<h4 class="t4"><span class="cfett">Die Klasse Node</span></h4>
+<p>Die Klasse <span class="clisting">Node</span> ist die Basisklasse aller im DOM-Baum verwendeten Klassen. Das bedeutet, dass die in dieser Klasse enthaltene Funktionalität an allen Knoten des Baumes verfügbar ist. In der Klasse <span class="clisting">Node</span> sind vor allem Attribute und Methoden enthalten, die es ermöglichen, Zugriff auf verwandte Knoten, das heißt Kinder, Geschwister oder den Elternknoten, zu erlangen.</p>
+<p>Im Folgenden sollen die wichtigsten Attribute der Klasse <span class="clisting">Node</span> beschrieben werden. Dabei soll <span class="ckursiv">n</span> eine Instanz der Klasse <span class="clisting">Node</span> sein.</p>
+<h5 class="t5"><span class="cfett">n.nodeType</span></h5>
+<p>Kennzeichnet den Typ des Knotens. Das Attribut referenziert eine ganze Zahl, die mit folgenden symbolischen Konstanten verglichen werden kann:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 19.2    </strong>Konstanten zur Beschreibung eines Knotentyps
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Konstante</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">Node.ELEMENT_NODE</span></p>
+</td>
+<td class="tabellentext">
+<p>Bei dem Knoten handelt es sich um eine <span class="clisting">Element</span>-Instanz.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">Node.TEXT_NODE</span></p>
+</td>
+<td class="tabellentext">
+<p>Bei dem Knoten handelt es sich um eine <span class="clisting">Text</span>-Instanz.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">Node.DOCUMENT_NODE</span></p>
+</td>
+<td class="tabellentext">
+<p>Bei dem Knoten handelt es sich um eine <span class="clisting">Document</span>-Instanz.</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">n.parentNode</span></h5>
+<p>Referenziert das Elternelement des Knotens <span class="ckursiv">n</span>. Wenn es sich bei dem Knoten um die <span class="clisting">Document</span>-Instanz handelt, referenziert dieses Attribut <span class="clisting">None</span>.</p>
+<h5 class="t5"><span class="cfett">n.previousSibling</span></h5>
+<p>Referenziert das Geschwisterelement, das in der Reihenfolge vor dem Knoten <span class="ckursiv">n</span> steht, oder <span class="clisting">None</span>, wenn dieser Knoten das erste Kind von <span class="clisting">parentNode</span> ist.</p>
+<h5 class="t5"><span class="cfett">n.nextSibling</span></h5>
+<p>Referenziert das Geschwisterelement, das in der Reihenfolge hinter dem Knoten <span class="ckursiv">n</span> steht, oder <span class="clisting">None</span>, wenn dieser Knoten das letzte Kind von <span class="clisting">parentNode</span> ist.</p>
+<h5 class="t5"><span class="cfett">n.firstChild</span></h5>
+<p>Referenziert das erste Kindelement des Knotens <span class="ckursiv">n</span> oder <span class="clisting">None</span>, wenn keine untergeordneten Knoten existieren.</p>
+<h5 class="t5"><span class="cfett">n.lastChild</span></h5>
+<p>Referenziert das letzte Kindelement des Knotens <span class="ckursiv">n</span> oder <span class="clisting">None</span>, wenn keine untergeordneten Knoten existieren.</p>
+<p><a href="#Rxx_ref181508091">Abbildung 19.2</a> soll die hier vorgestellten Attribute anhand der Beziehung von drei Knoten eines Baumes verdeutlichen:</p>
+<div class="bildbox">
+<p><a name="IDAN3SQ"></a><a onClick="OpenWin('bilder/xml-attribute.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinxml-attribute.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 19.2    </strong>Verwandtschaftsbeziehungen dreier Knoten</p>
+<h5 class="t5"><span class="cfett">n.childNodes</span></h5>
+<p>Referenziert eine Liste aller Kinder des Knotens <span class="ckursiv">n</span>.</p>
+<p>Dieser Auflistung der wichtigsten Attribute der Klasse <span class="clisting">Node</span> folgen die wichtigsten Methoden dieser Klasse.</p>
+<h5 class="t5"><span class="cfett">n.hasChildNodes()</span></h5>
+<p>Gibt <span class="clisting">True</span> zurück, wenn der Knoten <span class="ckursiv">n</span> über Kinder verfügt, andernfalls <span class="clisting">False</span>.</p>
+<h5 class="t5"><span class="cfett">n.appendChild(newChild)</span></h5>
+<p>Fügt die <span class="clisting">Node</span>-Instanz <span class="ckursiv">newChild</span> als Kindelement an das Ende der Liste aller Kinder von <span class="ckursiv">n</span> ein. Beachten Sie, dass diese Methode den DOM-Baum verändert.</p>
+<h5 class="t5"><span class="cfett">n.insertBefore(newChild, refChild)</span></h5>
+<p>Fügt die <span class="clisting">Node</span>-Instanz <span class="ckursiv">newChild</span> als Kindelement des aktuellen Knotens vor dem Kindelement <span class="ckursiv">refChild</span> in die Liste aller Kinder von <span class="ckursiv">n</span> ein. Beachten Sie, dass diese Methode den DOM-Baum verändert.</p>
+<h5 class="t5"><span class="cfett">n.removeChild(oldChild)</span></h5>
+<p>Löscht das angegebene Kindelement <span class="ckursiv">oldChild</span>. Beachten Sie, dass diese Methode den DOM-Baum verändert.</p>
+<h5 class="t5"><span class="cfett">n.replaceChild(newChild, oldChild)</span></h5>
+<p>Ersetzt das Kindelement <span class="ckursiv">oldChild</span> durch <span class="ckursiv">newChild</span>. Beachten Sie, dass diese Methode den DOM-Baum verändert.</p>
+<h5 class="t5"><span class="cfett">n.writexml(writer[, indent[, addindent[, newl]]])</span></h5>
+<p>Schreibt die <span class="clisting">Node</span>-Instanz <span class="ckursiv">n</span> mitsamt all ihren Kindelementen als XML in das geöffnete Dateiobjekt <span class="ckursiv">writer</span>. Beachten Sie, dass diese Methode auch an die Klasse <span class="clisting">Document</span> weitervererbt wird. Wenn sie für eine <span class="clisting">Document</span>-Instanz aufgerufen wird, kann der vollständige DOM-Baum als XML-Datei gespeichert werden.</p>
+<p>Die optionalen Parameter <span class="ckursiv">indent</span>, <span class="ckursiv">addindent</span> und <span class="ckursiv">newl</span> (allesamt Strings) können verwendet werden, um die Ausgabe der XML-Daten zu formatieren. Dabei steht <span class="ckursiv">indent</span> für die Zeichen, die zur Einrückung der gesamten Ausgabe verwendet werden, <span class="ckursiv">addindent</span> für die Zeichen, die zur Einrückung tieferer Ebenen verwendet werden, und <span class="ckursiv">newl</span> für das zu verwendende Newline-Zeichen.</p>
+<p>Wenn die Methode auf einer <span class="clisting">Document</span>-Instanz aufgerufen wird, kann ein zusätzlicher, optionaler Schlüsselwortparameter <span class="clisting">encoding</span> angegeben werden. Das hier als String übergebene Encoding wird in die XML-Deklaration eingetragen und zum Speichern der Datei verwendet.</p>
+<h5 class="t5"><span class="cfett">n.toxml([encoding])</span></h5>
+<p>Ähnlich wie <span class="clisting">writexml</span>, gibt die XML-Daten jedoch als String zurück. Optional kann über den Parameter <span class="ckursiv">encoding</span> ein Encoding angegeben werden, das in die XML-Deklaration geschrieben und im zurückgegebenen String verwendet wird.</p>
+<h5 class="t5"><span class="cfett">n.toprettyxml([indent[, newl]])</span></h5>
+<p>Ähnlich wie <span class="clisting">toxml</span>, gibt die XML-Daten jedoch in einem formatierten String zurück. Um die Formatierung der Daten zu verändern, können das Einrückungszeichen (<span class="ckursiv">indent</span>, üblicherweise <span class="clisting">\t</span>) und das zu verwendende Newline-Zeichen (<span class="ckursiv">newl</span>, üblicherweise <span class="clisting">\n</span>) angegeben werden.</p>
+<p>Ein Encoding kann wie bei der Methode <span class="clisting">writexml</span> angegeben werden.</p>
+<h4 class="t4"><span class="cfett">Die Klasse Document</span></h4>
+<p>Ein von einem DOM-Parser erzeugter Baum enthält als Wurzelelement eine Instanz der Klasse <span class="clisting">Document</span>. Dies ist die Instanz, die bei einem Aufruf der Funktion <span class="clisting">parse</span> zurückgegeben wird und alle weiteren Elemente des Baumes direkt oder indirekt referenziert. Eine <span class="clisting">Document</span>-Instanz verwaltet dabei immer ein vollständiges XML-Dokument.</p>
+<p>Die Klasse <span class="clisting">Document</span> erbt von der Basisklasse <span class="clisting">Node</span>.</p>
+<p>Nachfolgend sollen die wichtigsten Methoden und Attribute der Klasse <span class="clisting">Document</span> erläutert werden. Dabei sei <span class="ckursiv">d</span> eine Instanz der Klasse <span class="clisting">Document</span>.</p>
+<h5 class="t5"><span class="cfett">d.documentElement</span></h5>
+<p>Dieses Attribut referenziert die Element-Instanz des ersten Tags des XML-Dokuments <span class="ckursiv">d</span>. Beachten Sie, dass ein wohlgeformtes XML-Dokument über genau ein Wurzel-Tag verfügt. Sollten mehrere sogenannte <span class="ckursiv">toplevel-Tags</span> vorkommen, kann auf diese über ihre Geschwisterbeziehung zu <span class="clisting">documentElement</span> zugegriffen werden.</p>
+<h5 class="t5"><span class="cfett">d.createElement(tagName)</span></h5>
+<p>Erzeugt einen neuen Elementknoten mit dem Tag-Namen <span class="ckursiv">tagName</span>. Die Funktion gibt eine Instanz der Klasse <span class="clisting">Element</span> zurück. Beachten Sie, dass der Knoten zwar erzeugt, aber nicht automatisch in den Baum eingefügt wird. Dazu können beispielsweise die Methoden <span class="clisting">insertBefore</span> oder <span class="clisting">appendChild</span> der Klasse <span class="clisting">Node</span> verwendet werden.</p>
+<h5 class="t5"><span class="cfett">d.createTextNode(data)</span></h5>
+<p>Erzeugt einen neuen Textknoten mit dem Inhalt <span class="ckursiv">data</span>. Die Funktion gibt eine Instanz der Klasse <span class="clisting">Text</span> zurück. Für diese Methode gilt ebenfalls der Hinweis, dass der erzeugte Knoten nicht automatisch in den DOM-Baum eingefügt wird.</p>
+<h5 class="t5"><span class="cfett">d.getElementsByTagName(tagName)</span></h5>
+<p>Gibt eine Liste zurück, in der alle <span class="clisting">Element</span>-Instanzen enthalten sind, die Tags mit dem Tag-Namen <span class="ckursiv">tagName</span> repräsentieren.</p>
+<h4 class="t4"><span class="cfett">Die Klasse Element</span></h4>
+<p>Die Klasse <span class="clisting">Element</span> repräsentiert ein Tag im DOM-Baum. Sie erbt von der Basisklasse <span class="clisting">Node</span>.</p>
+<p>Im Folgenden sollen die wichtigsten Attribute und Methoden der Klasse <span class="clisting">Element</span> erläutert werden. Dabei sei <span class="ckursiv">e</span> eine Instanz der Klasse <span class="clisting">Element</span>.</p>
+<h5 class="t5"><span class="cfett">e.tagName</span></h5>
+<p>Dieses Attribut referenziert den Tag-Namen des von <span class="ckursiv">e</span> repräsentierten Tags.</p>
+<h5 class="t5"><span class="cfett">e.getElementsByTagName(tagName)</span></h5>
+<p>Äquivalent zu <span class="clisting">Document.getElementsByTagName</span>. Beachten Sie, dass diese Methode nur nach direkt oder indirekt untergeordneten Elementen mit dem Tag-Namen <span class="ckursiv">tagName</span> sucht.</p>
+<h5 class="t5"><span class="cfett">e.hasAttribute(name)</span></h5>
+<p>Gibt <span class="clisting">True</span> zurück, wenn das Element <span class="ckursiv">e</span> ein Attribut mit dem Schlüssel <span class="ckursiv">name</span> besitzt, andernfalls <span class="clisting">False</span>.</p>
+<h5 class="t5"><span class="cfett">e.getAttribute(name)</span></h5>
+<p>Gibt den Wert des Attributs mit dem Schlüssel <span class="ckursiv">name</span> zurück. Sollte kein Attribut <span class="ckursiv">name</span> existieren, wird ein leerer String zurückgegeben.</p>
+<h5 class="t5"><span class="cfett">e.removeAttribute(name)</span></h5>
+<p>Löscht das Attribut mit dem Schlüssel <span class="ckursiv">name</span>. Beachten Sie, dass keine Exception geworfen wird, wenn kein Attribut mit dem Schlüssel <span class="ckursiv">name</span> existiert.</p>
+<h5 class="t5"><span class="cfett">e.setAttribute(name, value)</span></h5>
+<p>Erzeugt ein neues Attribut mit dem Schlüssel <span class="ckursiv">name</span> und dem Wert <span class="ckursiv">value</span> oder überschreibt ein bereits bestehendes Attribut.</p>
+<h4 class="t4"><span class="cfett">Die Klasse Text</span></h4>
+<p>Die Klasse <span class="clisting">Text</span> erbt von <span class="clisting">Node</span> und fügt ein einziges Attribut hinzu:</p>
+<h5 class="t5"><span class="cfett">t.data</span></h5>
+<p>Das Attribut <span class="clisting">data</span> referenziert den String, den die <span class="clisting">Text</span>-Instanz <span class="ckursiv">t</span> repräsentiert.</p>
+<h4 class="t4"><span class="cfett">Schreiben einer XML-Datei</span></h4>
+<p>Im vorangegangenen Beispiel wurde gezeigt, wie die in einer XML-Datei enthaltenen Daten zu einem Baum aufbereitet werden können. Zudem haben Sie soeben einige Methoden der Knotenklassen des Baums kennengelernt, die dazu in der Lage sind, den Baum zu modifizieren. Der nächste logische Schritt ist es, den modifizierten Baum wieder als XML-Datei abzuspeichern.</p>
+<p>In diesem Abschnitt wird ein Beispielprogramm besprochen, das den umgekehrten Weg des ersten Beispiels geht. Das heißt, es erzeugt aus einem Dictionary einen DOM-Baum und speichert diesen als XML-Datei ab. Diese XML-Datei soll so aufgebaut sein, dass sie von dem vorherigen Beispielprogramm wieder ausgelesen werden kann.</p>
+<p>Das Schreiben der XML-Datei soll durch eine Funktion <span class="clisting">schreibe_dict</span> erfolgen, die das zu schreibende Dictionary <span class="clisting">d</span> und den Dateinamen der Ausgabedatei als Parameter übergeben bekommt. Der Quelltext des Beispielprogramms sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span><span class="clisting"> xml.dom.minidom</span><span class="cfett"> as</span><span class="clisting"> dom</span><br>
+<span class="cfett">def</span><span class="clisting"> _erstelle_eintrag(schluessel, wert):</span> 
+   <span class="clisting"> tag_eintrag = dom.Element("eintrag")</span> 
+   <span class="clisting"> tag_schluessel = dom.Element("schluessel")</span> 
+   <span class="clisting"> tag_wert = dom.Element("wert")</span><br>
+   <span class="clisting"> tag_schluessel.setAttribute("typ", type(schluessel).__name__)</span> 
+   <span class="clisting"> tag_wert.setAttribute("typ", type(wert).__name__)</span><br>
+   <span class="clisting"> text = dom.Text()</span> 
+   <span class="clisting"> text.data = str(schluessel)</span> 
+   <span class="clisting"> tag_schluessel.appendChild(text)</span><br>
+   <span class="clisting"> text = dom.Text()</span> 
+   <span class="clisting"> text.data = str(wert)</span> 
+   <span class="clisting"> tag_wert.appendChild(text)</span><br>
+   <span class="clisting"> tag_eintrag.appendChild(tag_schluessel)</span> 
+   <span class="clisting"> tag_eintrag.appendChild(tag_wert)</span> 
+   <span class="cfett"> return</span><span class="clisting"> tag_eintrag</span></pre></div>
+<p>Auch hier wird, ähnlich wie beim vorherigen Beispiel, zuerst eine Hilfsfunktion angelegt, die einen Schlüssel und einen Wert übergeben bekommt und daraus eine <span class="clisting">Element</span>-Instanz erzeugt, die das entsprechende <span class="clisting">eintrag</span>-Tag repräsentiert. Die Funktion an sich bedarf eigentlich keiner weiteren Erläuterung. Einzig erwähnenswert ist folgender Ausdruck:</p>
+<p><span class="clisting">type(schluessel).__name__</span></p>
+<p>Dieser Ausdruck ermittelt den Namen des Datentyps der von <span class="clisting">schluessel</span> referenzierten Instanz. Das wäre beispielsweise <span class="clisting">"int"</span> für ganze Zahlen oder <span class="clisting">"str"</span> für Strings. Jetzt folgt die Hauptfunktion des Beispielprogramms:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span><span class="clisting"> schreibe_dict(d, dateiname):</span> 
+   <span class="clisting"> baum = dom.Document()</span> 
+   <span class="clisting"> tag_dict = dom.Element("dictionary")</span> 
+   <span class="clisting"> baum.appendChild(tag_dict)</span><br>
+   <span class="cfett"> for</span><span class="clisting"> schluessel, wert</span><span class="cfett"> in</span><span class="clisting"> d.iteritems():</span> 
+       <span class="clisting"> tag_eintrag = _erstelle_eintrag(schluessel, wert)</span> 
+       <span class="clisting"> tag_dict.appendChild(tag_eintrag)</span><br>
+   <span class="clisting"> f = open(dateiname, "w")</span> 
+   <span class="clisting"> baum.writexml(f, "", "\t", "\n")</span> 
+   <span class="clisting"> f.close()</span></pre></div>
+<p>Im Funktionskörper wird zunächst eine neue Instanz der Klasse <span class="clisting">Document</span> angelegt. Diese Instanz soll die Wurzel des DOM-Baums werden, den wir im Laufe der Funktion erzeugen, und wird von <span class="clisting">baum</span> referenziert. Danach wird das oberste Element, das <span class="clisting">dictionary</span>-Tag, erzeugt und an die <span class="clisting">Document</span>-Instanz als Kindelement angefügt. Das <span class="clisting">dictionary</span>-Tag wird von <span class="clisting">tag_dict</span> referenziert.</p>
+<p>Danach werden in einer <span class="clisting">for</span>-Schleife alle Schlüssel/Wert-Paare des Dictionarys <span class="clisting">d</span> durchlaufen. In jedem Schleifendurchlauf wird eine neue <span class="clisting">Element</span>-Instanz für das jeweilige <span class="clisting">eintrag</span>-Tag mithilfe der Funktion <span class="clisting">_erstelle_eintrag</span> erzeugt. Danach wird die erzeugte <span class="clisting">Element</span>-Instanz als Kindelement des <span class="clisting">dictionary</span>-Tags in den DOM-Baum eingefügt.</p>
+<p>Am Ende der Funktion wird die Datei <span class="clisting">dateiname</span> zum Schreiben geöffnet und die XML-Daten mittels der Methode <span class="clisting">writexml</span> hineingeschrieben.</p>
+<p>Die hier vorgestellte Funktion <span class="clisting">schreibe_dict</span> arbeitet perfekt mit der Funktion <span class="clisting">lade_dict</span> des vorherigen Beispiels zusammen. Das bedeutet, dass eine von <span class="clisting">schreibe_dict</span> erzeugte XML-Datei problemlos von <span class="clisting">lade_dict</span> wieder eingelesen werden kann.</p>
+<p>Damit wäre das Konzept des Document Object Model umrissen und anhand zweier grundlegender Beispiele erklärt. Beachten Sie, dass hier nicht alle Möglichkeiten von DOM angesprochen wurden. Fühlen Sie sich also dazu ermutigt, weiter zu recherchieren und auszuprobieren, wenn Sie weitere Details zu speziellen Features des DOM erfahren möchten.</p><a id="mj814634fd2dce5dc0aee7c29e59536e3d" name="mj814634fd2dce5dc0aee7c29e59536e3d"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">19.2.2</span><span class="cfett"> SAX &#8211; Simple API for XML</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nachdem wir uns im letzten Abschnitt ausführlich der DOM-Herangehensweise an XML-Dateien gewidmet haben, möchten wir nun einen zweiten Weg vorstellen, diese Dateien zu verarbeiten. Die <span class="ckursiv">Simple API for XML</span>, kurz <span class="ckursiv">SAX,</span> baut im Gegensatz zu DOM kein vollständiges Abbild der XML-Datei im Speicher auf, sondern liest die Datei fortlaufend ein und setzt den Programmierer durch Aufrufen bestimmter Funktionen davon in Kenntnis, dass beispielsweise ein öffnendes oder schließendes Tag gelesen wurde. Diese Herangehensweise hat neben der Speichereffizienz noch einen weiteren Vorteil: Beim Laden von sehr großen XML-Dateien können bereits eingelesene Teile weiterverarbeitet werden, obwohl die Datei noch nicht vollständig eingelesen worden ist.</p>
+<p>Allerdings sind mit der Verwendung von SAX auch einige Nachteile verbunden. So ist beispielsweise kein wahlfreier Zugriff auf einzelne Elemente der XML-Daten möglich, wie es beispielsweise bei DOM praktiziert werden kann. Außerdem sieht SAX keine Möglichkeit vor, die XML-Daten komfortabel zu verändern oder wieder zu speichern. Doch nun zur Funktionsweise von SAX.</p>
+<p>Das Einlesen einer XML-Datei durch einen SAX-Parser, in der SAX-Terminologie auch <span class="ckursiv">Reader</span> genannt, geschieht event-gesteuert. Das bedeutet, dass der Programmierer beim Erstellen des Readers verschiedene sogenannte <span class="ckursiv">Callback-Funktion</span><span class="ckursiv">en</span> einrichten und mit einem bestimmten Event verknüpfen muss. Wenn beim Einlesen der XML-Datei durch den Reader dann das besagte Event auftritt, wird die damit verknüpfte Callback-Funktion aufgerufen und somit der Code ausgeführt, den der Programmierer für diesen Zweck vorgesehen hat. Ein Event könnte beispielsweise das Auffinden eines öffnenden Tags sein.</p>
+<p>Man könnte also sagen, dass der SAX-Reader nur die Infrastruktur zum Einlesen der XML-Datei bereitstellt. Ob und in welcher Form die gelesenen Daten aufbereitet werden, entscheidet allein der Programmierer. Damit bietet SAX wesentlich mehr Flexibilität als DOM, auf Kosten eines mitunter höheren Aufwandes selbstverständlich.</p>
+<h4 class="t4"><span class="cfett">Beispiel</span></h4>
+<p>Die Verwendung von SAX soll direkt an einem einfachen Beispiel gezeigt werden. Dazu dient uns das bereits bekannte Szenario: Ein Python-Dictionary wurde in einer XML-Datei abgespeichert und soll durch das Programm eingelesen und wieder in ein Dictionary verwandelt werden. Die Daten liegen im folgenden Format vor:</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+&lt;dictionary&gt; 
+    &lt;eintrag&gt; 
+        &lt;schluessel typ="str"&gt;Hallo&lt;/schluessel&gt; 
+        &lt;wert typ="int"&gt;0&lt;/wert&gt; 
+    &lt;/eintrag&gt; 
+&lt;/dictionary&gt;</pre></div>
+<p>Zum Einlesen dieser Datei dient folgendes Programm, das einen SAX-Reader verwendet:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span><span class="clisting"> xml.sax</span><span class="cfett"> as</span><span class="clisting"> sax</span><br>
+<span class="cfett">class</span><span class="clisting"> DictHandler(sax.handler.ContentHandler):</span><br>
+   <span class="cfett"> def</span><span class="clisting"> __init__(self):</span> 
+       <span class="clisting"> self.ergebnis = {}</span> 
+       <span class="clisting"> self.schluessel = ""</span> 
+       <span class="clisting"> self.wert = ""</span> 
+       <span class="clisting"> self.aktiv = None</span> 
+       <span class="clisting"> self.typ = None</span><br>
+   <span class="cfett"> def</span><span class="clisting"> startElement(self, name, attrs):</span> 
+       <span class="cfett"> if</span><span class="clisting"> name == "eintrag":</span> 
+           <span class="clisting"> self.schluessel = ""</span> 
+           <span class="clisting"> self.wert = ""</span> 
+       <span class="cfett"> elif</span><span class="clisting"> name == "schluessel"</span><span class="cfett"> or</span><span class="clisting"> name == "wert":</span> 
+           <span class="clisting"> self.aktiv = name</span> 
+           <span class="clisting"> self.typ = eval(attrs["typ"])</span><br>
+   <span class="cfett"> def</span><span class="clisting"> endElement(self, name):</span> 
+       <span class="cfett"> if</span><span class="clisting"> name == "eintrag":</span> 
+           <span class="clisting"> self.ergebnis[self.schluessel] = self.typ(self.wert)</span> 
+       <span class="cfett"> elif</span><span class="clisting"> name == "schluessel" or name == "wert":</span> 
+           <span class="clisting"> self.aktiv = None</span><br>
+   <span class="cfett"> def</span><span class="clisting"> characters(self, content):</span> 
+       <span class="cfett"> if</span><span class="clisting"> self.aktiv == "schluessel":</span> 
+           <span class="clisting"> self.schluessel += content</span> 
+       <span class="cfett"> elif</span><span class="clisting"> self.aktiv == "wert":</span> 
+           <span class="clisting"> self.wert += content</span></pre></div>
+<p>Zunächst wird die Klasse <span class="clisting">DictHandler</span> angelegt, in der alle interessanten Callback-Funktionen, auch <span class="ckursiv">Callback-Handler</span> genannt, in Form von Methoden implementiert werden. Die Klasse muss von der Basisklasse <span class="clisting">sax.handler.Content</span> <span class="clisting">Handler</span> abgeleitet werden.</p>
+<p>Ein Nachteil des SAX-Modells ist es, dass man nach jedem Schritt den aktuellen Status speichern muss, damit beim nächsten Aufruf einer der Callback-Funktionen klar ist, ob der eingelesene Text beispielsweise innerhalb eines <span class="clisting">schluessel</span>- oder eines <span class="clisting">wert</span>-Tags gelesen wurde. Aus diesem Grund legen wir im Konstruktor der Klasse einige Attribute an:</p>
+<ul class="gp">
+<li><span class="clisting">self.ergebnis</span> für das resultierende Dictionary,</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">self.schluessel</span> für den Inhalt des aktuell bearbeiteten Schlüssels,</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">self.wert</span> für den Inhalt des aktuell bearbeiteten Wertes,</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">self.aktiv</span> für den Tag-Namen des Tags, das zuletzt eingelesen wurde, und</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">self.typ</span> für den Datentyp, der im Attribut <span class="clisting">typ</span> eines <span class="clisting">schluessel</span>- oder <span class="clisting">wert</span>-Tags steht.</li>
+</ul>
+<p>Zuerst implementieren wir die Methode <span class="clisting">startElement</span>, die immer dann aufgerufen wird, wenn ein öffnendes Tag eingelesen wurde. Die Methode bekommt den Tag-Namen und die enthaltenen Attribute als Parameter übergeben. In dieser Methode wird zunächst ausgelesen, um welches öffnende Tag es sich handelt. Im Falle eines <span class="clisting">schluessel</span>- oder <span class="clisting">wert</span>-Tags wird <span class="clisting">self.name</span> entsprechend angepasst und das Attribut <span class="clisting">typ</span> des Tags ausgelesen.</p>
+<p>Die Methode <span class="clisting">endElement</span> wird aufgerufen, wenn ein schließendes Tag eingelesen wurde. Auch sie bekommt den Tag-Namen als Parameter übergeben. Im Falle eines schließenden <span class="clisting">eintrag</span>-Tags fügen wir das eingelesene Schlüssel/Wert-Paar, das aus <span class="clisting">self.schluessel</span> und <span class="clisting">self.wert</span> besteht, in das Dictionary <span class="clisting">self.ergeb</span> <span class="clisting">nis</span> ein. Wenn ein schließendes <span class="clisting">schluessel</span>- oder <span class="clisting">wert</span>-Tag gefunden wurde, wird das Attribut <span class="clisting">self.aktiv</span> wieder auf <span class="clisting">None</span> gesetzt, sodass keine weiteren Zeichen mehr verarbeitet werden.</p>
+<p>Die letzte Methode characters wird aufgerufen, wenn Zeichen eingelesen wurden, die nicht zu einem Tag gehören. Beachten Sie, dass der SAX-Reader nicht garantiert, dass eine zusammenhängende Zeichenfolge auch in einem einzelnen Aufruf von characters resultiert. Je nachdem, welchen Namen das zuletzt eingelesene Tag hatte, werden die gelesenen Zeichen an <span class="clisting">self.schluessel</span> oder <span class="clisting">self.wert</span> angehängt.</p>
+<p>Schlussendlich fehlt noch die Hauptfunktion <span class="clisting">lade_dict</span> des Beispielprogramms, in der der SAX-Parser erzeugt und gestartet wird.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span><span class="clisting"> lade_dict(dateiname):</span> 
+   <span class="clisting"> handler = DictHandler()</span> 
+   <span class="clisting"> parser = sax.make_parser()</span> 
+   <span class="clisting"> parser.setContentHandler(handler)</span> 
+   <span class="clisting"> parser.parse(dateiname)</span> 
+   <span class="cfett"> return</span><span class="clisting"> handler.ergebnis</span></pre></div>
+<p>Im Funktionskörper wird die Klasse <span class="clisting">DictHandler</span> instanziiert, und durch die Funktion <span class="clisting">make_parser</span> des Moduls <span class="clisting">xml.sax</span> wird ein SAX-Parser erzeugt. Dann wird die Methode <span class="clisting">setContentHandler</span> des Parsers aufgerufen, um die <span class="clisting">DictHand</span> <span class="clisting">ler</span>-Instanz mit den enthaltenen Callback-Handlern anzumelden. Zum Schluss wird der Parsing-Prozess durch die Methode <span class="clisting">parse</span> eingeleitet.</p>
+<h4 class="t4"><span class="cfett">Die Klasse ContentHandler</span></h4>
+<p>Die Klasse <span class="clisting">ContentHandler</span> dient als Basisklasse und implementiert alle SAX-Callback-Handler als Methoden. Um einen SAX-Parser einsetzen zu können, muss eine eigene Klasse erstellt werden, die von <span class="clisting">ContentHandler</span> erbt und die benötigten Callback-Handler überschreibt. Eine Instanz einer von <span class="clisting">ContentHandler</span> abgeleiteten Klasse wird von der Methode <span class="clisting">setContentHandler</span> des SAX-Parsers erwartet.</p>
+<p>Es folgt eine Auflistung der wichtigsten Callback-Handler, die in einer von <span class="clisting">ContentHandler</span> abgeleiteten Klasse überschrieben werden können. Dabei sei <span class="ckursiv">c</span> eine Instanz der Klasse <span class="clisting">ContentHandler</span>.</p>
+<h5 class="t5"><span class="cfett">c.startDocument()</span></h5>
+<p>Wird einmalig aufgerufen, wenn der SAX-Parser damit beginnt, ein XML-Dokument einzulesen.</p>
+<h5 class="t5"><span class="cfett">c.endDocument()</span></h5>
+<p>Wird einmalig aufgerufen, wenn der SAX-Parser ein XML-Dokument vollständig eingelesen hat.</p>
+<h5 class="t5"><span class="cfett">c.startElement(name, attrs)</span></h5>
+<p>Wird aufgerufen, wenn ein öffnendes Tag eingelesen wurde. Die Methode bekommt weitere Informationen über das Tag in Form von zwei Parametern übergeben: den Tag-Namen (<span class="ckursiv">name</span>) und die im Tag angegebenen Attribute (<span class="ckursiv">attrs</span>) als <span class="clisting">Attributes</span>-Instanz. Auf eine solche Instanz kann wie auf ein Dictionary zugegriffen werden, um einzelne Attribute abzufragen.</p>
+<h5 class="t5"><span class="cfett">c.endElement(name)</span></h5>
+<p>Wird aufgerufen, wenn ein schließendes Tag mit dem Tag-Namen <span class="ckursiv">name</span> eingelesen wurde.</p>
+<h5 class="t5"><span class="cfett">c.characters(content)</span></h5>
+<p>Wird aufgerufen, wenn ein Textabschnitt eingelesen wurde. Beachten Sie, dass es dem SAX-Parser freisteht, den gesamten Textabschnitt in einem Event zu verarbeiten oder auf mehrere Events aufzuteilen.</p>
+<p>Über den Parameter <span class="ckursiv">content</span> können Sie auf den gelesenen Text zugreifen.</p>
+<h5 class="t5"><span class="cfett">c.ignorableWhitespace(whitespace)</span></h5>
+<p>Wird aufgerufen, wenn Whitespace-Zeichen eingelesen wurden. Diese könnten von Bedeutung sein, sind jedoch in den meisten Fällen allein aus Gründen der Formatierung vorhanden und können ignoriert werden. Beachten Sie, dass der SAX-Parser auch hier eine Folge von mehreren Whitespace-Zeichen auf mehrere Events aufteilen kann.</p>
+<p>Über den Parameter <span class="ckursiv">whitespace</span> können Sie auf die gelesenen Zeichen zugreifen.</p>
+<p>So viel zur DOM- und SAX-Implementierung in Python. Diese Kapitel sollten nicht als DOM- bzw. SAX-Referenz verstanden werden, sondern als projektorientierte Einführung in die Thematik. Bedenken Sie, dass XML, aber auch DOM und SAX standardisiert sind bzw. De-facto-Standards darstellen. Es existieren DOM- und SAX-Implementierungen für so gut wie jede nennenswerte Programmiersprache, und dementsprechend einfach sollte es sein, weitere Informationen zu diesen Themen zu finden.</p>
+<p>Im nun folgenden Abschnitt möchten wir uns einer dritten Herangehensweise an XML namens <span class="clisting">ElementTree</span> widmen.</p><a id="mj10de3bcca53a40f74b605ca1b6763f1e" name="mj10de3bcca53a40f74b605ca1b6763f1e"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">19.2.3</span><span class="cfett"> ElementTree</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Seit Python 2.5 ist im Modul <span class="clisting">xml.etree.ElementTree</span> der Standardbibliothek der Datentyp <span class="clisting">ElementTree</span> enthalten, der in einer gewissen Konkurrenz zu DOM steht. Der Datentyp <span class="clisting">ElementTree</span> speichert ein XML-Dokument und stellt außerordentlich komfortable Möglichkeiten zur Verfügung, sich in diesem Dokument zu bewegen und Daten auszulesen. Im Gegensatz zu DOM ist <span class="clisting">ElementTree</span> nicht für mehrere Sprachen verfügbar oder gar standardisiert, weswegen es spezielle Sprachfeatures von Python, beispielsweise Iteratoren, nutzen kann und sich somit perfekt in die Sprache Python integriert.</p>
+<p>Auch eine <span class="clisting">ElementTree</span>-Instanz kann, ähnlich wie bei DOM, als Baum betrachtet werden. Dieser Baum besteht aus Instanzen der Klasse <span class="clisting">Element</span>, die jeweils ein Tag repräsentieren. Attribute und Textinhalt der Tags werden ebenfalls in der jeweiligen <span class="clisting">Element</span>-Instanz gespeichert.</p>
+<p>Im Folgenden sollen zunächst die im Modul <span class="clisting">xml.etree.ElementTree</span> enthaltenen Funktionen und danach die Klassen <span class="clisting">ElementTree</span> und <span class="clisting">Element</span> erläutert werden.</p>
+<h4 class="t4"><span class="cfett">Der Inhalt des Moduls ElementTree</span></h4>
+<p>In diesem Abschnitt sollen die wichtigsten Funktionen besprochen werden, die im Modul <span class="clisting">xml.etree.ElementTree</span> enthalten sind. Mit diesen Funktionen ist es beispielsweise möglich, eine XML-Datei einzulesen und zu einer <span class="clisting">ElementTree</span>-Instanz aufzubereiten.</p>
+<h5 class="t5"><span class="cfett">ElementTree.parse(source[, parser])</span></h5>
+<p>Liest die XML-Datei <span class="ckursiv">source</span> ein und gibt die aufbereiteten XML-Daten in Form einer <span class="clisting">ElementTree</span>-Instanz zurück. Für den Parameter <span class="ckursiv">source</span> kann sowohl ein Dateiname als auch ein geöffnetes Dateiobjekt übergeben werden. Durch Angabe des optionalen Parameters <span class="ckursiv">parser</span> kann ein eigener XML-Parser verwendet werden. Ein solcher Parser muss von der Klasse <span class="clisting">TreeBuilder</span> abgeleitet werden, was wir an dieser Stelle nicht näher erläutern möchten. Der Standardparser ist die Klasse <span class="clisting">XMLTreeBuilder</span>.</p>
+<h5 class="t5"><span class="cfett">ElementTree.tostring(element[, encoding])</span></h5>
+<p>Schreibt die <span class="clisting">Element</span>-Instanz <span class="ckursiv">element</span> mit all ihren Unterelementen als XML in einen String und gibt diesen zurück. Durch den optionalen Parameter <span class="ckursiv">encoding</span> kann das Encoding des resultierenden Strings festgelegt werden.</p>
+<h4 class="t4"><span class="cfett">Die Klasse ElementTree</span></h4>
+<p>Die Klasse <span class="clisting">ElementTree</span> repräsentiert ein XML-Dokument und enthält damit den vollständigen Baum, der daraus aufgebaut worden ist. Eine Instanz der Klasse <span class="clisting">ElementTree</span> stellt die folgenden Methoden bereit. Im Folgenden sei <span class="ckursiv">et</span> eine Instanz der Klasse <span class="clisting">ElementTree</span>.</p>
+<h5 class="t5"><span class="cfett">et.getiterator([tag])</span></h5>
+<p>Die Methode <span class="clisting">getiterator</span> gibt einen Iterator zurück, der alle Elemente des Baums inklusive des Wurzelelements durchläuft. Die Elemente werden dabei in der Reihenfolge durchlaufen, in der ihre öffnenden Tags in der XML-Datei vorkommen. Wenn der optionale Parameter <span class="ckursiv">tag</span> angegeben wurde, durchläuft der zurückgegebene Iterator alle Elemente des Baums mit dem Tag-Namen <span class="ckursiv">tag</span>.</p>
+<h5 class="t5"><span class="cfett">et.getroot()</span></h5>
+<p>Gibt die <span class="clisting">Element</span>-Instanz des Wurzelelements zurück.</p>
+<h5 class="t5"><span class="cfett">et.write(file[, encoding])</span></h5>
+<p>Speichert den vollständigen Baum als XML-Datei <span class="ckursiv">file</span> ab. Dabei kann für <span class="ckursiv">file</span> sowohl ein Dateiname als auch ein zum Schreiben geöffnetes Dateiobjekt übergeben werden. Über den optionalen Parameter <span class="ckursiv">encoding</span> kann das Encoding der geschriebenen Daten festgelegt werden.</p>
+<h4 class="t4"><span class="cfett">Die Klasse Element</span></h4>
+<p>Die Klasse <span class="clisting">Element</span> repräsentiert ein Tag des XML-Dokuments im <span class="clisting">ElementTree</span>-Baum. Dafür kann eine <span class="clisting">Element</span>-Instanz über beliebig viele Kindelemente verfügen.</p>
+<p>Die Klasse <span class="clisting">Element</span> erbt alle Eigenschaften einer Liste. Es ist also möglich, auf Kindelemente wie bei einer Liste mit ihrem Index zuzugreifen. Außerdem können insbesondere die Methoden <span class="clisting">append</span>, <span class="clisting">insert</span>, <span class="clisting">items</span>, <span class="clisting">keys</span> und <span class="clisting">remove</span> einer Liste verwendet werden. Im Folgenden sei <span class="ckursiv">e</span> eine Instanz der Klasse <span class="clisting">Element</span>.</p>
+<h5 class="t5"><span class="cfett">e.find(path)</span></h5>
+<p>Gibt das erste direkte Kindelement von <span class="ckursiv">e</span> mit dem Tag-Namen <span class="ckursiv">path</span> zurück. Statt eines einzelnen Tag-Namens kann für <span class="ckursiv">path</span>, wie der Name bereits andeutet, auch ein Pfad übergeben werden. So würde ein Aufruf von <span class="clisting">find</span> mit einem Parameter <span class="ckursiv">path</span> von <span class="clisting">"element1/element2"</span> das erste Kindelement namens <span class="clisting">element2</span> des ersten direkten Kindelements mit dem Tag-Namen <span class="clisting">element1</span> zurückgeben. Auch das Wildcard-Zeichen <span class="clisting">*</span> kann verwendet werden, um einen beliebigen Tag-Namen zu kennzeichnen.</p>
+<h5 class="t5"><span class="cfett">e.findall(path)</span></h5>
+<p>Wie <span class="clisting">find</span>, gibt aber eine Liste aller passenden <span class="clisting">Element</span>-Instanzen zurück statt nur des zuerst gefundenen Elements.</p>
+<h5 class="t5"><span class="cfett">e.findtext(path[, default])</span></h5>
+<p>Wenn für <span class="ckursiv">path</span> ein leerer String übergeben wird, gibt die Methode <span class="clisting">findtext</span> den Text als String zurück, den <span class="ckursiv">e</span> enthält. Ansonsten kann der Parameter <span class="ckursiv">path</span> wie bei den Methoden <span class="clisting">find</span> und <span class="clisting">findall</span> verwendet werden. Wenn eine Element-Instanz keinen Text enthält, wird <span class="clisting">None</span> zurückgegeben. Sollte dies nicht Ihren Wünschen entsprechen, können Sie über den Parameter <span class="ckursiv">default</span> festlegen, was in diesen Fällen stattdessen zurückgegeben werden soll.</p>
+<p>Beachten Sie, dass auch Whitespace-Zeichen wie beispielsweise ein Zeilenumbruch zum Text einer <span class="clisting">Element</span>-Instanz zählen.</p>
+<h5 class="t5"><span class="cfett">e.get(key[, default])</span></h5>
+<p>Mithilfe der Methode <span class="clisting">get</span> kann auf den Wert des Attributs <span class="ckursiv">key</span> der Element-Instanz <span class="ckursiv">e</span> zugegriffen werden. Wenn kein Attribut mit dem Schlüssel <span class="ckursiv">key</span> vorhanden ist, wird <span class="ckursiv">default</span> zurückgegeben. Der Parameter <span class="ckursiv">default</span> ist mit <span class="clisting">None</span> vorbelegt.</p>
+<h5 class="t5"><span class="cfett">e.set(key, value)</span></h5>
+<p>Durch Aufruf der Methode <span class="clisting">set</span> wird ein neues Attribut mit dem Schlüssel <span class="ckursiv">key</span> und dem Wert <span class="ckursiv">value</span> im Element <span class="ckursiv">e</span> angelegt.</p>
+<h5 class="t5"><span class="cfett">e.getiterator([tag])</span></h5>
+<p>Die Methode <span class="clisting">getiterator</span> hat die gleiche Bedeutung wie die gleichnamige Methode der Klasse <span class="clisting">ElementTree</span>, allerdings nur für alle Kindelemente von <span class="ckursiv">e</span>.</p>
+<h5 class="t5"><span class="cfett">e.getchildren()</span></h5>
+<p>Gibt eine Liste aller Kindelemente zurück.</p>
+<p>Neben den soeben besprochenen Methoden verfügen alle <span class="clisting">Element</span>-Instanzen über die folgenden Attribute:</p>
+<h5 class="t5"><span class="cfett">e.attrib</span></h5>
+<p>Das Attribut <span class="clisting">attrib</span> referenziert ein Dictionary, das alle in der <span class="clisting">Element</span>-Instanz <span class="ckursiv">e</span> vorhandenen XML-Attribute als Schlüssel/Wert-Paare enthält.</p>
+<h5 class="t5"><span class="cfett">e.tag</span></h5>
+<p>Das Attribut <span class="clisting">tag</span> enthält den Tag-Namen des Elements <span class="ckursiv">e</span>.</p>
+<h5 class="t5"><span class="cfett">e.text</span></h5>
+<p>Das Attribut <span class="clisting">text</span> enthält den Text, der in der XML-Datei zwischen dem öffnenden Tag der <span class="clisting">Element</span>-Instanz <span class="ckursiv">e</span> und dem öffnenden Tag des ersten Kindelements steht. Wenn kein Kindelement existiert, enthält das Attribut <span class="clisting">text</span> den vollständigen im Körper des Tags enthaltenen Text.</p>
+<h5 class="t5"><span class="cfett">e.tail</span></h5>
+<p>Das Attribut <span class="clisting">tail</span> enthält den Text, der in der XML-Datei zwischen dem schließenden Tag der <span class="clisting">Element</span>-Instanz <span class="ckursiv">e</span> und dem nächsten öffnenden oder schließenden Tag steht.</p>
+<h4 class="t4"><span class="cfett">Beispiel</span></h4>
+<p>Als Beispiel für die Verwendung des Datentyps <span class="clisting">ElementTree</span> soll das Beispielprogramm der vorherigen Abschnitte an diesen Datentyp angepasst werden und somit seine Stärken demonstrieren. Das Beispielprogramm soll eine XML-Datei des folgenden Formats einlesen und zu einem Dictionary aufbereiten:</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+&lt;dictionary&gt; 
+    &lt;eintrag&gt; 
+        &lt;schluessel typ="str"&gt;Hallo&lt;/schluessel&gt; 
+        &lt;wert typ="int"&gt;0&lt;/wert&gt; 
+    &lt;/eintrag&gt; 
+&lt;/dictionary&gt;</pre></div>
+<p>Der Quelltext des Beispielprogramms sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> xml.etree.ElementTree<span class="cfett"> as</span> ElementTree<br>
+<span class="cfett">def</span> _lese_text(element): 
+    typ = element.get("typ", "str") 
+   <span class="cfett"> return</span> eval("%s('%s')" % (typ, element.text))<br>
+<span class="cfett">def</span> lade_dict(dateiname): 
+    d = {} 
+    baum = ElementTree.parse(dateiname) 
+    tag_dict = baum.getroot() 
+   <span class="cfett"> for</span> eintrag<span class="cfett"> in</span> tag_dict.getchildren(): 
+        tag_schluessel = eintrag.find("schluessel") 
+        tag_wert = eintrag.find("wert") 
+        d[_lese_text(tag_schluessel)] = _lese_text(tag_wert) 
+   <span class="cfett"> return</span> d</pre></div>
+<p>Zunächst wird die Funktion <span class="clisting">_lese_text</span> implementiert, die aus der <span class="clisting">Element</span>-Instanz eines <span class="clisting">schluessel</span>- oder <span class="clisting">wert</span>-Tags das Attribut <span class="clisting">typ</span> ausliest und den vom jeweiligen Tag umschlossenen Text in den durch <span class="clisting">typ</span> angegebenen Datentyp konvertiert. Dazu wird die Built-in Function <span class="clisting">eval</span> wie bei den Beispielen der vorherigen Kapitel verwendet. Der Inhalt des Tags wird dann als Instanz des passenden Datentyps zurückgegeben.</p>
+<p>Die Hauptfunktion des Beispielprogramms <span class="clisting">lade_dict</span> bekommt den Dateinamen einer XML-Datei übergeben und soll die darin enthaltenen Daten zu einem Python-Dictionary aufbereiten. Dazu wird die XML-Datei zunächst mithilfe der Funktion <span class="clisting">parse</span> des Moduls <span class="clisting">xml.etree.ElementTree</span> zu einem Baum aufbereitet. Danach wird der Referenz <span class="clisting">tag_dict</span> das Wurzelelement des Baums zugewiesen, um auf diesem weiter zu operieren.</p>
+<p>In der nun folgenden Schleife wird über alle Kindelemente des Wurzelelements, also über alle <span class="clisting">eintrag</span>-Tags, iteriert. In jedem Iterationsschritt werden die ersten Kindelemente mit den Tag-Namen <span class="clisting">schluessel</span> und <span class="clisting">wert</span> gesucht und den Referenzen <span class="clisting">tag_schluessel</span> und <span class="clisting">tag_wert</span> zugewiesen. Am Ende des Schleifenkörpers werden die <span class="clisting">Element</span>-Instanzen der jeweiligen <span class="clisting">schluessel</span>- oder <span class="clisting">wert</span>-Tags durch die Funktion <span class="clisting">_lese_text</span> geschleust und der im Tagkörper enthaltene Text damit in eine Instanz des korrekten Datentyps konvertiert. Die resultierenden Instanzen werden als Schlüssel bzw. als Wert in das Dictionary <span class="clisting">d</span> eingetragen. Schlussendlich wird das erzeugte Dictionary <span class="clisting">d</span> zurückgegeben.</p>
+<p>So viel zum Datentyp <span class="clisting">ElementTree</span>. Wir behalten die grobe Richtung Datenspeicherung bei und werden uns im nächsten Abschnitt um das Thema Datenbanken kümmern.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_19_002.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="19.2 XML"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_19_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_19_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

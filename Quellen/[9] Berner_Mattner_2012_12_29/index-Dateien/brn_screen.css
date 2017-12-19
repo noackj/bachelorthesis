@@ -1,0 +1,109 @@
+/********************************************************/
+/********************************************************/
+/******************* Third Navigation *******************/
+
+#wrapper #third_navi {
+    position:absolute;
+    top:181px;/*207*/
+    padding:0;
+    margin:0;
+    width:960px;
+    height:27px;
+    background:url(../images/brn_nav_bg.png) repeat 0 0; /*#727272;*/
+    border-top:1px solid #fff;
+    z-index:49;
+}
+
+#wrapper #third_navi ul {
+    list-style-type:none;
+    padding:0;
+    margin:0 0 0 18px;
+    height:25px;
+}
+
+#wrapper #third_navi ul li {
+    float:left;
+    padding:0;
+    margin:0;
+    /*height:25px; htc-fix 2011_03_23*/
+}
+
+#wrapper #third_navi ul li a {
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    padding-right:9px;
+    padding-left:10px;
+    margin-top:6px;
+    margin-bottom:6px;
+    font-size:0.8em;
+    border-right:1px solid #b3b3b3;
+}
+
+#wrapper #third_navi ul li ul li a {
+   border-right:0px solid #b3b3b3;
+}
+
+
+#wrapper #third_navi ul li a:hover,
+#wrapper #third_navi ul li a.active {
+    color:#fff;
+    text-decoration:underline;
+}
+
+#wrapper #third_navi ul li.last a {
+    border-right:0px solid #aaaaaa;
+}
+
+#wrapper #third_navi ul.sf-menu li ul li.last {
+   border-bottom:0px solid #b3b3b3;
+}
+
+/********************************************************/
+/********************************************************/
+/******************* Box left ***************************/
+
+#wrapper #cnt #cnt_wrapper #box_left {
+float:left;
+font-size:0.8em;
+margin:0;
+padding:10px 25px 25px;
+width:580px;
+}
+
+
+
+/********************************************************/
+/********************************************************/
+/*** set the width and height to match your images **/
+
+#slideshow {
+    position:relative;
+    height:116px;
+}
+
+#slideshow DIV {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:8;
+    opacity:0.0;
+    height: 116px;
+    background-color: #FFF;
+}
+
+#slideshow DIV.active {
+    z-index:10;
+    opacity:1.0;
+}
+
+#slideshow DIV.last-active {
+    z-index:9;
+}
+
+#slideshow DIV IMG {
+    height: 116px;
+    display: block;
+    border: 0;
+    margin-bottom: 0px;
+}

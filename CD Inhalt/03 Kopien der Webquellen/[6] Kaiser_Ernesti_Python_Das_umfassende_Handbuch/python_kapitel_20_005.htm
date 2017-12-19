@@ -1,0 +1,1023 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 20.5 E-Mail</title>
+<meta name="title" content="Galileo Computing :: Python - 20.5 E-Mail">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 20.5 E-Mail">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_20_004.htm">
+<link rel="next" href="python_kapitel_20_006.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_20_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_20_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d" class="navnav">20 Netzwerkkommunikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_001.htm#mja62901950a4d46ed586c0cbeca851b76" class="navnav">20.1 Socket API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjec5a627b57a6f464cae8952dff1b29bd" class="navnav">20.1.1 Client/Server-Systeme</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj30aa144d06bfbda567b400e1c9aabe0b" class="navnav">20.1.2 UDP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj39991ea943a5ced16cfb0f82e23d6267" class="navnav">20.1.3 TCP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj3e26029cb2fe9761934cae397c7bee0c" class="navnav">20.1.4 Blockierende und nicht-blockierende Sockets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj71cca1384f82cf8c9383ca0a725fb00d" class="navnav">20.1.5 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjeff502fc2c89cbfcde6b121f1c9c6ae2" class="navnav">20.1.6 Netzwerk-Byte-Order</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjc0a8ce33f2ca54a6aff578a363939704" class="navnav">20.1.7 Multiplexende Server &#8211; select</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjb11f39ffbe49131e4aeb49e5298e5be5" class="navnav">20.1.8 SocketServer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_002.htm#mja7bd045128f3673afe68420a4ddae7b6" class="navnav">20.2 Zugriff auf Ressourcen im Internet &#8211; urllib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_002.htm#mjdb126d022da9199ad232014227ef993f" class="navnav">20.2.1 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_003.htm#mjf2c50a134584c3cd96329ea233243a0a" class="navnav">20.3 Einlesen einer URL &#8211; urlparse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_004.htm#mjc608fa65c6e2a85e9c55bcbb0179eda7" class="navnav">20.4 FTP &#8211; ftplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjf9b67beb12a70b4a0b02609da6bc5dee" class="navh">20.5 E-Mail</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjbf78b46f8a9a493e9d5a75011df76d08" class="navh">20.5.1 SMTP &#8211; smtplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjef70cbc06d943ba00c671366c1934c64" class="navh">20.5.2 POP3 &#8211; poplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj44a18a19feec0481e1774cbf0fdaf877" class="navh">20.5.3 IMAP4 &#8211; imaplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj14c7624ff8d2c29622f837a39bdaf02f" class="navh">20.5.4 Erstellen komplexer E-Mails &#8211; email</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_006.htm#mj1783a4c1d0411ed0f8998971f7b75ad8" class="navnav">20.6 Telnet &#8211; telnetlib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_007.htm#mj49407e7b67376a73ea92fcad6b9a616e" class="navnav">20.7 XML-RPC</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mj7e91c239d3a86b2c7b8b2a950e27939f" class="navnav">20.7.1 Der Server</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mjf943ea1a64037f0c66254a4608ef8942" class="navnav">20.7.2 Der Client</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mj20962ea6eea7210a5efc5fed2b83ecb3" class="navnav">20.7.3 Multicall</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mjd2ea8b459e41a939f259057acdc43e98" class="navnav">20.7.4 Einschränkungen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjf9b67beb12a70b4a0b02609da6bc5dee" name="mjf9b67beb12a70b4a0b02609da6bc5dee"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">20.5</span><span class="cfett"> E-Mail</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>In diesem Abschnitt werden wir Module der Standardbibliothek vorstellen, die es ermöglichen, mit einem E-Mail-Server zu kommunizieren, das heißt E-Mails von diesem abzuholen bzw. E-Mails über den Server zu versenden.</p>
+<p>Das Versenden einer E-Mail geschieht über einen sogenannten SMTP-Server, mit dem über ein gleichnamiges Protokoll kommuniziert werden kann. Im ersten Unterabschnitt werden wir deshalb das Modul <span class="clisting">smtplib</span> der Standardbibliothek vorstellen, das genau dieses Kommunikationsprotokoll implementiert.</p>
+<p>Für das Herunterladen einer empfangenen E-Mail gibt es zwei verbreitete Möglichkeiten: das POP3- und das IMAP4-Protokoll. Beide können mit dem jeweiligen Modul <span class="clisting">poplib</span> bzw. <span class="clisting">imaplib</span> verwendet werden.</p>
+<p>Im letzten Abschnitt soll das Modul <span class="clisting">email</span> der Standardbibliothek besprochen werden, das es über die MIME-Kodierung ermöglicht, beliebige Dateien (üblicherweise Bilder oder Dokumente) mit der E-Mail zu versenden.</p><a id="mjbf78b46f8a9a493e9d5a75011df76d08" name="mjbf78b46f8a9a493e9d5a75011df76d08"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">20.5.1</span><span class="cfett"> SMTP &#8211; smtplib</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das sogenannte <span class="ckursiv">SMTP-Protokoll</span> (für <span class="ckursiv">Simple Mail Transfer Protocol</span>) wird zum Versenden einer E-Mail über einen SMTP-Server verwendet. Das SMTP-Protokoll ist ähnlich wie FTP ein textbasiertes, lesbares Protokoll. Ursprünglich bot das SMTP-Protokoll keine Möglichkeit zur Authentifizierung des angemeldeten Benutzers durch Benutzername und Passwort beispielsweise. Dies war bei der rasanten Entwicklung des Internets ziemlich schnell nicht mehr tragbar, und so wurde das SMTP-Protokoll um den <span class="ckursiv">ESMTP</span><span class="ckursiv">-Standard</span> (<span class="ckursiv">Extended SMTP</span>) erweitert.</p>
+<p>Ähnlich wie im Abschnitt über das FTP-Protokoll möchten wir hier zunächst eine Übersicht über die wichtigsten SMTP-Befehle geben. Die Befehle sind in der folgenden Tabelle in der Reihenfolge ihrer Benutzung in einer SMTP-Sitzung aufgelistet und werden jeweils mit einem kurzen Satz erklärt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 20.6    </strong>SMTP-Befehle
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Befehl</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">HELO</span></p>
+</td>
+<td class="tabellentext">
+<p>Startet eine SMTP-Sitzung.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">EHLO</span></p>
+</td>
+<td class="tabellentext">
+<p>Startet eine ESMTP-Sitzung</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">MAIL FROM</span></p>
+</td>
+<td class="tabellentext">
+<p>Leitet das Absenden einer E-Mail ein. Diesem Kommando wird die Absenderadresse beigefügt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">RCPT TO</span></p>
+</td>
+<td class="tabellentext">
+<p>Fügt einen Empfänger der E-Mail hinzu. (<span class="clisting">RCPT</span> steht für »recipient«, dt. »<span class="ckursiv">Empfänger</span>«.)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">DATA</span></p>
+</td>
+<td class="tabellentext">
+<p>Mit diesem Kommando wird der Inhalt der E-Mail angegeben und die Mail schlussendlich verschickt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">QUIT</span></p>
+</td>
+<td class="tabellentext">
+<p>Beendet die SMTP- bzw. ESMTP-Sitzung.</p>
+</td>
+</tr>
+</table><br><p>Wie schon die <span class="clisting">ftplib</span> enthält das Modul <span class="clisting">smtplib</span> im Wesentlichen nur eine Klasse namens <span class="clisting">SMTP</span>. Über diese Klasse läuft, nachdem sie instanziiert wurde, alle weitere Kommunikation mit dem Server. Der Konstruktor der Klasse <span class="clisting">SMTP</span> hat folgende Schnittstelle:</p>
+<h5 class="t5"><span class="cfett">smtplib.SMTP([host[, port[, local_hostname]]])</span></h5>
+<p>Erzeugt eine Instanz der Klasse <span class="clisting">SMTP</span>. Optional können hier bereits die Verbindungsdaten zum SMTP-Server übergeben werden. Beachten Sie, dass Sie den Port nur explizit anzugeben brauchen, wenn er sich vom SMTP-Standardport 25 unterscheidet.</p>
+<p>Als dritter Parameter kann der Domainname des lokalen Hosts übergeben werden. Dieser wird dem SMTP-Server als Identifikation im ersten gesendeten Kommando übermittelt. Wenn der Parameter <span class="ckursiv">local_hostname</span> nicht angegeben wird, wird versucht, den lokalen Hostnamen automatisch zu ermitteln.</p>
+<h4 class="t4"><span class="cfett">Die Klasse SMTP</span></h4>
+<p>Im Folgenden sollen die wichtigsten Methoden der <span class="clisting">SMTP</span>-Klasse erläutert werden. Um die Beispiele dieses Abschnitts nachvollziehen zu können, muss das Modul <span class="clisting">smtplib</span> eingebunden werden und eine Instanz der Klasse <span class="clisting">SMTP</span> mit dem Namen <span class="clisting">s</span> existieren. Für die meisten der Beispiele muss die <span class="clisting">SMTP</span>-Instanz zusätzlich mit einem Server verbunden und angemeldet sein.</p>
+<h5 class="t5"><span class="cfett">s.connect([host[, port]])</span></h5>
+<p>Verbindet zum SMTP-Server <span class="ckursiv">host</span> mit der Portnummer <span class="ckursiv">port</span>. Diese Methode sollte nicht aufgerufen werden, wenn bei der Instanziierung der <span class="clisting">SMTP</span>-Klasse bereits Verbindungsdaten übergeben wurden. Wenn keine Verbindung zum SMTP-Server aufgebaut werden kann, wird eine Exception geworfen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s.connect("smtp.knallhart.de") 
+(220, 'Die Botschaft des Servers')</pre></div>
+<h5 class="t5"><span class="cfett">s.login(user, password)</span></h5>
+<p>Diese Methode ermöglicht es, sich beim SMTP-Server mit dem Benutzernamen <span class="ckursiv">user</span> und dem Passwort <span class="ckursiv">password</span> einzuloggen, sofern der Server dies verlangt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s.login("Benutzername", "Passwort") 
+(235, '2.0.0 Authentication successful')</pre></div>
+<p>Im Fehlerfall können folgende Exceptions geworfen werden:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 20.7    </strong>Mögliche Exceptions beim Login
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Exception</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">SMTPHeloError</span></p>
+</td>
+<td class="tabellentext">
+<p>Der SMTP-Server hat nicht oder nicht richtig auf das Begrüßungskommando <span class="clisting">HELO</span> geantwortet.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">SMTPAuthenticationError</span></p>
+</td>
+<td class="tabellentext">
+<p>Die angegebene Benutzername/Passwort-Kombination wurde vom SMTP-Server nicht akzeptiert.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">SMTPError</span></p>
+</td>
+<td class="tabellentext">
+<p>Es wurde keine Möglichkeit gefunden, eine Authentifizierung bei diesem SMTP-Server durchzuführen.</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">s.sendmail(from_addr, to_addr, msg[, mail_options, rctp_options])</span></h5>
+<p>Durch Aufruf der Methode <span class="clisting">sendmail</span> kann eine E-Mail über den SMTP-Server versendet werden. Beachten Sie, dass die <span class="clisting">SMTP</span>-Instanz dafür an einem SMTP-Server angemeldet und zumeist auch authentifiziert sein muss.</p>
+<p>Die ersten beiden Parameter enthalten die E-Mail-Adressen des Absenders (<span class="ckursiv">from_addr</span>) bzw. eine Liste der E-Mail-Adressen der Empfänger (<span class="ckursiv">to_addr</span>). Als E-Mail-Adresse wird dabei ein String des folgenden Formats bezeichnet:</p>
+<p><span class="clisting">Vorname Nachname &lt;em@il.addr&gt;</span></p>
+<p>Alternativ kann auch nur die E-Mail-Adresse an sich im String stehen.</p>
+<p>Als dritter Parameter, <span class="ckursiv">msg</span>, wird der Text der E-Mail übergeben. Beachten Sie, dass weitere Angaben wie beispielsweise der Betreff der E-Mail innerhalb des E–Mail-Bodys definiert werden. Wie so etwas genau aussieht und welche Möglichkeiten Python bietet, diesen Header komfortabel zu erzeugen, erfahren Sie in Abschnitt <a href="#Rxx_ref178251368">20.5.4</a>.</p>
+<p>Die Methode <span class="clisting">sendmail</span> gibt stets ein Dictionary zurück, in dem alle Empfänger, die vom SMTP-Server zurückgewiesen wurden, als Schlüssel enthalten sind und der jeweilige Error-Code mit Fehlerbezeichnung als Wert aufgeführt ist. Wenn alle Empfänger die E-Mail bekommen haben, ist das zurückgegebene Dictionary leer.</p>
+<p>Im Fehlerfall wirft die Methode <span class="clisting">sendmail</span> folgende Exceptions:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 20.8    </strong>Mögliche Exceptions beim Login
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Exception</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">SMTPHeloError</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der SMTP-Server hat nicht oder nicht richtig auf das Begrüßungskommando <span class="clisting">HELO</span> geantwortet.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">SMTPRecipientsRefused</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Alle Empfänger wurden vom SMTP-Server zurückgewiesen. Das heißt, dass die E-Mail tatsächlich an niemanden verschickt wurde.</p>
+<p>Als Attribut enthält die Exception ein Dictionary, das demjenigen ähnelt, das von <span class="clisting">sendmail</span> im Erfolgsfall zurückgegeben wird.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">SMTPSenderRefused</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der angegebene Absender wurde vom SMTP-Server zurückgewiesen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">SMTPDataError</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Server hat mit einem unerwarteten Fehler geantwortet.</p>
+</td>
+</tr>
+</table><br><p>Beachten Sie, dass der Text einer E-Mail nur aus ASCII-Zeichen bestehen darf. Um auch andere Zeichen und insbesondere auch Binärdaten verschicken zu können, bedient man sich der sogenannten MIME-Kodierung, die wir im Kapitel <span class="clisting">email</span> behandeln werden.</p>
+<p>Über die optionalen Parameter <span class="ckursiv">mail_options</span> und <span class="ckursiv">rctp_options</span> kann je eine Liste von Strings übergeben werden, die Optionen des ESMTP-Standards (<span class="ckursiv">Extended SMTP</span>) enthalten. Die für <span class="ckursiv">mail_options</span> übergebenen Optionen werden dem Kommando <span class="clisting">MAIL FROM</span> angefügt; hier wäre beispielsweise die Option <span class="clisting">"8bitmime"</span> sinnvoll. Alle für <span class="ckursiv">rctp_options</span> übergebenen Optionen werden dem Kommando      <span class="clisting">RCPTTO</span> angehängt, wo beispielsweise die Option <span class="clisting">"DSN"</span> verwendet werden könnte.</p>
+<p>Welche Optionen im ESMTP-Standard definiert werden und was diese bedeuten, soll nicht Thema dieses Buches sein. Wenn Sie sich dafür interessieren, fühlen Sie sich dazu ermutigt, unter den genannten Stichwörtern im Internet zu recherchieren.</p>
+<h5 class="t5"><span class="cfett">s.quit()</span></h5>
+<p>Beendet die Verbindung zum SMTP-Server.</p>
+<h4 class="t4"><span class="cfett">Beispiel</span></h4>
+<p>Nachdem die wichtigsten Methoden einer <span class="clisting">SMTP</span>-Instanz erläutert wurden, folgt nun ein kleines Beispiel, in dem zu einem SMTP-Server verbunden wird, um zwei E-Mails an verschiedene Empfänger zu verschicken:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; smtp = smtplib.SMTP("smtp.hostname.de") 
+&gt;&gt;&gt; smtp.login("benutzername", "passwort") 
+(235, '2.0.0 Authentication successful') 
+&gt;&gt;&gt; smtp.sendmail( 
+...               "Peter Kaiser &lt;p@penguin-p.de&gt;", 
+...               "Johannes Ernesti &lt;je@revelation-soft.de&gt;", 
+...               "Dies ist der Text") 
+{} 
+&gt;&gt;&gt; smtp.sendmail( 
+...               "Peter Kaiser &lt;p@penguin-p.de&gt;", 
+...               ["je@revelation-soft.de", "p@penguin-p.de"] 
+...               "Dies ist der Text") 
+{} 
+&gt;&gt;&gt; smtp.quit()</pre></div>
+<p>Bei der ersten E-Mail wurden die vollen Namen des Absenders bzw. des Empfängers angegeben. Das zweite Beispiel zeigt, dass auch die E-Mail-Adresse allein reicht und wie eine E-Mail an mehrere Empfänger versandt werden kann.</p><a id="mjef70cbc06d943ba00c671366c1934c64" name="mjef70cbc06d943ba00c671366c1934c64"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">20.5.2</span><span class="cfett"> POP3 &#8211; poplib</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nachdem anhand der <span class="clisting">smtplib</span> erläutert wurde, wie E-Mails über einen SMTP-Server versandt werden können, soll das Thema dieses Kapitels das Modul <span class="clisting">poplib</span> der Standardbibliothek sein. Dieses Modul implementiert das POP3-Protokoll (<span class="ckursiv">Post Office Protocol Version 3</span>). Bei POP3 handelt es sich um ein Protokoll, um auf einen POP3-Server zuzugreifen und dort gespeicherte E-Mails einzusehen und abzuholen. Das POP3-Protokoll steht damit in Konkurrenz zu IMAP4, dessen Benutzung mit der <span class="clisting">imaplib</span> das Thema des nächsten Abschnitts sein soll. Die folgende Tabelle listet die wichtigsten POP3-Kommandos mit ihrer Bedeutung auf. Die Befehle stehen dabei in der Reihenfolge, wie sie in einer üblichen POP3-Sitzung verwendet werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 20.9    </strong>POP3-Befehle
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Befehl</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">USER</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Überträgt den Benutzernamen zur Authentifizierung auf dem Server.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">PASS</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Überträgt das Passwort zur Authentifizierung auf dem Server.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">STAT</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Liefert den Status des Posteingangs, beispielsweise die Anzahl der neu eingegangenen E-Mails.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">LIST</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Liefert Informationen zu einer bestimmten E-Mail des Posteingangs.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">RETR</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Überträgt eine bestimmte E-Mail.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">DELE</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Löscht eine bestimmte E-Mail.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">RSET</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Löschvorgänge werden gepuffert und erst am Ende der Sitzung ausgeführt. Mit diesem Kommando können alle anstehenden Löschvorgänge widerrufen werden.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">QUIT</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Beendet die POP3-Sitzung.</p>
+</td>
+</tr>
+</table><br><p>Wie bereits beim Modul <span class="clisting">smtplib</span> ist im Modul <span class="clisting">poplib</span> im Wesentlichen die Klasse <span class="clisting">POP3</span> enthalten, die instanziiert werden muss, bevor Operationen auf einem POP3-Server durchgeführt werden können. Die Schnittstelle des Konstruktors sieht folgendermaßen aus:</p>
+<h5 class="t5"><span class="cfett">poplib.POP3(host[, port])</span></h5>
+<p>Erzeugt eine Instanz der Klasse <span class="clisting">POP3</span>. Dem Konstruktor wird der Hostname des POP3-Servers übergeben, zu dem verbunden werden soll. Optional kann ein Port angegeben werden, wenn dieser sich vom voreingestellten Standardport <span class="clisting">110</span> unterscheidet.</p>
+<h4 class="t4"><span class="cfett">Die Klasse POP3</span></h4>
+<p>Im Folgenden sollen die wichtigsten Methoden der Klasse <span class="clisting">POP3</span> beschrieben werden. Die Funktionsnamen entsprechen im Wesentlichen den POP3-Befehlen, die sie senden. Um die in diesem Abschnitt vorgestellten Beispiele ausführen zu können, muss zum einen das Modul <span class="clisting">poplib</span> eingebunden sein und zum anderen eine Instanz der Klasse <span class="clisting">POP3</span> mit dem Namen <span class="clisting">pop</span> existieren. Beachten Sie, dass diese Instanz für die meisten Beispiele mit einem POP3-Server verbunden und bei diesem authentifiziert sein muss.</p>
+<h5 class="t5"><span class="cfett">pop.user(username)</span></h5>
+<p>Übermittelt den Benutzernamen <span class="ckursiv">username</span> an den POP3-Server. Die Antwort des Servers ist in der Regel ein String, in dem er ein Passwort fordert. Das angeforderte Passwort kann jetzt durch einen Aufruf der Methode <span class="clisting">pass_</span> übermittelt werden. Beachten Sie, dass ein falscher Benutzername zunächst nicht zu einer Exception führt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; pop.user("<span class="clistingk">Benutzername</span>") 
+'+OK Password required.'</pre></div>
+<h5 class="t5"><span class="cfett">pop.pass_(password)</span></h5>
+<p>Übermittelt das Passwort <span class="ckursiv">password</span> an den POP3-Server. Nachdem das Passwort vom Server akzeptiert worden ist, darf auf den Posteingang zugegriffen werden. Dieser ist bis zum Aufruf von <span class="clisting">quit</span> für andere Login-Versuche gesperrt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; pop.pass_("<span class="clistingk">Passwort</span>") 
+'+OK logged in.'</pre></div>
+<p>Im Falle einer fehlgeschlagenen Authentifizierung wird eine <span class="clisting">poplib.error_proto</span>-Exception geworfen.</p>
+<h5 class="t5"><span class="cfett">pop.stat()</span></h5>
+<p>Gibt den Status des Posteingangs zurück. Das Ergebnis ist ein Tupel mit zwei ganzen Zahlen: der Anzahl der enthaltenen Nachrichten und der Größe des Posteingangs.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; pop.stat() 
+(1, 623)</pre></div>
+<p>In diesem Fall befindet sich eine E-Mail im Posteingang, und die Gesamtgröße des Posteingangs beläuft sich auf <span class="clisting">623</span> Byte.</p>
+<h5 class="t5"><span class="cfett">pop.list([which])</span></h5>
+<p>Gibt eine Liste der im Posteingang liegenden Mails zurück. Der Rückgabewert dieser Methode ist ein Tupel der folgenden Form:</p>
+<div class="listing"><pre class="prettyprint">(antwort, ["mailID laenge", ...], datlen)</pre></div>
+<p>Dabei enthält das Tupel als erstes Element den Antwortstring des Servers und als zweites Element eine Liste von Strings, die je für eine E-Mail des Posteingangs stehen. Im String sind zwei Angaben enthalten. Die Angabe <span class="clisting">mailID</span> ist die laufende Nummer der Mail, eine Art Index, und <span class="clisting">laenge</span> ist die Gesamtgröße der Mail in Byte. In Bezug auf den Index sollten Sie beachten, dass alle E-Mails auf dem Server fortlaufend von <span class="clisting">1</span> an indiziert werden und nicht, wie bei einer Python-Liste beispielsweise, mit <span class="clisting">0</span> beginnend.</p>
+<p>Das erste Element des Tupels (<span class="clisting">antwort</span>) enthält dabei nicht den vollständigen Antwortstring des Servers, denn die Informationen, die zum zweiten Element des Tupels aufbereitet wurden, wurden aus <span class="clisting">antwort</span> entfernt. Um dennoch die komplette Länge der Serverantwort berechnen zu können, existiert das dritte Element des Tupels (<span class="clisting">datlen</span>). Dieses referenziert die Länge des Datenbereichs der Antwort des Servers. Damit entspräche <span class="clisting">len(antwort) + datlen</span> der Gesamtgröße des vom Server tatsächlich gesendeten Antwortstrings.</p>
+<p>Über den optionalen Parameter <span class="ckursiv">which</span> kann die laufende Nummer einer E-Mail angegeben werden, über die nähere Informationen zurückgegeben werden sollen. In diesem Fall gibt die Methode einen String des Formats <span class="clisting">"+OK mailID laenge"</span> zurück. Es ist also mit dieser Methode nur möglich, die Länge einer bestimmten E-Mail in Byte herauszufinden, da die ID ja bereits bekannt ist. Wenn eine ungültige ID für <span class="clisting">which</span> übergeben wurde, wird eine <span class="clisting">poplib.error_proto</span>-Exception geworfen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; pop.list() 
+('+OK […].', ['1 623'], 7) 
+&gt;&gt;&gt; pop.list(1) 
+'+OK 1 623'</pre></div>
+<h5 class="t5"><span class="cfett">pop.retr(which)</span></h5>
+<p>Greift auf die Mail mit der laufenden Nummer <span class="ckursiv">which</span> zu und gibt ihren Inhalt in Form des folgenden Tupels zurück:</p>
+<div class="listing"><pre class="prettyprint">(antwort, zeilen, laenge)</pre></div>
+<p>Das erste Element des Tupels entspricht dem Antwortstring des Servers. An zweiter Stelle steht eine Liste von Strings, die je eine Zeile der E-Mail inklusive des E–Mail-Headers enthalten. Das letzte Element des Tupels ist die Größe der E-Mail in Byte.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; pop.retr(1) 
+('+OK 623 octets follow.', […], 623)</pre></div>
+<p>Anstelle des Auslassungszeichens stünde eine Liste von Strings, die die Zeilen der vollständigen E-Mail enthält.</p>
+<h5 class="t5"><span class="cfett">pop.dele(which)</span></h5>
+<p>Löscht die Mail mit der laufenden Nummer <span class="ckursiv">which</span> vom POP3-Server. Beachten Sie, dass die meisten Server solche Befehle puffern und erst nach Aufruf der Methode <span class="clisting">quit</span> tatsächlich ausführen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; pop.dele(1) 
+'+OK Deleted.'</pre></div>
+<h5 class="t5"><span class="cfett">pop.rset()</span></h5>
+<p>Ein Aufruf dieser Methode veranlasst, dass alle anstehenden Löschvorgänge verworfen werden.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; pop.rset() 
+'+OK Resurrected.'</pre></div>
+<h5 class="t5"><span class="cfett">pop.quit()</span></h5>
+<p>Beendet die Verbindung zum POP3-Server. Bei den meisten Servern werden erst jetzt alle anstehenden Löschvorgänge durchgeführt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; pop.quit() 
+'+OK Bye-bye.'</pre></div>
+<h4 class="t4"><span class="cfett">Beispiel</span></h4>
+<p>Nachdem die wichtigsten Methoden einer <span class="clisting">POP3</span>-Instanz erklärt wurden, werden wir hier in einem kleinen Beispiel das Modul <span class="clisting">poplib</span> dazu verwenden, alle Mails von einem POP3-Server abzuholen und auf dem Bildschirm anzuzeigen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> poplib<br>
+pop = poplib.POP3("pop.hostname.de") 
+pop.user("benutzername") 
+pop.pass_("passwort")<br>
+<span class="cfett">for</span> i<span class="cfett"> in</span> xrange(1, pop.stat()[0]+1): 
+   <span class="cfett"> for</span> zeile<span class="cfett"> in</span> pop.retr(i)[1]: 
+       <span class="cfett"> print</span> zeile 
+   <span class="cfett"> print</span> "***"<br>
+pop.quit()</pre></div>
+<p>Zunächst wird eine Instanz der Klasse <span class="clisting">POP3</span> erzeugt und das Programm meldet sich mit den Methoden <span class="clisting">user</span> und <span class="clisting">pass_</span> beim POP3-Server an. Der Ausdruck <span class="clisting">pop.stat()[0]</span> liefert die Zahl der Mails, die sich im Posteingang befinden. In der <span class="clisting">for</span>-Schleife werden also alle Mail-Indizes durchlaufen. Beachten Sie dazu, dass die Indizes der E-Mails im Posteingang mit <span class="clisting">1</span> beginnen.</p>
+<p>In der inneren Schleife wird die jeweils aktuelle Mail mit dem Index <span class="clisting">i</span> durch Aufruf der Methode <span class="clisting">retr</span> heruntergeladen. Das zweite Element, also das mit dem Index <span class="clisting">1</span> des von dieser Methode zurückgegebenen Tupels, enthält eine Liste mit allen Zeilen des Mail-Inhalts. Diese Liste wird in der Schleife durchlaufen, und es wird jeweils die aktuelle Zeile ausgegeben.</p>
+<p>Beachten Sie, dass im Beispielprogramm aus Gründen der Übersichtlichkeit auf jegliche Fehlerbehandlung verzichtet wurde. In einem fertigen Programm müssten Sie auf jeden Fall prüfen, ob die Verbindung zum Server hergestellt werden konnte und ob die Authentifizierung erfolgreich war.</p>
+<p>Nachdem eine E-Mail vollständig durchlaufen worden ist, werden drei Sternchen ausgegeben, die damit als eine Art Trennlinie zwischen den Mails fungieren.</p><a id="mj44a18a19feec0481e1774cbf0fdaf877" name="mj44a18a19feec0481e1774cbf0fdaf877"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">20.5.3</span><span class="cfett"> IMAP4 &#8211; imaplib</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das Modul <span class="clisting">imaplib</span> stellt die Klasse <span class="clisting">IMAP4</span> zur Verfügung, mit deren Hilfe man eine Verbindung zu einem IMAP4-Server herstellen und mit diesem kommunizieren kann. Das IMAP4-Protokoll (<span class="ckursiv">Internet Message Access Protocol 4</span>) ist ähnlich wie das POP3-Protokoll zur Verwaltung von E-Mails auf einem Mailserver gedacht. Anders als bei dem bekannteren Protokoll POP3 verbleiben die E-Mails bei IMAP4 zumeist auf dem Mailserver, was den Vorteil hat, dass man von überall &#8211; beispielsweise auch von einem Internet-Cafe im Urlaub aus &#8211; vollen Zugriff auf alle archivierten E-Mails hat. Heutzutage bieten die meisten E-Mail-Anbieter sowohl einen POP3- als auch einen IMAP4-Zugang an. Im Vergleich zu POP3 unterstützt IMAP4 Kommandos zur komfortablen Verwaltung der Mails auf dem Server. So können beispielsweise Unterordner angelegt werden.</p>
+<p>Im Gegensatz zu den bisherigen Protokollen wie FTP oder POP3 ist IMAP4 mit einem hohen Funktionsumfang ausgestattet, und obwohl das Protokoll immer noch auf lesbaren Textnachrichten basiert, ist es zu komplex, um es im Stil der bisherigen Abschnitten mit einem kurzen Text und einer Tabelle ausreichend zu beschreiben. Grundsätzlich kann aber gesagt werden, dass das IMAP4-Protokoll umfassende Unterstützung zur Verwaltung der E-Mails bereitstellt. So lassen sich diese beispielsweise in verschiedene sogenannte <span class="ckursiv">Mailboxen</span> einsortieren. Dabei kann man sich eine Mailbox als eine Art Verzeichnis vorstellen, das E-Mails enthalten kann, wie ein Ordner Dateien enthält. Die Mailbox-Struktur des verwendeten Beispielservers sieht folgendermaßen aus:</p>
+<div class="bildbox">
+<p><a name="IDALCTQ"></a><a onClick="OpenWin('bilder/imap.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinimap.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.3    </strong>Mailbox-Struktur des Beispielservers</p>
+<p>Es existieren eine übergeordnete Mailbox namens <span class="ckursiv">INBOX</span> sowie zwei untergeordnete Mailboxen namens <span class="ckursiv">INBOX.Ham</span> und <span class="ckursiv">INBOX.Spam</span>.</p>
+<p>Um eine Verbindung zu einem IMAP4-Server herstellen zu können, muss eine Instanz der Klasse <span class="clisting">IMAP4</span> erzeugt werden. Der Konstruktor dieser Klasse hat folgende Schnittstelle:</p>
+<h5 class="t5"><span class="cfett">imaplib.IMAP4([host[, port]])</span></h5>
+<p>Erzeugt eine Instanz der Klasse <span class="clisting">IMAP4</span>. Optional kann direkt nach der Instanziierung automatisch eine Verbindung zu einem IMAP4-Server mit dem Hostnamen <span class="ckursiv">host</span> unter Verwendung des Ports <span class="ckursiv">port</span> aufgebaut werden. Wenn der Parameter <span class="ckursiv">port</span> nicht angegeben wurde, wird der IMAP4-Standardport <span class="clisting">143</span> verwendet.</p>
+<h4 class="t4"><span class="cfett">Die Klasse IMAP4</span></h4>
+<p>Nachdem eine Instanz der Klasse <span class="clisting">IMAP4</span> erzeugt wurde, stellt diese verschiedene Methoden bereit, um mit dem verbundenen Server zu kommunizieren. Jede Methode, die ein IMAP4-Kommando repräsentiert, gibt ein Tupel der folgenden Form zurück:</p>
+<div class="listing"><pre class="prettyprint">(<span class="clistingk">Status</span>, [<span class="clistingk">Daten</span>, …])</pre></div>
+<p>Dabei steht im resultierenden Tupel für <span class="ckursiv">Status</span> entweder <span class="clisting">"OK"</span> oder <span class="clisting">"NO"</span>, je nachdem, ob die Operation erfolgreich verlaufen oder fehlgeschlagen ist. Das zweite Element des Tupels ist eine Liste, die die Daten enthält, die der Server als Antwort geschickt hat. Diese Daten können entweder ebenfalls ein String oder ein Tupel sein. Wenn es sich um ein Tupel handelt, verfügt dieses über zwei Elemente:</p>
+<div class="listing"><pre class="prettyprint">(<span class="clistingk">Header</span>,<span class="clistingk"> Daten</span>)</pre></div>
+<p>Beide Elemente dieses Tupels sind Strings. Im Folgenden sollen die wichtigsten Methoden einer <span class="clisting">IMAP4</span>-Instanz erläutert werden. Die Beispiele setzen zumeist eine verbundene <span class="clisting">IMAP4</span>-Instanz <span class="clisting">im</span> voraus:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> imaplib 
+&gt;&gt;&gt;<span class="clisting"> im = imaplib.IMAP4(</span>"<span class="clistingk">imap.test.de</span>"<span class="clisting">)</span></pre></div>
+<p>In den meisten Fällen muss die <span class="clisting">IMAP4</span>-Instanz zudem beim Server eingeloggt sein, was durch Aufruf der Methode <span class="clisting">login</span> geschieht.</p>
+<h5 class="t5"><span class="cfett">im.login(user, password)</span></h5>
+<p>Sendet Benutzername und Passwort an den verbundenen IMAP4-Server.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.login("<span class="clistingk">Benutzername</span>", "<span class="clistingk">Passwort</span>") 
+('OK', ['LOGIN Ok.'])</pre></div>
+<h5 class="t5"><span class="cfett">im.logout()</span></h5>
+<p>Beendet die Verbindung zum IMAP4-Server.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.logout() 
+('BYE', ['Courier-IMAP server shutting down'])</pre></div>
+<h5 class="t5"><span class="cfett">im.select([mailbox[, readonly]])</span></h5>
+<p>Wählt eine Mailbox aus, um weitere Operationen auf dieser durchführen zu können. Dabei wird als erster Parameter der Name der auszuwählenden Mailbox übergeben. Wenn für den Parameter <span class="ckursiv">readonly</span> <span class="clisting">1</span> übergeben wird, ist die gewählte Mailbox bei diesem Zugriff schreibgeschützt und kann somit nicht verändert werden. Die Funktion <span class="clisting">select</span> gibt die Anzahl der E-Mails zurück, die sich in der gewählten Mailbox befinden.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.select("INBOX") 
+('OK', ['2'])</pre></div>
+<p>Beachten Sie, dass keine Exception geworfen wird, wenn die gewünschte Mailbox nicht existiert, sondern dass der Fehler anhand des Rückgabewertes ausgemacht werden muss:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.select("INBOX.NichtExistent") 
+('NO', ['Mailbox does not exist, or must be subscribed to.'])</pre></div>
+<h5 class="t5"><span class="cfett">im.close()</span></h5>
+<p>Schließt die momentan ausgewählte Mailbox.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.close() 
+('OK', ['mailbox closed.'])</pre></div>
+<h5 class="t5"><span class="cfett">im.list([directory[, pattern]])</span></h5>
+<p>Gibt die Namen aller Mailboxen zurück, die sich im Ordner <span class="ckursiv">directory</span> befinden und auf <span class="ckursiv">pattern</span> passen. Wenn der Parameter <span class="ckursiv">directory</span> nicht übergeben wird, werden Mailboxen des Hauptordners zurückgegeben. Sollte der zweite Parameter <span class="ckursiv">pattern</span> nicht übergeben werden, so werden alle im jeweiligen Ordner enthaltenen Mailboxen zurückgegeben. Der Parameter <span class="ckursiv">pattern</span> muss ein String sein und enthält üblicherweise Fragmente eines Mailbox-Namens inklusive Platzhalter (<span class="clisting">*</span>).</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.list(".", "*Ham") 
+('OK', ['(\\HasNoChildren) "." "INBOX.Ham"']) 
+&gt;&gt;&gt; im.list(".", "*am") 
+('OK', ['(\\HasNoChildren) "." "INBOX.Ham"', 
+'(\\HasNoChildren) "." "INBOX.Spam"']) 
+&gt;&gt;&gt; im.list(".", "*") 
+('OK', ['(\\HasNoChildren) "." "INBOX.Ham"', 
+'(\\HasNoChildren) "." "INBOX.Spam"', 
+'(\\Unmarked \\HasChildren) "." "INBOX"']) 
+&gt;&gt;&gt; im.list(".", "NichtVorhandeneMailbox") 
+('OK', [None])</pre></div>
+<p>Jeder Eintrag der Liste ist ein String und enthält drei, jeweils durch ein Leerzeichen voneinander getrennte Informationen: die sogenannten <span class="ckursiv">Flags</span> der Mailbox in Klammern, das Verzeichnis der Mailbox und der Mailbox-Name jeweils in doppelten Anführungsstrichen. Aus den Flags kann man beispielsweise die Information entnehmen, ob eine Mailbox untergeordnete Mailboxen enthält                  (<span class="clisting">\HasChildren</span>) oder nicht (<span class="clisting">\HasNoChildren</span>).</p>
+<h5 class="t5"><span class="cfett">im.fetch(message_set, message_parts)</span></h5>
+<p>Lädt Teile der E-Mails vom Server herunter. Der Parameter <span class="ckursiv">message_set</span> muss ein String sein, der die Mail-IDs der E-Mails enthält, die herunterzuladen sind. Dabei können diese entweder einzeln im String vorkommen (<span class="clisting">"1"</span>), als Bereich (<span class="clisting">"1:4"</span> für Mail Nr.1 bis 4), als Liste von Bereichen (<span class="clisting">"1:4,7:9"</span> für Mail Nr.1 bis 4 und Nr.7 bis 9) oder als Bereich mit unbestimmter oberer Grenze (<span class="clisting">"3:*"</span> für alle Mails ab Mail Nr.3).</p>
+<p>Wenn andere Methoden der <span class="clisting">IMAP4</span>-Klasse über einen Parameter <span class="ckursiv">message_set</span> verfügen, so ist damit stets ein String im oben beschriebenen Format gemeint.</p>
+<p>Der zweite Parameter <span class="ckursiv">message_parts</span> kennzeichnet, welche Teile der angegebenen E-Mails heruntergeladen werden sollen. Ein Wert von <span class="clisting">"(RCF822)"</span> bedeutet, die gesamte Mail, also inklusive des Mail-Headers herunterzuladen. Bei einem Wert von <span class="clisting">"(BODY[TEXT])"</span> würde hingegen nur der Text und bei <span class="clisting">"(BODY[HEA</span> <span class="clisting">DER])"</span> nur der Header der E-Mail heruntergeladen.</p>
+<p>Ein Aufruf der Methode <span class="clisting">fetch</span> funktioniert nur, wenn zuvor eine Mailbox mittels <span class="clisting">select</span> ausgewählt wurde.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.fetch("1", "(BODY[TEXT])") 
+('OK', [('1 (BODY[TEXT] {29}', 
+'Dies ist eine Testnachricht\r\n'), ')'])<br>
+&gt;&gt;&gt; im.fetch("1:2", "(BODY[TEXT])") 
+('OK', [('1 (BODY[TEXT] {29}', 
+'Dies ist eine Testnachricht\r\n'), ')', 
+('2 (BODY[TEXT] {25}', 
+'Noch eine Testnachricht\r\n'), ')'])</pre></div>
+<p>Im Falle einer nicht vorhandenen Mail-ID wird keine Exception geworfen, sondern schlicht ein leeres Ergebnis zurückgegeben. Wenn die ID ungültig ist, kommt eine entsprechende Fehlermeldung zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.fetch("100", "(BODY[TEXT])") 
+('OK', [None]) 
+&gt;&gt;&gt; im.fetch("KeineID", "(BODY[TEXT])") 
+('NO', ['Error in IMAP command received by server.'])</pre></div>
+<h5 class="t5"><span class="cfett">im.create(mailbox)</span></h5>
+<p>Erstellt eine neue Mailbox namens <span class="ckursiv">mailbox</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.create("INBOX.Hallo") 
+('OK', ['"INBOX.Hallo" created.'])</pre></div>
+<h5 class="t5"><span class="cfett">im.delete(mailbox)</span></h5>
+<p>Löscht die Mailbox <span class="ckursiv">mailbox</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.delete("INBOX.Hallo") 
+('OK', ['Folder deleted.'])</pre></div>
+<h5 class="t5"><span class="cfett">im.rename(old_mailbox, new_mailbox)</span></h5>
+<p>Benennt die Mailbox <span class="ckursiv">old_mailbox</span> in <span class="ckursiv">new_mailbox</span> um.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.rename("INBOX.Hallo", "INBOX.Ciao") 
+('OK', ['Folder renamed.'])</pre></div>
+<h5 class="t5"><span class="cfett">im.copy(message_set, new_mailbox)</span></h5>
+<p>Kopiert die E-Mails <span class="ckursiv">message_set</span> in die Mailbox <span class="ckursiv">new_mailbox</span>.</p>
+<h5 class="t5"><span class="cfett">im.search(charset, criterion[, …])</span></h5>
+<p>Sucht innerhalb der ausgewählten Mailbox nach E-Mails, die auf die angegebenen Kriterien passen. Als Kriterium <span class="ckursiv">criterion</span> kann entweder der String <span class="clisting">"ALL"</span> (alle Mails erfüllen dieses Kriterium) oder ein String des Formats <span class="clisting">"(FROM \"Johannes\")"</span> verwendet werden. Das zweite Kriterium ist für alle Mails erfüllt, die von einem gewissen Johannes geschrieben wurden.</p>
+<p>Der Parameter <span class="ckursiv">charset</span> spezifiziert das Encoding von <span class="ckursiv">criterion</span> in Form eines Strings. Üblicherweise wird der Parameter <span class="ckursiv">charset</span> nicht benötigt und <span class="clisting">None</span> übergeben.</p>
+<p>Die Funktion <span class="clisting">search</span> gibt die IDs der gefundenen E-Mails in Form einer Liste zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; im.search(None, "(FROM \"Johannes\")") 
+('OK', ['1 2 3']) 
+&gt;&gt;&gt; im.search(None, "(FROM \"Johann\")") 
+('OK', ['1 2 3']) 
+&gt;&gt;&gt; im.search(None, "(FROM \"Johanninski\")") 
+('OK', [''])</pre></div>
+<h4 class="t4"><span class="cfett">Beispiel</span></h4>
+<p>Im folgenden Beispielprogramm soll das Modul <span class="clisting">imaplib</span> dazu verwendet werden, zu einem IMAP4-Server zu verbinden und alle enthaltenen E-Mails einer bestimmten Mailbox anzuzeigen. Dabei soll dem Benutzer die Möglichkeit gegeben werden, die Mailbox zu wählen.</p>
+<p>Der Quelltext des Beispielprogramms sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> imaplib<br>
+im = imaplib.IMAP4("<span class="clistingk">Hostname</span>") 
+im.login("<span class="clistingk">Benutzername</span>", "<span class="clistingk">Passwort</span>")<br>
+<span class="cfett">print</span> "Vorhandene Mailboxen:"<span class="cfett"> 
+for</span> mb<span class="cfett"> in</span> im.list()[1]: 
+    name = mb.split("\".\"")[-1] 
+   <span class="cfett"> print</span> " - %s" % name.strip(" \"")<br>
+mb = raw_input("Welche Mailbox soll angezeigt werden: ") 
+im.select(mb) 
+status, daten = im.search(None, "ALL")<span class="cfett"> 
+for</span> mailnr<span class="cfett"> in</span> daten[0].split(): 
+    typ, daten = im.fetch(mailnr, "(RFC822)") 
+   <span class="cfett"> print</span> "%s\n+++\n" % daten[0][1]<br>
+im.close() 
+im.logout()</pre></div>
+<p>Zunächst wird eine Instanz der Klasse <span class="clisting">IMAP4</span> erzeugt und zu einem IMAP4-Server verbunden. Dann werden mithilfe der Methode <span class="clisting">list</span> alle im Hauptordner des IMAP4-Kontos vorhandenen Mailboxen durchlaufen und die Namen der Mailboxen auf dem Bildschirm angezeigt. Dabei ist zu beachten, dass die Methode <span class="clisting">list</span> die Namen der Mailboxen mit zusätzlichen Informationen zurückgibt. Diese Informationen müssen herausgefiltert werden, bevor der Mailboxname angezeigt werden kann. Nachdem die Namen angezeigt wurden, wird der Benutzer dazu aufgefordert, einen der angegebenen Mailbox-Namen auszuwählen.</p>
+<p>Die vom Benutzer ausgewählte Mailbox wird dann mithilfe der Methode <span class="clisting">select</span> auch auf dem Server ausgewählt. Der danach aufgerufenen Methode <span class="clisting">search</span> wird der String <span class="clisting">"ALL"</span> übergeben, was den Mailserver dazu veranlasst, Daten über alle E-Mails der ausgewählten Mailbox zurückzugeben.</p>
+<p>Danach iterieren wir in einer <span class="clisting">for</span>-Schleife über die Liste von Mail-IDs, die <span class="clisting">search</span> zurückgegeben hat, und laden die jeweilige Mail mittels <span class="clisting">fetch</span> vollständig herunter. Die heruntergeladene Mail wird auf dem Bildschirm ausgegeben.</p>
+<p>Schlussendlich schließen wir die ausgewählte Mailbox und beenden die Verbindung mit dem Server.</p>
+<p>Beachten Sie auch bei diesem Beispielprogramm, dass keine Fehlerbehandlung durchgeführt wurde. In einem fertigen Programm sollten sowohl die Verbindungsanfrage als auch das Login und insbesondere auch die Benutzereingabe überprüft werden.</p><a id="mj14c7624ff8d2c29622f837a39bdaf02f" name="mj14c7624ff8d2c29622f837a39bdaf02f"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">20.5.4</span><span class="cfett"> Erstellen komplexer E-Mails &#8211; email</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In den vorherigen Kapiteln wurde besprochen, wie E-Mails über einen SMTP-Server versendet und von einem POP3- oder IMAP4-Server heruntergeladen werden können. Trotz alledem bleibt eine Frage weiterhin offen: Wie Sie wissen, basiert das Senden und Empfangen von E-Mails auf reinen ASCII-Protokollen. Das bedeutet vor allem, dass mit diesen Protokollen keine Binärdaten verschickt werden können. Außerdem sind Sonderzeichen, die nicht dem 7-Bit-ASCII-Standard entsprechen, problematisch.</p>
+<p>Um also solche Zeichen oder Binärdaten verschicken zu können, wurde der sogenannte MIME-Standard (<span class="ckursiv">Multipurpose Internet Mail Extension</span>) entwickelt, der Sonderzeichen und Binärdaten so kodiert, dass sie als eine Folge reiner ASCII-Zeichen versandt werden können. Durch eine solche Form der Kodierung steigt allerdings die Größe der zu übermittelnden Daten. Zudem definiert der MIME-Standard verschiedene Dateitypen und legt eine Syntax fest, mit der Dateianhänge einem bestimmten Dateityp zugeordnet werden, sodass die Dateien beim Empfänger leichter verarbeitet werden können.</p>
+<p>Das <span class="clisting">email</span>-Paket ist sehr mächtig, weswegen hier nur ein Teil seiner Funktionalität besprochen werden kann. Zunächst werden wir uns darum kümmern, wie eine simple ASCII-Mail mittels <span class="clisting">email</span> erstellt werden kann. Darauf aufbauend werden wir zu komplexeren MIME-kodierten Mails übergehen.</p>
+<h4 class="t4"><span class="cfett">Erstellen einer einfachen E-Mail</span></h4>
+<p>Als Basisklasse für eine neue E-Mail dient die Klasse <span class="clisting">Message</span> des Moduls <span class="clisting">email.message</span>. Das folgende Beispielprogramm zeigt, wie sie zu verwenden ist:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> email.message<span class="cfett"> import</span> Message<br>
+msg = Message() 
+msg.set_payload("Dies ist meine selbst erstelle E-Mail.") 
+msg["Subject"] = "Hallo Welt" 
+msg["From"] = "Donald Duck &lt;don@ld.de&gt;" 
+msg["To"] = "Onkel Dagobert &lt;d@gobert.de&gt;"<br>
+<span class="cfett">print</span> msg.as_string()</pre></div>
+<p>Zunächst wird eine Instanz der Klasse <span class="clisting">Message</span> erzeugt. Der Konstruktor dieser Klasse erwartet keine Argumente. Durch die Methode <span class="clisting">set_payload</span> (dt. <span class="ckursiv">Nutzlast</span>) wird der E-Mail ein Text hinzugefügt.</p>
+<p>Jetzt fehlt nur noch der E-Mail-Header. Um diesen hinzuzufügen, kann die <span class="clisting">Message</span>-Instanz wie ein Dictionary angesprochen werden. Auf diese Weise werden die einzelnen Teile des Headers hinzugefügt. Wichtig sind dabei <span class="clisting">"Subject"</span> für den Betreff, <span class="clisting">"From"</span> für den Absender und <span class="clisting">"To"</span> für den Empfänger der Mail.</p>
+<p>Zu guter Letzt wird die entstandene E-Mail durch die Methode <span class="clisting">as_string</span> in einen String geschrieben und ausgegeben. Dieser String könnte der Methode <span class="clisting">sendmail</span> des Moduls <span class="clisting">smtplib</span> übergeben und somit als E-Mail verschickt werden. Die Ausgabe des Beispielprogramms, also die erzeugte E-Mail, sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">Subject: Hallo Welt 
+From: Donald Duck &lt;don@ld.de&gt; 
+To: Onkel Dagobert &lt;d@gobert.de&gt; 
+ 
+Dies ist meine selbst erstelle E-Mail.</pre></div>
+<h4 class="t4"><span class="cfett">Erstellen einer E-Mail mit Anhängen</span></h4>
+<p>Wir haben angekündigt, dass es das Paket <span class="clisting">email</span> ermöglicht, Binärdaten per E–Mail zu verschicken. Dafür ist das Modul <span class="clisting">email.mime</span> zuständig. Das folgende Beispielprogramm soll eine E-Mail erstellen und eine Bilddatei als Anhang einfügen.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span><span class="clisting"> email.mime.multipart</span><span class="cfett"> import</span><span class="clisting"> MIMEMultipart</span><span class="cfett"> 
+from</span><span class="clisting"> email.mime.image</span><span class="cfett"> import</span><span class="clisting"> MIMEImage</span><span class="cfett"> 
+from</span><span class="clisting"> email.mime.text</span><span class="cfett"> import</span><span class="clisting"> MIMEText</span><br>
+<span class="clisting">msg = MIMEMultipart() 
+msg["Subject"] = "Hallo Welt" 
+msg["From"] = "Donald Duck &lt;don@ld.de&gt;" 
+msg["To"] = "Onkel Dagobert &lt;d@gobert.de&gt;"</span><br>
+<span class="clisting">text = MIMEText("Dies ist meine selbst erstelle E-Mail.") 
+msg.attach(text)</span><br>
+<span class="clisting">f = open("buch.png") 
+bild = MIMEImage(f.read()) 
+f.close() 
+msg.attach(bild)</span><br>
+<span class="cfett">print</span><span class="clisting"> msg.as_string()</span></pre></div>
+<p>Zunächst wird eine Instanz der Klasse <span class="clisting">MIMEMultipart</span> erzeugt. Diese repräsentiert eine E-Mail, die MIME-kodierte Binärdaten enthalten kann. Wie im vorherigen Beispiel werden Betreff, Absender und Empfänger nach Art eines Dictionarys hinzugefügt.</p>
+<p>Danach wird eine Instanz der Klasse <span class="clisting">MIMEText</span> erzeugt, die den reinen Text der E–Mail enthalten soll. Diese Instanz wird mithilfe der Methode <span class="clisting">attach</span> an die <span class="clisting">MIMEMultipart</span>-Instanz angehängt.</p>
+<p>Genauso wird mit dem Bild verfahren: Es wird eine Instanz der Klasse <span class="clisting">MIMEImage</span> erzeugt und mit den Binärdaten des Bildes gefüllt. Danach wird sie mittels <span class="clisting">attach</span> an die E-Mail angefügt.</p>
+<p>Schlussendlich wird die <span class="clisting">MIMEMultipart</span>-Instanz durch Aufruf der Methode <span class="clisting">as_string</span> in einen String konvertiert, der so als reine ASCII-E-Mail versendet werden kann. Der angefügte Anhang wird von E-Mail-Programmen als Grafik erkannt und dann dementsprechend präsentiert.</p>
+<p>Die Ausgabe des Beispiels sieht in etwa so aus:</p>
+<div class="listing"><pre class="prettyprint">Content-Type: multipart/mixed; boundary="===========0094312333==" 
+MIME-Version: 1.0 
+Subject: Hallo Welt 
+From: Donald Duck &lt;don@ld.de&gt; 
+To: Onkel Dagobert &lt;d@gobert.de&gt; 
+ 
+--===============0094312333== 
+Content-Type: text/plain; charset="us-ascii" 
+MIME-Version: 1.0 
+Content-Transfer-Encoding: 7bit 
+ 
+Dies ist meine selbst erstelle E-Mail. 
+--===============0094312333== 
+Content-Type: image/png 
+MIME-Version: 1.0 
+Content-Transfer-Encoding: base64 
+ 
+iVBORw0KGgoAAAANSUhEUgAAASwAAAD8CAIAAABCVg65AAAACXBIWXMAACcQAAAnE 
+B3RJTUUH1wkMERU1+MuwjgAAIABJREFUeNrsfXecJWWV9nPet+rezt2ThzDkqCBLB 
+[…] 
+--===============0094312333==--</pre></div>
+<p>Sie sehen, dass sowohl der Text als auch das Bild in ähnlicher Form kodiert wurden. Die Aufbereitung der beiden Sektionen zum Textteil der E-Mail und zu einem Bild im Anhang erledigt Ihr Mail-Programm. Das <span class="clisting">mime</span>-Paket bietet auch eine entsprechende Funktionalität an, auf die wir noch zu sprechen kommen werden.</p>
+<p>Hier wurden nur <span class="clisting">MIMEText</span> und <span class="clisting">MIMEImage</span> besprochen. Im Folgenden sind alle verfügbaren MIME-Datentypen aufgelistet:</p>
+<ul class="gp">
+<li><span class="clisting">email.mime.application.MIMEApplication</span> für ausführbare Programme</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">email.mime.audio.MIMEAudio</span> für Sounddateien</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">email.mime.image.MIMEImage</span> für Grafikdateien</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">email.mime.message.MIMEMessage</span> für <span class="clisting">Message</span>-Instanzen</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">email.mime.image.MIMEText</span> für reinen Text</li>
+</ul>
+<p>Beim Instanziieren all dieser Klassen müssen die jeweiligen Binärdaten bzw. der Text, den die entsprechende Instanz enthalten soll, als erster Parameter des Konstruktors übergeben werden. Wichtig ist noch, dass alle hier vorgestellten Klassen von der Basisklasse <span class="clisting">Message</span> abgeleitet sind, also über die Methoden dieser Basisklasse verfügen.</p>
+<h4 class="t4"><span class="cfett">Internationale Zeichensätze</span></h4>
+<p>Bisher wurde besprochen, wie der MIME-Standard dazu verwendet werden kann, Binärdaten im Anhang einer E-Mail zu versenden. Beim Text der E-Mail waren wir aber bislang auf die Zeichen des 7-Bit-ASCII-Standards beschränkt. Die Frage ist, wie ein spezielles Encoding innerhalb einer E-Mail verwendet werden kann. Auch dies ermöglicht der MIME-Standard. Das folgende Beispielprogramm soll eine einfache E-Mail erstellen, deren Text ein Euro-Zeichen enthält.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> email.mime.text<span class="cfett"> import</span> MIMEText<br>
+text = u"39,90\u20AC" 
+msg = MIMEText(text.encode("cp1252"), _charset="cp1251") 
+msg["Subject"] = "Hallo Welt" 
+msg["From"] = "Donald Duck &lt;don@ld.de&gt;" 
+msg["To"] = "Onkel Dagobert &lt;d@gobert.de&gt;"<br>
+<span class="cfett">print</span> msg.as_string()</pre></div>
+<p>Als Erstes erzeugen wir einen Unicode-String, der das Euro-Zeichen enthält, das nicht im ASCII-Standard enthalten ist. Nachfolgend wird der Unicode-String ins Windows-Encoding <span class="clisting">cp1252</span> kodiert und bei der Instanziierung der Klasse <span class="clisting">MIME</span> <span class="clisting">Text</span> übergeben. Das verwendete Encoding muss dem Konstruktor ebenfalls über den Parameter <span class="clisting">_charset</span> bekannt gemacht werden. Der nun folgende Teil des Programms ist bereits von den anderen Beispielen her bekannt.</p>
+<p>Der MIME-kodierte Text, den das Beispielprogramm ausgibt, sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">Content-Type: text/plain; charset="cp1252" 
+MIME-Version: 1.0 
+Content-Transfer-Encoding: base64 
+Subject: Hallo Welt 
+From: Donald Duck &lt;don@ld.de&gt; 
+To: Onkel Dagobert &lt;d@gobert.de&gt; 
+ 
+MzksOTCA</pre></div>
+<p>Dabei entspricht <span class="clisting">MzksOTCA</span> der MIME-Kodierung des Texts <span class="clisting">39,90€</span>.</p>
+<p>Es kann durchaus vorkommen, dass auch Einträge im Header der E-Mail Sonderzeichen enthalten. Solche können mithilfe der Klasse <span class="clisting">Header</span> kodiert werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> email.mime.text<span class="cfett"> import</span> MIMEText<span class="cfett"> 
+from</span> email.header<span class="cfett"> import</span> Header 
+msg = MIMEText("Hallo Welt") 
+msg["Subject"] = Header("39,90\u20AC", "cp1252") 
+[…]</pre></div>
+<h4 class="t4"><span class="cfett">Eine E-Mail einlesen</span></h4>
+<p>Zum Schluss möchten wir noch ein kurzes Beispiel dazu geben, dass eine abgespeicherte E-Mail auch wieder eingelesen und automatisch zu der bislang besprochenen Klassenstruktur aufbereitet werden kann. Dazu folgendes Beispiel:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> email<br>
+mail = """Subject: Hallo Welt 
+From: Donald Duck &lt;don@ld.de&gt; 
+To: Onkel Dagobert &lt;d@gobert.de&gt; 
+ 
+Hallo Welt 
+"""<br>
+msg = email.message_from_string(mail)<span class="cfett"> 
+print</span> msg["From"]</pre></div>
+<p>Im Beispielprogramm ist eine E-Mail in Form eines Strings vorhanden und wird durch die Funktion <span class="clisting">message_from_string</span> eingelesen. Diese Funktion gibt eine vollwertige <span class="clisting">Message</span>-Instanz zurück, wie die darauf folgende <span class="clisting">print</span>-Ausgabe beweist:</p>
+<div class="listing"><pre class="prettyprint">Donald Duck &lt;don@ld.de&gt;</pre></div>
+<p>Alternativ hätte auch die Funktion <span class="clisting">message_from_file</span> verwendet werden können, um die E-Mail aus einer Datei zu lesen. Dieser Funktion hätten wir dann ein geöffnetes Dateiobjekt übergeben müssen.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_20_005.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="20.5 E-Mail"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_20_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_20_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

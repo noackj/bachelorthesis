@@ -1,0 +1,713 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 22.3 Automatisches Erstellen einer Dokumentation &#8211; epydoc</title>
+<meta name="title" content="Galileo Computing :: Python - 22.3 Automatisches Erstellen einer Dokumentation &#8211; epydoc">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 22.3 Automatisches Erstellen einer Dokumentation &#8211; epydoc">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_22_002.htm">
+<link rel="next" href="python_kapitel_23_001.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_22_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_23_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94" class="navnav">22 Distribution von Python-Projekten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_22_001.htm#mj64ee18645f12f18ca41aa2aba4278a95" class="navnav">22.1 Erstellen von Distributionen &#8211; distutils</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_001.htm#mjd062fe88624640aca3dd7ca5f366ff29" class="navnav">22.1.1 Schreiben des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_001.htm#mj9f066c9d92b6d7dcf270ed4cf60583fb" class="navnav">22.1.2 Das Installationsscript</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_001.htm#mjdf66abaa6ad486ebac737695c294c5af" class="navnav">22.1.3 Erstellen einer Quellcodedistribution</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_001.htm#mj5f04e5c2f5345507fdb4b8a8d871ed0d" class="navnav">22.1.4 Erstellen einer Binärdistribution</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_22_001.htm#mjf90e2c2119474162405f6f0db25a3647" class="navnav">22.1.5 Beispiel für die Verwendung einer Distribution</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_22_002.htm#mjc2cee80dc9718d0e3e25546aec72d8fc" class="navnav">22.2 Erstellen von EXE-Dateien &#8211; py2exe</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj0bef9a124d280985e3b409b607fef68f" class="navh">22.3 Automatisches Erstellen einer Dokumentation &#8211; epydoc</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj8fc2fbeb9e5e9e128e03a4c57e85d86a" class="navh">22.3.1 Docstrings und ihre Formatierung für epydoc</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj0bef9a124d280985e3b409b607fef68f" name="mj0bef9a124d280985e3b409b607fef68f"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">22.3</span><span class="cfett"> Automatisches Erstellen einer Dokumentation &#8211; epydoc</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Wenn Sie Ihre Programme und Module an Benutzer und andere Entwickler weitergeben, ist eine gute Dokumentation sehr wichtig. Ohne vernünftige Funktionsbeschreibung ist selbst das beste Programm wertlos, da es zu aufwendig ist, die Funktionsweise allein aus dem Quellcode herauszulesen oder durch Ausprobieren zu erahnen.</p>
+<p>Von Programmierern wird das Schreiben von Dokumentationen oft als lästig empfunden, weil es verhältnismäßig viel Zeit in Anspruch nimmt, ohne die Programme selbst zu verbessern. Aus diesem Grund gibt es auch in der Python-Welt viele Module und Programme, die nicht ausreichend dokumentiert sind.</p>
+<p>Es gibt allerdings Werkzeuge und Methoden, um das Schreiben von Dokumentationen so einfach wie möglich zu machen. Wir werden uns in diesem Abschnitt mit dem Programm <span class="ckursiv">epydoc</span> beschäftigen, das Python-Programme anhand ihres Quellcodes dokumentieren kann. Das Werkzeug <span class="clisting">epydoc</span> analysiert den Programmtext und sammelt insbesondere die Informationen aus den Docstrings. Die gesammelten Informationen werden aufbereitet und als HTML- oder PDF-Datei exportiert.</p>
+<div class="bildbox">
+<p><a name="IDAOCSQ"></a><a onClick="OpenWin('bilder/epydoc_screenshot.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinepydoc_screenshot.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 22.1    </strong>Beispiel für eine Dokumentation mit epydoc</p>
+<p>Das Programm <span class="clisting">epydoc</span> selbst ist in Python geschrieben und deshalb auf allen Python-Plattformen lauffähig. Sie können die aktuellste Version von der Projekt-Homepage unter <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a> herunterladen. [Falls Sie Linux einsetzen, lohnt sich außerdem ein Blick in die Paketliste Ihrer Distribution. Es ist recht wahrscheinlich, dass dort bereits ein Paket mit <span class="clisting">epydoc</span> bereitsteht.
+] </p>
+<h4 class="t4"><span class="cfett">Benutzung von epydoc</span></h4>
+<p>Nach der Installation können Sie <span class="clisting">epydoc</span> per Konsole aufrufen, wobei der Befehl zum Aufruf unter Unix »<span class="clisting">epydoc</span>« und unter Windows »<span class="clisting">epydoc.py</span>« lautet. Wir werden im weiteren Verlauf des Kapitels die Unix-Variante verwenden. Windows-Benutzer müssen beim Nachvollziehen der Aufrufe ein »<span class="clisting">.py</span>« an »<span class="clisting">epydoc</span>« anhängen.</p>
+<p>Zu <span class="clisting">epydoc</span> existiert außerdem eine grafische Benutzeroberfläche, die aber aufgrund ihrer eingeschränkten Möglichkeiten nicht besprochen wird.</p>
+<p>Im einfachsten Fall ruft man <span class="clisting">epydoc</span> mit den Modulen als Parameter auf, die man dokumentieren möchte. Voraussetzung für eine erfolgreiche Dokumentationsgenerierung ist, dass die übergebenen Module von Python importiert werden können. Die Module müssen sich also unter dem Pfad befinden, zu dem <span class="clisting">epydoc</span> ausgeführt wird, oder Standardmodule sein. Als Beispiel erzeugen wir die Dokumentation des Standardmoduls <span class="clisting">time</span>:</p>
+<div class="listing"><pre class="prettyprint">$ epydoc time</pre></div>
+<p>Nach dem Aufruf gibt es einen neuen Ordner namens <span class="ckursiv">html</span> im aktuellen Arbeitsverzeichnis, der die Dokumentation des Moduls <span class="clisting">time</span> im HTML-Format enthält.</p>
+<p>Um die Erzeugung der Dokumentation anzupassen, kann man <span class="clisting">epydoc</span> eine Reihe weiterer Parameter übergeben, von denen die folgende Tabelle die drei wichtigsten zeigt:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 22.3    </strong>Die drei wichtigsten Parameter von epydoc
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Parameter</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">--html</pre></div>
+</td>
+<td class="tabellentext">
+<p>Erzeuge die Dokumentation im HTML-Format (Standardeinstellung)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">--pdf</pre></div>
+</td>
+<td class="tabellentext">
+<p>Generiere eine PDF-Datei, die die Dokumentation enthält.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">--output <span class="ckursiv">DIR</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Schreibe die Dokumentation in das Verzeichnis <span class="clisting">DIR</span>. Standardmäßig werden je nach Format die Ordnernamen <span class="ckursiv">html</span> oder <span class="ckursiv">pdf</span> verwendet.</p>
+</td>
+</tr>
+</table><br><p>Um beispielsweise die Dokumentation des Moduls <span class="clisting">time</span> als PDF im Verzeichnis <span class="ckursiv">time_dokumentation</span> zu erzeugen, dient folgender Aufruf:</p>
+<div class="listing"><pre class="prettyprint">$ epydoc --pdf --output time_documentation time</pre></div><a id="mj8fc2fbeb9e5e9e128e03a4c57e85d86a" name="mj8fc2fbeb9e5e9e128e03a4c57e85d86a"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">22.3.1</span><span class="cfett"> Docstrings und ihre Formatierung für epydoc</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die wichtigste Informationsquelle für <span class="clisting">epydoc</span> stellen die Docstrings dar. [Wir haben Docstrings in Abschnitt <a href="./python_kapitel_13_003.htm#Rxx_ref180766483">13.3</a> behandelt.
+]  Allerdings gibt es in Python keine Docstrings für Variablen und Klassenmember, die aber oft auch dokumentiert werden müssen. Deshalb führt <span class="clisting">epydoc</span> zwei Notationen ein, um auch solche Elemente mit Dokumentation versehen zu können:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>1.</strong></td>
+<td valign="top" width="100%" align="left"> Steht in der Zeile hinter einer Wertezuweisung ein String-Literal, so wird dieses als Docstring für die Variable interpretiert, der der Wert zugewiesen wurde.</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td valign="top" width="10"><strong>2.</strong></td>
+<td valign="top" width="100%" align="left"> Stehen unmittelbar vor einer Wertezuweisung Kommentare, die durch die Zeichenfolge #: eingeleitet werden, interpretiert epydoc die Kommentare als Docstrings für die Variable, der der Wert zugewiesen wurde.</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table>
+<p>Damit kann man die Attribute <span class="clisting">X</span> und <span class="clisting">Y</span> der Klasse <span class="clisting">A</span> wie folgt dokumentieren:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> A(object): 
+    X = 10 
+    """ A.X speichert eine Zahl und wird mit 10 initialisiert """ 
+ 
+    #: Der Klassenmember A.Y speichert eine Zahl und wird 
+    #: mit 1337 initialisiert 
+    Y = 1337 
+ 
+   <span class="cfett"> pass</span></pre></div>
+<p>In diesem Beispiel würde <span class="clisting">epydoc</span> das Klassenattribut <span class="clisting">A.X</span> mit dem Docstring <span class="clisting">"A.X speichert eine Zahl und wird mit 10 initialisiert"</span> verknüpfen und <span class="clisting">A.Y</span> den Docstring <span class="clisting">"Der Klassenmember A.Y speichert eine Zahl und wird\nmit 1337 initialisiert"</span> zuordnen. [Der Zeilenvorschub im Docstring von <span class="clisting">A.Y</span> bleibt erhalten, wie das »<span class="clisting">\n</span>« andeutet.
+] </p>
+<h4 class="t4"><span class="cfett">Die Sprache Epytext</span></h4>
+<p>Damit <span class="clisting">epydoc</span> die Docstrings richtig interpretiert und im Ergebnis auch so angezeigt wie von Ihnen gewünscht, gibt es einige Regeln, die Sie beim Schreiben von Docstrings beachten sollten, wenn Sie <span class="clisting">epydoc</span> für die Dokumentationsgenerierung verwenden möchten.</p>
+<p>Diese Regeln werden von der <span class="clisting">epydoc</span>-spezifischen, sehr einfachen Beschreibungssprache <span class="ckursiv">Epytext</span> festgelegt. Epytext soll möglichst intuitiv verwendbar sein und ist deshalb relativ elementar gehalten.</p>
+<p>Jeder Docstring besteht gemäß Epytext aus mehreren Blöcken, die durch Leerzeilen voneinander getrennt sind. Bei der Interpretation durch <span class="clisting">epydoc</span> werden innerhalb eines Blocks Leerzeilen, Zeilenvorschübe und sonstige Whitespaces zu einzelnen Leerzeichen zusammengefasst.</p>
+<p>Die folgende Tabelle zeigt eine Funktion namens <span class="clisting">test</span>, die in ihrem Docstring drei Textblöcke enthält:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 22.4    </strong>Docstring mit zwei Blöcken
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Python-Code</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Generierte Dokumentation</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<pre class="prettyprint"><div class="listing"><span class="cfett">def</span> test(): 
+    """ 
+    Dies ist der erste Block, 
+    der in der Ausgabe vom 
+    nachstehenden abgegrenzt 
+    wird. 
+ 
+    Ein weiterer Block. 
+    """ 
+    <span class="cfett">pass</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Dies ist der erste Block, der in der Ausgabe vom nachstehenden abgegrenzt wird.</p>
+<p>Ein weiterer Block.</p>
+</td>
+</tr>
+</table><br><p>Wichtig ist, dass Epytext genau wie Python selbst die Einrückung benutzt, um zu entscheiden, welche Zeilen zu einem Block gehören. Deshalb müssen im letzten Beispiel die vier Zeilen des ersten Blocks alle auf einer Einrücktiefe stehen.</p>
+<p>Man kann Blöcke ineinander verschachteln, indem man die Einrücktiefe vergrößert:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 22.5    </strong>Verschachtelung bzw. Unterordnung von Blöcken
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Python-Code</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Generierte Dokumentation</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<pre class="prettyprint"><div class="listing"><span class="cfett">def</span> test2(): 
+    """ 
+    Dieser Block hat einen 
+    untergeordneten Block. 
+ 
+        Ich bin untergeordnet. 
+ 
+    Ich nicht. 
+    """ 
+    <span class="cfett">pass</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Dieser Block hat einen untergeordneten Block.</p>
+<p>    Ich bin untergeordnet.</p>
+<p>Ich nicht.</p>
+</td>
+</tr>
+</table><br><p>Neben einfachen Textblöcken gibt es andere Blöcke, die durch spezielle Zeichen am Anfang eingeleitet werden. Die folgende Tabelle gibt eine kurze Übersicht über eine Auswahl der unterstützten Blocktypen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 22.6    </strong>Übersicht über einige der Blocktypen von Epytext
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Zeichen</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Blocktyp</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">-</span></p>
+</td>
+<td class="tabellentext">
+<p>Listenelement ohne Nummerierung</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">1</span>.</p>
+</td>
+<td class="tabellentext">
+<p>Nummeriertes Listenelement.</p>
+<p>Anstelle der »1« können beliebige Zahlen stehen. Auch Punkte können zur Gliederung der Liste verwendet werden, z. B. »1.3.2.«</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&gt;&gt;&gt;</span></p>
+</td>
+<td class="tabellentext">
+<p>Doctest-Block. Damit werden Tests des Doctest-Moduls eingeleitet (siehe hierzu Abschnitt <a href="./python_kapitel_21_005.htm#Rxx_ref180766585">21.5.1</a>).</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">@</span></p>
+</td>
+<td class="tabellentext">
+<p>Felder, die bestimmte Informationen zu Parametern enthalten</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">Listen</span></h5>
+<p>Listenelemente können mehrere Blöcke und auch weitere Listen enthalten. Alle in einer Liste enthaltenen Blöcke müssen genauso tief wie oder tiefer als das einleitende Zeichen eingerückt werden:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 22.7    </strong>Ein Beispiel mit Listen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Python-Code</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Generierte Dokumentation</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<pre class="prettyprint"><div class="listing"><span class="cfett">def</span> test3(): 
+    """ 
+    1. Erstes Listenelement 
+       einer geordneten Liste. 
+ 
+    2. Noch ein Element. Man 
+    beachte die Einruecktiefe. 
+ 
+    &#8211; Eine Liste ohne 
+       Nummerierung. 
+    &#8211; Listenelemente muessen 
+       nicht zwingend durch 
+       Leerzeilen voneinander 
+       getrennt werden. 
+    """ 
+    <span class="cfett">pass</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>1. Erstes Listenelement einer geordneten Liste.</p>
+<p>2. Noch ein Element. Man beachte die Einruecktiefe.</p>
+<p>3. Das letzte Element der Liste.</p>
+<p>&#8211; Eine Liste ohne Nummerierung.</p>
+<p>&#8211; Listenelemente muessen nicht zwingend durch Leerzeilen voneinander getrennt werden.</p>
+</td>
+</tr>
+</table><br><p>Listen können genau wie Textblöcke ineinander verschachtelt werden. Dabei müssen sie tiefer als der übergeordnete Block eingerückt sein.</p>
+<h5 class="t5"><span class="cfett">Doctest-Abschnitte</span></h5>
+<p>Doctest-Blöcke werden durch drei Größerzeichen, <span class="clisting">&gt;&gt;&gt;</span>, eingeleitet und müssen von den umliegenden Blöcken durch Leerzeilen getrennt werden. Außerdem dürfen sie selbst keine Leerzeilen enthalten. Weitere Informationen zu Doctest finden Sie in Abschnitt <a href="./python_kapitel_21_005.htm#Rxx_ref180766611">21.5.1</a>.</p>
+<h5 class="t5"><span class="cfett">Felder</span></h5>
+<p>Sogenannte <span class="ckursiv">Felder</span> dienen dazu, spezielle Informationen wie Parameterbeschreibungen anzugeben. Sie werden von einem <span class="clisting">@</span> eingeleitet, das von einem Schlüsselwort gefolgt wird. Dieses Schlüsselwort gibt an, welche Information der folgende Block enthält. Die Zeichenfolge <span class="clisting">@param</span> leitet beispielsweise eine Parameterbeschreibung ein.</p>
+<p>Wir beschränken uns hier aufgrund der Fülle von Schlüsselwörtern auf die wichtigsten: <span class="clisting">param</span>, <span class="clisting">type</span> und <span class="clisting">return</span>. Die Verwendung dieser Felder zeigt das folgende Beispiel:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 22.8    </strong>Ein Beispiel, das Felder nutzt.
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Python-Code</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Generierte Dokumentation</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<pre class="prettyprint"><div class="listing"><span class="cfett">def</span> quadrat(x): 
+    """ 
+    @param x: Gibt den Zahlenwert an, dessen Quadrat bestimmt werden soll. 
+    @type x: int oder float 
+    @return: Gibt das Quadrat von x zurueck. 
+    """ 
+    <span class="cfett">pass</span></pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="cfett">Parameters:</span></p>
+<p><span class="cfett">x</span> &#8211; Gibt den Zahlenwert an, dessen Quadrat bestimmt werden soll.</p>
+<p>    (type=int oder float)</p>
+<p><span class="cfett">Returns:</span></p>
+<p>    Gibt das Quadrat von x zurueck.</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">Sonstige Formatierungsanweisungen</span></h5>
+<p>Neben den bisher besprochenen eher strukturellen Formatierungen kann auch das Aussehen der Ausgabe direkt verändert werden. Dazu zählt beispielsweise das Verändern des Schriftbilds zu Fett oder Kursiv. Da diese Art der Formatierung innerhalb von beliebigen Blöcken vorkommen kann, wird sie <span class="ckursiv">Inline Markup</span> (dt. <span class="ckursiv">Eingebettete Auszeichnung</span>) genannt.</p>
+<p>Inline Markup hat immer die Form <span class="clisting">x{...}</span>, wobei <span class="clisting">x</span> ein einzelner Großbuchstabe ist, der die Art der Auszeichnung angibt, und <span class="clisting">...</span> den zu formatierenden String symbolisiert.</p>
+<p>Beispielsweise steht der Buchstabe <span class="clisting">I</span> für kursiven Text (von engl. <span class="ckursiv">italic</span>). Die Inline-Markup-Anweisung <span class="clisting">I{Hallo Welt}</span> gibt also den String <span class="clisting">Hallo Welt</span> kursiv aus.</p>
+<p>In der nachstehenden Tabelle sind die wichtigsten Buchstaben für das Inline Markup aufgeführt:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 22.9    </strong>Auswahl von Inline-Markup-Arten
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Buchstabe</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">I</span></p>
+</td>
+<td class="tabellentext">
+<p>Kursiver Text</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">B</span></p>
+</td>
+<td class="tabellentext">
+<p>Fetter Text</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">C</span></p>
+</td>
+<td class="tabellentext">
+<p>Quellcodegerechte Formatierung. Schrift mit gleicher Breite für alle Zeichen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">M</span></p>
+</td>
+<td class="tabellentext">
+<p>Mathematische Ausdrücke</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">U</span></p>
+</td>
+<td class="tabellentext">
+<p>Interpretiert den Inhalt der Klammern als URL und erzeugt in der Ausgabe einen Hyperlink zu dieser Adresse</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">E</span></p>
+</td>
+<td class="tabellentext">
+<p>Escaping &#8211; Es verhindert, dass das Zeichen zwischen den geschweiften Klammern als Epytext-Anweisung interpretiert wird.</p>
+<p>Steht mehr als ein Zeichen zwischen den Klammern, wird dies als kodiertes Sonderzeichen aufgefasst. Mit »E{rb}« und »E{lb}« lassen sich Beispielsweise die geschweiften Klammern <span class="clisting">}</span> und <span class="clisting">{</span> kodieren.</p>
+</td>
+</tr>
+</table><br><p>Insbesondere der Buchstabe <span class="clisting">E</span> ist sehr wichtig, um zu verhindern, dass Teile von Docstrings, die zufällig gültige Epytext-Anweisungen ergeben, nicht fälschlicherweise als solche interpretiert werden. Das folgende Beispiel zeigt einen Docstring, der ohne Escaping ein unbeabsichtigtes Listenelement hätte:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> funktion(): 
+    """ 
+    Eine komplett sinnlose Funktion, die 
+    E{-} wenn sie richtig angewendet wird - 
+    vielleicht doch einmal von Nutzen sein 
+    kann... 
+    """ 
+   <span class="cfett"> return</span> 10</pre></div>
+<p>Stünde anstelle von <span class="clisting">E{-}</span> ein einfacher Bindestrich (<span class="clisting">-</span>), würde die zweite Zeile des Docstrings als Element einer Liste ohne Nummerierung interpretiert.</p>
+<h4 class="t4"><span class="cfett">Ausblick</span></h4>
+<p>Das Programm <span class="clisting">epydoc</span> ist sehr mächtig und umfangreich. Dieses Kapitel sollte Ihnen einen kleinen Einblick in seine Funktionalität gewähren, wobei jedoch nicht alle Aspekte berücksichtigt werden konnten.</p>
+<p>Wenn Sie sich ausführlich mit <span class="clisting">epydoc</span> beschäftigen möchten, empfehlen wir ihnen die sehr gute Dokumentation auf der Homepage. Diese finden Sie unter der folgenden Adresse:</p>
+<p><span class="ckursiv">http//epydoc.sourceforge.net</span></p>
+<p> </p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_22_003.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="22.3 Automatisches Erstellen einer Dokumentation &#8211; epydoc"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_22_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_23_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

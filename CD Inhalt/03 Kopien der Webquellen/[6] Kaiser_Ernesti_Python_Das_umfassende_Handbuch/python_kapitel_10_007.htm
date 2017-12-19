@@ -1,0 +1,825 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 10.7 Vordefinierte Funktionen</title>
+<meta name="title" content="Galileo Computing :: Python - 10.7 Vordefinierte Funktionen">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 10.7 Vordefinierte Funktionen">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_10_006.htm">
+<link rel="next" href="python_kapitel_11_001.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_10_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_11_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f" class="navnav">10 Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_001.htm#mj09f8fc7cd397c85e68c486c4f8c23371" class="navnav">10.1 Schreiben einer Funktion</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_002.htm#mjb0543028fb36dd992a5468749d4e2322" class="navnav">10.2 Funktionsparameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_10_002.htm#mj7f6364b3829638603c24a5fbdfe74b83" class="navnav">10.2.1 Optionale Parameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_10_002.htm#mjd543abc1f8ddb8851edb2623a91b8a01" class="navnav">10.2.2 Schlüsselwortparameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_10_002.htm#mjaeb836cdaea4f289f632e77a56b1a846" class="navnav">10.2.3 Beliebige Anzahl von Parametern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_10_002.htm#mj37c2f289a83862df51a8cbf09c92a0ab" class="navnav">10.2.4 Seiteneffekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_003.htm#mj059a39fd6da28e4c821353683ab127e3" class="navnav">10.3 Zugriff auf globale Variablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_004.htm#mjd857b534e6d9959b74c4f922d307567f" class="navnav">10.4 Lokale Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_005.htm#mja7e8dc4f714c5b63ace484edfa46dec6" class="navnav">10.5 Anonyme Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_006.htm#mj11d1c0afd8d1f242c2d55c438071985b" class="navnav">10.6 Rekursion</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj910f2916637bb5b0e239d985f67cf614" class="navh">10.7 Vordefinierte Funktionen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj910f2916637bb5b0e239d985f67cf614" name="mj910f2916637bb5b0e239d985f67cf614"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">10.7</span><span class="cfett"> <a id="Rxx_ref180405209" name="Rxx_ref180405209"></a>Vordefinierte Funktionen</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Es war im Laufe des Buches schon oft von sogenannten <span class="ckursiv">Built-in Functions</span> die Rede. Das sind vordefinierte Funktionen, die dem Programmierer jederzeit zur Verfügung stehen. Üblicherweise handelt es sich dabei um Hilfsfunktionen, die das Programmieren in Python erheblich erleichtern. Sie kennen bereits die Built-in Functions <span class="clisting">len</span> und <span class="clisting">range</span>. Im Folgenden werden alle bisher relevanten Built-in Functions ausführlich beschrieben. Im Anhang finden Sie eine vollständige tabellarische Übersicht.</p>
+<h5 class="t5"><a id="Rxx_ref178714202" name="Rxx_ref178714202"></a><span class="cfett">abs(x)</span></h5>
+<p>Die Funktion <span class="clisting">abs</span> berechnet den Betrag von <span class="clisting">x</span>. Der Parameter <span class="clisting">x</span> muss dabei ein numerischer Wert sein, also eine Instanz der Datentypen <span class="clisting">int</span>, <span class="clisting">long</span>, <span class="clisting">float</span>, <span class="clisting">bool</span> oder <span class="clisting">complex</span>.</p>
+<div class="listing"><pre class="prettyprint"><span class="clisting">&gt;&gt;&gt; abs(1) 
+1 
+&gt;&gt;&gt; abs(-12.34) 
+12.34 
+&gt;&gt;&gt; abs(3 + 4j) 
+5.0</span></pre></div>
+<h5 class="t5"><a id="Rxx_ref178714240" name="Rxx_ref178714240"></a><span class="cfett">all(iterable)</span></h5>
+<p>Die Funktion <span class="clisting">all</span> gibt immer dann <span class="clisting">True</span> zurück, wenn alle Elemente des als Parameter übergebenen iterierbaren Objekts, also beispielsweise einer Liste oder eines Tupels, den Wahrheitswert <span class="clisting">True</span> ergeben. Sie wird folgendermaßen verwendet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; all([True, True, False]) 
+False 
+&gt;&gt;&gt; all([True, True, True]) 
+True</pre></div>
+<h5 class="t5"><a id="Rxx_ref178714384" name="Rxx_ref178714384"></a><span class="cfett">any(iterable)</span></h5>
+<p>Die Funktion <span class="clisting">any</span> arbeitet ähnlich wie <span class="clisting">all</span>. Sie gibt immer dann <span class="clisting">True</span> zurück, wenn mindestens ein Element des als Parameter übergebenen iterierbaren Objekts, also zum Beispiel einer Liste oder eines Tupels, den Wahrheitswert <span class="clisting">True</span> ergibt. Sie wird folgendermaßen verwendet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; any([True, False, False]) 
+True 
+&gt;&gt;&gt; any([False, False, False]) 
+False</pre></div>
+<h5 class="t5"><a id="Rxx_ref180776638" name="Rxx_ref180776638"></a><span class="cfett">bool([x])</span></h5>
+<p>Gibt den Wahrheitswert der Instanz <span class="ckursiv">x</span> zurück. Wenn kein Parameter übergeben wurde, gibt die Funktion <span class="clisting">bool</span> den booleschen Wert <span class="clisting">False</span> zurück.</p>
+<h5 class="t5"><a id="Rxx_ref180776748" name="Rxx_ref180776748"></a><span class="cfett">chr(i)</span></h5>
+<p>Die Funktion <span class="clisting">chr</span> gibt einen String der Länge 1 zurück, der das Zeichen mit dem ASCII-Code <span class="ckursiv">i</span> enthält. Der Parameter <span class="clisting">i</span> repräsentiert ein Byte, muss also eine ganze Zahl zwischen <span class="clisting">0</span> und <span class="clisting">255</span> sein.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; chr(65) 
+'A' 
+&gt;&gt;&gt; chr(33) 
+'!'</pre></div>
+<h5 class="t5"><a id="Rxx_ref180776789" name="Rxx_ref180776789"></a><span class="cfett">cmp(x, y)</span></h5>
+<p>Die Funktion <span class="clisting">cmp</span> vergleicht zwei beliebige, aber vergleichbare Instanzen miteinander. Das Ergebnis ist negativ, wenn <span class="ckursiv">x</span> <span class="clisting">&lt;</span> <span class="ckursiv">y</span>, null, wenn <span class="ckursiv">x</span> <span class="clisting">==</span> <span class="ckursiv">y</span>, und positiv, wenn <span class="ckursiv">x</span> <span class="clisting">&gt;</span> <span class="ckursiv">y</span>. Beachten Sie, dass nicht nur Zahlen untereinander vergleichbar sind, sondern beispielsweise auch Strings oder Listen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; cmp("A", "B") 
+-1 
+&gt;&gt;&gt; cmp(999, 99) 
+1 
+&gt;&gt;&gt; cmp([1,2], [1,2]) 
+0</pre></div>
+<h5 class="t5"><a id="Rxx_ref180776828" name="Rxx_ref180776828"></a><span class="cfett">complex([real[, imag]])</span></h5>
+<p>Dies erzeugt eine Instanz des Datentyps <span class="clisting">complex</span> zur Speicherung einer komplexen Zahl. Die erzeugte Instanz hat den komplexen Wert <span class="ckursiv">real</span> <span class="clisting">+</span> <span class="ckursiv">imag</span><span class="clisting">*j</span>. Fehlende Parameter werden als <span class="clisting">0</span> angenommen.</p>
+<p>Außerdem ist es möglich, der Funktion <span class="clisting">complex</span> einen String zu übergeben, der das Literal einer komplexen Zahl enthält. In diesem Fall darf jedoch kein weiterer Parameter angegeben werden.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; complex(1, 3) 
+(1+3j) 
+&gt;&gt;&gt; complex(1.2, 3.5) 
+(1.2+3.5j) 
+&gt;&gt;&gt; complex("3+4j") 
+(3+4j) 
+&gt;&gt;&gt; complex("3") 
+(3+0j)</pre></div>
+<p>Beachten Sie, dass ein eventuell übergebener String keine Leerzeichen um den    <span class="clisting">+</span>-Operator enthalten darf:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; complex("3 + 4j") 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+ValueError: complex() arg is a malformed string</pre></div>
+<p>Leerzeichen am Anfang oder Ende des Strings sind aber kein Problem.</p>
+<h5 class="t5"><a id="Rxx_ref180776867" name="Rxx_ref180776867"></a><span class="cfett">dict([source])</span></h5>
+<p>Erzeugt eine Instanz des Datentyps <span class="clisting">dict</span>. Wenn kein Parameter übergeben wird, wird ein leeres Dictionary erstellt. Durch einen der folgenden Aufrufe ist es möglich, das Dictionary beim Erzeugen mit Werten zu füllen.</p>
+<ul class="gp">
+<li>Wenn <span class="ckursiv">source</span> ein Dictionary ist, werden die Schlüssel und Werte dieses Dictionarys in das neue übernommen. Beachten Sie, dass dabei keine Kopien der Werte entstehen, sondern diese weiterhin dieselben Instanzen referenzieren.</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; dict({"a" : 1, "b" : 2}) 
+{'a': 1, 'b': 2}</pre></div>
+</blockquote>
+<ul class="gp">
+<li>Alternativ kann <span class="ckursiv">source</span> eine Liste von Tupeln sein, wobei jedes Tupel zwei Elemente enthalten kann: Den Schlüssel und den damit assoziierten Wert. Die Liste muss also folgende Struktur haben: <span class="clisting">[("a", 1), ("b", 2)]</span>:</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; dict([("a", 1), ("b", 2)]) 
+{'a': 1, 'b': 2}</pre></div>
+</blockquote>
+<ul class="gp">
+<li>Zudem erlaubt es <span class="clisting">dict</span>, Schlüssel und Werte als <span class="ckursiv">keyword arguments</span> zu übergeben. Der Parametername wird dabei in einen String geschrieben und als Schlüssel verwendet. Beachten Sie, dass Sie damit bei der Namensgebung den Beschränkungen eines Bezeichners unterworfen sind:</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; dict(a=1, b=2) 
+{'a': 1, 'b': 2}</pre></div>
+</blockquote>
+<h5 class="t5"><a id="Rxx_ref180776898" name="Rxx_ref180776898"></a><span class="cfett">divmod(a, b)</span></h5>
+<p>Die Funktion <span class="clisting">divmod</span> gibt folgendes Tupel zurück: <span class="clisting">(</span><span class="ckursiv">a</span><span class="clisting">//</span><span class="ckursiv">b</span><span class="clisting">,</span> <span class="ckursiv">a</span><span class="clisting">%</span><span class="ckursiv">b</span><span class="clisting">)</span>. Mit Ausnahme von <span class="clisting">complex</span> können für <span class="ckursiv">a</span> und <span class="ckursiv">b</span> Instanzen beliebiger numerischer Datentypen übergeben werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; divmod(2.5, 1.3) 
+(1.0, 1.2) 
+&gt;&gt;&gt; divmod(11, 4) 
+(2, 3)</pre></div>
+<h5 class="t5"><span class="cfett">enumerate(iterable)</span></h5>
+<p>Die Funktion <span class="clisting">enumerate</span> erzeugt ein iterierbares Objekt, das nicht allein über die Elemente von <span class="ckursiv">iterable</span> iteriert, sondern über Tupel der folgenden Form: <span class="clisting">(i,</span> <span class="ckursiv">iterable</span><span class="clisting">[i])</span>. Dabei ist <span class="clisting">i</span> ein Schleifenzähler, der bei <span class="clisting">0</span> beginnt. Die Schleife wird beendet, wenn <span class="clisting">i</span> den Wert <span class="clisting">len(</span><span class="ckursiv">iterable</span><span class="clisting">)-1</span> hat.</p>
+<p>Damit eignet sich <span class="clisting">enumerate</span> besonders für <span class="clisting">for</span>-Schleifen, in denen ein numerischer Schleifenzähler mitgeführt werden soll. Innerhalb einer <span class="clisting">for</span>-Schleife kann <span class="clisting">enumerate</span> folgendermaßen verwendet werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> i, wert<span class="cfett"> in</span> enumerate(iterable): 
+   <span class="cfett"> print</span> "Der Wert von iterable an", i, "ter Stelle ist:", wert</pre></div>
+<p>Angenommen, der obige Code würde für eine Liste <span class="clisting">iterable = [1,2,3,4,5]</span> ausgeführt, so käme folgende Ausgabe zustande:</p>
+<div class="listing"><pre class="prettyprint">Der Wert von iterable an 0 ter Stelle ist: 1 
+Der Wert von iterable an 1 ter Stelle ist: 2 
+Der Wert von iterable an 2 ter Stelle ist: 3 
+Der Wert von iterable an 3 ter Stelle ist: 4 
+Der Wert von iterable an 4 ter Stelle ist: 5</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777066" name="Rxx_ref180777066"></a><span class="cfett">file(filename[, mode[, bufsize]])</span></h5>
+<p>Konstruiert ein Dateiobjekt. Die Funktion <span class="clisting">file</span> verfügt über die gleiche Schnittstelle wie die in Abschnitt <a href="./python_kapitel_09_003.htm#Rxx_ref170503060">9.3</a> besprochene Built-in Function <span class="clisting">open</span> und bewirkt das Gleiche. Dennoch sollten Sie zum Öffnen einer Datei stets <span class="clisting">open</span> verwenden, anstatt den Konstruktor des Dateiobjekts direkt aufzurufen.</p>
+<h5 class="t5"><a id="Rxx_ref180777076" name="Rxx_ref180777076"></a><span class="cfett">filter(function, list)</span></h5>
+<p>Die Funktion <span class="clisting">filter</span> erwartet ein Funktionsobjekt als ersten und eine Liste als zweiten Parameter. Der Parameter <span class="ckursiv">function</span> muss eine Funktion oder Lambda-Form sein, die einen Parameter erwartet und einen booleschen Wert zurückgibt.</p>
+<p>Die Funktion <span class="clisting">filter</span> ruft für jedes Element der Liste <span class="clisting">list</span> die Funktion <span class="ckursiv">function</span> auf und erzeugt eine neue Liste, die alle Elemente von <span class="clisting">list</span> enthält, für die <span class="ckursiv">function</span> <span class="clisting">True</span> zurückgegeben hat. Dies soll an folgendem Beispiel erklärt werden, in dem <span class="clisting">filter</span> dazu verwendet wird, um aus einer Liste von ganzen Zahlen die ungeraden Zahlen herauszufiltern:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> fun(prm): 
+   <span class="cfett"> return</span> (prm%2 == 0)<span class="cfett"> 
+print</span> filter(fun, [1,2,3,4,5,6,7,8,9,10])</pre></div>
+<p>Die Ausgabe des Beispiels lautet:</p>
+<div class="listing"><pre class="prettyprint">[2, 4, 6, 8, 10]</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777086" name="Rxx_ref180777086"></a><span class="cfett">float([x])</span></h5>
+<p>Erzeugt eine Instanz des Datentyps <span class="clisting">float</span>. Wenn der Parameter <span class="ckursiv">x</span> nicht angegeben wurde, wird der Wert der Instanz mit <span class="clisting">0.0</span>, andernfalls mit dem übergebenen Wert initialisiert. Mit Ausnahme von <span class="clisting">complex</span> können Instanzen alle numerischen Datentypen für <span class="ckursiv">x</span> übergeben werden.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; float() 
+0.0 
+&gt;&gt;&gt; float(5) 
+5.0</pre></div>
+<p>Außerdem ist es möglich, für <span class="ckursiv">x</span> einen String zu übergeben, der eine Gleitkommazahl enthält:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; float("1e30") 
+1e+30 
+&gt;&gt;&gt; float("0.5") 
+0.5</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777097" name="Rxx_ref180777097"></a><span class="cfett">frozenset([iterable])</span></h5>
+<p>Erzeugt eine Instanz des Datentyps <span class="clisting">frozenset</span> zum Speichern einer unveränderlichen Menge. Wenn der Parameter <span class="ckursiv">iterable</span> angegeben wurde, so werden die Elemente der erzeugten Menge diesem iterierbaren Objekt entnommen. Wenn der Parameter <span class="ckursiv">iterable</span> nicht angegeben wurde, ist der Funktionsaufruf äquivalent zu <span class="clisting">frozenset([])</span>. Beachten Sie zum einen, dass ein <span class="clisting">frozenset</span> keine veränderlichen Elemente enthalten darf, und zum anderen, dass jedes Element nur einmal in einer Menge vorkommen kann.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; frozenset() 
+frozenset([]) 
+&gt;&gt;&gt; frozenset([1,2,3,4,5]) 
+frozenset([1, 2, 3, 4, 5]) 
+&gt;&gt;&gt; frozenset("Pyyyyyyython") 
+frozenset(['h', 'o', 'n', 'P', 't', 'y'])</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777111" name="Rxx_ref180777111"></a><span class="cfett">globals()</span></h5>
+<p>Die Built-in Function <span class="clisting">globals</span> gibt ein Dictionary mit allen globalen Referenzen des aktuellen Namensraums zurück. Die Schlüssel entsprechen den Referenznamen als Strings und die Werte den jeweiligen Instanzen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = 1 
+&gt;&gt;&gt; b = {} 
+&gt;&gt;&gt; c = [1,2,3] 
+&gt;&gt;&gt; globals() 
+{'a': 1, 'c': [1, 2, 3], 'b': {}, '__builtins__': &lt;module '__builtin__'<br> (built-in)&gt;, '__name__': '__main__', '__doc__': None}</pre></div>
+<p>Das zurückgegebene Dictionary enthält neben den vorher angelegten noch weitere Instanzen, die im globalen Namensraum existieren. Diese vordefinierten Referenzen haben wir bisher noch nicht besprochen, lassen Sie sich davon also nicht stören.</p>
+<h5 class="t5"><a id="Rxx_ref180777128" name="Rxx_ref180777128"></a><span class="cfett">hash(object)</span></h5>
+<p>Berechnet den Hash-Wert der Instanz <span class="ckursiv">object</span> und gibt ihn zurück. Bei einem Hash-Wert handelt es sich um eine ganze Zahl, die aus Typ und Wert der Instanz erzeugt wird. Ein solcher Wert wird verwendet, um effektiv zwei komplexere Instanzen auf Gleichheit prüfen zu können. So werden beispielsweise die Schlüssel eines Dictionarys intern durch ihre Hash-Werte verwaltet.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; hash(12345) 
+12345 
+&gt;&gt;&gt; hash("Hallo Welt") 
+-962533610 
+&gt;&gt;&gt; hash((1,2,3,4)) 
+89902565</pre></div>
+<p>Beachten Sie den Unterschied zwischen veränderlichen (mutable) und unveränderlichen (immutable) Instanzen. Aus letzteren kann zwar formal auch ein Hash-Wert errechnet werden, dieser wäre aber nur so lange gültig, wie die Instanz nicht verändert wurde. Aus diesem Grund ist es nicht sinnvoll, Hash-Werte von veränderlichen Instanzen zu berechnen; veränderliche Instanzen sind »unhashable«:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; hash([1,2,3,4]) 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+TypeError: list objects are unhashable</pre></div>
+<h5 class="t5"><span class="cfett">help([object])</span></h5>
+<p>Die Funktion <span class="clisting">help</span> startet die interaktive Hilfe von Python. Wenn der Parameter  <span class="ckursiv">object</span> ein String ist, wird dieser im Hilfesystem nachgeschlagen. Sollte es sich um eine andere Instanz handeln, wird eine dynamische Hilfeseite zu dieser generiert.</p>
+<h5 class="t5"><a id="Rxx_ref180777155" name="Rxx_ref180777155"></a><span class="cfett">hex(x)</span></h5>
+<p>Erzeugt einen String, der die als Parameter <span class="ckursiv">x</span> übergebene ganze Zahl in Hexadezimalschreibweise enthält. Die Zahl entspricht, wie sie im String erscheint, dem Python-Literal für Hexadezimalzahlen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; hex(12) 
+'0xc' 
+&gt;&gt;&gt; hex(0xFF) 
+'0xff' 
+&gt;&gt;&gt; hex(-33) 
+'-0x21'</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777186" name="Rxx_ref180777186"></a><span class="cfett">id(object)</span></h5>
+<p>Die Funktion <span class="clisting">id</span> gibt die Identität einer beliebigen Instanz zurück. Bei der Identität einer Instanz handelt es sich um eine ganze Zahl, die die Instanz eindeutig identifiziert.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; id(1) 
+134537016 
+&gt;&gt;&gt; id(2) 
+134537004</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777197" name="Rxx_ref180777197"></a><span class="cfett">input([prompt])</span></h5>
+<p>Liest einen Python-Ausdruck vom Benutzer ein und evaluiert ihn. Das Ergebnis der Evaluation wird zurückgegeben. Der Parameter <span class="ckursiv">prompt</span> ist optional. Hier kann ein String angegeben werden, der vor der Eingabeaufforderung ausgegeben werden soll.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; input() 
+2+2 
+4 
+&gt;&gt;&gt; input("Geben Sie einen Ausdruck ein: ") 
+Geben Sie einen Ausdruck ein: (12 + 14)*9 
+234</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777208" name="Rxx_ref180777208"></a><span class="cfett">int([x[, radix]])</span></h5>
+<p>Erzeugt eine Instanz des Datentyps <span class="clisting">int</span>. Die Instanz kann, durch Angabe von <span class="ckursiv">x</span>, mit einem Wert initialisiert werden. Wenn kein Parameter angegeben wird, erhält die erzeugte Instanz den Wert <span class="clisting">0</span>.</p>
+<p>Wenn der Parameter <span class="ckursiv">x</span> als String übergeben wird, so erwartet die Funktion <span class="clisting">int</span>, dass dieser String den gewünschten Wert der Instanz enthält. Durch den optionalen Parameter <span class="ckursiv">radix</span> kann die Basis des Zahlensystems angegeben werden, in dem die Zahl geschrieben wurde.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; int(5) 
+5 
+&gt;&gt;&gt; int("FF", 16) 
+255 
+&gt;&gt;&gt; int(hex(12), 16) 
+12</pre></div>
+<h5 class="t5"><a id="Rxx_ref178715584" name="Rxx_ref178715584"></a><span class="cfett">len(s)</span></h5>
+<p>Gibt die Länge bzw. die Anzahl der Elemente von <span class="ckursiv">s</span> zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; len("Hallo Welt") 
+10 
+&gt;&gt;&gt; len([1,2,3,4,5]) 
+5</pre></div>
+<h5 class="t5"><a id="Rxx_ref180776577" name="Rxx_ref180776577"></a><span class="cfett">list([sequence])</span></h5>
+<p>Erzeugt eine Instanz des Datentyps <span class="clisting">list</span> aus den Elementen von <span class="ckursiv">sequence</span>. Der Parameter <span class="ckursiv">sequence</span> muss ein iterierbares Objekt sein. Wenn er weggelassen wird, wird eine leere Liste erzeugt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; list() 
+[] 
+&gt;&gt;&gt; list((1,2,3,4)) 
+[1, 2, 3, 4] 
+&gt;&gt;&gt; list({"a": 1, "b": 2}) 
+['a', 'b']</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777303" name="Rxx_ref180777303"></a><span class="cfett">locals()</span></h5>
+<p>Die Built-in Function <span class="clisting">locals</span> gibt ein Dictionary mit allen lokalen Referenzen des aktuellen Namensraums zurück. Die Schlüssel entsprechen den Referenznamen als Strings und die Werte den jeweiligen Instanzen. Dies soll an folgendem Beispiel deutlich werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> f(a, b, c): 
+    d = a + b + c 
+   <span class="cfett"> print</span> lokals() 
+f(1, 2, 3)</pre></div>
+<p>Dieses Beispiel erzeugt folgende Ausgabe:</p>
+<div class="listing"><pre class="prettyprint">{'a': 1, 'c': 3, 'b': 2, 'd': 6}</pre></div>
+<p>Beachten Sie, dass der Aufruf von <span class="clisting">locals</span> im Namensraum des Hauptprogramms äquivalent ist zum Aufruf von <span class="clisting">globals</span>.</p>
+<h5 class="t5"><a id="Rxx_ref180777352" name="Rxx_ref180777352"></a><span class="cfett">long([x[, radix]])</span></h5>
+<p>Erzeugt eine Instanz des Datentyps <span class="clisting">long</span>. Die Funktionsschnittstelle kann verwendet werden wie die von <span class="clisting">int</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; long(123) 
+123L</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777368" name="Rxx_ref180777368"></a><span class="cfett">map(function, list …)</span></h5>
+<p>Diese Funktion erwartet ein Funktionsobjekt als ersten und eine Liste als zweiten Parameter. Optional können weitere Listen übergeben werden, die aber die gleiche Länge wie die erste haben müssen. Die Funktion <span class="ckursiv">function</span> muss genauso viele Parameter erwarten, wie Listen übergeben wurden, und aus den Parametern einen Rückgabewert erzeugen.</p>
+<p>Die Funktion <span class="clisting">map</span> ruft <span class="ckursiv">function</span> für jedes Element der übergebenen Liste auf und gibt eine neue Liste zurück, die die jeweiligen Rückgabewerte von <span class="ckursiv">function</span> enthält. Sollten mehrere Listen übergeben werden, so werden <span class="ckursiv">function</span> die jeweils n-ten Elemente aller Listen übergeben. Beachten Sie, dass <span class="ckursiv">function</span> aus diesem Grund unbedingt genau so viele Parameter erwarten muss, wie Listen übergeben werden, und dass alle übergebenen Listen gleich viele Elemente enthalten müssen.</p>
+<p>Im folgenden Beispiel wird das Funktionsobjekt durch eine Lambda-Form erstellt. Es ist auch möglich, eine echte Funktion zu definieren und ihren Namen zu übergeben.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; f =<span class="cfett"> lambda</span> x: x**2 
+&gt;&gt;&gt; map(f, [1,2,3,4]) 
+[1, 4, 9, 16]</pre></div>
+<p>Hier wird <span class="clisting">map</span> dazu verwendet, eine Liste mit den Quadraten der Elemente einer zweiten Liste zu erzeugen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; f =<span class="cfett"> lambda</span> x, y: x+y 
+&gt;&gt;&gt; map(f, [1,2,3,4], [1,2,3,4]) 
+[2, 4, 6, 8]</pre></div>
+<p>Hier wird <span class="clisting">map</span> dazu verwendet, aus zwei Listen eine zu erzeugen, die die Summen der jeweiligen Elemente beider Quelllisten enthält.</p>
+<p>In beiden Beispielen wurden Listen verwendet, die ausschließlich numerische Elemente enthielten. Das muss nicht unbedingt sein. Welche Elemente eine Liste enthalten darf, hängt davon ab, welche Instanzen für <span class="ckursiv">function</span> als Parameter verwendet werden dürfen.</p>
+<p>Das obige Beispiel soll durch <a href="#Rxx_ref181272561">Abbildung 10.2</a> anschaulich erklärt werden.</p>
+<div class="bildbox">
+<p><a name="IDAIZSQ"></a><a onClick="OpenWin('bilder/map.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinmap.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 10.2    </strong>Arbeitsweise der Built-in Function map</p>
+<p>Die eingehenden und ausgehenden Listen sind jeweils senkrecht dargestellt.</p>
+<h5 class="t5"><a id="Rxx_ref180777394" name="Rxx_ref180777394"></a><span class="cfett">max(s[, args...][key])</span></h5>
+<p>Wenn keine zusätzlichen Parameter übergeben werden, erwartet <span class="clisting">max</span> eine Sequenz und gibt ihr größtes Element zurück. Die übergebene Instanz eines sequenziellen Datentyps muss Elemente enthalten:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; max([2,4,1,9,5]) 
+9 
+&gt;&gt;&gt; max("Hallo Welt") 
+'t'</pre></div>
+<p>Wenn mehrere Parameter übergeben werden, so verhält sich <span class="clisting">max</span> so, dass der größte übergebene Parameter zurückgegeben wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; max(3, 5, 1, 99, 123, 45) 
+123 
+&gt;&gt;&gt; max("Hallo", "Welt", "!") 
+'Welt'</pre></div>
+<p>Für beide Verwendungsarten von <span class="clisting">max</span> kann eine optionale Funktion als Schlüsselwortparameter übergeben werden, die für jedes Element der übergebenen Sequenz bzw. jeden Parameter aufgerufen wird, bevor das größte Element festgestellt wird. So ist es mit <span class="ckursiv">key</span> möglich, aus den übergebenen Datensätzen eine für die Ordnungsrelation relevante Information zu extrahieren.</p>
+<p>In folgendem Beispiel soll <span class="ckursiv">key</span> dazu verwendet werden, die Funktion <span class="clisting">max</span> für Strings <span class="ckursiv">case insensitive</span> zu machen. Dazu zeigen wir zunächst den normalen Aufruf ohne <span class="ckursiv">key</span>:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; max("a", "P", "q", "X") 
+'q'</pre></div>
+<p>Ohne eigene <span class="ckursiv">key</span>-Funktion wird der größte Parameter unter Berücksichtigung von Groß- und Kleinbuchstaben ermittelt. Folgende <span class="ckursiv">key</span>-Funktion konvertiert zuvor alle Buchstaben in Kleinbuchstaben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; f =<span class="cfett"> lambda</span> x: x.lower() 
+&gt;&gt;&gt; max("a", "P", "q", "X", key=f) 
+'X'</pre></div>
+<p>Durch die <span class="ckursiv">key</span>-Funktion wird der größte Parameter anhand der durch <span class="clisting">f</span> modifizierten Werte ermittelt, jedoch unmodifiziert zurückgegeben.</p>
+<h5 class="t5"><a id="Rxx_ref180777404" name="Rxx_ref180777404"></a><span class="cfett">min(s[, args...][key])</span></h5>
+<p>Die Funktion <span class="clisting">min</span> verhält sich wie <span class="clisting">max</span>, ermittelt jedoch das kleinste Element einer Sequenz bzw. den kleinsten übergebenen Parameter.</p>
+<h5 class="t5"><a id="Rxx_ref180777458" name="Rxx_ref180777458"></a><span class="cfett">oct(x)</span></h5>
+<p>Die Funktion <span class="clisting">oct</span> erzeugt einen String, der die übergebene ganze Zahl <span class="ckursiv">x</span> in Oktalschreibweise enthält.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; oct(123) 
+'0173' 
+&gt;&gt;&gt; oct(0777) 
+'0777'</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777484" name="Rxx_ref180777484"></a><span class="cfett">open(filename[, mode[, bufsize]])</span></h5>
+<p>Öffnet eine Datei im gewünschten Modus und gibt das erzeugte Dateiobjekt zurück. Eine vollständige Beschreibung der Funktion finden Sie im Abschnitt <a href="./python_kapitel_09_003.htm#Rxx_ref173232059">9.3.4</a>, »<a href="./python_kapitel_09_003.htm#Rxx_ref173232059">Verwendung des Dateiobjekts</a>«.</p>
+<h5 class="t5"><a id="Rxx_ref180777498" name="Rxx_ref180777498"></a><span class="cfett">ord(c)</span></h5>
+<p>Die Funktion <span class="clisting">ord</span> erwartet einen String der Länge <span class="clisting">1</span> und gibt den ASCII-Code des enthaltenen Zeichens zurück. Wenn es sich um einen Unicode-String handelt, wird der Unicode-Code des Zeichens zurückgegeben.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ord("P") 
+80</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777508" name="Rxx_ref180777508"></a><span class="cfett">pow(x, y[, z])</span></h5>
+<p>Berechnet <span class="ckursiv">x</span> <span class="clisting">**</span> <span class="ckursiv">y</span> oder, wenn <span class="ckursiv">z</span> angegeben wurde, <span class="ckursiv">x</span> <span class="clisting">**</span> <span class="ckursiv">y</span> <span class="clisting">%</span> <span class="ckursiv">z</span>. Beachten Sie, dass diese Berechnung unter Verwendung des Parameters <span class="ckursiv">z</span> performanter ist als die Ausdrücke <span class="clisting">pow(</span><span class="ckursiv">x</span><span class="clisting">,</span> <span class="ckursiv">y</span><span class="clisting">) %</span> <span class="ckursiv">z</span> bzw. <span class="ckursiv">x</span> <span class="clisting">**</span> <span class="ckursiv">y</span> <span class="clisting">%</span> <span class="ckursiv">z</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 7 ** 5  % 4 
+3 
+&gt;&gt;&gt; pow(7, 5, 4) 
+3</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777584" name="Rxx_ref180777584"></a><span class="cfett">range([start, ]stop[, step])</span></h5>
+<p>Die Funktion <span class="clisting">range</span> erzeugt eine Liste mit fortlaufenden, numerischen Elementen. Dabei beginnen die Elemente der Liste mit <span class="ckursiv">start</span>, enden vor <span class="ckursiv">stop</span>, und jedes Element ist um <span class="ckursiv">step</span> größer als das vorherige. Sowohl <span class="ckursiv">start</span> als auch <span class="ckursiv">step</span> sind optional und mit <span class="clisting">0</span> bzw. <span class="clisting">1</span> vorbelegt.</p>
+<p>Beachten Sie insbesondere, dass <span class="ckursiv">stop</span> eine Grenze angibt, die nicht erreicht wird. Die Nummerierung beginnt also bei <span class="clisting">0</span> und endet einen Schritt, bevor <span class="ckursiv">stop</span> erreicht würde.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; range(10) 
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
+&gt;&gt;&gt; range(5, 10) 
+[5, 6, 7, 8, 9] 
+&gt;&gt;&gt; range(2, 10, 2) 
+[2, 4, 6, 8]</pre></div>
+<p>Es ist möglich, eine negative Schrittweite anzugeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; range(10, 0, -1) 
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1] 
+&gt;&gt;&gt; range(10, 0, -2) 
+[10, 8, 6, 4, 2]</pre></div>
+<p>In allen bisherigen Beispielen des Buches, in denen eine Zählschleife benötigt wurde, wurde dafür <span class="clisting">range</span> in Kombination mit einer <span class="clisting">for</span>-Schleife verwendet.  Dazu ist zu sagen, dass es in nahezu allen Fällen performanter ist, stattdessen die Built-in Function <span class="clisting">xrange</span> zu verwenden, auf die wir in diesem Kapitel noch zu sprechen kommen werden.</p>
+<h5 class="t5"><a id="Rxx_ref180777622" name="Rxx_ref180777622"></a><span class="cfett">raw_input([prompt])</span></h5>
+<p>Liest eine Eingabe vom Benutzer ein und gibt diese als String zurück. Durch den optionalen Parameter <span class="ckursiv">prompt</span> kann ein String angegeben werden, der vor der Eingabeaufforderung ausgegeben wird.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; raw_input() 
+2+2 
+'2+2' 
+&gt;&gt;&gt; s = raw_input("Ihre Eingabe bitte: ") 
+Ihre Eingabe bitte: Oh, kein Thema, bitte sehr 
+&gt;&gt;&gt; s 
+'Oh, kein Thema, bitte sehr'</pre></div>
+<p>Beachten Sie, dass <span class="clisting">raw_input</span> im Gegensatz zu <span class="clisting">input</span> die Eingabe nicht als Python-Ausdruck interpretiert, sondern als String zurückgibt. Damit ist <span class="clisting">raw_input</span> in den meisten Fällen eine bessere Wahl als <span class="clisting">input</span>, da der Input so im Programm ankommt, wie er von der Tastatur eingegeben wurde.</p>
+<h5 class="t5"><a id="Rxx_ref180777631" name="Rxx_ref180777631"></a><span class="cfett">reduce(function, sequence[, initializer])</span></h5>
+<p>Die Funktion <span class="clisting">reduce</span> erwartet ein Funktionsobjekt als ersten und eine Sequenz als zweiten Parameter. Die Funktion <span class="ckursiv">function</span> muss zwei Parameter akzeptieren und aus ihnen einen Rückgabewert bestimmen.</p>
+<p>Die Funktion <span class="clisting">reduce</span> ruft <span class="ckursiv">function</span> für die ersten beiden Elemente der Sequenz <span class="clisting">sequence</span> auf und ersetzt beide Elemente durch den Rückgabewert von <span class="ckursiv">function</span>. Diese Prozedur wiederholt sich so lange, bis <span class="ckursiv">sequence</span> nur noch ein Element enthält. Dieses wird zurückgegeben.</p>
+<p>Beachten Sie, dass die Funktion frei von Nebeneffekten ist, an <span class="ckursiv">sequence</span> selbst also nichts geändert wird. Insofern ist <span class="clisting">reduce</span> ein unglücklich gewählter Name, denn an der übergebenen Sequenz wird nichts geändert.</p>
+<p>Bei der Liste <span class="clisting">[a, b, c, d]</span> wäre der Aufruf von <span class="clisting">reduce</span> gleichbedeutend mit:</p>
+<div class="listing"><pre class="prettyprint">function(function(function(a, b), c), d)</pre></div>
+<p>Im folgenden Beispiel wird <span class="clisting">reduce</span> dazu verwendet, das Produkt aller Elemente von <span class="ckursiv">sequence</span> zu errechnen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; f =<span class="cfett"> lambda</span> x, y: x * y 
+&gt;&gt;&gt; reduce(f, [5,9,27,3,11]) 
+40095</pre></div>
+<p><a href="#Rxx_ref181272697">Abbildung 10.3</a> soll die dem Ergebnis zugrunde liegende Berechnung verdeutlichen.</p>
+<div class="bildbox">
+<p><a name="IDASATQ"></a><a onClick="OpenWin('bilder/reduce.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinreduce.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 10.3    </strong>Funktionsweise von reduce</p>
+<p>Wenn der optionale Parameter <span class="ckursiv">initializer</span> angegeben wurde, so wird die hier übergebene Instanz als Startwert der Berechnung angenommen. Man kann sich das so vorstellen, dass die übergebene Instanz gedanklich als erstes Element in <span class="ckursiv">sequence</span> eingefügt wird. Das bedeutet unter anderem, dass das Übergeben einer leeren Liste nur dann erlaubt ist, wenn der Parameter <span class="ckursiv">initializer</span> angegeben wurde.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; f = lambda x, y: x * y 
+&gt;&gt;&gt; reduce(f, []) 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+TypeError: reduce() of empty sequence with no initial value 
+&gt;&gt;&gt; reduce(f, [], 100) 
+100</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777676" name="Rxx_ref180777676"></a><span class="cfett">repr(object)</span></h5>
+<p>Gibt einen String zurück, der eine druckbare Repräsentation der Instanz <span class="ckursiv">object</span> enthält. Für viele Instanzen versucht <span class="clisting">repr</span>, den Python-Code in den String zu schreiben, der die entsprechende Instanz erzeugen würde. Für manche Instanzen ist dies jedoch nicht möglich bzw. nicht praktikabel. In einem solchen Fall gibt <span class="clisting">repr</span> zumindest den Typ der Instanz aus.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; repr([1,2,3,4]) 
+'[1, 2, 3, 4]' 
+&gt;&gt;&gt; repr(0x34) 
+'52' 
+&gt;&gt;&gt; repr(set([1,2,3,4])) 
+'set([1, 2, 3, 4])' 
+&gt;&gt;&gt; repr(open("datei.txt", "w")) 
+"&lt;open file 'datei.txt', mode 'w' at 0xb7bea0f8&gt;"</pre></div>
+<h5 class="t5"><a id="Rxx_ref180779479" name="Rxx_ref180779479"></a><span class="cfett">reversed(seq)</span></h5>
+<p>Mit <span class="clisting">reversed</span> kann eine Sequenz <span class="ckursiv">seq</span> sehr effizient rückwärts durchlaufen werden: [Die Built-in-Function <span class="clisting">reversed</span> ist nicht auf Sequenzen beschränkt, sondern funktioniert für jedes beliebige iterierbare Objekt. Was es mit iterierbaren Objekten auf sich hat, erfahren Sie in Abschnitt <a href="./python_kapitel_13_005.htm#Rxx_ref179317950">13.5</a>.
+] </p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> for</span> i<span class="cfett"> in</span> reversed([1, 2, 3, 4, 5, 6]): 
+...   <span class="cfett"> print</span> i, 
+6 5 4 3 2 1</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777733" name="Rxx_ref180777733"></a><span class="cfett">round(x[, n])</span></h5>
+<p>Rundet die Gleitkommazahl <span class="ckursiv">x</span> auf <span class="ckursiv">n</span> Nachkommastellen. Der Parameter <span class="ckursiv">n</span> ist optional und mit <span class="clisting">0</span> vorbelegt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; round(0.5, 4) 
+0.5 
+&gt;&gt;&gt; round(-0.5) 
+-1.0 
+&gt;&gt;&gt; round(0.5234234234234, 5) 
+0.52342</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777747" name="Rxx_ref180777747"></a><span class="cfett">set([iterable])</span></h5>
+<p>Erzeugt eine Instanz des Datentyps <span class="clisting">set</span>. Wenn angegeben, werden alle Elemente des iterierbaren Objekts <span class="ckursiv">iterable</span> in das Set übernommen. Beachten Sie, dass ein Set keine Dubletten enthalten darf, jedes in <span class="ckursiv">iterable</span> mehrfach vorkommende Element also nur einmal eingetragen wird.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; set() 
+set([]) 
+&gt;&gt;&gt; set("Hallo Welt") 
+set(['a', ' ', 'e', 'H', 'l', 'o', 't', 'W']) 
+&gt;&gt;&gt; set([1,2,3,4]) 
+set([1, 2, 3, 4])</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777812" name="Rxx_ref180777812"></a><span class="cfett">sorted(iterable[, cmp[, key[, reverse]]])</span></h5>
+<p>Die Funktion <span class="clisting">sorted</span> erzeugt aus den Elementen von <span class="ckursiv">iterable</span> eine sortierte Liste:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; sorted([3,1,6,2,9,1,8]) 
+[1, 1, 2, 3, 6, 8, 9] 
+&gt;&gt;&gt; sorted("Hallo Welt") 
+[' ', 'H', 'W', 'a', 'e', 'l', 'l', 'l', 'o', 't']</pre></div>
+<p>Die Funktion akzeptiert drei weitere Schlüsselwortparameter, um das Sortieren der Elemente zu beeinflussen:</p>
+<ul class="gp">
+<li>Durch den Schlüsselwortparameter <span class="ckursiv">cmp</span> kann eine eigene Vergleichsfunktion angegeben werden. Diese muss über die gleiche Schnittstelle und das gleiche Verhalten verfügen wie die Built-in Function <span class="clisting">cmp</span>. Im Beispiel wurde eine Vergleichsfunktion geschrieben, die das negative Ergebnis der Built-in Function <span class="clisting">cmp</span> zurückgibt. Dadurch wird die Liste umgekehrt sortiert:</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; f = <span class="cfett">lambda</span> x, y: -cmp(x, y) 
+&gt;&gt;&gt; sorted([3,1,6,2,9,1,8], cmp=f) 
+[9, 8, 6, 3, 2, 1, 1]</pre></div>
+</blockquote>
+<ul class="gp">
+<li>Durch den Schlüsselwortparameter <span class="ckursiv">key</span> kann eine Funktion übergeben werden, die die für den Vergleich wichtige Information aus den Elementen extrahiert. Die Funktion muss einen Parameter akzeptieren und einen Rückgabewert zurückgeben. Wie die Built-in Function <span class="clisting">max</span> verfügt <span class="clisting">sorted</span> ebenfalls über einen Parameter <span class="ckursiv">key</span>, über den eine Funktion gleicher Schnittstelle und gleicher Bedeutung übergeben werden muss.</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; f = <span class="cfett">lambda</span> x: x.lower() 
+&gt;&gt;&gt; sorted("Hallo Welt", key=f) 
+[' ', 'a', 'e', 'H', 'l', 'l', 'l', 'o', 't', 'W']</pre></div>
+</blockquote>
+<ul class="gp">
+<li>Der Schlüsselwortparameter <span class="ckursiv">reverse</span> muss ein boolescher Wert sein und ist mit <span class="clisting">False</span> vorbelegt. Wird er auf <span class="clisting">True</span> gesetzt, so veranlasst dies <span class="clisting">sorted</span>, die Sortierreihenfolge umzukehren.</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; sorted([3,1,6,2,9,1,8], reverse=True) 
+[9, 8, 6, 3, 2, 1, 1]</pre></div>
+</blockquote>
+<p>Die obigen Schlüsselwortparameter können selbstverständlich nicht nur isoliert, sondern auch gemeinsam übergeben werden.</p>
+<p>Es ist in den meisten Fällen schneller, eine Liste durch Angabe von <span class="ckursiv">key</span> und <span class="ckursiv">reverse</span> in einer bestimmten Weise zu sortieren, als den gleichen Effekt durch <span class="ckursiv">cmp</span> zu erreichen, da <span class="ckursiv">cmp</span> für jedes Element mehrfach aufgerufen werden muss.</p>
+<h5 class="t5"><a id="Rxx_ref180777839" name="Rxx_ref180777839"></a><span class="cfett">str([object])</span></h5>
+<p>Erzeugt eine Instanz des Datentyps <span class="clisting">str</span>. Wenn der optionale Parameter <span class="ckursiv">object</span> übergeben wird, so wird eine lesbare Repräsentation der Instanz in den String geschrieben. Der Unterschied zu <span class="clisting">repr</span> besteht darin, dass <span class="clisting">str</span> nicht immer versucht, die Ausgabe als gültigen Python-Code zu formulieren.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; str(None) 
+'None' 
+&gt;&gt;&gt; str() 
+'' 
+&gt;&gt;&gt; str(None) 
+'None' 
+&gt;&gt;&gt; str(str) 
+"&lt;type 'str'&gt;"</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777850" name="Rxx_ref180777850"></a><span class="cfett">sum(sequence[, start])</span></h5>
+<p>Die Funktion <span class="clisting">sum</span> berechnet die Summe aller Elemente von <span class="ckursiv">sequence</span> und gibt das Ergebnis zurück. Wenn der optionale Parameter <span class="ckursiv">start</span> angegeben wurde, so fließt dieser als Startwert der Berechnung ebenfalls in die Summe mit ein.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; sum([1,2,3,4]) 
+10 
+&gt;&gt;&gt; sum([1,2,3,4], 2) 
+12 
+&gt;&gt;&gt; sum([4,3,2,1], 2) 
+12</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777874" name="Rxx_ref180777874"></a><span class="cfett">tuple([sequence])</span></h5>
+<p>Erzeugt eine Instanz des Datentyps <span class="clisting">tuple</span> und überträgt dabei, wenn angegeben, alle Elemente von <span class="ckursiv">sequence</span> in diese neue Instanz.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; tuple() 
+() 
+&gt;&gt;&gt; tuple([1,2,3,4]) 
+(1, 2, 3, 4)</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777907" name="Rxx_ref180777907"></a><span class="cfett">type(object)</span></h5>
+<p>Die Funktion <span class="clisting">type</span> gibt den Datentyp der übergebenen Instanz <span class="ckursiv">object</span> zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; type(1) 
+&lt;type 'int'&gt; 
+&gt;&gt;&gt; type("Hallo Welt") == str 
+True 
+&gt;&gt;&gt; type(sum) 
+&lt;type 'builtin_function_or_method'&gt;</pre></div>
+<h5 class="t5"><span class="cfett">unichr(i)</span></h5>
+<p>Die Funktion <span class="clisting">unichr</span> erzeugt einen Unicode-String der Länge <span class="clisting">1</span>, der das Zeichen mit dem Unicode-Code <span class="ckursiv">i</span> enthält:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; unichr(64) 
+u'@' 
+&gt;&gt;&gt; unichr(99) 
+u'c'</pre></div>
+<h5 class="t5"><a id="Rxx_ref180777957" name="Rxx_ref180777957"></a><span class="cfett">unicode([object[, encoding[, errors]]])</span></h5>
+<p>Erzeugt eine Instanz des Datentyps <span class="clisting">unicode</span>, die, sofern angegeben, eine lesbare Repräsentation der Instanz <span class="ckursiv">object</span> enthält.</p>
+<p>Wenn <span class="ckursiv">object</span> eine Instanz des Datentyps <span class="clisting">str</span> ist, können zusätzlich die Parameter <span class="ckursiv">encoding</span> und <span class="ckursiv">errors</span> angegeben werden, die das Konvertieren des 8-Bit-Strings in einen Unicode-String beeinflussen. Der Parameter <span class="ckursiv">encoding</span> muss ein String sein, der den Namen des Encodings enthält, das zum Decodieren des 8-Bit-Strings verwendet werden soll. Der Parameter <span class="ckursiv">errors</span> muss ein String sein und regelt, wie verfahren werden soll, wenn ein Zeichen auftritt, das nicht decodiert werden kann. Wenn <span class="ckursiv">errors</span> den Wert <span class="clisting">"strict"</span>, mit dem der Parameter vorbelegt ist, hat, wird ein <span class="clisting">ValueError</span> erzeugt. Wenn <span class="ckursiv">errors</span> den Wert <span class="clisting">"ignore"</span> hat, werden Fehler beim Dekodieren ignoriert.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; unicode() 
+u'' 
+&gt;&gt;&gt; unicode("Hallo Welt") 
+u'Hallo Welt' 
+&gt;&gt;&gt; unicode("Hallo Welt", "utf16") 
+u'\u6148\u6c6c\u206f\u6557\u746c'</pre></div>
+<h5 class="t5"><a id="Rxx_ref180778005" name="Rxx_ref180778005"></a><span class="cfett">xrange([start, ]stop[, step])</span></h5>
+<p>Die Funktion <span class="clisting">xrange</span> verfügt über die gleiche Schnittstelle wie die Funktion <span class="clisting">range</span> und ist für ähnliche Zwecke gedacht. Jedoch gibt <span class="clisting">xrange</span> keine vollständige Liste zurück, sondern ein sogenanntes XRange-Objekt. Das ist ein iterierbares Objekt, das sich wie eine Liste verhält, aber das nächste Element erst bei Bedarf erzeugt. Die Funktion ist dazu gedacht, <span class="clisting">range</span> bei der Verwendung in einer <span class="clisting">for</span>-Schleife abzulösen. Dort ist <span class="clisting">xrange</span>, gerade wenn sonst sehr große Listen erzeugt werden müssten, schneller und effizienter.</p>
+<p>Beachten Sie aber, dass es zwar möglich ist, auf beliebige Elemente des XRange-Objekts zuzugreifen, dass dies aber sehr langsam ist. Sollten solche Operationen gefordert sein, muss zu <span class="clisting">range</span> gegriffen werden.</p>
+<h5 class="t5"><a id="Rxx_ref180778027" name="Rxx_ref180778027"></a><span class="cfett">zip([iterable, …])</span></h5>
+<p>Die Funktion <span class="clisting">zip</span> nimmt beliebig viele, gleich lange iterierbare Objekte als Parameter. Sollten nicht alle die gleiche Länge haben, werden die längeren auf die Länge des kürzesten dieser Objekte beschnitten.</p>
+<p>Als Rückgabewert wird eine neue Liste erzeugt, die als Element <span class="clisting">i</span> ein Tupel enthält, das seinerseits die <span class="clisting">i</span>-ten Elemente der übergebenen Listen enthält.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; zip([1,2,3,4], [5,6,7,8], [9,10,11,12]) 
+[(1, 5, 9), (2, 6, 10), (3, 7, 11), (4, 8, 12)] 
+&gt;&gt;&gt; zip("Hallo Welt", "HaWe") 
+[('H', 'H'), ('a', 'a'), ('l', 'W'), ('l', 'e')]</pre></div>
+<p>Dies waren noch nicht alle Built-in Functions, da einige für Themen gedacht sind, die bisher noch nicht behandelt wurden. Im Anhang finden Sie eine tabellarische Übersicht über alle Built-in Functions, inklusive eines Verweises, wo die jeweilige Funktion detailliert besprochen wird.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_10_007.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="10.7 Vordefinierte Funktionen"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_10_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_11_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

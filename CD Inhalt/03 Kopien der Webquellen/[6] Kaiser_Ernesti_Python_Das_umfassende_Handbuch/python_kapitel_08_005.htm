@@ -1,0 +1,2168 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 8.5 Sequenzielle Datentypen</title>
+<meta name="title" content="Galileo Computing :: Python - 8.5 Sequenzielle Datentypen">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 8.5 Sequenzielle Datentypen">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_08_004.htm">
+<link rel="next" href="python_kapitel_08_006.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_08_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_08_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d" class="navnav">8 Basisdatentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_001.htm#mjc72b335a8a5f76207edbafa941f933de" class="navnav">8.1 Operatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_002.htm#mj6409c0926804636387412c613b7b7be5" class="navnav">8.2 Das Nichts &#8211; NoneType</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_003.htm#mj6cf370d61a53204c7a0195c414bc872b" class="navnav">8.3 Numerische Datentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mj867e954dbc429fc5bec56a0c953d45d8" class="navnav">8.3.1 Ganze Zahlen &#8211; int, long</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mj6d41cdafb4b90464f2c005027f9c91d5" class="navnav">8.3.2 Gleitkommazahlen &#8211; float</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mjfb4d02fccab9edcdc5ad084f35eaeaa6" class="navnav">8.3.3 Boolesche Werte &#8211; bool</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_003.htm#mje0a568fae09049a37bd3c3eec46428e7" class="navnav">8.3.4 Komplexe Zahlen &#8211; complex</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_004.htm#mj59a6387bf7db64f12c8c0e08237ac604" class="navnav">8.4 Methoden und Parameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj3d61fb54438f66879e52e5a74e2e25a3" class="navh">8.5 Sequenzielle Datentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj706b778fd2162b5144d8f07b6222092d" class="navh">8.5.1 Listen &#8211; list</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj91f49981165d738734c4d64190f3f2cf" class="navh">8.5.2 Unveränderliche Listen &#8211; tuple</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjeb87145a10dfeb18cb5b0215f08f30ad" class="navh">8.5.3 Strings &#8211; str, unicode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_006.htm#mj5492a22c8e50d661f8f6ed931b282817" class="navnav">8.6 Mappings</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_006.htm#mj40cd82a0f398e53c7af3f38de47c4b46" class="navnav">8.6.1 Dictionary &#8211; dict</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_007.htm#mja76bcb53bc9fb07ee9aacd533d393490" class="navnav">8.7 Mengen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_007.htm#mj85ece89f8351590b611dc9cb7fe22c36" class="navnav">8.7.1 Mengen &#8211; set</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_007.htm#mjefba418c399f3218461e693613231aeb" class="navnav">8.7.2 Unveränderliche Mengen &#8211; frozenset</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj3d61fb54438f66879e52e5a74e2e25a3" name="mj3d61fb54438f66879e52e5a74e2e25a3"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">8.5</span><span class="cfett"> Sequenzielle Datentypen</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Unter <span class="ckursiv">sequenziellen Datentypen</span> wird eine Klasse von Datentypen zusammengefasst, die Folgen von gleichartigen oder verschiedenen <span class="ckursiv">Elementen</span> verwalten können. Die in sequenziellen Datentypen gespeicherten Elemente haben eine definierte Reihenfolge, und man kann über eindeutige Indizes auf sie zugreifen.</p>
+<p>Python stellt die folgenden fünf sequenziellen Typen zu Verfügung: <span class="clisting">str</span>, <span class="clisting">unicode</span>, <span class="clisting">list</span> und <span class="clisting">tuple</span>.</p>
+<p>Mithilfe der ersten beiden sequenziellen Datentypen, <span class="clisting">str</span> und <span class="clisting">unicode</span> wird in Python die Arbeit mit Zeichenketten, also Folgen von Buchstaben, ermöglicht, wobei je nach Anwendungsfall einer von ihnen besser geeignet ist. Instanzen des Typs <span class="clisting">str</span> speichern Folgen von Bytes und eignen sich daher besonders für binäre Datenströme, aber auch für Zeichenketten, die nur aus ASCII-Zeichen bestehen. Der Datentyp <span class="clisting">unicode</span> ist für die Speicherung von Text-Strings konzipiert und speichert Folgen von Zeichen in einem speziellen Unicode-Format, das auch die komfortable Verwaltung von speziellen Sonderzeichen wie den deutschen Umlauten oder dem Eurozeichen ermöglicht.</p>
+<p>Beide Datentypen sind immutable, ihr Wert kann sich nach der Instanziierung also nicht mehr verändern. Trotzdem können Sie komfortabel mit Strings arbeiten. Bei Änderungen wird nur nicht der Ursprungsstring verändert, sondern stets ein neuer String erzeugt.</p>
+<p>Die Typen <span class="clisting">list</span> und <span class="clisting">tuple</span> können Folgen beliebiger Instanzen speichern. Der wesentliche Unterschied zwischen den beiden fast identischen Datentypen ist, dass eine Liste nach ihrer Erzeugung verändert werden kann, während ein Tupel keine Änderung des Anfangsinhalts zulässt: <span class="clisting">list</span> ist ein mutable, <span class="clisting">tuple</span> ein immutable Datentyp.</p>
+<p>Für jede Instanz eines sequenziellen Datentyps gibt es einen Grundstock von Operatoren und Methoden, der immer verfügbar ist. Der Einfachheit halber werden wir diesen allgemein am Beispiel von <span class="clisting">str</span>-Instanzen einführen und erst in den folgenden Abschnitten Besonderheiten bezüglich der einzelnen Datentypen aufzeigen.</p>
+<p>Für alle sequenziellen Datentypen sind folgende Operationen definiert (<span class="clisting">s</span> und <span class="clisting">t</span> sind hierbei Instanzen desselben sequenziellen Datentyps; <span class="clisting">i</span>, <span class="clisting">j</span>, <span class="clisting">k</span> und <span class="clisting">n</span> sind Ganzzahlen, <span class="clisting">x</span> ist eine Referenz auf eine beliebige Instanz):</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.13    </strong>Methoden der sequenziellen Datentypen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Notation</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">x<span class="cfett"> in</span> s</pre></div>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob <span class="clisting">x</span> in <span class="clisting">s</span> enthalten ist. Das Ergebnis ist eine <span class="clisting">bool</span>-Instanz.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">x<span class="cfett"> not in</span> s</pre></div>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob <span class="clisting">x</span> nicht in <span class="clisting">s</span> enthalten ist. Das Ergebnis ist eine <span class="clisting">bool</span>-Instanz. Gleichwertig mit <span class="clisting">not x in s</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">s + t</pre></div>
+</td>
+<td class="tabellentext">
+<p>Das Ergebnis ist eine neue Sequenz, die die Verkettung von <span class="clisting">s</span> und <span class="clisting">t</span> enthält.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">s += t</pre></div>
+</td>
+<td class="tabellentext">
+<p>Erzeugt die Verkettung von <span class="clisting">s</span> und <span class="clisting">t</span> und weist sie <span class="clisting">s</span> zu.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s * n</span> oder <span class="clisting">n * s</span></p>
+</td>
+<td class="tabellentext">
+<p>Liefert eine neue Sequenz, die die Verkettung von <span class="clisting">n</span> Kopien von <span class="clisting">s</span> enthält.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s *= n</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt das Produkt <span class="clisting">s * n</span> und weist es <span class="clisting">s</span> zu.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">s[i]</pre></div>
+</td>
+<td class="tabellentext">
+<p>Liefert das <span class="clisting">i</span>-te Element von <span class="clisting">s</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">s[i:j]</pre></div>
+</td>
+<td class="tabellentext">
+<p>Liefert den Ausschnitt aus <span class="clisting">s</span> von <span class="clisting">i</span> bis <span class="clisting">j</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">s[i:j:k]</pre></div>
+</td>
+<td class="tabellentext">
+<p>Liefert den Ausschnitt aus <span class="clisting">s</span> von <span class="clisting">i</span> bis <span class="clisting">j</span>, wobei nur jedes <span class="clisting">k</span>-te Element beachtet wird.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">len(s)</pre></div>
+</td>
+<td class="tabellentext">
+<p>Gibt eine Ganzzahl zurück, die die Anzahl der Elemente von <span class="clisting">s</span> angibt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">min(s)</pre></div>
+</td>
+<td class="tabellentext">
+<p>Liefert das kleinste Element von <span class="clisting">s</span>, sofern eine Ordnungsrelation für die Elemente definiert ist.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">max(s)</pre></div>
+</td>
+<td class="tabellentext">
+<p>Liefert das größte Element von <span class="clisting">s</span>, sofern eine Ordnungsrelation für die Elemente definiert ist.</p>
+</td>
+</tr>
+</table><br><p>Wie bereits bekannt ist, lässt sich ein neuer String erzeugen, indem man seinen Inhalt in doppelte Hochkommata schreibt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "Dies ist unser Teststring"</pre></div>
+<h5 class="t5"><span class="cfett">Ist ein Element vorhanden?</span></h5>
+<p>Mithilfe von <span class="clisting">in</span> lässt sich ermitteln, ob ein bestimmtes Element in einer Sequenz enthalten ist. Da die Elemente eines Strings Buchstaben sind, können wir mit dem Operator prüfen, ob ein bestimmter Buchstabe in einem String vorkommt. Als Ergebnis wird ein Wahrheitswert geliefert: <span class="clisting">True</span>, wenn das Element vorhanden ist, und <span class="clisting">False</span>, wenn es nicht vorhanden ist. Buchstaben kann man in Python durch Strings der Länge eins abbilden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "Dies ist unser Teststring" 
+&gt;&gt;&gt; "u"<span class="cfett"> in</span> s 
+True 
+&gt;&gt;&gt;<span class="cfett"> if</span> "j"<span class="cfett"> in</span> s: 
+...   <span class="cfett"> print</span> "Juhuu, mein Lieblingsbuchstabe ist enthalten" 
+...<span class="cfett"> else</span>: 
+...   <span class="cfett"> print</span> "Ich mag diesen String nicht..." 
+Ich mag diesen String nicht...</pre></div>
+<p>Um das Gegenteil &#8211; also ob ein Element nicht in einer Sequenz enthalten ist &#8211; zu prüfen, dient der <span class="clisting">not in</span>-Operator. Seine Verwendung entspricht der des <span class="clisting">in</span>-Operators, mit dem einzigen Unterschied, dass er das negierte Ergebnis produziert:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; "a"<span class="cfett"> in</span> "Besuch beim Zahnarzt" 
+True 
+&gt;&gt;&gt; "a"<span class="cfett"> not in</span> "Besuch beim Zahnarzt" 
+False</pre></div>
+<p>Sie werden sich an dieser Stelle zu Recht fragen, warum für diesen Zweck ein eigener Operator definiert worden ist, wo man doch mit <span class="clisting">not</span> jeden booleschen Wert negieren kann. Folgende Überprüfungen sind vollkommen gleichwertig:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; "n"<span class="cfett"> not in</span> "Python ist toll" 
+False 
+&gt;&gt;&gt;<span class="cfett"> not</span> "n"<span class="cfett"> in</span> "Python ist toll" 
+False</pre></div>
+<p>Der Grund für diese scheinbar überflüssige Definition liegt in der besseren Lesbarkeit. <span class="clisting">x not in s</span> liest sich im Gegensatz zu <span class="clisting">not x in s</span> genau wie ein englischer Satz, während die andere Form unnötig kompliziert zu lesen ist. [Zusätzlich muss man für die Interpretation von <span class="clisting">not x in s</span> die Priorität der beiden Operatoren <span class="clisting">not</span> bzw. <span class="clisting">in</span> kennen. Wenn der <span class="clisting">not</span>-Operator stärker bindet, würde der Ausdruck wie <span class="clisting">(not x) in s</span> ausgewertet. Hat <span class="clisting">in</span> eine höhere Priorität, wäre der Ausdruck wie <span class="clisting">not (x in s)</span> zu behandeln. Tatsächlich bindet <span class="clisting">in</span> stärker als <span class="clisting">not</span>, womit letztere Deutung die richtige ist.
+] </p>
+<h5 class="t5"><span class="cfett">Verkettung von Sequenzen</span></h5>
+<p>Es kommt häufig vor, dass man mehrere Sequenzen aneinanderhängen möchte, um mit dem Ergebnis weiterzuarbeiten. Beispielsweise könnte man den Vor- und den Nachnamen eines Benutzers zu seinem gesamten Namen zusammenfügen, um ihn dann persönlich zu begrüßen. Für solche Zwecke dient der <span class="clisting">+</span>-Operator, der aus zwei Sequenzen eine neue erzeugt, indem er die beiden verkettet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; vorname = "Heinz" 
+&gt;&gt;&gt; nachname = "Meier" 
+&gt;&gt;&gt; name = vorname + " " + nachname 
+&gt;&gt;&gt; name 
+'Heinz Meier'</pre></div>
+<p>Eine weitere Möglichkeit, Strings zu verketten, bietet der Operator <span class="clisting">+=</span> für erweiterte Zuweisungen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "Musik" 
+&gt;&gt;&gt; s += "lautsprecher" 
+&gt;&gt;&gt; s 
+'Musiklautsprecher'</pre></div>
+<h5 class="t5"><span class="cfett">Wiederholung von Sequenzen</span></h5>
+<p>Man kann in Python das Produkt einer Sequenz <span class="clisting">s</span> mit einer Ganzzahl <span class="clisting">n</span> bilden: <span class="clisting">n * s</span> oder <span class="clisting">s * n</span>. Das Ergebnis ist eine neue Sequenz, die <span class="clisting">n</span> Kopien von <span class="clisting">s</span> hintereinander enthält:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 3 * "abc" 
+'abcabcabc' 
+&gt;&gt;&gt; "xyz" * 5 
+'xyzxyzxyzxyzxyz'</pre></div>
+<p>Genau wie bei der Verkettung gibt es auch hier einen Operator für die erweiterte Zuweisung: <span class="clisting">*=</span>. Da seine Verwendung analog zu <span class="clisting">+=</span> erfolgt, wurde auf ein weiteres platzhungriges Beispiel verzichtet.</p>
+<h5 class="t5"><span class="cfett">Zugriff auf bestimmte Elemente einer Sequenz</span></h5>
+<p>Wie eingangs erwähnt wurde, stellen Sequenzen Folgen von Elementen dar. Da diese Elemente in einer bestimmten Reihenfolge gespeichert werden &#8211; beispielsweise wäre ein String, bei dem die Reihenfolge der Buchstaben willkürlich ist, wenig sinnvoll &#8211;, kann man jedem Element der Sequenz eine ganze Zahl, den sogenannten <span class="ckursiv">Index</span> zuweisen. Dafür werden alle Elemente der Sequenz fortlaufend von vorn nach hinten durchnummeriert, wobei das erste Element den Index <span class="clisting">0</span> bekommt.</p>
+<p>Mit dem <span class="clisting">[]</span>-Operator kann man auf ein bestimmtes Element der Sequenz zugreifen, indem man den entsprechenden Index in die eckigen Klammern schreibt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; alphabet = "abcdefghijklmnopqrstuvwxyz" 
+&gt;&gt;&gt; alphabet[9] 
+'j' 
+&gt;&gt;&gt; alphabet[1] 
+'b'</pre></div>
+<p>Um komfortabel auf das letzte oder das <span class="clisting">x</span>-te Element von hinten zugreifen zu können, gibt es eine weitere Indizierung der Elemente von hinten nach vorn. Das letzte Element erhält dabei als Index <span class="clisting">-1</span>, das vorletzte <span class="clisting">-2</span> und so weiter:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; name = "Python" 
+&gt;&gt;&gt; name[-2] 
+'o'</pre></div>
+<p>Versucht man, mit einem Index auf ein nicht vorhandenes Element zuzugreifen, wird dies mit einem <span class="clisting">IndexError</span> quittiert:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; zukurz = "Ich bin zu kurz" 
+&gt;&gt;&gt; zukurz[1337] 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+IndexError: string index out of range</pre></div>
+<p>Neben dem Zugriff auf einzelne Elemente der Sequenz ist es mit dem <span class="clisting">[]</span>-Operator auch möglich, ganze Teilsequenzen auszulesen. Dies erreicht man dadurch, dass man den Anfang und das Ende der gewünschten Teilfolge durch einen Doppelpunkt getrennt in die eckigen Klammern schreibt. Der Anfang ist dabei der Index des ersten Elements der gewünschten Teilfolge, und das Ende ist der Index des ersten Elements, das nicht mehr in der Teilfolge enthalten sein soll.</p>
+<p>Um im folgenden Beispiel die Zeichenfolge <span class="clisting">"WICHTIG"</span> aus dem String zu extrahieren, geben wir den Index des großen <span class="clisting">"W"</span> und den des ersten <span class="clisting">"s"</span> nach <span class="clisting">"WICHTIG"</span> an:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "schrottschrottWICHTIGschrottschrott" 
+&gt;&gt;&gt; s[14] 
+'W' 
+&gt;&gt;&gt; s[21] 
+'s' 
+&gt;&gt;&gt; s[14:21] 
+'WICHTIG'</pre></div>
+<p>Es ist auch möglich, bei diesem sogenannten <span class="ckursiv">Slicing</span> (dt. <span class="ckursiv">Abschneiden</span>) positive und negative Indizes zu mischen. Beispielsweise ermittelt der folgende Code-Abschnitt eine Teilfolge ohne das erste und letzte Element der Ursprungssequenz:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; string = "ameisen" 
+&gt;&gt;&gt; string[1:-1] 
+'meise'</pre></div>
+<p>Aus Bequemlichkeitsgründen können die Indizes weggelassen werden, was dazu führt, dass der maximal bzw. minimal mögliche Wert angenommen wird. Entfällt der Startindex, wird das nullte als erstes Element der Teilsequenz angenommen, und verzichtet man auf den Endindex, werden alle Buchstaben bis zum Ende kopiert. Möchten wir zum Beispiel die ersten fünf Buchstaben eines Strings oder alle ab dem fünften ermitteln, geht das folgendermaßen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "abcdefghijklmnopqrstuvwxyz" 
+&gt;&gt;&gt; s[:5] 
+'abcde' 
+&gt;&gt;&gt; s[5:] 
+'fghijklmnopqrstuvwxyz'</pre></div>
+<p>Wenn man beide Indizes ausspart (<span class="clisting">s[:]</span>), lässt sich auch eine echte Kopie der Sequenz erzeugen, weil dann alle Elemente vom ersten bis zum letzten kopiert werden. Beachten Sie bitte die unterschiedlichen Ergebnisse der beiden folgenden Code-Ausschnitte:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s1 = "Kopier mich!" 
+&gt;&gt;&gt; s2 = s1 
+&gt;&gt;&gt; s1 == s2 
+True 
+&gt;&gt;&gt; s1<span class="cfett"> is</span> s2 
+True</pre></div>
+<p>Wie erwartet verweisen <span class="clisting">s1</span> und <span class="clisting">s2</span> auf dieselbe Instanz, sind also identisch. Anders sieht es bei dem nächsten Beispiel aus, bei dem eine echte Kopie von <span class="clisting">"Kopier mich!"</span> im Speicher erzeugt wird. Dies zeigt sich beim Identitätsvergleich mit <span class="clisting">is</span>:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s1 = "Kopier mich!" 
+&gt;&gt;&gt; s2 = s1[:] 
+&gt;&gt;&gt; s1 == s2 
+True 
+&gt;&gt;&gt; s1<span class="cfett"> is</span> s2 
+False</pre></div>
+<p>Slicing bietet noch flexiblere Möglichkeiten, wenn man nicht eine ganze Teilsequenz, sondern nur bestimmte Elemente dieses Teils extrahieren möchte. Mit der <span class="ckursiv">Schrittweite</span> (hier engl. <span class="ckursiv">step</span>) lässt sich angeben, wie die Indizes vom Beginn bis zum Ende einer Teilsequenz gezählt werden sollen. Die Schrittweite wird, durch einen weiteren Doppelpunkt abgetrennt, nach der hinteren Grenze angegeben. Eine Schrittweite von <span class="clisting">2</span> sorgt beispielsweise dafür, dass nur jedes zweite Element kopiert wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ziffern = "0123456789" 
+&gt;&gt;&gt; ziffern[1:10:2] 
+'13579'</pre></div>
+<p>Die Zeichenfolge, die ab dem ersten Element (Achtung: Die Zählweise beginnt bei <span class="clisting">0</span>) jedes zweite Element von <span class="clisting">ziffern</span> enthält, ergibt einen neuen String mit den ungeraden Ziffern. Auch bei dieser erweiterten Notation können die Grenzindizes entfallen. Der folgende Code ist also zum vorherigen Beispiel äquivalent:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ziffern = "0123456789" 
+&gt;&gt;&gt; ziffern[1::2] 
+'13579'</pre></div>
+<p>Eine negative Schrittweite bewirkt ein Rückwärtszählen vom Start- zum Endindex, wobei in diesem Fall der Startindex auf ein weiter hinten liegendes Element der Sequenz als der Endindex verweisen muss. Mit einer Schrittweite von <span class="clisting">-1</span> lässt sich sehr elegant eine Sequenz »umdrehen«:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; name = "ytnoM Python" 
+&gt;&gt;&gt; name[4::-1] 
+'Monty' 
+&gt;&gt;&gt; name[::-1] 
+'nohtyP Monty'</pre></div>
+<p>Bei negativen Schrittweiten vertauschen sich Anfang und Ende der Sequenz. Deshalb wird in dem Beispiel <span class="clisting">name[4::-1]</span> nicht alles vom vierten bis zum letzten Zeichen, sondern der Teil vom vierten bis zum ersten Zeichen ausgelesen.</p>
+<p>Wichtig für den Umgang mit dem Slicing ist die Tatsache, dass zu große oder zu kleine Indizes nicht zu einem <span class="clisting">IndexError</span> führen, wie es beim Zugriff auf einzelne Elemente der Fall ist. Zu große Indizes werden intern durch den maximal, zu kleine durch den minimal möglichen Index ersetzt. Liegen beide Indizes außerhalb des gültigen Bereichs oder ist der Startindex bei positiver Schrittweise größer als der Endindex, wird eine leere Sequenz zurückgegeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "Viel weniger als 1337 Zeichen" 
+&gt;&gt;&gt; s[5:1337] 
+'weniger als 1337 Zeichen' 
+&gt;&gt;&gt; s[-100:100] 
+'Viel weniger als 1337 Zeichen' 
+&gt;&gt;&gt; s[1337:2674] 
+'' 
+&gt;&gt;&gt; s[10:4] 
+''</pre></div>
+<h5 class="t5"><span class="cfett">Länge einer Sequenz</span></h5>
+<p>Als <span class="ckursiv">Länge</span> einer Sequenz ist in Python die Anzahl ihrer Elemente definiert. Sie ist eine ganze Zahl größer oder gleich null und lässt sich mit der Built-in-Function <span class="clisting">len</span> ermitteln:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; string = "Wie lang bin ich wohl?" 
+&gt;&gt;&gt; len(string) 
+22</pre></div>
+<h5 class="t5"><span class="cfett">Das kleinste und das größte Element einer Sequenz</span></h5>
+<p>Eine sehr häufige Aufgabe innerhalb eines Programms besteht darin, das kleinste beziehungsweise größte Element einer Sequenz zu ermitteln. Aus diesem Grund existieren in Python die Funktionen <span class="clisting">min</span> und <span class="clisting">max</span>, wobei <span class="clisting">min</span> das kleinste und <span class="clisting">max</span> das größte Element zurückgibt. Allerdings machen diese beiden Funktionen nur dann Sinn, wenn eine <span class="ckursiv">Ordnungsrelation</span> für die Elemente der Sequenz existiert (in Abschnitt <a href="#Rxx_ref172207725">8.3.4</a> über komplexe Zahlen wird zum Beispiel ein Datentyp ohne Ordnungsrelation beschrieben). Für Buchstaben wird ihre Position im Alphabet als Ordnungsrelation benutzt, solange es sich nur um Großbuchstaben oder nur um Kleinbuchstaben handelt. Beim Vergleichen von Groß- und Kleinbuchstaben untereinander gelten Kleinbuchstaben immer als größer [Falls Sie sich über dieses merkwürdige Verhalten wundern: Die Reihenfolge im Alphabet beschreibt nur einen Teilaspekt der Ordnungsrelation für einzelne Zeichen. Sonderzeichen wie beispielsweise das Leerzeichen lassen sich damit nicht sinnvoll einordnen. Sie werden im Abschnitt über Strings die Hintergründe hierzu kennenlernen.
+]  &#8211; <span class="clisting">"a"</span> ist also kleiner als <span class="clisting">"z"</span> und größer als <span class="clisting">"A"</span>:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; max(<span class="clisting">"wer gewinnt wohl")</span> 
+'w' 
+&gt;&gt;&gt; min(<span class="clisting">"</span>zeichenkette<span class="clisting">"</span>) 
+'c'</pre></div><a id="mj706b778fd2162b5144d8f07b6222092d" name="mj706b778fd2162b5144d8f07b6222092d"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">8.5.1</span><span class="cfett"> Listen &#8211; list</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In diesem Abschnitt werden Sie den ersten veränderbaren (mutable) Datentyp, die <span class="ckursiv">Liste</span>, kennenlernen. Anders als bei dem sequenziellen Datentyp <span class="clisting">str</span>, der nur gleichartige Elemente, die Buchstaben, speichern kann, sind Listen für die Verwaltung beliebiger Instanzen auch unterschiedlicher Datentypen geeignet. Eine Liste kann also durchaus Zahlen, Strings oder auch weitere Listen als Elemente enthalten, wodurch sie sehr flexibel anwendbar ist.</p>
+<p>Eine neue Liste lässt sich dadurch erzeugen, dass man eine Aufzählung ihrer Elemente in eckige Klammern <span class="clisting">[]</span>  schreibt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; l = [1, 0.5,<span class="clisting"> "String", 2</span>]</pre></div>
+<p>Die Liste <span class="clisting">l</span> enthält nun zwei Ganzzahlen, eine Gleitkommazahl und einen String.</p>
+<p>Da es sich bei dem Listentyp, der innerhalb von Python den Namen <span class="clisting">list</span> hat, um einen sequenziellen Datentyp handelt, können alle im letzten Abschnitt beschriebenen Methoden und Verfahren auf ihn angewandt werden.</p>
+<p>Allerdings kann sich der Inhalt einer Liste auch nach ihrer Erzeugung ändern, weshalb eine Reihe weiterer Operatoren und Methoden für sie verfügbar sind:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.14    </strong>Operatoren für den Datentyp list
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Wirkung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s[i] = x</span></p>
+</td>
+<td class="tabellentext">
+<p>Das Element von <span class="clisting">s</span> mit dem Index <span class="clisting">i</span> wird durch <span class="clisting">x</span> ersetzt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s[i:j] = t</span></p>
+</td>
+<td class="tabellentext">
+<p>Der Teil <span class="clisting">s[i:j]</span> wird durch <span class="clisting">t</span> ersetzt. Dabei muss <span class="clisting">t</span> iterierbar sein.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s[i:j:k] = t</span></p>
+</td>
+<td class="tabellentext">
+<p>Die Elemente von <span class="clisting">s[i:j:k]</span> werden durch die von <span class="clisting">t</span> ersetzt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>del <span class="clisting">s[i]</span></p>
+</td>
+<td class="tabellentext">
+<p>Das <span class="clisting">i</span>-te Element von <span class="clisting">s</span> wird entfernt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>del <span class="clisting">s[i:j]</span></p>
+</td>
+<td class="tabellentext">
+<p>Der Teil <span class="clisting">s[i:j]</span> wird aus <span class="clisting">s</span> entfernt. Das ist äquivalent zu <span class="clisting">s[i:j] = []</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>del <span class="clisting">s[i:j:k]</span></p>
+</td>
+<td class="tabellentext">
+<p>Die Elemente der Teilfolge <span class="clisting">s[i:j:k]</span> werden aus <span class="clisting">s</span> entfernt.</p>
+</td>
+</tr>
+</table><br><p>Wir werden diese Operatoren der Reihe nach mit kleinen Beispielen erklären.</p>
+<h5 class="t5"><span class="cfett">Verändern eines Wertes innerhalb der Liste</span></h5>
+<p>Man kann Elemente einer Liste durch andere ersetzen, wenn man ihren Index kennt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = [1, 2, 3, 4, 5, 6, 7] 
+&gt;&gt;&gt; s[3] = 1337 
+&gt;&gt;&gt; s 
+[1, 2, 3, 1337, 5, 6, 7]</pre></div>
+<p>Diese Methode eignet sich allerdings nicht, um mehr Elemente in die Liste einzufügen. Es können nur bereits bestehende Elemente ersetzt werden, und die Länge der Liste bleibt unverändert.</p>
+<h5 class="t5"><span class="cfett">Ersetzen von Teillisten und Einfügen neuer Elemente</span></h5>
+<p>Es ist möglich, eine ganze Teilliste durch andere Elemente zu ersetzen. Dazu schreibt man den zu ersetzenden Teil der Liste wie beim Slicing auf, wobei er aber auf der linken Seite einer Zuweisung stehen muss:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; einkaufen = [<span class="clisting">"Brot", "Eier", "Milch", "Fisch", "Mehl"</span>] 
+&gt;&gt;&gt; einkaufen[1:3] = [<span class="clisting">"Wasser", "Wurst"] 
+&gt;&gt;&gt; einkaufen 
+['Brot', 'Wasser', 'Wurst', 'Fisch', 'Mehl']</span></pre></div>
+<p>Die Liste, die eingefügt werden soll, kann auch mehr oder weniger Elemente als der zu ersetzende Teil haben und sogar ganz leer sein.</p>
+<p>Man kann wie beim Slicing auch eine Schrittweite angeben, um beispielsweise nur jedes dritte Element der Teilsequenz zu ersetzen. Im nachstehenden Beispiel wird jedes dritte Element der Teilsequenz <span class="clisting">s[2:11]</span> durch das entsprechende Element aus <span class="clisting">["A", "B", "C"]</span> ersetzt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+&gt;&gt;&gt; s[2:9:3] = [<span class="clisting">"A", "B", "C"] 
+&gt;&gt;&gt; s 
+[0, 1, 'A', 3, 4, 'B', 6, 7, 'C', 9, 10]</span></pre></div>
+<p>Wird eine Schrittweite angegeben, muss die Sequenz auf der rechten Seite der Zuweisung genauso viele Elemente wie die Teilsequenz auf der linken Seite haben. Ist das nicht der Fall, wird ein <span class="clisting">ValueError</span> erzeugt.</p>
+<h5 class="t5"><span class="cfett">Elemente und Teillisten löschen</span></h5>
+<p>Um einen einzelnen Wert aus einer Liste zu entfernen, dient der <span class="clisting">del</span>-Operator:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s =<span class="clisting"> [26, 7, 1987] 
+&gt;&gt;&gt;</span><span class="cfett"> del</span><span class="clisting"> s[0] 
+&gt;&gt;&gt; s 
+[7, 1987]</span></pre></div>
+<p>Auf diese Weise lassen sich auch ganze Teillisten entfernen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = [9, 8, 7, 6, 5, 4, 3, 2, 1] 
+&gt;&gt;&gt;<span class="cfett"> del</span> s[3:6] 
+&gt;&gt;&gt; s 
+[9, 8, 7, 3, 2, 1]</pre></div>
+<p>Für das Entfernen von Teilen einer Liste wird auch die Schrittfolge der Slicing-Notation unterstützt. Im folgenden Beispiel werden damit alle Elemente mit geradem Index entfernt (Achtung: <span class="clisting">"a"</span> hat den Index <span class="clisting">0</span>):</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = [<span class="clisting">"a","b","c","d","e","f","g","h","i","j"] 
+&gt;&gt;&gt;</span><span class="cfett"> del</span><span class="clisting"> s[::2]</span> 
+&gt;&gt;&gt; s 
+['b', 'd', 'f', 'h', 'j']</pre></div>
+<p>Nachdem nun die Operatoren für Listen behandelt worden sind, wenden wir uns den Methoden einer Liste zu. In der Tabelle sind <span class="clisting">s</span> und <span class="clisting">t</span> Listen, <span class="clisting">i</span>, <span class="clisting">j</span> und <span class="clisting">k</span> sind Ganzzahlen, und ist <span class="clisting">x</span> eine beliebige Instanz:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.15    </strong>Methoden von list-Instanzen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Methode</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Wirkung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.append(x)</span></p>
+</td>
+<td class="tabellentext">
+<p>Hängt <span class="clisting">x</span> ans Ende von <span class="clisting">s</span> an.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.extend(t)</span></p>
+</td>
+<td class="tabellentext">
+<p>Hängt alle Elemente von <span class="clisting">t</span> ans Ende von <span class="clisting">s</span> an.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.count(x)</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt an, wie oft das Element <span class="clisting">x</span> in <span class="clisting">s</span> vorkommt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.index(x[, i[, j]])</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt den Index <span class="clisting">k</span> des ersten Vorkommens von <span class="clisting">x</span> im Bereich <span class="clisting">i &lt;= k &lt; j</span> zurück.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.insert(i, x)</span></p>
+</td>
+<td class="tabellentext">
+<p>Fügt <span class="clisting">x</span> an der Stelle <span class="clisting">i</span> in <span class="clisting">s</span> ein. Anschließend hat <span class="clisting">s[i]</span> den Wert von <span class="clisting">x</span>, wobei alle folgenden Elemente um eine Stelle nach hinten aufrücken.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.pop([i])</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt das <span class="clisting">i</span>-te Element von <span class="clisting">s</span> zurück und entfernt es aus <span class="clisting">s</span>.  Ist <span class="clisting">i</span> nicht angegeben, wird das letzte Element genommen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.remove(x)</span></p>
+</td>
+<td class="tabellentext">
+<p>Entfernt das erste Vorkommen von <span class="clisting">x</span> aus der Sequenz <span class="clisting">s</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.reverse()</span></p>
+</td>
+<td class="tabellentext">
+<p>Kehrt die Reihenfolge der Elemente in <span class="clisting">s</span> um.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.sort([cmp[, key[, reverse]])</span></p>
+</td>
+<td class="tabellentext">
+<p>Sortiert <span class="clisting">s</span>.</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">s.append(x)</span></h5>
+<p>Mit <span class="clisting">append</span> kann man eine Liste am Ende um ein weiteres Element erweitern:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = [<span class="clisting">"Nach mir soll noch ein String stehen"</span>] 
+&gt;&gt;&gt; s.append(<span class="clisting">"Hier ist er") 
+&gt;&gt;&gt; s 
+['Nach mir soll noch ein String stehen', 'Hier ist er']</span></pre></div>
+<h5 class="t5"><span class="cfett">s.extend(t)</span></h5>
+<p>Um an eine Liste mehrere Elemente anzuhängen, dient die Methode <span class="clisting">extend</span>, die ein iterierbares Objekt &#8211; beispielsweise eine andere Liste &#8211; als Parameter <span class="clisting">t</span> erwartet. Im Ergebnis werden alle Elemente von <span class="ckursiv">t</span> an die Liste <span class="ckursiv">s</span> angehängt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = [1, 2, 3] 
+&gt;&gt;&gt; s.extend([4, 5, 6]) 
+&gt;&gt;&gt; s 
+[1, 2, 3, 4, 5, 6]</pre></div>
+<h5 class="t5"><span class="cfett">s.count(x)</span></h5>
+<p>Man kann mit <span class="clisting">count</span> ermitteln, wie oft ein bestimmtes Element <span class="ckursiv">x</span> in einer Liste enthalten ist:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = [1, 2, 2, 3, 2] 
+&gt;&gt;&gt; s.count(2) 
+3</pre></div>
+<h5 class="t5"><span class="cfett">s.index(x[, i[, j]])</span></h5>
+<p>Mit <span class="clisting">index</span> kann man die Position eines Elements in einer Liste ermitteln:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ziffern = [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+&gt;&gt;&gt; ziffern.index(3) 
+2</pre></div>
+<p>Um die Suche auf einen Teilbereich der Liste einzuschränken, dienen die Parameter <span class="ckursiv">i</span> und <span class="ckursiv">k</span>, wobei <span class="ckursiv">i</span> den ersten Index der gewünschten Teilfolge und <span class="ckursiv">k</span> den ersten Index hinter der gewünschten Teilfolge angibt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; [1, 22, 333, 4444, 333, 22, 1].index(1, 3, 7) 
+6</pre></div>
+<p>Ist das Element <span class="ckursiv">x</span> nicht in <span class="ckursiv">s</span> oder in der angegebenen Teilfolge enthalten, führt <span class="clisting">index</span> zu einem <span class="clisting">ValueError</span>:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = [2.5, 2.6, 2.7, 2.8] 
+&gt;&gt;&gt; s.index(2.4) 
+Traceback (most recent call last): 
+  File "&lt;pyshell#21&gt;", line 1, in &lt;module&gt; 
+    s.index(2.4) 
+ValueError: list.index(x): x not in list</pre></div>
+<h5 class="t5"><span class="cfett">s.insert(i, x)</span></h5>
+<p>Mit <span class="clisting">insert</span> kann man an beliebiger Stelle ein neues Element in eine Liste einfügen. Der erste Parameter <span class="ckursiv">i</span> gibt den gewünschten Index des neuen Elements, der zweite, <span class="ckursiv">x</span>,  das Element selbst an:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; erst_mit_loch = [1, 2, 3, 5, 6, 7, 8] 
+&gt;&gt;&gt; erst_mit_loch.insert(3, 4) 
+&gt;&gt;&gt; erst_mit_loch 
+[1, 2, 3, 4, 5, 6, 7, 8]</pre></div>
+<p>Ist der Index <span class="ckursiv">i</span> zu klein, wird <span class="ckursiv">x</span> am Anfang von <span class="ckursiv">s</span> eingefügt, ist er zu groß, wird er wie bei <span class="clisting">append</span> am Ende angehängt.</p>
+<h5 class="t5"><span class="cfett">s.pop([i])</span></h5>
+<p>Das Gegenstück zu <span class="clisting">insert</span> ist <span class="clisting">pop</span>. Mit dieser Methode kann man ein beliebiges Element anhand seines Index aus einer Liste entfernen. Ist der optionale Parameter nicht angegeben, so wird das letzte Element der Liste entfernt. Das entfernte Element wird von <span class="clisting">pop</span> zurückgegeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = ["H", "a", "l", "l", "o"] 
+&gt;&gt;&gt; s.pop() 
+'o' 
+&gt;&gt;&gt; s.pop(0) 
+'H' 
+&gt;&gt;&gt; s 
+['a', 'l', 'l']</pre></div>
+<p>Wird versucht, einen ungültigen Index zu übergeben oder ein Element aus einer leeren Liste zu entfernen, wird ein <span class="clisting">IndexError</span> erzeugt.</p>
+<h5 class="t5"><span class="cfett">s.remove(x)</span></h5>
+<p>Möchte man ein Element mit einem bestimmten Wert aus einer Liste entfernen, egal welchen Index es hat, kann man die Methode <span class="clisting">remove</span> bemühen. Sie entfernt das erste Element der Liste, das den gleichen Wert wie <span class="ckursiv">x</span> hat.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = [<span class="clisting">"H", "u", "h", "u"] 
+&gt;&gt;&gt; s.remove("u") 
+&gt;&gt;&gt; s</span> 
+['H', 'h', 'u']</pre></div>
+<p>Der Versuch, ein nicht vorhandenes Element zu entfernen, führt zu einem <span class="clisting">ValueError</span>.</p>
+<h5 class="t5"><span class="cfett">s.reverse()</span></h5>
+<p>Mit <span class="clisting">reverse</span> kann man die Reihenfolge der Elemente einer Liste umkehren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = [1, 2, 3] 
+&gt;&gt;&gt; s.reverse() 
+&gt;&gt;&gt; s 
+[3, 2, 1]</pre></div>
+<p>Im Unterschied zu der Slice-Notation <span class="clisting">s[::-1]</span> geschieht die Umkehrung »in place«. Es wird also keine neue <span class="clisting">list</span>-Instanz erzeugt, sondern die alte verändert. Da dies weniger Rechenzeit und Speicher kostet, ist <span class="clisting">reverse</span> der Slice-Notation vorzuziehen, wenn man nicht unbedingt eine neue Liste braucht.</p>
+<h5 class="t5"><span class="cfett">s.sort([cmp[, key[, reverse]])</span></h5>
+<p>Die komplexeste Methode des <span class="clisting">list</span>-Datentyps ist <span class="clisting">sort</span>, mit der eine Liste nach bestimmten Kriterien sortiert werden kann. Ruft man die Methode ohne Parameter auf, benutzt Python die normalen Vergleichsoperatoren zum Sortieren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; l = [4, 2, 7, 3, 6, 1, 9, 5, 8] 
+&gt;&gt;&gt; l.sort() 
+&gt;&gt;&gt; l 
+[1, 2, 3, 4, 5, 6, 7, 8, 9]</pre></div>
+<p>Enthält eine Liste Elemente, für die keine Ordnungsrelation definiert ist, wie zum Beispiel <span class="clisting">complex</span>, führt der Aufruf von <span class="clisting">sort</span> ohne Parameter zu einem <span class="clisting">TypeError</span>:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; lst = [5 + 13j, 1 + 4j, 6 + 2j] 
+&gt;&gt;&gt; lst.sort() 
+Traceback (most recent call last): 
+  File "&lt;pyshell#18&gt;", line 1, in &lt;module&gt; 
+    lst.sort() 
+TypeError: no ordering relation is defined for complex numbers</pre></div>
+<p>Angenommen, wir wollten eine Liste komplexer Zahlen nach ihrem Imaginärteil sortieren, könnten wir den optionalen Parameter <span class="ckursiv">cmp</span> benutzen. Die Methode erwartet im Parameter <span class="ckursiv">cmp</span> eine Referenz auf eine Funktion, die ihrerseits zwei Parameter erwartet und diese vergleicht. Ist der Wert des ersten Parameters kleiner als der des zweiten, soll der Rückgabewert der übergebenen Funktion negativ sein; ist er größer, muss <span class="ckursiv">cmp</span> eine positive Zahl zurückgeben. Bei gleich einzuordnenden Werten soll die übergebene Funktion <span class="clisting">0</span> zurückgeben. Wir haben bis jetzt noch nicht besprochen, wie eigene Funktionen definiert werden, aber das behandelte Beispiel sollte trotzdem verständlich sein. Wenn Sie genau nachlesen möchten, was es mit Funktionsdefinitionen auf sich hat, können Sie sich im Kapitel <a href="./python_kapitel_10_001.htm#Rxx_ref180780176">10</a> informieren.</p>
+<p>Der folgende Code-Ausschnitt definiert eine Funktion mit dem Namen <span class="clisting">vergleiche_complex</span>, die zwei <span class="clisting">complex</span>-Instanzen hinsichtlich ihres Imaginärteils vergleicht:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> def</span> vergleiche_complex(a, b): 
+...    <span class="cfett"> return</span> a.imag - b.imag</pre></div>
+<p>Die Funktion erwartet zwei Parameter, <span class="clisting">a</span> und <span class="clisting">b</span>, und nutzt ihre Differenz, um die Imaginärteile zu vergleichen. Wenn <span class="clisting">a.imag</span> größer als <span class="clisting">b.imag</span> ist, wird ihre Differenz positiv, sind sie gleich, ergibt <span class="clisting">a.imag - b.imag</span> den Wert <span class="clisting">0</span>. Ist <span class="clisting">b.imag</span> der größere der beiden Werte, wird eine negative Zahl zurückgegeben. Mit der <span class="clisting">return</span>-Anweisung wird der Rückgabewert an die aufrufende Ebene übergeben. Mithilfe dieser Funktion können wir nun die Liste aus <span class="clisting">complex</span>-Instanzen sortieren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; lst = [5 + 13j, 1 + 4j, 6 + 2j] 
+&gt;&gt;&gt; lst.sort(vergleiche_complex) 
+&gt;&gt;&gt; lst 
+[(6+2j), (1+4j), (5+13j)]</pre></div>
+<p>Wie Sie an der abschließenden Ausgabe sehen können, wurde die Liste korrekt sortiert.</p>
+<p>Eine weitere Möglichkeit, die Sortierung anzupassen, bietet der Parameter <span class="clisting">key</span>, der ebenfalls eine Funktionsreferenz erwartet. Die übergebende Funktion wird vor jedem Vergleich für beide Operanden aufgerufen und sollte deshalb einen Parameter erwarten. Im Ergebnis werden dann nicht die Operanden direkt verglichen, sondern stattdessen die entsprechenden Rückgabewerte der übergebenen Funktion.</p>
+<p>Zur Veranschaulichung werden wir das letzte Beispiel unter Verwendung des Parameters <span class="ckursiv">key</span> implementieren. Die benötigte Funktion muss den Imaginärteil einer übergebenen <span class="clisting">complex</span>-Instanz zurückgeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> def</span> imag_teil(c): 
+...    <span class="cfett"> return</span> c.imag</pre></div>
+<p>Es kommt sehr selten vor, dass man sowohl den <span class="ckursiv">cmp</span>- als auch den <span class="ckursiv">key</span>-Parameter übergibt, da die Operationen der <span class="ckursiv">key</span>-Funktion ebenso gut innerhalb der <span class="ckursiv">cmp</span>-Funktion erledigt werden können. Deshalb bietet sich eine Übergabe als Schlüsselwortparameter an:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; lst = [5 + 13j, 1 + 4j, 6 + 2j] 
+&gt;&gt;&gt; lst.sort(key=imag_teil) 
+&gt;&gt;&gt; lst 
+[(6+2j), (1+4j), (5+13j)]</pre></div>
+<p>Das Ergebnis deckt sich mit unseren Erwartungen.</p>
+<p>Der letzte Parameter, <span class="ckursiv">reverse</span>, erwartet für die Übergabe einen booleschen Wert, der angibt, ob die Reihenfolge der Sortierung umgekehrt werden soll:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; l = [4, 2, 7, 3, 6, 1, 9, 5, 8] 
+&gt;&gt;&gt; l.sort(reverse=True) 
+[9, 8, 7, 6, 5, 4, 3, 2, 1]</pre></div>
+<h4 class="t4"><span class="cfett">Stabile Sortierverfahren</span></h4>
+<p>Eine wichtige Eigenschaft von <span class="clisting">sort</span> ist, dass es sich um eine <span class="ckursiv">stabile Sortierung</span> handelt. Stabile Sortierverfahren zeichnen sich dadurch aus, dass sie beim Sortieren die relative Position gleichwertiger Elemente nicht vertauschen. Stellen Sie sich einmal vor, Sie hätten folgende Namensliste:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.16    </strong> Fiktive Namensliste
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Vorname</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Nachname</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Natalie</p>
+</td>
+<td class="tabellentext">
+<p>Schmidt</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Mathias</p>
+</td>
+<td class="tabellentext">
+<p>Schwarz</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Florian</p>
+</td>
+<td class="tabellentext">
+<p>Kroll</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Ricarda</p>
+</td>
+<td class="tabellentext">
+<p>Schmidt</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Helmut</p>
+</td>
+<td class="tabellentext">
+<p>Schmidt</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Peter</p>
+</td>
+<td class="tabellentext">
+<p>Kaiser</p>
+</td>
+</tr>
+</table><br><p>Nun ist es Ihre Aufgabe, diese Liste nach den Nachnamen zu sortieren. Gruppen mit gleichem Nachnamen sollen nach den jeweiligen Vornamen sortiert werden. Um dieses Problem zu lösen, können Sie die Liste im ersten Schritt nach den Vornamen sortieren, was zu folgender Anordnung führt:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.17    </strong>Nach Vornamen sortierte Namensliste
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Vorname</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Nachname</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Florian</p>
+</td>
+<td class="tabellentext">
+<p>Kroll</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="cfett">Helmut</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="cfett">Schmidt</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Mathias</p>
+</td>
+<td class="tabellentext">
+<p>Schwarz</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="cfett">Natalie</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="cfett">Schmidt</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Peter</p>
+</td>
+<td class="tabellentext">
+<p>Kaiser</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="cfett">Ricarda</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="cfett">Schmidt</span></p>
+</td>
+</tr>
+</table><br><p>Im Resultat interessieren uns jetzt nur die Positionen der drei Personen, deren Nachname »Schmidt« ist. Würde man einfach alle anderen Namen streichen, wären die Schmidts richtig sortiert, weil ihre relative Position durch den ersten Sortierlauf korrekt hergestellt wurde. Nun kommt die Stabilität der <span class="clisting">sort</span>-Methode zum Tragen, weil dadurch bei einem erneuten Sortierdurchgang nach den Nachnamen diese relative Ordnung nicht zerstört wird. Das Ergebnis sähe am Ende so aus:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.18    </strong>Vollständig sortierte Namensliste
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Vorname</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Nachname</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Peter</p>
+</td>
+<td class="tabellentext">
+<p>Kaiser</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Florian</p>
+</td>
+<td class="tabellentext">
+<p>Kroll</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Helmut</p>
+</td>
+<td class="tabellentext">
+<p>Schmidt</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Natalie</p>
+</td>
+<td class="tabellentext">
+<p>Schmidt</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Ricarda</p>
+</td>
+<td class="tabellentext">
+<p>Schmidt</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Mathias</p>
+</td>
+<td class="tabellentext">
+<p>Schwarz</p>
+</td>
+</tr>
+</table><br><p>Wäre <span class="clisting">sort</span> nicht stabil, so gäbe es keine Garantie dafür, dass Helmut vor Natalie und Ricarda eingeordnet wird.</p>
+<p>Wie Sie sehen, ist die <span class="clisting">sort</span>-Methode extrem flexibel und mächtig. Bei Ihrer Arbeit mit Python werden Sie höchstwahrscheinlich niemals etwas anderes zum Sortieren Ihrer Daten verwenden.</p>
+<h4 class="t4"><span class="cfett">Weitere Eigenschaften von Listen</span></h4>
+<p>Im Zusammenhang mit Pythons <span class="clisting">list</span>-Datentyp ergeben sich ein paar Besonderheiten, die nicht unmittelbar ersichtlich sind.</p>
+<p>Zum einen ist <span class="clisting">list</span> ein veränderbarer Datentyp, und deshalb betreffen Änderungen an einer <span class="clisting">list</span>-Instanz immer alle Referenzen, die auf sie verweisen. Betrachten wir einmal das folgende Beispiel, in dem der unveränderliche Datentyp <span class="clisting">str</span> mit <span class="clisting">list</span> verglichen wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a =<span class="clisting"> "Hallo " 
+&gt;&gt;&gt; b = a 
+&gt;&gt;&gt; b += "Welt" 
+&gt;&gt;&gt; b 
+'Hallo Welt' 
+&gt;&gt;&gt; a 
+'Hallo '</span></pre></div>
+<p>Dieses Beispiel erzeugt einfach eine <span class="clisting">str</span>-Instanz mit dem Wert <span class="clisting">"Hallo "</span> und lässt die beiden Referenzen <span class="clisting">a</span> und <span class="clisting">b</span> auf sie verweisen. Anschließend wird mit dem Operator <span class="clisting">+=</span> an den String, auf den <span class="clisting">b</span> verweist, <span class="clisting">"Welt"</span> angehängt. Wie die Ausgaben zeigen und wie wir es auch erwartet haben, wird eine neue Instanz mit dem Wert <span class="clisting">"Hallo Welt"</span> erzeugt und <span class="clisting">b</span> zugewiesen, <span class="clisting">a</span> bleibt davon unberührt.</p>
+<p>Übertragen wir das obige Beispiel auf Listen, ergibt sich ein wichtiger Unterschied:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = [1337] 
+&gt;&gt;&gt; b = a 
+&gt;&gt;&gt; b += [2674] 
+&gt;&gt;&gt; b 
+[1337, 2674] 
+&gt;&gt;&gt; a 
+[1337, 2674]</pre></div>
+<p>Strukturell gleicht der Code dem <span class="clisting">str</span>-Beispiel, nur ist diesmal der verwendete Datentyp nicht <span class="clisting">str</span>, sondern <span class="clisting">list</span>. Der interessante Teil ist die Ausgabe am Ende, laut der <span class="clisting">a</span> und <span class="clisting">b</span> denselben Wert haben, obwohl die Operation nur auf <span class="clisting">b</span> durchgeführt wurde. Tatsächlich verweisen <span class="clisting">a</span> und <span class="clisting">b</span> auf dieselbe Instanz, wovon man sich durch die Built-in Function <span class="clisting">id</span> überzeugen kann:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; id(a) == id(b) 
+True</pre></div>
+<p>Diese sogenannten <span class="ckursiv">Seiteneffekte [</span>Seiteneffekte werden im Zusammenhang mit Funktionen in Abschnitt <a href="./python_kapitel_10_002.htm#Rxx_ref180674243">10.2.4</a> eine wichtige Rolle spielen.
+]  sollte man bei der Arbeit mit Listen im Hinterkopf behalten. Wenn man sichergehen möchte, dass die Originalliste nicht verändert wird, kann man mithilfe von Slicing eine echte Kopie anlegen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = [1337] 
+&gt;&gt;&gt; b = a[:] 
+&gt;&gt;&gt; b += [2674] 
+&gt;&gt;&gt; b 
+[1337, 2674] 
+&gt;&gt;&gt; a 
+[1337]</pre></div>
+<p>In diesem Beispiel wurde die von <span class="clisting">a</span> referenzierte Liste kopiert und so vor indirekten Manipulationen über <span class="clisting">b</span> geschützt. Man muss in solchen Fällen die Performance gegen den Schutz vor Seiteneffekten abwägen, da die Kopien der Listen im Speicher erzeugt werden müssen. Das kostet insbesondere bei langen Listen Rechenzeit und Speicherplatz und kann somit das Programm ausbremsen.</p>
+<p>Im Zusammenhang mit Seiteneffekten sind auch die Elemente einer Liste interessant: Eine Liste speichert keine Instanzen an sich, sondern nur Referenzen auf sie. Das macht Listen einerseits flexibler und performanter, andererseits aber auch anfällig für Seiteneffekte. Schauen wir uns einmal das folgende, auf den ersten Blick merkwürdig anmutende Beispiel an:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = [[]] 
+&gt;&gt;&gt; a = 4 * a 
+&gt;&gt;&gt; a 
+[[], [], [], []] 
+&gt;&gt;&gt; a[0].append(10) 
+&gt;&gt;&gt; a 
+[[10], [10], [10], [10]]</pre></div>
+<p>Zu Beginn referenziert <span class="clisting">a</span> eine Liste, in der eine weitere, leere Liste enthalten ist. Bei der anschließenden Multiplikation mit dem Faktor <span class="clisting">4</span> wird die innere leere Liste nicht kopiert, sondern nur weitere drei Male referenziert. In der Ausgabe sehen wir also viermal dieselbe Liste. Wenn man das verstanden hat, ist es offensichtlich, warum die dem ersten Element von <span class="clisting">a</span> angehängte <span class="clisting">10</span> auch den anderen drei Listen hinzugefügt wird: Es handelt sich einfach um dieselbe Liste.</p>
+<p>Es ist auch durchaus möglich, dass eine Liste sich selbst als Element enthält:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = [] 
+&gt;&gt;&gt; a.append(a)</pre></div>
+<p>Das Resultat ist eine unendlich tiefe Verschachtelung, da jede Liste wiederum sich selbst als Element enthält. Da nur Referenzen gespeichert werden müssen, verbraucht diese unendliche Verschachtelung nur sehr wenig Speicher und nicht, wie man zunächst vermuten könnte, unendlich viel. Trotzdem bergen solche Verschachtelungen die Gefahr von Endlosschleifen, wenn man die enthaltenen Daten verarbeiten möchte. Stellen Sie sich beispielsweise einmal vor, Sie wollten eine solche Liste auf dem Bildschirm ausgeben. Das würde zu unendlich vielen öffnenden und schließenden Klammern führen und somit den Computer lahmlegen. Trotzdem ist es möglich, solche Listen mit <span class="clisting">print</span> auszugeben. Python überprüft selbstständig, ob eine Liste sich selbst enthält, und gibt dann anstelle von weiteren Verschachtelungen drei Punkte <span class="clisting">...</span> aus:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = [] 
+&gt;&gt;&gt; a.append(a) 
+&gt;&gt;&gt; a 
+[[...]]</pre></div>
+<p>Bitte beachten Sie, dass die Schreibweise mit den drei Punkten kein gültiger Python-Code ist, um in sich selbst verschachtelte Listen zu erzeugen.</p>
+<p>Wenn Sie selbst mit Listen arbeiten, die rekursiv sein könnten, sollten Sie Ihre Programme mit Abfragen ausrüsten, um Verschachtelungen von Listen mit sich selbst zu erkennen, damit das Programm bei der Verarbeitung nicht in einer endlosen Schleife stecken bleiben kann.</p><a id="mj91f49981165d738734c4d64190f3f2cf" name="mj91f49981165d738734c4d64190f3f2cf"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">8.5.2</span><span class="cfett"> Unveränderliche Listen &#8211; tuple</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Der Datentyp <span class="clisting">list</span> ist sehr flexibel und wird häufig gebraucht. Seine Mächtigkeit und Flexibilität hat aber auch den Nachteil, dass dafür relativ viel Rechenleistung und Speicher benötigt wird. Oft wird gar nicht die Flexibilität einer Liste, sondern nur ihre Fähigkeit, Referenzen auf beliebige Instanzen zu speichern, benötigt. Deshalb existiert in Python neben <span class="clisting">list</span> noch der Datentyp <span class="clisting">tuple</span>, der im Gegensatz zu <span class="clisting">list</span> immutable ist.</p>
+<p>Der Datentyp <span class="clisting">tuple</span> bringt keinen Mehrwert in Bezug auf Funktionalität, denn Listen können alles, was <span class="clisting">tuple</span> leistet. Tatsächlich steht für <span class="clisting">tuple</span>-Instanzen nur der Grundstock an Operationen für sequenzielle Datentypen bereit.</p>
+<p>Zum Erzeugen neuer <span class="clisting">tuple</span>-Instanzen dienen die runden Klammern, die &#8211; wie bei den Listen &#8211; durch Kommata getrennt die Elemente des Tupels enthalten:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = (1, 2, 3, 4, 5) 
+&gt;&gt;&gt; a[3] 
+4</pre></div>
+<p>Ein leeres Tupel wird durch zwei runde Klammern <span class="clisting">()</span> ohne Inhalt definiert. Eine Besonderheit ergibt sich für Tupel mit nur einem Element. Würde man versuchen, ein Tupel mit nur einem Element auf die oben beschriebene Weise zu erzeugen, wäre das Literal unter Umständen nicht eindeutig:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; kein_tuple = (1) 
+&gt;&gt;&gt; type(kein_tuple) 
+&lt;type 'int'&gt;</pre></div>
+<p>Mit <span class="clisting">(1)</span> wird keine neue <span class="clisting">tuple</span>-Instanz erzeugt, weil die Klammer in diesem Kontext schon für die Verwendung in Rechenoperationen für Ganzzahlen verwendet wird. Das Problem wird dadurch umgangen, dass in Literalen für Tupel mit nur einem Element diesem Element ein Komma nachgestellt werden muss:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ein_tuple = (1,) 
+&gt;&gt;&gt; type(ein_tuple) 
+&lt;type 'tuple'&gt;</pre></div>
+<h4 class="t4"><span class="cfett">tuple packing und tuple unpacking</span></h4>
+<p>Es ist möglich, die umschließenden Klammern bei einer <span class="clisting">tuple</span>-Definition entfallen zu lassen. Trotzdem werden die durch Kommata getrennten Referenzen zu einem <span class="clisting">tuple</span> zusammengefasst, was man <span class="ckursiv">tuple packing</span> nennt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; datum = 26, 7, 1987 
+&gt;&gt;&gt; datum 
+(26, 7, 1987)</pre></div>
+<p>Umgekehrt ist es möglich, die Werte eines Tupels wieder zu entpacken:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; datum = 26, 7, 1987 
+&gt;&gt;&gt; (tag, monat, jahr) = datum 
+&gt;&gt;&gt; tag 
+26 
+&gt;&gt;&gt; monat 
+7 
+&gt;&gt;&gt; jahr 
+1987</pre></div>
+<p>Dieses Verfahren heißt <span class="ckursiv">tuple unpacking</span>, und auch hier können die umschließenden Klammern entfallen. Durch Kombination von <span class="ckursiv">tuple packing</span> und <span class="ckursiv">tuple unpacking</span> ist es sehr elegant möglich, die Werte zweier Variablen ohne Hilfsvariable zu tauschen oder mehrere Zuweisungen in einer Zeile zusammenzufassen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a, b = 10, 20 
+&gt;&gt;&gt; a, b = b, a 
+&gt;&gt;&gt; a 
+20 
+&gt;&gt;&gt; b 
+10</pre></div>
+<p>Richtig angewandt kann die Nutzung dieses Features zur Lesbarkeit von Programmen beitragen, da das technische Detail der Zwischenspeicherung von Daten hinter die eigentliche Absicht, die Werte zu tauschen, zurücktritt.</p>
+<h4 class="t4"><span class="cfett">Immutable heißt nicht zwingend unveränderlich!</span></h4>
+<p>Auch wenn <span class="clisting">tuple</span>-Instanzen immutable sind, können sich die Werte der enthaltenen Elemente auch nach der Erzeugung ändern. Bei der Erzeugung eines neuen Tupels werden die Referenzen festgelegt, die es speichern soll. Verweist eine solche Referenz auf eine Instanz eines mutable Datentyps, beispielsweise eine Liste, so kann sich dessen Wert trotzdem ändern:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = ([],) 
+&gt;&gt;&gt; a[0].append("Und sie dreht sich doch!") 
+&gt;&gt;&gt; a 
+(['Und sie dreht sich doch!'],)</pre></div>
+<p>Die Unveränderlichkeit eines Tupels bezieht sich also nur auf die enthaltenen Referenzen und ausdrücklich nicht auf die dahinter stehenden Instanzen.</p>
+<p>Dass Tupel immutable sind, ist also keine Garantie dafür, dass sich die Elemente nach der Erzeugung des Tupels nicht mehr verändern.</p><a id="mjeb87145a10dfeb18cb5b0215f08f30ad" name="mjeb87145a10dfeb18cb5b0215f08f30ad"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">8.5.3</span><span class="cfett"> <a id="Rxx_ref177141010" name="Rxx_ref177141010"></a><a id="Rxx_ref177141007" name="Rxx_ref177141007"></a>Strings &#8211; str, unicode</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Dieser Abschnitt behandelt Pythons Umgang mit Zeichenketten und insbesondere die Eigenschaften der dafür bereitgestellten Datentypen <span class="clisting">str</span> und <span class="clisting">unicode</span>.</p>
+<p>Wie Sie im vorhergehenden Kapitel gelernt haben, handelt es sich bei Strings um Folgen von <span class="ckursiv">Zeichen</span>. Dies bedeutet, dass alle Operationen für sequenzielle Typen für sie verfügbar sind.</p>
+<p>Wir werden uns bis auf Weiteres nur mit <span class="clisting">str</span>-Instanzen beschäftigen, weil diese anfangs einfacher zu verstehen sind. Aus dem gleichen Grund wird vorerst auf Sonderzeichen wie Umlaute oder das »ß« innerhalb von Strings verzichtet.</p>
+<p>Um neue <span class="clisting">str</span>-Instanzen zu erzeugen, gibt es folgende Literale:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; string1 =<span class="clisting"> "Ich wurde mit doppelten Hochkommata definiert" 
+&gt;&gt;&gt; string2 =</span> '<span class="clisting">Ich wurde mit einfachen Hochkommata definiert</span>'</pre></div>
+<p>Der gewünschte Inhalt des Strings wird zwischen die Hochkommata geschrieben, darf allerdings keine Zeilenvorschübe enthalten (im folgenden Beispiel wurde am Ende der ersten Zeile 
+    <img src="common/icons/Return.gif" align="top">
+   gedrückt):</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "Erste Zeile 
+  File "&lt;stdin&gt;", line 1 
+    s = "Erste Zeile 
+                   ^ 
+SyntaxError: EOL while scanning single-quoted string</pre></div>
+<p>String-Konstanten, die sich auch über mehrere Zeilen erstrecken können, werden durch <span class="clisting">"""</span> bzw. <span class="clisting">'''</span> eingefasst:</p>
+<div class="listing"><pre class="prettyprint"><span class="clisting">&gt;&gt;&gt; string3 = """Erste Zeile! 
+Ui, noch eine Zeile"""</span></pre></div>
+<p>Stehen zwei String-Literale unmittelbar oder durch Leerzeichen getrennt hintereinander, werden sie von Python miteinander zu einem String verbunden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; string =<span class="clisting"> "Erster Teil" "Zweiter Teil" 
+&gt;&gt;&gt; string 
+Erster TeilZweiter Teil</span></pre></div>
+<p>Wie Sie im Beispiel sehen können, sind die Leerzeichen zwischen den Literalen bei der Verkettung nicht mehr vorhanden.</p>
+<p>Diese Art der Verkettung eignet sich sehr gut, um lange oder unübersichtliche Strings auf mehrere Programmzeilen aufzuteilen, ohne dass die Zeilenvorschübe und Leerzeichen im Resultat gespeichert werden, wie es bei Strings mit <span class="clisting">"""</span> oder <span class="clisting">'''</span> der Fall wäre. Um diese Aufteilung zu erreichen, schreibt man die String-Teile in runde Klammern:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = (<span class="clisting">"</span>Stellen Sie sich einen schrecklich<span class="clisting"> " 
+...</span>     <span class="clisting"> "</span>komplizierten String vor, den man<span class="clisting"> " 
+...</span>     <span class="clisting"> "auf keinen Fall in eine Zeile</span> schreiben<span class="clisting"> " 
+...</span>     <span class="clisting"> "kann.")</span></pre></div>
+<h4 class="t4"><span class="cfett">Steuerzeichen</span></h4>
+<p>Es gibt besondere Text-Elemente, die den Textfluss steuern und sich auf dem Bildschirm nicht als einzelne Zeichen darstellen lassen. Zu diesen sogenannten <span class="ckursiv">Steuerzeichen</span> zählen unter anderem der Zeilenvorschub, der Tabulator oder der Rückschritt (von engl. <span class="ckursiv">backspace</span>). Die Darstellung solcher Zeichen innerhalb von String-Literalen erfolgt mittels spezieller Zeichenfolgen, sogenannter <span class="ckursiv">Escape-Sequenzen</span>. Escape-Sequenzen werden von einem Backslash <span class="clisting">\</span> eingeleitet, der von der Kennung des gewünschten Sonderzeichens gefolgt wird. Die Escape-Sequenz <span class="clisting">"\n"</span> steht beispielsweise für einen Zeilenumbruch:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = "Erste Zeile\nZweite Zeile" 
+&gt;&gt;&gt; a 
+'Erste Zeile\nZweite Zeile' 
+&gt;&gt;&gt;<span class="cfett"> print</span> a 
+Erste Zeile 
+Zweite Zeile</pre></div>
+<p>Beachten Sie bitte den Unterschied zwischen der Ausgabe mit <span class="clisting">print</span> und der ohne <span class="clisting">print</span> im interaktiven Modus. Die <span class="clisting">print</span>-Anweisung setzt die Steuerzeichen in ihre Bildschirmdarstellung um (bei <span class="clisting">"\n"</span> wird zum Beispiel eine neue Zeile begonnen), wohingegen die Ausgabe ohne <span class="clisting">print</span> ein String-Literal mit den Escape-Sequenzen der Sonderzeichen auf dem Bildschirm anzeigt.</p>
+<p>Für Steuerzeichen gibt es in Python die folgenden Escape-Sequenzen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.19    </strong>Escape-Sequenzen für Steuerzeichen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Escape-Sequenz</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\a</span></p>
+</td>
+<td class="tabellentext">
+<p>Bell (BEL) erzeugte einen Signalton.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\b</span></p>
+</td>
+<td class="tabellentext">
+<p>Backspace (BS) setzt die Ausgabeposition um ein Zeichen zurück.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\f</span></p>
+</td>
+<td class="tabellentext">
+<p>Formfeed (FF) erzeugt einen Seitenvorschub.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\n</span></p>
+</td>
+<td class="tabellentext">
+<p>Linefeed (LF) setzt die Ausgabeposition in die nächste Zeile.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\r</span></p>
+</td>
+<td class="tabellentext">
+<p>Carriage Return (CR) setzt die Ausgabeposition an den Anfang der nächsten Zeile.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\t</span></p>
+</td>
+<td class="tabellentext">
+<p>Horizontal Tab (TAB) hat die gleiche Bedeutung wie die Tabulatortaste.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\v</span></p>
+</td>
+<td class="tabellentext">
+<p>Vertikaler Tabulator (VT); dient zur vertikalen Einrückung.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\"</span></p>
+</td>
+<td class="tabellentext">
+<p>Doppeltes Hochkomma</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\'</span></p>
+</td>
+<td class="tabellentext">
+<p>Einfaches Hochkomma</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\\</span></p>
+</td>
+<td class="tabellentext">
+<p>Backslash, der wirklich als solcher in dem String erscheinen soll</p>
+</td>
+</tr>
+</table><br><p>Es ist allerdings so, dass Steuerzeichen aus der Zeit stammen, als die Ausgaben hauptsächlich über Drucker erfolgten. Deshalb haben einige dieser Zeichen heute nur noch eine geringe praktische Bedeutung.</p>
+<p>Die Escape-Sequenzen für einfache und doppelte Hochkommata sind deshalb notwendig, weil Python diese Zeichen als Begrenzung für String-Literale verwendet. Soll die Art von Hochkomma, die für die Begrenzung eines Strings verwendet wurde, innerhalb dieses Strings als Zeichen vorkommen, muss dort das entsprechende Hochkomma als Escape-Sequenz angegeben werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a =<span class="clisting"> "Das folgende Hochkomma muss nicht kodiert werden ' " 
+&gt;&gt;&gt; b = "Dieses doppelte Hochkomma schon \" " 
+&gt;&gt;&gt; c = 'Das gilt auch in Strings mit einfachen Hochkommata " ' 
+&gt;&gt;&gt; d = 'Hier muss eine Escape-Sequenz benutzt werden \' '</span></pre></div>
+<p>Im Abschnitt »Zeichensätze und Sonderzeichen« werden wir auf Escape-Sequenzen zurückkommen, um damit beliebige Sonderzeichen wie Umlaute oder das €–Zeichen zu kodieren.</p>
+<p>Das automatische Ersetzen von Escape-Sequenzen ist manchmal lästig, insbesondere dann, wenn sehr viele Backslashs in einem String vorkommen sollen. Für diesen Zweck gibt es in Python die Präfixe <span class="clisting">r</span> oder <span class="clisting">R</span>, die einem String-Literal vorangestellt werden können. Diese Präfixe markieren das Literal als einen sogenannten <span class="ckursiv">Raw-String</span> (dt. <span class="ckursiv">roh</span>), was dazu führt, dass alle Backslashs eins zu eins in den Resultat-String übernommen werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="clisting"> "Ein \tString mit \\ vielen \nEscape-Sequenzen\t" 
+'Ein \tString mit \\ vielen \nEscape-Sequenzen\t' 
+&gt;&gt;&gt; r"Ein \tString mit \\ vielen \nEscape-Sequenzen\t" 
+'Ein \\tString mit \\\\ vielen \\nEscape-Sequenzen\\t' 
+&gt;&gt;&gt;</span><span class="cfett"> print</span><span class="clisting"> r"Ein \tString mit \\ vielen \nEscape-Sequenzen\t" 
+Ein \tString mit \\ vielen \nEscape-Sequenzen\t</span></pre></div>
+<p>Wie Sie an den doppelten Backslashs im Literal des Resultats und der Ausgabe mit <span class="clisting">print</span> sehen können, wurden die Escape-Sequenzen nicht interpretiert.</p>
+<h4 class="t4"><span class="cfett">Stringmethoden</span></h4>
+<p>String-Instanzen verfügen zusätzlich zu den Methoden für sequenzielle Datentypen über weitere Methoden, die den Umgang mit Zeichenketten vereinfachen. Aufgrund der großen Anzahl der String-Methoden gibt es anstatt der zusammenfassenden Tabelle aller Methoden mehrere Kategorien, die einzeln erklärt werden.</p>
+<p>Wenn im Folgenden von <span class="ckursiv">Whitespaces</span> gesprochen wird, sind alle Arten von Zeichen zwischen den Wörtern gemeint, die nicht als eigenes Zeichen angezeigt werden. Whitespaces sind folgende Zeichen: das Leerzeichen, der Zeilenvorschub, der vertikale und horizontale Tabulator, Linefeed, Formfeed und Carriage Return.</p>
+<h5 class="t5"><span class="cfett">Trennen von Strings</span></h5>
+<p>Um Strings nach bestimmten Regeln in mehrere Teile zu zerlegen, dienen folgende Methoden:</p>
+<ul class="gp">
+<li><span class="ckursiv">s.split([sep[, maxsplit]])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.rsplit([sep[, maxsplit]])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.splitlines([keepends])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.partition(sep)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.rpartition(sep)</span></li>
+</ul>
+<p>Die Methoden <span class="clisting">split</span> und <span class="clisting">rsplit</span> zerteilen einen String in seine Wörter und geben diese als Liste zurück. Dabei gibt der Parameter <span class="ckursiv">sep</span> die Zeichenfolge an, die die Wörter trennt. Mit <span class="ckursiv">maxsplit</span> kann die Anzahl der Trennungen begrenzt werden. Wird <span class="ckursiv">maxsplit</span> nicht angegeben, wird der String so oft zerteilt, wie <span class="ckursiv">sep</span> in ihm vorkommt. Ein gegebenenfalls verbleibender Rest wird als String in die resultierende Liste eingefügt. <span class="clisting">split</span> beginnt mit dem Teilen am Anfang des Strings, während <span class="clisting">rsplit</span> am Ende anfängt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s =<span class="clisting"> "1-2-3-4-5-6-7-8-9-10" 
+&gt;&gt;&gt; s.split("-") 
+['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'] 
+&gt;&gt;&gt; s.split("-", 5) 
+['1', '2', '3', '4', '5', '6-7-8-9-10'] 
+&gt;&gt;&gt; s.rsplit("-", 5) 
+ ['1-2-3-4-5', '6', '7', '8', '9', '10']</span></pre></div>
+<p>Folgen mehrere Trennzeichen aufeinander, werden sie nicht zusammengefasst, sondern es wird jedes Mal erneut getrennt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s =<span class="clisting"> "1---2-3" 
+&gt;&gt;&gt; s.split("-") 
+['1', '', '', '2', '3']</span></pre></div>
+<p>Wird <span class="ckursiv">sep</span> nicht angegeben, verhalten sich die beiden Methoden anders. Zuerst werden alle Whitespaces am Anfang und am Ende des Strings entfernt, und anschließend wird der String anhand von Whitespaces zerteilt, wobei dieses Mal aufeinanderfolgende Trennzeichen zu einem zusammengefasst werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s =<span class="clisting"> "  Irgendein \t\t Satz  mit \n\r\t Whitespaces" 
+&gt;&gt;&gt; s.split() 
+['Irgendein', 'Satz', 'mit', 'Whitespaces']</span></pre></div>
+<p>Der Aufruf von <span class="clisting">split</span> ganz ohne Parameter ist sehr nützlich, um einen Text-String in seine Wörter zu spalten, auch wenn diese nicht nur durch Leerzeichen voneinander getrennt sind.</p>
+<p>Die Methode <span class="clisting">splitlines</span> spaltet einen String in seine einzelnen Zeilen auf und gibt eine Liste zurück, die die Zeilen enthält. Dabei werden Unix-Zeilenvorschübe <span class="clisting">"\n"</span>, Windows-Zeilenvorschübe <span class="clisting">"\r\n"</span> und Mac-Zeilenvorschübe <span class="clisting">"\r"</span> als Trennzeichen benutzt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s =<span class="clisting"> "Unix\nWindows\r\nMac\rLetzte Zeile" 
+&gt;&gt;&gt; s.splitlines() 
+['Unix', 'Windows', 'Mac', 'Letzte Zeile']</span></pre></div>
+<p>Sollen die trennenden Zeilenvorschübe an den Enden der Zeilen erhalten bleiben, muss für den optionalen Parameter <span class="ckursiv">keepends</span> der Wert <span class="clisting">True</span> übergeben werden.</p>
+<p>Die Methode <span class="clisting">partition</span> zerteilt einen String an der ersten Stelle, an der der übergebene Trennstring <span class="ckursiv">sep</span> auftritt, und gibt ein Tupel zurück, das aus dem Teil vor dem Trennstring, dem Trennstring selbst und dem Teil danach besteht. Die Methode <span class="clisting">rpartition</span> arbeitet genauso, nimmt aber das letzte Vorkommen von <span class="ckursiv">sep</span> im Ursprungsstring als Trennstelle:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s =<span class="clisting"> "</span>www.galileo-computing.de<span class="clisting">" 
+&gt;&gt;&gt; s.partition(".")</span> 
+('www', '.', 'galileo-computing.de')<span class="clisting"> 
+&gt;&gt;&gt; s.rpartition(".") 
+('www.galileo-computing', '.', 'de')</span></pre></div>
+<h5 class="t5"><span class="cfett">Suchen von Teilstrings</span></h5>
+<p>Um die Position und die Anzahl der Vorkommen eines Strings in einem anderen String zu ermitteln oder Teile eines Strings zu ersetzen, dienen folgende Methoden:</p>
+<ul class="gp">
+<li><span class="ckursiv">s.find(sub[, start[, end]])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.rfind(sub[, start[, end]])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.index(sub[, start[, end]])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.rindex(sub[, start[, end]])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.count(sub[, start[, end]])</span></li>
+</ul>
+<p>Die optionalen Parameter <span class="ckursiv">start</span> und <span class="ckursiv">end</span> der fünf Methoden dienen dazu, den Suchbereich einzugrenzen. Werden <span class="ckursiv">start</span> bzw. <span class="ckursiv">end</span> angegeben, wird nur der Teilstring <span class="ckursiv">s</span><span class="clisting">[</span><span class="ckursiv">start</span><span class="clisting">:</span><span class="ckursiv">end</span><span class="clisting">]</span> betrachtet.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Zur Erinnerung: Beim Slicing eines Strings <span class="clisting">s</span> mit <span class="clisting">s[start:end]</span> wird ein Teilstring erzeugt, der das Element <span class="clisting">s[end]</span> nicht mehr enthält.</p>
+</td>
+</tr>
+</table><br><p>Um herauszufinden, ob und, wenn ja, wo ein bestimmter String in einem anderen vorkommt, bietet Python die Methoden <span class="clisting">find</span> und <span class="clisting">index</span> mit ihren Gegenstücken <span class="clisting">rfind</span> und <span class="clisting">rindex</span> an. <span class="clisting">find</span> gibt den Index des ersten Vorkommens von <span class="ckursiv">sub</span> in <span class="clisting">s</span> zurück, <span class="clisting">rfind</span> entsprechend den Index des letzten Vorkommens. Ist <span class="ckursiv">sub</span> nicht in <span class="clisting">s</span> enthalten, geben <span class="clisting">find</span> und <span class="clisting">rfind</span> den Wert <span class="clisting">-1</span> zurück:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s =<span class="clisting"> "Mal sehen, wo das</span> 'e' in diesem String vorkommt<span class="clisting">" 
+&gt;&gt;&gt; s.find("e") 
+5</span> 
+&gt;&gt;&gt; s.rfind(<span class="clisting">"e") 
+29</span></pre></div>
+<p>Die Methoden <span class="clisting">index</span> und <span class="clisting">rindex</span> arbeiten auf die gleiche Weise, erzeugen aber einen <span class="clisting">ValueError</span>, wenn <span class="ckursiv">sub</span> nicht in <span class="ckursiv">s</span> enthalten ist:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s =<span class="clisting"> "Dieser String wird gleich durchsucht" 
+&gt;&gt;&gt; s.index("wird") 
+14 
+&gt;&gt;&gt; s.index("nicht vorhanden") 
+Traceback (most recent call last):</span> 
+ <span class="clisting"> File "&lt;pyshell#16&gt;", line 1, in &lt;module&gt;</span> 
+   <span class="clisting"> s.index("nicht vorhanden") 
+ValueError: substring not found</span></pre></div>
+<p>Der Grund für diese fast identischen Methoden liegt darin, dass sich Fehlermeldungen unter Umständen eleganter handhaben lassen als ungültige Rückgabewerte. [Sie können die Details in Abschnitt <a href="./python_kapitel_13_001.htm#Rxx_ref180780233">13.1</a>, »<a href="./python_kapitel_13_001.htm#Rxx_ref180780233">Exception Handling</a>«, nachlesen.
+] </p>
+<p>Wie oft ein Teilstring in einem anderen enthalten ist, lässt sich mit <span class="clisting">count</span> ermitteln:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="clisting"> "Fischers Fritze fischt frische Fische".count("sch") 
+4</span></pre></div>
+<h5 class="t5"><span class="cfett">Ersetzen von Teilstrings</span></h5>
+<p>Mit den folgenden Methoden lassen sich bestimmte Teile oder Buchstaben von Strings durch andere ersetzen:</p>
+<ul class="gp">
+<li><span class="ckursiv">s.replace(old, new[, count])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.lower()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.upper()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.swapcase()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.capitalize()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.title()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.expandtabs([tabsize])</span></li>
+</ul>
+<p>Die Methode <span class="clisting">replace</span> gibt einen String zurück, in dem alle Vorkommen von <span class="ckursiv">old</span> durch <span class="ckursiv">new</span> ersetzt wurden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; falsch =<span class="clisting"> "Python ist nicht super!" 
+&gt;&gt;&gt; richtig = falsch.replace("nicht", "richtig") 
+&gt;&gt;&gt; richtig</span> 
+'Python ist richtig super!'</pre></div>
+<p>Mit dem Parameter <span class="ckursiv">count</span> kann die Anzahl der Ersetzungen begrenzt werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s =<span class="clisting"> "Bitte nur die ersten vier e ersetzen"</span> 
+&gt;&gt;&gt; s.<span class="clisting">replace("e", "E", 4) 
+'BittE nur diE ErstEn vier e ersetzen'</span></pre></div>
+<p>Die Methode <span class="clisting">lower</span> ersetzt alle Kleinbuchstaben eines Strings durch die entsprechenden Großbuchstaben und gibt den Ergebnis-String zurück:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s =<span class="clisting"> "</span>ERST GANZ GROSS UND DANN GANZ KLEIN!<span class="clisting">" 
+&gt;&gt;&gt; s.lower() 
+'erst ganz gross und dann ganz klein!'</span></pre></div>
+<p>Mit <span class="clisting">upper</span> erreicht man genau den umgekehrten Effekt.</p>
+<p>Die Methode <span class="clisting">swapcase</span> ändert die Groß- bzw. Kleinschreibung aller Buchstaben eines Strings, indem alle Großbuchstaben durch die entsprechenden Kleinbuchstaben und umgekehrt ersetzt werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "wENN MAN IM dEUTSCHEN ALLE wORTE SO SCHRIEBE..." 
+&gt;&gt;&gt; s.swapcase() 
+'Wenn man im Deutschen alle Worte so schriebe...'</pre></div>
+<p>Die Methode <span class="clisting">capitalize</span> gibt eine Kopie des Ursprungsstrings zurück, wobei das erste Zeichen &#8211; sofern möglich &#8211; in einen Großbuchstaben umgewandelt wurde:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "alles klein... noch ;)" 
+&gt;&gt;&gt; s.capitalize() 
+'Alles klein... noch ;)'</pre></div>
+<p>Mit der Methode <span class="clisting">title</span> wird ein String erzeugt, bei dem alle Wörter groß-, aber ihre restlichen Buchstaben kleingeschrieben sind, wie dies bei Titeln üblich ist:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "nOch BIn iCH eheR weNiGEr alS TITeL gEeiGNEt" 
+&gt;&gt;&gt; s.title() 
+'Noch Bin Ich Eher Weniger Als Titel Geeignet'</pre></div>
+<p>Mit <span class="clisting">expandtabs</span> kann man alle Tabulator-Zeichen (<span class="clisting">"\t"</span>) eines Strings durch Leerzeichen ersetzen lassen. Der optionale Parameter <span class="clisting">tabsize</span> gibt dabei an, wie viele Leerzeichen für einen Tabulator eingefügt werden sollen. Ist <span class="clisting">tabsize</span> nicht angegeben, werden acht Leerzeichen verwendet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "\tHier kann Quellcode stehen\n\t\tEine Ebene weiter unten""" 
+&gt;&gt;&gt;<span class="cfett"> print</span> s.expandtabs(4) 
+    Hier kann Quellcode stehen 
+        Eine Ebene weiter unten</pre></div>
+<h5 class="t5"><span class="cfett">Entfernen bestimmter Zeichen am Anfang oder am Ende von Strings</span></h5>
+<p>Die <span class="clisting">strip</span>-Methoden ermöglichen es, unerwünschte Zeichen am Anfang oder am Ende eines Strings zu entfernen:</p>
+<ul class="gp">
+<li><span class="ckursiv">s.strip([chars])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.lstrip([chars])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.rstrip([chars])</span></li>
+</ul>
+<p>Die Methode <span class="clisting">strip</span> entfernt unerwünschte Zeichen auf beiden Seiten des Strings. <span class="clisting">lstrip</span> entfernt nur die Zeichen auf der linken Seite und <span class="clisting">rstrip</span> nur die Zeichen auf der rechten.</p>
+<p>Für den optionalen Parameter <span class="ckursiv">chars</span> kann ein String übergeben werden, der die Zeichen enthält, die entfernt werden sollen. Wird <span class="ckursiv">chars</span> nicht angegeben, werden alle Whitespaces entfernt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "    \t\n  \rUmgeben von Whitespaces   \t\t\r" 
+&gt;&gt;&gt; s.strip() 
+'Umgeben von Whitespaces' 
+&gt;&gt;&gt; s.lstrip() 
+'Umgeben von Whitespaces   \t\t\r' 
+&gt;&gt;&gt; s.rstrip() 
+'    \t\n  \rUmgeben von Whitespaces'</pre></div>
+<p>Um beispielsweise alle umgebenden Ziffern zu entfernen, könnte man so vorgehen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ziffern = "0123456789" 
+&gt;&gt;&gt; s = "3674784673546Versteckt zwischen Zahlen3425923935" 
+&gt;&gt;&gt; s.strip(ziffern) 
+'Versteckt zwischen Zahlen'</pre></div>
+<h5 class="t5"><span class="cfett">Ausrichten von Strings</span></h5>
+<p>Die folgenden Methoden erzeugen einen String mit einer bestimmten Länge und richten den Ursprungsstring darin auf eine bestimmte Weise aus:</p>
+<ul class="gp">
+<li><span class="ckursiv">s.center(width[, fillchar])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.ljust(width[, fillchar])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.rjust(width[, fillchar])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.zfill(width)</span></li>
+</ul>
+<p>Mit dem Parameter <span class="ckursiv">width</span> wird die gewünschte Länge des neuen Strings angegeben. Ist die Länge von <span class="ckursiv">s</span> größer als <span class="ckursiv">width</span>, wird eine Kopie von <span class="ckursiv">s</span> zurückgegeben. Die Methode <span class="clisting">center</span> zentriert <span class="ckursiv">s</span> im neuen String, <span class="clisting">ljust</span> richtet <span class="ckursiv">s</span> links aus, <span class="clisting">rjust</span> richtet <span class="ckursiv">s</span> rechts aus. Der optionale Parameter <span class="ckursiv">fillchar</span> der drei ersten Methoden muss ein String der Länge eins sein und gibt das Zeichen an, das zum Auffüllen bis zur übergebenen Länge verwendet werden soll. Standardmäßig werden Leerzeichen zum Füllen benutzt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "Richte mich aus" 
+&gt;&gt;&gt; s.center(50) 
+'                 Richte mich aus                  ' 
+&gt;&gt;&gt; s.ljust(50) 
+'Richte mich aus                                   ' 
+&gt;&gt;&gt; s.rjust(50, "-") 
+'-----------------------------------Richte mich aus'</pre></div>
+<p>Die Methode <span class="clisting">zfill</span> ist ein Spezialfall von <span class="clisting">rjust</span> und für Strings gedacht, die numerische Werte enthalten. <span class="clisting">zfill</span> erzeugt einen String der Länge <span class="ckursiv">width</span>, in dem der Ursprungsstring rechts ausgerichtet ist und die linke Seite mit Nullen aufgefüllt wurde:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; "13.37".zfill(20) 
+'00000000000000013.37'</pre></div>
+<h5 class="t5"><span class="cfett">String-Tests</span></h5>
+<p>Die folgenden Methoden geben einen Wahrheitswert zurück, der aussagt, ob der Inhalt des Strings eine bestimmte Eigenschaft hat. Mit <span class="clisting">islower</span> beispielsweise kann man prüfen, ob alle Buchstaben in <span class="ckursiv">s</span> Kleinbuchstaben sind.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.20    </strong>Methoden für einfache String-Tests
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Methode</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.isalnum()</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn alle Zeichen in <span class="ckursiv">s</span> Buchstaben oder Ziffern sind</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.isalpha()</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn alle Zeichen in <span class="ckursiv">s</span> Buchstaben sind</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.isdigit()</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn alle Zeichen in <span class="ckursiv">s</span> Ziffern sind</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.islower()</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn alle Buchstaben in <span class="ckursiv">s</span> Kleinbuchstaben sind</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.isupper()</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn alle Buchstaben in <span class="ckursiv">s</span> Großbuchstaben sind</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.isspace()</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn alle Zeichen in <span class="ckursiv">s</span> Whitespaces sind</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s.istitle()</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn alle Wörter in <span class="ckursiv">s</span> großgeschrieben sind</p>
+</td>
+</tr>
+</table><br><p>Da sich diese Methoden alle sehr ähneln, soll ein Beispiel an dieser Stelle ausreichen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "1234abcd" 
+&gt;&gt;&gt; s.isdigit() 
+False 
+&gt;&gt;&gt; s.isalpha() 
+False 
+&gt;&gt;&gt; s.isalnum() 
+True</pre></div>
+<p>Um zu prüfen, ob ein String mit einer bestimmten Zeichenkette beginnt oder endet, dienen die Methoden <span class="clisting">startswith</span> bzw. <span class="clisting">endswidth</span>:</p>
+<ul class="gp">
+<li><span class="ckursiv">s.startswidth(prefix[, start[, end]])</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">s.endswidth(suffix[, start[, end]])</span></li>
+</ul>
+<p>Die optionalen Parameter <span class="ckursiv">start</span> und <span class="ckursiv">end</span> können dabei &#8211; wie schon bei den Suchen- und Ersetzen-Methoden &#8211; die Abfrage auf einen bestimmten Bereich von <span class="ckursiv">s</span> begrenzen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = "www.galileo-computing.de" 
+&gt;&gt;&gt; s.startswith("www.") 
+True 
+&gt;&gt;&gt; s.endswith(".de") 
+True 
+&gt;&gt;&gt; s.startswith("galileo", 4) 
+True</pre></div>
+<h5 class="t5"><span class="cfett">Verkettung von Elementen in sequenziellen Datentypen</span></h5>
+<p>Eine häufige Aufgabe ist es, eine Liste von Strings mit einem Trennzeichen zu verketten. Beispielsweise könnte man die Namen in einer Kontaktliste seines Instant-Messengers durch Kommata getrennt ausgeben wollen. Für diesen Zweck stellt Python die Methode <span class="clisting">join</span> zur Verfügung:</p>
+<ul class="gp">
+<li><span class="ckursiv">s.join(seq)</span></li>
+</ul>
+<p>Der Parameter <span class="ckursiv">seq</span> ist dabei ein beliebiges iterierbares Objekt, dessen Elemente alle Strings sein müssen. Die Elemente von <span class="ckursiv">seq</span> werden mit <span class="ckursiv">s</span> als Trennzeichen verkettet. Kommen wir auf unser Kontaktlistenbeispiel zurück:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; kontakt_liste = ["Fix", "Foxy", "Lupo", "Dr. Knox"] 
+&gt;&gt;&gt; ", ".join(kontakt_liste) 
+'Fix, Foxy, Lupo, Dr. Knox'</pre></div>
+<p>Wird für <span class="ckursiv">seq</span> ein String übergeben, so ist das Ergebnis die Verkettung aller Buchstaben, jeweils durch <span class="ckursiv">s</span> voneinander getrennt:</p>
+<div class="listing"><pre class="prettyprint"><span class="clisting">&gt;&gt;&gt; satz = "Stoiber-Satz" 
+&gt;&gt;&gt; "...ehm...".join(satz) 
+'S...ehm...t...ehm...o...ehm...i...ehm...b...ehm...e...ehm...r...ehm...-...ehm...S...ehm...a...ehm...t...ehm...z'</span></pre></div>
+<h4 class="t4"><span class="cfett">Formatierung</span></h4>
+<p>Oft möchte man seine Bildschirmausgaben auf bestimmte Weise anpassen. Um beispielsweise eine dreispaltige Tabelle von Zahlen anzuzeigen, müssen abhängig von der Länge der Zahlen Leerzeichen eingefügt werden, damit die einzelnen Spalten untereinander angezeigt werden. Eine Anpassung der Ausgabe ist auch nötig, wenn man einen Geldbetrag ausgeben möchte, der in einer <span class="clisting">float</span>-Instanz gespeichert ist, die mehr als zwei Nachkommastellen besitzt.</p>
+<p>Für die Lösung solcher Probleme gibt es in Python den <span class="ckursiv">Formatierungsoperator</span> für Strings, das Prozentzeichen <span class="clisting">%</span>. Er erwartet zwei Operanden: als ersten Operanden einen String, der die Formatierung beschreibt, und als zweiten eine Sequenz, in der die Werte gespeichert sind, die man formatiert ausgeben möchte. Die Formatierungsbeschreibungen in dem String werden durch ein Prozentzeichen eingeleitet, dem im einfachsten Fall ein einzelner Buchstabe folgt. Dieser Buchstabe gibt an, welche Art von Daten man an dieser Stelle einfügen möchte. Ein <span class="clisting">d</span> steht beispielsweise für eine Ganzzahl:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="clisting"> "Es ist %d:%d Uhr" % (13, 37) 
+'Es ist 13:07 Uhr'</span></pre></div>
+<p>Es ist auch möglich, einen einzelnen Wert anstatt der Sequenz zu übergeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; x = 10 
+&gt;&gt;&gt;<span class="clisting"> "Der Wert von x ist %d" % x 
+'Der Wert von x ist 10'</span></pre></div>
+<p>Allerdings muss in jedem Fall die Anzahl der Formatierungsanweisungen mit der Anzahl der Werte übereinstimmen. Werden mehr oder weniger Werte als Formatierungsanweisungen übergeben, führt dies zu einem Fehler:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="clisting"> "Nur %d Formatierungsanweisungen" % (1, 1337) 
+Traceback (most recent call last):</span> 
+ <span class="clisting"> File "&lt;pyshell#53&gt;", line 1, in &lt;module&gt;</span> 
+   <span class="clisting"> "Nur %d Formatierungsanweisungen" % (1, 1337) 
+TypeError: not all arguments converted during string formatting</span></pre></div>
+<p>Das Ergebnis der Formatierung ist ein neuer String, in dem alle Formatierungsanweisungen in dem Ursprungsstring durch die entsprechenden Werte der Sequenz ersetzt wurden.</p>
+<p>Es existieren die folgenden Ausgabedatentypen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.21    </strong>Ausgabedatentypen für String-Formatierungen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Kennung</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d</span></p>
+</td>
+<td class="tabellentext">
+<p>Ganzzahl mit Vorzeichen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">i</span></p>
+</td>
+<td class="tabellentext">
+<p>Ganzzahl mit Vorzeichen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">o</span></p>
+</td>
+<td class="tabellentext">
+<p>Oktalzahl ohne Vorzeichen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">u</span></p>
+</td>
+<td class="tabellentext">
+<p>Ganzzahl ohne Vorzeichen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x</span></p>
+</td>
+<td class="tabellentext">
+<p>Hexadezimalzahl ohne Vorzeichen in Kleinbuchstaben</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">X</span></p>
+</td>
+<td class="tabellentext">
+<p>Hexadezimalzahl ohne Vorzeichen in Großbuchstaben</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">e</span></p>
+</td>
+<td class="tabellentext">
+<p>Fließkommazahl im wissenschaftlichen Format (kleines »e«)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">E</span></p>
+</td>
+<td class="tabellentext">
+<p>Fließkommazahl im wissenschaftlichen Format (großes »E«)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">f</span></p>
+</td>
+<td class="tabellentext">
+<p>Fließkommazahl in Dezimalschreibweise</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">F</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie <span class="clisting">f</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">g</span></p>
+</td>
+<td class="tabellentext">
+<p>Fließkommazahl in wissenschaftlicher Schreibweise, wenn der Exponent  kleiner als <span class="clisting">&#8211;4</span> ist, sonst in Dezimalschreibweise</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">G</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie <span class="clisting">g</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">c</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeichen (kann Strings der Länge eins und Ganzzahlen mit ASCII-Codes umwandeln)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">r</span></p>
+</td>
+<td class="tabellentext">
+<p>String (macht aus jeder Instanz einen String mit der Builtin-Function <span class="clisting">repr</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s</span></p>
+</td>
+<td class="tabellentext">
+<p>String (macht aus jeder Instanz einen String mit der Builtin-Function <span class="clisting">str</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt ein Prozentzeichen aus</p>
+</td>
+</tr>
+</table><br><p>Zwischen dem Prozentzeichen und dem Ausgabedatentyp können weitere Angaben gemacht werden, um die Ausgabe zu steuern. Betrachten wir ein Beispiel mit allen möglichen Angaben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="clisting"> "%+10.2f" % 123.45678 
+'</span>  <span class="clisting"> +123.46'</span></pre></div>
+<p>Das Pluszeichen <span class="clisting">+</span> am Anfang ist ein sogenanntes <span class="ckursiv">Umwandlungsflag</span> und sorgt dafür, dass bei Zahlen das Vorzeichen immer mit ausgegeben wird. Mit der Zahl <span class="clisting">10</span> nach dem Pluszeichen wird angegeben, wie viele Zeichen das Resultat auf jeden Fall haben soll. Wenn die angegebene <span class="ckursiv">Mindestlänge</span> unterschritten wird, füllt Python von links so lange mit Leerzeichen auf, bis der String lang genug ist. Die letzte Angabe, die aus einem Punkt und einer Zahl <span class="clisting">.2</span> besteht, bestimmt die sogenannte <span class="ckursiv">Genauigkeit</span> der Ausgabe. Ist keine Genauigkeit angegeben, wird für numerische Werte der Standardwert <span class="clisting">6</span> und für nichtnumerische Werte eine unendlich große Zahl verwendet. Bei Fließkommazahlen bestimmt die Genauigkeit die Anzahl der angezeigten Nachkommastellen, bei Zahlen in Exponentialschreibweise die Anzahl geltender Ziffern und bei Strings die maximale Länge der Formatierung.</p>
+<p>Python stellt fünf Umwandlungsflags zur Verfügung:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.22    </strong>Umwandlungsflags für String-Formatierungen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Flag</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">#</span></p>
+</td>
+<td class="tabellentext">
+<p>Setzt die Ausgabe in den alternativen Modus (wird im Folgenden erklärt).</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">0</span></p>
+</td>
+<td class="tabellentext">
+<p>Wenn die Mindestlänge bei numerischen Werten unterschritten wird, füllt Python mit der <span class="clisting">0</span> anstatt mit Leerzeichen von links auf.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">-</span></p>
+</td>
+<td class="tabellentext">
+<p>Wird die Mindestlänge unterschritten, wird anstatt von links von rechts aufgefüllt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>(ein Leerzeichen)</p>
+</td>
+<td class="tabellentext">
+<p>Vor einem numerischen Wert mit positivem Vorzeichen wird ein Leerzeichen eingefügt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">+</span></p>
+</td>
+<td class="tabellentext">
+<p>Vor numerischen Werten wird das Vorzeichen ausgegeben.</p>
+</td>
+</tr>
+</table><br><p>Es ist möglich, mehrere Umwandlungsflags hintereinander anzugeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="clisting"> "%0+10.2f" % 123.45678 
+'+000123.46'</span></pre></div>
+<p>Widersprechen sich die angegebenen Umwandlungsflags, wird die Angabe verwendet, die in der obigen Tabelle weiter unten steht: Wenn <span class="clisting">0</span> und das Minuszeichen angegeben sind, wird die <span class="clisting">0</span> ignoriert. Sind das Leerzeichen und <span class="clisting">+</span> angegeben, wird das Leerzeichen nicht beachtet.</p>
+<p>Der durch das Umwandlungsflag <span class="clisting">#</span> gesetzte <span class="ckursiv">alternative Modus</span> verändert die Ausgabe einiger Ausgabedatentypen wie folgt:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.23    </strong>Alternativer Modus der String-Formatierung
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Kennung</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">o</span></p>
+</td>
+<td class="tabellentext">
+<p>Vor der Oktalzahl wird eine Null (<span class="clisting">0</span>) eingefügt, wenn dort noch keine stand.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x</span></p>
+</td>
+<td class="tabellentext">
+<p>Vor der Hexadezimalzahl wird die Zeichenfolge <span class="clisting">0x</span> ausgegeben.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">X</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie bei <span class="clisting">x</span>, aber statt <span class="clisting">0x</span> mit <span class="clisting">0X</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">e</span></p>
+</td>
+<td class="tabellentext">
+<p>Es wird immer ein Dezimalpunkt ausgegeben, auch wenn keine Nachkommastellen folgen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">E</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie bei <span class="clisting">e</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">f</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie bei <span class="clisting">e</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">F</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie bei <span class="clisting">e</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">g</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie bei <span class="clisting">e</span>; zusätzlich werden Nullen am Ende nicht entfernt, wie es sonst der Fall wäre.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">G</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie bei <span class="clisting">g</span></p>
+</td>
+</tr>
+</table><br><p>Die Wirkungsweise des alternativen Modus wird durch die folgenden Beispiele noch einmal verdeutlicht:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="clisting"> "%o vs. %#o" % (26, 26) 
+'32 vs. 032' 
+&gt;&gt;&gt; "%x vs. %#x" % (26, 26) 
+'1a vs. 0x1a' 
+&gt;&gt;&gt; "%5.0e vs. %#5.0e" % (123.4567, 123.4567) 
+'1e+002 vs. 1.e+002' 
+&gt;&gt;&gt; "%g vs. %#g" % (1337, 1337) 
+'1337 vs. 1337.00'</span></pre></div>
+<h5 class="t5"><span class="cfett">Alternative Angabe von Werten</span></h5>
+<p>Insbesondere wenn in einem String sehr viele Werte formatiert werden sollen, ist die oben beschriebene Methode, bei der die Werte in einer Sequenz angegeben werden, sehr unübersichtlich. Python bietet deshalb eine Möglichkeit an, die Formatierungsanweisungen mit Namen zu versehen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s =<span class="clisting"> "%(vorname)s %(nachname)s (%(alter)d) sucht..." 
+&gt;&gt;&gt; s % {"vorname" : "Heinz", "nachname" : "Meier", "alter" : 30} 
+'Heinz Meier (30) sucht...'</span></pre></div>
+<p>Die Namen werden in dem Formatstring direkt hinter dem Prozentzeichen in runden Klammern angegeben.</p>
+<p>Dem Formatierungsoperator muss dann anstelle der Wertesequenz eine Zuordnung von Namen und Werten folgen. Diese Zuordnung wird von geschweiften Klammern begrenzt, die eine durch Kommata getrennte Liste von Name-Wert-Paaren umschließen. In den Paaren werden die Namen durch Doppelpunkte von den dazugehörigen Werten getrennt. [Bei diesen Zuordnungen handelt es sich um den Python-Datentyp <span class="ckursiv">Dictionary</span>, den wir ausführlich in Abschnitt <a href="#Rxx_ref180676890">8.6.1</a> behandeln.
+] </p>
+<p>Als dritte und letzte Möglichkeit der Werteübergabe ist es möglich, auch die Mindestlänge von dem Format-String in die Wertesequenz zu verlagern. Um dies zu erreichen, wird in den Formatstring anstelle der Mindestlänge ein Sternchen <span class="clisting">*</span> geschrieben. In der Wertesequenz werden dann zwei Werte für diese Formatierung benutzt: Zuerst wird die Länge und dann der eigentliche Wert gelesen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="clisting"> "Freie Platzwahl: %*d" % (5, 123) 
+'Freie Platzwahl:</span>  <span class="clisting"> 123'</span></pre></div>
+<p>Im obigen Beispiel wurde die Zahl <span class="clisting">123</span> auf eine Breite von <span class="clisting">5</span> Stellen formatiert. Man kann die direkte Breitenangabe innerhalb des Format-Strings mit der Angabe innerhalb der Sequenz kombinieren, wie das folgende Beispiel demonstriert:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="clisting"> "Im Format-String: %6d. In der Sequenz: %*d" %</span> (11, 3, 7) 
+'Im Format-String:     11. In der Sequenz:   7'</pre></div>
+<p>Hier wurde die Zahl <span class="clisting">11</span> direkt über den Formatstring auf eine Mindestlänge von sechs Zeichen formatiert, während die <span class="clisting">7</span>  durch die in dem Tupel angegebene Zahl <span class="clisting">3</span> formatiert wurde.</p>
+<h4 class="t4"><span class="cfett">Zeichensätze und Sonderzeichen</span></h4>
+<p>Bisher haben wir uns der Einfachheit halber nur mit Strings beschäftigt, die keine Sonderzeichen (wie Umlaute oder das €-Zeichen) beinhalten. Die Besonderheiten beim Umgang mit solchen Zeichen liegen zum Teil an der geschichtlichen Entwicklung der Zeichenkodierung. Deshalb werden wir diese im Folgenden kurz umreißen.</p>
+<p>Zuerst müssen wir eine Vorstellung davon entwickeln, wie ein Computer intern mit Zeichenketten umgeht. Generell lässt sich sagen, dass der Computer eigentlich überhaupt keine Zeichen kennt, da sich in seinem Speicher nur Zahlen befinden. Um trotzdem Bildschirmausgaben zu produzieren oder andere Operationen mit Zeichen durchzuführen, hat man deshalb Übersetzungstabellen, die sogenannten <span class="ckursiv">Codepages</span> (dt. <span class="ckursiv">Zeichensatztabellen</span>) definiert, die jedem Buchstaben eine bestimmte Zahl zuordnen. Der bekannteste und wichtigste Zeichensatz ist durch die <span class="ckursiv">ASCII-Tabelle</span> [American Standard Code for Information Interchange (dt. <span class="ckursiv">Amerikanische Standardkodierung für den Informationsaustausch</span>)
+]  festgelegt.</p>
+<p>Durch diese Zuordnung werden neben den Buchstaben und Ziffern auch Satz- und einige Sonderzeichen abgebildet. Außerdem existieren nicht druckbare Steuerzeichen, wie der Tabulator oder der Zeilenvorschub. Die ASCII-Tabelle ist eine 7-Bit-Zeichenkodierung, das bedeutet, dass von jedem Buchstaben 7Bit Speicherplatz belegt werden. Es können also 27 = 128 verschiedene Zeichen abgebildet werden. Die Definition des ASCII-Zeichensatzes orientiert sich am Alphabet der englischen Sprache, das insbesondere keine Umlaute wie »ä« oder »ü« enthält. Um auch solche Sonderzeichen in Strings abspeichern zu können, erweiterte man den ASCII-Code, indem man den Speicherplatz für ein Zeichen um ein Bit auf 28 = 256 Möglichkeiten erhöhte, was 128 Plätze für weitere Sonderzeichen bot. Welche Interpretation konkret für diese weiteren Plätze verwendet wird, hängt von der verwendeten Codepage ab und unterscheidet sich in der Regel zwischen verschiedenen Plattformen.</p>
+<p>Pythons <span class="clisting">str</span>-Datentyp implementiert einen solchen 8-Bit-String und ist im Prinzip nichts anderes als eine Kette von Bytes. Um den Zahlenwert eines Zeichens zu ermitteln, gibt es in Python die Built-in-Function <span class="clisting">ord</span>, die als einzigen Parameter einen String der Länge eins erwartet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ord(<span class="clisting">"j"</span>) 
+106 
+&gt;&gt;&gt; ord(<span class="clisting">"[") 
+91</span></pre></div>
+<p>Umgekehrt liefert die Built-in-Function <span class="clisting">chr</span> das zu einem Byte gehörige Zeichen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; chr(106)<span class="clisting"> 
+'j'</span><br>
+<span class="clisting">&gt;&gt;&gt; chr(91) 
+'['</span></pre></div>
+<p>Die Beispiele oben beziehen sich nur auf Zeichen mit Ordnungszahlen, die kleiner als 128 sind und damit noch im ASCII-Bereich liegen. Interessanter ist das folgende Beispiel:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ord(<span class="clisting">"ä") 
+228</span></pre></div>
+<p>Auf dem Computer, der dieses Beispiel ausgeführt hat, läuft eine Version von Microsoft Windows für Westeuropa, die standardmäßig eine Codepage mit dem Namen »Windows-1252« verwendet. »Windows-1252« bildet alle wichtigen Zeichen für Westeuropa, das Eurozeichen inbegriffen, ab. Wenn Sie das Beispiel ausführen und eine andere Zahl als 228 auf dem Bildschirm sehen, liegt das einfach daran, dass Ihr Computer eine andere Codepage als »Windows-1252« verwendet.</p>
+<p>Wir haben uns bereits während der Einführung zu Strings mit Escape-Sequenzen beschäftigt. In Bezug auf Sonderzeichen spielen sie eine zentrale Rolle:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; "Überprüfung der Änderungen" 
+'\xdcberpr\xfcfung der \xc4nderungen'</pre></div>
+<p>Was auf den ersten Blick kryptisch erscheint, hat eine einfache Struktur: Wie Sie bereits wissen, wird durch den Backslash <span class="clisting">\</span> innerhalb von String-Literalen eine Escape-Sequenz eingeleitet. Die Escape-Sequenz mit der Kennung <span class="clisting">x</span> ermöglicht es, einzelne Bytes in <span class="clisting">str</span>-Instanzen direkt zu kodieren. Sie erwartet eine zweistellige Hexadezimalzahl als Parameter, die direkt hinter das <span class="clisting">x</span> geschrieben wird. Der Wert dieses Parameters gibt den Zahlenwert des Bytes an, im Beispiel also <span class="clisting">0xdc = 220</span> (<span class="clisting">"Ü"</span>), <span class="clisting">0xfc = 252</span> (<span class="clisting">"ü"</span>)  und <span class="clisting">0xc4 = 196</span> (<span class="clisting">"Ä"</span>). Diese Zahlen hat Python der aktuellen Codepage entnommen, in der sie genau den angegebenen Zeichen entsprechen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> print</span> chr(220), chr(252), chr(196) 
+Ü ü Ä</pre></div>
+<p>Diese Kodierung von Sonderzeichen hat den Vorteil, dass der Quelltext nur aus normalen ASCII-Zeichen besteht und beim Abspeichern und Verteilen nicht mehr auf die verwendete Codepage geachtet werden muss.</p>
+<p>Allerdings bringt eine solche Kodierung zwei wichtige Nachteile mit sich: Zum einen ist die Anzahl möglicher Zeichen auf 256 begrenzt, und zum anderen muss jemand, der einen so kodierten String verarbeiten will, wissen, welche Codepage verwendet wurde, weil sich viele Codepages widersprechen. Den zweiten Nachteil kann man eher als Schönheitsfehler betrachten, da eine einfache Lösung darin besteht, einfach zu jedem String die verwendete Kodierung mit anzugeben. Ein wirklicher Mangel ist dagegen die Begrenzung der Zeichenanzahl. Stellen Sie sich mal einen String vor, der eine Ausarbeitung über Autoren aus verschiedenen Sprachräumen mit Originalzitaten enthält: Sie würden aufgrund der vielen verschiedenen Alphabete sehr schnell an die Grenze der 8-Bit-Kodierung stoßen und könnten das Werk nicht digitalisieren. Oder stellen Sie sich vor, Sie wollen einen Text in chinesischer Sprache kodieren, was durch die über 10.000 Schriftzeichen unmöglich würde.</p>
+<p>Ein naheliegender Lösungsansatz für dieses Problem bestand darin, den Speicherplatz pro Zeichen zu erhöhen, was aber neue Nachteile mit sich brachte. Verwendet man beispielsweise 16 Bits für jedes einzelne Zeichen, ist die Anzahl der Zeichen immer noch auf 65.536 begrenzt, und man muss davon ausgehen, dass die Sprachen sich weiterentwickeln werden und somit auch diese Anzahl einmal nicht mehr ausreichen wird. [Es ist tatsächlich so, dass 16 Bit schon heute nicht mehr ausreichen, um alle Zeichen der menschlichen Sprache zu kodieren.
+]  Außerdem würde sich im 16-Bit-Beispiel der Speicherplatzbedarf für einen String verdoppeln, weil für jedes Zeichen doppelt so viele Bits wie bei erweiterter ASCII-Kodierung verwendet würden, und das, obwohl ein Großteil aller Texte hauptsächlich aus einer kleinen Teilmenge aller vorhandenen Zeichen besteht. Die einfache Speicherplatzerhöhung für jedes einzelne Zeichen ist also keine wirkliche Lösung, denn das Problem wird irgendwann wieder auftreten, wenn die neu gesetzte Schranke erneut überschritten wird. Außerdem wird unnötig Speicherplatz vergeudet.</p>
+<p>Eine langfristige Lösung für das Kodierungsproblem wurde schließlich durch den Standard namens <span class="ckursiv">Unicode</span> erarbeitet, der variable Kodierungslängen für einzelne Zeichen vorsieht. Im Prinzip ist Unicode eine riesige Tabelle, die jedem bekannten Zeichen eine Zahl, den sogenannten <span class="ckursiv">Codepoint</span> zuweist. Diese Tabelle wird vom <span class="ckursiv">Unicode Consortium</span>, einer gemeinnützigen Institution, gepflegt und ständig erweitert. Codepoints werden in der Regel als »U+<span class="ckursiv">x</span>« geschrieben, wobei <span class="ckursiv">x</span> die hexadezimale Repräsentation des Codepoints ist. Das wirklich Neue an Unicode ist das Verfahren UTF (Unicode Transformation Format), das Codepoints durch Byte-Folgen unterschiedlicher Länge darstellen kann. Es gibt verschiedene dieser Transformationsformate, aber das wichtigste und am weitesten verbreitete ist UTF-8. UTF-8 verwendet bis zu 7 Byte, um ein einzelnes Zeichen zu kodieren, wobei die tatsächliche Länge von der Häufigkeit des Zeichens in Texten abhängt. So lassen sich zum Beispiel alle Zeichen des ASCII-Standards mit jeweils einem Byte kodieren, das zusätzlich den gleichen Zahlenwert wie die entsprechende ASCII-Kodierung des Zeichens hat. Durch dieses Vorgehen wird erreicht, dass jeder mit ASCII kodierte String auch gültiger UTF-8-Code ist: UTF-8 ist zu ASCII abwärtskompatibel. Wie das technisch genau realisiert worden ist, soll uns an dieser Stelle nicht weiter beschäftigen, sondern uns interessiert in erster Linie, wie wir Unicode mit Python nutzen können.</p>
+<p>Python bietet dem Programmierer neben dem bereits bekannten Datentyp <span class="clisting">str</span>, der Strings als Ketten von Bytes abstrahiert, den Datentyp <span class="clisting">unicode</span>, der Strings als Ketten von Zeichen darstellt, wobei jedes beliebige Unicode-Zeichen unterstützt wird. Um eine <span class="clisting">unicode</span>-Instanz zu erzeugen, dient ein normales String-Literal, dem ein <span class="clisting">u</span> bzw. ein <span class="clisting">U</span> vorangestellt wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; mein_unicode = u"Hallo Welt" 
+&gt;&gt;&gt; type(mein_unicode) 
+&lt;type 'unicode'&gt; 
+&gt;&gt;&gt;<span class="cfett"> print</span> mein_unicode 
+Hallo Welt</pre></div>
+<p><span class="clisting">unicode</span>-Instanzen haben alle Methoden, die Sie schon von <span class="clisting">str</span> kennen, und sind dementsprechend genauso komfortabel nutzbar:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; u = u"Überprüfung der Änderungen" 
+&gt;&gt;&gt;<span class="cfett"> print</span> u.upper() 
+ÜBERPRÜFUNG DER ÄNDERUNGEN</pre></div>
+<p>Wie bereits von <span class="clisting">str</span> bekannt, erzeugt die Ausgabe ohne <span class="clisting">print</span> im interaktiven Modus auch für <span class="clisting">unicode</span>-Instanzen ein Literal, in dem alle Sonderzeichen als Escape-Sequenzen kodiert sind, was zur Folge hat, dass für das Literal nur ASCII-Zeichen verwendet werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; u"Überprüfung der Änderungen" 
+u'\xdcberpr\xfcfung der \xc4nderungen'</pre></div>
+<p>Die durch <span class="clisting">\x</span> eingeleitete Escape-Sequenz wird innerhalb von <span class="clisting">unicode</span>-Literalen nur für die ersten 256 Codepoints verwendet, damit die Literale genauso wie normaler ASCII-Code aussehen. Um einen beliebigen Codepoint direkt mit seinem Zahlenwert anzugeben, dient die Escape-Sequenz, die mit <span class="clisting">\u</span> eingeleitet wird. Hinter das <span class="clisting">\u</span> wird die hexadezimal kodierte Zahl des Codepoints geschrieben. Das Eurozeichen »€« hat beispielsweise den Codepoint »U+20ac« und lässt sich folgendermaßen maskieren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = u"\u20ac" 
+&gt;&gt;&gt; print s 
+€</pre></div>
+<p>Der Datentyp <span class="clisting">unicode</span> eignet sich wunderbar für die Arbeit mit Text-Strings in Python-Programmen und vereinfacht dabei den Umgang mit internationalen Schriftzeichen ernorm. Allerdings gibt es einige Besonderheiten, die bei der Verwendung von <span class="clisting">unicode</span> beachtet werden müssen. Unicode abstrahiert von Bytes zu Zeichen, was für den Programmierer angenehmer ist, auf Maschinenebene aber den Nachteil mit sich bringt, dass solche Strings nicht einfach in Byte-Ketten gespeichert werden können. Möchte man aber beispielsweise Daten auf der Festplatte ablegen, sie über das Netzwerk versenden oder mit anderen Programmen austauschen, ist man auf die Gegebenheiten der Maschine und damit auch die Byte-Ketten beschränkt. Es muss also Möglichkeiten geben, aus einem abstrakten <span class="clisting">unicode</span>-String eine konkrete Byte-Folge zu erzeugen und umgekehrt. <span class="clisting">unicode</span>-Instanzen haben eine Methode <span class="clisting">encode</span>, die als Parameter den Namen der gewünschten Kodierung enthält, zum Beispiel <span class="clisting">"utf8"</span>. Das Ergebnis dieser Umwandlung ist eine <span class="clisting">str</span>-Instanz, die die Repräsentation des Strings in der übergebenen Kodierung enthält. Um aus einer kodierten <span class="clisting">str</span>-Instanz wieder ein <span class="clisting">unicode</span>-Objekt zu machen, dient die Methode <span class="clisting">decode</span>. Sie erwartet als Parameter den Namen der Kodierungsvorschrift, die beim Erzeugen des Strings verwendet wurde:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s_unicode = u"Überprüfung der Änderungen in \u20ac" 
+&gt;&gt;&gt; s 
+u'\xdcberpr\xfcfung der \xc4nderungen in \u20ac' 
+&gt;&gt;&gt; s_utf8 = s.encode("utf8") 
+&gt;&gt;&gt; s_utf8 
+'\xc3\x9cberpr\xc3\xbcfung der \xc3\x84nderungen in \xe2\x82\xac' 
+&gt;&gt;&gt; t = s_utf8.decode("utf8") 
+&gt;&gt;&gt; t 
+u'\xdcberpr\xfcfung der \xc4nderungen in \u20ac'</pre></div>
+<p>Im Beispiel erzeugen wir zuerst die <span class="clisting">unicode</span>-Instanz <span class="clisting">s_unicode</span>, die neben drei direkt eingegebenen Sonderzeichen auch ein maskiertes Eurozeichen enthält. Anschließend nutzen wir die Methode <span class="clisting">encode</span>, um die UTF-8-Repräsentation von <span class="clisting">s_unicode</span> zu ermitteln und mit der Referenz <span class="clisting">s_utf8</span> zu verknüpfen. In der Ausgabe von <span class="clisting">s_utf8</span> sehen wir, dass für die Kodierung der Umlaute zwei und für die des Eurozeichens sogar drei Bytes verwendet wurden. Am Ende erhalten wir eine neue <span class="clisting">unicode</span>-Instanz, die den gleichen Inhalt hat wie <span class="clisting">s_unicode</span>, indem wir       <span class="clisting">s_utf8</span> mithilfe von <span class="clisting">decode</span> als UTF-8-String interpretieren.</p>
+<p>Innerhalb eines einzelnen Programms ist es wenig sinnvoll, <span class="clisting">unicode</span>-Strings erst zu kodieren und dann wieder zu dekodieren, da man intern sehr bequem mit ihnen arbeiten kann. Wichtig wird die Kodierung erst, wenn man die enthaltenen Daten senden oder speichern möchte, wobei der Kommunikationskanal oder das Speichermedium nur mit Bytes arbeiten kann.</p>
+<p>Folgendes Schema veranschaulicht den Transfer von Unicode mithilfe von Kodierung und Dekodierung:</p>
+<div class="bildbox">
+<p><a name="IDARTVQ"></a><a onClick="OpenWin('bilder/kodierung-dekodierung.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinkodierung-dekodierung.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 8.6    </strong>Schematische Darstellung eines Unicode-Transfers</p>
+<p>Angenommen, Programm 1 erzeugt einen <span class="clisting">unicode</span>-String <span class="clisting">s</span>, der zum Beispiel ein »ü« enthält. Nun soll diese Zeichenkette über eine Netzwerkverbindung, die nur Bytefolgen übertragen kann, an Programm 2 gesendet werden. Dazu wird <span class="clisting">s</span> zuerst in sein UTF-8-Äquivalent überführt und dann &#8211; wie genau ist hier nicht wichtig &#8211; über das Netzwerk an Programm 2 gesendet, wo es wieder dekodiert und anschließend verwendet werden kann.</p>
+<p>Als Faustregeln für den Umgang mit dem Datentyp <span class="clisting">unicode</span> kann man sich Folgendes merken:</p>
+<ul class="gp">
+<li>Benutzen Sie nur für Binärdaten <span class="clisting">str</span>.</li>
+</ul>
+<ul class="gp">
+<li>Verwenden Sie für alle Textdaten, die das Programm verwendet, <span class="clisting">unicode</span>-Instanzen.</li>
+</ul>
+<ul class="gp">
+<li>Kodieren Sie <span class="clisting">unicode</span>-Daten beim Speichern oder beim Datenversand zu anderen Programmen nach einer bestimmten Methode.</li>
+</ul>
+<ul class="gp">
+<li>Gewinnen Sie beim Lesen und Empfangen der Daten mit dem entsprechenden Kodierungsverfahren wieder die <span class="clisting">unicode</span>-Instanzen zurück.</li>
+</ul>
+<p>Wenn man diese Regeln konsequent einhält, kann das Programm mit beliebigen Sonderzeichen umgehen, ohne dass besondere Anpassungen notwendig werden, weil sich eine <span class="clisting">unicode</span>-Instanz genauso handhaben lässt wie ein <span class="clisting">str</span>-Objekt. Dadurch wird nicht nur die Übersetzung, sondern auch der allgemeine Umgang mit Textdaten vereinfacht, weil sich der Programmierer nicht mehr mit den Beschränkungen der Maschine beschäftigen muss. Er muss nur dafür Sorge tragen, dass die Schnittstellen nach außen enkodierte Daten bereitstellen.</p>
+<h5 class="t5"><span class="cfett">Codecs</span></h5>
+<p>Bis jetzt sind wir nur mit den beiden Kodierungsverfahren »Windows-1252« und »UTF-8« in Berührung gekommen. Es gibt neben diesen beiden noch eine ganze Reihe weiterer Verfahren, von denen Python viele von Haus aus unterstützt. Jede dieser Kodierungen hat in Python einen String als Namen, den man der <span class="clisting">encode</span>-Methode übergeben kann. Die folgende Tabelle zeigt exemplarisch ein paar dieser Namen. Alle Kodierungen, die Python unterstützt, können Sie dem Anhang entnehmen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.24    </strong>Drei der von Python unterstützten Encodings
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Name in Python</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Eigenschaften</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">"ascii"</span></p>
+</td>
+<td class="tabellentext">
+<p>Kodierung mithilfe der ASCII-Tabelle. Englisches Alphabet, Ziffern, Satzzeichen und Steuerzeichen. Ein Byte pro Zeichen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">"utf8"</span></p>
+</td>
+<td class="tabellentext">
+<p>Kodierung für alle Unicode-Codepoints. Abwärtskompatibel zu ASCII. Variable Anzahl Bytes pro Zeichen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">"cp1252"</span></p>
+</td>
+<td class="tabellentext">
+<p>Kodierung für Westeuropa, die von Windows verwendet wird. Zusätzlich zu den ASCII-Zeichen Unterstützung für europäische Sonderzeichen, insbesondere das Eurozeichen. Abwärtskompatibel zu ASCII. Ein Byte pro Zeichen.</p>
+</td>
+</tr>
+</table><br><p>Wenn Sie nun versuchen, einen <span class="clisting">unicode</span>-String mit einem Kodierungsverfahren zu enkodieren, das nicht für alle in dem String enthaltenen Zeichen geeignet ist, führt dies zu einem Fehler (U+03a9 ist der Codepoint des großen Omega ):</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = u"\u03a9" 
+&gt;&gt;&gt;<span class="cfett"> print</span> s 
+ 
+&gt;&gt;&gt; s.encode("cp1252") 
+Traceback (most recent call last): 
+  File "&lt;pyshell#191&gt;", line 1, in &lt;module&gt; 
+    t = s.encode("cp1252") 
+  File "C:\Python25\lib\encodings\cp1252.py", line 12, in encode 
+    return codecs.charmap_encode(input,errors,encoding_table) 
+UnicodeEncodeError: 'charmap' codec can't encode character  '\u03a9' in position 0: character maps to &lt;undefined&gt;</pre></div>
+<p>Wie aus dem Beispiel ersichtlich ist, unterstützt »Windows-1252« das Omega-Zeichen nicht, weshalb das Enkodieren mit einer Fehlermeldung quittiert wird. Es ergibt sich ein Problem, wenn man mit Kodierungen arbeitet, die nicht jedes beliebige Zeichen verarbeiten können: Man kann nie sicher sein, dass die beispielsweise vom Benutzer eingegebenen Daten unterstützt werden, und läuft deshalb Gefahr, bei der Verarbeitung sein Programm abstürzen zu lassen. Um dieses Problem zu umgehen, bieten die Methoden <span class="clisting">encode</span> und <span class="clisting">decode</span> einen optionalen Parameter namens <span class="ckursiv">errors</span> an, der die Vorgehensweise in solchen Fehlerfällen definiert. Für <span class="ckursiv">errors</span> können die folgenden Werte übergeben werden: [Dabei handelt es sich um spezielle Formatierungen zur Darstellung von Sonderzeichen in XML-Dateien. Näheres zu XML-Dateien erfahren Sie in Abschnitt <a href="./python_kapitel_19_002.htm#Rxx_ref180677619">19.2</a>.
+] </p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.25    </strong>Werte für den <span class="ckursiv">errors</span>-Parameter von encode und decode
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Wert</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">"strict"</span></p>
+</td>
+<td class="tabellentext">
+<p>Standardeinstellung. Jedes nicht kodierbare Zeichen führt zu einem Fehler.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">"ignore"</span></p>
+</td>
+<td class="tabellentext">
+<p>Nicht kodierbare Zeichen werden ignoriert.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">"replace"</span></p>
+</td>
+<td class="tabellentext">
+<p>Nicht kodierbare Zeichen werden durch einen Platzhalter ersetzt:</p>
+<p>Beim Enkodieren durch das Fragezeichen <span class="clisting">"?"</span>, beim Dekodieren durch das Unicode-Zeichen U+FFFD.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">"xmlcharrefreplace"</span></p>
+</td>
+<td class="tabellentext">
+<p>Nicht kodierbare Zeichen werden durch ihre XML-Entität ersetzt.<a href="#Rxx31172"><sup>9  </sup></a> (Nur bei <span class="clisting">encode</span> möglich.)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">"backslashreplace"</span></p>
+</td>
+<td class="tabellentext">
+<p>Nicht kodierbare Zeichen werden durch eine Escape-Sequenz ersetzt. (Nur bei <span class="clisting">encode</span> möglich.)</p>
+</td>
+</tr>
+</table><br><p>Wir betrachten das letzte Beispiel mit anderen Werten für <span class="ckursiv">errors</span>:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; s = u"\u03a9" 
+&gt;&gt;&gt;<span class="cfett"> print</span> s 
+ 
+&gt;&gt;&gt; s.encode("cp1252", "replace") 
+'?' 
+&gt;&gt;&gt; s.encode("cp1252", "xmlcharrefreplace") 
+'&amp;#937;' 
+&gt;&gt;&gt; s.encode("cp1252", "backslashreplace") 
+'\\u03a9'</pre></div>
+<p>Damit es erst gar nicht nötig wird, Kodierungsprobleme durch diese Hilfsmittel zu umgehen, sollten Sie nach Möglichkeit immer zu allgemeinen Kodierungsverfahren wie UTF-8 greifen.</p>
+<h4 class="t4"><span class="cfett">Encoding-Deklaration</span></h4>
+<p>Damit Sonderzeichen nicht nur innerhalb von Strings, sondern auch in Kommentaren geschrieben werden dürfen, muss im Kopf einer Python-Programmdatei eine sogenannte <span class="ckursiv">Encoding-Deklaration</span> stehen. Dies ist eine Zeile, die das Encoding kennzeichnet, in dem die Programmdatei gespeichert wurde.</p>
+<p>Das ist nur dann wichtig, wenn Sie in der Programmdatei Buchstaben oder Zeichen verwendet haben, die nicht im englischen Alphabet enthalten sind. Ein Encoding ermöglicht es dem Python-Interpreter dann, diese Zeichen korrekt zuzuordnen. Eine Encoding-Deklaration sieht folgendermaßen aus und steht in der Regel direkt unter der Shebang-Zeile [Die Bedeutung einer Shebang-Zeile wurde in Abschnitt <a href="./python_kapitel_03_002.htm#Rxx_ref180149917">3.2.1</a> geklärt.
+]  bzw. in der ersten Zeile der Programmdatei:</p>
+<div class="listing"><pre class="prettyprint"><span class="clisting"># -*- coding: cp1252 -*-</span></pre></div>
+<p>In diesem Fall wurde das Windows-Encoding <span class="clisting">cp1252</span> verwendet.</p>
+<p>Beachten Sie, dass aus Gründen der Übersichtlichkeit in keinem Beispielprogramm des Buchs eine Encoding-Deklaration enthalten ist. Das bedeutet aber ausdrücklich nicht, dass der Einsatz einer Encoding-Deklaration grundsätzlich falsch wäre.</p>
+<p>Die in diesem Buch vorgestellten Beispielprogramme enthalten nicht nur keine Encoding-Deklaration, sondern sind auch ohne sie lauffähig.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_08_005.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="8.5 Sequenzielle Datentypen"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_08_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_08_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

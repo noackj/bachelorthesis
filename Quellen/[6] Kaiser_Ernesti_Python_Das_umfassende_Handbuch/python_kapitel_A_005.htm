@@ -1,0 +1,1122 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – A.5 Built-in Functions</title>
+<meta name="title" content="Galileo Computing :: Python - A.5 Built-in Functions">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – A.5 Built-in Functions">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_A_004.htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_A_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="stichwort.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05" class="navnav">A Anhang</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_A_001.htm#mjc54aa458385cd5ca912d2b5c6fc864c0" class="navnav">A.1 Entwicklungsumgebungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_A_001.htm#mj03f9bc3c08e27807d0aa6eb0774dd028" class="navnav">A.1.1 Eclipse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_A_001.htm#mjab52fe201bf66bb303129193ade2997a" class="navnav">A.1.2 Eric4</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_A_001.htm#mjda915be8ce550c510e96a9a3bb37307f" class="navnav">A.1.3 Komodo IDE</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_A_001.htm#mj9c0503e171548cb851aced8b62b17cfe" class="navnav">A.1.4 Wing IDE</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_A_002.htm#mj2146e2393a9c5a7a5df0543ec9f586d4" class="navnav">A.2 Reservierte Wörter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_A_003.htm#mjef34c3d115e05ab63f4a425b4c448872" class="navnav">A.3 Operatorrangfolge</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_A_004.htm#mj4e8301d7d65c0513d8630d9a0d039113" class="navnav">A.4 Built-in Exceptions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjcde9811c267ad6db00eb9cfe45550754" class="navh">A.5 Built-in Functions</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjcde9811c267ad6db00eb9cfe45550754" name="mjcde9811c267ad6db00eb9cfe45550754"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">A.5</span><span class="cfett"> Built-in Functions</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Python enthält eine Menge Built-in Function, die aus didaktischen Gründen an verschiedenen Stellen des Buchs eingeführt wurden. Deshalb gibt es im Buch bislang keine Liste aller Built-in Functions. Die folgende <span class="ckursiv">Tabelle</span> listet alle Built-in Functions mitsamt einer kurzen Beschreibung und einem Vermerk auf, wo die Funktion ausführlich behandelt wird. Beachten Sie, dass die Funktionen in dieser Tabelle ohne Parametersignaturen angegeben werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle A.6    </strong>Built-in Functions in Python
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Built-in Function</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Erklärt auf</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">__import__</span></p>
+</td>
+<td class="tabellentext">
+<p>Bindet ein Modul oder Paket ein.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_11_004.htm#Rxx_ref180779414">226</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">abs</span></p>
+</td>
+<td class="tabellentext">
+<p>Berechnet den Betrag einer Zahl.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref178714202">195</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">all</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob alle Elemente einer Sequenz <span class="clisting">True</span> ergeben.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref178714240">195</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">any</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob mindestens ein Element einer Sequenz <span class="clisting">True</span> ergibt.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref178714384">196</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">bool</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt einen booleschen Wert.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180776638">196</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">callable</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt an, ob eine Instanz aufrufbar ist.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">chr</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt das Zeichen mit einem bestimmten ASCII-Code zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180776748">196</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">classmethod</span></p>
+</td>
+<td class="tabellentext">
+<p>Ähnlich wie <span class="clisting">staticmethod</span>, aber die mit <span class="clisting">classmethod</span> dekorierten Methoden erwarten als ersten Parameter die Klasse, mit der sie aufgerufen werden. Dieser Parameter heißt in der Regel <span class="clisting">cls</span> und ist mit dem <span class="clisting">self</span> von gewöhnlichen Methoden vergleichbar.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">cmp</span></p>
+</td>
+<td class="tabellentext">
+<p>Vergleicht zwei Werte miteinander.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180776789">196</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">complex</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine komplexe Zahl.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180776828">197</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">delattr</span></p>
+</td>
+<td class="tabellentext">
+<p>Löscht ein bestimmtes Attribut einer Instanz.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">dict</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein Dictionary.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180776867">197</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">dir</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt eine Liste aller Attribute eines Objekts zurück.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">divmod</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt ein Tupel mit dem Ergebnis einer Ganzzahldivision und dem Rest zurück.</p>
+<p><span class="clisting">divmod(a, b)</span> ist äquivalent zu <span class="clisting">(a // b, a % b)</span></p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180776898">198</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">eval</span></p>
+</td>
+<td class="tabellentext">
+<p>Wertet einen Python-Ausdruck aus.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_13_006.htm#Rxx_ref180777050">306</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">execfile</span></p>
+</td>
+<td class="tabellentext">
+<p>Führt eine Python-Programmdatei aus.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">file</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein Dateiobjekt.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777066">198</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">filter</span></p>
+</td>
+<td class="tabellentext">
+<p>Ermöglicht es, bestimmte Elemente einer Liste herauszufiltern.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777076">199</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">float</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Gleitkommazahl.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777086">199</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">frozenset</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine unveränderliche Menge.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777097">199</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">getattr</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt ein bestimmtes Attribut einer Instanz zurück.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">globals</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt ein Dictionary mit allen Referenzen des globalen Namensraums zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777111">200</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">hasattr</span></p>
+</td>
+<td class="tabellentext">
+<p>Überprüft, ob eine Instanz über ein bestimmtes Attribut verfügt.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">hash</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt den Hash-Wert einer Instanz zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777128">200</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">help</span></p>
+</td>
+<td class="tabellentext">
+<p>Startet die eingebaute interaktive Hilfe von Python.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777128">200</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">hex</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt den Hexadezimalwert einer ganzen Zahl in Form eines Strings zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777155">201</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">id</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt die Identität einer Instanz zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777186">201</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">input</span></p>
+</td>
+<td class="tabellentext">
+<p>Liest einen Python-Ausdruck vom Benutzer ein.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777197">201</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">int</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine ganze Zahl mit begrenztem Zahlenraum.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777208">202</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">isinstance</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob ein Objekt Instanz einer bestimmten Klasse ist.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">issubclass</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob eine Klasse von einer bestimmten Basisklasse erbt.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">iter</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein Iterator-Objekt.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_13_005.htm#Rxx_ref180777250">299</a>, <a href="./python_kapitel_13_005.htm#Rxx_ref180777268">303</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">len</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt die Länge einer bestimmten Instanz zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref178715584">202</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">list</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Liste.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180776577">202</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">locals</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt ein Dictionary zurück, das alle Referenzen des lokalen Namensraums enthält.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777303">202</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">long</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine ganze Zahl mit unbegrenztem Zahlenraum.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777352">203</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">map</span></p>
+</td>
+<td class="tabellentext">
+<p>Wendet eine Funktion auf jedes Element einer Liste an.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777368">203</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">max</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt das größte Element einer Sequenz zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777394">204</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">min</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt das kleinste Element einer Sequenz zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777404">205</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">object</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt die einfachste Form einer Instanz zurück, wenn sie aufgerufen wird.</p>
+<p>Außerdem dient <span class="clisting">object</span> als Basisklasse für alle new-style classes.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_12_001.htm#Rxx_ref180777432">234</a>, <a href="./python_kapitel_12_001.htm#Rxx_ref180777447">249</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">oct</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt den Oktalwert einer ganzen Zahl in Form eines Strings zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777458">205</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">open</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein Dateiobjekt.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_09_003.htm#Rxx_ref180777473">175</a>, <a href="./python_kapitel_10_007.htm#Rxx_ref180777484">205</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">ord</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt den Unicode-Code eines bestimmten Zeichens zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777498">205</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">pow</span></p>
+</td>
+<td class="tabellentext">
+<p>Führt eine Potenzoperation durch.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777508">206</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">property</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein managed attribute.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_12_001.htm#Rxx_ref180777521">245</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">range</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine Liste mit fortlaufend numerischen Elementen.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_06_002.htm#Rxx_ref172568196">65</a> ,<a href="./python_kapitel_10_007.htm#Rxx_ref180777584">206</a>, <a href="./python_kapitel_13_005.htm#Rxx_ref180777250">299</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">raw_input</span></p>
+</td>
+<td class="tabellentext">
+<p>Liest einen String vom Benutzer ein.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777622">207</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">reduce</span></p>
+</td>
+<td class="tabellentext">
+<p>Reduziert die Werte einer Sequenz mithilfe einer Funktion auf einen einzigen Wert.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777631">207</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">reload</span></p>
+</td>
+<td class="tabellentext">
+<p>Bindet ein bereits importiertes Modul erneut ein.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_11_004.htm#Rxx_ref180777668">227</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">repr</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt eine String-Repräsentation einer Instanz zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777676">208</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">reversed</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt einen Iterator, der ein iterierbares Objekt rückwärts durchläuft.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180779479">209</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">round</span></p>
+</td>
+<td class="tabellentext">
+<p>Rundet eine Zahl.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777733">209</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">set</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein Set.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_08_007.htm#Rxx_ref180777755">155</a>, <a href="./python_kapitel_10_007.htm#Rxx_ref180777747">209</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">setattr</span></p>
+</td>
+<td class="tabellentext">
+<p>Setzt ein bestimmtes Attribut einer Instanz auf einen bestimmten Wert.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">sorted</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine sortierte Liste aus den Elementen eines iterierbaren Objekts.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777812">209</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">staticmethod</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt eine statische Methode.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_12_001.htm#Rxx_ref180777826">246</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">str</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt einen String.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777839">210</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">sum</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt die Summe aller Elemente einer Sequenz zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777850">211</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">super</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt die Superklasse eines Typs zurück.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">tuple</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt ein Tupel.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777874">211</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">type</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt den Datentyp einer Instanz zurück.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_07_001.htm#Rxx_ref180777892">71</a>, <a href="./python_kapitel_10_007.htm#Rxx_ref180777907">211</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">unichr</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt das Unicode-Zeichen mit einem bestimmten Unicode-Code zurück.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">unicode</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt einen Unicode-String.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180777957">212</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">vars</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt ein Dictionary zurück, das den aktuellen Kontext enthält.</p>
+</td>
+<td class="tabellentext">
+<p>&#8211;</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">xrange</span></p>
+</td>
+<td class="tabellentext">
+<p>Erzeugt einen Iterator, der über fortlaufend numerische Werte iteriert.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180778005">212</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">zip</span></p>
+</td>
+<td class="tabellentext">
+<p>Fasst mehrere Sequenzen zu Tupeln zusammen, um sie beispielsweise mit einer <span class="clisting">for</span>-Schleife zu durchlaufen.</p>
+</td>
+<td class="tabellentext">
+<p>S. <a href="./python_kapitel_10_007.htm#Rxx_ref180778027">212</a></p>
+</td>
+</tr>
+</table><br><p> </p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_A_005.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="A.5 Built-in Functions"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_A_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="stichwort.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

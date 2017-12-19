@@ -1,0 +1,531 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 10.2 Funktionsparameter</title>
+<meta name="title" content="Galileo Computing :: Python - 10.2 Funktionsparameter">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 10.2 Funktionsparameter">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_10_001.htm">
+<link rel="next" href="python_kapitel_10_003.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_10_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_10_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f" class="navnav">10 Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_001.htm#mj09f8fc7cd397c85e68c486c4f8c23371" class="navnav">10.1 Schreiben einer Funktion</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjb0543028fb36dd992a5468749d4e2322" class="navh">10.2 Funktionsparameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj7f6364b3829638603c24a5fbdfe74b83" class="navh">10.2.1 Optionale Parameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd543abc1f8ddb8851edb2623a91b8a01" class="navh">10.2.2 Schlüsselwortparameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjaeb836cdaea4f289f632e77a56b1a846" class="navh">10.2.3 Beliebige Anzahl von Parametern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj37c2f289a83862df51a8cbf09c92a0ab" class="navh">10.2.4 Seiteneffekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_003.htm#mj059a39fd6da28e4c821353683ab127e3" class="navnav">10.3 Zugriff auf globale Variablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_004.htm#mjd857b534e6d9959b74c4f922d307567f" class="navnav">10.4 Lokale Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_005.htm#mja7e8dc4f714c5b63ace484edfa46dec6" class="navnav">10.5 Anonyme Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_006.htm#mj11d1c0afd8d1f242c2d55c438071985b" class="navnav">10.6 Rekursion</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_007.htm#mj910f2916637bb5b0e239d985f67cf614" class="navnav">10.7 Vordefinierte Funktionen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjb0543028fb36dd992a5468749d4e2322" name="mjb0543028fb36dd992a5468749d4e2322"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">10.2</span><span class="cfett"> Funktionsparameter</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Wir haben bereits oberflächlich besprochen, was Funktionsparameter sind und wie sie verwendet werden können, doch das ist bei Weitem noch nicht die ganze Wahrheit. In diesem Abschnitt sollen drei Techniken eingeführt werden, die die Verwendung von Funktionsparametern bequemer oder eleganter machen. Alle drei Techniken sind mehr oder weniger speziell und somit nicht für alle Einsatzgebiete von Funktionen geeignet.</p><a id="mj7f6364b3829638603c24a5fbdfe74b83" name="mj7f6364b3829638603c24a5fbdfe74b83"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">10.2.1</span><span class="cfett"> Optionale Parameter</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zu Beginn dieses Kapitels wurde die Verwendung einer Funktion anhand der Built-in Function <span class="clisting">range</span> erklärt. Erinnern Sie sich noch daran, als <span class="clisting">range</span> im Zusammenhang mit der <span class="clisting">for</span>-Schleife eingeführt wurde? Wenn ja, dann wissen Sie sicherlich noch, dass unter anderem der letzte der drei Parameter optional war. Das bedeutet zunächst einmal, dass dieser Parameter beim Funktionsaufruf weggelassen werden kann. Ein optionaler Parameter muss funktionsintern mit einem Wert vorbelegt sein, üblicherweise einen Standardwert, der in einem Großteil der Funktionsaufrufe ausreichend ist. Bei der Funktion <span class="clisting">range</span> regelt der dritte Parameter die Schrittweite und ist mit <span class="clisting">1</span> vorbelegt. Folgende Aufrufe von <span class="clisting">range</span> sind also äquivalent:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; range(2, 10, 1) 
+[2, 3, 4, 5, 6, 7, 8, 9] 
+&gt;&gt;&gt; range(2, 10) 
+[2, 3, 4, 5, 6, 7, 8, 9]</pre></div>
+<p>Dies ist ein interessantes Sprachmerkmal von Python, denn oftmals hat eine Funktion ein Standardverhalten, das sich durch zusätzliche Parameter an spezielle Gegebenheiten anpassen lassen soll. In den überwiegenden Fällen, in denen das Standardverhalten jedoch genügt, wäre es umständlich, trotzdem die für diesen Aufruf völlig überflüssigen Parameter anzugeben. Deswegen sind vordefinierte Parameterwerte oft eine sinnvolle Ergänzung der eigenen Funktionsschnittstelle.</p>
+<p>Um einen Funktionsparameter mit einem Defaultwert vorzubelegen, wird dieser Wert bei der Funktionsdefinition zusammen mit einem Gleichheitszeichen hinter den Parameternamen geschrieben. Die folgende Funktion soll, je nach Anwendung, die Summe von zwei, drei oder vier ganzen Zahlen berechnen und das Ergebnis zurückgeben. Dabei soll der Programmierer beim Aufruf der Funktion nur so viele Zahlen angeben müssen, wie er benötigt:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> summe(a, b, c=0, d=0): 
+   <span class="cfett"> return</span> a + b + c + d</pre></div>
+<p>Um eine Addition durchführen zu können, müssen mindestens zwei Parameter übergeben worden sein. Die anderen beiden werden mit <span class="clisting">0</span> vorbelegt. Sollten sie beim Funktionsaufruf nicht explizit angegeben werden, so fließen sie in die Addition nicht ein. Die Funktion könnte folgendermaßen aufgerufen werden:</p>
+<div class="listing"><pre class="prettyprint">summe(1, 2) 
+summe(1, 2, 3) 
+summe(1, 2, 3, 4)</pre></div>
+<p>Beachten Sie, dass optionale Parameter nur am Ende einer Funktionsschnittstelle stehen dürfen. Das heißt, dass auf einen optionalen kein nicht-optionaler Parameter mehr folgen darf. Diese Einschränkung ist wichtig, damit alle angegebenen Parameter eindeutig zuzuordnen sind.</p><a id="mjd543abc1f8ddb8851edb2623a91b8a01" name="mjd543abc1f8ddb8851edb2623a91b8a01"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">10.2.2</span><span class="cfett"> Schlüsselwortparameter</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Neben den bislang verwendeten sogenannten <span class="ckursiv">positional arguments</span> gibt es in Python eine weitere Möglichkeit, Parameter zu übergeben. Solche Parameter werden <span class="ckursiv">keyword arguments</span> genannt. Es handelt sich dabei lediglich um eine weitere Technik, Parameter beim Funktionsaufruf zu übergeben. An der Funktionsdefinition ändert sich nichts. Betrachten wir dazu unsere Summenfunktion, die wir im vorangegangenen Abschnitt geschrieben haben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> summe(a, b, c=0, d=0): 
+   <span class="cfett"> return</span> a + b + c + d</pre></div>
+<p>Diese Funktion kann auch folgendermaßen aufgerufen werden:</p>
+<div class="listing"><pre class="prettyprint">summe(d=1, b=3, c=2, a=1)</pre></div>
+<p>Dazu werden im Funktionsaufruf die Parameter, wie bei einer Zuweisung, auf den gewünschten Wert gesetzt. Da bei der Übergabe der jeweilige Parametername angegeben werden muss, ist die Zuordnung unter allen Umständen eindeutig. Das erlaubt es dem Programmierer, Schlüsselwortparameter in beliebiger Reihenfolge anzugeben.</p>
+<p>Es ist möglich, beide Formen der Parameterübergabe zu kombinieren. Dabei ist zu beachten, dass keine <span class="ckursiv">positional arguments</span> auf <span class="ckursiv">keyword arguments</span> folgen dürfen, Letztere also immer am Ende des Funktionsaufrufs stehen müssen.</p>
+<div class="listing"><pre class="prettyprint">summe(1, 2, c=10, d=11)</pre></div>
+<p>Beachten Sie außerdem, dass nur solche Parameter als <span class="ckursiv">keyword arguments</span> übergeben werden dürfen, die im selben Funktionsaufruf nicht bereits als <span class="ckursiv">positional argument</span> übergeben wurden.</p>
+<p>Zum Schluss möchten wir noch anmerken, dass optionale Parameter auch unter Verwendung von <span class="ckursiv">keyword arguments</span> wie erwartet funktionieren.</p><a id="mjaeb836cdaea4f289f632e77a56b1a846" name="mjaeb836cdaea4f289f632e77a56b1a846"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">10.2.3</span><span class="cfett"> Beliebige Anzahl von Parametern</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Für beide Formen der Parameterübergabe (<span class="ckursiv">positional</span> und <span class="ckursiv">keyword</span>) gibt es eine Notation, die es einer Funktion ermöglicht, beliebig viele Parameter entgegenzunehmen. Bleiben wir zunächst einmal bei den <span class="ckursiv">positional arguments</span>. Betrachten Sie dazu folgende Funktionsdefinition:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> funktion(a, b, *weitere): 
+   <span class="cfett"> print</span> "Feste Parameter:", a, b 
+   <span class="cfett"> print</span> "Weitere Parameter:", weitere</pre></div>
+<p>Zunächst einmal werden ganz klassisch zwei Parameter <span class="clisting">a</span> und <span class="clisting">b</span> festgelegt und zusätzlich ein dritter namens <span class="clisting">weitere</span>. Wichtig ist der Stern vor seinem Namen. Bei einem Aufruf dieser Funktion würden <span class="clisting">a</span> und <span class="clisting">b</span>, wie Sie das bereits kennen, die ersten beiden übergebenen Instanzen referenzieren. Interessant ist, dass <span class="clisting">weitere</span> fortan ein Tupel referenziert, das alle zusätzlich übergebenen Instanzen enthält. Anschaulich wird dies, wenn wir folgende Funktionsaufrufe betrachten:</p>
+<div class="listing"><pre class="prettyprint">funktion(1, 2) 
+funktion(1, 2, "Hallo Welt", 42, [1,2,3,4])</pre></div>
+<p>Die Ausgabe der Funktion im Falle des ersten Aufrufs wäre:</p>
+<div class="listing"><pre class="prettyprint">Feste Parameter: 1 2 
+Weitere Parameter: ()</pre></div>
+<p>Der Parameter <span class="clisting">weitere</span> referenziert also ein leeres Tupel. Im Falle des zweiten Aufrufs sähe die Ausgabe folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">Feste Parameter: 1 2 
+Weitere Parameter: ('Hallo Welt', 42, [1, 2, 3, 4])</pre></div>
+<p>Der Parameter <span class="clisting">weitere</span> referenziert nun ein Tupel, in dem alle über <span class="clisting">a</span> und <span class="clisting">b</span> hinausgehenden Instanzen in der Reihenfolge enthalten sind, wie sie übergeben wurden.</p>
+<p>Diese Art, einer Funktion das Entgegennehmen beliebig vieler Parameter zu ermöglichen, funktioniert ebenso für <span class="ckursiv">keyword arguments</span>. Der Unterschied besteht darin, dass der Parameter, der alle weiteren Instanzen enthalten soll, in der Funktionsdefinition mit zwei Sternen geschrieben werden muss, sowie darin, dass er später kein Tupel, sondern ein Dictionary referenziert. Dieses Dictionary enthält den jeweiligen Parameternamen als Schlüssel und die übergebene Instanz als Wert. Betrachten Sie dazu folgende Funktionsdefinition:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> funktion(a, b, **weitere): 
+   <span class="cfett"> print</span> "Feste Parameter:", a, b 
+   <span class="cfett"> print</span> "Weitere Parameter:", weitere</pre></div>
+<p>und diese beiden dazu passenden Funktionsaufrufe:</p>
+<div class="listing"><pre class="prettyprint">funktion(1, 2) 
+funktion(1, 2, johannes="ernesti", peter="kaiser")</pre></div>
+<p>Die Ausgabe nach dem ersten Funktionsaufruf sähe folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">Feste Parameter: 1 2 
+Weitere Parameter: {}</pre></div>
+<p>Der Parameter <span class="clisting">weitere</span> referenziert also ein leeres Dictionary. Nach dem zweiten Aufruf sähe die Ausgabe so aus:</p>
+<div class="listing"><pre class="prettyprint">Feste Parameter: 1 2 
+Weitere Parameter: {'johannes': 'ernesti', 'peter': 'kaiser'}</pre></div>
+<p>Beide Techniken können zusammen verwendet werden, wie folgende Funktionsdefinition zeigt:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> funktion(*positional, **keyword): 
+   <span class="cfett"> print</span> positional 
+   <span class="cfett"> print</span> keyword</pre></div>
+<p>Der Funktionsaufruf</p>
+<div class="listing"><pre class="prettyprint">funktion(1, 2, 3, 4, hallo="welt", key="word")</pre></div>
+<p>gibt diese Werte aus:</p>
+<div class="listing"><pre class="prettyprint">(1, 2, 3, 4) 
+{'hallo': 'welt', 'key': 'word'}</pre></div>
+<p>Sie sehen, dass <span class="clisting">positional</span> ein Tupel mit allen Positions- und <span class="clisting">keyword</span> ein Dictionary mit allen Schlüsselwort-Parametern referenziert.</p>
+<h4 class="t4"><span class="cfett">Entpacken einer Parameterliste</span></h4>
+<p>Wenn eine Funktion beliebige Parameter erwartet, kommen diese funktionsintern gesammelt entweder in Form eines Tupels (<span class="ckursiv">positional arguments</span>) oder eines Dictionarys (<span class="ckursiv">keyword arguments</span>) an. Gelegentlich möchte man die in diesem Tupel bzw. Dictionary enthaltenen Parameter an eine andere Funktion weiterreichen. Dabei soll aber jedes Element des Tupels bzw. jedes Schlüssel/Wert-Paar des Dictionarys beim Aufruf der zweiten Funktion als eigenständiger Parameter übergeben werden. Dieser Vorgang wird <span class="ckursiv">Entpacken</span> eines Tupels oder eines Dictionarys genannt.</p>
+<p>Das Entpacken eines Tupels soll an einem Beispiel verdeutlicht werden. Dazu definieren wir zwei Funktionen, <span class="clisting">f1</span> und <span class="clisting">f2</span>, wobei <span class="clisting">f1</span> über eine feste Schnittstelle verfügt, während <span class="clisting">f2</span> beliebig viele <span class="ckursiv">positional arguments</span> akzeptiert. Die Funktion <span class="clisting">f2</span> soll die ihr übergebenen Parameter, auf die sie in Form eines Tupels zugreifen kann, entpacken und an die Funktion <span class="clisting">f1</span> weiterreichen.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> f1(a, b, c, d): 
+   <span class="cfett"> print</span> "Parameter:", a, b, c, d<br>
+<span class="cfett">def</span> f2(*prm): 
+    f1(*prm)</pre></div>
+<p>Zur Funktion <span class="clisting">f1</span> muss nicht viel gesagt werden: Sie erwartet vier Parameter und gibt diese auf dem Bildschirm aus. Viel interessanter ist die Funktion <span class="clisting">f2</span>, die eine beliebige Anzahl Positionsparameter erwartet und diese im Funktionskörper an die Funktion <span class="clisting">f1</span> weiterreichen soll. Das Tupel <span class="clisting">prm</span>, das die der Funktion <span class="clisting">f2</span> übergebenen Parameter enthält, kann im Funktionsaufruf von <span class="clisting">f1</span> durch ein vorangestelltes Sternchen (<span class="clisting">*</span>) entpackt werden. Wenn das Tupel vier Elemente enthält, kommen diese in Form der Parameter <span class="clisting">a</span>, <span class="clisting">b</span>, <span class="clisting">c</span> und <span class="clisting">d</span> bei <span class="clisting">f1</span> an. Sollte das Tupel weniger oder mehr Elemente enthalten, verursacht dies einen Fehler. So gibt <span class="clisting">f1</span> bei einem Funktionsaufruf von</p>
+<div class="listing"><pre class="prettyprint">f2(1, 2, 3, 4)</pre></div>
+<p>den Text</p>
+<div class="listing"><pre class="prettyprint">Parameter: 1 2 3 4</pre></div>
+<p>auf dem Bildschirm aus.</p>
+<p>Analog dazu kann ein Dictionary mit zwei vorangestellten Sternchen entpackt werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> f1(a, b, c, d): 
+   <span class="cfett"> print</span> "Parameter:", a, b, c, d<br>
+<span class="cfett">def</span> f2(**prm): 
+    f1(**prm)</pre></div>
+<p>In diesem Fall verursacht der Funktionsaufruf</p>
+<div class="listing"><pre class="prettyprint">f2(a=5, b=6, c=7, d=8)</pre></div>
+<p>die erwartete Bildschirmausgabe:</p>
+<div class="listing"><pre class="prettyprint">Parameter: 5 6 7 8</pre></div>
+<p>Beachten Sie allgemein, dass die hier vorgestellte Syntax nur innerhalb eines Funktionsaufrufs verwendet werden darf und außerhalb dessen zu einem Fehler führt.</p><a id="mj37c2f289a83862df51a8cbf09c92a0ab" name="mj37c2f289a83862df51a8cbf09c92a0ab"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">10.2.4</span><span class="cfett"> <a id="Rxx_ref180674243" name="Rxx_ref180674243"></a>Seiteneffekte</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bisher haben wir die Thematik der Seiteneffekte geschickt umschifft, doch Sie sollten immer im Hinterkopf behalten, dass sogenannte <span class="ckursiv">Seiteneffekte</span> (engl. <span class="ckursiv">side effects</span>) immer dann auftreten können, wenn eine Instanz eines mutable Datentyps, also zum Beispiel einer Liste oder eines Dictionarys, als Funktionsparameter übergeben wird.</p>
+<p>Um dies verstehen zu können, müssen wir zunächst allgemein darüber sprechen, auf welchen Wegen Funktionsparameter übergeben werden. In der Programmierung unterscheidet man dabei grob zwei Arten:</p>
+<p>Bei einem <span class="ckursiv">call-by-value</span> wird funktionsintern mit Kopien der als Parameter übergebenen Instanzen gearbeitet. Das hat den Vorteil, dass eine Funktion keine ungewollten Änderungen im Hauptprogramm bewirken kann, erzeugt jedoch unter Umständen einen erheblichen Overhead, da auch größere Instanzen wie Listen oder Dictionarys bei jedem Funktionsaufruf kopiert werden müssten.</p>
+<p>Das gegensätzliche Prinzip wird <span class="ckursiv">call-by-reference</span> genannt und bedeutet, dass funktionsintern mit Referenzen auf die im Hauptprogramm befindlichen Instanzen gearbeitet wird. Der Vorteil dieser Methode liegt auf der Hand: Es müssen keine Instanzen kopiert werden, und ein Funktionsaufruf wird dementsprechend performant. Der größte Nachteil der Referenzparameter ist, dass innerhalb einer Funktion eine übergebene Instanz so verändert werden kann, dass sich dies auch im Hauptprogramm auswirkt. Solche Änderungen sind vom Programmierer meist nicht erwünscht und werden als Seiteneffekte bezeichnet.</p>
+<p>In Python werden Funktionsparameter grundsätzlich »by reference« übergeben. Betrachten Sie dazu folgendes Beispiel, das sich zunächst auf unveränderliche Datentypen wie <span class="clisting">int</span> oder <span class="clisting">float</span> beschränkt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> def</span> f(a, b): 
+...    <span class="cfett"> print</span> id(a) 
+...    <span class="cfett"> print</span> id(b) 
+... 
+&gt;&gt;&gt; p = 1 
+&gt;&gt;&gt; q = 2 
+&gt;&gt;&gt; id(p) 
+134537016 
+&gt;&gt;&gt; id(q) 
+134537004 
+&gt;&gt;&gt; f(p, q) 
+134537016 
+134537004</pre></div>
+<p>Im interaktiven Modus definieren wir zuerst eine Funktion, die zwei Parameter <span class="clisting">a</span> und <span class="clisting">b</span> erwartet und ihre jeweilige Identität ausgibt. Nachfolgend werden zwei Referenzen <span class="clisting">p</span> und <span class="clisting">q</span> angelegt, die je eine Instanz des Datentyps <span class="clisting">int</span> referenzieren. Dann lassen wir uns die Identitäten der beiden Referenzen ausgeben und rufen die angelegte Funktion <span class="clisting">f</span> auf. Sie sehen, dass die ausgegebenen Identitäten gleich sind. Es handelt sich also sowohl bei <span class="clisting">p</span> und <span class="clisting">q</span> als auch bei <span class="clisting">a</span> und <span class="clisting">b</span> im Funktionskörper um Referenzen auf dieselben Instanzen.</p>
+<p>Trotzdem ist die Verwendung eines immutable Datentyps grundsätzlich frei von Seiteneffekten, da dieser bei Veränderung automatisch kopiert wird und alte Referenzen davon nicht berührt werden. Sollten wir also beispielsweise <span class="clisting">a</span> im Funktionskörper um eins erhöhen, so werden nachher <span class="clisting">a</span> und <span class="clisting">p</span> verschiedene Instanzen referenzieren. Dies ermöglicht es uns, mit unveränderlichen Parametern umzugehen, als wären sie »by value« übergeben worden.</p>
+<p>Diese Sicherheit können uns mutable Datentypen nicht geben. Dazu folgendes Beispiel:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> f(liste): 
+    liste[0] = 42 
+    liste += [5,6,7,8,9] 
+ 
+zahlen = [1,2,3,4] 
+<span class="cfett"> 
+print</span> zahlen 
+f(zahlen)<span class="cfett"> 
+print</span> zahlen</pre></div>
+<p>Zunächst wird eine Funktion definiert, die eine Liste als Parameter erwartet und diese im Funktionskörper verändert. Im Hauptprogramm wird eine Liste angelegt und ausgegeben. Danach wird die Funktion aufgerufen und die Liste erneut ausgegeben. Die Ausgabe des Beispiels sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">[1, 2, 3, 4] 
+[42, 2, 3, 4, 5, 6, 7, 8, 9]</pre></div>
+<p>Es ist zu erkennen, dass sich die Änderungen nicht allein auf den Kontext der Funktion beschränken, sondern sich auch im Hauptprogramm auswirken. Wenn eine Funktion nicht nur lesend auf eine Instanz eines veränderlichen Datentyps zugreifen muss und Seiteneffekte nicht ausdrücklich erwünscht sind, sollten Sie innerhalb der Funktion oder bei der Parameterübergabe eine Kopie der Instanz erzeugen. Das könnte in Bezug auf das obige Beispiel so aussehen: [Sie erinnern sich, dass beim Slicen einer Liste stets eine Kopie derselben erzeugt wird. Im Beispiel wurde das Slicing genutzt, um eine vollständige Kopie der Liste zu erzeugen, indem weder ein Start- noch ein Endindex angegeben wurde.
+] </p>
+<div class="listing"><pre class="prettyprint">f(zahlen[:])</pre></div>
+<p>Neben den bisher besprochenen Referenzparametern existiert eine weitere, seltenere Form von Seiteneffekten, die auftritt, wenn ein veränderlicher Datentyp als Defaultwert eines Parameters verwendet wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> def</span> f(a=[1,2,3]): 
+...     a += [4,5] 
+...    <span class="cfett"> print</span> a 
+... 
+&gt;&gt;&gt; f() 
+[1, 2, 3, 4, 5] 
+&gt;&gt;&gt; f() 
+[1, 2, 3, 4, 5, 4, 5] 
+&gt;&gt;&gt; f() 
+[1, 2, 3, 4, 5, 4, 5, 4, 5] 
+&gt;&gt;&gt; f() 
+[1, 2, 3, 4, 5, 4, 5, 4, 5, 4, 5]</pre></div>
+<p>Wir definieren im interaktiven Modus eine Funktion, die einen einzigen Parameter erwartet, der mit einer Liste vorbelegt ist. Im Funktionskörper wird diese Liste um zwei Elemente vergrößert und ausgegeben. Nach mehrmaligem Aufrufen der Funktion ist zu erkennen, dass es sich bei dem Defaultwert augenscheinlich immer um dieselbe Instanz gehandelt hat.</p>
+<p>Das liegt daran, dass eine Instanz, die als Defaultwert genutzt wird, nur einmalig und nicht bei jedem Funktionsaufruf neu erzeugt wird. Grundsätzlich sollten Sie also darauf verzichten, Instanzen unveränderlicher Datentypen als Defaultwert zu verwenden. Schreiben Sie Ihre Funktionen stattdessen folgendermaßen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> f(a=None): 
+   <span class="cfett"> if</span> a<span class="cfett"> is</span> None: 
+        a = [1,2,3]</pre></div>
+<p>Selbstverständlich können Sie statt <span class="clisting">None</span> eine Instanz eines beliebigen anderen immutable Datentypen verwenden, ohne dass Seiteneffekte auftreten.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_10_002.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="10.2 Funktionsparameter"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_10_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_10_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

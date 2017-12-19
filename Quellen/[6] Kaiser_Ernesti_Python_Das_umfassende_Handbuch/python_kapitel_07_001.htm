@@ -1,0 +1,485 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 7 Das Laufzeitmodell</title>
+<meta name="title" content="Galileo Computing :: Python - 7 Das Laufzeitmodell">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 7 Das Laufzeitmodell">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_06_003.htm">
+<link rel="next" href="python_kapitel_07_002.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_06_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_07_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj4ebbbff6e4edb4fe615e242a01d77f27" class="navh">7 Das Laufzeitmodell</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjd7f773bb6ec90e21084d622d8bfe87ad" class="navh">7.1 Die Struktur von Instanzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_07_002.htm#mj53ebdeab73ffc29637ebce6d88f66ae9" class="navnav">7.2 Referenzen und Instanzen freigeben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_07_003.htm#mj1f1e9070e501141de82b0e3a209d4b74" class="navnav">7.3 Mutable vs. immutable Datentypen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em><span class="ckursiv">»For every complex problem there is an answer  
+that is clear, simple, and wrong.« 
+&#8211; H. L. Mencken</span></em></p><a id="mj4ebbbff6e4edb4fe615e242a01d77f27" name="mj4ebbbff6e4edb4fe615e242a01d77f27"></a><h1 class="t1"><span class="cfett">7</span><span class="cfett"> Das Laufzeitmodell</span></h1>
+<p>Dieses Kapitel wird Ihnen vermitteln, wie Python Variablen zur Laufzeit verwaltet und welche Besonderheiten sich dadurch für den Programmierer ergeben.</p>
+<p>Variablen sind Platzhalter für Werte wie Zahlen, Mengen oder sonstige Strukturen. Für die Programmierung ist der Begriff <span class="ckursiv">Speicherstelle</span> eher zutreffend, da hier Variablen vor allem den Zweck erfüllen, Daten für ihre Weiterverwendung zwischenzuspeichern. Wie Sie bereits wissen, kann in Python eine neue Variable mit dem Namen <span class="clisting">a</span> wie folgt angelegt werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = 1337</pre></div>
+<p>Anschließend kann der Platzhalter <span class="clisting">a</span> wie der Zahlenwert <span class="clisting">1337</span> benutzt werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 2674 / a 
+2</pre></div>
+<p>Um zu verstehen, was intern passiert, wenn wir eine neue Variable erzeugen, müssen zwei Begriffe voneinander abgegrenzt werden: <span class="ckursiv">Referenz</span> und <span class="ckursiv">Instanz</span>. Eine <span class="ckursiv">Instanz</span> ist ein konkretes Datenobjekt im Speicher<span class="ckursiv">,</span> das nach der Vorlage eines bestimmten Datentyps erzeugt wurde &#8211; zum Beispiel die spezielle Zahl <span class="clisting">1337</span> aus der Kategorie der Ganzzahlen.</p>
+<p>Im Folgenden betrachten wir der Einfachheit halber nur Ganzzahlen und Strings &#8211; das Prinzip gilt aber für beliebige Datenobjekte.</p>
+<p>Im einfachsten Fall lässt sich eine Instanz einer Ganzzahl folgendermaßen anlegen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 12345 
+12345</pre></div>
+<p>Für uns als Programmierer ist diese Instanz allerdings wenig praktisch, da sie zwar nach ihrer Erzeugung ausgegeben wird, dann aber nicht mehr zugänglich ist und wir so ihren Wert nicht weiterverwenden können.</p>
+<p>An dieser Stelle kommen die <span class="ckursiv">Referenzen</span> ins Spiel. »Referenz« bedeutet so viel wie »Verweis«. Erst durch Referenzen wird es möglich, mit den Instanzen zu arbeiten, weil Referenzen uns den Zugriff auf diese ermöglichen. Die einfachste Form einer Referenz in Python ist ein <span class="ckursiv">symbolischer Name</span> wie im obigen Beispiel <span class="clisting">a</span>. Mit dem Zuweisungsoperator <span class="clisting">=</span> kann man eine Referenz auf eine Instanz erzeugen, wobei die Referenz links und die Instanz rechts vom Operator stehen.</p>
+<p>Damit können wir unser Beispiel wie folgt beschreiben: Wir erzeugen eine neue Instanz einer Ganzzahl mit dem Wert <span class="clisting">1337</span>. Außerdem legen wir eine Referenz <span class="clisting">variable</span> auf diese Instanz an. Dies lässt sich auch grafisch verdeutlichen:</p>
+<div class="bildbox">
+<p><a name="IDA0CSQ"></a><a onClick="OpenWin('bilder/referenz.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinreferenz.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 7.1    </strong>Schema der Referenz-Instanz-Beziehung</p>
+<p>Es ist auch möglich, bereits referenzierte Instanzen mit weiteren Referenzen zu versehen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; referenz1 = 1337 
+&gt;&gt;&gt; referenz2 = referenz1</pre></div>
+<p>Grafisch veranschaulicht sieht das Ergebnis so aus:</p>
+<div class="bildbox">
+<p><a name="IDABDSQ"></a><a onClick="OpenWin('bilder/referenzen.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinreferenzen.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 7.2    </strong>Zwei Referenzen auf dieselbe Instanz</p>
+<p>Besonders wichtig ist hierbei, dass es nach wie vor nur eine Instanz mit dem Wert <span class="clisting">1337</span> im Speicher gibt, obwohl wir mit zwei verschiedenen Namen <span class="clisting">referenz1</span> und <span class="clisting">referenz2</span> darauf zugreifen können. Durch die Zuweisung <span class="clisting">referenz2 = referenz1</span> wurde also nicht die Instanz <span class="clisting">1337</span> kopiert, sondern nur ein weiteres Mal referenziert.</p>
+<p>Bitte beachten Sie, dass Referenzen auf dieselbe Instanz untereinander unabhängig sind und sich der Wert, auf den die anderen Referenzen verweisen, nicht ändert, wenn wir einer von ihnen eine neue Instanz zuweisen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; referenz1 = 1337 
+&gt;&gt;&gt; referenz2 = referenz1 
+&gt;&gt;&gt; referenz1 
+1337 
+&gt;&gt;&gt; referenz2 
+1337 
+&gt;&gt;&gt; referenz1 = 2674 
+&gt;&gt;&gt; referenz1 
+2674 
+&gt;&gt;&gt; referenz2 
+1337</pre></div>
+<p>Bis zu den ersten beiden Ausgaben haben wir die in <a href="#Rxx_ref171246869">Abbildung 7.2</a> veranschaulichte Situation: Die beiden Referenzen <span class="clisting">referenz1</span> und <span class="clisting">referenz2</span> verweisen auf dieselbe Instanz <span class="clisting">1337</span>. Anschließend erzeugen wir eine neue Instanz <span class="clisting">2674</span> und weisen sie <span class="clisting">referenz1</span> zu. Die Ausgabe zeigt, dass <span class="clisting">referenz2</span> nach wie vor auf <span class="clisting">1337</span> zeigt und nicht verändert wurde. Die Situation nach der dritten Zuweisung sieht also so aus:</p>
+<div class="bildbox">
+<p><a name="IDAFESQ"></a><a onClick="OpenWin('bilder/datenmodell_referenzen2.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindatenmodell_referenzen2.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 7.3    </strong>Die beiden Referenzen sind voneinander unabhängig.</p>
+<p>Da Sie nun wissen, was Referenzen und Instanzen sind und wie sie im Programm verwendet werden, beschäftigen wir uns nun mit den Eigenschaften von Instanzen im Detail.</p><a id="mjd7f773bb6ec90e21084d622d8bfe87ad" name="mjd7f773bb6ec90e21084d622d8bfe87ad"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">7.1</span><span class="cfett"> <a id="Rxx_ref171522436" name="Rxx_ref171522436"></a>Die Struktur von Instanzen</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Jede Instanz in Python umfasst drei Merkmale: ihren <span class="ckursiv">Datentyp</span>, ihren <span class="ckursiv">Wert</span> und ihre <span class="ckursiv">Identität</span>. Unser Eingangsbeispiel könnte man sich folgendermaßen dreigeteilt vorstellen:</p>
+<div class="bildbox">
+<p><a name="IDA0ESQ"></a><a onClick="OpenWin('bilder/instanz_erweitert.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleininstanz_erweitert.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 7.4    </strong>Eine Instanz mit ihren drei Eigenschaften</p>
+<h4 class="t4"><a id="Rxx_ref180777892" name="Rxx_ref180777892"></a><span class="cfett">Datentyp</span></h4>
+<p>Der Datentyp dient bei der Erzeugung der Instanz als Bauplan und legt fest, welche Werte die Instanz annehmen darf. So erlaubt der Datentyp <span class="clisting">int</span> beispielsweise das Speichern einer ganzen Zahl. Strings lassen sich mit dem Datentyp <span class="clisting">str</span> verwalten. Im folgenden Beispiel wird gezeigt, wie sich die Datentypen verschiedener Instanzen mithilfe von <span class="clisting">type</span> herausfinden lassen: [Bei <span class="clisting">type</span> handelt es sich um eine sogenannte Funktion. Was genau das bedeutet, ist an dieser Stelle noch nicht wichtig. Wir werden uns in Kapitel <a href="./python_kapitel_10_001.htm#Rxx_ref180664227">10</a> eingehend mit Funktionen beschäftigen und dort auch auf <span class="clisting">type</span> zurückkommen.
+] </p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; type(1337) 
+&lt;type 'int'&gt; 
+&gt;&gt;&gt; type("Hallo Welt") 
+&lt;type 'str'&gt; 
+&gt;&gt;&gt; v1 = 2674 
+&gt;&gt;&gt; type(v1) 
+&lt;type 'int'&gt;</pre></div>
+<p>Die Funktion <span class="clisting">type</span> ist unter anderem dann nützlich, wenn wir überprüfen wollen, ob zwei Instanzen den gleichen Typ besitzen oder ob eine Instanz einen bestimmten Typ hat:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; v1 = 1337 
+&gt;&gt;&gt; type(v1) == type(2674) 
+True 
+&gt;&gt;&gt; type(v1) == int 
+True</pre></div>
+<p>Hierbei ist zu beachten, dass sich ein Typ nur auf Instanzen bezieht und rein gar nichts mit den verknüpften Referenzen zu tun hat. Eine Referenz hat keinen Typ und kann Instanzen beliebiger Typen referenzieren. Folgendes ist durchaus möglich:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; zuerst_ein_string = "Ich bin ein String" 
+&gt;&gt;&gt; type(zuerst_ein_string) 
+&lt;type 'str'&gt; 
+&gt;&gt;&gt; zuerst_ein_string = 1789 
+&gt;&gt;&gt; type(zuerst_ein_string) 
+&lt;type 'int'&gt;</pre></div>
+<p>Es ist also falsch, zu sagen »<span class="clisting">zuerst_ein_string</span> hat den Typ <span class="clisting">str</span>«. Korrekt ist: »<span class="clisting">zuerst_ein_string</span> referenziert momentan eine Instanz des Typs <span class="clisting">str</span>«.</p>
+<h4 class="t4"><span class="cfett">Wert</span></h4>
+<p>Was den Wert der Instanz konkret ausmacht, hängt von ihrem Typ ab. Dies können beispielsweise Zahlen, Zeichenketten oder Daten anderer Typen sein, die Sie später noch kennenlernen werden. In den obigen Beispielen waren es <span class="clisting">1337</span>, <span class="clisting">2674</span>, <span class="clisting">1798</span>, <span class="clisting">"Hallo Welt"</span> und <span class="clisting">"Ich bin ein String"</span>.</p>
+<p>Mit dem Operator <span class="clisting">==</span> kann man Instanzen bezüglich ihres Wertes vergleichen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; v1 = 1337 
+&gt;&gt;&gt; v2 = 1337 
+&gt;&gt;&gt; v1 == v2 
+True 
+&gt;&gt;&gt; v1 == 2674 
+False</pre></div>
+<p>Mithilfe unseres grafischen Modells kann man sich die Arbeitsweise des Operators <span class="clisting">==</span> gut veranschaulichen:</p>
+<div class="bildbox">
+<p><a name="IDADHSQ"></a><a onClick="OpenWin('bilder/datenmodell_wertevergleich.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindatenmodell_wertevergleich.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 7.5    </strong>Wertevergleich zweier Instanzen (in diesem Fall False)</p>
+<p>Der Wertevergleich ist nur dann sinnvoll, wenn er sich auf strukturell ähnliche Datentypen bezieht, wie zum Beispiel Ganzzahlen und Gleitkommazahlen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; gleitkommazahl = 1987.0 
+&gt;&gt;&gt; type(gleitkommazahl) 
+&lt;type 'float'&gt; 
+&gt;&gt;&gt; ganzzahl = 1987 
+&gt;&gt;&gt; type(ganzzahl) 
+&lt;type 'int'&gt; 
+&gt;&gt;&gt; gleitkommazahl == ganzzahl 
+True</pre></div>
+<p>Obwohl <span class="clisting">gleitkommazahl</span> und <span class="clisting">ganzzahl</span> verschiedene Typen haben, liefert der Vergleich mit <span class="clisting">==</span> den Wahrheitswert <span class="clisting">True</span>.</p>
+<p>Zahlen und Zeichenketten haben strukturell wenig gemeinsam, da es sich bei Zahlen um einzelne Werte handelt, während bei Zeichenketten mehrere Buchstaben zu einer Einheit zusammengefasst werden. Aus diesem Grund liefert der Operator <span class="clisting">==</span> für den Vergleich zwischen Strings und Zahlen immer <span class="clisting">False</span>, auch wenn die Werte für einen Menschen gleich aussehen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; string = "1234" 
+&gt;&gt;&gt; string == 1234 
+False</pre></div>
+<p>Ob der Operator <span class="clisting">==</span> für zwei bestimmte Typen definiert ist, hängt von den Datentypen selbst ab. Ist er nicht vorhanden, wird die Indentität der Instanzen zum Vergleich herangezogen, was im folgenden Absatz erläutert wird.</p>
+<h4 class="t4"><span class="cfett">Identität</span></h4>
+<p>Die <span class="ckursiv">Identität</span> einer Instanz dient dazu, sie von allen anderen Instanzen zu unterscheiden. Sie ist mit dem individuellen Fingerabdruck eines Menschen vergleichbar, da sie für jede Instanz programmweit eindeutig ist und sich nicht ändern kann. Eine Identität ist eine Ganzzahl und lässt sich mithilfe der Funktion <span class="clisting">id</span> ermitteln:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; id(1337) 
+134537016 
+&gt;&gt;&gt; v1 = "Hallo Welt" 
+&gt;&gt;&gt; id(v1) 
+3082572528</pre></div>
+<p>Identitäten werden immer dann wichtig, wenn man prüfen möchte, ob es sich um eine ganz bestimmte Instanz handelt und nicht nur um eine mit dem gleichen Typ und Wert:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; v1 = "Hallo Welt" 
+&gt;&gt;&gt; v2 = v1 
+&gt;&gt;&gt; v3 = "Hallo Welt" 
+&gt;&gt;&gt; type(v1) == type(v3) 
+True 
+&gt;&gt;&gt; v1 == v3 
+True 
+&gt;&gt;&gt; id(v1) == id(v3) 
+False 
+&gt;&gt;&gt; id(v1) == id(v2) 
+True</pre></div>
+<div class="bildbox">
+<p><a name="IDAMQSQ"></a><a onClick="OpenWin('bilder/datenmodell_referenzen3.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindatenmodell_referenzen3.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 7.6    </strong>Drei Referenzen, zwei Instanzen</p>
+<p>In diesem Beispiel hat Python zwei verschiedene Instanzen mit dem Typ <span class="clisting">str</span> und dem Wert <span class="clisting">"Hallo Welt"</span> angelegt, wobei <span class="clisting">v1</span> und <span class="clisting">v2</span> auf dieselbe Instanz verweisen. Grafisch veranschaulicht bedeutet dies Folgendes (siehe <a href="#Rxx66223">Abbildung 7.6</a>).</p>
+<p>Der Vergleich auf Identitätengleichheit hat in Python eine so große Bedeutung, dass für diesen Zweck ein eigener Operator definiert wurde: <span class="clisting">is</span>.</p>
+<p>Der Ausdruck <span class="clisting">id(referenz1) == id(referenz2)</span> bedeutet das Gleiche wie <span class="clisting">referenz1 is referenz2</span>. Dies kann man sich so vorstellen:</p>
+<div class="bildbox">
+<p><a name="IDAJRSQ"></a><a onClick="OpenWin('bilder/datenmodell_identaetenvergleich.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindatenmodell_identaetenvergleich.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 7.7    </strong>Identitätenvergleich zweier Instanzen</p>
+<p>Der in <a href="#Rxx_ref181089105">Abbildung 7.7</a> gezeigte Vergleich würde den Wahrheitswert <span class="clisting">False</span> ergeben, da sich die Identitäten der beiden Instanzen unterscheiden.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_07_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="7 Das Laufzeitmodell"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_06_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_07_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

@@ -1,0 +1,895 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 24.8 Wichtige Widgets</title>
+<meta name="title" content="Galileo Computing :: Python - 24.8 Wichtige Widgets">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 24.8 Wichtige Widgets">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_24_007.htm">
+<link rel="next" href="python_kapitel_25_001.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_24_007.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_25_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753" class="navnav">24 Grafische Benutzeroberflächen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_001.htm#mj7e4bb4efefd7ce44aa67ef15eb795819" class="navnav">24.1 Toolkits</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_002.htm#mj410d039d691c33c9eaae3c5d98711ba6" class="navnav">24.2 Einführung in PyQt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_002.htm#mj1684f423c06c11a7858373f78c379bd3" class="navnav">24.2.1 Installation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_002.htm#mjdcac6d188caaadff2d97262b63d1924c" class="navnav">24.2.2 Grundlegende Konzepte von Qt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_003.htm#mjfc92f7f0a3a50a7adbdab1fd29bafccb" class="navnav">24.3 Entwicklungsprozess</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_003.htm#mj9db1bbea0411d23987eec58164bfcca2" class="navnav">24.3.1 Erstellen des Dialogs</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_003.htm#mj07a1c3efb2f661d7025237efdab7d505" class="navnav">24.3.2 Schreiben des Programms</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_004.htm#mj4fe5432befd9b269f465778525b31a3e" class="navnav">24.4 Signale und Slots</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_005.htm#mjc3b7342ca80134e5e7ffe20ceb05f0c2" class="navnav">24.5 Überblick über das Qt-Framework</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_006.htm#mjbee8e14f9a227769775f297cf44af44f" class="navnav">24.6 Zeichenfunktionalität</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj6baaa60f60c4ee337c7f2618558965cc" class="navnav">24.6.1 Werkzeuge</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj09ce1ef12f59e463f2d0b2a627f3dff8" class="navnav">24.6.2 Koordinatensystem</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj4e47879515982231ab3e15a2f80dd87e" class="navnav">24.6.3 Einfache Formen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj23c5f85dbd4874e55733f08c53200348" class="navnav">24.6.4 Grafiken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mjef9e638bd97da97f7d98650a62ad3aef" class="navnav">24.6.5 Text</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj9f1387a929546375d73241894c08fedd" class="navnav">24.6.6 Eye-Candy</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_007.htm#mj1ea36fb17db37638e0480e8c9937e6d1" class="navnav">24.7 Model-View-Architektur</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_007.htm#mj5c95ff8527068d367a6f8d8f25d15ed8" class="navnav">24.7.1 Beispielprojekt: Ein Adressbuch</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_007.htm#mjd71e703821b611cbd37eefb80cb38244" class="navnav">24.7.2 Auswählen von Einträgen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_007.htm#mjd504a61938116a86354b4928b72c8220" class="navnav">24.7.3 Editieren von Einträgen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj2109c1a87ec1a3262198a32ccd4d37da" class="navh">24.8 Wichtige Widgets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd7810289c9aed6f9c751881e1018465c" class="navh">24.8.1 QCheckBox</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj2049b0d4b09d164f2476d7dfc2ec45d2" class="navh">24.8.2 QComboBox</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj295c86558eb7790a1caad3caadcbd14c" class="navh">24.8.3 QDateEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj59aa1db582f3b839a69b147bc0487858" class="navh">24.8.4 QDateTimeEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3da964dfd16810d718e1b2d9bcb688fc" class="navh">24.8.5 QDial</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj48fac9fb739a93491b1db3d33005834f" class="navh">24.8.6 QDialog</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb7c1c34af70ba881939ed78c8f09cb4a" class="navh">24.8.7 QGLWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd53a9048d9c571639ee4ddf703314dfd" class="navh">24.8.8 QLineEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj753a3b774e44a835d684a14b3db04bdf" class="navh">24.8.9 QListView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj174335c173cec288eda1580821430bde" class="navh">24.8.10 QListWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjeb6c6758021833d8054cc62bbcca6e9d" class="navh">24.8.11 QProgressBar</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj23d215e0756bba97ab8dcb09790ac00f" class="navh">24.8.12 QPushButton</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3376ce50168855804718b93fce86d2bd" class="navh">24.8.13 QRadioButton</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj94112aa4fd117f48c3d39f9618b58181" class="navh">24.8.14 QScrollArea</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjfddd4b80d093f9d97306b20f84578ee3" class="navh">24.8.15 QSlider</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj5a52f70c91ed3907254124d05e894fe8" class="navh">24.8.16 QTableView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjcbe42edfb63ff02ed61c895f76d00c1d" class="navh">24.8.17 QTableWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3e9d765f8b7dbd06d7b2a84a17401cf8" class="navh">24.8.18 QTabWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj176a65642a71e61180f6f59b6579e7dd" class="navh">24.8.19 QTextEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj37ef18de50443152c7f3bd72d6ea7b60" class="navh">24.8.20 QTimeEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj170d41005e686d65c1a2e6da1ac5d9d3" class="navh">24.8.21 QTreeView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj6abe0a2a3e93af31dcf36fb5a6f44975" class="navh">24.8.22 QTreeWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjeb86779df41a41f7511c860b831f87b0" class="navh">24.8.23 QWidget</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj2109c1a87ec1a3262198a32ccd4d37da" name="mj2109c1a87ec1a3262198a32ccd4d37da"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">24.8</span><span class="cfett"> Wichtige Widgets</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Nachdem wir bereits zwei Beispielprojekte zur Programmierung grafischer Benutzeroberflächen in PyQt entwickelt haben, finden Sie in diesem Abschnitt eine Übersicht über die wichtigsten Qt-Widgets und ihre Verwendung. Wie Sie wissen, werden Widgets im Qt-Framework durch Klassen repräsentiert, die sogenannten <span class="ckursiv">Widgetklassen</span>. Die Aufzählung von Widgetklassen, die Sie in diesem Kapitel vorfinden werden, ist keineswegs vollständig, und auch die Verwendung der Widgetklassen kann hier nicht erschöpfend beschrieben werden. Wenn Sie eine umfassende Beschreibung dieser Klassen benötigen, ist die Qt- bzw. PyQt-Dokumentation Ihr Freund und Helfer. Eine umfassende Übersicht über alle Klassen des Qt-Frameworks finden Sie dort unter dem Stichwort »class reference«.</p>
+<p>Die folgende Übersicht ist in alphabetischer Reihenfolge geordnet.</p><a id="mjd7810289c9aed6f9c751881e1018465c" name="mjd7810289c9aed6f9c751881e1018465c"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">24.8.1</span><span class="cfett"> QCheckBox</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QCheckBox</span> repräsentiert eine <span class="ckursiv">Check Box</span> in der grafischen Benutzeroberfläche. Eine Check Box ist ein Steuerelement, das vom Benutzer entweder aktiviert oder deaktiviert werden kann und dabei in seiner Bedeutung unabhängig von anderen Check Boxes ist. Eine Alternative zur Check Box ist der Radio Button, der in Abschnitt <a href="#Rxx_ref179611099">24.8.13</a> erklärt wird.</p>
+<div class="bildbox">
+<p><a name="IDAVQSQ"></a><a onClick="OpenWin('bilder/gui-widgets-checkbox.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-checkbox.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.31    </strong>Zwei Check Boxes</p>
+<p>Die Verwendung der Klasse <span class="clisting">QCheckBox</span> ist aufgrund der einfachen Struktur des Steuerelements schnell erklärt. Sie können mit den Methoden <span class="clisting">setCheckState</span> und <span class="clisting">checkState</span> den sogenannten Check State setzen oder lesen. Der Check State beschreibt, ob die Check Box momentan mit einem Haken versehen ist oder nicht. Dabei werden folgende Konstanten verwendet, wobei <span class="clisting">setCheckState</span> eine solche Konstante als Parameter erwartet und <span class="clisting">checkState</span> eine dieser Konstanten zurückgibt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 24.9    </strong>Lokale Referenzen in der Methode <span class="clisting">paint</span>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Attribut</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">QtCore.Qt.Checked</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die Check Box zeigt einen Haken.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">QtCore.Qt.Unchecked</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die Check Box zeigt keinen Haken.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">QtCore.Qt.PartiallyChecked</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die Check Box befindet sich im optionalen dritten Modus: »teilweise gecheckt«.</p>
+</td>
+</tr>
+</table><br><p>Eine Check Box kann mithilfe der Methode <span class="clisting">setTristate</span> mit dem in der Tabelle genannten optionalen dritten Status versehen werden.</p>
+<div class="bildbox">
+<p><a name="IDA3SSQ"></a><a onClick="OpenWin('bilder/gui-widgets-checkbox-tristate.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-checkbox-tristate.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.32    </strong>Eine Check Box im optionalen dritten Status</p>
+<p>Diesen dritten Status kennen Sie beispielsweise von der »Schreibgeschützt«-Check Box im Ordnereigenschaften-Dialog von Windows. Sie zeigt an, dass die Option für einen Teil der untergeordneten Elemente aktiv und für den anderen Teil inaktiv ist. Den Tristate-Status können Sie mit der Methode <span class="clisting">isTristate</span> abfragen.</p>
+<p>Wenn der Benutzer den Status einer Check Box ändert, wird das <span class="clisting">stateChanged</span>-Signal gesendet, das die Signatur <span class="clisting">stateChanged(int)</span> besitzt.</p><a id="mj2049b0d4b09d164f2476d7dfc2ec45d2" name="mj2049b0d4b09d164f2476d7dfc2ec45d2"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">24.8.2</span><span class="cfett"> QComboBox</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QComboBox</span> repräsentiert eine Combo Box, besser bekannt als Dropdown-Menü, in der grafischen Benutzeroberfläche.</p>
+<div class="bildbox">
+<p><a name="IDA5TSQ"></a><a onClick="OpenWin('bilder/gui-widgets-combobox.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-combobox.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.33    </strong>Zwei Combo Boxes</p>
+<p>Zunächst einmal können einer <span class="clisting">QComboBox</span>-Instanz mithilfe der Methode <span class="clisting">addItem</span> bzw. <span class="clisting">addItems</span> Einträge hinzugefügt werden. Diese Methoden bekommen einen String bzw. eine Liste von Strings übergeben, die jeweils den Namen des Eintrags enthalten, der in der Combo Box erscheinen soll. Der Methode <span class="clisting">addItem</span> kann zudem optional eine <span class="clisting">QIcon</span>-Instanz an erster Stelle übergeben werden, die das Icon repräsentiert, das zusammen mit dem Eintrag in der Combo Box angezeigt werden soll.</p>
+<p>Wenn der Benutzer einen Eintrag einer Combo Box auswählt, werden zwei Signale gesendet: <span class="clisting">currentIndexChanged(int)</span> und <span class="clisting">activated(int)</span>. Der Unterschied zwischen diesen beiden Signalen besteht darin, dass <span class="clisting">currentIndex</span>   <span class="clisting">Changed</span> auch gesendet wird, wenn vonseiten des Programms, also ohne Eingriff des Benutzers, ein Eintrag ausgewählt wurde, während <span class="clisting">activated</span> ausschließlich dann gesendet wird, wenn der Benutzer einen Eintrag der Combo Box auswählt.</p>
+<p>Eine Combo Box kann klassisch, beispielsweise mit der oben beschriebenen Methode <span class="clisting">addItem</span>, mit Werten gefüllt werden, unterstützt aber auch eine Model-View-Architektur. Dazu kann mithilfe der Methoden <span class="clisting">setModel</span> und <span class="clisting">setView</span> der <span class="clisting">QComboBox</span>-Klasse die Modell- bzw. die Viewklasse festgelegt werden.</p><a id="mj295c86558eb7790a1caad3caadcbd14c" name="mj295c86558eb7790a1caad3caadcbd14c"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">24.8.3</span><span class="cfett"> QDateEdit</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QDateEdit</span> repräsentiert ein Widget in der grafischen Benutzeroberfläche, das eine Datumsangabe vom Benutzer einliest. Dabei ist es mit dem DateEdit-Widget möglich, dem Benutzer einen übersichtlichen Kalender anzuzeigen, in dem er das gewünschte Datum auswählen kann.</p>
+<div class="bildbox">
+<p><a name="IDAYVSQ"></a><a onClick="OpenWin('bilder/gui-widgets-dateedit.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-dateedit.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.34    </strong>Zwei DateEdit-Widgets</p>
+<p>Bei der Instanziierung der Klasse <span class="clisting">QDateEdit</span> kann als erster Parameter eine <span class="clisting">QDate</span>-Instanz übergeben werden, die dem Datum entspricht, das im Widget voreingestellt sein soll. Anstelle von <span class="clisting">QDate</span> kann auch eine Instanz der Klasse <span class="clisting">date</span> <span class="clisting">time.date</span> aus Pythons Standardbibliothek übergeben werden.</p>
+<p>Das Anzeigen eines Kalenders kann durch Aufruf der Methode <span class="clisting">setCalendar</span> <span class="clisting">Popup</span> aktiviert werden, indem beim Methodenaufruf <span class="clisting">True</span> übergeben wird.</p>
+<p>Über die Methoden <span class="clisting">setMinimumDate</span> und <span class="clisting">setMaximumDate</span> kann dem Benutzer ein bestimmter Zeitraum vorgegeben werden, aus dem er ein Datum auswählen soll. Diese Werte können dementsprechend über die Methoden <span class="clisting">minimumDate</span> und <span class="clisting">maximumDate</span> ausgelesen werden. Beachten Sie, dass die beiden letzten Methoden das jeweilige Datum als <span class="clisting">QDate</span>-Instanz zurückgeben. Das Datum, das momentan vom Widget angezeigt wird, kann mithilfe der Methode <span class="clisting">date</span> gelesen und mit <span class="clisting">setDate</span> geschrieben werden.</p>
+<p>Wenn das Datum vom Benutzer geändert wurde, wird vom DateEdit-Widget das Signal <span class="clisting">dateChanged(const QDate &amp;)</span> gesendet.</p>
+<p>Beachten Sie, dass neben dem DateEdit-Widget noch das DateTimeEdit- und das TimeEdit-Widget existieren, bei denen der Benutzer noch zusätzlich bzw. ausschließlich eine Uhrzeit angeben kann.</p><a id="mj59aa1db582f3b839a69b147bc0487858" name="mj59aa1db582f3b839a69b147bc0487858"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">24.8.4</span><span class="cfett"> QDateTimeEdit</span>  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QDateTimeEdit</span> repräsentiert ein Widget, das sich ganz ähnlich verhält wie das DateEdit-Widget, mit dem Unterschied aber, dass zusätzlich zum Datum eine Uhrzeit angegeben werden kann. Ähnlich wie beim DateEdit-Widget kann optional ein Kalender zum Auswählen des Datums angezeigt werden. Zum Auswählen der Uhrzeit existiert keine solche Komfortfunktion, sie muss durch den Benutzer eingetippt werden.</p>
+<div class="bildbox">
+<p><a name="IDAXXSQ"></a><a onClick="OpenWin('bilder/gui-widgets-datetimeedit.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-datetimeedit.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.35    </strong>Zwei DateTimeEdit-Widgets</p>
+<p>Bei der Klasse <span class="clisting">QDateTimeEdit</span> handelt es sich genauer betrachtet um die Basisklasse von <span class="clisting">QDateEdit</span>. Die Verwendung von <span class="clisting">QDateTimeEdit</span> ähnelt also der Verwendung von <span class="clisting">QDateEdit</span> sehr. Um die Zeitangabe verwerten zu können, existieren zusätzlich zu den bei <span class="clisting">QDateEdit</span> besprochenen Methoden die Methoden <span class="clisting">setMinimumTime</span>, <span class="clisting">setMaximumTime</span>, <span class="clisting">setTime</span>, <span class="clisting">minimumTime</span>, <span class="clisting">maximumTime</span> und <span class="clisting">time</span> mit den Bedeutungen für die Zeitangabe, die die jeweiligen Datumsäquivalente für die Datumsangabe haben. Beachten Sie analog zu den Datumsmethoden, dass Qt die Klasse <span class="clisting">QTime</span> für Zeitangeben verwendet.</p>
+<p>Neben dem Signal <span class="clisting">dateChanged(const QDate &amp;) [</span>Das Signal wurde mit seiner C++-Parametersignatur angegeben. Diese muss zum einen beim Verbinden eines Slots zu diesem Signal angegeben werden und gibt zum anderen Aufschluss über die Anzahl und Typen der Parameter, die einem verbundenen Slot übergeben werden.
+] , das bei einer Änderung des Datums gesendet wird, existieren die Signale <span class="clisting">timeChanged(const QTime &amp;)</span> sowie <span class="clisting">dateTimeChanged(const QDateTime &amp;)</span>, die bei einer Änderung der Zeit bzw. in beiden Fällen gesendet werden.</p><a id="mj3da964dfd16810d718e1b2d9bcb688fc" name="mj3da964dfd16810d718e1b2d9bcb688fc"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">24.8.5</span><span class="cfett"> QDial</span>  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QDial</span> repräsentiert ein sogenanntes Dial-Widget in der grafischen Benutzeroberfläche. Ein Dial-Widget ist eine Art Drehregler ähnlich dem Lautstärkeregler einer Stereoanlage.</p>
+<div class="bildbox">
+<p><a name="IDAUZSQ"></a><a onClick="OpenWin('bilder/gui-widgets-dial.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-dial.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.36    </strong>Zwei Dial-Widgets</p>
+<p>Das Dial-Widget wird intern ganz ähnlich angesprochen wie ein sogenanntes Slider-Widget, das einen Schieberegler repräsentiert. Beide Widgets erben von derselben Basisklasse, <span class="clisting">QAbstractSlider</span>.</p>
+<p>Der einzige Unterschied zwischen einem Slider und dem Dial-Widget ist das sogenannte Wrapping des Dial-Widgets. Dieser Modus ist standardmäßig deaktiviert und bedeutet, dass übergangslos zwischen dem ersten und dem letzten möglichen Wert gewechselt werden kann. Wenn das Wrapping deaktiviert ist, besteht zwischen dem ersten und dem letzten Wert eine Lücke. In <a href="#Rxx_ref181939145">Abbildung 24.36</a> ist das an den Strichen deutlich zu sehen. Eine Einsatzmöglichkeit für den Wrapping-Modus wäre ein Dial-Widget, bei dem ein Winkel in Grad angegeben werden soll. Dabei sollte übergangslos zwischen 0° und 359° gewechselt werden können.</p>
+<p>Der Wrapping-Modus kann mithilfe der Methode <span class="clisting">setWrapping</span> aktiviert bzw. deaktiviert und mithilfe der Methode <span class="clisting">wrapping</span> ausgelesen werden.</p>
+<p>Näheres zur Verwendung des Dial-Widgets erfahren Sie in Abschnitt <a href="#Rxx_ref179635397">24.8.19</a>, in dem das Slider-Widget besprochen wird.</p><a id="mj48fac9fb739a93491b1db3d33005834f" name="mj48fac9fb739a93491b1db3d33005834f"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">24.8.6</span><span class="cfett"> QDialog</span>  <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QDialog</span> repräsentiert einen Dialog in der grafischen Benutzeroberfläche. Ein Dialog unterscheidet sich von normalen Widgets dahingehend, dass ein Dialog immer ein sogenanntes Toplevel-Widget ist, sich also nicht in ein anderes Widget einbetten lässt. Abgesehen von diesem Unterschied, kann <span class="clisting">QDialog</span> wie eine Widgetklasse verwendet werden, da sie, wie alle Widgets, von der Basisklasse <span class="clisting">QWidget</span> abgeleitet ist. Eine <span class="clisting">QDialog</span>-Instanz kann verwendet werden, um im wahrsten Sinne des Wortes einen Dialog mit dem Benutzer zu führen, beispielsweise um gewisse Daten von diesem einzulesen.</p>
+<p>Grundsätzlich unterscheidet man zwei Arten von Dialogen &#8211; modale und nicht modale Dialoge:</p>
+<ul class="gp">
+<li>Unter einem <span class="ckursiv">modalen Dialog</span> versteht man einen Dialog, der sich im Vordergrund der Anwendung platziert und sich den Eingabefokus klaut. Es können keine anderen Dialoge vom Benutzer bedient werden, während ein modaler Dialog geöffnet ist. Ein modaler Dialog bietet sich also für eine wichtige Teilkommunikation mit dem Benutzer an, die für den weiteren Programmlauf essenziell ist.</li>
+</ul>
+<ul class="gp">
+<li>Dem gegenüber steht der <span class="ckursiv">nicht modale Dialog</span>. Wird ein Dialog nicht modal geöffnet, so kann er parallel zum restlichen Teil der Anwendung bedient werden. Ein bekanntes Beispiel für einen nicht modalen Dialog ist der »Suchen und Ersetzen«-Dialog von vielen Textverarbeitungsprogrammen, bei dem es dem Benutzer möglich sein muss, während des geöffneten Dialogs Änderungen im Hauptfenster vorzunehmen.</li>
+</ul>
+<p>Um einen Dialog modal anzuzeigen, wird die Methode <span class="clisting">exec</span> aufgerufen. Diese blockiert den Programmfluss so lange, bis der Benutzer den Dialog beendet hat. Der Rückgabewert von <span class="clisting">exec</span> gibt an, in welcher Form der Dialog beendet wurde. Es wird eine der beiden Konstanten <span class="clisting">QtCore.Qt.Accepted</span> und <span class="clisting">QtCore.Qt.Rejec</span> <span class="clisting">ted</span> zurückgegeben, wobei die erste ein Beenden des Dialogs über den <span class="cfett">OK</span>- und die zweite ein Beenden über den <span class="cfett">Abbrechen</span>-Button repräsentiert. Innerhalb der Dialogklasse können die Methoden <span class="clisting">accept</span> und <span class="clisting">reject</span> aufgerufen werden, um den Dialog mit dem entsprechenden Rückgabewert zu beenden.</p>
+<p>Ein nicht modaler Dialog wird mithilfe der Methode <span class="clisting">show</span> angezeigt. Diese Methode kehrt sofort zurück, ohne auf das Beenden des Dialogs zu warten, und ermöglicht somit das parallele Verarbeiten von Dialog und Hauptanwendung.</p><a id="mjb7c1c34af70ba881939ed78c8f09cb4a" name="mjb7c1c34af70ba881939ed78c8f09cb4a"></a><a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3"><span class="cfett">24.8.7</span><span class="cfett"> QGLWidget</span>  <a href="#t2t39"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QGLWidget</span> repräsentiert ein Widget in der grafischen Benutzeroberfläche, das eine 3D OpenGL-Szene anzeigt. Auf diese Weise kann Qt beispielsweise als Benutzeroberfläche für ein Computerspiel oder für einen Editor für dreidimensionale Daten verwendet werden. Die Klasse <span class="clisting">QGLWidget</span> ist zwar sehr interessant und bietet eine Fülle von Möglichkeiten, liegt aber auch nicht im Fokus dieses Buches und soll deshalb hier nur der Vollständigkeit halber erwähnt werden. Näheres zum GL-Widget finden Sie in der Qt- bzw. PyQt-Dokumentation.</p><a id="mjd53a9048d9c571639ee4ddf703314dfd" name="mjd53a9048d9c571639ee4ddf703314dfd"></a><a name="t38"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t39"></a><h3 class="t3"><span class="cfett">24.8.8</span><span class="cfett"> QLineEdit</span>  <a href="#t2t310"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t38"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QLineEdit</span> repräsentiert ein LineEdit-Widget in der grafischen Benutzeroberfläche. Ein LineEdit-Wdiget ermöglicht es, einen einzeiligen Text vom Benutzer einzulesen. Ein LineEdit-Widget kann optional sowohl lese- als auch schreibgeschützt sein, sodass beispielsweise auch eine Passworteingabe mit der Klasse <span class="clisting">QLineEdit</span> realisiert werden kann.</p>
+<div class="bildbox">
+<p><a name="IDA03SQ"></a><a onClick="OpenWin('bilder/gui-widgets-lineedit.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-lineedit.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.37    </strong>Drei LineEdit-Widgets</p>
+<p>Die Verwendung des Eingabefeldes ist recht einfach und basiert im Wesentlichen auf den Methoden <span class="clisting">setText</span> und <span class="clisting">text</span>, mit denen der enthaltene Text geschrieben bzw. ausgelesen werden kann.</p>
+<p>Zusätzlich kann ein LineEdit-Eingabefeld (wie in <a href="#Rxx_ref181939285">Abbildung 24.37</a> zu sehen ist) in verschiedene Modi versetzt werden:</p>
+<ul class="gp">
+<li>Im normalen Modus kann der enthaltene Text sowohl vom Benutzer als auch vom Programm verändert und gelesen werden.</li>
+</ul>
+<ul class="gp">
+<li>Im schreibgeschützten Modus kann der enthaltene Text vom Benutzer zwar gelesen, aber nicht verändert werden. Für das Programm selbst ist das Eingabefeld dann selbstverständlich nicht schreibgeschützt.</li>
+</ul>
+<ul class="gp">
+<li>Im lesegeschützten Modus kann der enthaltene Text vom Benutzer zwar geschrieben, aber nicht gelesen werden. Das ist insbesondere für Passworteingaben interessant. Das Programm selbst kann selbstverständlich auch ein lesegeschütztes Feld auslesen.</li>
+</ul>
+<p>Um ein LineEdit-Widget schreibgeschützt zu schalten, muss die Methode <span class="clisting">setReadOnly</span> aufgerufen und <span class="clisting">True</span> übergeben werden. Um den Wert auszulesen, kann die Methode <span class="clisting">readOnly</span> aufgerufen werden. Um ein LineEdit-Widget lesegeschützt zu schalten, muss die Methode <span class="clisting">setEchoMode</span> aufgerufen und eine der folgenden Konstanten übergeben werden:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 24.10    </strong>Eingabemodi eines LineEdit-Widgets
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Attribut</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">QtGui.QLineEdit.Normal</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Aktiviert den normalen Eingabemodus.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">QtGui.QLineEdit.NoEcho</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Aktiviert einen lesegeschützten Eingabemodus, bei dem überhaupt nichts angezeigt wird.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">QtGui.QLineEdit.Password</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Aktiviert einen lesegeschützten Eingabemodus, bei dem jeder eingegebene Buchstabe durch einen dicken Punkt ersetzt wird.</p>
+</td>
+</tr>
+</table><br><a id="mj753a3b774e44a835d684a14b3db04bdf" name="mj753a3b774e44a835d684a14b3db04bdf"></a><a name="t39"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t310"></a><h3 class="t3"><span class="cfett">24.8.9</span><span class="cfett"> QListView</span>  <a href="#t2t311"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t39"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QListView</span> repräsentiert ein ListView-Widget in der grafischen Benutzeroberfläche. Ein ListView-Widget zeigt die Daten einer entsprechenden Modellklasse in Form einer Liste an. Üblicherweise wird ein eigenes Widget erstellt, das von der Klasse <span class="clisting">QListView</span> abgeleitet wird, um die Art der Anzeige anzupassen. Eine Einführung in das Konzept der Modell-View-Programmierung anhand des ListView-Widgets finden Sie in Abschnitt <a href="#Rxx_ref179141737">24.7</a>.</p><a id="mj174335c173cec288eda1580821430bde" name="mj174335c173cec288eda1580821430bde"></a><a name="t310"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t311"></a><h3 class="t3"><span class="cfett">24.8.10</span><span class="cfett"> QListWidget</span>  <a href="#t2t312"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t310"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QListWidget</span> repräsentiert ein List-Widget in der grafischen Benutzeroberfläche. Ein List-Widget dient einem ähnlichen Zweck wie das ListView-Widget, nämlich dazu, aufbereitete Daten in Form einer Liste anzuzeigen. Der Unterschied besteht darin, dass für <span class="clisting">QListView</span> keine Modell-View-Architektur erforderlich ist.</p>
+<div class="bildbox">
+<p><a name="IDAACTQ"></a><a onClick="OpenWin('bilder/gui-widgets-listwidget.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-listwidget.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.38    </strong>Ein List-Widget</p>
+<p>Ein List-Widget wird immer dann eingesetzt, wenn das Erstellen einer Model-View-Architektur für die anzuzeigenden Daten unverhältnismäßig aufwendig wäre und die Flexibilität, die eine Model-View-Architektur bietet, nicht benötigt wird.</p>
+<p>Ein einzelner Eintrag in der Liste wird durch eine Instanz der Klasse <span class="clisting">QListWidget</span> <span class="clisting">Item</span> repräsentiert, die mithilfe der Methode <span class="clisting">addItem</span> zur Liste hinzugefügt werden kann. Die Methode <span class="clisting">currentItem</span> gibt den momentan ausgewählten Eintrag zurück.</p><a id="mjeb6c6758021833d8054cc62bbcca6e9d" name="mjeb6c6758021833d8054cc62bbcca6e9d"></a><a name="t311"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t312"></a><h3 class="t3"><span class="cfett">24.8.11</span><span class="cfett"> QProgressBar</span>  <a href="#t2t313"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t311"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QProgressBar</span> repräsentiert einen Fortschrittsbalken (engl. <span class="ckursiv">progress bar</span>) in einer grafischen Benutzeroberfläche. Ein Fortschrittsbalken zeigt den Fortschritt einer langwierigen Operation an. Der Benutzer kann dabei aus naheliegenden Gründen keine Eigenschaften des Fortschrittsbalkens verändern; das ProgressBar-Widget ist für den Benutzer ausschließlich lesbar.</p>
+<div class="bildbox">
+<p><a name="IDAGDTQ"></a><a onClick="OpenWin('bilder/gui-widgets-progressbar.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-progressbar.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.39    </strong>Vier ProgressBar-Widgets</p>
+<p>Einem ProgressBar-Widget wird keine Prozentzahl übergeben, die es anzuzeigen hat, sondern es wird auf der Basis von Einzelschritten gearbeitet. Mithilfe der Methoden <span class="clisting">setMinimum</span> und <span class="clisting">setMaximum</span> wird ein ganzzahliger Bereich festgelegt, in dem sich der momentane Status bewegt. Mit <span class="clisting">setValue</span> wird dem ProgressBar-Widget der aktuelle, ebenfalls ganzzahlige Status mitgeteilt, der zwischen dem angegebenen Minimum und dem Maximum liegen muss. Das Widget errechnet daraus eine Prozentzahl und zeigt den Fortschrittsbalken dementsprechend an.</p>
+<p>Wenn sowohl das Minimum als auch das Maximum auf <span class="clisting">0</span> gesetzt wurden, zeigt die ProgressBar den sogenannten <span class="ckursiv">Busy Indicator</span> an. Das ist ein kurzes Stück des Fortschrittsbalkens, das im Widget hin- und herläuft (siehe <a href="#Rxx_ref181939433">Abbildung 24.40</a>).</p>
+<div class="bildbox">
+<p><a name="IDA0DTQ"></a><a onClick="OpenWin('bilder/gui-widgets-progressbar2.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-progressbar2.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.40    </strong>Der Busy Indicator</p>
+<p>Optional kann der Fortschritt zusätzlich zum Balken in Form einer Prozentanzeige visualisiert werden. Dazu muss die Methode <span class="clisting">setTextVisible</span> aufgerufen und <span class="clisting">True</span> übergeben werden.</p>
+<p>Ein ProgressBar-Widget kann, wie in <a href="#Rxx_ref181939470">Abbildung 24.39</a> zu sehen ist, entweder horizontal oder vertikal verlaufen. Um diese Eigenschaft an die jeweiligen Umstände anzupassen, wird die Methode <span class="clisting">setOrientation</span> mit einer der beiden Konstanten <span class="clisting">QtCore.Qt.Horizontal</span> bzw. <span class="clisting">QtCore.Qt.Vertical</span> als Parameter aufgerufen.</p><a id="mj23d215e0756bba97ab8dcb09790ac00f" name="mj23d215e0756bba97ab8dcb09790ac00f"></a><a name="t312"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t313"></a><h3 class="t3"><span class="cfett">24.8.12</span><span class="cfett"> QPushButton</span>  <a href="#t2t314"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t312"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QPushButten</span> repräsentiert einen Button, auch Schaltfläche genannt, in der grafischen Benutzeroberfläche. Ein Button ist ein beschriftetes Widget, auf das der Benutzer klicken kann, um eine mit dem Button assoziierte Aktion auszulösen.</p>
+<div class="bildbox">
+<p><a name="IDAEFTQ"></a><a onClick="OpenWin('bilder/gui-widgets-button.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-button.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.41    </strong>Drei PushButton-Widgets</p>
+<p>Die häufigste Art des Buttons ist die, die in <a href="#Rxx_ref181939538">Abbildung 24.41</a> mit »Klick mich« beschriftet ist. Auf diese Weise präsentiert sich ein PushButton-Widget im Normalfall. Die Beschriftung des Buttons kann mit der Methode <span class="clisting">setText</span> festgelegt werden.</p>
+<p>Das Einzige, was zur Verwendung des Buttons noch fehlt, ist das Signal, das beim Klicken auf selbigen gesendet wird. Dabei handelt es sich um das <span class="clisting">clicked()</span>-Signal. Das Programm sollte einen Slot mit diesem Signal verbinden, um eine Aktion beim Klicken des Buttons zu starten.</p>
+<p>Eine Variante des Push Buttons ist der Toggle Button. Das ist ein Button, der sich ähnlich wie eine Check Box aktivieren und deaktivieren lässt. Ein solcher Button ist in <a href="#Rxx_ref181939538">Abbildung 24.41</a> zu sehen und mit »Check mich« beschriftet. Der Toggle-Modus wird aktiviert, indem die Methode <span class="clisting">setCheckable</span> der Klasse <span class="clisting">QPushButton</span> aufgerufen und <span class="clisting">True</span> übergeben wird. Dann kann der Status des Buttons, ähnlich wie der einer Check Box, mit der Methode <span class="clisting">isChecked</span> herausgefunden und mittels <span class="clisting">setCheck</span> gesetzt werden.</p>
+<p>Zu guter Letzt kann ein Button durch Aufruf der Methoden <span class="clisting">setDafault</span> noch zu einem sogenannten <span class="ckursiv">Default Button</span> gemacht werden. Ein solcher Button wird immer dann aktiviert, wenn der Benutzer auf die Return- oder Leertaste drückt, egal, welches Steuerelement momentan den Fokus hat. Der Default Button wird hervorgehoben. Es kann in einem Dialog immer nur einen solchen Button geben.</p><a id="mj3376ce50168855804718b93fce86d2bd" name="mj3376ce50168855804718b93fce86d2bd"></a><a name="t313"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t314"></a><h3 class="t3"><span class="cfett">24.8.13</span><span class="cfett"> QRadioButton</span>  <a href="#t2t315"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t313"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QRadioButton</span> repräsentiert einen Radio Button in der grafischen Benutzeroberfläche. Ein Radio Button wird verwendet, um den Benutzer eine Auswahl aus mehreren vorgegebenen Möglichkeiten treffen zu lassen.</p>
+<div class="bildbox">
+<p><a name="IDA2GTQ"></a><a onClick="OpenWin('bilder/gui-widgets-radio.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-radio.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.42    </strong>Drei Radio Buttons</p>
+<p>Alle Radio Buttons eines Dialogs, die über dasselbe Elternwidget verfügen, gehören zu einer Gruppe. Innerhalb einer Gruppe kann immer nur ein Radio Button aktiviert sein. Wenn der Benutzer einen anderen aktiviert, wird der vorher aktivierte inaktiv. Um mehrere Gruppen von Radio Buttons in demselben Dialog unterzubringen, müssen diese über verschiedene Elternwidgets verfügen. Dazu bietet sich das sogenannte <span class="ckursiv">Frame-Widget</span>, repräsentiert durch die Klasse <span class="clisting">QFrame</span>, an, das einem unsichtbaren Rahmen im Widget entspricht und als Elternwidget für die Radio Buttons dienen kann.</p>
+<p>Ein Radio Button sendet das Signal <span class="clisting">toggled()</span>, wenn der Benutzer ihn aktiviert oder deaktiviert. Ansonsten kann der Status eines Radio Buttons, ähnlich wie bei einer Check Box, über die Methode <span class="clisting">isChecked</span> erfragt werden.</p><a id="mj94112aa4fd117f48c3d39f9618b58181" name="mj94112aa4fd117f48c3d39f9618b58181"></a><a name="t314"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t315"></a><h3 class="t3"><span class="cfett">24.8.14</span><span class="cfett"> QScrollArea</span>  <a href="#t2t316"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t314"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QScrollArea</span> repräsentiert ein ScrollArea-Widget in der grafischen Benutzeroberfläche. Ein ScrollArea-Widget besitzt ein untergeordnetes Widget, dessen Größe möglicherweise die Größe des ScrollArea-Widgets überschreitet. Wenn dies der Fall ist, sorgt das ScrollArea-Widget dafür, dass Scrollbars für die entsprechende Seite entstehen, mit deren Hilfe das übergroße untergeordnete Widget gescrollt werden kann.</p>
+<div class="bildbox">
+<p><a name="IDADITQ"></a><a onClick="OpenWin('bilder/gui-widgets-scrollarea.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-scrollarea.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.43    </strong>Ein ScrollArea-Widget</p>
+<p>Das untergeordnete Widget einer <span class="clisting">QScrollArea</span>-Instanz wird mithilfe der Methode <span class="clisting">setWidget</span> festgelegt. In <a href="#Rxx_ref181939673">Abbildung 24.43</a> wurde dem ScrollArea-Widget ein zugegebenermaßen ungewöhnlich großes Dial-Widget zum Scrollen übergeben.</p><a id="mjfddd4b80d093f9d97306b20f84578ee3" name="mjfddd4b80d093f9d97306b20f84578ee3"></a><a name="t315"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t316"></a><h3 class="t3"><span class="cfett">24.8.15</span><span class="cfett"> QSlider</span>  <a href="#t2t317"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t315"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QSlider</span> repräsentiert einen Slider in der grafischen Benutzeroberfläche. Bei einem Slider handelt es sich um einen Schieberegler, wie Sie ihn beispielsweise von einem Mischpult her kennen. Grundsätzlich wird ein Slider dazu verwendet, den Benutzer einen ganzzahligen Wert auswählen zu lassen, der innerhalb eines bestimmten Bereichs liegen muss. Dabei sollte der tatsächliche Wert für den Benutzer eher weniger interessant sein, da dieser von einem Slider nicht angezeigt wird.</p>
+<div class="bildbox">
+<p><a name="IDAGJTQ"></a><a onClick="OpenWin('bilder/gui-widgets-slider.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-slider.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.44    </strong>Drei Slider</p>
+<p>Der Slider ist von der Basisklasse <span class="clisting">QAbstractSlider</span> abgeleitet, von der auch das Dial-Widget erbt. Die Verwendung dieser beiden Widgets ist weitestgehend identisch.</p>
+<p>Ein Slider wird durch Aufruf der Methoden <span class="clisting">setMinimum</span> und <span class="clisting">setMaximum</span> initialisiert. Diese Methoden legen den ganzzahligen Mindest- bzw. Maximalwert fest, zwischen denen der Benutzer einen beliebigen Wert wählen darf. Mithilfe der Methode <span class="clisting">setValue</span> kann der Anfasser des Sliders auf eine bestimmte Position gesetzt werden. Analog dazu erlaubt es die Methode <span class="clisting">value</span>, die Position des Anfassers auszulesen. Der Slider sendet das Signal <span class="clisting">valueChanged()</span> immer dann, wenn der Benutzer den Anfasser auf eine neue Position bewegt und losgelassen hat.</p>
+<p>Optional kann ein Slider mit einer Skala ausgestattet werden. Dazu muss die Methode <span class="clisting">setTickPosition</span> mit einem geeigneten Parameter aufgerufen werden. Als Parameter kann beispielsweise <span class="clisting">QtCore.Qt.NoTicks</span> übergeben werden, um eine Skala abzuschalten, oder <span class="clisting">QtCore.Qt.TicksAbove</span> bzw. <span class="clisting">QtCore.Qt.Ticks</span> <span class="clisting">Below</span>, um die Skala über bzw. unter dem Slider anzuzeigen.</p>
+<p>Zu guter Letzt kann ein Slider, wie in <a href="#Rxx_ref181939737">Abbildung 24.44</a> zu sehen ist, sowohl horizontal als auch vertikal ausgerichtet sein. Um die Ausrichtung eines Sliders zu verändern, wird die Methode <span class="clisting">setOrientation</span> aufgerufen und eine der beiden Konstanten <span class="clisting">QtCore.Qt.Horizontal</span> bzw. <span class="clisting">QtCore.Qt.Vertical</span> übergeben.</p><a id="mj5a52f70c91ed3907254124d05e894fe8" name="mj5a52f70c91ed3907254124d05e894fe8"></a><a name="t316"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t317"></a><h3 class="t3"><span class="cfett">24.8.16</span><span class="cfett"> QTableView</span>  <a href="#t2t318"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t316"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QTableView</span> repräsentiert ein TableView-Widget in der grafischen Benutzeroberfläche. Ein TableView Widget zeigt tabellarische Datenstrukturen, beispielsweise die Bundesliga-Tabelle, unter Verwendung einer Model-View-Architektur an.</p>
+<p>Ein Beispiel für eine Model-View-Architektur, allerdings bezogen auf ein ListView-Widget, finden Sie in Abschnitt <a href="#Rxx_ref179141737">24.7</a>. Sie können <span class="clisting">QTableView</span> als View- und beispielsweise <span class="clisting">QAbstractTableModel</span> als Modellklasse verwenden. Genauere Informationen und Beispiele zu diesem Thema sind in der Qt-Dokumentation zu finden.</p><a id="mjcbe42edfb63ff02ed61c895f76d00c1d" name="mjcbe42edfb63ff02ed61c895f76d00c1d"></a><a name="t317"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t318"></a><h3 class="t3"><span class="cfett">24.8.17</span><span class="cfett"> QTableWidget</span>  <a href="#t2t319"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t317"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QTableWidget</span> repräsentiert ein Table-Widget in der grafischen Benutzeroberfläche. Ein Table Widget hat einen ähnlichen Zweck wie ein TableView-Widget, mit dem Unterschied aber, dass das Table Widget keine Model-View-Architektur voraussetzt.</p>
+<div class="bildbox">
+<p><a name="IDADMTQ"></a><a onClick="OpenWin('bilder/gui-widgets-tablewidget.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-tablewidget.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.45    </strong>Ein Table-Widget</p>
+<p>Das Table-Widget wird besonders dann eingesetzt, wenn das Schreiben einer eigenen Model-View-Architektur unverhältnismäßig viel Arbeit bedeutet und die Flexibilität, die eine solche Architektur bietet, nicht benötigt wird.</p>
+<p>Nachdem eine Instanz der Klasse <span class="clisting">QTableWidget</span> erzeugt wurde, können mithilfe der Methoden <span class="clisting">setRowCount</span> und <span class="clisting">setColumnCount</span> die Anzahl der Zeilen und Spalten festgelegt werden. Danach können einzelne Einträge in jeweils eine Zelle der Tabelle geschrieben werden. Um einen Eintrag hinzuzufügen, wird die Methode <span class="clisting">setItem</span> aufgerufen, die den Zeilen- und Spaltenindex der Zelle und eine <span class="clisting">QTable</span> <span class="clisting">WidgetItem</span>-Instanz übergeben bekommt. Diese Instanz beschreibt das einzufügende Element.</p>
+<p>Die Zeilen und Spalten einer Tabelle können mithilfe der Methoden <span class="clisting">setHorizon</span> <span class="clisting">talHeaderLabels</span> und <span class="clisting">setVerticalHeaderLabels</span> beschriftet werden. Diese Methoden bekommen jeweils eine Liste von Strings als Parameter übergeben.</p><a id="mj3e9d765f8b7dbd06d7b2a84a17401cf8" name="mj3e9d765f8b7dbd06d7b2a84a17401cf8"></a><a name="t318"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t319"></a><h3 class="t3"><span class="cfett">24.8.18</span><span class="cfett"> QTabWidget</span>  <a href="#t2t320"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t318"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QTabWidget</span> repräsentiert ein Tab-Widget in der grafischen Benutzeroberfläche. Ein Tab-Widget zeigt mehrere Karteikartenreiter an, zwischen denen der Benutzer wechseln kann. Je nachdem, welcher Reiter aktiv ist, werden unterschiedliche Steuerelemente im Tab-Widget angezeigt. Das Tab-Widget findet häufig in Konfigurationsdialogen Anwendung, wenn viele Steuerelemente auf relativ wenig Raum einfach zu erreichen sein müssen.</p>
+<div class="bildbox">
+<p><a name="IDASNTQ"></a><a onClick="OpenWin('bilder/gui-widgets-tab.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-tab.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.46    </strong>Tab-Widget im Konfigurationsdialog eines fiktiven Spiels</p>
+<p>Nachdem eine Instanz der Klasse <span class="clisting">QTabWidget</span> erzeugt worden ist, können die einzelnen Tabs und die dazugehörenden sogenannten Seiten erstellt werden. Eine Seite ist nichts anderes als ein Widget, dem die in der Seite gewünschten Steuerelemente untergeordnet sind. Beachten Sie, dass das Seitenwidget kein Elternwidget benötigt. Mithilfe der Funktion <span class="clisting">addTab</span> wird ein Tab mitsamt Seite zum Tab-Widget hinzugefügt.</p>
+<p>Auf die aktuell angezeigte Seite kann mithilfe der Methoden <span class="clisting">currentIndex</span> oder <span class="clisting">currentWidget</span> zugegriffen werden. Analog dazu kann die aktuelle Seite mit <span class="clisting">setCurrentIndex</span> bzw. <span class="clisting">setCurrentWidget</span> verändert werden.</p>
+<p>Wenn der Benutzer eine neue Seite auswählt, wird das Signal <span class="clisting">currentChan</span> <span class="clisting">ged(int)</span> gesendet.</p><a id="mj176a65642a71e61180f6f59b6579e7dd" name="mj176a65642a71e61180f6f59b6579e7dd"></a><a name="t319"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t320"></a><h3 class="t3"><span class="cfett">24.8.19</span><span class="cfett"> QTextEdit</span>  <a href="#t2t321"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t319"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QTextEdit</span> repräsentiert ein mehrzeiliges Eingabefeld in der grafischen Benutzeroberfläche. In ein solches Eingabefeld kann der Benutzer beliebigen Text schreiben.</p>
+<div class="bildbox">
+<p><a name="IDAXOTQ"></a><a onClick="OpenWin('bilder/gui-widgets-textedit.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-textedit.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.47    </strong>Zwei TextEdit-Widgets</p>
+<p>Ein TextEdit-Widget liegt nicht nur in der Vorstellung sehr nahe beim bereits besprochenen LineEdit-Widget, sondern wird programmintern auch ganz ähnlich angesprochen. Im Gegensatz zum einzeiligen Eingabefeld ist das TextEdit-Widget dazu in der Lage, Rich Text und HTML darzustellen.</p>
+<p>Im Falle von reinem Text, wenn es sich also weder um HTML noch um Rich Text handelt, kann der Inhalt eines TextEdit-Widgets mit der Methode <span class="clisting">toPlainText</span> ausgelesen und mittels <span class="clisting">setPlainText</span> geschrieben werden. Außerdem kann das TextEdit-Widget ähnlich wie bei LineEdit durch Aufruf der Methode <span class="clisting">setRead</span> <span class="clisting">Only</span> in einen schreibgeschützten Modus versetzt werden, in dem der Benutzer den Inhalt des Widgets nicht verändern kann.</p>
+<p>Das TextEdit-Widget bietet insbesondere in puncto HTML und Rich Text eine Fülle von Möglichkeiten, die in der Qt-Dokumentation im Detail besprochen werden.</p><a id="mj37ef18de50443152c7f3bd72d6ea7b60" name="mj37ef18de50443152c7f3bd72d6ea7b60"></a><a name="t320"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t321"></a><h3 class="t3"><span class="cfett">24.8.20</span><span class="cfett"> QTimeEdit</span>  <a href="#t2t322"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t320"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QTimeEdit</span> repräsentiert ein TimeEdit-Widget in der grafischen Benutzeroberfläche. Ein solches Widget erlaubt es, eine Zeitangabe vom Benutzer einzulesen. Die Klasse hängt eng mit den bereits besprochenen Klassen <span class="clisting">QDateEdit</span> und <span class="clisting">QDateTimeEdit</span> zusammen.</p>
+<div class="bildbox">
+<p><a name="IDALQTQ"></a><a onClick="OpenWin('bilder/gui-widgets-timeedit.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-timeedit.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.48    </strong>Ein TimeEdit-Widget</p>
+<p>Die Klasse <span class="clisting">QTimeEdit</span> unterstützt die Funktionalität der Klasse <span class="clisting">QDateTimeEdit</span>, die sich auf Zeitangaben bezieht.</p><a id="mj170d41005e686d65c1a2e6da1ac5d9d3" name="mj170d41005e686d65c1a2e6da1ac5d9d3"></a><a name="t321"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t322"></a><h3 class="t3"><span class="cfett">24.8.21</span><span class="cfett"> QTreeView</span>  <a href="#t2t323"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t321"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QTreeView</span> repräsentiert ein TreeView-Widget in der grafischen Benutzeroberfläche. Ein TreeView-Widget zeigt baumförmige Datenstrukturen, beispielsweise den Inhalt eines Ordners mitsamt Unterordnern, unter Verwendung einer Model-View-Architektur an.</p>
+<p>Ein Beispiel für eine Model-View-Architektur, allerdings bezogen auf ein ListView-Widget, finden Sie in Abschnitt <a href="#Rxx_ref179141737">24.7</a>. Dabei können Sie <span class="clisting">QTreeView</span> als View- und beispielsweise <span class="clisting">QAbstractItemModel</span> als Modellklasse verwenden. Genauere Informationen und Beispiele zu diesem Thema sind in der Qt-Dokumentation zu finden.</p><a id="mj6abe0a2a3e93af31dcf36fb5a6f44975" name="mj6abe0a2a3e93af31dcf36fb5a6f44975"></a><a name="t322"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t323"></a><h3 class="t3"><span class="cfett">24.8.22</span><span class="cfett"> QTreeWidget</span>  <a href="#t2t324"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t322"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QTreeWidget</span> repräsentiert ein Tree-Widget in der grafischen Benutzeroberfläche. Das Tree-Widget zeigt, ähnlich wie das TreeView-Widget, hierarchisch aufgebaute Datenstrukturen an. Im Gegensatz zum TreeView-Widget setzt das Tree-Widget jedoch keine Model-View-Architektur voraus.</p>
+<div class="bildbox">
+<p><a name="IDAJSTQ"></a><a onClick="OpenWin('bilder/gui-widgets-treewidget.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets-treewidget.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.49    </strong>Ein Tree-Widget</p>
+<p>Die Klasse <span class="clisting">QTreeWidget</span> implementiert die klassische Schnittstelle eines Tree-Widgets, die so ähnlich auch in vielen anderen GUI-Toolkits vorhanden ist. Allgemein sollte das Tree-Widget nur dann verwendet werden, wenn das Erstellen einer eigenen Model-View-Architektur einen unverhältnismäßig hohen Aufwand darstellt und auf die Flexibilität des TreeView-Widgets verzichtet werden kann.</p>
+<p>Nach dem Instanziieren der Klasse <span class="clisting">QTreeWidget</span> kann eine optionale Kopfzeile eingerichtet werden, die die Spaltenbeschreibungen enthält. In <a href="#Rxx_ref181940129">Abbildung 24.49</a> kennzeichnet die Kopfzeile die Spalten »Land« und »Einwohnerzahl«. Zum Anlegen einer Kopfzeile und zum Beschriften der Spalten wird die Methode <span class="clisting">setHea</span> <span class="clisting">derLabels</span> aufgerufen. Diese bekommt eine Liste von Strings übergeben und legt für jeden der enthaltenen Strings eine eigene Spalte im Tree-Widget an.</p>
+<p>Nachdem das Widget initialisiert wurde, kann mithilfe der Methode <span class="clisting">addTop</span> <span class="clisting">LevelItem</span> ein Eintrag auf höchster Ebene hinzugefügt werden. Bei einem Eintrag handelt es sich um eine Instanz der Klasse <span class="clisting">QTreeWidgetItem</span>, die ihrerseits über untergeordnete Einträge verfügen kann. Beim Instanziieren eines Eintrags wird dem Konstruktor der gewünschte Elterneintrag übergeben und die Baumstruktur auf diese Weise erzeugt. Wenn die Einträge erstellt wurden, kann der oberste Eintrag mittels <span class="clisting">addTopLevelItem</span> zum Tree-Widget hinzugefügt werden, was alle untergeordneten Einträge einschließt.</p><a id="mjeb86779df41a41f7511c860b831f87b0" name="mjeb86779df41a41f7511c860b831f87b0"></a><a name="t323"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t324"></a><h3 class="t3"><span class="cfett">24.8.23</span><span class="cfett"> QWidget</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t323"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QWidget</span> ist die Basisklasse aller Steuerelemente und implementiert einen Großteil der steuerelementübergreifenden Funktionalität. Allgemein können Widgets in zwei Sorten unterteilt werden:</p>
+<ul class="gp">
+<li>Der häufigste Fall ist ein <span class="ckursiv">untergeordnetes Widget</span>, das dadurch charakterisiert ist, dass es ein übergeordnetes Widget (<span class="ckursiv">Parent</span>) besitzt. Ein solches untergeordnetes Widget wird relativ zu seinem Parent positioniert und kann nicht über die Ränder des Parent-Widgets hinausgehen.</li>
+</ul>
+<ul class="gp">
+<li>Ein Widget ohne Parent-Widget ist ein sogenanntes <span class="ckursiv">Fenster</span> (engl. <span class="ckursiv">Window</span>). Theoretisch kann jede Instanz einer von <span class="clisting">QWidget</span> abgeleiteten Klasse als Fenster dienen, beispielsweise also auch ein Button oder eine Check Box. Praktisch macht dies jedoch wenig Sinn, und es werden nur geeignetere Klassen wie beispielsweise <span class="clisting">QDialog</span> als Fenster verwendet.</li>
+</ul>
+<p>In diesem Kapitel soll ein knapper Überblick über die Funktionalität gegeben werden, die die Klasse <span class="clisting">QWidget</span> bereitstellt und die demzufolge an jedes Steuerelement weitervererbt wird. Beachten Sie dabei, dass es sich bei <span class="clisting">QWidget</span> um eine ausgesprochen umfangreiche Klasse handelt, die hier keinesfalls vollständig beschrieben werden kann.</p>
+<p>Die folgende Tabelle listet die wichtigsten Eventhandler auf, die beim Auftreten verschiedener Events aufgerufen werden. Ein Eventhandler kann eingerichtet werden, indem eine selbst erstellte Klasse, die von <span class="clisting">QWidget</span> direkt oder von einer Steuerelementklasse erbt, die genannte Methode implementiert.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 24.11    </strong>Events eines Widgets
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Event</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">paintEvent</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Wird immer dann aufgerufen, wenn das Widget neu gezeichnet werden muss. Die Methode bekommt eine Instanz der Klasse <span class="clisting">QPaintEvent</span> übergeben, die beispielsweise den neu zu zeichnenden Bereich enthält.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">resizeEvent</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Wird immer dann aufgerufen, wenn das Widget in seiner Größe verändert wurde. Der Methode wird eine Instanz der Klasse <span class="clisting">QResizeEvent</span> übergeben, die unter anderem die alte und neue Größe des Widgets enthält.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">mousePressEvent</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Wird immer dann aufgerufen, wenn der Benutzer mit der Maus auf das Widget klickt. Der Methode wird eine Instanz der Klasse <span class="clisting">QMouseEvent</span> übergeben, die beispielsweise die Koordinaten des Mausklicks enthält.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">mouseDoubleClickEvent</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Wird immer dann aufgerufen, wenn der Benutzer doppelt auf das Widget klickt. Beachten Sie, dass vor diesem Event immer ein <span class="clisting">mousePressEvent</span>, ein <span class="clisting">mouseReleaseEvent</span> und möglicherweise ein <span class="clisting">mouseMoveEvent</span> auftreten. Es ist aus naheliegenden Gründen nicht möglich, bereits beim ersten Klick zwischen einem einfachen und einem doppelten Klick zu unterscheiden.</p>
+<p>Es wird eine <span class="clisting">QMouseEvent</span>-Instanz übergeben.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">mouseMoveEvent</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Wird immer dann aufgerufen, wenn der Benutzer die Maus bewegt, während er eine Maustaste gedrückt hält. Wenn zuvor die Methode <span class="clisting">setMouseTracking</span> aufgerufen und <span class="clisting">True</span> übergeben wurde, wird auch dann ein <span class="clisting">mouseMoveEvent</span> erzeugt, wenn der Benutzer die Maus bewegt, ohne eine Taste gedrückt zu halten.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">keyPressEvent</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Wird immer dann aufgerufen, wenn das Widget den Eingabefokus hat und der Benutzer eine Taste drückt. Wenn die Taste ausreichend lange gedrückt wird, wird die Methode <span class="clisting">keyPress</span>Event immer wieder aufgerufen. Diese Funktionalität wird <span class="clisting">auto-repeat</span> genannt.</p>
+<p>Es wird eine Instanz der Klasse <span class="clisting">QKeyEvent</span> übergeben, über die beispielsweise die gedrückte Taste ausgelesen werden kann.</p>
+</td>
+</tr>
+</table><br><p>Und damit beschließen wir das Kapitel über die Programmierung grafischer Benutzeroberflächen und wenden uns einem weiteren interessanten Themenkomplex zu: der Webentwicklung mit Python.</p>
+<p> </p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_24_008.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="24.8 Wichtige Widgets"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_24_007.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_25_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

@@ -1,0 +1,634 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 18.4 Das Modul threading</title>
+<meta name="title" content="Galileo Computing :: Python - 18.4 Das Modul threading">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 18.4 Das Modul threading">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_18_003.htm">
+<link rel="next" href="python_kapitel_19_001.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_18_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_19_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21" class="navnav">18 Parallele Programmierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_18_001.htm#mjbf5e4ade8eab89f6f38e27e52d4fb3a6" class="navnav">18.1 Prozesse, Multitasking und Threads</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_18_002.htm#mj8df3749afa9265d105055a0e5e3d35bd" class="navnav">18.2 Die Thread-Unterstützung in Python</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_18_003.htm#mjcb7a5e18f4352910d7d91cdfac8cb38e" class="navnav">18.3 Das Modul thread</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_18_003.htm#mjf9e26c833e319410aedb07ec0d5dfaad" class="navnav">18.3.1 Datenaustausch zwischen Threads &#8211; locking</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj6a088c87255d78ab32cc053633b5d48b" class="navh">18.4 Das Modul threading</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj9f5e460ed95970296446db73290809ac" class="navh">18.4.1 Locking im threading-Modul</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj70765f3b6cc492e932e491217076cfce" class="navh">18.4.2 Worker-Threads und Queues</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj1dc7e2a20934612976e86acb1b483fa6" class="navh">18.4.3 Ereignisse definieren &#8211; threading.Event</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd9b2d0c7393ea3ddc0ae0af913a6f6c3" class="navh">18.4.4 Eine Funktion zeitlich versetzt ausführen &#8211; threading.Timer</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj6a088c87255d78ab32cc053633b5d48b" name="mj6a088c87255d78ab32cc053633b5d48b"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">18.4</span><span class="cfett"> Das Modul threading</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Mit dem Modul <span class="clisting">threading</span> wird eine objektorientierte Schnittstelle für Threads angeboten.</p>
+<p>Jeder Thread ist dabei eine Instanz einer Klasse, die von <span class="clisting">threading.Thread</span> erbt. Da die Klasse selbst ein Teil des globalen Namensraums ist, eignen sich ihre statischen Member sehr gut, um Daten zwischen den Threads auszutauschen. Natürlich muss auch hier der Zugriff auf die von mehreren Threads genutzten Variablen durch Critical Sections gesichert werden.</p>
+<p>Wir wollen ein Programm schreiben, das in mehreren Threads parallel prüfen kann, ob vom Benutzer eingegebene Zahlen Primzahlen [Eine Primzahl ist eine natürliche Zahl, die genau zwei Teiler besitzt. Die ersten sechs Primzahlen sind demnach 2, 3, 5, 7, 11 und 13.
+]  sind. Zu diesem Zweck definieren wir eine Klasse <span class="clisting">Primzahl</span><span class="clisting">Thread</span>, die von <span class="clisting">threading.Thread</span> erbt und als Parameter für den Konstruktor die zu überprüfende Zahl erwartet.</p>
+<p>Die Klasse <span class="clisting">threading.Thread</span> besitzt eine Methode namens <span class="clisting">start</span>, die den Thread ausführt. Was genau ausgeführt werden soll, bestimmt die <span class="clisting">run</span>-Methode, die wir mit unserer Primzahlberechnung überschreiben. Im ersten Schritt soll der Benutzer in einer Eingabeaufforderung Zahlen eingeben können, die dann überprüft werden. Ist die Überprüfung abgeschlossen, wird das Ergebnis auf dem Bildschirm ausgegeben. Das Programm inklusive der Klasse <span class="clisting">PrimzahlThread</span> sieht dann folgendermaßen aus: [Der verwendete Algorithmus für die Primzahlprüfung ist sehr primitiv und dient hier nur als Beispiel für irgendeine rechenintensive Funktion.
+] </p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> threading 
+<span class="cfett"> 
+class</span> PrimzahlThread(threading.Thread): 
+   <span class="cfett"> def</span> __init__(self, zahl): 
+        threading.Thread.__init__(self) 
+        self.Zahl = zahl 
+ 
+   <span class="cfett"> def</span> run(self): 
+        i = 2 
+       <span class="cfett"> while</span> i*i &lt; self.Zahl: 
+           <span class="cfett"> if</span> self.Zahl % i == 0: 
+               <span class="cfett"> print</span> "%d ist nicht prim, da %d = %d * %d" % ( 
+                    self.Zahl, self.Zahl, i, self.Zahl / i) 
+               <span class="cfett"> return</span> 
+            i += 1 
+       <span class="cfett"> print</span> "%d ist prim" % self.Zahl 
+ 
+meine_threads = []<span class="clisting"> 
+</span><span class="cfett"> 
+while</span><span class="clisting"> 1:</span> 
+   <span class="clisting"> eingabe = raw_input(</span>"&gt; "<span class="clisting">)</span> 
+   <span class="cfett"> if</span><span class="clisting"> eingabe == "ende":</span> 
+       <span class="cfett"> break 
+</span> 
+   <span class="clisting"> thread = PrimzahlThread(long(eingabe))</span> 
+   <span class="clisting"> meine_threads.append(thread)</span> 
+   <span class="clisting"> thread.start() 
+</span><span class="cfett"> 
+for</span> t<span class="cfett"> in</span> meine_threads: 
+    t.join()</pre></div>
+<p>Innerhalb der Schleife wird die Eingabe vom Benutzer eingelesen, und es wird geprüft, ob es sich um das Schlüsselwort <span class="clisting">"ende"</span> zum Beenden des Programms handelt. Wurde etwas anderes als <span class="clisting">"ende"</span> eingegeben, wird eine neue Instanz der Klasse <span class="clisting">PrimzahlThread</span> mit der Benutzereingabe als Parameter erzeugt und mit der <span class="clisting">start</span>-Methode gestartet.</p>
+<p>Das Programm verwaltet außerdem eine Liste namens <span class="clisting">meine_threads</span>, in der alle Threads gespeichert werden. Nach dem Verlassen der Eingabeschleife wird über <span class="clisting">meine_threads</span> iteriert und für jeden Thread die <span class="clisting">join</span>-Methode aufgerufen. Mit <span class="clisting">join</span> wird dafür gesorgt, dass das Hauptprogramm so lange wartet, bis alle gestarteten Threads beendet worden sind, denn <span class="clisting">join</span> unterbricht die Programmausführung so lange, bis der Thread, für den es aufgerufen wurde, terminiert wurde.</p>
+<p>Diese Methode, auf das Ende aller Threads zu warten, ist wesentlich eleganter als die im letzten Abschnitt verwendete Endlosschleife, da mit <span class="clisting">join</span> keine Rechenzeit verschwendet und das Programm automatisch beendet wird, sobald kein Thread mehr läuft.</p>
+<p>Ein Programmlauf könnte dann so aussehen, wobei die teils verzögerten Ausgaben zeigen, dass tatsächlich parallel gerechnet wurde:</p>
+<div class="listing"><pre class="prettyprint">&gt; 737373737373737 
+&gt; 5672435793 
+5672435793 ist nicht prim, da 5672435793 = 3 * 1890811931 
+&gt; 909091 
+909091 ist prim 
+&gt; 10000000000037 
+&gt; 5643257 
+5643257 ist nicht prim, da 5643257 = 23 * 245359 
+&gt; 4567 
+4567 ist prim 
+10000000000037 ist prim 
+737373737373737 ist prim 
+&gt; ende</pre></div><a id="mj9f5e460ed95970296446db73290809ac" name="mj9f5e460ed95970296446db73290809ac"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">18.4.1</span><span class="cfett"> Locking im threading-Modul</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Genau wie das Modul <span class="clisting">thread</span> bietet auch <span class="clisting">threading</span> Methoden an, um den Zugriff auf Variablen abzusichern, die in mehreren Threads verwendet werden. Die dazu benutzten Lock-Objekte lassen sich dabei genauso wie die von <span class="clisting">thread.allocate_lock</span> zurückgegebenen Objekte verwenden.</p>
+<p>Um den Umgang mit Lock-Objekten zu zeigen, werden wir das Primzahlprogramm des letzten Abschnitts verbessern. Eine Schwachstelle des Programms bestand darin, dass, während der Benutzer gerade die nächste Zahl zur Prüfung eingibt, ein Thread im Hintergrund seine Arbeit beendet hat und sein Ergebnis auf den Bildschirm schreibt. Dadurch verliert der Benutzer unter Umständen die Übersicht, was er schon eingegeben hat, und es sieht äußerst unschön aus, wie das folgende Beispiel zeigt:</p>
+<div class="listing"><pre class="prettyprint">&gt; 10000000000037 
+&gt; 5610000000000037 ist prim 
+547 
+56547 ist nicht prim, da 56547 = 3 * 18849 
+&gt; ende</pre></div>
+<p>In diesem Fall hat der Benutzer die Zahl <span class="clisting">10000000000037</span> auf ihre Primzahleigenschaft hin untersuchen wollen. Unglücklicherweise wurde der Thread, der die Überprüfung übernahm, genau dann fertig, als der Benutzer bereits die ersten beiden Ziffern <span class="clisting">56</span> der nächsten zu prüfenden Zahl, <span class="clisting">56547</span>, eingegeben hatte. Dies führte zu einer hässlichen »Zerstückelung« der Eingabe und sollte vermieden werden.</p>
+<p>Wir werden zu diesem Zweck die Klasse <span class="clisting">PrimzahlThread</span> mit einem statischen Attribut namens <span class="clisting">Ergebnis</span> versehen, das in einem Dictionary die Ergebnisse der Berechnungen speichert. Dabei wird jeder zu prüfenden Zahl der Status bzw. das Ergebnis der Berechnung zugewiesen, wobei der Wert <span class="clisting">"in Arbeit"</span> dafür steht, dass aktuell noch gerechnet wird, und der String <span class="clisting">"prim"</span> anzeigt, dass es sich bei der Zahl um eine Primzahl handelt. Für Nicht-Primzahlen werden wir das gefundene Teilerprodukt in dem Dictionary speichern. Eine Momentaufnahme von <span class="clisting">PrimzahlThread.Ergebnis</span> könnte dann folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint">{ 
+    737373737373737 : "in Arbeit", 
+    5672435793 : "3 * 1890811931", 
+    909091 : "prim", 
+    10000000000037 : "in Arbeit", 
+    5643257 :  "23 * 245359" 
+}</pre></div>
+<p>In dem Beispiel befinden sich die Zahlen <span class="clisting">737373737373737</span> und <span class="clisting">10000000000037</span> noch in der Prüfung, während für <span class="clisting">909091</span> bereits nachgewiesen werden konnte, dass sie eine Primzahl ist. <span class="clisting">5672435793</span> und <span class="clisting">5643257</span> sind keine Primzahlen, da sie sich über die angegebenen Produkte berechnen lassen.</p>
+<p>In dem neuen Programm wird der Benutzer wie bisher Zahlen eingeben und das Programm durch die Eingabe von <span class="clisting">"ende"</span> terminieren können. Zusätzlich wird es einen Befehl <span class="clisting">"status"</span> geben, der den aktuellen Berechnungsstand, eben den Inhalt von <span class="clisting">PrimzahlThread.Ergebnis</span>, ausgibt.</p>
+<p>Da die Threads zum Setzen der jeweiligen Ergebnisse alle <span class="clisting">Primzahl</span> <span class="clisting">Thread.Ergebnis</span> verändern müssen, ist es notwendig, den Zugriff auf das Dictionary mittels einer Critical Section abzusichern. Das dazu erforderliche Lock-Objekt speichern wir in der statischen Variable <span class="clisting">PrimzahlThread.ErgebnisLock</span>. Das neue Programm sieht damit wie folgt aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> threading 
+<span class="cfett"> 
+class</span> PrimzahlThread(threading.Thread): 
+    Ergebnis = {} 
+    ErgebnisLock = threading.Lock() 
+ 
+   <span class="cfett"> def</span> __init__(self, zahl): 
+        threading.Thread.__init__(self) 
+        self.Zahl = zahl 
+ 
+        PrimzahlThread.ErgebnisLock.acquire() 
+        PrimzahlThread.Ergebnis[zahl] = "in Arbeit" 
+        PrimzahlThread.ErgebnisLock.release() 
+ 
+   <span class="cfett"> def</span> run(self): 
+        i = 2 
+       <span class="cfett"> while</span> i*i &lt; self.Zahl + 1: 
+           <span class="cfett"> if</span> self.Zahl % i == 0: 
+                ergebnis = "%d * %d" % (i, self.Zahl / i) 
+ 
+                PrimzahlThread.ErgebnisLock.acquire() 
+                PrimzahlThread.Ergebnis[self.Zahl] = ergebnis 
+                PrimzahlThread.ErgebnisLock.release() 
+ 
+               <span class="cfett"> return</span> 
+            i += 1 
+ 
+        PrimzahlThread.ErgebnisLock.acquire() 
+        PrimzahlThread.Ergebnis[self.Zahl] = "prim" 
+        PrimzahlThread.ErgebnisLock.release() 
+ 
+meine_threads = [] 
+<span class="cfett"> 
+while</span> 1: 
+    eingabe = raw_input("&gt; ") 
+   <span class="cfett"> if</span> eingabe == "ende": 
+       <span class="cfett"> break 
+ 
+    elif</span> eingabe == "status": 
+       <span class="cfett"> print</span> "-------- Aktueller Status --------" 
+        PrimzahlThread.ErgebnisLock.acquire() 
+       <span class="cfett"> for</span> z, e in PrimzahlThread.Ergebnis.iteritems(): 
+           <span class="cfett"> print</span> "%d: %s" % (z, e) 
+        PrimzahlThread.ErgebnisLock.release() 
+       <span class="cfett"> print</span> "----------------------------------" 
+ 
+   <span class="cfett"> elif</span> long(eingabe)<span class="cfett"> not in</span> PrimzahlThread.Ergebnis: 
+        thread = PrimzahlThread(long(eingabe)) 
+        meine_threads.append(thread) 
+        thread.start() 
+<span class="cfett"> 
+for</span> t<span class="cfett"> in</span> meine_threads: 
+    t.join()</pre></div>
+<p>Wie Sie sehen, sind alle schreibenden Zugriffe auf <span class="clisting">PrimzahlThread.Ergebnis</span> durch die Aufrufe von <span class="clisting">acquire</span> und <span class="clisting">release</span> umgeben, wodurch das Dictionary gefahrlos in verschiedenen Threads verändert werden kann. Da sich ein Dictionary außerdem nicht verändern darf, während darüber iteriert wird, muss auch die Statusausgabe durch eine Critical Section gesichert werden.</p>
+<p>In der Schleife für die Verarbeitung der Benutzerdaten ist neben der Ausgabe des aktuellen Status noch eine Abfrage hinzugekommen, die verhindert, dass dieselbe Zahl unnötigerweise mehr als einmal überprüft wird.</p>
+<p>Ein Beispiellauf des Programms könnte dann so aussehen:</p>
+<div class="listing"><pre class="prettyprint">&gt; 10000000000037 
+&gt; 5643257 
+&gt; 909091 
+&gt; 737373737373737 
+&gt; 56547 
+&gt; status 
+-------- Aktueller Status -------- 
+5643257: 5643257 * 245359 
+909091: prim 
+737373737373737: in Arbeit 
+10000000000037: in Arbeit 
+56547: 56547 * 18849 
+---------------------------------- 
+&gt; status 
+-------- Aktueller Status -------- 
+5643257: 5643257 * 245359 
+909091: prim 
+737373737373737: in Arbeit 
+10000000000037: prim 
+56547: 56547 * 18849 
+---------------------------------- 
+&gt; status 
+--------- Aktueller Status -------- 
+5643257: 5643257 * 245359 
+909091: prim 
+737373737373737: prim 
+10000000000037: prim 
+56547: 56547 * 18849 
+---------------------------------- 
+&gt; ende</pre></div>
+<p>Mit dieser Version des Programms werden die angesprochenen Probleme zufriedenstellend beseitigt. Allerdings kann immer noch ein kleiner Schönheitsfehler auftreten: Wenn der Benutzer sehr viele, sehr große Zahlen eingibt, kann es passieren, dass das Programm eine lange Zeit rechnet, bevor das erste Ergebnis erzielt wird. Das rührt daher, dass sich die Threads gegenseitig ausbremsen, weil zwar alle Threads gleichzeitig ausgeführt werden, aber durch ihre große Anzahl für den einzelnen Thread nur wenig Rechenleistung übrig bleibt.</p>
+<p>Um auch diese Unschönheit zu beseitigen, werden wir im nächsten Abschnitt eine Technik kennenlernen, mit der wir die Anzahl der Threads sinnvoll begrenzen können.</p><a id="mj70765f3b6cc492e932e491217076cfce" name="mj70765f3b6cc492e932e491217076cfce"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">18.4.2</span><span class="cfett"> Worker-Threads und Queues</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In unseren bisherigen Programmen haben wir immer für jede Aufgabe einen neuen Thread gestartet, sodass es theoretisch beliebig viele Threads geben konnte. Wie am Ende des letzten Abschnitts angemerkt wurde, kann dies zu Geschwindigkeitsproblemen führen, wenn sehr viele Threads gleichzeitig laufen.</p>
+<p>Dies lässt sich an einem Beispiel veranschaulichen: Wären wir ein Unternehmen, das für seine Kunden Zahlen daraufhin untersucht, ob sie Primzahlen sind, könnten wir uns unser Vorgehen so vorstellen, dass wir für jede Zahl, die wir überprüfen möchten, einen separaten Mathematiker einstellen, der mit den nötigen Berechnungen betraut wird. Hat der Mathematiker sein Werk vollendet, gibt er uns als Arbeitgeber Rückmeldung über das Ergebnis und wird entlassen.</p>
+<p>In einem realen Unternehmen ist es nicht denkbar, für jede neue Aufgabe einen neuen Arbeiter einzustellen und diesen nach der Fertigstellung seiner Tätigkeit wieder zu entlassen. Vielmehr gibt es eine relativ konstante Anzahl von Arbeitern, denen die Aufgaben zugeteilt werden. Damit auch in diesem Modell eine beliebige Anzahl von Berechnungen durchgeführt werden kann, gibt es in unserer Firma einen Briefkasten, in den die Kunden die zu prüfenden Zahlen einwerfen können. Die Arbeiter holen sich dann selbstständig neue Aufgaben aus dem Briefkasten, sobald sie ihre vorherige Arbeit vollendet haben. Ist der Briefkasten einmal leer, warten die Arbeiter so lange, bis neue Zahlen eingeworfen werden.</p>
+<p>In der Programmierung sprich man statt von Arbeitern von sogenannten <span class="ckursiv">Worker-Threads</span> (von engl. <span class="ckursiv">to work = arbeiten</span>). Der Briefkasten wird <span class="ckursiv">Queue</span> (dt. <span class="ckursiv">Warteschlange</span>) genannt.</p>
+<p>Python hat ein eigenes Modul namens <span class="clisting">Queue</span>, um mit Warteschlangen zu arbeiten. Der Konstruktor von <span class="clisting">Queue</span> erwartet eine ganze Zahl als Parameter, die angibt, wie viele Elemente maximal in der Warteschlange stehen können. Ist der Parameter kleiner oder gleich <span class="clisting">0</span>, ist die Länge der Queue nicht begrenzt.</p>
+<p>Queue-Instanzen verfügen im Wesentlichen über drei wichtige Methoden: <span class="clisting">put</span>, <span class="clisting">get</span> und <span class="clisting">task_done</span>.</p>
+<p>Mit der <span class="clisting">put</span>-Methode können neue Aufträge in die Warteschlage eingestellt werden. Sie wird in unserem Beispiel vom Hauptprogramm benutzt werden, um neue Zahlen in den »Briefkasten« zu werfen.</p>
+<p>Die Methode <span class="clisting">get</span> liefert die nächste Aufgabe der Queue. Befindet sich gerade kein Arbeitsauftrag in der Warteschlange, blockiert <span class="clisting">get</span> den Thread so lange, bis der nächste Auftrag verfügbar ist.</p>
+<p>Hat ein Thread die Prüfung einer Zahl abgeschlossen, muss er dies der Queue mitteilen, indem er <span class="clisting">task_done</span> aufruft. Die Warteschlange kümmert sich dabei selbstständig darum, dass das fertig verarbeitete Element entfernt wird.</p>
+<p>Das folgende Beispiel wird fünf Worker-Threads einsetzen, die sich alle eine Queue teilen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> threading<span class="cfett"> 
+import</span> Queue 
+<span class="cfett"> 
+class</span> Mathematiker(threading.Thread): 
+    Ergebnis = {} 
+    ErgebnisLock = threading.Lock() 
+ 
+    Briefkasten = Queue.Queue() 
+ 
+   <span class="cfett"> def</span> run(self): 
+       <span class="cfett"> while</span> True: 
+            zahl = Mathematiker.Briefkasten.get() 
+            ergebnis = self.istPrimzahl(zahl) 
+ 
+            Mathematiker.ErgebnisLock.acquire() 
+            Mathematiker.Ergebnis[zahl] = ergebnis 
+            Mathematiker.ErgebnisLock.release() 
+ 
+            Mathematiker.Briefkasten.task_done() 
+ 
+   <span class="cfett"> def</span> istPrimzahl(self, zahl): 
+        i = 2 
+       <span class="cfett"> while</span> i*i &lt; zahl + 1: 
+            if zahl % i == 0: 
+               <span class="cfett"> return</span> "%d * %d" % (zahl, zahl / i) 
+ 
+            i += 1 
+ 
+       <span class="cfett"> return</span> "prim" 
+ 
+ 
+meine_threads = [Mathematiker() for i in range(5)]<span class="cfett"> 
+for</span> thread<span class="cfett"> in</span> meine_threads: 
+    thread.setDaemon(True) 
+    thread.start() 
+<span class="cfett"> 
+while</span> True: 
+    eingabe = raw_input("&gt; ") 
+   <span class="cfett"> if</span> eingabe == "ende": 
+       <span class="cfett"> break 
+ 
+    elif</span> eingabe == "status": 
+       <span class="cfett"> print</span> "-------- Aktueller Status --------" 
+        Mathematiker.ErgebnisLock.acquire() 
+       <span class="cfett"> for</span> z, e<span class="cfett"> in</span> Mathematiker.Ergebnis.iteritems(): 
+           <span class="cfett"> print</span> "%d: %s" % (z, e) 
+        Mathematiker.ErgebnisLock.release() 
+       <span class="cfett"> print</span> "----------------------------------" 
+ 
+   <span class="cfett"> elif</span> long(eingabe)<span class="cfett"> not in</span> Mathematiker.Ergebnis: 
+        Mathematiker.ErgebnisLock.acquire() 
+        Mathematiker.Ergebnis[long(eingabe)] = "in Arbeit" 
+        Mathematiker.ErgebnisLock.release()<br>
+        Mathematiker.Briefkasten.put(long(eingabe)) 
+ 
+Mathematiker.Briefkasten.join()</pre></div>
+<p>Die neben dem Einbau der Queue wichtigen Änderungen im Vergleich zum letzten Programm sind zum einen die <span class="clisting">run</span>-Methode, die jetzt in einer Endlosschleife immer wieder neue Zahlen aus dem Briefkasten nimmt und mit der <span class="clisting">istPrimzahl</span>-Methode überprüft, und zum anderen die Initialisierung und der Abschluss des Programms. Zu Anfang werden die fünf Worker-Threads in einer List Comprehension erzeugt und in der <span class="clisting">for</span>-Schleife gestartet. Durch den Aufruf von <span class="clisting">thread.setDaemon(True)</span> werden die Threads als sogenannte <span class="ckursiv">Dämon-Thread</span><span class="ckursiv">s</span> markiert. Der wesentliche Unterschied zwischen Dämon-Threads und normalen Threads besteht darin, dass ein Programm beendet wird, wenn nur noch Dämon-Threads laufen. Bei normalen Threads kann das Programm so lange laufen, bis auch der letzte Thread beendet worden ist.</p>
+<p>Im Beispiel benötigen wir die Dämon-Threads deshalb, weil wir am Ende des Programms nicht wie bisher auf die Terminierung jedes Threads warten, sondern die <span class="clisting">join</span>-Methode der Queue aufrufen. Mit dieser Methode <span class="clisting">join</span> wird der Hauptprogramm-Thread so lange unterbrochen, bis alle noch in der Warteschlange stehenden Zahlen verarbeitet worden sind. Ist die Warteschlange leer, wird das Programm inklusive aller Worker-Threads beendet. Dass die Worker-Threads dabei nicht den Programmabbruch behindern können, wird durch <span class="clisting">setDaemon</span> sichergestellt.</p>
+<p>Falls Sie sich wundern, warum wir die Zugriffe auf die Queue nicht durch Critical Sections abgesichert haben, obwohl von allen Threads auf <span class="clisting">Mathematiker.Brief</span> <span class="clisting">kasten</span> zugegriffen wird, wundern Sie sich zu Recht: Normalerweise wäre es erforderlich, jedes Mal ein Lock-Objekt zu sperren und wieder zu entsperren. Allerdings nimmt uns das <span class="clisting">Queue</span>-Modul von Python diese lästige Arbeit ab, wodurch die Arbeit mit Wartschlangen wesentlich komfortabler wird.</p>
+<p>Wir werden uns jetzt noch zwei Klassen zuwenden, die für sehr spezielle Zwecke im Zusammenhang mit Threads dienen.</p><a id="mj1dc7e2a20934612976e86acb1b483fa6" name="mj1dc7e2a20934612976e86acb1b483fa6"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">18.4.3</span><span class="cfett"> Ereignisse definieren &#8211; threading.Event</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Mit der Klasse <span class="clisting">threading.Event</span> können sogenannte <span class="ckursiv">Ereignisse</span> (engl. <span class="ckursiv">events</span>) definiert werden, um Threads bis zum Eintritt eines bestimmten Ereignisses zu unterbrechen.</p>
+<p>Ein Thread, der die <span class="clisting">wait</span>-Methode eines frisch erzeugten <span class="clisting">threading.Event</span>-Objekts aufruft, wird so lange unterbrochen, bis ein anderer Thread das Event mit <span class="clisting">set</span> auslöst.</p>
+<p>Ausführliche Informationen über <span class="clisting">threading.Event</span> finden Sie in der Python-Dokumentation.</p><a id="mjd9b2d0c7393ea3ddc0ae0af913a6f6c3" name="mjd9b2d0c7393ea3ddc0ae0af913a6f6c3"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">18.4.4</span><span class="cfett"> Eine Funktion zeitlich versetzt ausführen &#8211; threading.Timer</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das <span class="clisting">threading</span>-Modul bietet eine praktische Klasse namens <span class="clisting">threading.Timer</span>, um Funktionen nach dem Verstreichen einer gewissen Zeit aufzurufen.</p>
+<h5 class="t5"><span class="cfett">threading.Timer(interval, function, args=[], kwargs={})</span></h5>
+<p>Der Parameter <span class="ckursiv">interval</span> des Konstruktors gibt die Zeit in Sekunden an, die gewartet werden soll, bis die für <span class="ckursiv">function</span> übergebene Funktion aufgerufen werden soll. Dabei können für <span class="ckursiv">interval</span> sowohl Ganzzahlen aus auch <span class="clisting">float</span>-Instanzen übergeben werden. Für <span class="ckursiv">args</span> und <span class="ckursiv">kwargs</span> kann eine Liste bzw. ein Dictionary übergeben werden, das die Parameter enthält, mit denen <span class="ckursiv">function</span> aufgerufen werden soll.</p>
+<p>Wir werden <span class="clisting">threading.Timer</span> im nächsten Beispiel verwenden, um exemplarisch einen Wecker zu programmieren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> time, threading 
+&gt;&gt;&gt;<span class="cfett"> def</span> wecker(gestellt): 
+       <span class="cfett"> print</span> "RIIIIIIIING!!!" 
+       <span class="cfett"> print</span> "Der Wecker wurde um %s Uhr gestellt." % gestellt 
+       <span class="cfett"> print</span> "Es ist nun %s Uhr" % time.strftime("%H:%M:%S") 
+&gt;&gt;&gt; timer = threading.Timer(30, wecker, 
+                            [time.strftime("%H:%M:%S")]) 
+&gt;&gt;&gt; timer.start()</pre></div>
+<p>(30 Sekunden später)</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; RIIIIIIIING!!! 
+Der Wecker wurde um 03:11:26 Uhr gestellt. 
+Es ist nun 03:11:58 Uhr</pre></div>
+<p>Mit der Methode <span class="clisting">start</span> beginnt der <span class="clisting">Timer</span> zu laufen und ruft dann &#8211; wie man der vorhergehenden Ausgabe entnehmen kann &#8211; nach der festgelegten Zeitspanne die übergebene Funktion auf. Die Differenz von 2 Sekunden rührt daher, dass zwischen dem Erstellen des <span class="clisting">Timer</span>-Objekts und dem Aufrufen der <span class="clisting">start</span>-Methode 2 Sekunden vergangen sind.</p>
+<p>Nachdem die <span class="clisting">start</span>-Methode aufgerufen wurde, kann der <span class="clisting">Timer</span> außerdem mit der parameterlosen <span class="clisting">cancel</span>-Methode wieder abgebrochen werden.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_18_004.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="18.4 Das Modul threading"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_18_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_19_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

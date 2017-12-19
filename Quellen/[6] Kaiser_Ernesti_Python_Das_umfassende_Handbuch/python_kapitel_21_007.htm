@@ -1,0 +1,611 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 21.7 Analyse des Laufzeitverhaltens</title>
+<meta name="title" content="Galileo Computing :: Python - 21.7 Analyse des Laufzeitverhaltens">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 21.7 Analyse des Laufzeitverhaltens">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_21_006.htm">
+<link rel="next" href="python_kapitel_22_001.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_21_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_22_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5" class="navnav">21 Debugging</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_001.htm#mjc9ed2f03eb0e2dc23b8fcfef30a0e880" class="navnav">21.1 Der Debugger</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_002.htm#mj7bb4e0fdebd5dc9dfe18d833bb52d5db" class="navnav">21.2 Inspizieren von Instanzen &#8211; inspect</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_002.htm#mj30443824b855deb14b2106456abba8ae" class="navnav">21.2.1 Datentypen, Attribute und Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_002.htm#mj26cf2cec03b118c739fc0c825d9ea501" class="navnav">21.2.2 Quellcode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_002.htm#mj8b1fd73c253dea118d50990cc7b54bb3" class="navnav">21.2.3 Klassen und Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_003.htm#mjbfa58d234253bf05a2380680f0407805" class="navnav">21.3 Formatierte Ausgabe von Instanzen &#8211; pprint</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_004.htm#mj9d693b2a9ceb411a7e63099048b7290f" class="navnav">21.4 Logdateien &#8211; logging</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_004.htm#mj0ed595222838429b2af6515588091b69" class="navnav">21.4.1 Das Meldungsformat anpassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_004.htm#mj53cbe44b8a4f8b6f2d1151cf0c78a680" class="navnav">21.4.2 Logging Handler</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_005.htm#mj0006b6d104143c9d0eb05fe0e3418768" class="navnav">21.5 Automatisiertes Testen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_005.htm#mj283ed24cbfec45887f9207dc538785ba" class="navnav">21.5.1 Testfälle in Docstrings &#8211; doctest</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_005.htm#mj833e694a147693a7840c4727b047fd14" class="navnav">21.5.2 Unit Tests &#8211; unittest</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_006.htm#mjf3af0f14f9fbd165ee0566cf30eb3f53" class="navnav">21.6 Traceback-Objekte &#8211; traceback</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjd9a88b16927a4a97c0d43c013cd80600" class="navh">21.7 Analyse des Laufzeitverhaltens</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj2c6ec836b07cb7f425660b5bd840b9c7" class="navh">21.7.1 Laufzeitmessung &#8211; timeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj37c250b6464b8c5c176a4619f7669d53" class="navh">21.7.2 Profiling &#8211; cProfile</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj17fb8dda4fb94ebbed32afccbbfe12cb" class="navh">21.7.3 Tracing &#8211; trace</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjd9a88b16927a4a97c0d43c013cd80600" name="mjd9a88b16927a4a97c0d43c013cd80600"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">21.7</span><span class="cfett"> Analyse des Laufzeitverhaltens</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Die Optimierung eines Programms ist ein wichtiger Teilbereich der Programmierung und kann viel Zeit in Anspruch nehmen. In der Regel wird zunächst ein lauffähiges Programm erstellt, das alle gewünschten Anforderungen erfüllt, bei dem jedoch noch nicht unbedingt Wert auf die Optimierung der Algorithmik gelegt wird. Das liegt vor allem daran, dass man oftmals erst beim fertigen Programm die tatsächlichen Engpässe erkennt und im frühen Stadium somit eventuell viel Zeit in die Optimierung völlig unkritischer Bereiche investieren würde.</p>
+<p>Um das Laufzeitverhalten eines Python-Programms möglichst genau zu erfassen, existieren die drei Module <span class="clisting">timeit</span>, <span class="clisting">profile</span> und <span class="clisting">cProfile</span> in der Standardbibliothek von Python. Diese Module sollen das Thema der nächsten Abschnitt sein.</p><a id="mj2c6ec836b07cb7f425660b5bd840b9c7" name="mj2c6ec836b07cb7f425660b5bd840b9c7"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">21.7.1</span><span class="cfett"> Laufzeitmessung &#8211; timeit</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das Modul <span class="clisting">timeit</span> der Standardbibliothek ermöglicht es, genau zu messen, wie lange ein Python-Programm zur Ausführung braucht. Üblicherweise wird <span class="clisting">timeit</span> dazu verwendet, die Laufzeit zweier verschiedener Algorithmen für dasselbe Problem zu vergleichen.</p>
+<p>Sie erinnern sich sicherlich noch, dass im Kapitel über Funktionen zwei Algorithmen zur Berechnung der Fakultät einer ganzen Zahl besprochen wurden: ein iterativer und ein rekursiver. Es wurde gesagt, dass ein laufzeitoptimierter iterativer Algorithmus im Vergleich zu seinem rekursiven Pendant stets effizienter ist. Das wollen wir in diesem Kapitel anhand des <span class="clisting">timeit</span>-Moduls überprüfen, und zusätzlich wollen wir testen, um wie viel Prozent schneller die iterative Variante tatsächlich ausgeführt werden kann.</p>
+<p>Um die Laufzeit eines Python-Codes zu testen, muss die im Modul <span class="clisting">timeit</span> enthaltene Klasse <span class="clisting">Timer</span> instanziiert werden. Der Konstruktor der Klasse <span class="clisting">Timer</span> hat folgende Schnittstelle:</p>
+<h5 class="t5"><span class="cfett">timeit.Timer([stmt[, setup[, timer]]])</span></h5>
+<p>Erzeugt eine Instanz der Klasse <span class="clisting">Timer</span>. Der zu analysierende Python-Code kann dem Konstruktor in Form des Parameters <span class="ckursiv">stmt</span> als String übergeben werden. Für den zweiten Parameter <span class="ckursiv">setup</span> kann ebenfalls ein String übergeben werden, der den Python-Code enthält, der zur Initialisierung von <span class="ckursiv">stmt</span> benötigt wird. Demzufolge wird <span class="ckursiv">setup</span> auch vor <span class="ckursiv">stmt</span> ausgeführt. Beide Parameter sind optional und mit dem String <span class="clisting">"pass"</span> vorbelegt.</p>
+<p>Als dritter optionaler Parameter <span class="ckursiv">timer</span> kann eine Zeitgeberfunktion übergeben werden. Dies sollte eine der Funktionen <span class="clisting">time.time</span> oder <span class="clisting">time.clock</span> des Moduls <span class="clisting">time</span> sein. Standardmäßig wird diejenige dieser beiden Funktionen verwendet, die auf dem aktuellen System die höchste Auflösung bietet. Das ist <span class="clisting">time.time</span> unter Windows und <span class="clisting">time.clock</span> unter Unix-artigen Betriebssystemen. Es ist normalerweise nicht notwendig, diesen Parameter anzugeben.</p>
+<h4 class="t4"><span class="cfett">Die Klasse Timer</span></h4>
+<p>Nachdem eine Instanz der Klasse <span class="clisting">Timer</span> erzeugt worden ist, besitzt sie drei Methoden, die im Folgenden besprochen werden sollen. Dabei sei <span class="ckursiv">t</span> eine Instanz der Klasse <span class="clisting">Timer</span>.</p>
+<h5 class="t5"><span class="cfett">t.timeit([number])</span></h5>
+<p>Diese Methode führt zunächst den <span class="ckursiv">setup</span>-Code einmalig aus und wiederholt danach den beim Konstruktor für <span class="ckursiv">stmt</span> übergebenen Code <span class="ckursiv">number</span>-mal. Wenn der optionale Parameter <span class="ckursiv">number</span> nicht angegeben wurde, wird der zu messende Code 1.000.000-mal ausgeführt.</p>
+<p>Die Funktion gibt die Zeit zurück, die das Ausführen des gesamten Codes (also inklusive aller Wiederholungen, jedoch exklusive des Setup-Codes) in Anspruch genommen hat. Der Wert wird in Sekunden als Gleitkommazahl zurückgegeben.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Um das Ergebnis von äußeren Faktoren so unabhängig wie möglich zu machen, wird für die Dauer der Messung die Garbage Collection des Python-Interpreters deaktiviert. Sollte die Garbage Collection ein wichtiger mitzumessender Teil Ihres Codes sein, so lässt sie sich mit einem Setup-Code von <span class="clisting">"gc.enable()"</span> wieder aktivieren.</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">t.repeat([repeat[, number]])</span></h5>
+<p>Ruft die Methode <span class="clisting">timeit</span> <span class="ckursiv">repeat</span>-mal auf und gibt die Ergebnisse in Form einer Liste von Gleitkommazahlen zurück. Der Parameter <span class="ckursiv">number</span> wird dabei der Methode <span class="clisting">timeit</span> bei jedem Aufruf übergeben.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Es ist normalerweise keine gute Idee, den Mittelwert aller von <span class="clisting">repeat</span> zurückgegebenen Werte zu bilden und diesen als durchschnittliche Laufzeit auszugeben. Andere Prozesse, die auf Ihrem System laufen, verfälschen die Ergebnisse aller Messungen. Vielmehr sollten Sie den kleinsten Wert der zurückgegebenen Liste als minimale Laufzeit annehmen, da dies die Messung mit der geringsten Systemaktivität war.</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">t.print_exc([file])</span></h5>
+<p>Sollte im zu analysierenden Code eine Exception geworfen werden, wird die Analyse sofort abgebrochen und ein Traceback ausgegeben. Der Stacktrace dieses Tracebacks ist jedoch nicht immer optimal, da er sich nicht auf den tatsächlich ausgeführten Quellcode bezieht.</p>
+<p>Um einen aussagekräftigeren Stacktrace auszugeben, kann eine geworfene Exception abgefangen und die Methode <span class="clisting">print_exc</span> aufgerufen werden. Diese Methode gibt einen Traceback auf dem Bildschirm aus, der sich direkt auf den zu analysierenden Code bezieht und damit die Fehlersuche erleichtert.</p>
+<p>Durch Angabe des optionalen Parameters <span class="ckursiv">file</span> lässt sich die Ausgabe in eine beliebige Datei umleiten.</p>
+<h4 class="t4"><span class="cfett">Beispiel</span></h4>
+<p>Eingangs wurde erwähnt, dass wir das Modul <span class="clisting">timeit</span> dazu verwenden werden, zu prüfen, um wie viel Prozent die iterative Fakultätsberechnung schneller ist als die rekursive.</p>
+<p>Dazu binden wir zunächst das Modul <span class="clisting">timeit</span> ein und implementieren die beiden Berechnungsfunktionen.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span><span class="clisting"> timeit</span><br>
+<span class="cfett">def</span> fak1(n): 
+    res = 1 
+   <span class="cfett"> for</span> i<span class="cfett"> in</span> xrange(2, n+1): 
+        res *= i 
+   <span class="cfett"> return</span> res<br>
+<span class="cfett">def</span> fak2(n): 
+   <span class="cfett"> if</span> n &gt; 0: 
+       <span class="cfett"> return</span> fak2(n-1)*n 
+   <span class="cfett"> else</span>: 
+       <span class="cfett"> return</span> 1</pre></div>
+<p>Danach wird für beide Funktionen jeweils eine Instanz der Klasse <span class="clisting">Timer</span> erzeugt:</p>
+<div class="listing"><pre class="prettyprint">t1 = timeit.Timer("fak1(50)", "from __main__ import fak1") 
+t2 = timeit.Timer("fak2(50)", "from __main__ import fak2")</pre></div>
+<p>Beachten Sie, dass wir im Setup-Code zunächst die gewünschte Berechnungsfunktion aus dem Namensraum des Hauptprogramms <span class="clisting">__main__</span> in den Namensraum des zu testenden Programms importieren müssen. Im eigentlich zu analysierenden Code wird nur noch die Berechnung der Fakultät von <span class="clisting">50</span> unter Verwendung der jeweiligen Berechnungsfunktion angestoßen.</p>
+<p>Schlussendlich wird die Laufzeitmessung mit 1.000.000 Wiederholungen gestartet und das jeweilige Ergebnis ausgegeben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">print</span><span class="clisting"> "Iterativ: ", t1.timeit()</span><span class="cfett"> 
+print</span><span class="clisting"> "Rekursiv: ", t2.timeit()</span></pre></div>
+<p>Die Ausgabe des Programms lautet:</p>
+<div class="listing"><pre class="prettyprint">Iterativ:  16.1009089947 
+Rekursiv:  28.7318170071</pre></div>
+<p>Das würde bedeuten, dass der iterative Algorithmus um ca. 40  % schneller ist als der rekursive. Doch diese Daten sind noch nicht wirklich repräsentativ, denn es könnte sein, dass der Test der rekursiven Funktion durch einen im System laufenden Prozess ausgebremst wurde. Aus diesem Grund starten wir einen erneuten Test:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">print</span> "Iterativ: ", min(t1.repeat(100, 10000))<span class="cfett"> 
+print</span> "Rekursiv: ", min(t2.repeat(100, 10000))</pre></div>
+<p>Dieses Mal führen wir eine Testreihe durch, die einen Test mit 10.000 Einzelwiederholungen 100-mal wiederholt und das kleinste der Ergebnisse ausgibt. Die Ergebnisse sind, relativ gesehen, annäherungsweise deckungsgleich mit denen der vorherigen Tests:</p>
+<div class="listing"><pre class="prettyprint">Iterativ:  0.162111997604 
+Rekursiv:  0.272562026978</pre></div>
+<p>Beachten Sie, dass die absoluten Zahlenwerte sehr stark vom verwendeten System abhängen. Auf einem schnelleren Computer sind sie dementsprechend kleiner.</p><a id="mj37c250b6464b8c5c176a4619f7669d53" name="mj37c250b6464b8c5c176a4619f7669d53"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">21.7.2</span><span class="cfett"> Profiling &#8211; cProfile</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Um eine Laufzeitanalyse eines vollständigen Python-Programms anzufertigen, wird ein sogenannter <span class="ckursiv">Profiler</span> verwendet. Ein Profiler überwacht einen kompletten Programmdurchlauf und listet nach Beenden des Programms detailliert auf, wie viel Prozent der Laufzeit beispielsweise in welcher Funktion verbraucht wurden. Auf diese Weise kann der Programmierer die laufzeittechnischen Engpässe des Programms erkennen und an sinnvollen Stellen mit der Optimierung des Programms beginnen.</p>
+<p>Grundsätzlich gilt: Je mehr Prozent der Laufzeit in einer bestimmten Funktion verbracht werden, desto mehr Zeit sollte man investieren, um diese Funktion zu optimieren. Dagegen wäre es Zeitverschwendung, stundenlang eine Funktion zu optimieren, die vielleicht nur einmal zur Initialisierung des Programms aufgerufen wird.</p>
+<p>Seit Python Version 2.5 ist in der Standardbibliothek ein neuer Profiler namens <span class="clisting">cProfile</span> enthalten. Dieser bildet die Schnittstelle des alten Profilers <span class="clisting">profile</span> ab, ist jedoch im Gegensatz zu diesem in C statt in Python geschrieben. Aus diesem Grund ist der Overhead von <span class="clisting">cProfile</span> kleiner, und die Zeitmessungen sind somit besser. Wir werden hier den Profiler <span class="clisting">cProfile</span> besprechen. Da dieser jedoch über die gleiche Schnittstelle wie <span class="clisting">profile</span> verfügt, gilt die Beschreibung genauso für den alten Profiler.</p>
+<p>Beachten Sie, dass der Profiler <span class="clisting">cProfile</span> möglicherweise nicht für alle Python-Interpreter verfügbar ist. Das reine Python-Pendant <span class="clisting">profile</span> hingegen kann überall verwendet werden.</p>
+<h4 class="t4"><span class="cfett">Verwendung des Moduls</span></h4>
+<p>Im Modul <span class="clisting">cProfile</span> sind im Wesentlichen zwei wichtige Funktionen enthalten, die im Folgenden besprochen werden sollen.</p>
+<h5 class="t5"><span class="cfett">cProfile.run(command[, filename])</span></h5>
+<p>Diese Funktion führt den als <span class="ckursiv">command</span> übergebenen String mithilfe einer <span class="clisting">exec</span>-Anweisung aus und führt während der Ausführung eine detaillierte Laufzeitanalyse durch. Üblicherweise wird für <span class="ckursiv">command</span> ein Funktionsaufruf der Hauptfunktion eines größeren Programms übergeben.</p>
+<p>Über den zweiten, optionalen Parameter <span class="ckursiv">filename</span> kann eine Datei angegeben werden, in die das Ergebnis der Laufzeitanalyse geschrieben wird. Wenn dieser Parameter nicht angegeben wurde, wird das Ergebnis auf dem Bildschirm ausgegeben. Bei diesem Ergebnis der Analyse handelt es sich um eine tabellarische Auflistung aller Funktionsaufrufe. Wie diese Tabelle aussieht und wie sie zu lesen ist, wird im Beispiel-Teil dieses Kapitels geklärt.</p>
+<h5 class="t5"><span class="cfett">cProfile.runctx(command, globals, locals[, filename])</span></h5>
+<p>Diese Funktion verhält sich wie <span class="clisting">run</span>, mit dem Unterschied, dass über die Parameter <span class="ckursiv">globals</span> und <span class="ckursiv">locals</span> der globale und lokale Kontext festgelegt werden kann, in dem <span class="ckursiv">command</span> ausgeführt wird. Für die Parameter <span class="ckursiv">globals</span> und <span class="ckursiv">locals</span> kann ein Dictionary übergeben werden, wie es von den Built-in Functions <span class="clisting">globals</span> und <span class="clisting">locals</span> zurückgegeben wird.</p>
+<h4 class="t4"><span class="cfett">Beispiel</span></h4>
+<p>Im Folgenden soll eine Laufzeitanalyse für ein kleines Beispielprogramm erstellt werden. Dazu betrachten wir zunächst den Quelltext des Programms:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> math<br>
+<span class="cfett">def</span> calc1(n): 
+   <span class="cfett"> return</span> n**2<br>
+<span class="cfett">def</span> calc2(n): 
+   <span class="cfett"> return</span> math.sqrt(n)<br>
+<span class="cfett">def</span> calc3(n): 
+   <span class="cfett"> return</span> math.log(n+1)<br>
+<span class="cfett">def</span> programm(): 
+   <span class="cfett"> for</span> i<span class="cfett"> in</span> xrange(100): 
+        calc1(i) 
+       <span class="cfett"> for</span> j<span class="cfett"> in</span> xrange(100): 
+            calc2(j) 
+           <span class="cfett"> for</span> k<span class="cfett"> in</span> xrange(100): 
+                calc3(k)<br>
+programm()</pre></div>
+<p>Im Programm existieren drei kleine Funktionen namens <span class="clisting">calc1</span>, <span class="clisting">calc2</span> und <span class="clisting">calc3</span>, die jeweils eine ganze Zahl als Parameter übergeben bekommen, dann eine mathematische Operation auf dieser Zahl anwenden und das Ergebnis zurückgeben. In der Hauptfunktion <span class="clisting">programm</span> befinden sich drei ineinander verschachtelte Schleifen, die jeweils über alle ganzen Zahlen von <span class="clisting">0</span> bis <span class="clisting">99</span> iterieren und eine der drei Berechnungsfunktionen aufrufen. Die Frage, die wir mithilfe des Profilers lösen möchten, lautet, an welcher Stelle sich eine Optimierung des Programms besonders lohnen würde und wo sie überflüssig wäre.</p>
+<p>Der Profiler wird folgendermaßen in das Programm eingebunden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> cProfile 
+[…] 
+cProfile.run("programm()")</pre></div>
+<p>wobei die Auslassungszeichen für den Code des Beispielprogramms stehen. Beachten Sie, dass die Codezeile <span class="clisting">programm()</span> des Beispielprogramms jetzt überflüssig ist. Das Ausführen der Laufzeitanalyse gibt folgendes Ergebnis aus:</p>
+<div class="listing"><pre class="prettyprint">      2020103 function calls in 6.115 CPU seconds 
+ 
+Ordered by: standard name 
+ 
+ncalls  tottime percall cumtime percall filename:lineno(function) 
+      1 0.000   0.000   6.115   6.115   &lt;string&gt;:1(&lt;module&gt;) 
+1000000 2.916   0.000   4.467   0.000   programm.py:10(calc3) 
+      1 1.603   1.603   6.115   6.115   programm.py:13(programm) 
+    100 0.000   0.000   0.000   0.000   programm.py:4(calc1) 
+  10000 0.030   0.000   0.045   0.000   programm.py:7(calc2) 
+1000000 1.551   0.000   1.551   0.000   {math.log} 
+  10000 0.015   0.000   0.015   0.000   {math.sqrt} 
+      1 0.000   0.000   0.000   0.000   {method 'disable' of 
+                                      '_lsprof.Profiler' objects}</pre></div>
+<p>Jede Zeile dieser Tabelle bezieht sich auf eine Funktion des Beispielprogramms. Die Spaltenbeschriftungen der Tabelle sind vielleicht nicht ganz klar, weswegen sie kurz erläutert werden sollen:</p>
+<ul class="gp">
+<li><span class="clisting">ncalls</span> steht für die Anzahl von Funktionsaufrufen der Funktion.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">tottime</span> steht für die Gesamtzeit in Sekunden, die in der Funktion verbracht wurde. Dabei werden Aufrufe von Unterfunktionen nicht einbezogen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">percall</span> steht für den Quotienten von <span class="clisting">tottime</span> und <span class="clisting">ncalls</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">cumtime</span> steht für die Gesamtzeit in Sekunden, die in der Funktion verbracht wurde. Dabei werden Aufrufe von Unterfunktionen mit einbezogen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">percall</span> steht für den Quotienten von <span class="clisting">cumtime</span> und <span class="clisting">ncalls</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">filename:lineno(function)</span> steht für den Funktionsnamen, inklusive Angabe der Programmdatei und der Zeile, an der die Funktion im Quellcode steht.</li>
+</ul>
+<p>Die vom Profiler angezeigte Tabelle gibt einen guten Überblick darüber, wo die zeitkritischen Funktionen des Programms liegen. In diesem Fall sticht die Funktion <span class="clisting">calc3</span> hervor, die insgesamt 1.000.000-mal aufgerufen wird und in der sich satte 73  % der Laufzeit abspielen. Die 10.000-mal aufgerufene Funktion <span class="clisting">calc2</span> macht hingegen nur 0,7  % der Gesamtlaufzeit aus. Die restliche Laufzeit wird, abgesehen von einem verschwindend geringen Prozentsatz in <span class="clisting">calc1</span>, in der Hauptfunktion <span class="clisting">programm</span> verbracht.</p>
+<p>Zugegebenermaßen hätte man dieses Ergebnis auch anhand des Programms abschätzen können. Jede Schleife iteriert über 100 Zahlen und ruft in jedem Iterationsschritt »ihre« Funktion auf. Damit wird die innerste Funktion 1003 = 1.000.000-mal aufgerufen. Auch die prozentuale Laufzeit der Funktionen <span class="clisting">calc3</span> und <span class="clisting">calc2</span> liegt in etwa um Faktor 100 auseinander. Etwaige Schwankungen rühren daher, dass unterschiedliche Berechnungen durchgeführt werden (Logarithmusfunktion gegen Wurzelfunktion).</p>
+<p>Auch wenn dieses Beispiel etwas künstlich wirkt, kann man die Vorgehensweise auf ein größeres, zeitkritisches Projekt übertragen. Im Falle unseres Beispiels wäre man gut damit beraten, alle Ressourcen in die Optimierung der Funktion <span class="clisting">calc3</span> zu stecken, da diese mit 1.000.000 Aufrufen und 73  % Laufzeitanteil doch stark dominiert.</p><a id="mj17fb8dda4fb94ebbed32afccbbfe12cb" name="mj17fb8dda4fb94ebbed32afccbbfe12cb"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">21.7.3</span><span class="cfett"> Tracing &#8211; trace</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Im letzten Abschnitt haben wir besprochen, welche Möglichkeiten Python bietet, ein Programm mithilfe eines Profilers zu untersuchen. Dies funktioniert im besprochenen Beispiel sehr gut, hat aber auch einen großen Nachteil: Der Profiler arbeitet auf der Funktionsebene. Das bedeutet, dass immer nur die Laufzeit ganzer Funktionen gemessen wird. Häufig ist es aber so, dass es auch innerhalb einer größeren Funktion Teile gibt, die laufzeittechnisch gesehen bedeutungslos sind, und welche, die sehr laufzeitintensiv sind. In einem solchen Fall greift man zu einem anderen Hilfsmittel, dem sogenannten <span class="ckursiv">Tracer</span>.</p>
+<p>Ein Tracer, in Python über das Modul <span class="clisting">trace</span> verfügbar, überwacht einen Programmlauf und registriert dabei, wie oft jede einzelne Codezeile des Programms ausgeführt wurde. Eine solche <span class="ckursiv">Überdeckungsanalyse</span> wird im Wesentlichen aus zwei Gründen durchgeführt:</p>
+<ul class="gp">
+<li>Mithilfe einer Überdeckungsanalyse lassen sich Codezeilen ausfindig machen, die besonders häufig aufgerufen werden und daher möglicherweise besonders laufzeitintensiv sind. Diese Zeilen könnten dann gezielt optimiert werden. Beachten Sie aber, dass ein Tracer nicht die tatsächliche Laufzeit einer Codezeile misst, sondern nur, wie oft diese Zeile im Programmfluss ausgeführt wurde.</li>
+</ul>
+<ul class="gp">
+<li>Häufig muss bei sicherheitsrelevanten Programmen eine Überdeckungsanalyse vorgelegt werden, um zu beweisen, dass bei einem Test jede Codezeile mindestens einmal ausgeführt wurde. Auf diese Weise versucht man zu vermeiden, dass beispielsweise der Autopilot eines Flugzeugs ausfällt, weil eine Codezeile ausgeführt wurde, an die man beim Testen der Software nicht gedacht hat.</li>
+</ul>
+<p>In diesem Kapitel möchten wir die Überdeckungsanalyse durchführen, um laufzeitkritische Stellen in einem Programm zu identifizieren. Dazu erstellen wir eine leicht modifizierte Version des Beispielprogramms aus dem vorangegangenen Kapitel. »Modifiziert« bedeutet, dass der Code ohne Unterfunktionen geschrieben wurde.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span><span class="clisting"> math</span><br>
+<span class="cfett">def</span> programm(): 
+   <span class="cfett"> for</span> i<span class="cfett"> in</span> xrange(100): 
+        i**2 
+       <span class="cfett"> for</span> j<span class="cfett"> in</span> xrange(100): 
+            math.sqrt(j) 
+           <span class="cfett"> for</span> k<span class="cfett"> in</span> xrange(100): 
+                math.log(k+1)</pre></div>
+<p>Die Überdeckungsanalyse wird mithilfe des Moduls <span class="clisting">trace</span> durchgeführt. Dazu ist folgender zusätzlicher Code nötig:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> trace<span class="cfett"> 
+import</span> sys<br>
+tracer = trace.Trace( 
+    ignoredirs = [sys.prefix, sys.exec_prefix], 
+    trace = 0) 
+tracer.run("programm()")<br>
+r = tracer.results() 
+r.write_results(show_missing=True, coverdir="ergebnis")</pre></div>
+<p>Zunächst wird eine Instanz der Klasse <span class="clisting">Tracer</span> erzeugt. Diese bekommt zwei Schlüsselwortparameter übergeben. Über den Parameter <span class="clisting">ignoredirs</span> wird eine Liste von Verzeichnissen übergeben, deren enthaltene Module nicht in die Überdeckungsanalyse mit einbezogen werden sollen. In diesem Fall möchten wir keine Module der Standardbibliothek übergeben und fügen deshalb die entsprechenden Verzeichnisse <span class="clisting">sys.prefix</span> und <span class="clisting">sys.exec_prefix</span> an. Den zweiten Parameter, <span class="clisting">trace</span>, setzen wir auf <span class="clisting">0</span>, da sonst jede während des Programmlaufs ausgeführte Zeile auf dem Bildschirm ausgegeben wird.</p>
+<p>Danach führen wir, analog zum Profiler, die Methode <span class="clisting">run</span> der <span class="clisting">Trace</span>-Instanz aus und übergeben dabei den auszuführenden Python-Code. Nachdem der Tracer durchgelaufen ist, können die Ergebnisse über die Methode <span class="clisting">results</span> der <span class="clisting">Trace</span>-Instanz abgeholt werden. Wir möchten die Ergebnisse in diesem Fall nicht weiterverarbeiten und speichern sie deshalb mithilfe der Methode <span class="clisting">write_results</span> auf der Festplatte. Dabei wird über den Parameter <span class="clisting">coverdir</span> das Unterverzeichnis angegeben, in dem die Ergebnisse gespeichert werden sollen. Wenn für den Parameter <span class="clisting">show_missing True</span> übergeben wird, werden Codezeilen, die während des Programmlaufs niemals ausgeführt wurden, mit einem Pfeil gekennzeichnet.</p>
+<p>Das Ergebnis wird im Unterordner <span class="ckursiv">ergebnis</span> als Textdatei mit dem Dateinamen <span class="ckursiv">modulname.cover</span> abgespeichert, wobei <span class="ckursiv">modulname</span> durch den Namen Ihres getesteten Moduls ersetzt wird. In unserem Beispiel sieht das Ergebnis folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">       import trace 
+&gt;&gt;&gt;&gt;&gt;&gt; import sys<br>
+&gt;&gt;&gt;&gt;&gt;&gt; import math 
+&gt;&gt;&gt;&gt;&gt;&gt; def programm(): 
+  101:     for i in xrange(100): 
+  100:         i**2 
+10100:         for j in xrange(100): 
+10000:             math.sqrt(j) 
+1010000:             for k in xrange(100): 
+1000000:                 math.log(k+1)<br>
+&gt;&gt;&gt;&gt;&gt;&gt; tracer = trace.Trace( 
+&gt;&gt;&gt;&gt;&gt;&gt;     ignoredirs = [sys.prefix, sys.exec_prefix], 
+&gt;&gt;&gt;&gt;&gt;&gt;     trace = 0) 
+&gt;&gt;&gt;&gt;&gt;&gt; tracer.run("programm()")<br>
+&gt;&gt;&gt;&gt;&gt;&gt; r = tracer.results() 
+&gt;&gt;&gt;&gt;&gt;&gt; r.write_results(show_missing=True, coverdir="ergebnis")</pre></div>
+<p>Sie sehen, dass die Ergebnisse zu einer gut lesbaren Datei aufbereitet werden. Im Prinzip ist die Datei in zwei Spalten aufgeteilt: Rechts steht der Quellcode des Programms und links die Anzahl der Aufrufe jeder Codezeile. Die Pfeile in der linken Spalte weisen auf Codezeilen hin, die während des überwachten Programmlaufs niemals ausgeführt wurden. Beachten Sie, dass diese Zeilen natürlich nur nicht ausgeführt wurden, solange die Überwachung des Programms aktiv war.</p>
+<p> </p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_21_007.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="21.7 Analyse des Laufzeitverhaltens"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_21_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_22_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

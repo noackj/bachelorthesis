@@ -1,0 +1,1296 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 12.3 Magic Members</title>
+<meta name="title" content="Galileo Computing :: Python - 12.3 Magic Members">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 12.3 Magic Members">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_12_002.htm">
+<link rel="next" href="python_kapitel_12_004.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_12_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_12_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7" class="navnav">12 Objektorientierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_12_001.htm#mj7a7b81e033ac96b42cc3067c82e646eb" class="navnav">12.1 Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_001.htm#mjdb02db3d15cc2f5101b2883eb37f636d" class="navnav">12.1.1 Definieren von Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_001.htm#mja573271b00198256bf4fb374b9401db8" class="navnav">12.1.2 Konstruktor, Destruktor und die Erzeugung von Attributen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_001.htm#mj4e0c3a6a090bfdc9ee72a89c385b9ec3" class="navnav">12.1.3 Private Member</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_001.htm#mj3a2d8e94e02c540670bf279c0853ba45" class="navnav">12.1.4 Versteckte Setter und Getter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_001.htm#mj3e4e56aa5753c3e37aad343804cfe6b5" class="navnav">12.1.5 Statische Member</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_12_002.htm#mj0ca8f9d3196e5a5fef88a593d630bc3d" class="navnav">12.2 Vererbung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_002.htm#mja9ad55f483dad0b289bb6a13fc9dd3fa" class="navnav">12.2.1 Mehrfachvererbung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjc3a7810b0ba9ea9f34ae37cd13c50834" class="navh">12.3 Magic Members</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj6e5a6c5d5aae415228091d3e090f2ede" class="navh">12.3.1 Allgemeine Magic Members</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mja67cc5e385a7e4eb847df8e2bbd716f5" class="navh">12.3.2 Datentypen emulieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_12_004.htm#mj23414ecf2422550b1bf894fb9eda94a3" class="navnav">12.4 Objektphilosophie</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjc3a7810b0ba9ea9f34ae37cd13c50834" name="mjc3a7810b0ba9ea9f34ae37cd13c50834"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">12.3</span><span class="cfett"> Magic Members</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Es gibt in Python eine Reihe spezieller Methoden und Attribute, um Klassen besondere Fähigkeiten zu geben. Die Namen dieser Member beginnen und enden jeweils mit zwei Unterstrichen <span class="clisting">__</span>. Im Laufe der letzten Kapitel haben Sie bereits zwei dieser sogenannten <span class="ckursiv">Magic Members</span> kennengelernt: den Konstruktor namens <span class="clisting">__init__</span> und den Destruktor namens <span class="clisting">__del__</span>.</p>
+<p>Der Umgang mit den Methoden und Attributen ist insofern »magisch«, als dass sie in der Regel nicht direkt mit ihrem Namen benutzt, sondern bei Bedarf implizit im Hintergrund verwendet werden. Der Konstruktor <span class="clisting">__init__</span> wird beispielsweise immer dann aufgerufen, wenn ein neues Objekt einer Klasse erzeugt wird, auch wenn kein expliziter Aufruf mit zum Beispiel  <span class="clisting">Klassenname.__init__()</span> an der entsprechenden Stelle steht.</p>
+<p>Mit vielen Magic Members lässt sich das Verhalten von Built-in Functions und Operatoren für die eigenen Klassen anpassen, sodass die Instanzen Ihrer Klassen beispielsweise sinnvoll mit den Vergleichsoperatoren <span class="clisting">&lt;</span> und <span class="clisting">&gt;</span> verglichen werden können.</p>
+<p>Wir werden Ihnen im Folgenden eine Liste präsentieren, die häufig genutzte Magic Members mit ihrer Bedeutung auflistet. Aufgrund der großen Anzahl wird dabei bei vielen der besprochenen Methoden und Attribute auf Beispiele verzichtet. Wir bitten Sie, für genauere Informationen Pythons Online-Dokumentation zu konsultieren.</p><a id="mj6e5a6c5d5aae415228091d3e090f2ede" name="mj6e5a6c5d5aae415228091d3e090f2ede"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">12.3.1</span><span class="cfett"> Allgemeine Magic Members</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<h5 class="t5"><span class="cfett">__init__(self[, ...])</span></h5>
+<p>Der Destruktor einer Klasse. Wird beim Erzeugen einer neuen Instanz aufgerufen. Näheres können Sie in Abschnitt <a href="#Rxx_ref179308383">12.1.2</a>, »<a href="#Rxx_ref179308385">Konstruktor, Destruktor und die Erzeugung von Attributen</a>«, nachlesen.</p>
+<h5 class="t5"><span class="cfett">__del__(self)</span></h5>
+<p>Der Destruktor einer Klasse. Wird beim Zerstören einer neuen Instanz aufgerufen. Näheres können Sie in Abschnitt <a href="#Rxx_ref179308383">12.1.2</a>, »<a href="#Rxx_ref179308385">Konstruktor, Destruktor und die Erzeugung von Attributen</a>«, nachlesen.</p>
+<h5 class="t5"><span class="cfett">__repr__(self)</span></h5>
+<p>Der Rückgabewert von <span class="clisting">obj.__repr__</span> gibt an, was <span class="clisting">repr(obj)</span> zurückgeben soll. Dies sollte nach Möglichkeit gültiger Python-Code sein, der beim Ausführen die Instanz <span class="clisting">obj</span> erzeugt.</p>
+<h5 class="t5"><span class="cfett">__str__(self)</span></h5>
+<p>Der Rückgabewert von <span class="clisting">obj.__str__</span> gibt an, was <span class="clisting">str(obj)</span> zurückgeben soll. Dies sollte nach Möglichkeit eine für den Menschen lesbare Repräsentation von <span class="clisting">obj</span> sein.</p>
+<h4 class="t4"><span class="cfett">Zugriff auf Attribute anpassen</span></h4>
+<p>Die Methoden in diesem Abschnitt dienen dazu, festzulegen, wie Python vorgehen soll, wenn die Attribute einer Instanz gelesen oder geschrieben werden. Da die Standardmechanismen in den meisten Fällen das gewünschte Resultat bewirken, werden Sie diese Methoden nur selten überschreiben.</p>
+<h5 class="t5"><span class="cfett">__dict__</span></h5>
+<p>Jede Instanz besitzt ein Attribut namens <span class="clisting">__dict__</span>, das die Member der Instanz in einem Dictionary speichert.</p>
+<p>Die beiden folgenden Code-Zeilen produzieren also das gleiche Ergebnis, vorausgesetzt, <span class="clisting">obj</span> ist eine Instanz einer Klasse, die ein Attribut »A« definiert:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; obj.A 
+"Der Wert des Attributs A" 
+&gt;&gt;&gt; obj.__dict__["A"] 
+"Der Wert des Attributs A"</pre></div>
+<h5 class="t5"><span class="cfett">__getattr__(self, name)</span></h5>
+<p>Wird dann aufgerufen, wenn das Attribut mit dem Namen <span class="ckursiv">name</span> gelesen wird, aber nicht existiert.</p>
+<p>Die Methode <span class="clisting">__getattr__</span> sollte entweder einen Wert zurückgeben, der für das Attribut gelten soll, oder einen <span class="clisting">AttributeError</span> erzeugen.</p>
+<h5 class="t5"><span class="cfett">__getattribute__(self, name)</span></h5>
+<p>Wird immer aufgerufen, wenn der Wert des Attributs mit dem Namen <span class="clisting">name</span> gelesen wird, auch wenn das Attribut bereits existiert.</p>
+<p>Implementiert eine Klasse sowohl <span class="clisting">__getattr__</span> als auch <span class="clisting">__getattribute__</span>, wird nur letztere Funktion beim Lesen von Attributen aufgerufen, es sei denn,                <span class="clisting">__getattribute__</span> ruft selbst <span class="clisting">__getattr__</span> auf.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Wichtig</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" rowspan="2">
+Greifen Sie innerhalb von <span class="clisting">__getattribute__</span> niemals mit <span class="clisting">self.attribut</span> auf die Attribute der Instanz zu, weil dies eine endlose Rekursion zur Folge hätte.</p>
+Benutzen Sie stattdessen immer <span class="clisting">__getattribute__</span> der Basisklasse, zum Beispiel <span class="clisting">object.__getattribute__(self,</span> <span class="clisting">"attribut")</span>.</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">__setattr__(self, name, value)</span></h5>
+<p>Die Methode <span class="clisting">__setattr__</span> wird immer dann aufgerufen, wenn der Wert eines Attributs per Zuweisung geändert oder ein neues Attribut erzeugt wird. Der Parameter <span class="ckursiv">name</span> gibt dabei einen String an, der den Namen des zu verändernden Attributs enthält. Mit <span class="ckursiv">value</span> wird der neue Wert übergeben.</p>
+<p>Mit <span class="clisting">__setattr__</span> lässt sich zum Beispiel festlegen, welche Attribute eine Instanz überhaupt haben darf, indem alle anderen Werte einfach ignoriert oder mit Fehlerausgaben quittiert werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Wichtig</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" rowspan="2">
+Verwenden Sie innerhalb von <span class="clisting">__setattr__</span> niemals eine Zuweisung der Form <span class="clisting">self.attribut</span> <span class="clisting">=</span> <span class="clisting">wert</span>, um die Attribute auf bestimmte Werte zu setzen, da dies eine endlose Rekursion bewirken würde: Bei jeder Zuweisung würde <span class="clisting">__setattr__</span> erneut aufgerufen.</p>
+Um Attribut-Werte mit <span class="clisting">__setattr__</span> zu verändern, können Sie auf das Attribut            <span class="clisting">__dict__</span> zurückgreifen: <span class="clisting">self.__dict__["attribut"]</span> <span class="clisting">=</span> <span class="clisting">wert</span>.</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">__delattr__(self, name)</span></h5>
+<p>Wird aufgerufen, wenn das Attribut mit dem Namen <span class="ckursiv">name</span> per <span class="clisting">del</span> gelöscht wird.</p>
+<h5 class="t5"><span class="cfett">__slots__</span></h5>
+<p>Mit dem <span class="clisting">__slots__</span>-Attribut können die Member einer Instanz in der Klasse genau definiert werden. Normalerweise ist es problemlos möglich, auch nach der Instanziierung neue Attribute und Methoden für eine Instanz zu erstellen bzw. Member zu löschen, wie das folgende Beispiel zeigt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> class</span> Test(object): 
+       <span class="cfett"> def</span> __init__(self): 
+            self.A = 1 
+            self.B = 2 
+&gt;&gt;&gt; t = Test() 
+&gt;&gt;&gt; t.A 
+1 
+&gt;&gt;&gt; t.C = 1337 
+&gt;&gt;&gt; t.C 
+1337 
+&gt;&gt;&gt;<span class="cfett"> del</span> t.A 
+&gt;&gt;&gt; t.A 
+Traceback (most recent call last): 
+  File "&lt;pyshell#12&gt;", line 1, in &lt;module&gt; 
+    t.A 
+AttributeError: 'Test' object has no attribute 'A'</pre></div>
+<p>Dieses Verhalten ist oft aus mehreren Gründen nicht erwünscht:</p>
+<p>Das dynamische Erstellen und Löschen von Membern kann zu schwer lokalisierbaren Fehlern führen und das Kapselungsprinzip verletzen. Außerdem muss der Interpreter Aufwand treiben, um die Dynamik der Member zu gewährleisten. Gerade bei Klassen, die sehr oft instanziiert werden sollen, kann dies zu Speicher- und Geschwindigkeitsproblemen führen.</p>
+<p>Deshalb kann mit <span class="clisting">__slots__</span> angegeben werden, welche Member eine Instanz einer Klasse haben darf. Man erzeugt zu diesem Zweck ein statisches Attribut namens <span class="clisting">__slot__</span>, dem man eine Sequenz der Namen zuweist, die die Attribute und Methoden der Instanzen haben dürfen. Alle Versuche, auf andere Member als die mit <span class="clisting">__slots__</span> definierten zuzugreifen, führen dann zu Fehlern. Außerdem benutzt Python für solche Instanzen eine effizientere Technik, um die Attribute und Methoden zu speichern als bei »normalen« Klassen.</p>
+<p>Im folgenden Beispiel darf die Klasse <span class="clisting">Test</span> nur die Attribute namens <span class="clisting">A</span> und <span class="clisting">B</span> haben.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">&gt;&gt;&gt; class</span> Test(object): 
+        __slots__ = ("A", "B") 
+       <span class="cfett"> def</span> __init__(self): 
+            self.A = 1 
+            self.B = 2 
+&gt;&gt;&gt; t = Test() 
+&gt;&gt;&gt; t.A 
+1 
+&gt;&gt;&gt; t.C = 1337 
+Traceback (most recent call last): 
+  File "&lt;pyshell#16&gt;", line 1, in &lt;module&gt; 
+    t.C = 1337 
+AttributeError: 'Test' object has no attribute 'C' 
+&gt;&gt;&gt;<span class="cfett"> del</span> t.A 
+&gt;&gt;&gt; t.A 
+Traceback (most recent call last): 
+  File "&lt;pyshell#12&gt;", line 1, in &lt;module&gt; 
+    t.A 
+AttributeError: 'Test' object has no attribute 'A'</pre></div>
+<p>Wie Sie sehen, schlägt das Erstellen des neuen Attributs <span class="clisting">C</span> mit einem <span class="clisting">Attribute</span> <span class="clisting">Error</span> fehl. Es ist allerdings immer noch möglich, bereits vorhandene Attribute per <span class="clisting">del</span> zu löschen. Diese können allerdings auch wieder erzeugt werden, sofern sie in der <span class="clisting">__slots__</span>-Liste stehen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Wichtig</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Eine <span class="clisting">__slots__</span>-Definition lässt sich nicht auf Subklassen vererben.</p>
+</td>
+</tr>
+</table><br><h4 class="t4"><span class="cfett">Vergleichsoperatoren</span></h4>
+<p>Die folgenden <span class="ckursiv">Magic Methods</span> dienen dazu, das Verhalten der Vergleichsoperatoren für die Klasse anzupassen. Man nennt diese Anpassung auch <span class="ckursiv">Überladen</span> des Operators.</p>
+<p>Um beispielsweise zwei Kontoklassen zu vergleichen, kann die Kontonummer herangezogen werden. Damit gibt es eine sinnvolle Interpretation für den Vergleich mit <span class="clisting">==</span> bei Konten. Die <span class="ckursiv">Magic Method</span> für Vergleiche mit <span class="clisting">==</span> heißt <span class="clisting">__eq__</span> (von engl. <span class="ckursiv">equal = gleich</span>) und erwartet als Parameter eine Instanz, mit der das Objekt verglichen werden soll, für das <span class="clisting">__eq__</span> aufgerufen wurde.</p>
+<p>Der folgende Beispielcode erweitert unsere <span class="clisting">Konto</span>-Klasse aus der Einführung zur Objektorientierung um die Fähigkeit, sinnvoll mit <span class="clisting">==</span> verglichen zu werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(object): 
+   <span class="cfett"> def</span> __init__(self, inhaber, kontonummer, kontostand, 
+                       max_tagesumsatz=1500): 
+        self.Inhaber = inhaber 
+        self.Kontonummer = kontonummer 
+        self.Kontostand = kontostand 
+        self.MaxTagesumsatz = max_tagesumsatz 
+        self.UmsatzHeute = 0 
+ 
+   <span class="cfett"> def</span> __eq__(self, k2): 
+       <span class="cfett"> return</span> self.Kontonummer == k2.Kontonummer</pre></div>
+<p>Nun erzeugen wir drei Konten, wobei zwei die gleiche Kontonummer haben, und vergleichen sie mit dem <span class="clisting">==</span>-Operator. Das Szenario wird natürlich immer ein Wunschtraum für Donald Duck bleiben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; konto1 = Konto("Dagobert Duck", 1337, 9999999999999999) 
+&gt;&gt;&gt; konto2 = Konto("Donald Duck", 1337, 1.5) 
+&gt;&gt;&gt; konto3 = Konto("Gustav Gans", 2674, "50000") 
+&gt;&gt;&gt; konto1 == konto2 
+True 
+&gt;&gt;&gt; konto1 == konto3 
+False</pre></div>
+<p>Die Anweisung <span class="clisting">konto1 == konto2</span> wird intern von Python beim Ausführen durch <span class="clisting">konto1.__eq__(konto2)</span> ersetzt.</p>
+<p>Neben der <span class="clisting">__eq__</span>-Methode gibt es eine Reihe weiterer Vergleichsmethoden, die jeweils einem Vergleichsoperator entsprechen. Alle diese Methoden erwarten neben <span class="clisting">self</span> einen weiteren Parameter, der die Instanz referenzieren muss, mit der <span class="clisting">self</span> verglichen werden soll.</p>
+<p>Die nachfolgende Tabelle zeigt alle Vergleichsmethoden mit ihren Entsprechungen. Die Herkunftstabelle kann Ihnen unter Umständen helfen, sich die Methodennamen und ihre Bedeutung besser zu merken:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 12.3    </strong>Die Magic Methods für Vergleiche
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Methode</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Herkunft</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">__lt__(self, other)</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Lower Than</span> (dt. kleiner als)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">__le__(self, other)</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Less or Equal</span> (dt. kleiner oder gleich)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">__eq__(self, other)</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">==</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Equal</span> (dt. gleich)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">__ne__(self, other)</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">!=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Not Equal</span> (dt. ungleich)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">__gt__(self, other)</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&gt;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Greater Than</span> (dt. größer als)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">__ge__(self, other)</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&gt;=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Greater or Equal</span> (dt. größer oder gleich)</p>
+</td>
+</tr>
+</table><br><p>Es ist besonders für eher kleine Klassen lästig, immer alle dieser sechs Methoden zu implementieren, bloß damit zwei Instanzen verglichen werden können.</p>
+<p>Alternativ kann die Methode <span class="clisting">__cmp__</span> verwendet werden.</p>
+<h5 class="t5"><span class="cfett">__cmp__(self, other)</span></h5>
+<p>Mit <span class="clisting">__cmp__</span> kann eine Methode definiert werden, die es ermöglicht, die Vergleichsoperatoren für die implementierende Klasse zu verwenden, ohne dass dafür die sechs Methoden des vorhergehenden Abschnitts definiert werden müssen.</p>
+<p>Die Methode <span class="clisting">__cmp__</span> muss einen Zahlenwert zurückgeben, der angibt, ob <span class="ckursiv">self</span> oder <span class="ckursiv">other</span> den größeren Wert hat oder ob beide identisch sind. Die folgende Tabelle zeigt die möglichen Rückgabewerte und ihre Bedeutungen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 12.4    </strong>Die Rückgabewerte von <span class="clisting">__cmp__</span>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Rückgabewert</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Ganzzahl größer als 0</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">self &gt; other</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>0</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">self == other</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Ganzzahl kleiner als 0</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">self &lt; other</span></p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Wichtig</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Wenn eine Klasse keine der Methoden <span class="clisting">__cmp__</span>, <span class="clisting">__eq__</span> oder <span class="clisting">__ne__</span> implementiert, werden Instanzen der Klasse anhand ihrer Identität miteinander verglichen.</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">__hash__(self)</span></h5>
+<p>Die <span class="clisting">__hash__</span>-Methode einer Instanz bestimmt, welchen Wert die Built-in Function <span class="clisting">hash</span> für die Instanz zurückgeben soll. Die <span class="clisting">hash</span>-Werte müssen Ganzzahlen sein und sind insbesondere für die Verwendung von Instanzen als Schlüssel für Dictionarys von Bedeutung.</p>
+<p>Die einzige Bedingung für gültige <span class="clisting">hash</span>-Werte ist, dass Objekte, die bei Vergleichen mit <span class="clisting">==</span> als gleich angesehen werden, auch den gleichen <span class="clisting">hash</span>-Wert besitzen.</p>
+<h5 class="t5"><span class="cfett">__nonzero__(self)</span></h5>
+<p>Die <span class="clisting">__nonzero__</span>-Methode sollte einen Wahrheitswert (<span class="clisting">True</span> oder <span class="clisting">False</span>) zurückgeben, der angibt, wie das Objekt in eine <span class="clisting">bool</span>-Instanz umzuwandeln ist.</p>
+<p>Ist <span class="clisting">__nonzero__</span> nicht implementiert, wird stattdessen der Rückgabewert von       <span class="clisting">__len__</span> verwendet. Sind beide Methoden nicht vorhanden, werden alle Instanzen der betreffenden Klasse als <span class="clisting">True</span> behandelt.</p>
+<h5 class="t5"><span class="cfett">__unicode__(self)</span></h5>
+<p>Wie <span class="clisting">__str__</span>, nur dass anstelle einer <span class="clisting">str</span>-Instanz ein Objekt des Typs <span class="clisting">unicode</span> zurückgegeben werden muss.</p>
+<h5 class="t5"><span class="cfett">__call__(self[, args...])</span></h5>
+<p>Mit der <span class="clisting">__call__</span>-Methode können die Instanzen einer Klasse wie Funktionen aufrufbar werden.</p>
+<p>Das folgende Beispiel implementiert eine Klasse <span class="clisting">Potenz</span>, die dazu dient, Potenzen zu berechnen. Welcher Exponent dabei verwendet werden soll, wird dem Konstruktor als Parameter übergeben. Durch die <span class="clisting">__call__</span>-Methode können die Instanzen von <span class="clisting">Potenz</span> wie Funktionen aufgerufen werden, um Potenzen zu berechnen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Potenz(object): 
+   <span class="cfett"> def</span> __init__(self, exponent): 
+        self.Exponent = exponent 
+ 
+   <span class="cfett"> def</span> __call__(self, basis): 
+       <span class="cfett"> return</span> basis ** self.Exponent</pre></div>
+<p>Nun kann bequem mit Potenzen gearbeitet werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; dreier_potenz = Potenz(3) 
+&gt;&gt;&gt; dreier_potenz(2) 
+8 
+&gt;&gt;&gt; dreier_potenz(5) 
+125</pre></div><a id="mja67cc5e385a7e4eb847df8e2bbd716f5" name="mja67cc5e385a7e4eb847df8e2bbd716f5"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">12.3.2</span><span class="cfett"> Datentypen emulieren</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In Python entscheiden die Methoden, die ein Datentyp implementiert, zu welcher Kategorie von Datentypen er gehört. Deshalb ist es möglich, Ihre eigenen Datentypen wie beispielsweise numerische oder sequenzielle Datentypen »aussehen« zu lassen, indem sie die entsprechende Schnittstelle implementieren.</p>
+<p>Sie werden im Folgenden die Methoden kennenlernen, die ein Datentyp implementieren muss, um ein numerischer Datentyp zu sein. Außerdem werden die Schnittstellen von Sequenzen und Mappings behandelt.</p>
+<h4 class="t4"><span class="cfett">Numerische Datentypen emulieren</span></h4>
+<p>Ein numerischer Datentyp muss vor allem eine Reihe von Operatoren definieren.</p>
+<h5 class="t5"><span class="cfett">Binäre Operatoren</span></h5>
+<p>Als Erstes gibt es da die sogenannten binären Operatoren, die zwei Operanden erwarten. Hierzu zählen unter anderem <span class="clisting">+</span>, <span class="clisting">-</span>, <span class="clisting">*</span> und <span class="clisting">/</span>.</p>
+<p>Alle Methoden zum Überladen von binären Operatoren erwarten einen Parameter, der den zweiten Operanden referenziert. Ihr Rückgabewert muss eine neue Instanz sein, die das Ergebnis der Rechnung enthält.</p>
+<p>Wenn Python einen Ausdruck auswertet, der binäre Operatoren enthält, werden intern automatisch die entsprechenden Methoden aufgerufen. Die folgenden beiden Befehle sind vollkommen gleichwertig, wobei die Klammern um die <span class="clisting">1</span> aus syntaktischen Gründen notwendig sind:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 1 + 2 
+3 
+&gt;&gt;&gt; (1).__add__(2) 
+3</pre></div>
+<p>Als Beispiel werden wir eine kleine Klasse zum Verwalten von Längenangaben mit Einheiten implementieren, die die Operatoren für Addition und Subtraktion unterstützt.</p>
+<p>Die Klasse wird intern alle Maße für die Berechnungen in Meter umwandeln. Ihre Definition sieht dann folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Laenge(object): 
+    Umrechnung = {"m" : 1, "cm" : 0.01, "mm" : 0.001, 
+                  "dm" : 10, "km" : 1000, 
+                  "ft" : 0.3048,   # Fuss 
+                  "in" : 0.0254,   # Zoll 
+                  "mi" : 1609344   # Meilen 
+                 } 
+ 
+   <span class="cfett"> def</span> __init__(self, zahlenwert, einheit): 
+        self.Zahlenwert = zahlenwert 
+        self.Einheit = einheit 
+ 
+   <span class="cfett"> def</span> __str__(self): 
+       <span class="cfett"> return</span> "%f%s" % (self.Zahlenwert, self.Einheit) 
+ 
+   <span class="cfett"> def</span> __add__(self, other): 
+        z = self.Zahlenwert * Laenge.Umrechnung[self.Einheit] 
+        z += other.Zahlenwert * Laenge.Umrechnung[other.Einheit] 
+        z /= Laenge.Umrechnung[self.Einheit] 
+       <span class="cfett"> return</span> Laenge(z, self.Einheit) 
+ 
+   <span class="cfett"> def</span> __sub__(self, other): 
+        z = self.Zahlenwert * Laenge.Umrechnung[self.Einheit] 
+        z -= other.Zahlenwert * Laenge.Umrechnung[other.Einheit] 
+        z /= Laenge.Umrechnung[self.Einheit] 
+       <span class="cfett"> return</span> Laenge(z, self.Einheit)</pre></div>
+<p>Das Dictionary <span class="clisting">Laenge.Umrechnung</span> enthält Faktoren, mit denen geläufige Längenmaße in Meter umgerechnet werden. Die Methoden <span class="clisting">__add__</span> und <span class="clisting">__sub__</span> überladen jeweils den Operator für Addition <span class="clisting">+</span> bzw. den für Subtraktion <span class="clisting">&#8211;</span>, indem sie zuerst die Zahlenwerte beider Operanden gemäß ihrer Einheiten in Meter umwandeln, verrechnen und schließlich wieder in die Einheit des weiter links stehenden Operanden konvertieren.</p>
+<p>In der nachstehenden Tabelle sind alle binären Operatoren und die entsprechenden Magic Methods aufgelistet:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 12.5    </strong>Magic Methods für binäre Operatoren
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Magic Method</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">+</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__add__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&#8211;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__sub__(self, other</span><span class="clisting">)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">*</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__mul__(self, other</span><span class="clisting">)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">/</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__div__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">//</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__floordiv__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">**</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__pow__(self, other[, modulo])</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__mod__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&gt;&gt;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__lshift__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&lt;&lt;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__rshift__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&amp;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__and__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">|</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__or__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">^</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__xor__(self, other)</span></p>
+</td>
+</tr>
+</table><br><p>Die Methoden sollten bei erfolgreicher Rechnung das Ergebnis zurückgeben. Ist es nicht möglich, den Operanden <span class="ckursiv">other</span> zu verarbeiten, sollte <span class="clisting">NotImplemented</span> zurückgegeben werden.</p>
+<h5 class="t5"><span class="cfett">Binäre Operatoren mit umgekehrter Operandenreihenfolge</span></h5>
+<p>Wenn Python einen Ausdruck der Form <span class="clisting">Operand1 Operator Operand2</span> wie beispielsweise <span class="clisting">2 * "abc"</span> auswerten soll, wird zuerst versucht, eine passende Methode vom ersten Operanden zu benutzen. Existiert diese nicht oder gibt sie <span class="clisting">NotImplemented</span> zurück, wird versucht, beim zweiten Operanden eine entsprechende Methode zu finden. Dies geschieht aber nur dann, wenn die beiden Operanden nicht vom gleichen Datentyp sind. Allerdings muss der zweite Operand eine spezielle Methode für vertauschte Operanden implementieren. Die folgende Tabelle listet alle dafür verfügbaren Methodennamen und die entsprechenden Operatoren auf:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 12.6    </strong>Magic Methods für binäre Operatoren des rechten Operanden
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Magic Method</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">+</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__radd__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&#8211;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__rsub__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">*</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__rmul__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">/</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__rdiv__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">//</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__rfloordiv__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">**</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__rpow__(self, other[, modulo])</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__rmod__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&gt;&gt;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__rlshift__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&lt;&lt;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__rrshift__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&amp;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__rand__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">|</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__ror__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">^</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__rxor__(self, other)</span></p>
+</td>
+</tr>
+</table><br><p>Für nicht unterstützte Werte von <span class="ckursiv">other</span> sollte auch hier <span class="clisting">NotImplemented</span> zurückgegeben werden.</p>
+<h5 class="t5"><span class="cfett">Erweiterte Zuweisungen</span></h5>
+<p>Neben den Operatoren selbst können auch die erweiterten Zuweisungen überladen werden. Bei einer erweiterten Zuweisung wird ein Gleichheitszeichen benutzt, dem der jeweilige Operator vorangestellt wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; a = 10 
+&gt;&gt;&gt; a += 5 
+&gt;&gt;&gt; a 
+15</pre></div>
+<p>Standardmäßig verwendet Python für solche Zuweisungen den Operator selbst, sodass <span class="clisting">a += 5</span> intern wie <span class="clisting">a = a + 5</span> ausgeführt wird. Diese Vorgehensweise hat für komplexe Datentypen wie beispielsweise Listen den Nachteil, dass immer eine komplett neue Liste erzeugt werden muss. Deshalb kann man gezielt die erweiterten Zuweisungen anpassen, um die Effizienz des Programms zu verbessern.</p>
+<p>In der nachstehenden Tabelle stehen alle Operatoren für erweiterte Zuweisungen und die entsprechenden Methoden:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 12.7    </strong>Methoden für die erweiterte Zuweisung
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Magic Method</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">+=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__iadd__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">-=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__isub__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">*=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__imul__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">/=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__idiv__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">//=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__ifloordiv__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">**=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__ipow__(self, other[, modulo])</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__imod__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&gt;&gt;=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__ilshift__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&lt;&lt;=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__irshift__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&amp;=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__iand__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">|=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__ior__(self, other)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">^=</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__ixor__(self, other)</span></p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">Unäre Operatoren</span></h5>
+<p>Mit den folgenden Methoden werden die unären Operatoren überladen. Unäre Operatoren erwarten im Gegensatz zu den binären Operatoren nur einen Parameter. Zu den unären Operatoren zählen die Vorzeichen <span class="clisting">+</span> und <span class="clisting">&#8211;</span>, die Built-in Function <span class="clisting">abs</span> zur Bestimmung des absoluten Werts und die Tilde <span class="clisting">~</span>, um das Komplement eines Wertes zu berechnen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 12.8    </strong>Magic Methods für die binären Operatoren
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Magic Method</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">+</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__pos__(self)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&#8212;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__neg__(self)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">abs</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__abs__(self)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">~</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__invert__(self)</span></p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">Bulit-In Functions und Umwandlung in andere Typen</span></h5>
+<p>Zu guter Letzt gibt es einen Satz von Magic Methods, mit dem bestimmt werden kann, welche Werte bestimmte Built-in Functions für sie zurückgeben sollen. Für diesen Zweck existieren die folgenden Methoden:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 12.9    </strong>Methoden zum Festlegen der Built-in-Rückgabewerte
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Built-in</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Magic Method</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">complex</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__complex__(self)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">int</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__int__(self)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">long</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__long__(self)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">float</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__float__(self)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">oct</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__oct__(self)</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">hex</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__hex__(self)</span></p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">__index__(self)</span></h5>
+<p>Wenn ein Datentyp außerdem als Index benutzt werden soll, wie er beispielsweise für das Slicing benötigt wird, muss er die parameterlose Methode <span class="clisting">__index__(self)</span> überschreiben. Der Rückgabewert von <span class="clisting">__index__</span> muss eine Ganzzahl (<span class="clisting">int</span> oder <span class="clisting">long</span>) sein.</p>
+<h4 class="t4"><span class="cfett">Container emulieren</span></h4>
+<p>Mithilfe der folgenden Methoden ist es möglich, eigene sequenzielle oder Mapping-Datentypen zu implementieren, die sich genauso wie Listen oder Dictionarys benutzen lassen.</p>
+<p>Wenn Sie einen sequenziellen Datentyp entwickeln möchten, müssen alle Indizes <span class="clisting">i</span> der Sequenz Ganzahlen sein und die Gleichung <span class="clisting">0 &lt;= i &lt; N</span> erfüllen. <span class="clisting">N</span> ist dabei als Länge der Sequenz definiert.</p>
+<p>Alle Mapping-Datentypen sollten zusätzlich zu den nachfolgend besprochenen <span class="ckursiv">Magic Methods</span> weitere Methoden implementieren, die in der nachstehenden Tabelle aufgelistet sind: [Wenn Ihnen die hier angegebenen Beschreibungen nicht ausführlich genug sind, können Sie sich noch einmal den Abschnitt <a href="./python_kapitel_08_006.htm#Rxx_ref180696571">8.6.1</a>, »<a href="./python_kapitel_08_006.htm#Rxx_ref180696571">Dictionary &#8211; dict</a>«, ansehen.
+] </p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 12.10    </strong> Nötige Methoden für Mapping-Typen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Methode</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.keys()</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt eine Liste der Schlüssel von <span class="clisting">m</span> zurück.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.values()</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt eine Liste der Werte von <span class="clisting">m</span> zurück.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.items()</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt eine Liste der Schlüssel/Wert-Paare von <span class="clisting">m</span> zurück.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.has_key(k)</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob der Schlüssel <span class="clisting">k</span> in <span class="clisting">m</span> existiert.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.get(k[, d])</span></p>
+</td>
+<td class="tabellentext">
+<p>Wenn der Schlüssel <span class="clisting">k</span> in <span class="clisting">m</span> existiert, wird <span class="clisting">m[k]</span> zurückgegeben, ansonsten <span class="clisting">d</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.clear()</span></p>
+</td>
+<td class="tabellentext">
+<p>Entfernt alle Elemente aus <span class="clisting">m</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.setdefault(k[, x])</span></p>
+</td>
+<td class="tabellentext">
+<p>Wenn der Schlüssel <span class="clisting">k</span> in <span class="clisting">m</span> existiert, wird <span class="clisting">m[k]</span> zurückgegeben. Gibt es den Schlüssel <span class="clisting">k</span> nicht in <span class="clisting">m</span>, wird <span class="clisting">m[k]</span> auf den Wert <span class="clisting">x</span> gesetzt und <span class="clisting">x</span> zurückgegeben.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.iterkeys()</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt einen Iterator über die Schlüssel von <span class="clisting">m</span> zurück.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.itervalues()</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt einen Iterator über die Werte von <span class="clisting">m</span> zurück.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.iteritems()</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt einen Iterator über die Schlüssel/Wert-Paare von <span class="clisting">m</span> zurück.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.pop(k[, d])</span></p>
+</td>
+<td class="tabellentext">
+<p>Wenn der Schlüssel <span class="clisting">k</span> in <span class="clisting">m</span> existiert, wird <span class="clisting">m[k]</span> zurückgegeben und danach mit <span class="clisting">del</span> gelöscht. Gibt es den Schlüssel <span class="clisting">k</span> nicht in <span class="clisting">m</span>, so wird <span class="clisting">d</span> zurückgegeben.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.popitem()</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt ein willkürlich ausgewähltes Schlüssel/Wert-Paar von <span class="clisting">m</span> zurück und entfernt es anschließend aus <span class="clisting">m</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.copy()</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt eine Kopie von <span class="clisting">m</span> zurück.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m.update(b)</span></p>
+</td>
+<td class="tabellentext">
+<p>Übernimmt alle Schlüssel/Wert-Paare von <span class="clisting">b</span> in <span class="clisting">m</span>. Vorhandene Einträge werden dabei überschrieben.</p>
+</td>
+</tr>
+</table><br><p>Nun folgt die Besprechung der <span class="ckursiv">Magic Methods</span> für sequenzielle und Mapping-Datentypen:</p>
+<h5 class="t5"><span class="cfett">__len__(self)</span></h5>
+<p>Liefert eine Ganzzahl zurück, die die Länge der Sequenz oder des Mapping-Objekts angibt.</p>
+<h5 class="t5"><span class="cfett">__getitem__(self, key)</span></h5>
+<p>Wird aufgerufen, wenn mit dem <span class="clisting">[]</span>-Operator ein Element des Containers gelesen wird. Der Parameter <span class="ckursiv">key</span> gibt dabei den Index des gesuchten Elements an.</p>
+<p>Ein sehr einfaches Beispiel gibt immer den Index selbst als Element des Containers zurück:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> class</span> MeinContainer(object): 
+       <span class="cfett"> def</span> __getitem__(self, key): 
+           <span class="cfett"> return</span> key 
+&gt;&gt;&gt; obj = MeinContainer() 
+&gt;&gt;&gt; obj[10] 
+10 
+&gt;&gt;&gt; obj[1337] 
+1337</pre></div>
+<p>Wenn der übergebene Index <span class="ckursiv">key</span> ungültig ist, sollte <span class="clisting">__getitem__</span> einen <span class="clisting">IndexError</span> produzieren.</p>
+<h5 class="t5"><span class="cfett">__setitem__(self, key, value)</span></h5>
+<p>Muss das Element mit dem Index <span class="ckursiv">key</span> auf den Wert <span class="ckursiv">value</span> setzen.</p>
+<p>Diese Methode sollte nur dann implementiert werden, wenn der Datentyp das Verändern und Hinzufügen von Elementen unterstützen soll.</p>
+<p>Bei ungültigen <span class="ckursiv">key</span>-Werten sollte ein <span class="clisting">IndexError</span> erzeugt werden.</p>
+<h5 class="t5"><span class="cfett">__delitem__(self, key)</span></h5>
+<p>Muss das Element mit dem Index <span class="ckursiv">key</span> aus dem Container entfernen.</p>
+<p>Bei ungültigen <span class="ckursiv">key</span>-Werten sollte ein <span class="clisting">IndexError</span> erzeugt werden.</p>
+<h5 class="t5"><span class="cfett">__iter__(self)</span></h5>
+<p>Muss einen Iterator über die Werte des sequenziellen Datentyps bzw. über die Schlüssel des Mapping-Typs zurückgeben.</p>
+<p>Genaues zu Iteratoren können Sie in Abschnitt <a href="./python_kapitel_13_005.htm#Rxx_ref179317954">13.5</a>, »<a href="./python_kapitel_13_005.htm#Rxx_ref179317954">Iteratoren</a>«, nachlesen.</p>
+<h5 class="t5"><span class="cfett">__contains__(self, item)</span></h5>
+<p>Muss einen Wahrheitswert zurückgeben, der angibt, ob der sequenzielle Datentyp ein Element mit dem Wert von <span class="ckursiv">item</span> enthält. Handelt es sich um einen Mapping-Typ, wird geprüft, ob es einen Schlüssel mit dem Wert von <span class="ckursiv">item</span> gibt.</p>
+<p>Diese Methode wird von den Operatoren <span class="clisting">in</span> und <span class="clisting">not in</span> benutzt.</p>
+<p>Allerdings ist es nicht notwendig, <span class="clisting">__contains__</span> zu implementieren, wenn bereits <span class="clisting">__iter__</span> für den Typ definiert worden ist. Mit <span class="clisting">__contains__</span> kann der Datentyp nur eine unter Umständen effizientere Prüfung anbieten, da nicht wie bei <span class="clisting">__iter__</span> erst die Elemente der Sequenz durchlaufen werden müssen.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_12_003.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="12.3 Magic Members"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_12_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_12_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

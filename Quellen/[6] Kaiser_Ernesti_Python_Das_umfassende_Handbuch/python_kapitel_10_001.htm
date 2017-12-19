@@ -1,0 +1,503 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 10 Funktionen</title>
+<meta name="title" content="Galileo Computing :: Python - 10 Funktionen">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 10 Funktionen">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_09_003.htm">
+<link rel="next" href="python_kapitel_10_002.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_09_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_10_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mjf74b0a739c10c2f7132913c19e91246f" class="navh">10 Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj09f8fc7cd397c85e68c486c4f8c23371" class="navh">10.1 Schreiben einer Funktion</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_002.htm#mjb0543028fb36dd992a5468749d4e2322" class="navnav">10.2 Funktionsparameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_10_002.htm#mj7f6364b3829638603c24a5fbdfe74b83" class="navnav">10.2.1 Optionale Parameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_10_002.htm#mjd543abc1f8ddb8851edb2623a91b8a01" class="navnav">10.2.2 Schlüsselwortparameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_10_002.htm#mjaeb836cdaea4f289f632e77a56b1a846" class="navnav">10.2.3 Beliebige Anzahl von Parametern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_10_002.htm#mj37c2f289a83862df51a8cbf09c92a0ab" class="navnav">10.2.4 Seiteneffekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_003.htm#mj059a39fd6da28e4c821353683ab127e3" class="navnav">10.3 Zugriff auf globale Variablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_004.htm#mjd857b534e6d9959b74c4f922d307567f" class="navnav">10.4 Lokale Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_005.htm#mja7e8dc4f714c5b63ace484edfa46dec6" class="navnav">10.5 Anonyme Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_006.htm#mj11d1c0afd8d1f242c2d55c438071985b" class="navnav">10.6 Rekursion</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_10_007.htm#mj910f2916637bb5b0e239d985f67cf614" class="navnav">10.7 Vordefinierte Funktionen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em><span class="ckursiv">»Um Rekursion zu verstehen, muss man zunächst einmal Rekursion verstehen.« 
+&#8211; Unbekannter Autor.</span></em></p><a id="mjf74b0a739c10c2f7132913c19e91246f" name="mjf74b0a739c10c2f7132913c19e91246f"></a><h1 class="t1"><span class="cfett">10</span><span class="cfett"> <a id="Rxx_ref180780176" name="Rxx_ref180780176"></a><a id="Rxx_ref180664227" name="Rxx_ref180664227"></a>Funktionen</span></h1>
+<p>Wenn Sie mit dem Wissen, das wir Ihnen bisher über die Programmiersprache Python vermittelt haben, ein größeres Programm schreiben wollten, so wäre dies womöglich zum Scheitern verurteilt, da die Les- und Wartbarkeit unserer bisherigen Beispielquelltexte mit zunehmender Größe rapide abnehmen würde. Es ist daher ein erstrebenswertes Ziel, den Quelltext so übersichtlich und aufgeräumt zu gestalten, dass man sich selbst nach langen Programmierpausen problemlos wieder hineinlesen kann.</p>
+<p>Ein zweites, viel gravierenderes Problem stellen Redundanzen im Code dar. In größeren Quelltexten gibt es eine Menge Operationen, die an unterschiedlichen Stellen genau so oder in ähnlicher Form immer wieder durchgeführt werden müssen. Aus Mangel an Alternativen würden Sie diese immer wieder genau da implementieren, wo sie gebraucht werden würden. Sie können sich sicherlich vorstellen, dass ein solcher Quelltext kein Paradebeispiel für sauberen Code darstellen würde.</p>
+<p>Python ist, wie viele andere Programmiersprachen auch, eine <span class="ckursiv">funktionale Sprache. [</span>Beachten Sie, dass es einen Unterschied zwischen <span class="ckursiv">funktionalen</span> und <span class="ckursiv">rein funktionalen</span> Programmiersprachen gibt. Als Vertreter rein funktionaler Programmiersprachen kann beispielsweise Haskell angesehen werden.
+]  Das bedeutet, dass Ihnen ein Hilfsmittel zur Seite gestellt wird, mit dem Sie Ihr Programm in Unterprogramme unterteilen können. Ein solches Unterprogramm wird <span class="ckursiv">Funktion</span> genannt. Dadurch wird das Problem der dramatisch abnehmenden Übersichtlichkeit gelöst, denn Funktionen ermöglichen es Ihnen, gewisse Teile des Quellcodes zu kapseln, zu gruppieren oder von anderen Teilen abzugrenzen. Des Weiteren kann eine Funktion an beliebigen Stellen des Quellcodes beliebig oft aufgerufen werden, was es dem Programmierer in der Regel ermöglicht, Quellcode ohne Codedopplungen zu schreiben.</p>
+<p>Damit eine Funktion korrekt arbeiten kann, müssen bei ihrem Aufruf möglicherweise Informationen übertragen werden. So sollte eine Funktion, die beispielsweise die Fakultät einer ganzen Zahl berechnet, wissen, von welcher Zahl die Fakultät zu berechnen ist. Dazu können beim Aufruf sogenannte <span class="ckursiv">Parameter</span> übergeben werden. Zudem sollte eine Funktion dem aufrufenden, übergeordneten Programm das Ergebnis der Berechnung mitteilen können. Dazu verfügt jede Funktion über einen sogenannten <span class="ckursiv">Rückgabewert</span>.</p>
+<p>Sie haben, möglicherweise ohne das zu bemerken, bereits mit Funktionen gearbeitet: bei der Verwendung von <span class="clisting">len</span> und <span class="clisting">range</span> zum Beispiel. Im Folgenden möchten wir die Handhabung einer bestehenden Funktion am Beispiel von <span class="clisting">range</span> erläutern.</p>
+<p>Die eingebaute Funktion <span class="clisting">range</span> wurde in Abschnitt <a href="./python_kapitel_06_002.htm#Rxx_ref172574015">6.2.4</a> zum Steuern einer <span class="clisting">for</span>-Schleife eingesetzt. Dort wurde sie in ihrer Bedeutung jedoch sehr reduziert dargestellt, denn eigentlich erzeugt <span class="clisting">range</span> eine Liste mit einer begrenzten Anzahl von fortlaufenden, numerischen Elementen. Sie kann also durchaus ohne korrespondierende <span class="clisting">for</span>-Schleife verwendet werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; range(0, 10, 1) 
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</pre></div>
+<p>Im obigen Beispiel wurde <span class="clisting">range</span> aufgerufen, man nennt dies den <span class="ckursiv">Funktionsaufruf</span>. Dazu wird hinter den Namen der Funktion ein (möglicherweise leeres) Klammernpaar geschrieben. Innerhalb dieser Klammern stehen, durch Kommata getrennt, die Parameter der Funktion. Wie viele es sind und welche Art von Parametern eine Funktion erwartet, hängt von ihrer Definition ab und ist sehr verschieden. In diesem Fall benötigt <span class="clisting">range</span> drei Parameter, um ausreichend Informationen zu erlangen. Die Gesamtheit der Parameter wird <span class="ckursiv">Funktionsschnittstelle</span> genannt. Konkrete, über eine Schnittstelle übergebene Instanzen werden <span class="ckursiv">Argument</span><span class="ckursiv">e</span> genannt. Ein Parameter hingegen bezeichnet einen Platzhalter für Argumente.</p>
+<p>Nachdem die Funktion abgearbeitet wurde, wird ihr Ergebnis, im Falle von <span class="clisting">range</span> die erzeugte Liste, als Rückgabewert zurückgegeben. Sie können sich bildlich vorstellen, dass der Funktionsaufruf, wie er im Quelltext steht, durch den Rückgabewert ersetzt wird. Im obigen Beispiel wurde der Rückgabewert automatisch vom Interpreter ausgegeben. Es ist aber auch möglich, das Ergebnis zu referenzieren und weiterzuverwenden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; liste = range(0, 10, 1) 
+&gt;&gt;&gt; liste 
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
+&gt;&gt;&gt; liste[5] 
+5</pre></div>
+<p>So viel vorerst zur Verwendung von vordefinierten Funktionen. Python erlaubt es Ihnen, eigene Funktionen zu schreiben, die nach demselben Schema verwendet werden können, wie es hier beschrieben wurde. Im nächsten Abschnitt werden wir uns ausführlich damit befassen, wie eine eigene Funktion erstellt werden kann.</p><a id="mj09f8fc7cd397c85e68c486c4f8c23371" name="mj09f8fc7cd397c85e68c486c4f8c23371"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">10.1</span><span class="cfett"> Schreiben einer Funktion</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Bevor wir uns an konkreten Quelltext wagen, möchten wir rekapitulieren, was eine Funktion ausmacht, was also bei der Definition einer Funktion anzugeben wäre:</p>
+<ul class="gp">
+<li>Eine Funktion muss einen Namen haben, über den sie in anderen Teilen des Programms aufgerufen werden kann. Die Zusammensetzung des Funktionsnamens erfolgt nach denselben Regeln wie die Namensgebung einer Referenz.</li>
+</ul>
+<ul class="gp">
+<li>Eine Funktion muss eine Schnittstelle haben, über die Informationen vom aufrufenden Programmteil in den Kontext der Funktion übertragen werden können. Eine Schnittstelle kann aus beliebig vielen (unter Umständen auch keinen) Parametern bestehen. Funktionsintern wird jedem dieser Parameter ein Name gegeben. Sie lassen sich dann wie Referenzen im Funktionskörper verwenden.</li>
+</ul>
+<ul class="gp">
+<li>Eine Funktion muss einen Wert zurückgeben. Jede Funktion gibt automatisch <span class="clisting">None</span> zurück, wenn der Rückgabewert nicht ausdrücklich angegeben wurde.</li>
+</ul>
+<p>Zur Definition einer Funktion wird in Python das Schlüsselwort <span class="clisting">def</span> verwendet. Syntaktisch sieht die Definition folgendermaßen aus:</p>
+<div class="bildbox">
+<p><a name="IDANFSQ"></a><a onClick="OpenWin('bilder/funktion.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinfunktion.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 10.1    </strong>Definition einer Funktion</p>
+<p>Nach dem Schlüsselwort <span class="clisting">def</span> steht der gewählte Funktionsname. Hinter diesem werden in einem Klammernpaar die Namen aller Parameter aufgelistet. Nach der Definition der Schnittstelle folgen ein Doppelpunkt und, eine Stufe weiter eingerückt, der Funktionskörper. Bei dem Funktionskörper handelt es sich um einen beliebigen Codeblock, in dem die Parameternamen als Referenzen verwendet werden dürfen. Im Funktionskörper dürfen auch wieder Funktionen aufgerufen werden.</p>
+<p>Betrachten wir einmal die konkrete Implementierung einer Funktion, die die Fakultät einer ganzen Zahl berechnet und das Ergebnis auf dem Bildschirm ausgibt:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> fak(zahl): 
+    ergebnis = 1 
+   <span class="cfett"> for</span> i<span class="cfett"> in</span> range(2, zahl+1): 
+        ergebnis *= i 
+   <span class="cfett"> print</span> ergebnis</pre></div>
+<p>Anhand dieses Beispiels können Sie sehr gut nachvollziehen, wie der Parameter <span class="clisting">zahl</span> im Funktionskörper verarbeitet wird. Nachdem die Berechnung vollzogen ist, wird <span class="clisting">ergebnis</span> mittels <span class="clisting">print</span> ausgegeben. Beachten Sie, dass die Referenz <span class="clisting">zahl</span> nur innerhalb des Funktionskörpers definiert ist und nichts mit anderen Referenzen außerhalb der Funktion zu tun hat.</p>
+<p>Wenn Sie das obige Beispiel jetzt speichern und ausführen, werden Sie feststellen, dass zwar keine Fehlermeldung angezeigt wird, aber auch sonst nichts passiert. Nun, das liegt daran, dass wir bisher nur eine Funktion definiert haben. Um sie konkret im Einsatz zu sehen, müssen wir sie mindestens einmal aufrufen. Folgendes Programm liest in einer Schleife Zahlen vom Benutzer ein und berechnet deren Fakultät:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> fak(zahl): 
+    ergebnis = 1 
+   <span class="cfett"> for</span> i<span class="cfett"> in</span> range(2, zahl+1): 
+        ergebnis *= i 
+   <span class="cfett"> print</span> ergebnis 
+<span class="cfett"> 
+while</span> True: 
+    eingabe = int(raw_input("Geben Sie eine Zahl ein: ")) 
+    fak(eingabe)</pre></div>
+<p>Sie sehen, dass der Quellcode sehr schön in zwei Komponenten aufgeteilt wurde: zum einen in die Funktionsdefinition oben und zum anderen in das auszuführende Hauptprogramm unten. Das Hauptprogramm besteht aus einer Endlosschleife, in der im Wesentlichen die Funktion <span class="clisting">fak</span> mit der eingegebenen Zahl als Parameter aufgerufen wird.</p>
+<p>Betrachten Sie noch einmal die beiden Komponenten des Programms. Es wäre erstrebenswert, das Programm so zu ändern, dass sich das Hauptprogramm allein um die Interaktion mit dem Benutzer und das Anstoßen der Berechnung kümmert, während das Unterprogramm <span class="clisting">fak</span> die Berechnung tatsächlich durchführt. Das Ziel dieses Ansatzes ist es vor allem, dass die Funktion <span class="clisting">fak</span> auch in anderen Programmteilen zur Berechnung einer weiteren Fakultät aufgerufen werden kann. Dazu ist es unerlässlich, dass <span class="clisting">fak</span> sich ausschließlich um die Berechnung kümmert. Es passt nicht wirklich in dieses Konzept, dass <span class="clisting">fak</span> das Ergebnis der Berechnung selbst ausgibt.</p>
+<p>Idealerweise sollte unsere Funktion <span class="clisting">fak</span> die Berechnung abschließen und das Ergebnis an das Hauptprogramm zurückgeben, sodass die Ausgabe dort erfolgen kann. Dies kann durch das Schlüsselwort <span class="clisting">return</span> erreicht werden, das die Ausführung der Funktion sofort beendet und einen eventuell angegebenen Rückgabewert zurückgibt.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> fak(zahl): 
+    ergebnis = 1 
+   <span class="cfett"> for</span> i<span class="cfett"> in</span> range(2, zahl+1): 
+        ergebnis *= i 
+   <span class="cfett"> return</span> ergebnis 
+<span class="cfett"> 
+while</span> True: 
+    eingabe = int(raw_input("Geben Sie eine Zahl ein: ")) 
+   <span class="cfett"> print</span> fak(eingabe)</pre></div>
+<p>Das Beenden einer Funktion mit <span class="clisting">return</span> kann zu jeder Zeit im Funktionsablauf geschehen. Folgende Version der Funktion prüft vor der Berechnung, ob es sich bei dem übergebenen Parameter um eine negative Zahl handelt. Ist das der Fall, so wird die Abhandlung der Funktion sofort abgebrochen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> fak(zahl): 
+   <span class="cfett"> if</span> zahl &lt; 0: 
+       <span class="cfett"> return</span> None 
+    ergebnis = 1 
+   <span class="cfett"> for</span> i<span class="cfett"> in</span> range(2, zahl+1): 
+        ergebnis *= i 
+   <span class="cfett"> return</span> ergebnis 
+<span class="cfett"> 
+while</span> True: 
+    eingabe = int(raw_input("Geben Sie eine Zahl ein: ")) 
+    ergebnis = fak(eingabe) 
+   <span class="cfett"> if</span> ergebnis<span class="cfett"> is</span> None: 
+       <span class="cfett"> print</span> "Fehler bei der Berechnung" 
+   <span class="cfett"> else</span>: 
+       <span class="cfett"> print</span> ergebnis</pre></div>
+<p>In der zweiten Zeile des Funktionskörpers wurde mit <span class="clisting">return None</span> explizit der Wert <span class="clisting">None</span> zurückgegeben. Das ist nicht unbedingt nötig; folgender Code wäre äquivalent:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if</span> zahl &lt; 0: 
+   <span class="cfett"> return</span></pre></div>
+<p>Vom Programmablauf her ist es egal, ob Sie <span class="clisting">None</span> explizit oder implizit zurückgeben. Aus Gründen der Lesbarkeit ist <span class="clisting">return None</span> in diesem Fall trotzdem sinnvoll, denn es handelt sich um einen ausdrücklich gewünschten Rückgabewert. Er ist Teil der Funktionslogik und nicht bloß ein Nebenprodukt, das beim Funktionsabbruch entsteht.</p>
+<p>Die Funktion <span class="clisting">fak</span>, wie sie in diesem Beispiel zu sehen ist, kann zu jeder Zeit zur Berechnung einer Fakultät aufgerufen werden, unabhängig davon, in welchem Kontext diese Fakultät benötigt wird.</p>
+<p>Selbstverständlich können Sie in Ihrem Quelltext mehrere eigene Funktionen definieren und aufrufen. Das folgende Beispiel soll bei Eingabe einer negativen Zahl keine Fehlermeldung, sondern die Fakultät des Betrages dieser Zahl ausgeben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> betrag(zahl): 
+   <span class="cfett"> if</span> zahl &lt; 0: 
+       <span class="cfett"> return</span> -zahl 
+   <span class="cfett"> else</span>: 
+       <span class="cfett"> return</span> zahl 
+<span class="cfett"> 
+def</span> fak(zahl): 
+    ergebnis = 1 
+   <span class="cfett"> for</span> i<span class="cfett"> in</span> range(2, zahl+1): 
+        ergebnis *= i 
+   <span class="cfett"> return</span> ergebnis 
+<span class="cfett"> 
+while</span> True: 
+    eingabe = int(raw_input("Geben Sie eine Zahl ein: ")) 
+   <span class="cfett"> print</span> fak(betrag(eingabe))</pre></div>
+<p>Für die Berechnung des Betrags einer Zahl gibt es in Python auch die Built-in Function <span class="clisting">abs</span>. Diese werden wir noch in diesem Kapitel besprechen.</p>
+<p>Ein Begriff soll noch eingeführt werden, bevor wir uns den Funktionsparametern widmen. Eine Funktion kann über ihren Namen nicht nur aufgerufen, sondern auch wie eine Instanz behandelt werden. So ist es beispielsweise möglich, den Typ einer Funktion abzufragen. Die folgenden Beispiele nehmen an, dass die Funktion <span class="clisting">fak</span> im interaktiven Modus verfügbar ist:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; type(fak) 
+&lt;type 'function'&gt; 
+&gt;&gt;&gt; p = fak 
+&gt;&gt;&gt; p(5) 
+120 
+&gt;&gt;&gt; fak(5) 
+120</pre></div>
+<p>Der Name der Funktion, in diesem Fall <span class="clisting">fak</span>, wird aufgrund dieser Eigenschaften auch <span class="ckursiv">Funktionsobjekt</span> genannt.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_10_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="10 Funktionen"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_09_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_10_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

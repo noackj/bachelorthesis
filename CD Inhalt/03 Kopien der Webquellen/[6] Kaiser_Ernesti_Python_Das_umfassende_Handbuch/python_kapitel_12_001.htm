@@ -1,0 +1,861 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 12 Objektorientierung</title>
+<meta name="title" content="Galileo Computing :: Python - 12 Objektorientierung">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 12 Objektorientierung">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_11_004.htm">
+<link rel="next" href="python_kapitel_12_002.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_11_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_12_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mjcd1790d94142bd3f3a263231dbf0e3f7" class="navh">12 Objektorientierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj7a7b81e033ac96b42cc3067c82e646eb" class="navh">12.1 Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjdb02db3d15cc2f5101b2883eb37f636d" class="navh">12.1.1 Definieren von Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mja573271b00198256bf4fb374b9401db8" class="navh">12.1.2 Konstruktor, Destruktor und die Erzeugung von Attributen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj4e0c3a6a090bfdc9ee72a89c385b9ec3" class="navh">12.1.3 Private Member</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3a2d8e94e02c540670bf279c0853ba45" class="navh">12.1.4 Versteckte Setter und Getter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3e4e56aa5753c3e37aad343804cfe6b5" class="navh">12.1.5 Statische Member</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_12_002.htm#mj0ca8f9d3196e5a5fef88a593d630bc3d" class="navnav">12.2 Vererbung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_002.htm#mja9ad55f483dad0b289bb6a13fc9dd3fa" class="navnav">12.2.1 Mehrfachvererbung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_12_003.htm#mjc3a7810b0ba9ea9f34ae37cd13c50834" class="navnav">12.3 Magic Members</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_003.htm#mj6e5a6c5d5aae415228091d3e090f2ede" class="navnav">12.3.1 Allgemeine Magic Members</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_003.htm#mja67cc5e385a7e4eb847df8e2bbd716f5" class="navnav">12.3.2 Datentypen emulieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_12_004.htm#mj23414ecf2422550b1bf894fb9eda94a3" class="navnav">12.4 Objektphilosophie</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em><span class="ckursiv">»Abstraction is selective ignorance« 
+&#8211; Andrew Koenig</span></em></p><a id="mjcd1790d94142bd3f3a263231dbf0e3f7" name="mjcd1790d94142bd3f3a263231dbf0e3f7"></a><h1 class="t1"><span class="cfett">12</span><span class="cfett"> Objektorientierung</span></h1>
+<p>In diesem Kapitel wird endlich die Katze aus dem Sack gelassen: Sie werden in das wichtigste und umfassendste Konzept von Python eingeführt, die <span class="ckursiv">Objektorientierung</span>. Der Begriff Objektorientierung beschreibt ein Programmierparadigma, das die Wiederverwendbarkeit von Quellcode steigert und es außerdem erleichtert, die Konsistenz von Datenobjekten zu sichern. Diese Vorteile werden dadurch erreicht, dass man Datenstrukturen und die dazugehörigen Operationen zu einem sogenannten <span class="ckursiv">Objekt</span> zusammenfasst und den Zugriff auf diese Strukturen nur über bestimmte Schnittstellen erlaubt.</p>
+<p>Diese Vorgehensweise werden wir an einem Beispiel veranschaulichen, indem wir zuerst auf dem bisherigen Weg eine Lösung erarbeiten und diese ein zweites Mal, diesmal aber objektorientiert, implementieren.</p>
+<p>Stellen wir uns einmal vor, wir würden für eine Bank ein System für die Verwaltung von Konten entwickeln, das das Anlegen neuer Konten, Überweisungen sowie Ein- und Auszahlungen ermöglicht. Ein möglicher Ansatz sähe so aus, dass wir für jedes Bankkonto ein Dictionary anlegen, in dem dann alle Informationen über den Kunden und seinen Finanzstatus gespeichert sind. Um die gewünschten Operationen zu unterstützen, würden wir Funktionen definieren. Ein Dictionary für ein stark vereinfachtes Konto könnte folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint">konto = { 
+    "Inhaber" : "Hans Meier", 
+    "Kontonummer" : 567123, 
+    "Kontostand" : 12350.0, 
+    "MaxTagesumsatz" : 1500, 
+    "<span class="clisting">UmsatzHeute</span>" : 10.0 
+    }</pre></div>
+<p>Wir gehen modellhaft davon aus, dass jedes Konto einen <span class="clisting">"Inhaber"</span> hat, der durch einen String mit seinem Namen identifiziert wird. Das Konto hat eine ganzzahlige <span class="clisting">"Kontonummer"</span>, um es von allen anderen Konten zu unterscheiden. Mit der Gleitkommazahl, die mit dem Schlüssel <span class="clisting">"Kontostand"</span> verknüpft ist, wird das aktuelle Guthaben in Euro gespeichert. Die Schlüssel <span class="clisting">"MaxTagesumsatz"</span> und <span class="clisting">"UmsatzHeute"</span> dienen dazu, den Tagesumsatz eines jeden Kunden zu seinem eigenen Schutz auf ein bestimmtes Limit zu begrenzen. <span class="clisting">"MaxTagesumsatz"</span> gibt dabei an, wie viel Geld pro Tag maximal von dem bzw. auf das Konto bewegt werden darf. Mit <span class="clisting">"UmsatzHeute"</span> »merkt« sich das System, wie viel am heutigen Tag schon umgesetzt worden ist. Zu Beginn eines neuen Tages wird dieser Wert wieder auf null gesetzt. Die von uns betrachteten Konten sollen prinzipiell nicht überzogen werden können, der Kontostand bleibt also immer positiv.</p>
+<p>Ausgehend von dieser Datenstruktur wollen wir nun die geforderten Operationen als Funktionen definieren. Als Erstes brauchen wir eine Funktion, die ein neues Konto nach bestimmten Vorgaben erzeugt:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> neues_konto(inhaber, kontonummer, kontostand, 
+                max_tagesumsatz=1500): 
+   <span class="cfett"> return</span> { 
+        "Inhaber" : inhaber, 
+        "Kontonummer" : kontonummer, 
+        "Kontostand" : kontostand, 
+        "MaxTagesumsatz" : max_tagesumsatz, 
+        "UmsatzHeute" : 0 
+        }</pre></div>
+<p>Da diese einfache Funktion selbsterklärend ist, wenden wir uns gleich den Überweisungen zu.</p>
+<p>An einem Geldtransfer sind immer ein Sender (das Quellkonto) und ein Empfänger (das Zielkonto) beteiligt. Außerdem muss zum Durchführen der Überweisung der gewünschte Geldbetrag bekannt sein. Die Funktion wird also drei Parameter erwarten: <span class="clisting">quelle</span>, <span class="clisting">ziel</span> und <span class="clisting">betr</span>. Nach unseren Voraussetzungen ist eine Überweisung nur dann möglich, wenn auf dem Quellkonto genug Geld vorhanden ist (es darf nicht überzogen werden) und die Tagesumsätze der beiden Konten ihr Limit nicht überschreiten. Die Überweisungsfunktion soll einen Wahrheitswert zurückgeben, der angibt, ob die Überweisung ausgeführt werden konnte oder nicht. Damit ließe sie sich folgendermaßen implementieren:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> geldtransfer(quelle, ziel, betr): 
+    # Hier erfolgt der Test, ob der Transfer möglich ist 
+   <span class="cfett"> if</span>(quelle["Kontostand"] &lt; betr<span class="cfett"> or</span> 
+       quelle["UmsatzHeute"] + betr &gt; quelle["MaxTagesumsatz"]<span class="cfett"> or</span> 
+       ziel["UmsatzHeute"] + betr &gt; ziel["MaxTagesumsatz"]):<br>
+       <span class="cfett"> return</span> False # Transfer unmöglich 
+   <span class="cfett"> else</span>: 
+        # Alles OK - Auf geht's<br>
+        quelle["Kontostand"] -= betr 
+        quelle["UmsatzHeute"] += betr 
+        ziel["Kontostand"] += betr 
+        ziel["UmsatzHeute"] += betr 
+       <span class="cfett"> return</span> True</pre></div>
+<p>Die Funktion überprüft zuerst, ob der Transfer durchführbar ist, und beendet den Funktionsaufruf frühzeitig mit dem Rückgabewert <span class="clisting">False</span>, falls dies nicht der Fall ist. Wenn genug Geld auf dem Quellkonto vorhanden ist und kein Tagesumsatzlimit überschritten wird, aktualisiert die Funktion Kontostände und Tagesumsätze entsprechend der Überweisung und gibt <span class="clisting">True</span> zurück.</p>
+<p>Die letzten Operationen für unsere Modellkonten sind das Ein- beziehungsweise Auszahlen am Geldautomaten oder Bankschalter. Beide Funktionen benötigen als Parameter das betreffende Konto und den jeweiligen Geldbetrag als Parameter. Da die Funktionen sehr einfach sind, möchten wir uns nicht weiter mit Erklärungen aufhalten, sondern direkt den Quellcode präsentieren:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> einzahlen(konto, betrag): 
+   <span class="cfett"> if</span> konto["UmsatzHeute"] + betrag &gt; konto["MaxTagesumsatz"]: 
+       <span class="cfett"> return</span> False # Tageslimit überschritten 
+   <span class="cfett"> else</span>: 
+        konto["Kontostand"] += betrag 
+        konto["UmsatzHeute"] += betrag 
+       <span class="cfett"> return</span> True 
+<span class="cfett"> 
+def</span> auszahlen(konto, betrag): 
+   <span class="cfett"> if</span> konto["UmsatzHeute"] + betrag &gt; konto["MaxTagesumsatz"]: 
+       <span class="cfett"> return</span> False # Tageslimit überschritten 
+   <span class="cfett"> else</span>: 
+        konto["Kontostand"] -= betrag 
+        konto["UmsatzHeute"] += betrag 
+       <span class="cfett"> return</span> True</pre></div>
+<p>Auch diese Funktionen geben abhängig von ihrem Erfolg einen Wahrheitswert zurück.</p>
+<p>Um einen Überblick über den aktuellen Status unserer Konten zu erhalten, wollten wir eine einfache Ausgabefunktion definieren:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span><span class="clisting"> zeige_konto(konto):</span> 
+   <span class="cfett"> print</span> "Konto von %s" % konto["Inhaber"] 
+   <span class="cfett"> print</span> "Aktueller Kontostand: %.2f Euro" % konto["Kontostand"] 
+   <span class="cfett"> print</span> "(Heute schon %.2f von %d umgesetzt)" % ( 
+        konto["UmsatzHeute"], konto["MaxTagesumsatz"])</pre></div>
+<p>Mit diesen Definitionen könnten wir beispielsweise folgende Bankoperationen simulieren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k1 = neues_konto("Heinz Meier", 567123, 12350.0) 
+&gt;&gt;&gt; k2 = neues_konto("Erwin Schmidt", 396754, 15000.0) 
+&gt;&gt;&gt; geldtransfer(k1, k2, 160) 
+True 
+&gt;&gt;&gt; geldtransfer(k2, k1, 1000) 
+True 
+&gt;&gt;&gt; geldtransfer(k2, k1, 500) 
+False 
+&gt;&gt;&gt; einzahlen(k2, 500) 
+False 
+&gt;&gt;&gt; zeige_konto(k1) 
+Konto von Heinz Meier 
+Aktueller Kontostand: 13190.00 Euro 
+(Heute schon 1160.00 von 1500 umgesetzt) 
+&gt;&gt;&gt; zeige_konto(k2) 
+Konto von Erwin Schmidt 
+Aktueller Kontostand: 14160.00 Euro 
+(Heute schon 1160.00 von 1500 umgesetzt)</pre></div>
+<p>Zuerst eröffnet Heinz Meier ein neues Konto <span class="clisting">k1</span> mit der Kontonummer 567123 mit dem Startguthaben von 12350 Euro. Erwin Schmidt zahlt 15000 Euro auf sein neues Konto <span class="clisting">k2</span> mit der Kontonummer 396754 ein. Beide haben den standardmäßigen maximalen Tagesumsatz von 1500 Euro gewählt. Nun treten die beiden in geschäftlichen Kontakt miteinander, wobei Herr Schmid einen DVD-Recorder von Herrn Meier für 160 Euro kauft, der per Überweisung bezahlt wird. Am selben Tag erwirbt Herr Meier Herrn Schmidts gebrauchten Spitzenlaptop, der für 1000 Euro den Besitzer wechselt. Als Herr Meier in den Abendstunden stark an der Heimkinoanlage von Herrn Schmid interessiert ist und ihm dafür 500 Euro überweisen möchte, wird er enttäuscht, denn die Überweisung schlägt fehl. Völlig verdattert zieht Herr Schmidt den voreiligen Schluss, er habe zu wenig Geld auf seinem Konto. Deshalb möchte er den Betrag auf sein Konto einzahlen und anschließend erneut überweisen. Als aber auch die Einzahlung abgelehnt wird, wendet er sich an einen Bankangestellten. Dieser lässt sich die Informationen der beteiligten Konten anzeigen. Dabei sieht er, dass die gewünschte Überweisung das Tageslimit von Herrn Schmidts Konto überschreitet und deshalb nicht ausgeführt werden kann.</p>
+<p>Wie Sie sehen, arbeitet unsere Banksimulation wie erwartet und ermöglicht uns eine relativ einfache Handhabung von Kontodaten. Sie weist aber einige unschöne Eigenheiten auf, wir im Folgenden besprechen werden.</p>
+<p>In dem Beispiel sind die Datenstruktur und die Funktionen für ihre Verarbeitung getrennt definiert, was dazu führt, dass das Konto-Dictionary bei jedem Funktionsaufruf als Parameter übergeben werden muss. Man kann sich aber auf den Standpunkt stellen, dass ein Konto nur mit den dazugehörigen Verwaltungsfunktionen sinnvoll benutzt werden kann und auch umgekehrt die Verwaltungsfunktionen eines Kontos nur in Zusammenhang mit dem Konto nützlich sind. Außerdem könnte ein findiger Bankangestellter, der diese Funktionsbibliothek verwendet, ein darauf aufbauendes Programm so formulieren, dass er seinen Kontostand ein wenig aufbessert: Er kann einfach die Werte des Dictionarys direkt verändern, da er nicht an die vorgesehenen Funktionen gebunden ist. Diese direkte Möglichkeit, Daten zu verändern, kann auch die Funktionsweise des Programms beeinflussen, wenn den Eigenschaften des Kontos Werte von nicht sinnvollen Datentypen zugewiesen werden. Beispielsweise könnte dem Kontostand direkt eine Liste zugewiesen werden, was spätestens bei der nächsten Überweisung zu einem <span class="clisting">TypeError</span> führen würde:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k1 = neues_konto("Heinz Meier", 567123, 12350.0) 
+&gt;&gt;&gt; k2 = neues_konto("Erwin Schmidt", 396754, 15000.0) 
+&gt;&gt;&gt; k1["Kontostand"] = [3, "Hehe, das gibt einen tollen Fehler"] 
+&gt;&gt;&gt; geldtransfer(k1, k2, 160) 
+Traceback (most recent call last): 
+  […] 
+TypeError: unsupported operand type(s) for -=: 'list' and 'int'</pre></div>
+<p>Wir wünschen uns also eine Möglichkeit, die eigentlichen Daten, also im Beispiel das Konto, mit den Verarbeitungsfunktionen zu einer Einheit zu koppeln und diese Verbindung vor direkten Zugriffen auf die enthaltenen Daten zu schützen, um ihre Konsistenz zu sichern.</p>
+<p>Genau diese Wünsche befriedigt die Objektorientierung, indem sie Daten und Verarbeitungsfunktionen zu sogenannten <span class="ckursiv">Objekten</span> zusammenfasst. Dabei werden die Daten eines solchen Objekts <span class="ckursiv">Attribute</span> und die Verarbeitungsfunktionen <span class="ckursiv">Methoden</span> genannt. Attribute und Methoden werden unter dem Begriff <span class="ckursiv">Member</span> einer Klasse zusammengefasst. Schematisch ließe sich das Objekt eines Kontos also folgendermaßen darstellen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 12.1    </strong>Schema eines Konto-Objekts
+</caption>
+<tr>
+<td class="tabellenkopf" colspan="2"><span class="cfett">Konto</span>
+</td>
+</tr>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Attribute</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Methoden</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">Inhaber</span></p>
+<p><span class="clisting">Kontostand</span></p>
+<p><span class="clisting">MaxTagesumsatz</span></p>
+<p><span class="clisting">UmsatzHeute</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">neues_konto()</span></p>
+<p><span class="clisting">geldtransfer()</span></p>
+<p><span class="clisting">einzahlen()</span></p>
+<p><span class="clisting">auszahlen()</span></p>
+<p><span class="clisting">zeige_konto()</span></p>
+</td>
+</tr>
+</table><br><p>Die Begriffe »Attribut« und »Methode« sind Ihnen bereits aus früheren Kapiteln von den Basisdatentypen bekannt, denn jede Instanz eines Basisdatentyps stellt &#8211; auch wenn Sie es zu dem Zeitpunkt vielleicht noch nicht wussten &#8211; ein Objekt dar. Sie wissen auch schon, dass auf die Attribute und Methoden eines Objekts zugegriffen wird, indem man die Referenz auf das Objekt und das dazugehörige Member durch einen Punkt getrennt aufschreibt.</p>
+<p>Angenommen, <span class="clisting">k1</span> und <span class="clisting">k2</span> seien Konto-Objekte, wie sie das obige Schema zeigt, mit den Daten von Herrn Meier und Herrn Schmidt, dann könnte man das letzte Beispiel folgendermaßen formulieren (der Code ist so natürlich noch nicht lauffähig, da die Definition für die Konto-Objekte fehlt):</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k1.geldtransfer(k2, 160) 
+True 
+&gt;&gt;&gt; k2.geldtransfer(k1, 1000) 
+True 
+&gt;&gt;&gt; k2.geldtransfer(k1, 500) 
+False 
+&gt;&gt;&gt; k2.einzahlen(500) 
+False 
+&gt;&gt;&gt; k1.zeige_konto() 
+Konto von Heinz Meier 
+Aktueller Kontostand: 13190.00 Euro 
+(Heute schon 1160.00 von 1500 umgesetzt) 
+&gt;&gt;&gt; k2.zeige_konto() 
+Konto von Erwin Schmidt 
+Aktueller Kontostand: 14160.00 Euro 
+(Heute schon 1160.00 von 1500 umgesetzt)</pre></div>
+<p>Die Methoden <span class="clisting">geldtransfer</span> und <span class="clisting">zeige_konto</span> haben nun beim Aufruf einen Parameter weniger, da das Konto, auf das sie sich jeweils beziehen, nun am Anfang des Aufrufs steht. Da Sie seit der Einführung der Basisdatentypen bereits mit dem Umgang mit Objekten vertraut sind, wird für Sie in diesem Kapitel nur die Technik wirklich neu sein, wie Sie Ihre eigenen Objekte mithilfe von Klassen definieren können.</p><a id="mj7a7b81e033ac96b42cc3067c82e646eb" name="mj7a7b81e033ac96b42cc3067c82e646eb"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">12.1</span><span class="cfett"> <a id="Rxx_ref180777432" name="Rxx_ref180777432"></a>Klassen</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Objekte werden über sogenannte <span class="ckursiv">Klassen</span> definiert. Eine Klasse ist dabei einfach eine formale Beschreibung, wie bestimmte Objekte auszusehen haben, also welche Attribute und Methoden sie besitzen.</p>
+<p>Mit einer Klasse allein kann man noch nicht sinnvoll arbeiten, da sie wirklich nur die Beschreibung von Objekten darstellt, selbst aber kein Objekt ist. Man kann das Verhältnis von Klasse und Objekt mit dem von Backrezept und Kuchen vergleichen: Das Rezept definiert die Zutaten und den Herstellungsprozess eines Kuchens und damit auch seine Eigenschaften. Trotzdem reicht ein Rezept allein nicht aus, um die Verwandten zu einer leckeren Torte am Sonntagnachmittag einzuladen. Erst beim Backen wird aus der abstrakten Beschreibung ein fertiger Kuchen.</p>
+<p>Ein anderer Name für ein Objekt ist <span class="ckursiv">Instanz</span>. Das objektorientierte Backen wird daher <span class="ckursiv">Instanziieren</span> genannt. So, wie es zu einem Rezept mehrere Kuchen geben kann, so können auch mehrere Instanzen von einer Klasse erzeugt werden:</p>
+<div class="bildbox">
+<p><a name="IDAESSQ"></a><a onClick="OpenWin('bilder/oo-analogie_rezept_klasse.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinoo-analogie_rezept_klasse.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 12.1    </strong>Analogie von Rezept/Kuchen und Klasse/Objekt</p>
+<p>Zur Definition einer neuen Klasse in Python dient das Schlüsselwort <span class="clisting">class</span>, dem der Name der neuen Klasse folgt. Die einfachste Klasse hat weder Methoden noch Attribute und wird folgendermaßen definiert:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(object): 
+   <span class="cfett"> pass</span></pre></div>
+<p>Lassen sie sich an dieser Stelle nicht von dem <span class="clisting">(object)</span> hinter dem Klassennamen irritieren. Schreiben Sie es einfach immer wie oben gezeigt in Ihre Klassendefinitionen, bis Sie die Hintergründe dafür in Abschnitt <a href="#Rxx_ref177274833">12.2</a>, »<a href="#Rxx_ref177274835">Vererbung</a>«, erfahren.</p>
+<p>Wie bereits gesagt wurde, lässt sich mit einer Klasse allein nicht arbeiten, weil sie nur eine abstrakte Beschreibung ist. Deshalb wollen wir nun eine Instanz der noch leeren Beispielklasse <span class="clisting">Konto</span> erzeugen. Um eine Klasse zu instanziieren, ruft man die Klasse wie eine Funktion ohne Parameter auf, indem man dem Klassennamen ein rundes Klammernpaar nachstellt. Der Rückgabewert dieses Aufrufs ist eine neue Instanz der Klasse:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; Konto() 
+&lt;__main__.Konto instance at 0x00BA75A8&gt;</pre></div>
+<p>Die schwer lesbare Ausgabe soll uns mitteilen, dass der Rückgabewert von <span class="clisting">Konto()</span> eine Instanz der Klasse <span class="clisting">Konto</span> im Hauptnamensraum <span class="clisting">__main__</span> ist und im Speicher unter der Adresse <span class="clisting">0x00BA75A8</span> abgelegt wurde &#8211; uns reicht als Information aus, dass eine neue Instanz der Klasse <span class="clisting">Konto</span> erzeugt worden ist.</p>
+<p>Nun ist dieses <span class="clisting">Konto</span>-Objekt weit davon entfernt, unseren Anforderungen vom Anfang des Kapitels zu genügen, und ist somit bis jetzt der bisherigen Dictionary-Implementation unterlegen. Wir werden vor der Erzeugung von neuen Konten erst die Definition von Methoden behandeln.</p><a id="mjdb02db3d15cc2f5101b2883eb37f636d" name="mjdb02db3d15cc2f5101b2883eb37f636d"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">12.1.1</span><span class="cfett"> Definieren von Methoden</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Im Prinzip unterscheidet sich eine Methode nur durch zwei Aspekte von einer normalen Funktion: Erstens wird sie innerhalb eines von <span class="clisting">class</span> eingeleiteten Blocks definiert, und zweitens erhält sie als ersten Parameter immer eine Referenz auf die Instanz, über die sie aufgerufen wird. Dieser erste Parameter muss nur bei der Definition explizit hingeschrieben werden und wird beim Aufruf der Methode automatisch mit der entsprechenden Instanz verknüpft. Da sich die Referenz auf das Objekt selbst bezieht, gibt man dem ersten Parameter den Namen <span class="clisting">self</span> (dt. <span class="ckursiv">selbst</span>). Methoden besitzen genau wie Funktionen einen eigenen Namensraum, können auf globale Variablen zugreifen und Werte per <span class="clisting">return</span> an die aufrufende Ebene zurückgeben.</p>
+<p>Damit können wir unsere Kontoklasse um die noch fehlenden Methoden ergänzen, wobei wir zunächst nur die Methodenköpfe ohne den enthaltenen Code aufschreiben, da wir noch nicht wissen, wie man mit Attributen eigener Klassen umgeht:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(object): 
+   <span class="cfett"> def</span> geldtransfer(self, ziel, betrag): 
+       <span class="cfett"> pass 
+ 
+    def</span> einzahlen(self, betrag): 
+       <span class="cfett"> pass 
+</span> 
+   <span class="cfett"> def</span> auszahlen(self, betrag): 
+       <span class="cfett"> pass 
+ 
+    def</span> zeige_konto(self): 
+       <span class="cfett"> pass</span></pre></div>
+<p>Beachten Sie den <span class="clisting">self</span>-Parameter am Anfang jeder Methode, für den automatisch eine Referenz auf die Instanz übergeben wird, die beim Aufruf auf der linken Seite des Punktes steht:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k = Konto() 
+&gt;&gt;&gt; k.einzahlen(500)</pre></div>
+<p>Hier wird an die Methode <span class="clisting">einzahlen</span> eine Referenz auf das Konto <span class="clisting">k</span> übergeben, auf das dann innerhalb von <span class="clisting">einzahlen</span> über den Parameter <span class="clisting">self</span> zugegriffen werden kann.</p>
+<p>Im nächsten Abschnitt werden Sie dann lernen, wie Sie auch die Erzeugung neuer Objekte nach Ihren Vorstellungen anpassen können und wie man neue Attribute anlegt.</p><a id="mja573271b00198256bf4fb374b9401db8" name="mja573271b00198256bf4fb374b9401db8"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">12.1.2</span><span class="cfett"> Konstruktor, Destruktor und die Erzeugung von Attributen</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Der Lebenszyklus jeder Instanz sieht gleich aus: Sie wird erzeugt, benutzt und anschließend wieder beseitigt. Da es eines der Hauptziele der Objektorientierung war, die Daten eines Objekts vor direktem Zugriff von außen zu schützen, können wir einem Objekt nicht beim Erzeugen seinen Anfangswert direkt zuweisen. Stattdessen geschieht diese Zuweisung mittels einer speziellen Methode, die automatisch beim Instanziieren eines Objekts aufgerufen wird. Man nennt diese Methode auch <span class="ckursiv">Konstruktor</span> (engl. <span class="ckursiv">construct</span> = »errichten«) einer Klasse. Pythons Konstruktoren haben alle den Namen <span class="clisting">__init__</span> und werden genau wie jede andere Methode definiert:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Beispielklasse(object): 
+   <span class="cfett"> def</span> __init__(self): 
+        <span class="cfett"> print</span> "Hier spricht der Konstruktor"</pre></div>
+<p>Wenn wir jetzt wie gehabt eine Instanz der Klasse <span class="clisting">Beispielklasse</span> erzeugen, wird implizit die <span class="clisting">__init__</span>-Methode aufgerufen, und der Text »<span class="clisting">Hier spricht der Konstruktor</span>« erscheint auf dem Bildschirm:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; Beispielklasse() 
+Hier spricht der Konstruktor 
+&lt;__main__.Konto instance at 0x00BA3670&gt;</pre></div>
+<p>Konstruktoren können sinnvollerweise keine Rückgabewerte haben, da sie nicht direkt aufgerufen werden und beim Erstellen einer neuen Instanz schon eine Referenz auf diese zurückgegeben wird.</p>
+<p>Dem Konstruktor steht der sogenannte <span class="ckursiv">Destruktor</span> (engl. <span class="ckursiv">destruct</span> = »zerstören«) gegenüber, der immer dann aufgerufen wird, wenn eine Instanz von der Garbage Collection aus dem Speicher entfernt wird. Ein Destruktor ist eine bis auf <span class="clisting">self</span> parameterlose Methode, die auf den Namen <span class="clisting">__del__</span> hört:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Beispielklasse(object): 
+   <span class="cfett"> def</span> __init__(self): 
+       <span class="cfett"> print</span> "Hier spricht der Konstruktor" 
+ 
+   <span class="cfett"> def</span> __del__(self): 
+       <span class="cfett"> print</span> "Und hier kommt der Destruktor"</pre></div>
+<p>Das folgende Beispiel zeigt, dass der Destruktor beim Entfernen der Instanz mit dem <span class="clisting">del</span>-Statement aufgerufen wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; obj = Beispielklasse() 
+Hier spricht der Konstruktor 
+&gt;&gt;&gt;<span class="cfett"> del</span> obj 
+Und hier kommt der Destruktor</pre></div>
+<p>Dieses Verhalten und der Umstand, dass der Destruktor sehr ähnlich heißt wie das <span class="clisting">del</span>-Statement, führen oft zu der falschen Annahme, dass der Destruktor bei jedem <span class="clisting">del</span>-Statement aufgerufen würde. Dies ist aber nur dann der Fall, wenn die letzte Referenz auf ein Objekt mit <span class="clisting">del</span> entfernt wurde, da erst dann die Garbage Collection aktiv wird, wie es das folgende Beispiel zeigt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; v1 = Beispielklasse() 
+Hier spricht der Konstruktor 
+&gt;&gt;&gt; v2 = v1 
+&gt;&gt;&gt;<span class="cfett"> del</span> v1 
+&gt;&gt;&gt;<span class="cfett"> del</span> v2 
+Und hier kommt der Destruktor</pre></div>
+<p>Wie Sie sehen, wurde <span class="clisting">__del__</span> einmalig nach dem zweiten <span class="clisting">del</span>-Statement aufgerufen und nicht zweimal. Dies wird auch dann noch einmal klar, wenn man sich vor Augen hält, dass ein Objekt zum Entfernen erst einmal erzeugt werden muss: Für einen Konstruktor-Aufruf gibt es <span class="ckursiv">genau einen</span> Destruktor-Aufruf desselben Objekts.</p>
+<p>Im Gegensatz zu Konstruktoren werden Destruktoren relativ selten benutzt, was daran liegt, das Python schon von sich aus einen Großteil der »Drecksarbeit« erledigt und man sich in der Regel nicht um das Aufräumen im Speicher kümmern muss. Destruktoren werden aber häufig benötigt, um beispielsweise bestehende Netzwerkverbindungen sauber zu trennen, den Programmablauf zu dokumentieren oder Fehler zu finden.</p>
+<h4 class="t4"><span class="cfett">Neue Attribute anlegen</span></h4>
+<p>Da es die Hauptaufgabe eines Konstruktors ist, einen konsistenten Initialzustand einer Instanz herzustellen und sie damit in einen benutzbaren Zustand zu versetzen, sollten alle Attribute einer Klasse auch dort definiert werden. [Es gibt sehr wenige Sonderfälle, in denen diese Regel eine unpraktische Einschränkung ist. Deshalb muss man nicht zwingend alle Attribute in der <span class="clisting">__init__</span>-Methode definieren. Sie sollten aber im Regelfall, soweit es möglich ist, alle Attribute Ihrer Klassen im Konstruktor erstellen.
+]  Die Definition neuer Attribute erfolgt durch eine einfache Wertezuweisung, wie Sie sie von normalen Variablen her kennen. Damit können wir die Funktion <span class="clisting">neues_konto</span> durch den Konstruktor der Klasse <span class="clisting">Konto</span> ersetzen, der dann wie folgt implementiert werden kann. Für den Parameter <span class="clisting">self</span> wird dabei beim Aufruf automatisch eine Referenz auf die neu erzeugte <span class="clisting">Konto</span>-Instanz übergeben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(object): 
+   <span class="cfett"> def</span> __init__(self, inhaber, kontonummer, kontostand, 
+                       max_tagesumsatz=1500): 
+        self.Inhaber = inhaber 
+        self.Kontonummer = kontonummer 
+        self.Kontostand = kontostand 
+        self.MaxTagesumsatz = max_tagesumsatz 
+        self.UmsatzHeute = 0 
+ 
+    # hier kommen die restlichen Methoden hin</pre></div>
+<p>Da <span class="clisting">self</span> eine Referenz auf die zu erstellende Instanz enthält, können wir über sie die neuen Attribute anlegen, wie in dem Beispiel gezeigt wird. Auf dieser Basis können auch die anderen Funktionen der nicht objektorientierten Variante auf die Kontoklasse übertragen werden. Wir werden uns hier aus Platzgründen auf die Methode <span class="clisting">geldtransfer</span> beschränken. Es sollte dann kein Problem mehr für Sie darstellen, auch die anderen Methoden zu implementieren.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span><span class="clisting"> Konto(object)</span><span class="cfett">:</span> 
+   <span class="clisting"> # hier kommt der Konstruktor hin 
+</span> 
+   <span class="cfett"> def</span> geldtransfer(self, ziel, betrag): 
+        # Hier erfolgt der Test, ob der Transfer möglich ist 
+       <span class="cfett"> if</span>(self.Kontostand &lt; betrag<span class="cfett"> or</span> 
+           self.UmsatzHeute + betrag &gt; self.MaxTagesumsatz<span class="cfett"> or</span> 
+           ziel.UmsatzHeute + betrag &gt; ziel.MaxTagesumsatz): 
+           <span class="cfett"> return</span> False # Transfer unmöglich 
+       <span class="cfett"> else</span>: 
+            # Alles OK - Auf geht's<br>
+            self.Kontostand -= betrag 
+            self.UmsatzHeute += betrag 
+            ziel.Kontostand += betrag 
+            ziel.UmsatzHeute += betrag 
+           <span class="cfett"> return</span> True<br>
+    # hier wären die restlichen Methoden</pre></div>
+<p>Bis zu dieser Stelle haben wir unser erstes großes Ziel erreicht, die Kontodaten und die dazugehörigen Verarbeitungsfunktionen zu einer Einheit zu verbinden. Allerdings ist es immer noch möglich, außerhalb der Klasse auf die Attribute direkt zuzugreifen und diese zu verändern, und folgender Code würde Hotzenplotz immer noch unrechtmäßig bereichern:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k = Konto("Hotzenplotz", 321987, 10000.0) 
+&gt;&gt;&gt; k.Kontostand = 500000.0 
+&gt;&gt;&gt; k.Kontostand 
+500000.0</pre></div>
+<p>Auch die Zuweisung von Werten ungültiger Datentypen wird noch nicht verhindert. Erst mithilfe der privaten Member, die im nächsten Abschnitt beschrieben werden, erreichen wir eine Lösung, die auch die Konsistenz unserer Objekte sichert.</p><a id="mj4e0c3a6a090bfdc9ee72a89c385b9ec3" name="mj4e0c3a6a090bfdc9ee72a89c385b9ec3"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">12.1.3</span><span class="cfett"> Private Member</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Attribute und Methoden von Klassen, die von außen nicht sichtbar sein sollen, weil sie bei falscher Verwendung die Konsistenz von Objekten beeinträchtigen, können so gekennzeichnet werden, dass nur die Klasse selbst darauf zugreifen kann. Die Manipulation der Objekte erfolgt ausschließlich über die von außen sichtbaren und dadurch dafür vorgesehenen Methoden und Attribute. Die für die Verwendung von außen bestimmten Methoden und Attribute werden auch als <span class="ckursiv">Schnittstelle</span> der Klasse (engl. <span class="ckursiv">Interface</span>) bezeichnet.</p>
+<p>Für das Benutzerprogramm, das eine Klasse einsetzt, ist nur die Definition der Schnittstelle von Bedeutung. Was hinter den Kulissen, also im Innern der Objekte wirklich passiert, ist dabei vollkommen unerheblich, solange sich die Klasse nach außen hin gemäß der Schnittstelle verhält.</p>
+<p>Unsere Kontoklasse könnte also beispielsweise bei jeder größeren Bareinzahlung automatisch eine Benachrichtigung an die Bankdirektion verschicken, dass höchstwahrscheinlich nicht rechtmäßig erworbenes Geld eingezahlt wurde. Das würde uns als Benutzer der Klasse so lange nicht interessieren, wie die Methode <span class="clisting">einzahlen</span> auch den Kontostand korrekt anpassen und abhängig vom Erfolg der Einzahlung <span class="clisting">True</span> oder <span class="clisting">False</span> zurückgeben würde.</p>
+<p>Um definierte Schnittstellen zu implementieren, müssen wir eine Möglichkeit haben, Member explizit als öffentlich, also als Teil der Schnittstelle, oder als privat, also als Implementationsdetail, zu deklarieren.</p>
+<p>Im Gegensatz zu vielen anderen Programmiersprachen, die dieses Konzept mit eigenen Schlüsselwörtern implementieren, legt in Python der Name eines Attributs fest, ob es von außen explizit verwendet werden soll oder nicht. Dabei gibt es drei Kategorien: [Wenn man es ganz genau nimmt, sind auch diese Member nicht wirklich gegen Zugriffe von außen geschützt: Sie werden intern von Python durch Namen des Schemas <span class="ckursiv">_Klassenname_Attributname</span> ersetzt, und deshalb führen Versuche, von außen auf die ursprünglichen Namen zuzugreifen, zu Fehlern. Über den geänderten Namen kann aber weiterhin von überall aus auf die Attribute zugegriffen werden.
+] </p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 12.2    </strong>Namensschemata für öffentliche, private und geschützte Member
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Namensschema</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bezeichnung</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">name</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Public</span></p>
+<p>(Öffentlich)</p>
+</td>
+<td class="tabellentext">
+<p>Normale Member ohne führende Unterstriche sind sowohl innerhalb einer Klasse also auch von außen les- und schreibbar.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">_name</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Protected</span></p>
+<p>(Geschützt)</p>
+</td>
+<td class="tabellentext">
+<p>Auf Member, deren Namen mit einem Unterstrich beginnt, kann zwar sowohl von innen als auch von außen lesend und schreibend zugegriffen werden, aber der Entwickler einer Klasse teilt den anderen Programmierern dadurch mit, dass dieses Member nicht direkt benutzt werden sollte.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">__name</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Private</span></p>
+<p>(Privat)</p>
+</td>
+<td class="tabellentext">
+<p>Namen mit zwei führenden Unterstrichen sind für wirklich private Member gedacht, die von außen nicht sichtbar sind und deshalb nur über Methoden der Klasse verändert und ausgelesen werden können.<a href="#Rxx33430">2</a></p>
+</td>
+</tr>
+</table><br><p><span class="ckursiv">Protected Members</span> sind weiterhin nach außen sichtbar und voll veränderbar. Sie sind nur nach einer Konvention geschützt, die es allen Programmierern empfiehlt, solche Attribute von außen nicht zu benutzen. Es handelt sich hierbei um eine Schnittstellendefinition, die nicht durch eine technische Lese- bzw. Schreibsperre erreicht wird, sondern auf einer Konvention zwischen allen Python-Programmierern beruht: Member, die mit einem Unterstrich beginnen, sollen von außen nicht benutzt werden. Wer es trotzdem tut, sollte sich darüber im Klaren sein, dass dies zu nicht beabsichtigtem Verhalten führen kann. Der Vorteil einer solchen Privatisierung durch eine Abmachung besteht gegenüber der technischen Sperre darin, dass immer noch auf die Member zugegriffen werden kann, wenn dies unbedingt erforderlich sein sollte. Dies erleichtert beispielsweise das Entwickeln von Debuggern zur Fehlersuche in Programmen oder Analysetools enorm.</p>
+<p>Wenn Sie einem Membernamen zwei Unterstriche voranstellen, so verändern sich die Zugriffsbestimmungen auf technischer Ebene &#8211; er wird zu einem <span class="ckursiv">Private Member</span>. In unserem Kontobeispiel soll insbesondere der Kontostand nicht mehr von außen direkt verändert werden können, sondern nur über die dazu vorgesehenen Methoden. Deshalb benennen wir das Attribut <span class="clisting">Kontostand</span> um in                 <span class="clisting">__Kontostand</span> um, womit es nach außen hin geschützt wird. Da auch die anderen Attribute nur noch über die Verarbeitungsroutinen mit neuen Werten versehen werden sollen, werden sie ebenfalls als private deklariert:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(object): 
+    <span class="cfett"> def</span> __init__(self, inhaber, kontonummer, kontostand, 
+                        max_tagesumsatz=1500): 
+        self.__Inhaber = inhaber 
+        self.__Kontonummer = kontonummer 
+        self.__Kontostand = kontostand 
+        self.__MaxTagesumsatz = max_tagesumsatz 
+        self.__UmsatzHeute = 0 
+ 
+    # hier wären die restlichen Methoden</pre></div>
+<p>Nun führen alle Zugriffe von außen auf diese Member zu einem <span class="clisting">AttributeError</span>:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k = Konto("Hotzenplotz", 321987, 10000.0) 
+&gt;&gt;&gt; k.__Kontostand 
+Traceback (most recent call last): 
+  File "&lt;pyshell#2&gt;", line 1, in &lt;module&gt; 
+    k.__Kontostand 
+AttributeError: Konto instance has no attribute '__Kontostand'</pre></div>
+<p>Es aber so, dass wir gar nichts dagegen haben, dass jemand den Kontostand ausliest, der Kontostand soll nur nicht von außen direkt verändert werden können. Abhilfe schaffen sogenannte <span class="ckursiv">Getter-Methoden</span>, deren einfache Aufgabe es ist, die Werte privater Attribute zurückzugeben. Das folgende Beispiel definiert eine Methode <span class="clisting">kontostand</span>, die den Wert des privaten Attributs <span class="clisting">__Kontostand</span> zurückgibt. Das ist möglich, weil <span class="clisting">kontostand</span> als Methode von <span class="clisting">Konto</span> auf dessen Attribute, egal ob privat oder nicht, zugreifen darf:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(object): 
+    #<span class="clisting"> hier wäre der Konstruktor 
+ 
+   </span><span class="cfett"> def</span> kontostand(self): 
+       <span class="cfett"> return</span> self.__Kontostand 
+ 
+    # hier wären die restlichen Methoden</pre></div>
+<p>Durch diese einfache Maßnahme ist nun unser Ziel erreicht, dass der Kontostand zwar gegen unzulässige Schreibzugriffe geschützt ist, aber trotzdem noch von außen gelesen werden kann. Folgendes Beispiel verdeutlicht noch einmal das Ergebnis:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k = Konto("Hotzenplotz", 321987, 10000.0) 
+&gt;&gt;&gt; k.kontostand() 
+10000.0 
+&gt;&gt;&gt; k.__Kontostand = 99999999.0 
+&gt;&gt;&gt; k.kontostand() 
+10000.0</pre></div>
+<p>Zwar führt der Versuch, den Kontostand von außen zu erhöhen, zu keinem Fehler, aber der Rückgabewert von <span class="clisting">kontostand</span> nach der vermeintlichen Zuweisung zeigt, dass sich der Wert des Attributs nicht verändert hat.</p>
+<p>Das Konzept der Getter-Methoden zum Auslesen von versteckten Attributen wird durch sogenannte <span class="ckursiv">Setter-Methoden</span> ergänzt, die die genauen Gegenspieler der Getter sind. Mit ihnen lässt sich eine Schnittstelle definieren, die Werte von außen zu manipulieren, wobei die Setter-Methode dafür Sorge tragen sollte, dass keine ungültigen Werte gesetzt werden. Würde Herr Schmidt aufgrund seiner Probleme beim Bezahlen sein Tageslimit für die Zukunft erhöhen wollen, so müsste ein Bankangestellter das private Attribut <span class="clisting">__MaxTagesumsatz</span> verändern können, was mit der aktuellen <span class="clisting">Konto</span>-Klasse nicht möglich ist. Zu diesem Zwecke könnte man eine Setter-Methode <span class="clisting">setMaxTagesumsatz</span> definieren, die als einzigen Parameter neben <span class="clisting">self</span> den gewünschten neuen Tagesumsatz <span class="clisting">neues_limit</span> erhält. Bevor nun das neue Tageslimit gesetzt werden kann, wird der übergebene Wert auf Gültigkeit geprüft &#8211; ein Tageslimit muss eine positive Ganz- oder Gleitkommazahl und größer als <span class="clisting">0</span> sein:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(object): 
+    #<span class="clisting"> hier wäre der Konstruktor 
+ 
+    # Getter-Methode für das Tageslimit 
+   </span><span class="cfett"> def</span><span class="clisting"> maxTagesumsatz(self):</span> 
+       <span class="cfett"> return</span><span class="clisting"> self.__MaxTagesumsatz 
+</span> 
+   <span class="clisting"> # Setter-Methode für das Tageslimit</span> 
+   <span class="clistingk"> def</span><span class="clisting"> setMaxTagesumsatz(self, neues_limit):</span> 
+       <span class="cfett"> if</span><span class="clisting">(type(neues_limit)</span><span class="cfett"> in</span><span class="clisting"> (float, int)</span><span class="cfett"> and</span> 
+          <span class="clisting"> neues_limit &gt; 0):</span> 
+           <span class="clisting"> self.__MaxTagesumsatz = neues_limit</span> 
+           <span class="cfett"> return</span><span class="clisting"> True</span> 
+       <span class="cfett"> else</span><span class="clisting">:</span> 
+           <span class="cfett"> return</span><span class="clisting"> False 
+ 
+    # hier wären die restlichen Methoden</span></pre></div>
+<p>Das Methoden-Paar <span class="clisting">maxTagesumsatz</span> und <span class="clisting">setMaxTagesumsatz</span> ermöglicht nun den komfortablen und trotzdem sicheren Zugriff auf den maximalen Tagesumsatz, indem sichergestellt wird, dass nur gültige Werte gespeichert werden. Die Setter-Methode prüft, ob der Datentyp von <span class="clisting">neues_limit</span> entweder <span class="clisting">float</span> oder <span class="clisting">int</span> ist und ob sein Wert im gültigen Bereich liegt, und setzt abhängig vom Ausgang dieser Prüfung das Attribut __<span class="clisting">MaxTagesumsatz</span> auf den neuen Wert oder eben nicht. Anhand des Rückgabewertes der Funktion kann der Bankangestellte dann sehen, ob er einen Fehler bei der Übergabe gemacht hat. [Eine elegantere Methode, die aufrufende Ebene auf solche Fehler hinzuweisen, lernen Sie in Abschnitt <a href="./python_kapitel_13_001.htm#Rxx_ref180693617">13.1</a>, »<a href="./python_kapitel_13_001.htm#Rxx_ref180693617">Exception Handling</a>«, kennen. Sie könnten dann beispielsweise bei ungültigen Werten einen <span class="clisting">ValueError</span> produzieren.
+] </p><a id="mj3a2d8e94e02c540670bf279c0853ba45" name="mj3a2d8e94e02c540670bf279c0853ba45"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">12.1.4</span><span class="cfett"> Versteckte Setter und Getter</span>  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das im letzten Abschnitt angesprochene Konzept, mithilfe von Setter- und Getter-Methoden das Lesen und Schreiben von Attributen anzupassen, hat den oft als negativ empfundenen Nebeneffekt, dass man beim Benutzen von Attributen auf Methoden zurückgreifen muss. Viel schöner wäre es, wenn man von außen weiterhin Attribute »sehen« und benutzen könnte, die Klasse aber intern die Werte auf Gültigkeit prüfen und so die Konsistenz der Objekte sichern könnte. Schauen Sie sich einmal die beiden gleichwertigen, ohne die dazugehörigen Definitionen natürlich noch nicht funktionierenden Beispiele an:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k = Konto("Hotzenplotz", 321987, 10000.0) 
+&gt;&gt;&gt; k.kontostand() 
+10000.0 
+&gt;&gt;&gt; k.setMaxTagesumsatz(2000)</pre></div>
+<p>Dieses Beispiel nutzt den bekannten Getter/Setter-Ansatz und liest sich schlechter als das folgende Beispiel, weil syntaktisch die Zugriffe auf Attribute durch Methoden verschleiert werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k = Konto("Hotzenplotz", 321987, 10000.0) 
+&gt;&gt;&gt; k.Kontostand 
+10000.0 
+&gt;&gt;&gt; k.MaxTagesumsatz = 2000</pre></div>
+<p>In Python wird dieser Wunsch durch die Möglichkeit befriedigt, beim Lesen und Schreiben von Attributen implizit Methoden aufzurufen, die sich um den Ablauf kümmern. Solche sogenannten <span class="ckursiv">Managed Attributes</span> (dt. <span class="ckursiv">verwaltete Attribute</span>) werden durch Instanzen des Datentyps <span class="clisting">property</span> unterstützt. Der Konstruktor von <span class="clisting">property</span> erwartet vier optionale Parameter:</p>
+<h5 class="t5"><a id="Rxx_ref180777521" name="Rxx_ref180777521"></a><span class="cfett">property([fget[, fset[, fdel[, doc]]]])</span></h5>
+<p>Der Parameter <span class="ckursiv">fget</span> erwartet eine Referenz auf eine Getter-Methode für das neue Attribut, und <span class="ckursiv">fset</span> eine Referenz auf die dazugehörige Setter-Methode. Mit dem Parameter <span class="ckursiv">fdel</span> kann zusätzlich eine Methode angegeben werden, die dann ausgeführt werden soll, wenn das Attribut per <span class="clisting">del</span> gelöscht wird. Mit dem Parameter <span class="ckursiv">doc</span> kann das <span class="ckursiv">Managed Attribute</span> mit einem sogenannten Docstring versehen werden. Was ein Docstring ist, können Sie in Abschnitt <a href="./python_kapitel_13_003.htm#Rxx_ref180693775">13.3</a> nachlesen und wird an dieser Stelle nicht weiter behandelt.</p>
+<p>Wir werden beispielhaft das Attribut <span class="clisting">MaxTagesumsatz</span> als <span class="clisting">property</span> implementieren. Alle <span class="clisting">property</span>-Attribute einer Klasse werden außerhalb jeder Methode direkt auf der ersten Einrückebene innerhalb des <span class="clisting">class</span>-Blocks definiert, indem man dem gewünschten Namen des Attributs den Rückgabewert von <span class="clisting">property</span> zuweist. Im Falle unseres Kontos würde <span class="clisting">MaxTagesumsatz</span> auf folgende Weise zum <span class="ckursiv">Managed Attribute</span>:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(object): 
+    #<span class="clisting"> hier wäre der Konstruktor 
+ 
+    # Getter-Methode für das Tageslimit 
+   </span><span class="cfett"> def</span><span class="clisting"> maxTagesumsatz(self):</span> 
+       <span class="cfett"> print</span><span class="clisting"> "Getter wurde gerufen"</span> 
+       <span class="cfett"> return</span><span class="clisting"> self.__MaxTagesumsatz 
+</span> 
+   <span class="clisting"> # Setter-Methode für das Tageslimit</span> 
+   <span class="cfett"> def</span><span class="clisting"> setMaxTagesumsatz(self, neues_limit):</span> 
+       <span class="cfett"> if</span><span class="clisting">(type(neues_limit)</span><span class="cfett"> in</span><span class="clisting"> (float, int) and</span> 
+          <span class="clisting"> neues_limit &gt; 0):</span> 
+           <span class="cfett"> print</span><span class="clisting"> "</span>Setter wurde mit %s aufgerufen<span class="clisting">" % neues_limit</span> 
+           <span class="clisting"> self.__MaxTagesumsatz = neues_limit</span> 
+       <span class="cfett"> else</span><span class="clisting">:</span> 
+           <span class="cfett"> print</span><span class="clisting"> "Fehlerhafter Setter-Parameter:", neues_limit 
+</span> 
+   <span class="clisting"> # folgende Zeile erzeugt das Property-Attribut</span> 
+   <span class="clisting"> MaxTagesumsatz = property(maxTagesumsatz, setMaxTagesumsatz) 
+ 
+    # hier wären die restlichen Methoden</span></pre></div>
+<p>Die <span class="clisting">print</span>-Anweisungen dienen nur dazu, dass wir in unserem Beispiel gleich sehen können, dass die Methoden auch wirklich aufgerufen werden. Außerdem wurden die Rückgabewerte von <span class="clisting">setMaxTagesumsatz</span> entfernt, da diese die aufrufende Ebene nicht mehr erreichen können und somit sinnlos geworden sind. [Um Fehler zu signalisieren, sollte der Setter Exceptions werfen. Wie das geht, lernen Sie später.
+] </p>
+<p>Nun können wir das neue Attribut wie ein gewöhnliches benutzen, und trotzdem haben wir durch die impliziten Methodenaufrufe volle Kontrolle über seine Werte:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k = Konto("Hotzenplotz", 321987, 10000.0) 
+&gt;&gt;&gt; k.MaxTagesumsatz 
+Getter wurde aufgerufen 
+1500 
+&gt;&gt;&gt; k.MaxTagesumsatz = 9999.0 
+Setter wurde mit 9999.0 aufgerufen 
+&gt;&gt;&gt; k.MaxTagesumsatz 
+Getter wurde aufgerufen 
+9999.0 
+&gt;&gt;&gt; k.MaxTagesumsatz = ("Fehlerhafter Wert", "Hehe") 
+Fehlerhafter Setter-Parameter: ('Fehlerhafter Wert', 'Hehe') 
+&gt;&gt;&gt; k.MaxTagesumsatz 
+Getter wurde aufgerufen 
+9999.0</pre></div>
+<p>Das Beispiel demonstriert die Funktion des <span class="clisting">property</span>-Attributs, und durch die Ausgaben lässt sich sehr schön verfolgen, wann die Setter bzw. Getter aufgerufen werden.</p><a id="mj3e4e56aa5753c3e37aad343804cfe6b5" name="mj3e4e56aa5753c3e37aad343804cfe6b5"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">12.1.5</span><span class="cfett"> <a id="Rxx_ref180777826" name="Rxx_ref180777826"></a>Statische Member</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bisher war es so, dass die Klasse den Bauplan für ihre Instanzen definierte und nur benutzt wurde, um Instanzen zu erzeugen. Während des Programmlaufs drehte sich die eigentliche Arbeit nur um die Instanzen, während die Klassen selbst in den Hintergrund traten. Insbesondere hatte jedes Objekt seine eigenen Attribute und seine eigenen Methoden, die von denen der anderen Objekte unabhängig waren. Das ist auch sinnvoll, denn schließlich hat jedes Konto seine eigene Kontonummer, und diese soll auch unabhängig von allen anderen Konten gespeichert werden.</p>
+<p>Diese Art von Membern wird <span class="ckursiv">nicht-statisch</span> genannt, weil sie für jedes Objekt einer Klasse dynamisch neu erstellt werden. Demgegenüber stehen die sogenannten <span class="ckursiv">statischen Membern</span>, die sich alle Instanzen einer Klasse teilen.</p>
+<p>Angenommen, wir wollten zählen, wie viele Konten unsere Bank gerade besitzt, dann könnten wir dies erreichen, indem wir die Instanzen der Klasse <span class="clisting">Konto</span> zählen. Eine Möglichkeit wäre, einen globalen Zähler bei jedem Konstruktoraufruf von <span class="clisting">Konto</span> um eins zu erhöhen und bei jedem Aufruf von <span class="clisting">__del__</span> wieder und eins zu verringern. Dieser Ansatz würde allerdings das Kapselungsprinzip verletzen, da wir direkt von einer tieferen Ebene auf globale Daten zugreifen würden. Da dies die Gefahr unerwünschter Seiteneffekte bietet, ist es als schlechter Stil verpönt. Eine wesentlich elegantere Lösung bestünde darin, der Klasse <span class="clisting">Konto</span> einen internen Zähler ihrer eigenen Instanzen als statisches Attribut zu geben. Dieser würde dann bei den entsprechenden Konstruktor- und Destruktoraufrufen herauf- bzw. heruntergezählt.</p>
+<p>Statische Attribute werden im Gegensatz zu nicht-statischen Attributen außerhalb des Konstruktors definiert, indem sie wie <span class="clisting">property</span>-Attribute direkt in dem <span class="clisting">class</span>-Block durch Zuweisung mit einem Anfangswert versehen werden. Es hat sich eingebürgert, dass dies in der Regel direkt unterhalb der <span class="clisting">class</span>-Anweisung noch vor der Konstruktordefinition erfolgt. Im Falle unseres Instanzenzählers &#8211; wir nennen ihn <span class="clisting">Anzahl</span> &#8211; sieht das wie folgt aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(object): 
+    Anzahl = 0 # Zu Beginn ist die Instanzanzahl 0 
+ 
+    #<span class="clisting"> hier wäre der Konstruktor</span> 
+    # hier wären die restlichen Methoden</pre></div>
+<p>Damit besitzt die Klasse <span class="clisting">Konto</span> ein statisches Attribut <span class="clisting">Anzahl</span>, das sich alle ihre Instanzen teilen. Damit Anzahl auch wirklich die Instanzen zählt, passen wir den Konstruktor an und erstellen einen Destruktor. Der Zugriff auf statische Member erfolgt etwas anders als der auf nicht-statische, da beim Verändern der Werte statt des <span class="clisting">self</span> eine Referenz auf die Klasse (in diesem Fall <span class="clisting">Konto</span>) vor dem Punkt stehen muss. Weil sich statische Attribute immer auf die jeweiligen Klassen beziehen &#8211; der Zugriff mithilfe des Klassennamens macht es noch einmal deutlich &#8211;, werden statische Member auch <span class="ckursiv">Klassen-Member</span> (engl. <span class="ckursiv">class members</span>) genannt.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(object): 
+    Anzahl = 0 # Zu Beginn ist die Instanzanzahl 0 
+ 
+   <span class="cfett"> def</span> __init__(self, inhaber, kontonummer, kontostand, 
+                       max_tagesumsatz=1500): 
+        self.__Inhaber = inhaber 
+        self.__Kontonummer = kontonummer 
+        self.__Kontostand = kontostand 
+        self.__MaxTagesumsatz = max_tagesumsatz 
+        self.__UmsatzHeute = 0 
+        Konto.Anzahl += 1 # Instanzzähler erhöhen 
+ 
+   <span class="cfett"> def</span> __del__(self): 
+        Konto.Anzahl -= 1 
+ 
+    # hier wären die restlichen Methoden</pre></div>
+<p>Zur Demonstration der Funktion des statischen Members folgt jetzt ein kleines Beispiel:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k1 = Konto("Florian Kroll", 3111987, 50000.0) 
+&gt;&gt;&gt; k2 = Konto("Lucas Hövelmann", 25031988, 43000.0) 
+&gt;&gt;&gt; k3 = Konto("Sebastian Sentner", 6091987, 44000.0) 
+&gt;&gt;&gt; Konto.Anzahl 
+3 
+&gt;&gt;&gt; k1.Anzahl 
+3 
+&gt;&gt;&gt; del k2 
+&gt;&gt;&gt; Konto.Anzahl 
+2 
+&gt;&gt;&gt; del k1 
+&gt;&gt;&gt; k3.Anzahl 
+1 
+&gt;&gt;&gt; del k1 
+&gt;&gt;&gt; del k3 
+&gt;&gt;&gt; Konto.Anzahl 
+0</pre></div>
+<p>Erst werden drei neue <span class="clisting">Konto</span>-Instanzen erzeugt, und wie die Ausgabe zeigt, enthält das statische Attribut <span class="clisting">Anzahl</span> die korrekte Anzahl. Dann werden die Referenzen nacheinander wieder freigegeben, was zur Folge hat, dass die Instanzen von der Garbage Collection entsorgt werden. Die Werte von <span class="clisting">Anzahl</span> spiegeln dies wider. Außerdem zeigt der Zugriff auf <span class="clisting">Anzahl</span> über die Klasse <span class="clisting">Konto</span> direkt als <span class="clisting">Konto.Anzahl</span> und indirekt über die Instanzen <span class="clisting">k1</span> und <span class="clisting">k2</span> als <span class="clisting">k1.Anzahl</span> bzw <span class="clisting">k2.Anzahl</span>, dass der Wert wirklich von allen Instanzen geteilt wird.</p>
+<p>Wie der Zugriff mit <span class="clisting">Konto.Anzahl</span> verdeutlicht, ist es auch dann möglich, auf statische Member einer Klasse zuzugreifen, wenn es gar keine Instanzen der Klasse gibt.</p>
+<p>Neben statischen Attributen gibt es in Python auch <span class="ckursiv">statische Methoden</span>, die allerdings kaum genutzt werden und eine untergeordnete Rolle spielen. Da sich statische Methoden nicht auf einzelne Instanzen beziehen, erwarten sie keinen <span class="clisting">self</span>-Parameter, was aber auch dazu führt, dass sie keinen Zugriff auf die Attribute und Methoden der Instanzen haben. Ihre Definition erfolgt ähnlich wie die von <span class="clisting">property</span>-Attributen, nur dass anstelle von <span class="clisting">property</span> die Built-in Function <span class="clisting">staticmethod</span> verwendet wird:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(object): 
+    Anzahl = 0 # Zu Beginn ist die Instanzanzahl 0 
+ 
+   <span class="cfett"> def</span> zeigeAnzahl(): 
+       <span class="cfett"> print</span> "Die Instanzanzahl ist", Konto.Anzahl 
+ 
+    zeigeAnzahl = staticmethod(zeigeAnzahl) 
+ 
+    # Die restlichen Member wären hier</pre></div>
+<p>Statische Methoden können auch aufgerufen werden, wenn es noch gar keine Instanz der Klasse gibt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; Konto.zeigeAnzahl() 
+Die Instanzanzahl ist 0</pre></div><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_12_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="12 Objektorientierung"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_11_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_12_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

@@ -1,0 +1,1307 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Python</title>
+<meta name="title" content="Python">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2006">
+<meta name="copyright" content="Galileo Press 2006">
+<meta name="description" content="Python – Das umfassende Handbuch">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="next" href="#naechstes#"><script type="text/javascript" language="JavaScript"><!--
+function OpenWin(url,name,height,width)
+{
+  var InfoWin =window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+  InfoWin.focus();
+}
+--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_A_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="gp"></td>
+<td valign="baseline"><a href="#grp2"><b>A</b></a></td>
+<td valign="baseline"><a href="#grp3"><b>B</b></a></td>
+<td valign="baseline"><a href="#grp4"><b>C</b></a></td>
+<td valign="baseline"><a href="#grp5"><b>D</b></a></td>
+<td valign="baseline"><a href="#grp6"><b>E</b></a></td>
+<td valign="baseline"><a href="#grp7"><b>F</b></a></td>
+<td valign="baseline"><a href="#grp8"><b>G</b></a></td>
+<td valign="baseline"><a href="#grp9"><b>H</b></a></td>
+<td valign="baseline"><a href="#grp10"><b>I</b></a></td>
+<td valign="baseline"><a href="#grp11"><b>J</b></a></td>
+<td valign="baseline"><a href="#grp12"><b>K</b></a></td>
+<td valign="baseline"><a href="#grp13"><b>L</b></a></td>
+<td valign="baseline"><a href="#grp14"><b>M</b></a></td>
+<td valign="baseline"><a href="#grp15"><b>N</b></a></td>
+<td valign="baseline"><a href="#grp16"><b>O</b></a></td>
+<td valign="baseline"><a href="#grp17"><b>P</b></a></td>
+<td valign="baseline"><a href="#grp18"><b>Q</b></a></td>
+<td valign="baseline"><a href="#grp19"><b>R</b></a></td>
+<td valign="baseline"><a href="#grp20"><b>S</b></a></td>
+<td valign="baseline"><a href="#grp21"><b>T</b></a></td>
+<td valign="baseline"><a href="#grp22"><b>U</b></a></td>
+<td valign="baseline"><a href="#grp23"><b>V</b></a></td>
+<td valign="baseline"><a href="#grp24"><b>W</b></a></td>
+<td valign="baseline"><a href="#grp25"><b>X</b></a></td>
+<td valign="baseline"><a href="#grp26"><b>Y</b></a></td>
+<td valign="baseline"><a href="#grp27"><b>Z</b></a></td>
+<td valign="baseline"><a href="#grp28"><b>_</b></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td>
+  <h1 class="t1">Stichwortverzeichnis</h1>
+<h3><a name="grp2"></a>A  
+      <a href="#grp3"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a></h3>
+  <p class="SIX"><a href="python_kapitel_02_001.htm#ix301810a72d6c50c033bdad182c674def">ABC</a></p>
+  <p class="SIX"><a href="python_kapitel_24_002.htm#ix147ad7514f829b4c921e81fee8e91be0">Accessibility</a></p>
+  <p class="SIX"><a href="python_kapitel_25_005.htm#ixf184da7ecafc5ee880b5746f17338e16">ACP</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ix33ff0eb4cbaa9334dd0ea8e8dca5542e">Adaption</a></p>
+  <p class="SIX"><a href="python_kapitel_25_005.htm#ixe22abe923180813b657c635281ba60d5">Administrationsoberfläche</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix128d1b530a6cec08327aff238c3a4189">Alpha-Blending</a></p>
+  <p class="SIX"><a href="python_kapitel_04_005.htm#ixbb3f9f915087cdc5e967ec588d9e76df">and</a></p>
+  <p class="SIX"><a href="python_kapitel_10_005.htm#ix2cf8dba3e0be49c02bb025f45ee21e1a">Anonyme Funktionen</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix69c4cf3291c1b07957030a0a314971d5">Anti-Aliasing</a></p>
+  <p class="SIX"><a href="python_kapitel_05_001.htm#ix00599efa8245f321a38631530a0d8d92">Anweisung</a></p>
+  <p class="SIX"><a href="python_kapitel_05_001.htm#ix76cb13970b98de66965c4b1451ac205f">Anweisungskörper</a></p>
+  <p class="SIX"><a href="python_kapitel_05_001.htm#ixbf8190b2c203a02787a6b3fc0e93e420">Anweisungskopf</a></p>
+  <p class="SIX"><a href="python_kapitel_17_005.htm#ixbb374177db02137ab49f016fa4d22585">Argument</a></p>
+  <p class="SIX"><a href="python_kapitel_10_001.htm#ixc6e0a300ec1fbae1775324bab069b0fb">Argument</a></p>
+  <p class="SIX"><a href="python_kapitel_04_004.htm#ixfe6888f20d412574e80e0374def18d49">Arithmetischer Ausdruck</a></p>
+  <p class="SIX"><a href="python_kapitel_04_004.htm#ix4801e5016f2271451f7d80b62826eb2a">Arithmetischer Operator</a></p>
+  <p class="SIX"><a href="python_kapitel_11_001.htm#ix85c27b52d1ac41cdacb2ee0480360888">as</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ixbb8d06d6b953e2559065830e4225348c">ASCII</a></p>
+  <p class="SIX"><a href="python_kapitel_13_010.htm#ixca9828ee6a9446e0a394c8d7374566dd">assert</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix25b36a809879758b5b84a5f375b91b94">Attribut</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ixc81925900a2aae1dbe844d630600d056">Attribut</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ixd9e53c8ee1cc5097be19d41969c64ffb">Attribut</a></p>
+  <p class="SIX"><a href="python_kapitel_21_005.htm#ix4a6ad18b7c496d404a4bed91768e582b">Automatisierter Test</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp3"></a>B  
+      <a href="#grp4"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp2"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_13_011.htm#ix8597735f79dbdc5a232c466d9546b78b">Backslash</a></p>
+  <p class="SIX"><a href="python_kapitel_08_001.htm#ix126fa76070c643ccd81f896fe7cc31d0">Basisdatentypen</a></p>
+  <p class="SIX"><a href="python_kapitel_08_001.htm#ixa38ccbb64f380b46c8b4c40757559935">Basisdatentypen</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixf1b024d0febd94df1d8ca7b9954d4147">Basisdatentypen, bool</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixb85fe593589dd6027773cdd73019f117">Basisdatentypen, complex</a></p>
+  <p class="SIX"><a href="python_kapitel_08_006.htm#ixc5fdc55375f1e4fb8aecca703146255c">Basisdatentypen, dict</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix9eaa5082c195f32a84387d4878b01981">Basisdatentypen, float</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ix4a75875336e7dd0cc6d96068bf038751">Basisdatentypen, frozenset</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ixccffeef42fa20c8ff065ec33c4eef402">Basisdatentypen, frozenset</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixf6bb972dc772420ece9ef5dedb2ba2b1">Basisdatentypen, int</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix96ebb27040a2b2e9de5a228a7d662a47">Basisdatentypen, list</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix1c5ee6ce390ac70813fb6fe764549816">Basisdatentypen, long</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ix8bded4b2af04b160f8309ae99d4864f0">Basisdatentypen, set</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ix869820cc4258ec6c0dd68baaaee59077">Basisdatentypen, set</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix829b73299d6a60e7100f8d49c243b23c">Basisdatentypen, str</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix5198bd1810cdcab06ba4a683ed8c9638">Basisdatentypen, tuple</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix853ecf554dfbf6173270ddcc222e5ee4">Basisdatentypen, unicode</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ixa23e012a170257f449e6668af1d14860">Basisdatentypen, unicode</a></p>
+  <p class="SIX"><a href="python_kapitel_12_002.htm#ix5a415ad613740fd17d08ed7c34016813">Basisklasse</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix50e8571ed0503f2088f0e597c1d2e289">Baum</a></p>
+  <p class="SIX"><a href="python_kapitel_02_001.htm#ix578b0195873967df353f33c3596cf37e">BDFL</a></p>
+  <p class="SIX"><a href="python_kapitel_24_002.htm#ix991641f44fe44b653b80284999a219d0">Behindertengerechte Oberflächen</a></p>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ix9520214791840acf45521afdfee58407">Betaverteilung</a></p>
+  <p class="SIX"><a href="python_kapitel_04_004.htm#ix68ce61c9b28469e842b25f97227afccc">Bezeichner</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ixd3b052564008c789a98f87563ed397ca">Beziérkurve</a></p>
+  <p class="SIX"><a href="python_kapitel_11_001.htm#ixfea3624bb1ca1bbf3bb79b41ccafd33c">Bibliothek</a></p>
+  <p class="SIX"><a href="python_kapitel_17_003.htm#ix97a3a2f2068fba94fe31e35d96f1741f">Big-Endian</a></p>
+  <p class="SIX"><a href="python_kapitel_04_006.htm#ix2ce88ba4dceb671875062a1751cf5369">Bildschirmausgabe</a></p>
+  <p class="SIX"><a href="python_kapitel_22_001.htm#ix031f93b7d02e2799e4cbcbc24afabb74">Binärdistribution</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixc9f15453d60f2a5accd44415ce887efa">Binärsystem</a></p>
+  <p class="SIX"><a href="python_kapitel_08_001.htm#ix7ff92790b908394d41ba0d926e951e76">Bindigkeit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ixea20b166bb0f1c2d64ae5b9e78cb4ac0">Bindings</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixac6321fd62b94a4eb86f9c00493c04d9">Bit-Operationen</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixcec1d446a302fe4a5f5181da9fed9caf">Bit-Operationen, Bitverschiebung</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix78b9c687cbb249dcf988987cf70fe5a9">Bit-Operationen, Bitweises ausschließendes ODER</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixe8246fc37aa34738a1490b5d264d2a19">Bit-Operationen, Bitweises Komplement</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix77c8a846fd7ffeaef512931d01af6b55">Bit-Operationen, Bitweises ODER</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixafc721c0ec88ff8c743bd2e8ff3f3c68">Bit-Operationen, Bitweises UND</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ixc07c11beaa2abf83e0ffb92c91abf53b">Blockierender Socket</a></p>
+  <p class="SIX"><a href="python_kapitel_13_003.htm#ix9048ca995862b6ac6dd147a1bc64e226">Blockkommentar</a></p>
+  <p class="SIX"><a href="python_kapitel_05_003.htm#ixed8936fb4b5f3c5141552044e7d2be3c">Blockkommentar</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix4aa8e15532480ba85fed653bf4553297">Boolescher Ausdruck</a></p>
+  <p class="SIX"><a href="python_kapitel_04_005.htm#ixcdcadd763e24369ecbf5f9c113b550fb">Boolescher Operator</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix778905ee9ed602cd9222fdb23d89c56f">Boolesche Werte</a></p>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ix3dde0c1127a133352eae0c5153018a81">break</a></p>
+  <p class="SIX"><a href="python_kapitel_21_001.htm#ix7239f01eddecaacb637621eb6beb2d7a">Breakpoint</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix93a72155aac8cedc9e0751350a568ceb">Brush</a></p>
+  <p class="SIX"><a href="python_kapitel_26_001.htm#ixcb920f42134a39e0ea77a50795883cc9">Bubblesort</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ixd48419e013348f92ffb9680998336a31">Buchstabe</a></p>
+  <p class="SIX"><a href="python_kapitel_21_001.htm#ix933d7ac947660aa9c84670378233d61b">Bug</a></p>
+  <p class="SIX"><a href="python_kapitel_10_007.htm#ix99f67333307952250ec57c837bc91271">Built-in-Funktionen</a></p>
+  <p class="SIX"><a href="python_kapitel_08_004.htm#ix772df9b7e19693e21efda9ab55ea3b4f">Built-in Functions</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix10ac8ae796bcfca85380d9fc12b62c22">Busy Waiting</a></p>
+  <p class="SIX"><a href="python_kapitel_02_002.htm#ix3b70752998da1c986aa35e30a7c2b34b">Byte-Code</a></p>
+  <p class="SIX"><a href="python_kapitel_03_002.htm#ixc31132304a7c86c31e7854191fba1692">Byte-Code</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp4"></a>C  
+      <a href="#grp5"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp3"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_26_001.htm#ix24be220cc4814fe994189834a501e639">C</a></p>
+  <p class="SIX"><a href="python_kapitel_10_002.htm#ix98157b53829e54fdda755261128be0c8">Call-by-Reference</a></p>
+  <p class="SIX"><a href="python_kapitel_10_002.htm#ixda968d3c829fbf599ee904bed6b88912">Call-by-Value</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix784962ae24dbb55c89a3ce0b4c5cf093">Callback-Funktion</a></p>
+  <p class="SIX"><a href="python_kapitel_21_006.htm#ixdf5a7283dd125f9fb481d81bcaf516b8">Callstack</a></p>
+  <p class="SIX"><a href="python_kapitel_13_001.htm#ix62260cadfecbac39b7745d235ccb740d">Call Stack</a></p>
+  <p class="SIX"><a href="python_kapitel_04_004.htm#ix35dbae1bd8b92871e4b4d84560dba06f">Case sensitive</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix36ac2a0ce787623c3cfb21f321d37998">Children</a></p>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ix542b75f8c41e9d5086aab9a3521765bf">Children</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix65c4ca1eddc037b0b357c8ae0f9c3476">class</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix1a071ffc175a0f5e0ebf4b33bc2d8e31">Client</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ixcf876771f873cc94cba3656db047c86f">Client</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ixdd7432aa3ad2172d67e04080297d22ef">Client/Server-System</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ixb6e283ce008e18237689099c1b96ab19">Client/Server-System</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ixa4df191cc6ab2e062a744e66eda9b4ed">Codepage</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix8d4171936479c546432b6153c49fcb19">Codepoint</a></p>
+  <p class="SIX"><a href="python_kapitel_02_002.htm#ixd894778e7b930faf69cce8f218945edc">Compiler</a></p>
+  <p class="SIX"><a href="python_kapitel_03_002.htm#ix9bc84323faea50d9d01b9558ac4f44f2">Compiler</a></p>
+  <p class="SIX"><a href="python_kapitel_06_001.htm#ix6164b22c2049ea78ce69e1c37ae7ceb0">Conditional Expression</a></p>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ixb9e4a4501fd4344256a94e97dde4f08a">continue</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix3e91a13f016109e89ed7b2b4534993e4">Control</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ixf937b11558f6a9f6306812120fb4a7b3">Critical Section</a></p>
+  <p class="SIX"><a href="python_kapitel_18_003.htm#ixe1aa0bf5af9d0b27e9ab9052dad3d493">Critical Section</a></p>
+  <p class="SIX"><a href="python_kapitel_19_005.htm#ix6d050568155005b51bdf8caf4eab7a93">CSV</a></p>
+  <p class="SIX"><a href="python_kapitel_19_005.htm#ix8886fcbbc3c8631858cfa79a41807cf3">CSV-Dialekt</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ix6d52b4644f77c105ae5a89e6b5f14129">Cursor</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp5"></a>D  
+      <a href="#grp6"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp4"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_18_004.htm#ix025a50769b436da5b370db22a13f006a">Dämon-Thread</a></p>
+  <p class="SIX"><a href="python_kapitel_20_002.htm#ix9fb000d48c6d8ddfe8ed95d316fae86c">Dateiähnliches Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_09_003.htm#ixf50668247fabeb370aa7870e3bbf0817">Dateien</a></p>
+  <p class="SIX"><a href="python_kapitel_09_003.htm#ix09d4e5d5fac3e5767bdbc93c26e34da2">Dateien</a></p>
+  <p class="SIX"><a href="python_kapitel_09_003.htm#ix61efe3c1511a0ec8c07d6d2113978342">Dateiobjekt</a></p>
+  <p class="SIX"><a href="python_kapitel_20_002.htm#ix81d703375fd797c225d0327fd1f44497">Dateiobjekt</a></p>
+  <p class="SIX"><a href="python_kapitel_09_003.htm#ixf8c5bf754feb2a2714ae8d025c53cc86">Dateiobjekt</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ixdaf5e30d317187a254230bd3481ee531">Datenbank</a></p>
+  <p class="SIX"><a href="python_kapitel_09_003.htm#ix72ba2bb5e23c33d2c838ffb2d688c62c">Datenstrom</a></p>
+  <p class="SIX"><a href="python_kapitel_07_001.htm#ixfae8c9b6882b334b39c59936467b7d98">Datentyp</a></p>
+  <p class="SIX"><a href="python_kapitel_18_003.htm#ixae40e0aa3f8bca8b023a71c206ae3179">Deadlock</a></p>
+  <p class="SIX"><a href="python_kapitel_21_001.htm#ix946f393ed0e3777634ee3fb933af81a6">Debugger</a></p>
+  <p class="SIX"><a href="python_kapitel_21_001.htm#ix7062520350e780e3f4399772c65c4e4f">Debugging</a></p>
+  <p class="SIX"><a href="python_kapitel_10_001.htm#ixe0abd7f1bfe75d7067849245dd1db777">def</a></p>
+  <p class="SIX"><a href="python_kapitel_08_006.htm#ixba22e7b503fbde67ef716b52a7787cc0">del</a></p>
+  <p class="SIX"><a href="python_kapitel_07_002.htm#ixb09f1acaca144bd65b9cf9fdfb15c3f0">del</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix6d52db98d5a385a88ffd904f22103280">del</a></p>
+  <p class="SIX"><a href="python_kapitel_24_007.htm#ix7b89a45ac8943638b451cd53fb8b0887">Delegate</a></p>
+  <p class="SIX"><a href="python_kapitel_19_004.htm#ixb6c0c6ecf2c20bb0e5844bf8c7828387">Deserialisieren</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix5d106f6aafaaef7121af613d8bf63bc9">Destruktor</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix309af62b16181e7f536716dfa5cfdf1e">Dezimalsystem</a></p>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ix8680aafe7375dfa5f66cc0f6c7877734">Dialog</a></p>
+  <p class="SIX"><a href="python_kapitel_08_006.htm#ix96f8d830cb4fad9591497372a5cae7d9">Dictionary</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ixec5dbc8f117a54aab4411a065692a729">Differenzmenge</a></p>
+  <p class="SIX"><a href="python_kapitel_22_001.htm#ix7bbfac2cb7ca6aaf4f93603c642f48ea">Distribution</a></p>
+  <p class="SIX"><a href="python_kapitel_25_001.htm#ix0c8c573009a43f93e75b2a63184b0b1e">Django</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ixd927f638e7e1d629727accba1978b091">Django-Applikationen</a></p>
+  <p class="SIX"><a href="python_kapitel_25_002.htm#ixfd7fad4f1158405fd7ab0faa4829eb20">Django-Applikationen</a></p>
+  <p class="SIX"><a href="python_kapitel_25_002.htm#ix165fac70d2bf9faf55e3599e2c1f8235">Django-Projekt</a></p>
+  <p class="SIX"><a href="python_kapitel_26_001.htm#ixd6ca2829e5f2192e3d2780862f836866">DLL</a></p>
+  <p class="SIX"><a href="python_kapitel_22_003.htm#ix53e24beb7247f5a3c73f32e936584e40">Docstring</a></p>
+  <p class="SIX"><a href="python_kapitel_13_003.htm#ix6bfd2edc80cd621aa1768265982ceda3">Docstring</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix09590b82e89cae003317fc22a8a2b223">Document Object Model &lt;Pfeil&gt;R&lt;Normal&gt; DOM</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ixedb37ff0a8eb9bc049ce8b4abd2837e9">DOM</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ix92fe910b41401733598c5a276051628b">Drittanbieterbibliotheken, MySQLdb</a></p>
+  <p class="SIX"><a href="python_kapitel_22_002.htm#ix443b6f4a32fb4adbf3d7d3cf246bd340">Drittanbieterbibliotheken, py2exe</a></p>
+  <p class="SIX"><a href="python_kapitel_16_001.htm#ix0c71b67f3f75c934e20e7350905311bb">DST</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix4047fc3b9542da8908a3b978c73c75e6">Dualsystem</a></p>
+  <p class="SIX"><a href="python_kapitel_26_001.htm#ixad0c6cb3fdbaaba7dc35b2571fca2abd">Dynamic Link Library</a></p>
+  <p class="SIX"><a href="python_kapitel_25_001.htm#ixead8419ea874774d45905670bc5412eb">Dynamische Website</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp6"></a>E  
+      <a href="#grp7"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp5"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_20_005.htm#ix1dfa15d971dcc81b7c10b74370bcf9f8">E-Mail-Header</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ix15fcfd1c95cd8e5b2d0644f8d1f12d23">Echte Teilmengen</a></p>
+  <p class="SIX"><a href="python_kapitel_A_001.htm#ixf0e27f3208cd07b407c9ac7eb361be95">Eclipse</a></p>
+  <p class="SIX"><a href="python_kapitel_17_005.htm#ix231a02bdfe91cd3bf3f1ffe8ceb4af45">Eingabeaufforderung</a></p>
+  <p class="SIX"><a href="python_kapitel_26_003.htm#ix127db19bc63887c7e8d47a14efc319d5">Eingebettete Skriptsprache</a></p>
+  <p class="SIX"><a href="python_kapitel_05_001.htm#ixf7aceb8273613b82c18477fb6ce72d82">Einrückung</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ix156321062b75048820786899f2db246d">Eins-zu-eins-Relation</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ixee697742227264e19236984ecc4f6fce">Eins-zu-viele-Relation</a></p>
+  <p class="SIX"><a href="python_kapitel_15_004.htm#ix1a82f5704b424f885d1facc3a516cfbe">Einwegfunktion</a></p>
+  <p class="SIX"><a href="python_kapitel_23_001.htm#ixfc0d4ddade5a8c035b4e5f7dc4f6dc74">Eleganz</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix4c7a64d8e87c180961cbc331fb21c038">ElementTree</a></p>
+  <p class="SIX"><a href="python_kapitel_06_001.htm#ix3213350f60393988666a5e581dc06069">elif</a></p>
+  <p class="SIX"><a href="python_kapitel_13_001.htm#ixa033de4d55118416791be040ad9c5089">else</a></p>
+  <p class="SIX"><a href="python_kapitel_06_001.htm#ixdbd8469edfac07fdf48c50e327ae838b">else</a></p>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ix317e80b250210592e6a1df72f18cd7e9">else</a></p>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ix01c023da7f1593d112bdaa96c2cb3009">else</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix49dd36dc53a61e02b41003dece08b521">Elternelement</a></p>
+  <p class="SIX"><a href="python_kapitel_26_003.htm#ix09b9481fc9f05b2ad0d669975d484b0b">Embedded Script Language</a></p>
+  <p class="SIX"><a href="python_kapitel_27_001.htm#ix29b4f391a89c397feee8ded47c9c5558">Encoding</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix34a5d505ff6cea0b048f3e32a845dfc8">Encoding-Deklaration</a></p>
+  <p class="SIX"><a href="python_kapitel_03_001.htm#ix86a0ce13c6478d4799764807d8a3038e">Entwicklungsumgebung</a></p>
+  <p class="SIX"><a href="python_kapitel_A_001.htm#ix169d23df77e7ead89447905b57655b0e">Entwicklungsumgebung</a></p>
+  <p class="SIX"><a href="python_kapitel_25_003.htm#ix47f58c4afea96da440a5ac078ba77a1d">Entwicklungswebserver</a></p>
+  <p class="SIX"><a href="python_kapitel_22_003.htm#ix8f84620a401eff12fe7ab081110c8951">Epytext</a></p>
+  <p class="SIX"><a href="python_kapitel_24_002.htm#ix588d7eae592defb3283caf7ceba767a5">Eric</a></p>
+  <p class="SIX"><a href="python_kapitel_A_001.htm#ix27972b0dd5ffa974df4a173ac62e9f2b">Eric</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix4913aef37313233f39e42846672f909c">Erweiterte Zuweisung</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix9120f4336cf3976d8a787749adedadf6">Escape-Sequenzen</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix1261a64703eb569a02c1f7ce00c33a36">Escape-Sequenzen</a></p>
+  <p class="SIX"><a href="python_kapitel_20_005.htm#ixca3ffcec783b0a8ce6f21994dbc955ad">ESMTP</a></p>
+  <p class="SIX"><a href="python_kapitel_24_004.htm#ix69f8fe2a0dd2b9c15196e1a8d1cbb7eb">Event</a></p>
+  <p class="SIX"><a href="python_kapitel_18_004.htm#ix697b89f17deb17fde1880f0e47f2bafc">Event</a></p>
+  <p class="SIX"><a href="python_kapitel_24_007.htm#ix346a5d88d5b87622cbe144ec5267bd4c">Event</a></p>
+  <p class="SIX"><a href="python_kapitel_24_004.htm#ixbebaddf8f67b05db5dffa3423c8fe42b">Eventhandler</a></p>
+  <p class="SIX"><a href="python_kapitel_13_001.htm#ixacfc3acb1b859a159b0c59a6c20e5b3a">except</a></p>
+  <p class="SIX"><a href="python_kapitel_13_001.htm#ix6a17d9198a37ee9592f6353142c71be8">Exception Handling</a></p>
+  <p class="SIX"><a href="python_kapitel_13_001.htm#ix1f9671ec86799b01ce82274ed55cbddd">Exceptions</a></p>
+  <p class="SIX"><a href="python_kapitel_26_002.htm#ix605590140c557438765df357ed13480b">Exceptions</a></p>
+  <p class="SIX"><a href="python_kapitel_17_003.htm#ix02b0cf1c230b08a5ad910f17becea62d">Exceptions</a></p>
+  <p class="SIX"><a href="python_kapitel_13_006.htm#ixef030187241941617ad01dda1e5fc30c">exec</a></p>
+  <p class="SIX"><a href="python_kapitel_17_003.htm#ix6c690ce8857cac374314b9bed86792c2">Exit Code</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix739e0945cbf8af20108c530f3d3126d9">Exponent</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix14228b46eff567ea9b154e7b424ceab7">Exponentialschreibweise</a></p>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ixfc8fa0bf2aaa8c3bc02e4714840f7f26">Exponentialverteilung</a></p>
+  <p class="SIX"><a href="python_kapitel_26_002.htm#ix25e4378a856026c3ac84eb5b6116dbc1">Extension</a></p>
+  <p class="SIX"><a href="python_kapitel_22_001.htm#ix80ef0adc4d4e9478e51e30d1ec12649f">Extension</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix6ba510e043a705c6a64f39b73309b603">Eye-Candy</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp7"></a>F  
+      <a href="#grp8"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp6"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_04_005.htm#ix9dae43e49e47766e5c974fa10ed12bbb">False</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix94c220b8ef1f880a4f34d31f06cb17fa">False</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix44a83dce97ba62d914fdec177db00582">Farbverlauf</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ixc3459f6d123a099a867566a3226d2d35">Fenster</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ix8d30c6fca3c417bd979c6d2e5c5fefe7">Field Lookup</a></p>
+  <p class="SIX"><a href="python_kapitel_20_004.htm#ix7f704a8e8bfab2d0b8b38c8c79c78c45">File Transfer Protocol</a></p>
+  <p class="SIX"><a href="python_kapitel_13_001.htm#ix8914aa5930a05e6846b62d021a585c1c">finally</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ixe2b84c25632c81644d5c6fc686206ce6">Flag</a></p>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ix4f7c9254597c29e90a284746281897c1">for</a></p>
+  <p class="SIX"><a href="python_kapitel_13_002.htm#ix88941d4412525bc29441a3f8c2feba18">for</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix7a45a422bcd1615acd2d28918a6b20c8">Formatierungsoperator</a></p>
+  <p class="SIX"><a href="python_kapitel_21_002.htm#ix67027ab3db6c737317cc80d9e1f2578b">Frame-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_11_001.htm#ix43265120de7058e10bbe8a932f65bb99">from</a></p>
+  <p class="SIX"><a href="python_kapitel_20_004.htm#ix797e562223997dbc72a18c7d819f43b2">FTP</a></p>
+  <p class="SIX"><a href="python_kapitel_13_009.htm#ix5b4fc2bb01607df678703ffe173f3164">Function Decorator</a></p>
+  <p class="SIX"><a href="python_kapitel_10_001.htm#ix95240805148352a869624cf9b8365dbe">Funktion</a></p>
+  <p class="SIX"><a href="python_kapitel_10_001.htm#ix5ea7127911a227fdca47efb462fac9c3">Funktionsaufruf</a></p>
+  <p class="SIX"><a href="python_kapitel_13_005.htm#ixe19bbf9150ffdfaedba97f6ebddcf237">Funktionsiteratoren</a></p>
+  <p class="SIX"><a href="python_kapitel_10_001.htm#ixbcba4e1769f341c4742c51afc27d9adb">Funktionsobjekt</a></p>
+  <p class="SIX"><a href="python_kapitel_10_001.htm#ix646d172da7106874f506dddbbb4f6881">Funktionsschnittstelle</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp8"></a>G  
+      <a href="#grp9"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp7"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ixd78126aabecb778205a8efa3fb7c1495">Gammaverteilung</a></p>
+  <p class="SIX"><a href="python_kapitel_04_001.htm#ix464cec1a239d7239a53e095aa8536cda">Ganze Zahlen</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix0ea89bfb96d6bb45b2bbf7a106943359">Ganze Zahlen</a></p>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ix23707b8c2c01fb551050a128b2727ecf">Gaußverteilung</a></p>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ix9e2b1af9fad56062abe6ce18aa8c7f27">Gaußverteilung</a></p>
+  <p class="SIX"><a href="python_kapitel_13_004.htm#ix6a9edc108504b012ba3d32ad6a4ed41b">Generatoren</a></p>
+  <p class="SIX"><a href="python_kapitel_13_004.htm#ix79f1ef88fb2f616aab77537843fbedeb">Generator Expression</a></p>
+  <p class="SIX"><a href="python_kapitel_13_007.htm#ix68dde80c062bba1c99423001cd747bec">Geplantes Sprachelement</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix6555d20dbac6cd27626e09584fb1d486">Geschwisterelement</a></p>
+  <p class="SIX"><a href="python_kapitel_25_008.htm#ix92e41af05fe327c5537aee0899ce271a">GET</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix1e33a706b73bc05426829e2f04894ad3">Getter-Methode</a></p>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ix2c08eca91ebd4649987e6b8d659d8384">Gleichverteilung</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix2c566529302e4735671cfd762146b2dc">Gleitkommazahlen</a></p>
+  <p class="SIX"><a href="python_kapitel_04_002.htm#ix48087d7303f36fe604dfa8e925821cdc">Gleitkommazahlen</a></p>
+  <p class="SIX"><a href="python_kapitel_10_003.htm#ixd20ece7e05cc642d9f7e4cb07464dd1d">global</a></p>
+  <p class="SIX"><a href="python_kapitel_10_003.htm#ixcdcc80c143e755c04427c35726d345c6">Globale Referenz</a></p>
+  <p class="SIX"><a href="python_kapitel_10_003.htm#ixf8fb16c3610495ed819fd81f382d85f9">Globaler Namensraum</a></p>
+  <p class="SIX"><a href="python_kapitel_18_001.htm#ix5640209c052b6a56bbd8c45dc99d1569">Globale Variable</a></p>
+  <p class="SIX"><a href="python_kapitel_15_003.htm#ixbb32fe7addd051a9acf392dcc842a4bc">GNU gettext API</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix0a8d918cbd3f0eea9eadcf120702c869">Grafische Benutzeroberfläche &#8594; GUI</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix601906fb6fa75eca86ea86667a683822">Gruppe</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix10dd7e1a5c4ae2e010ed2a1c59ab8894">Gtk</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix707ff1a27e1616ee7f6cbea81169cdb4">GUI</a></p>
+  <p class="SIX"><a href="python_kapitel_02_001.htm#ix40c973f6ec681b7f0739fc8ed16be63a">Guido van Rossum</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp9"></a>H  
+      <a href="#grp10"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp8"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_15_004.htm#ix500e1f84792fd5dddfc66ae0738f3881">Hash-Funktion</a></p>
+  <p class="SIX"><a href="python_kapitel_15_004.htm#ixee638913f8cba7def9e220905c8ccf5b">Hash-Wert</a></p>
+  <p class="SIX"><a href="python_kapitel_08_006.htm#ixf6a3dd4085c22888ca2922f192940bda">Hash-Wert</a></p>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ixb1d72a00c9fd412d5eb0a568b63e3232">Hauptdialog</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix92b4c316884dc633c7fa944e6a2069b3">Hexadezimalsystem</a></p>
+  <p class="SIX"><a href="python_kapitel_17_003.htm#ix3ecdf6044a08ffa59ac0962cef6db81b">Hook</a></p>
+  <p class="SIX"><a href="python_kapitel_20_007.htm#ix8a5ddbeaa96fd355d357d75e670cf52b">HTTP</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp10"></a>I  
+      <a href="#grp11"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp9"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_15_003.htm#ix5d2f3a4dc141f372f8eb4bf3ede908bb">I18N</a></p>
+  <p class="SIX"><a href="python_kapitel_07_001.htm#ixae7ae302198e4f631e1e6b0e9967eef9">Identität</a></p>
+  <p class="SIX"><a href="python_kapitel_A_001.htm#ix37b7f9057c2d995195f87d904a260b22">IDLE</a></p>
+  <p class="SIX"><a href="python_kapitel_03_001.htm#ix02b6a96be599006250e56fef1564c16d">IDLE</a></p>
+  <p class="SIX"><a href="python_kapitel_21_001.htm#ix317d4396de056f256a25e2a351c88c5b">IDLE</a></p>
+  <p class="SIX"><a href="python_kapitel_06_001.htm#ixb57a3cfa1a01acd64d092bcde9966ae2">if</a></p>
+  <p class="SIX"><a href="python_kapitel_13_002.htm#ix5a263e8892bc67b7052be815063f88f8">if</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix96b8d2c838ba1b45e7a2b989f20e4da9">Imaginärteil</a></p>
+  <p class="SIX"><a href="python_kapitel_20_005.htm#ixa8c936e880de12f1a05cb6c724341628">IMAP4</a></p>
+  <p class="SIX"><a href="python_kapitel_07_003.htm#ixcdaf0bfe34c2ed27cf2982392d6395bc">immutable</a></p>
+  <p class="SIX"><a href="python_kapitel_11_003.htm#ix01b869f4837b7217545c6faca751afae">import</a></p>
+  <p class="SIX"><a href="python_kapitel_11_001.htm#ix3bcf69f66a1435dc47648d4db7d8ab4f">import</a></p>
+  <p class="SIX"><a href="python_kapitel_13_007.htm#ix78911c2dd3a2dce583e048cdc1b86633">import</a></p>
+  <p class="SIX"><a href="python_kapitel_08_006.htm#ix10fdd11923e64dc034892e2991b8273b">in</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix900b0d85a2b549bf0f284871305b8654">in</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ix0c69535bee793aadfa4cd46ad4003a06">in</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix6b08f67300f09d567db9f4833f2f3b14">Index</a></p>
+  <p class="SIX"><a href="python_kapitel_14_003.htm#ix7496a87ca2c8822bf93fa0b1064921f9">inf</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixdf9f961835122bc0d6c18ca8c6de33a6">inf</a></p>
+  <p class="SIX"><a href="python_kapitel_22_003.htm#ixf0586e0036fe8fdaa040cccfebb85e86">Inline Markup</a></p>
+  <p class="SIX"><a href="python_kapitel_23_003.htm#ix8f1892aa7985f757362571b94f689dba">Inlining</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ixd8a0bbb74122107efc239a1ff339fcec">in place</a></p>
+  <p class="SIX"><a href="python_kapitel_03_001.htm#ix0eb601f2c7e9936b0d35fe8561baea96">Installation</a></p>
+  <p class="SIX"><a href="python_kapitel_22_001.htm#ix06fd894ae871e3364da9240c9f13ac99">Installationsskript</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix1f2b5b97b70d3b5648cec1d22e3b4986">Instanz</a></p>
+  <p class="SIX"><a href="python_kapitel_07_001.htm#ix7289f44d21b3bd3e7180506fc9679edd">Instanz</a></p>
+  <p class="SIX"><a href="python_kapitel_04_001.htm#ix8ce424151f860830c940de0026533008">Integer-Division</a></p>
+  <p class="SIX"><a href="python_kapitel_04_001.htm#ix1374a3bc5230e706aee6f3295dc293d0">Interaktiver Modus</a></p>
+  <p class="SIX"><a href="python_kapitel_03_001.htm#ix0f1ff7b0da2fefa25f0573b23fc634c6">Interaktiver Modus</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix6a4f111e95223766208c636e75128366">Interface</a></p>
+  <p class="SIX"><a href="python_kapitel_15_003.htm#ix19a4f6cf64faa5b466895cc1adb80989">Internationalisierung</a></p>
+  <p class="SIX"><a href="python_kapitel_03_002.htm#ixf9a6764be206a860f07a3b315a2c5c4f">Interpreter</a></p>
+  <p class="SIX"><a href="python_kapitel_02_002.htm#ixfe9cd18054922a902206d7b5cfb03f27">Interpreter</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix0940bd0805b8e11fac686336ee816d09">IP-Adresse</a></p>
+  <p class="SIX"><a href="python_kapitel_07_001.htm#ix8089a27646d4396c06115b7ca3e57546">is</a></p>
+  <p class="SIX"><a href="python_kapitel_16_002.htm#ixc59ee1c355e57944cec782d462888a3b">ISO-Kalender</a></p>
+  <p class="SIX"><a href="python_kapitel_13_005.htm#ixc3cf0bae23a6cfc152f24b3ab0befd51">Iterator</a></p>
+  <p class="SIX"><a href="python_kapitel_13_005.htm#ix31ef027743dfdf23231656d5197eab18">Iterator-Protokoll</a></p>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ix5c59711df1d84528157638e3c3fb2973">Iterierbares Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ixdb621e5b85a030c72fa65fa92961d016">Iterieren</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp11"></a>J  
+      <a href="#grp12"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp10"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ixa6adc1821ab965745d353b72d1d4e916">Join</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp12"></a>K  
+      <a href="#grp13"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp11"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ixb0311de9cdb0aa5329c1c5f3e0d466d1">Körperloses Tag</a></p>
+  <p class="SIX"><a href="python_kapitel_10_002.htm#ix86305a5804b17315bc3fd2b0da449f5d">Keyword Arguments</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix22c01a6afab56a234a12cbc2cab846ac">Kindelement</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix69529ac4f3236fc74e5a698aae537cf6">Klasse</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix66fa499bb7f86be7411b74bb4561acb4">Klassen-Member</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ixb2c2ea19b1c975d33c61d06f18f4abb7">Knoten</a></p>
+  <p class="SIX"><a href="python_kapitel_15_004.htm#ix3fe6df927e99ce4b4b6242792baaa597">Kollision</a></p>
+  <p class="SIX"><a href="python_kapitel_27_005.htm#ix9dc806d102191148d18767491fd42e97">Kommandozeilen-Interpreter</a></p>
+  <p class="SIX"><a href="python_kapitel_17_005.htm#ix33cb2bf71fce8498b1e09d90d8b32a7a">Kommandozeilenparameter</a></p>
+  <p class="SIX"><a href="python_kapitel_05_003.htm#ixdbde0fc8f2adfd27d1844df8ddc1ef10">Kommentar</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix8cea126a93d679089200bdd417bf9d6e">Kommunikationssocket</a></p>
+  <p class="SIX"><a href="python_kapitel_A_001.htm#ix822ad8a69f174f9189954fbb7c2f3364">Komodo IDE</a></p>
+  <p class="SIX"><a href="python_kapitel_03_002.htm#ix1acc1c239e85bee0b9c2ffd0708df247">Kompilat</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix1c8ffb5f2ab06d63847da4a47dfd5edd">Komplexe Zahlen</a></p>
+  <p class="SIX"><a href="python_kapitel_17_005.htm#ixc2624c1651a3dceb49dcf4dca299999e">Konsole</a></p>
+  <p class="SIX"><a href="python_kapitel_03_002.htm#ixef08d3a0a9315d7a74a4563b9b09b569">Konsolenanwendung</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix499e701ddfaf5f26a9fb275be87365ca">Konstruktor</a></p>
+  <p class="SIX"><a href="python_kapitel_13_008.htm#ix159c41f62b66f05a89f5efc6f33811bc">Kontextmanager</a></p>
+  <p class="SIX"><a href="python_kapitel_06_001.htm#ix3cab111a7d9e476a4bbf808af0d9fcbf">Kontrollstruktur</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ixd443c555e2c946ca184c6c9773f67c16">Konvertierung</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ixbbc3f9881b6b5595a8f8649bf869ccc7">Koordinatensystem</a></p>
+  <p class="SIX"><a href="python_kapitel_16_001.htm#ix833dd1109ee9dc2d7e7da95bf9c64add">Koordinierte Weltzeit</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp13"></a>L  
+      <a href="#grp14"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp12"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_15_003.htm#ix7f02a2ce24ac4cfd53b502f0748d4afd">L10N</a></p>
+  <p class="SIX"><a href="python_kapitel_10_005.htm#ix6e1ba03aaa5f7e9442578b416eed83ec">lambda</a></p>
+  <p class="SIX"><a href="python_kapitel_21_007.htm#ix9bd3444595b8b58e055113f994bf798b">Laufzeitmessung</a></p>
+  <p class="SIX"><a href="python_kapitel_07_001.htm#ix3b042d1c7d60729773b68f4772142eb5">Laufzeitmodell</a></p>
+  <p class="SIX"><a href="python_kapitel_23_001.htm#ix186c6acc4355faa5851f79d10e58dc11">Laufzeitoptimierung</a></p>
+  <p class="SIX"><a href="python_kapitel_21_007.htm#ix3d52732ef96e69f86aa59bd93d4d59fb">Laufzeitverhalten</a></p>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ix66b89700b70cdedd49d48baf8b8b174a">Layout</a></p>
+  <p class="SIX"><a href="python_kapitel_06_001.htm#ix3b73ae7bcfc2cfe1ffded57f0eb17d78">Lazy Evaluation</a></p>
+  <p class="SIX"><a href="python_kapitel_18_001.htm#ix898c081254f0d5e65c5d190b51ea52f8">Leichtgewichtprozess</a></p>
+  <p class="SIX"><a href="python_kapitel_11_001.htm#ixfc2f04d20fab07b18a56a6f3e83618ac">Library</a></p>
+  <p class="SIX"><a href="python_kapitel_13_002.htm#ix5ff73b178233ce02339b1e52256738ad">List Comprehension</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix5395127448b60d12eb17092808dce80c">Listen</a></p>
+  <p class="SIX"><a href="python_kapitel_17_003.htm#ix490391cd25fd496b279140c25d595560">Little Endian</a></p>
+  <p class="SIX"><a href="python_kapitel_18_004.htm#ix18ceef17681aa71c27334beca757029d">Lock-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_18_003.htm#ixc724d19c285a1c9b6bb51f0649655519">Lock-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_18_003.htm#ixd7473b1397196572b45a5508b6986256">Locking</a></p>
+  <p class="SIX"><a href="python_kapitel_18_004.htm#ix6ee17cde40785673f313478a721d963f">Locking</a></p>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ix7e56e7dfacb1b6fa9722466e299febbc">Logarithmische Normalverteilung</a></p>
+  <p class="SIX"><a href="python_kapitel_21_004.htm#ix15ed6ae2ef49ad57a7385f3ad10e7538">Logdatei</a></p>
+  <p class="SIX"><a href="python_kapitel_21_004.htm#ix5494136ce17ea2ceef25a78ab6563f8c">Logger</a></p>
+  <p class="SIX"><a href="python_kapitel_21_004.htm#ixdf5280cab8bb13fe6d5af9683c66c6f4">Logging Handler</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix1a8b5cd8d0adf5a772e18a4e7affc733">Logische Operatoren</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix8beec31e2ace189095acf70fe8c5e3af">Logische Operatoren, Logische Negierung</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix3adbdeb6861930d3b28a69f26e221931">Logische Operatoren, Logisches ODER</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixd114cefd3cfb382412b567297e5931a9">Logische Operatoren, Logisches UND</a></p>
+  <p class="SIX"><a href="python_kapitel_04_005.htm#ix7bd2300efed8744e15d678544cd2e732">Logischer Ausdruck</a></p>
+  <p class="SIX"><a href="python_kapitel_10_004.htm#ix687324a7a7db2571e36e999ad02db26d">Lokale Funktionen</a></p>
+  <p class="SIX"><a href="python_kapitel_18_001.htm#ixbd9c61877e0e8a4a68fc7de9fee24cdb">Lokalen Variablen</a></p>
+  <p class="SIX"><a href="python_kapitel_10_003.htm#ixefcb181bbc4a1f5d4c71361219918223">Lokale Referenz</a></p>
+  <p class="SIX"><a href="python_kapitel_10_003.htm#ixd3a6f66645b5f24ecab0d9b5b89b5a51">Lokaler Namensraum</a></p>
+  <p class="SIX"><a href="python_kapitel_15_003.htm#ix8f5c7bcf1e12ce311354e8106e7766a8">Lokalisierung</a></p>
+  <p class="SIX"><a href="python_kapitel_16_001.htm#ix9976a9d7c438302287160e56aca211aa">Lokalzeit</a></p>
+  <p class="SIX"><a href="python_kapitel_23_006.htm#ixbb099359f59d7fa13831c3b6ed4c0e43">Lookup</a></p>
+  <p class="SIX"><a href="python_kapitel_25_002.htm#ixd6f48fe7936a562b15fc29ca7c21ee87">Loose Coupling</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp14"></a>M  
+      <a href="#grp15"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp13"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_03_002.htm#ixd1c3243766737a6579710a1c008cc2cd">Magic Line</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix1a682d142d45c8b51448ee3de9fcee4a">Magic Members</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix858af13e0161dabe94d1400b51e8b8a1">Magic Members, __abs__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix25d86dbe592b408f2ee4324a4d427d52">Magic Members, __add__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix025841a055ce993e0571eacf1f54adc0">Magic Members, __and__</a></p>
+  <p class="SIX"><a href="python_kapitel_13_009.htm#ix145e1928d2dd8ef4e22462862ac2ed63">Magic Members, __call__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix1262764176c3a50f1c3e9111ce7e6d41">Magic Members, __call__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix6e6fa33bf320a409c71d9d750ee09b5e">Magic Members, __cmp__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix11edf9b7cea03dc8de55c902e495e17c">Magic Members, __complex__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixac82b9aca708a0c1186409417f7596c6">Magic Members, __contains__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix63b90b2ef8f7d9377ad51bb0cba1922e">Magic Members, __delattr__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix74164557b0658c19882ed0b3d44fab72">Magic Members, __delitem__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix80d116e308ecc63c672772d3c73d8dc5">Magic Members, __del__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix097cd57a2ceb988b4f152b824653fdf0">Magic Members, __del__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix20d211aa9358dd8eb327acb931eaa35f">Magic Members, __dict__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixda178921b578830f1ea49d68a8d32f57">Magic Members, __div__</a></p>
+  <p class="SIX"><a href="python_kapitel_13_003.htm#ix93ff57c2b764801cc614eaf5eb539fcb">Magic Members, __doc__</a></p>
+  <p class="SIX"><a href="python_kapitel_13_008.htm#ix08ea9ce995cf2c735e2f0a7373185e8b">Magic Members, __enter__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix33fdcc6e2564defd482487937f1b8e8f">Magic Members, __eq__</a></p>
+  <p class="SIX"><a href="python_kapitel_13_008.htm#ixd4cf4afcf03e41d9fb882818e2997499">Magic Members, __exit__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix1ae72c33f379a28dd7dbcee5f65abdf2">Magic Members, __float__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixe6fbce7e807975e8440f120aa4f25278">Magic Members, __floordiv__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix4a1ad75dec0e1e1437335adbfa27c2a0">Magic Members, __getattribute__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix1802c6af82c4018c4abb5c41fe77c6ed">Magic Members, __getattr__</a></p>
+  <p class="SIX"><a href="python_kapitel_13_005.htm#ix59b1c23a123ad41f40ea74b4d12d67e9">Magic Members, __getitem__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix6b03b4a50065e81529017872db0087ac">Magic Members, __getitem__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix110a361edebb831ba9cdfdbd6e83aa87">Magic Members, __ge__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix1a3e5bdbd6516d4eeb8132d20b495053">Magic Members, __gt__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix5e9b603ef48a90f05618757c35b3a602">Magic Members, __hash__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixacd52b50faf61cf9dc69e1fd9b0a30dd">Magic Members, __hex__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix22683df00bb41473c347c74d7652782d">Magic Members, __iadd__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixd10e7d53d2413c8d63b482311d9be9a2">Magic Members, __iand__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix2d8bb17c64fe0f7022a4a372acef4764">Magic Members, __idiv__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixc329bf5ab8e68a5e1102df28584f03cc">Magic Members, __ifloordiv__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixa3e52acc06838244daeaac349fe6bd98">Magic Members, __ilshift__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixbe19422d00584c5524a3f9138511762d">Magic Members, __imod__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix163c7475b489669f67f51942ccca3a1e">Magic Members, __imul__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix29fac771a5cef102c2214dd786024d4d">Magic Members, __index__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ixf4f590bb68f3ad6138d1f045953eb346">Magic Members, __init__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixe084a33bb0e53c3cfd293bb38a0f4810">Magic Members, __init__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixd9d6b3bc5ea6334167b32302ab872ff9">Magic Members, __int__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix9ee06aef1fe4b30afa5d6fe773cfb8f6">Magic Members, __invert__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix8f84d2e9c928655f04d6d99bb3d61b6e">Magic Members, __ior__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix4f992f7b0449b80fdac988b71c5bcabc">Magic Members, __ipow__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix34f2a37ca8e6a39fa1626ce02d6aff6c">Magic Members, __irshift__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix75f8555f5b60f4653cae7d83ccc56774">Magic Members, __isub__</a></p>
+  <p class="SIX"><a href="python_kapitel_13_005.htm#ixf8f2f32b5a1ef71ce11c55d8acebda9d">Magic Members, __iter__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix4281f21cce4b152954bd4851b1e15d07">Magic Members, __iter__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixa82c4a2e48b7f11400beaef7e867bff4">Magic Members, __ixor__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix646f3b4af64f7fea81136a8802c635b9">Magic Members, __len__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix1911e963d9e9b48f6cb9ca71e67c4517">Magic Members, __le__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix4e9188527606ad8cdb3f02d9080bec23">Magic Members, __long__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix13094eea56b8e14a50e9b2c4369597a6">Magic Members, __lshift__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix6727b212ade6f9764a0ec7cf1e0ade25">Magic Members, __lt__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix16924238bd310c72a4ad7d41fbb3895e">Magic Members, __mod__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixa436828deb5e8763b844f92c2278773b">Magic Members, __mul__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix7afcd112eca8553917a90887ef343302">Magic Members, __neg__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix0bac090d995b29bf4a66fcc03d162410">Magic Members, __ne__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix7f1947cc1a7ad568f0c1def9d79d00bb">Magic Members, __nonzero__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix30db4eae8903b437f28a58b610dd65ff">Magic Members, __oct__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix9b64a48f4caf4370aaa1b860670bb1fa">Magic Members, __or__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix243b7009bce43af78f499737366fc205">Magic Members, __pos__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixbc4ef47f39cacbaf36f20ac4765115fc">Magic Members, __pow__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix6a4ddadc965a7346a6e7de945d5d65a6">Magic Members, __radd__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix971132d29858302a29d5c1f3275e0607">Magic Members, __rand__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix786541f15caf1e065e1e0f7891cc6dc6">Magic Members, __rdiv__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix5ed255550713bc1104fee4ef7307e95b">Magic Members, __repr__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix55adbdb4ca2adddc3c02c38a6adb4cf9">Magic Members, __rfloordiv__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixd2d3f46f01c9e02923f8ab35d829693f">Magic Members, __rlshift__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix78fd334c9e3511b89634af41aa909616">Magic Members, __rmod__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixdfbaac2660704b2a14a5e1f3ef82ecef">Magic Members, __rmul__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixefa4f75421f28a16342d074ed1383d4c">Magic Members, __ror__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixba1daccc93b5b3f1ee6e793282d9787e">Magic Members, __rpow__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix28700cfe7b1834244b50364b2de49731">Magic Members, __rrshift__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix34d590d922e4a6ffb682bde56462afdc">Magic Members, __rshift__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixf57aa4a0db0c66d5f753d96872119861">Magic Members, __rsub__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix8784b381d4305fe9b331a9b602e894b8">Magic Members, __rxor__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix8848212daffd6687ca24820ec8e357a0">Magic Members, __setattr__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix1141c35e0e877719706bdb4789805d7a">Magic Members, __setitem__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixfd659e24b56130ca8e99f6620eb074f8">Magic Members, __slots__</a></p>
+  <p class="SIX"><a href="python_kapitel_13_001.htm#ixe2a361f869151dff0a849f2fe2532c16">Magic Members, __str__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix28756f866db5587f9e0ef2e614edb353">Magic Members, __str__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix7d3eac16c3028d32b1d3361c17f8e6e9">Magic Members, __sub__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix4a7e08510dfd839d53fdb1211ab96717">Magic Members, __unicode__</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ixa8dc087c74a3eb83a0e88bda7674b0c0">Magic Members, __xor__</a></p>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ixa91b6ca33548d004d5f8e736c70a7f04">Main Event Loop</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ixa9b20876a2211275ae3e12ca27aaa8a7">Managed Attribute</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixac9ef2d2ae43ff00e3093a4a88500391">Mantisse</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ix692cc6dda0659be810cbb054d9efb91e">Many-To-Many Relation</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ixa547b383e138107d49f255a1811b1ebd">Match-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix2c6f06441111cf79ee3d6f7bdb878a39">Match-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ixedbd380c6d2e39bfefda9ddcb999e380">Matching</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix18ba6ec65c2e46dcea1eb7187aaf2b8f">Matching</a></p>
+  <p class="SIX"><a href="python_kapitel_15_004.htm#ixaf046a5b4dec118ab7194c2e4258e4b2">MD5</a></p>
+  <p class="SIX"><a href="python_kapitel_12_002.htm#ix34bc163d8b3b321e025a91389d37c63d">Mehrfachvererbung</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix819606d11f9d684e55cb04f6f0f36ccf">Member</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix2053a47b66a050ebb67d2bdc7af73eaa">Member, Private</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix086cf43b07247dc693dfc97671e56fdf">Member, Protected</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ixc5902f044b65be64b097f558b8c8393c">Member, Public</a></p>
+  <p class="SIX"><a href="python_kapitel_26_002.htm#ix4449956dfc2e5c10f8b80bba8d9ec4a8">Memory Leak</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ix212878d8a1746df24ac8dc7b00710028">Menge</a></p>
+  <p class="SIX"><a href="python_kapitel_08_004.htm#ix3196828f47cd22237efb15272d83540c">Methode</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix5a194da517b12b2894c0e435eb729425">Methode</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix345dbe171bd37ced623242eaf7d59f09">Methodendefinition</a></p>
+  <p class="SIX"><a href="python_kapitel_26_002.htm#ix4a9cec237c2ebdbed509b094ec5dcf93">Method Table</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ixe2085624ee7c20be5d573841b1208ef6">MFC</a></p>
+  <p class="SIX"><a href="python_kapitel_20_005.htm#ix7b453dc404008425fe07c74633a70087">MIME</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix0e86b8f289dacc7c8e370ec23fe0015e">Modaler Dialog</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ix866942688113ccc4a24c7d08cd8f65ff">Model-API</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ixdc8ade3554f78141c8ab96f519f532db">Model-View-Konzept</a></p>
+  <p class="SIX"><a href="python_kapitel_24_002.htm#ix3fcf11cc4e50f9b701ec022d3f55e9fc">Model-View-Konzept</a></p>
+  <p class="SIX"><a href="python_kapitel_25_002.htm#ixa4edc44b9459628c0524b30b05523168">Model-View-Konzept</a></p>
+  <p class="SIX"><a href="python_kapitel_24_007.htm#ix2cc2ed7e91b48d22b6771e3c3effabfc">Model-View-Konzept</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ixcff5d792fea8edba5793a21923ab02da">Modell</a></p>
+  <p class="SIX"><a href="python_kapitel_25_002.htm#ixb3414a6d5020ccd42d3319ce2371bfd3">Modell</a></p>
+  <p class="SIX"><a href="python_kapitel_24_007.htm#ix1d92b5dfda5d64d239ec1d1210a169e0">Modellklasse</a></p>
+  <p class="SIX"><a href="python_kapitel_22_001.htm#ixbec30af539f5d29c4211f0515c8cc5c2">Modul</a></p>
+  <p class="SIX"><a href="python_kapitel_11_001.htm#ix0a1880b55167d282a34f7b5b53a6b139">Modul</a></p>
+  <p class="SIX"><a href="python_kapitel_11_001.htm#ix1743c51972f01aa62635c19245038156">Modularisierung</a></p>
+  <p class="SIX"><a href="python_kapitel_20_007.htm#ix4bf8f8458b7fed7c80aa016d9c065a12">Multicall</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ixa24b7a8a9407198068a45dcb4b597745">Multiplexender Server</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix102fccf4752ca19e4c507d95eac29ae5">Multiplexender Server</a></p>
+  <p class="SIX"><a href="python_kapitel_18_001.htm#ix4d5b4ce50a6434fc6c1980c2bc2947aa">Multitasking</a></p>
+  <p class="SIX"><a href="python_kapitel_07_003.htm#ix7e1264eedc0351e05ac339477622e3fd">mutable</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ixd725b1da4591136e20da3f5a4537d896">MySQL</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp15"></a>N  
+      <a href="#grp16"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp14"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixaa0245b451e65bb33cee634348100dc3">nan</a></p>
+  <p class="SIX"><a href="python_kapitel_14_003.htm#ix6a1d2e9fee41702329198a5d65d26e2b">nan</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix4b5f57f7510e59debb5109a06b8ffff9">Netzwerk-Byte-Order</a></p>
+  <p class="SIX"><a href="python_kapitel_12_002.htm#ix241bcdf1e7102ee23b660b049dad685e">New-Style Classes</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix33c6d0844c2cc9edae67d1d9059f97b6">Nicht-blockierender Socket</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix2561e32606d263457d0da30ce5f9d130">Nicht-modaler Dialog</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ixbe7331463f801f13b6e1c2eb217cff7f">Node</a></p>
+  <p class="SIX"><a href="python_kapitel_08_002.htm#ixf6789ce817d1b5fe689202fae35c17df">None</a></p>
+  <p class="SIX"><a href="python_kapitel_08_002.htm#ixcf160075c8ef5184a1678f0dbb387c50">NoneType, Basisdatentypen</a></p>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ix5074a7387b9f021c59ca537a5fdb14a4">Normalverteilung</a></p>
+  <p class="SIX"><a href="python_kapitel_04_005.htm#ix88c161a613c29cfa8dd21c6cf4325514">not</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix04de1eda6693d572c6218721b846a833">not</a></p>
+  <p class="SIX"><a href="python_kapitel_08_006.htm#ixcf911f4f35fd2aebdffa03993b44e3d6">not in</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix3ba0c5fe9e0b4fcf5ebc60183d03a18a">not in</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ix9ccc84fc0a8f99f486fde6b1a94650a4">not in</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix24597a21b3f373dc39576534862e7d9a">Numerische Datentypen</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp16"></a>O  
+      <a href="#grp17"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp15"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_12_002.htm#ix961cbe458aa94c74e7adfc1a4e95a728">object</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix1a530f19ea2762c8ac200cfb84260a34">Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix28ac7295416d5e72f580ff227bda0d70">Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix657abe756077a9f7dbd4eafb81f3e99a">Objektorientierung</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix80924dee830d71be36706d5401c2c71b">Oktalsystem</a></p>
+  <p class="SIX"><a href="python_kapitel_12_002.htm#ix08be7fc981ccdc65685165de810887df">Old-Style Classes</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ixd6ae9b2f8fb09867b7bbe5e022b24c06">One-To-Many Relation</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ix54c38e474e4a3502f0445f9ccfb2f1b0">One-To-One Relation</a></p>
+  <p class="SIX"><a href="python_kapitel_08_001.htm#ix4a543442783bc7b59ba0881b5dcda12c">Operand</a></p>
+  <p class="SIX"><a href="python_kapitel_04_001.htm#ix878a2bd17e8c86c66947001944297f27">Operator</a></p>
+  <p class="SIX"><a href="python_kapitel_08_001.htm#ix2b84f528371db9d1b63c4857f1a10a52">Operator</a></p>
+  <p class="SIX"><a href="python_kapitel_A_003.htm#ix1bf1aebaf16555fbb67131428ddcc1b4">Operatorrangfolge</a></p>
+  <p class="SIX"><a href="python_kapitel_08_001.htm#ixeb5b72d4d63a9d07772f0811fee268f0">Operatorrangfolge</a></p>
+  <p class="SIX"><a href="python_kapitel_23_001.htm#ixcc04580e78c072b9de3b1acfc5adba0a">Optimierung</a></p>
+  <p class="SIX"><a href="python_kapitel_17_005.htm#ixcba68eb82608b80cae1dd331962ce5dc">Option</a></p>
+  <p class="SIX"><a href="python_kapitel_08_004.htm#ix9f5d3648db80ac1d780fbaed23e01854">Optionale Parameter</a></p>
+  <p class="SIX"><a href="python_kapitel_10_002.htm#ix0aaaf14b8ce10481d4b7fa3bb3aefd8a">Optionale Parameter</a></p>
+  <p class="SIX"><a href="python_kapitel_04_005.htm#ixa3a6afd28b86f05a828a885ba455047b">or</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix6fb4fbdf1d1dee0e7524896c66f5ee03">Ordnungsrelation</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix175a54dc131ddf8893ddd238f262fe67">OSI-Schichtenmodell</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ixda9c919fccfac537887d6d4b87948b88">Out-of-Band Data</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp17"></a>P  
+      <a href="#grp18"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp16"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix6b7a70ca3233de40d98b23bb95060e31">Painter</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix2047681cff15e7352266f224373169f9">Painter Path</a></p>
+  <p class="SIX"><a href="python_kapitel_22_001.htm#ix525bb5c17b7275409ed59258171772ea">Paket</a></p>
+  <p class="SIX"><a href="python_kapitel_11_003.htm#ixdf20f75a4047a90ab54ffbaf53461e68">Paket</a></p>
+  <p class="SIX"><a href="python_kapitel_18_001.htm#ixbc9fe57699b95150593852f1bbee0561">Parallele Programmierung</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ixeb6d71d7c43035c800bffbb8b23cc1e9">Paralleler Server</a></p>
+  <p class="SIX"><a href="python_kapitel_10_001.htm#ix5a17feaafe66533d744621b25995729e">Parameter</a></p>
+  <p class="SIX"><a href="python_kapitel_08_004.htm#ixc97d8e5a873d5d760291ed98bb785a5b">Parameter</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ixaa4392c7b90e5a5f3977e372862bae77">Parent</a></p>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ixef59bc99c89458c62d8116d83764d9ac">Pareto-Verteilung</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix523119e58c30ba3ebfc9207d124edf71">Parser</a></p>
+  <p class="SIX"><a href="python_kapitel_06_003.htm#ixd88d8874935ca1f76dd068537976b700">pass</a></p>
+  <p class="SIX"><a href="python_kapitel_27_004.htm#ix6bde81c0bf9de7b73e7bd2a9ac63826a">Passworteingabe</a></p>
+  <p class="SIX"><a href="python_kapitel_21_001.htm#ix749215e2710c99ec81b317bafa4a22b0">PDB</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix49c3356da3a9e369f48f4a37b5133aa4">Pen</a></p>
+  <p class="SIX"><a href="python_kapitel_17_001.htm#ix034238d18c6839e8c8397772d098c3a3">Pfad</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ixe15d8f1e374717fc1e633f7d0fd141e7">Pipe</a></p>
+  <p class="SIX"><a href="python_kapitel_02_002.htm#ix3d1b227f9195fbbfdaed3a6db11b33d1">Plattformunabhängigkeit</a></p>
+  <p class="SIX"><a href="python_kapitel_20_005.htm#ix23d8225eb601f45b9861fa19a42e46e5">POP3</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ixb98974df9e6a98a4700f4a08b77bb01d">Port</a></p>
+  <p class="SIX"><a href="python_kapitel_10_002.htm#ix3ceed4c7e9d5c1b72bab8cf250741c17">Positional Arguments</a></p>
+  <p class="SIX"><a href="python_kapitel_25_008.htm#ix780bec27a871f174bee1f4d122a6f163">POST</a></p>
+  <p class="SIX"><a href="python_kapitel_21_001.htm#ixed74a70b5dde6362d3c24f732f3fd251">Post Mortem Debugger</a></p>
+  <p class="SIX"><a href="python_kapitel_18_004.htm#ix790109dd5e8be47831112d7e31c9e168">Primzahl</a></p>
+  <p class="SIX"><a href="python_kapitel_04_006.htm#ix43a31671858fad609adbb0b4a8b008bb">print</a></p>
+  <p class="SIX"><a href="python_kapitel_09_001.htm#ixa239072ff722bd96d86c096ac78825ea">print</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ixe9fef8756e536dc1e8b54ec0aa8c4080">Privater Member</a></p>
+  <p class="SIX"><a href="python_kapitel_21_007.htm#ix8940c7dade825f8cbfb6a7dec7c28b0a">Profiler</a></p>
+  <p class="SIX"><a href="python_kapitel_18_001.htm#ixca0b31265a291a6d88fe840716799bb6">Programm</a></p>
+  <p class="SIX"><a href="python_kapitel_03_002.htm#ix5d02b21422a42dce7f454597009fb56c">Programmdatei</a></p>
+  <p class="SIX"><a href="python_kapitel_02_002.htm#ix5df9f534215325660eed21a18464b09d">Programmierparadigma</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix30f2846f8c03b171ceacad15c5d54bda">Protokollebene</a></p>
+  <p class="SIX"><a href="python_kapitel_18_001.htm#ix17b9f69bb8d3b4a03791c00c3c70c058">Prozess</a></p>
+  <p class="SIX"><a href="python_kapitel_02_002.htm#ix3f8a1fd4289ae1da062e33a343fccf09">PSF-Lizenz</a></p>
+  <p class="SIX"><a href="python_kapitel_A_001.htm#ix40ff6b374bda1413f5373e90714bd637">PyDev</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix80c8e0f44c1ebdabc8a46791de165cc7">PyGnome</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix363b42a26260259d785b01d6f673d3bf">PyGtk</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix916c5649cd9a28f9ddff5ef4e4d6faa8">PyQt</a></p>
+  <p class="SIX"><a href="python_kapitel_03_001.htm#ix7e03cf5eaf60740ea4e3478e8cdc0e62">Python-Website</a></p>
+  <p class="SIX"><a href="python_kapitel_28_002.htm#ix631c2ae2fe4dec131d2831742f682aa6">Python 2.6</a></p>
+  <p class="SIX"><a href="python_kapitel_28_001.htm#ix2a81c6ab9c8526cbb6f687eaa27648c4">Python 3000</a></p>
+  <p class="SIX"><a href="python_kapitel_02_002.htm#ixaa6c214aae93a4e7510de525689b78ab">Python API</a></p>
+  <p class="SIX"><a href="python_kapitel_26_002.htm#ix1bd02f3426a7866b8e2d4a990e066426">Python API</a></p>
+  <p class="SIX"><a href="python_kapitel_25_001.htm#ixdfa55aba084ac5f6633b228b524ebe11">PYTHONPATH</a></p>
+  <p class="SIX"><a href="python_kapitel_03_001.htm#ix091918c1914b3b6313b66ea06b670932">Python Shell</a></p>
+  <p class="SIX"><a href="python_kapitel_02_001.htm#ixf415fd95dc925fe7265fbb8e6fa19aaf">Python Software Foundation</a></p>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ix56cfff776000001e60250d25b6b1824b">pyuic4</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp18"></a>Q  
+      <a href="#grp19"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp17"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ixc96e8fe95c4901d79d1ee51045402445">QApplication</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix07fca03ac30f141c62fbd44aca2cc55a">QCheckBox</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixa1ab9ade9b624dbb3940ed26596e2452">QComboBox</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix3da862496087937614737e6ee9fdbf81">QDateEdit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix95792032b61d62a89a3b951de56c756d">QDateTimeEdit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix14d5a4891cbe9f94ae1240fc78b08649">QDial</a></p>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ix556e63bafb4d9b446d0eabfdce93ad5d">QDialog</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix8ef7917719274ff2af2558a9fa92ab68">QDialog</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix9559e04004717aef78c3173a49fdf3a5">QGLWidget</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix412a2463dbb8361a3c65a08beb4d414c">QLineEdit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix9b30f3e737ba0ec140f9b506df8635ab">QListView</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixc66f22f6020478975a3208ee3222d7ca">QListWidget</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix8e2524dc8c221c87c4da98a35b15fd66">QPainter</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix8687f4741568d567b5f0d49a403a72d5">QPen</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix0d4d0d2ad15c32d13df5d2828c48b332">QProgressBar</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixef8c4c2c98d186f3b61a1247a964402f">QPushButton</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix48fca45d4923f437f63fb0d25db76043">QRadioButton</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixf4542b993dbe984513c980d51a0510a4">QScrollArea</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixa1994e73a649bedf2a48ef9f84480996">QSlider</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix098f864eab06c848d01a632734f363a4">Qt</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix291232702dc4d031775b1f567333789b">QTableView</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixf321f9b581e36022c1ae7a37304036f0">QTableWidget</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixaa32a9a5d4392bb3904015d3dacd6f3c">QTabWidget</a></p>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ix7e87450e39abdf8110584c46f5f7bd6b">Qt Designer</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixf3153afd1f42026d4c9cd4763ccb052a">QTextEdit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix483df000a3cf65e4e2b06e97c8348af8">QTimeEdit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixdb6bf2cfb417ab23707bea8fe5653a86">QTreeView</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix7f5bb37154937003281960fb61f43829">QTreeWidget</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix8016bafcd91472cd11eb55b7331cc5f1">Quantor</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix5c6f5afbdf055c3a252b1bd4e2a05985">Quantor, Genügsamer Quantor</a></p>
+  <p class="SIX"><a href="python_kapitel_03_002.htm#ix747b2188f188080988fa221bc064f9d7">Quelltext</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ix352d4d0c10a31b7241ac7340adf56848">Query</a></p>
+  <p class="SIX"><a href="python_kapitel_18_004.htm#ix5f5146686bb1c99590b83905c2ffb5c9">Queue</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ixf416fc616a232b6dd4166f2716a90e08">Queue</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix94ab69db50fff36b499edaeb2f362c11">QWidget</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp19"></a>R  
+      <a href="#grp20"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp18"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_08_004.htm#ix97e5ed1ab7f4275e24a1448f6df4750e">Rückgabewert</a></p>
+  <p class="SIX"><a href="python_kapitel_10_001.htm#ixed1214b0d8ba2b5cfbc1d4e4c54f8ae0">Rückgabewert</a></p>
+  <p class="SIX"><a href="python_kapitel_13_001.htm#ix80adadf9ea443dcca62f1c32a220f6d1">raise</a></p>
+  <p class="SIX"><a href="python_kapitel_02_003.htm#ix99d213c2f35cf356066186f8db1e6970">Rapid Prototyping</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix2ec2bba17cf2ba05ba88d301a31534ba">Raw-String</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix7ab8da752ead2816d3ee374a20e7647a">RE-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix462358bd220bbe386a5f5a77a7d6aa20">RE-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix1bc48367cf4e2408262b8c9a20ac4cac">Reader</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix7bf5e78218fdde7e23d3baa8b86364c7">Realteil</a></p>
+  <p class="SIX"><a href="python_kapitel_17_003.htm#ix36c11ddbf675abe61c21b288ed5d942f">Reference Count</a></p>
+  <p class="SIX"><a href="python_kapitel_26_002.htm#ix86b1060492404284a1cf68fcc37b6a71">Reference Count</a></p>
+  <p class="SIX"><a href="python_kapitel_07_002.htm#ix796c81b2f6f6271c91eb279cd6e61ab4">Reference Count</a></p>
+  <p class="SIX"><a href="python_kapitel_07_001.htm#ix73f09345d10c4f3554f41237697495d1">Referenz</a></p>
+  <p class="SIX"><a href="python_kapitel_07_002.htm#ix8e8fd03a8dfb541f6098fafdafb74b93">Referenzzähler</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ixffea905c3ec40d94c5ea0654e3ffd333">Regulärer Ausdruck</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ixa7a5ad04bbfd9acea00e21092835b1a6">Regular-Expression-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ixadc2a9fe4eaad544d8892d95907b7268">Regular-Expression-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_10_006.htm#ixeedc5d2fb8246997510a52eaac842d27">Rekursion</a></p>
+  <p class="SIX"><a href="python_kapitel_10_006.htm#ix0f095af6deaa4fa71041e06d31b92848">Rekursionstiefe</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ix075236c9f1fc6c26765a027f9607b6c2">Relationale Datenbank</a></p>
+  <p class="SIX"><a href="python_kapitel_11_003.htm#ix39adaccc9805a4d037c6f341a0a5cfd1">Relative Importanweisungen</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix418f4471e3106b6794e62cc669159ff4">Request Handler</a></p>
+  <p class="SIX"><a href="python_kapitel_A_002.htm#ixe02a13bed4876c11bcbe617f27bcaa4b">Reservierte Wörter</a></p>
+  <p class="SIX"><a href="python_kapitel_10_001.htm#ix23e72f004e84e8e8ff152c1a1143f9d7">return</a></p>
+  <p class="SIX"><a href="python_kapitel_26_002.htm#ixba729dbf468cd1fdcc98aceb787e1af7">ROT13</a></p>
+  <p class="SIX"><a href="python_kapitel_22_001.htm#ix1458a5eaed8c226b01ea892e3faf7a02">RPM</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp20"></a>S  
+      <a href="#grp21"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp19"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ixd78d54255660bd78cdabd161dd5a0e59">SAX</a></p>
+  <p class="SIX"><a href="python_kapitel_08_006.htm#ix8ef1a679ccd8f7f0da147c9895b3a627">Schlüssel/Wert-Paar</a></p>
+  <p class="SIX"><a href="python_kapitel_04_004.htm#ixf4a89d2f752d5396165312b3c4a72d87">Schlüsselwörter</a></p>
+  <p class="SIX"><a href="python_kapitel_A_002.htm#ix54b98c4130fde2f08e3a0d8b97f6913b">Schlüsselwörter, Liste revervierter Wörter</a></p>
+  <p class="SIX"><a href="python_kapitel_08_004.htm#ix920e0d50231a5b23557a646e2ec613f1">Schlüsselwortparameter</a></p>
+  <p class="SIX"><a href="python_kapitel_10_002.htm#ixa10eed531611a4aa6ebea43268bed0b6">Schlüsselwortparameter</a></p>
+  <p class="SIX"><a href="python_kapitel_18_001.htm#ixb7c1c311b880c5dd6be3fc78a7a9c756">Schlafender Thread</a></p>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ix7f4ab2e404896555b1b9504c067fc649">Schleife</a></p>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ixff6f4427933aa0be6a1158283cc448e6">Schleifenkörper</a></p>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ix3e81949b8b1ce207834121fc93c1b2ed">Schleifenzähler</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ix08a19b59de46136a8f2b0268006b4c48">Schnittmenge</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix9f641b7ef911b9567d9031a21cfacf33">Schnittstelle</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix2a8a2cd62048286b1ae2233357c06ba3">Schrittweite</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix523d2b972acacba4df4412c00bf4799f">Searching</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix007482446c74965c8aeed745b399213f">Searching</a></p>
+  <p class="SIX"><a href="python_kapitel_10_002.htm#ix2683b36fd1f36a459502871a5e0873ba">Seiteneffekte</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix8ab15592806b5ca7469352e6008dfdb1">self</a></p>
+  <p class="SIX"><a href="python_kapitel_13_011.htm#ix0e2a88108d2a3ff56269aa03616eae69">Semikolon</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix28da8b3ea6dd196f14f942a7362aaff3">Sequenzielle Datentypen</a></p>
+  <p class="SIX"><a href="python_kapitel_19_004.htm#ixf69392e995ac646c125c61dd3540753d">Serialisieren</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix67ffce8ff17fd0c23e5fb106ac8d54e8">Serieller Server</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix49bfdac984af6fec13b143a67fe5acd7">Server</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ixe5281c82950a7b9d9e5947c5ee73e05e">Setter-Methode</a></p>
+  <p class="SIX"><a href="python_kapitel_15_004.htm#ix03253a892c01fcdf5d4bc19458eae2c0">SHA-1</a></p>
+  <p class="SIX"><a href="python_kapitel_15_004.htm#ixddc99a5113fb1e899235496e45c45592">SHA-224</a></p>
+  <p class="SIX"><a href="python_kapitel_15_004.htm#ixdd49be6d95a618fb19f5631d5eacf31f">SHA-256</a></p>
+  <p class="SIX"><a href="python_kapitel_15_004.htm#ix14ea61d6d4e9250d8ae8aaf1fe884719">SHA-384</a></p>
+  <p class="SIX"><a href="python_kapitel_15_004.htm#ix1b143feea3b197db645764fbfe6624fd">SHA-512</a></p>
+  <p class="SIX"><a href="python_kapitel_26_001.htm#ix0d9cb40eb9e42308333711de572449e8">Shared Object</a></p>
+  <p class="SIX"><a href="python_kapitel_03_002.htm#ix668c52c666918464dfa186a81f114200">Shebang</a></p>
+  <p class="SIX"><a href="python_kapitel_17_005.htm#ix2c7f6f270a71b821b51c8aa29b708bbc">Shell</a></p>
+  <p class="SIX"><a href="python_kapitel_25_006.htm#ix12f3a2e42223eb3ba351ebb2e6429779">Shortcut-Funktion</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix11ee87621653a282b3fe116e534906e3">Sibling</a></p>
+  <p class="SIX"><a href="python_kapitel_24_002.htm#ixe157b68160f5138277e69298aac59cf9">Signal</a></p>
+  <p class="SIX"><a href="python_kapitel_24_004.htm#ix7362a96ac4f3b564d40b6656797af966">Signal</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ixd6e30f95d6e19beaaca1d52317fdcc60">Simple API for XML</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix563b8559ed2c6eac37629bb88cd04dc5">Slicing</a></p>
+  <p class="SIX"><a href="python_kapitel_24_004.htm#ixfcab63358dd071883d43ff9ccdb680a8">Slot</a></p>
+  <p class="SIX"><a href="python_kapitel_24_002.htm#ix2f2a41ffe27d9c51a9e9fdb088abbe0c">Slot</a></p>
+  <p class="SIX"><a href="python_kapitel_20_005.htm#ixf52a4edfd91ba7dfc65b5ebfc7d0e8ea">SMTP</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix6c96f4c439f197a52ebce9d2b0e3ff92">Socket</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ixcbea0cd312bca3a83d1b4c6f47e9c135">Socket API</a></p>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ix319e6431cfb8e75eecd04dbf39f55f98">Spacer</a></p>
+  <p class="SIX"><a href="python_kapitel_26_002.htm#ix63f1ac4d33b0b7b7fcaa8cef2372e4b2">Speicherzugriffsfehler</a></p>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ixd9e0a107c4afb262bb5ea21011087501">Splitter</a></p>
+  <p class="SIX"><a href="python_kapitel_15_003.htm#ix7afb1e672974c52b5ef489b7926c932d">Sprachkompilat</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ix9d1b8605d103185d78b3970166fd4b92">SQL</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ixbe70fab5d3b6b09f97b6051b511fc91a">SQL-Statements, CREATE</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ix055ab41ba18d57ba579c6af441dcccb6">SQL-Statements, INSERT</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ixb5d3736e20f3337e7322b6282e3be91f">SQL-Statements, SELECT</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ix0a40560ee0f7416d3912d0d4f39d9463">SQL Injection</a></p>
+  <p class="SIX"><a href="python_kapitel_20_006.htm#ix8b160c9cff1c2f18eea11a000862d768">SSH</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ixcb3e4e0c54d1c7d90ae9a8702f18588a">Stabiles Sortierverfahren</a></p>
+  <p class="SIX"><a href="python_kapitel_14_001.htm#ix6a7d0d91704d46bbc3931b2c5a27d8d1">Standardbibliothek</a></p>
+  <p class="SIX"><a href="python_kapitel_02_002.htm#ixd1d19190e0d8fbf8bdc99ad7f32f4876">Standardbibliothek</a></p>
+  <p class="SIX"><a href="python_kapitel_17_008.htm#ixe94906e358bdbe9a15398ee9ad52ff4d">Standardbibliothek, atexit</a></p>
+  <p class="SIX"><a href="python_kapitel_14_001.htm#ixb5ab9886556f4847ee7e6deee9f6ab0c">Standardbibliothek, cmath</a></p>
+  <p class="SIX"><a href="python_kapitel_27_005.htm#ixb05f3bb8c063af12595c81e605d1ae55">Standardbibliothek, cmd</a></p>
+  <p class="SIX"><a href="python_kapitel_27_001.htm#ixbb83a69c9b4fb5782a8156936bafdde8">Standardbibliothek, codecs</a></p>
+  <p class="SIX"><a href="python_kapitel_17_006.htm#ixb84467a985e2c2b1fe09cf52a3aee119">Standardbibliothek, copy</a></p>
+  <p class="SIX"><a href="python_kapitel_21_007.htm#ix1d2ab2202ca14c730bd6bc0106a89952">Standardbibliothek, cProfile</a></p>
+  <p class="SIX"><a href="python_kapitel_15_005.htm#ix196664c100cd2052c842c9b6b4257d63">Standardbibliothek, cStringIO</a></p>
+  <p class="SIX"><a href="python_kapitel_19_005.htm#ix84836c258a3aff3c04c18c5c84db61e8">Standardbibliothek, csv</a></p>
+  <p class="SIX"><a href="python_kapitel_26_001.htm#ixe15ed2041938aa2993b12468f69e0dae">Standardbibliothek, ctypes</a></p>
+  <p class="SIX"><a href="python_kapitel_16_002.htm#ix1fa4bb39656a9072c78fbcfd0fd14613">Standardbibliothek, datetime</a></p>
+  <p class="SIX"><a href="python_kapitel_14_003.htm#ix540ece25eeccfb87a2f8044d95e86fb8">Standardbibliothek, decimal</a></p>
+  <p class="SIX"><a href="python_kapitel_22_001.htm#ix7a7248cb8ff33716011ad1f20786c519">Standardbibliothek, distutils</a></p>
+  <p class="SIX"><a href="python_kapitel_21_005.htm#ix635f0edfdfbf9f74932c20a7fd97d049">Standardbibliothek, doctest</a></p>
+  <p class="SIX"><a href="python_kapitel_20_005.htm#ixeceba16abfb3f5e3be5ef8bd36a37581">Standardbibliothek, email</a></p>
+  <p class="SIX"><a href="python_kapitel_22_003.htm#ix94939a63b5314c0b3c8d0cbcf390ab0b">Standardbibliothek, epydoc</a></p>
+  <p class="SIX"><a href="python_kapitel_20_004.htm#ix5ce5a0849c5ffc983d19407f6b7d56aa">Standardbibliothek, ftplib</a></p>
+  <p class="SIX"><a href="python_kapitel_27_003.htm#ixe271690305649e5717355061cfe3f227">Standardbibliothek, functools</a></p>
+  <p class="SIX"><a href="python_kapitel_27_004.htm#ix39b07e10f86cfd6990cd98586b607776">Standardbibliothek, getpass</a></p>
+  <p class="SIX"><a href="python_kapitel_15_003.htm#ix50f4e2c8b2c15ed0ebb5d31f3bd46636">Standardbibliothek, gettext</a></p>
+  <p class="SIX"><a href="python_kapitel_19_001.htm#ixeaed5dc00ffc3b85d737e746da47fce9">Standardbibliothek, gzip</a></p>
+  <p class="SIX"><a href="python_kapitel_15_004.htm#ix90b43312ee6be9a1eb13ae9ad1aa2ab9">Standardbibliothek, hashlib</a></p>
+  <p class="SIX"><a href="python_kapitel_20_005.htm#ix799bae98678f815888d1f452cf7b3971">Standardbibliothek, imaplib</a></p>
+  <p class="SIX"><a href="python_kapitel_21_002.htm#ix02ea1eb5169ec913316bc5fbe06a6225">Standardbibliothek, inspect</a></p>
+  <p class="SIX"><a href="python_kapitel_21_004.htm#ix4348616b8b6920cb74ba8d7cdfa53a1e">Standardbibliothek, logging</a></p>
+  <p class="SIX"><a href="python_kapitel_14_001.htm#ixbd61a8c05e9680a7e1654259cd3cce3c">Standardbibliothek, math</a></p>
+  <p class="SIX"><a href="python_kapitel_17_005.htm#ix19c21974837789717a39668d415fd579">Standardbibliothek, optparse</a></p>
+  <p class="SIX"><a href="python_kapitel_17_001.htm#ixbc4e38f6abda387e9858a7f523434c05">Standardbibliothek, os</a></p>
+  <p class="SIX"><a href="python_kapitel_17_002.htm#ix807806fbb814ea6fcb9645ae0a2c16ae">Standardbibliothek, os.path</a></p>
+  <p class="SIX"><a href="python_kapitel_19_004.htm#ix51074c82102ba1e6d4b47ff898026f90">Standardbibliothek, pickle</a></p>
+  <p class="SIX"><a href="python_kapitel_17_004.htm#ixf5197ddca9bcfa625550a39e19d84913">Standardbibliothek, platform</a></p>
+  <p class="SIX"><a href="python_kapitel_20_005.htm#ix8a705a45e74cbf2c16503e0c22b205e2">Standardbibliothek, poplib</a></p>
+  <p class="SIX"><a href="python_kapitel_21_003.htm#ix687f7fc9c1f08ff59f14ce4e87ad8f11">Standardbibliothek, pprint</a></p>
+  <p class="SIX"><a href="python_kapitel_21_007.htm#ix28c493768230dcca9d2c611889c2e74f">Standardbibliothek, profile</a></p>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ixc24195af7d746000fedf29586747bde4">Standardbibliothek, random</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix16429e2c65f42ec3da83b53fb07d1530">Standardbibliothek, re</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ixfd8c428eed9383f40919395c1ce3c78d">Standardbibliothek, re</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix2926aa1530d87ea47aabb95673224d44">Standardbibliothek, select</a></p>
+  <p class="SIX"><a href="python_kapitel_17_007.htm#ixe52307b8fe85e7c91308e0a99ae8dbfc">Standardbibliothek, shutil</a></p>
+  <p class="SIX"><a href="python_kapitel_20_007.htm#ix1632ae116ec872b291affdf9c78eb67f">Standardbibliothek, SimpleXMLRPCServer</a></p>
+  <p class="SIX"><a href="python_kapitel_20_005.htm#ix83c90af988d7adf6d0f86ad9d77c7cbe">Standardbibliothek, SMTP</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix2de3023aef61a23d3b901c177376e3e1">Standardbibliothek, socket</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ixf867aefcff93948e1c36ff7be3a25ce2">Standardbibliothek, SocketServer</a></p>
+  <p class="SIX"><a href="python_kapitel_19_003.htm#ixf498b4ec452e64f0df7b34650c8a7897">Standardbibliothek, sqlite3</a></p>
+  <p class="SIX"><a href="python_kapitel_15_001.htm#ixfd647c54489c666f3c35734307b72886">Standardbibliothek, string</a></p>
+  <p class="SIX"><a href="python_kapitel_15_005.htm#ixa6d03d99ac6d84ba4c4ea67fa79838d0">Standardbibliothek, StringIO</a></p>
+  <p class="SIX"><a href="python_kapitel_17_003.htm#ix28603a3bac16302992f55b7762162fa7">Standardbibliothek, sys</a></p>
+  <p class="SIX"><a href="python_kapitel_20_006.htm#ix271342581c8d927c1fed20d76c6ba644">Standardbibliothek, telnetlib</a></p>
+  <p class="SIX"><a href="python_kapitel_19_006.htm#ix1e892ea0137f15be149839d954667fd1">Standardbibliothek, tempfile</a></p>
+  <p class="SIX"><a href="python_kapitel_18_003.htm#ix53a0c066985f5f77d458d7eefa696984">Standardbibliothek, thread</a></p>
+  <p class="SIX"><a href="python_kapitel_18_004.htm#ixaf2a6ef8043a5bb3d67525b58345c09d">Standardbibliothek, threading</a></p>
+  <p class="SIX"><a href="python_kapitel_16_001.htm#ixf21047d19167705dbe3f19d1b8b23416">Standardbibliothek, time</a></p>
+  <p class="SIX"><a href="python_kapitel_21_007.htm#ix4f0492235ea5617677f0b3cdc58d723b">Standardbibliothek, timeit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ixc7db3fd3ad884d224a43b0a6510644f0">Standardbibliothek, Tkinter</a></p>
+  <p class="SIX"><a href="python_kapitel_21_007.htm#ixd8b0d6a5f66c409e3a775939915f6db7">Standardbibliothek, trace</a></p>
+  <p class="SIX"><a href="python_kapitel_21_006.htm#ix50d6a6819ead770aea9359628dd194e9">Standardbibliothek, traceback</a></p>
+  <p class="SIX"><a href="python_kapitel_21_005.htm#ixcd56e44e6391f53f5dfc0c9cca68f453">Standardbibliothek, unittest</a></p>
+  <p class="SIX"><a href="python_kapitel_20_002.htm#ix5812b48a53610b123c70c7c8dd56059d">Standardbibliothek, urllib</a></p>
+  <p class="SIX"><a href="python_kapitel_20_003.htm#ixf03ebfbe123ac5911f1bb62ac59e9260">Standardbibliothek, urlparse</a></p>
+  <p class="SIX"><a href="python_kapitel_27_002.htm#ixd6f7101e3ada4b8a60d2ae2cc3969b16">Standardbibliothek, webbrowser</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix9c67b83f731e1a2524eb0b0aea1b9fb8">Standardbibliothek, xml</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix8eb86d1a46553d50cb78e1e5dbed1ac5">Standardbibliothek, xml.dom</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix3555139be900a4eb6e44569b0a384ac4">Standardbibliothek, xml.etree.ElementTree</a></p>
+  <p class="SIX"><a href="python_kapitel_20_007.htm#ix7a34133d923f5c229d82dee1a06df46d">Standardbibliothek, xmlrpclib</a></p>
+  <p class="SIX"><a href="python_kapitel_12_001.htm#ix1d3be6b50954dc8c623215930834f425">Statischer Member</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix3cb229c3991cf4b9d28d6f70268b89e2">Steuerelement</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ixc5803b8f797ea907b98ccdd59cc448e8">Steuerzeichen</a></p>
+  <p class="SIX"><a href="python_kapitel_09_003.htm#ix42d2e6aac959d78dfa02c524e4171e55">Stream</a></p>
+  <p class="SIX"><a href="python_kapitel_04_003.htm#ix3c02c69ad2376caaa4851f849509c691">String</a></p>
+  <p class="SIX"><a href="python_kapitel_13_011.htm#ix13ba1b8c75be20a1e7e3108992f44253">String Conversions</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ixd28f361d2f5a234cee6287fa03a388bd">Strings</a></p>
+  <p class="SIX"><a href="python_kapitel_12_002.htm#ix3464baed15c9b32dad0daf589ca97662">Subklasse</a></p>
+  <p class="SIX"><a href="python_kapitel_25_001.htm#ix9256fd3fb5ce5f54d4a078f637f180dd">SVN-Repository</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ixf475a404d025d2e18d97c4261de71f06">Symmetrische Differenzmenge</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ixa63080909c8e68945a77418f76c6dc0a">Syntax</a></p>
+  <p class="SIX"><a href="python_kapitel_05_001.htm#ix7031390a4e42f7a7c9b896513f409433">Syntax</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ixd70bebeecb5b986b2a80389ff69b9b45">Syntaxanalyse</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp21"></a>T  
+      <a href="#grp22"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp20"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ix4e99ae3dcf4ba597de0828d81b8841df">Tabulatorreihenfolge</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ixad1ad6c21d7f58ba5696cf6e122da8b5">Tag</a></p>
+  <p class="SIX"><a href="python_kapitel_25_007.htm#ix49976afb5d51f78ec01559f87c9d8bff">Tag</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ixb09cbc7abb53a47ecea55de4d8851d4e">Tag-Name</a></p>
+  <p class="SIX"><a href="python_kapitel_09_002.htm#ix372da59261388d89a0f462cf5f43eb66">Tastatureingaben</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix047640745502b07905e9637f84997872">TCP</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ixbfc8313e1f793673c0d6a31124414506">Teilmenge</a></p>
+  <p class="SIX"><a href="python_kapitel_20_006.htm#ixe93d73e39f5af97c2106df30cb1cd73d">Telnet</a></p>
+  <p class="SIX"><a href="python_kapitel_25_007.htm#ix3c9a2bc51b07e7673f5985ee3cb0de31">Template</a></p>
+  <p class="SIX"><a href="python_kapitel_15_001.htm#ix36ca3d690ee115be48a357d09b89fecc">Template-System</a></p>
+  <p class="SIX"><a href="python_kapitel_25_007.htm#ixefa98cc3aabadb764668f2b9bf6c52a9">Templatevererbung</a></p>
+  <p class="SIX"><a href="python_kapitel_19_006.htm#ix31f143141518dc23d001af4e8712e7e7">Temporäre Datei</a></p>
+  <p class="SIX"><a href="python_kapitel_04_001.htm#ix28ce30fcefd159d2696be787d5ce913a">Term</a></p>
+  <p class="SIX"><a href="python_kapitel_13_005.htm#ix85cf9f10111f64a86945f38218aacf12">Terminator</a></p>
+  <p class="SIX"><a href="python_kapitel_18_001.htm#ix9e3a6056bc277475c97ba841710e43e7">Thread</a></p>
+  <p class="SIX"><a href="python_kapitel_18_001.htm#ix9b7d0b32953631746a32f53b2a855aaa">Threads</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix5d3167b54c1a22909e05826bacefd0c7">Tk</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ixaff8a554e042a2c3157fc76731e1c38d">Toolkit</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix7b43f32128a98404b7d3998ae6d7ca34">Toplevel-Tag</a></p>
+  <p class="SIX"><a href="python_kapitel_13_001.htm#ixf475244d678f6cc338ff006df5b86d2f">Traceback</a></p>
+  <p class="SIX"><a href="python_kapitel_17_003.htm#ix4e3c22f9855bdc487ef99914dc3531d5">Traceback</a></p>
+  <p class="SIX"><a href="python_kapitel_21_006.htm#ixd3be61c4c328b3e244ab20075b0bfa46">Traceback-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_13_001.htm#ixf55144221948688a802bc8658b9e4675">Traceback-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_17_003.htm#ix68972bafb3011d217e1cb1884182df1e">Traceback-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_13_008.htm#ix1b8141d0c16e8e154dbabc76bae588f3">Traceback-Objekt</a></p>
+  <p class="SIX"><a href="python_kapitel_21_007.htm#ixbe6e55a0edc5d276ae08c97a1f7ec219">Tracer</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ixd9eaea74d76e995a9b814f1845f3fe33">Transformation</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix7aadb557e70584460db3832e905b7082">Transformationsmatrix</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix963eb6da6704e7603d96714c49e42ba7">Transmission Control Protocol</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ixf69b01e163701ca7d9004b91f91ef8bf">Transparenz</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix68aca8ae8d20fa05e70f348e2a662983">Trolltech</a></p>
+  <p class="SIX"><a href="python_kapitel_04_005.htm#ixec1247722e2d8718c43ed3bf7720da70">True</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix57a75152bc701bbcc571df0ed5b22cfd">True</a></p>
+  <p class="SIX"><a href="python_kapitel_13_001.htm#ixc82a7958f26da314590bf0405d91d360">try</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix1c1271714975b33c8a16df777167bfd8">Tupel</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ixc957f9824baf7e9c966ea32ccf49b9d2">Tuple Packing</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix6f2d818e966f8458c43e35b903eb6cd7">Tuple Unpacking</a></p>
+  <p class="SIX"><a href="python_kapitel_07_001.htm#ix85f3eb2a13b02baafe09579a81bb5a8b">type</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp22"></a>U  
+      <a href="#grp23"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp21"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_21_007.htm#ix6c8cbc91d1f06b74d6d71325e54286b2">Überdeckungsanalyse</a></p>
+  <p class="SIX"><a href="python_kapitel_12_003.htm#ix9c979d9a9fbc3d6001d33f02a93c0946">Überladen</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix198ad168d4444e28be0c93109ef6f4ba">UDP</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ixa59285a6cc07121c54c12314ea93939b">Umwandlungsflag</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ixfdb4a99bce3181bc38c198f0e262c0c6">Unicode</a></p>
+  <p class="SIX"><a href="python_kapitel_21_005.htm#ix6106a234a77ade26295c792703e1d264">Unit</a></p>
+  <p class="SIX"><a href="python_kapitel_21_005.htm#ixe7d134939667262acc5d3f74101e6878">Unit Test</a></p>
+  <p class="SIX"><a href="python_kapitel_16_001.htm#ix90b2ff5e69603916e7d272204e9c0dd3">Unix-Epoche</a></p>
+  <p class="SIX"><a href="python_kapitel_16_001.htm#ix7037e60d2e512d01f21d4144d83c7be3">Unix-Timestamp</a></p>
+  <p class="SIX"><a href="python_kapitel_27_002.htm#ixbfa3ada4fdfd40d44c134de885a92905">URL</a></p>
+  <p class="SIX"><a href="python_kapitel_20_002.htm#ixc0a57dbd4d548c57d2e20e1cf4fc907b">URL</a></p>
+  <p class="SIX"><a href="python_kapitel_20_003.htm#ix59dd122da119dc7104d6a72a116caf60">URL</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix92029d4ea3e7306ab444267928974bf5">User Datagram Protocol</a></p>
+  <p class="SIX"><a href="python_kapitel_16_001.htm#ix3f6fb52f985cd9096c9af48a06e32726">UTC</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp23"></a>V  
+      <a href="#grp24"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp22"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_04_004.htm#ix9067e55aea65c972a1e6cf29e930d6c1">Variable</a></p>
+  <p class="SIX"><a href="python_kapitel_05_002.htm#ixe3a80e42784e68ddabde096e8469a350">Variablentyp</a></p>
+  <p class="SIX"><a href="python_kapitel_20_001.htm#ix9fe9df380ee7390f20f45e3eae31e7a3">Verbindungssocket</a></p>
+  <p class="SIX"><a href="python_kapitel_08_007.htm#ixad554b17dc669df149f5fc5e13dc432d">Vereinigungsmenge</a></p>
+  <p class="SIX"><a href="python_kapitel_12_002.htm#ix6ba4c88eba7678a428884dddf485a294">Vererbung</a></p>
+  <p class="SIX"><a href="python_kapitel_04_005.htm#ixd7d3d2592d8acfa88383f23402935051">Vergleich</a></p>
+  <p class="SIX"><a href="python_kapitel_04_005.htm#ix8a51f5c3611c6e05c20211b3bd8c0c36">Vergleichsoperatoren</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ix204e6182abe839332e0a157aab8049ea">Vergleichsoperatoren</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ix4e7de3e5fca71eca674e75d8982bca8e">Viele-zu-viele-Relation</a></p>
+  <p class="SIX"><a href="python_kapitel_25_004.htm#ixc5e99cff87ba07207341963611f878f2">View</a></p>
+  <p class="SIX"><a href="python_kapitel_25_006.htm#ix907fccf4c86d8c2cd77c201be57d2ee4">View</a></p>
+  <p class="SIX"><a href="python_kapitel_25_002.htm#ix5789537c1dea1c3f95502720cb467893">View</a></p>
+  <p class="SIX"><a href="python_kapitel_24_007.htm#ix7e7a2fc478efe3a0291a932abb05c7b4">Viewklasse</a></p>
+  <p class="SIX"><a href="python_kapitel_03_002.htm#ix37c1f5abf76914ab70d519730e99b8a3">Virtuelle Maschine</a></p>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ixd42cee4ccfc8212f7171ad7f34aa2df7">Von-Mises-Verteilung</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp24"></a>W  
+      <a href="#grp25"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp23"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ixc39966775928408dd79e17de98fe3b41">Wahlfreier Zugriff</a></p>
+  <p class="SIX"><a href="python_kapitel_04_005.htm#ixcbb596e339812ede50323f61173db459">Wahrheitswert</a></p>
+  <p class="SIX"><a href="python_kapitel_18_003.htm#ix685701fd4b998aa8a26e1f237ccbbc15">Wallis'sches Produkt</a></p>
+  <p class="SIX"><a href="python_kapitel_14_002.htm#ix3afe60b74f0a7eb49c15f42a89369921">Weibull-Verteilung</a></p>
+  <p class="SIX"><a href="python_kapitel_07_001.htm#ix246bae824ce8b18f296aed8a6e92045b">Wert einer Instanz</a></p>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ix5b21a57817849c8e6ed0089e577a317e">while</a></p>
+  <p class="SIX"><a href="python_kapitel_22_003.htm#ix385fee9ada79a97acc245997835254fc">Whitespace</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix6550e7157855153e9af3dcffd5b291c7">Whitespace</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ixd93aa2c0b9cc04875f65300394946871">Whitespace</a></p>
+  <p class="SIX"><a href="python_kapitel_24_003.htm#ix50b3652a79e149e5f68c589ea36c9541">Widget</a></p>
+  <p class="SIX"><a href="python_kapitel_24_001.htm#ix8b5d349c7b8a6e77ca7680d762144623">Widget</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixd9b882a0e53e0575df521a94a81adef6">Widget</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix1e8e2b3ac13685b270cf13ab3adf519a">Widgets, Button</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix32f3a41d3c2d5c601e39981669e1d676">Widgets, Check Box</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix26b22986369511adfc8b56f3054aae3c">Widgets, Combo Box</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixa243a1109574278eeff5c408776a8986">Widgets, DateEdit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix2ae8942016b92e46879f39bb0658e0fb">Widgets, DateTimeEdit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix818be99597a170eda563176593d47966">Widgets, Dial</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixfb199a02d595127dd696d7e52251973d">Widgets, Dialog</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix7774ee147197ed54fd1b07055c24552b">Widgets, Fortschrittsbalken</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix48256d822e6ea1021ba4b9ddc31c06d0">Widgets, LineEdit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix4172d127f8fae5ec6766b9dca1af026e">Widgets, List</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix4823c0f88450ec92cf36b440b69cd14d">Widgets, ListView</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix1ec147c9459b23b4ef999f813c3fa8e1">Widgets, OpenGL</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix724c8ff2e4ce7bf024dde6b473fd4c10">Widgets, Radio Button</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix3e888c1dbfb76e222305e2536800586d">Widgets, ScrollArea</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix7d2980ee74fa29a6057cfabe66fa066b">Widgets, Slider</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix0f4761cfa65216899bb670212232e1ba">Widgets, Tab</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix0f6d6d7f0e62c9a1f6250dfd15dd8a25">Widgets, Table</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix7c0505bcebf6ac16f94da1c9348e01a0">Widgets, TableView</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixe5aee7d6a24eb953f760e7354264aa02">Widgets, TextEdit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixadeceb3daf7ebd94c6766e70cebb2aad">Widgets, TimeEdit</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix276d9ea38776efe7ed6f8270066384af">Widgets, Tree</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ixb6b436ffe0d94b1c54d0e1dc27d9bb15">Widgets, TreeView</a></p>
+  <p class="SIX"><a href="python_kapitel_24_008.htm#ix52e072398988782f152cf430bc82316b">Widgets, Widget</a></p>
+  <p class="SIX"><a href="python_kapitel_A_001.htm#ix74431ee05c7e289aad6e6ddd8fca810e">Wing IDE</a></p>
+  <p class="SIX"><a href="python_kapitel_13_008.htm#ixd049c9c0f94b6579e866e59b429b2370">with</a></p>
+  <p class="SIX"><a href="python_kapitel_18_004.htm#ixdc28f01e88ec1f338896715f16dd5dd9">Worker-Thread</a></p>
+  <p class="SIX"><a href="python_kapitel_15_003.htm#ixbd9e556fdb72ce197e64552e1b22e8b5">Wrapper</a></p>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix776dd8e49ba191a5cd451306f688c31f">Wurzel</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp25"></a>X  
+      <a href="#grp26"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp24"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_19_002.htm#ix607385a1dded687698b8170c0d6a92b1">XML</a></p>
+  <p class="SIX"><a href="python_kapitel_20_007.htm#ix2263e4b49fd901758f9cc413f4a7af55">XML</a></p>
+  <p class="SIX"><a href="python_kapitel_20_007.htm#ix6e0b185ce30060b45842f3f27c8e1560">XML-RPC</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp26"></a>Y  
+      <a href="#grp27"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp25"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_13_004.htm#ixa17005d55c052b1f8f05f08b9b4e1687">yield</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp27"></a>Z  
+      <a href="#grp28"><img src="common/down.gif" width="15" height="15" border="0" alt="down"></a><a href="#grp26"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_06_002.htm#ix007011714c2275b7f3e4bc5681b0617e">Zählschleife</a></p>
+  <p class="SIX"><a href="python_kapitel_08_003.htm#ixb961df52729d9f4c11e72ef50199fea7">Zahlensysteme</a></p>
+  <p class="SIX"><a href="python_kapitel_08_005.htm#ix93c40f87460aa76af01fb06a5f44a724">Zeichen</a></p>
+  <p class="SIX"><a href="python_kapitel_04_003.htm#ixe24d029a2c1c0d48163e1924dac4d4e0">Zeichenkette</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix4bd5e6747de35a13f0c229f34d7a81ac">Zeichenklasse</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix1d09562a80237531dd9cd6746ecb0151">Zeichenklasse</a></p>
+  <p class="SIX"><a href="python_kapitel_15_002.htm#ix647f821cdb7e289ffcbace5c9a3426b8">Zeichenliteral</a></p>
+  <p class="SIX"><a href="python_kapitel_24_006.htm#ix27ab6a123f84aa7de7acf316f907a40e">Zeichnen</a></p>
+  <p class="SIX"><a href="python_kapitel_05_003.htm#ix25e4cf52c523114b930737b9db791efb">Zeilenkommentar</a></p>
+  <p class="SIX"><a href="python_kapitel_18_001.htm#ix1a958510832bea920eeb9cdb91a72e82">Zeitscheibe</a></p>
+  <p class="SIX"><a href="python_kapitel_20_002.htm#ix086ba8a29b89b82defbc4d8e79e8164a">Zope</a></p>
+  <p class="SIX"><a href="python_kapitel_28_001.htm#ixe6076ea670dae720bb1e973ebc2d66ea">Zukunft</a></p>
+  <p class="SIX"><a href="python_kapitel_04_004.htm#ixe66bb85c4bb6e40502603879adb5965f">Zuweisung</a></p>
+  <br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h3><a name="grp28"></a>_  
+      <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#grp27"><img src="common/top.gif" width="15" height="15" border="0" alt="top"></a></h3>
+  <p class="SIX"><a href="python_kapitel_13_010.htm#ix6ebf61581cfef9a5e28cd68bdc74b269">__debug__</a></p>
+  <p class="SIX"><a href="python_kapitel_13_007.htm#ix5339dffb853e3611a0bfb2ca553ac132">__future__</a></p>
+<br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_A_005.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="A.5 Built-in Functions"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_A_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

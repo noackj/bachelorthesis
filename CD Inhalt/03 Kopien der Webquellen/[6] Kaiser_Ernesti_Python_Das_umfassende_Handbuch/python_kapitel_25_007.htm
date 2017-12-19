@@ -1,0 +1,650 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 25.7 Djangos Template-System</title>
+<meta name="title" content="Galileo Computing :: Python - 25.7 Djangos Template-System">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 25.7 Djangos Template-System">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_25_006.htm">
+<link rel="next" href="python_kapitel_25_008.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_25_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_25_008.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141" class="navnav">25 Python als serverseitige Programmiersprache im WWW mit Django</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_001.htm#mjdd2204be5ba4b589f486242a81296d16" class="navnav">25.1 Installation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_002.htm#mj282c78d53879441971cf422f7721f36b" class="navnav">25.2 Konzepte und Besonderheiten im Überblick</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_003.htm#mje3062b1da2ff670ce178312184ec8595" class="navnav">25.3 Erstellen eines neuen Django-Projekts</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_004.htm#mjd017713d500039b7388cd6501ad75461" class="navnav">25.4 Erstellung der Applikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_005.htm#mjbec4cf343a331c2f9b5c108a6dba8c3b" class="navnav">25.5 Djangos Administrationsoberfläche</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_006.htm#mj191bf16ca79b0cc7c1219aeea3c3f8ea" class="navnav">25.6 Unser Projekt wird öffentlich</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj1431bc22cc78c16b5a7d0e21d6379f28" class="navh">25.7 Djangos Template-System</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_008.htm#mj9e4c615e6b781e13841677e90a85ec7f" class="navnav">25.8 Verarbeitung von Formulardaten</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj1431bc22cc78c16b5a7d0e21d6379f28" name="mj1431bc22cc78c16b5a7d0e21d6379f28"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">25.7</span><span class="cfett"> Djangos Template-System</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Unsere bisher implementierten Views sind noch alles andere als optimal: Erstens sind sie optisch wenig ansprechend, da nur einfacher Text ausgegeben wird, und außerdem werden sie direkt aus String-Konstanten in der View-Funktion erzeugt. Besonders im zweiten Punkt muss noch nachgebessert werden, da es eines der Hauptziele von Django ist, die Komponenten eines Projekts möglichst unabhängig voneinander zu gestalten. Im Optimalfall kümmert sich die View-Funktion nur um die Verarbeitung der Parameter und die Abfrage und Aufbereitung der Daten. Die Erzeugung der Ausgabe für den Browser sollte einem anderen System übertragen werden, das sich wirklich nur um die Ausgabe kümmert.</p>
+<p>Hier kommen sogenannte <span class="ckursiv">Template</span><span class="ckursiv">s</span> (dt. <span class="ckursiv">Schablonen</span>) ins Spiel, die darauf spezialisiert sind, aus übergebenen Daten ansprechende Ausgaben zu generieren. Im Prinzip handelt es sich bei Templates um Dateien, die Platzhalter enthalten. Wird ein Template mit bestimmten Werten für die Platzhalter aufgerufen, werden die Platzhalter durch eben diese Werte ersetzt, und als Ergebnis enthält man die gewünschte Ausgabe. Neben einfachen Ersetzungen von Platzhaltern unterstützt das Template-System von Django auch Kontrollstrukturen wie Fallunterscheidungen und Schleifen.</p>
+<p>Bevor wir uns mit der Definition von Templates selbst beschäftigen, werden wir das Einbinden von Templates in View-Funktionen besprechen.</p>
+<p>Django kapselt das gesamte Template-System in seinem Untermodul <span class="clisting">django.template</span>. Mit der Klasse <span class="clisting">loader</span> dieses Moduls können wir eine Template-Datei laden und daraus ein neues <span class="clisting">Template</span>-Objekt erzeugen. Der Werte für die Platzhalter in dem Template werden über einen sogenannten <span class="ckursiv">Kontext</span> übergeben, der über die Klasse <span class="clisting">Context</span> erzeugt werden kann.</p>
+<h4 class="t4"><span class="cfett">Einbinden von Templates in View-Funktionen</span></h4>
+<p>Angenommen, wir hätten bereits ein Template mit dem Dateinamen <span class="ckursiv">meldungen.html</span> definiert [Wie Sie angeben können, wo Django nach den Templates suchen soll, wird gleich besprochen.
+] , dann könnten wir unsere <span class="clisting">meldungen</span>-View folgendermaßen anpassen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> unser_projekt.news.models<span class="cfett"> import</span> Meldung, Kommentar<span class="cfett"> 
+from</span> django.http<span class="cfett"> import</span> HttpResponse<span class="cfett"> 
+from</span> django.template<span class="cfett"> import</span> Context, loader<span class="cfett"> 
+def</span> meldungen(request): 
+    template = loader.get_template("news/meldungen.html") 
+    context = Context({"meldungen" : Meldung.objects.all()})<br>
+   <span class="cfett"> return</span> HttpResponse(template.render(context))</pre></div>
+<p>Durch diese Anpassung ist die View-Funktion <span class="clisting">meldungen</span> auf winzige drei Zeilen geschrumpft. [Man kann sich auf den Standpunkt stellen, dass so einfach gestrickte View-Funktionen ebenfalls überflüssig sind. Django bietet dafür sogenannte <em><strong>Generic Views</strong></em> (dt. <span class="ckursiv">allgemeine Ansichten</span>) an. Näheres dazu finden Sie in der Django-Dokumentation.
+] </p>
+<p>Mit der <span class="clisting">get_template</span>-Methode der <span class="clisting">loader</span>-Klasse laden wir das gewünschte Template. Dann erzeugen wir einen Kontext, der die Liste aller Meldungen mit dem Platzhalter <span class="clisting">"meldungen"</span> verknüpft. Die endgültige Ausgabe des Templates für den erzeugten Kontext generieren wir mit der <span class="clisting">render</span>-Methode und übergeben das Ganze als Parameter an <span class="clisting">HttpResponse</span>. Die Änderung des Kontext-Typs nach <span class="clisting">"text/plain"</span> entfällt, da unsere Templates im Folgenden HTML-Code erzeugen werden.</p>
+<p>Nun können wir uns mit dem Template <span class="ckursiv">meldungen.html</span> selbst befassen.</p>
+<h4 class="t4"><span class="cfett">Die Template-Sprache von Django</span></h4>
+<p>Django implementiert für die Definition von Templates eine eigene Sprache. Die ist so ausgelegt, dass damit jeder beliebige Ausgabedatentyp erzeugt werden kann, solange er sich als Text ausdrücken lässt. Es bleibt also Ihnen überlassen, ob Sie einfachen Text, HTML-Quelltext, XML-Dokumente oder andere textbasierte Dateitypen generieren.</p>
+<p>Bevor Sie allerdings mit Templates arbeiten können, müssen Sie Django mitteilen, wo es nach den Template-Dateien suchen soll. Dazu müssen Sie in der <span class="ckursiv">settings.py</span> Ihres Projekts die Pfade zu allen Ordnern angeben, unter denen Sie Ihre Templates ablegen wollen. Wir erstellen der Einfachheit halber einen Ordner <span class="clisting">templates</span> in unserem Projektverzeichnis und tragen den Pfad in die <span class="ckursiv">settings.py</span> ein:</p>
+<div class="listing"><pre class="prettyprint">TEMPLATE_DIRS = ( 
+    "C:/unser_projekt/templates" 
+)</pre></div>
+<p>Beachten Sie dabei, dass Sie für die Trennung der Pfadkomponenten immer den Forward-Slash <span class="clisting">/</span> und nie den Backslash <span class="clisting">\</span> verwenden sollten &#8211; selbst dann, wenn Sie unter Windows arbeiten.</p>
+<p>Sie sollten der Übersichtlichkeit halber die Templates für jede Applikation Ihres Projekts in einem eigenen Ordner ablegen. Für die Templates unserer News-Applikation legen wir deshalb einen Unterordner namens <span class="clisting">news</span> im Verzeichnis <span class="clisting">templates</span> an.</p>
+<p>Nun können wir eine Datei <span class="ckursiv">meldungen.html</span> anlegen, die folgenden Template-Code enthält: [Bitte beachten Sie, dass hier bewusst wegen der Übersichtlichkeit auf wichtige HTML-Elemente verzichtet wurde, wodurch der HTML-Code nicht mehr den Standards entspricht. Sie sollten natürlich in Ihren eigenen Programmen nur gültige HTML-Dateien erzeugen.
+] </p>
+<div class="listing"><pre class="prettyprint">&lt;h1&gt;News-&amp;Uuml;bersicht&lt;/h1&gt; 
+<span class="cfett"> 
+{% for n in meldungen.objects.all %}</span> 
+  &lt;div class="kontainer"&gt; 
+    &lt;div class="titelzeile"&gt; 
+      &lt;div class="titel"&gt;<span class="cfett">{{ n.titel|escape }}</span>&lt;/div&gt; 
+      &lt;div class="zeitstempel"&gt;<span class="cfett">{{ n.zeitstempel }}</span>&lt;/div&gt; 
+      &lt;div style="clear: both"&gt;&lt;/div&gt; 
+    &lt;/div&gt; 
+    &lt;div class="text"&gt; 
+     <span class="cfett"> {{ n.meldung|escape|linebreaksbr }}</span> 
+      &lt;div class="link_unten"&gt; 
+        &lt;a href="<span class="cfett">{{ n.id }}</span>/"&gt;Details&lt;/a&gt; 
+      &lt;/div&gt; 
+    &lt;/div&gt; 
+  &lt;/div&gt;<span class="cfett"> 
+{% endfor %}</span></pre></div>
+<p>Im Prinzip ist das Template eine einfache HTML-Datei, die durch spezielle Anweisungen der Template-Sprache ergänzt wird. In dem Beispiel wurden alle Stellen, an denen Djangos Template-Sprache zum Einsatz kommt, fett markiert.</p>
+<p>Im Folgenden werden wir die markierten Stellen unter die Lupe nehmen.</p>
+<h5 class="t5"><span class="cfett">Variablen ausgeben</span></h5>
+<p>Der Zugriff auf Elemente des verwendeten Kontextes geschieht über doppelte geschweifte Klammern. Mit <span class="clisting">{{ meldung.titel }}</span> wird dabei beispielsweise das Attribut <span class="clisting">titel</span> der Kontext-Variable <span class="clisting">meldungen</span> ausgegeben. Wie Sie sehen, kann bei der Ausgabe mit <span class="clisting">{{ ... }}</span> auch der Punkt verwendet werden, um auf die Attribute von Kontext-Variablen zuzugreifen.</p>
+<p>Wenn Django bei der Verarbeitung eines Templates auf eine Angabe wie               <span class="clisting">{{ variable.member }}</span> stößt, versucht es, die Daten in folgender Weise zu ermitteln:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>1.</strong></td>
+<td valign="top" width="100%" align="left"> Zuerst wird versucht, wie bei einem Dictionary mit variable["member"] einen Wert zu finden.</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td valign="top" width="10"><strong>2.</strong></td>
+<td valign="top" width="100%" align="left"> Schlägt dies fehl, wird versucht, den Wert mit variable.member auszulesen.</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td valign="top" width="10"><strong>3.</strong></td>
+<td valign="top" width="100%" align="left"> Wenn auch das nicht funktioniert, versucht Django, die Methode vari able.member() aufzurufen, und schreibt deren Rückgabewert an die Stelle.</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td valign="top" width="10"><strong>4.</strong></td>
+<td valign="top" width="100%" align="left"> Bei einem Fehlschlag wird probiert, member als einen Listenindex zu interpretieren, indem mit variable[member] ein Wert gelesen wird. (Dies geht natürlich nur, wenn member eine Ganzzahl ist.)</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td valign="top" width="10"><strong>5.</strong></td>
+<td valign="top" width="100%" align="left"> Wenn alle diese Versuche scheitern, nimmt Django den Wert, der in der settings.py für TEMPLATE_STRING_IF_INVALID gesetzt wurde. Standardmäßig ist dies ein leerer String.</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table>
+<h5 class="t5"><span class="cfett">Filter für Variablen</span></h5>
+<p>Sie können das Ersetzen von Kontextvariablen durch sogenannte <span class="ckursiv">Filter</span> anpassen. Ein Filter ist eine Funktion, die einen String verarbeiten kann, und wird so verwendet, dass man der Variable bei ihrer Ausgabe einen senkrechten Strich, gefolgt vom Filternamen, nachstellt:</p>
+<div class="listing"><pre class="prettyprint">{{ variable|filter }}</pre></div>
+<p>Es ist auch möglich, mehrere Filter hintereinander zu übergeben. Sie werden dabei einfach, durch einen senkrechten Strich getrennt, hintereinander geschrieben:</p>
+<div class="listing"><pre class="prettyprint">{{ variable|filter1|filter2|filter3 }}</pre></div>
+<p>In dem Beispiel würde zuerst <span class="clisting">filter1</span> auf den Wert von <span class="clisting">variable</span> angewandt, das Ergebnis an <span class="clisting">filter2</span> übergeben und dessen Rückgabewert schließlich mit <span class="clisting">filter3</span> verarbeitet.</p>
+<p>Django implementiert eine ganze Reihe solcher Filter. In der folgenden Tabelle sind die beiden Filter erklärt, die in unserem Beispiel Verwendung finden:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 25.3    </strong>Zwei der Filter von Django
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Filter</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">escape</span></p>
+</td>
+<td class="tabellentext">
+<p>Ersetzt die Zeichen <span class="clisting">&lt;</span>, <span class="clisting">&gt;</span>,  <span class="clisting">&amp;</span>, <span class="clisting">"</span> und <span class="clisting">'</span> durch entsprehende HTML-Kodierungen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">linebreaksbr</span></p>
+</td>
+<td class="tabellentext">
+<p>Ersetzt alle Zeilenvorschübe durch das HTML-Tag <span class="clisting">&lt;br/&gt;</span>, das eine neue Zeile erzeugt.</p>
+</td>
+</tr>
+</table><br><p>Im Übrigen ist es auch möglich, eigene Filter zu definieren. Informationen dazu und eine ausführliche Übersicht mit allen Django-Filtern finden Sie in der Dokumentation.</p>
+<h5 class="t5"><span class="cfett">Tags</span></h5>
+<p>Djangos Template-Sprache arbeitet mit sogenannten <span class="ckursiv">Tag</span><span class="ckursiv">s</span> (dt. <span class="ckursiv">Kennzeichnungen</span>), mit denen Sie den Kontrollfluss innerhalb eines Templates anpassen können. Jedes Tag hat die Form <span class="clisting">{% tag_bezeichnung %}</span>, wobei <span class="clisting">tag_bezeichnung</span> von dem jeweiligen Tag abhängt. Es gibt auch Tags, die einen Block umschließen. Solche Tags haben die folgende Struktur:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">{% block test_block %}</span> 
+    Inhalt des Tags<span class="cfett"> 
+{% endblock }</span></pre></div>
+<p>Es existieren Tags, mit denen sich Kontrollstrukturen (wie die bedingte Ausgabe oder die wiederholte Ausgabe eines Blocks) abbilden lassen.</p>
+<p>Der <span class="clisting">if</span>-Block dient dazu, einen bestimmten Teil des Templates nur dann auszugeben, wenn eine Bedingung erfüllt ist:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">{% if besucher.hat_geburtstag % }</span> 
+    Herzlichen Glückwunsch zum Geburtstag!<span class="cfett"> 
+{% else %}</span> 
+    Willkommen auf unserer Seite!<span class="cfett"> 
+{% endif %}</span></pre></div>
+<p>Wenn <span class="clisting">besucher.hat_geburtstag</span> den Wahrheitswert <span class="clisting">True</span> ergibt, wird dem Besucher der Seite zum Geburtstag gratuliert. Ansonsten wird er normal begrüßt, was über den <span class="clisting">else</span>-Zweig festgelegt wird. Natürlich kann der <span class="clisting">else</span>-Zweig auch entfallen.</p>
+<p>Als Bedingung können auch komplexe logische Ausdrücke gebildet werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">{% if bedingung1 and bedingung2 and bedingung3%}</span> 
+    Es gelten bedingung1 und bedingung2 und/oder es gilt 
+    bedingung3<span class="cfett"> 
+{% endif %}</span></pre></div>
+<p>Neben den Fallunterscheidungen gibt es auch ein Äquivalent zu Python-Schleifen: das <span class="clisting">for</span>-Tag. Das <span class="clisting">for</span>-Tag ist dabei eng an die Syntax von Python angelehnt und kann beispielsweise so aussehen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">{% for zahl in ganzzahlen %}</span> 
+   <span class="cfett"> {{ zahl }}</span> ist eine Ganzzahl.<span class="cfett"> 
+{% endfor %}</span></pre></div>
+<p>Diese Schleife funktioniert natürlich nur dann, wenn die Kontextvariable <span class="clisting">ganzzahlen</span> auf ein iterierbares Objekt verweist.</p>
+<p>Hätte <span class="clisting">ganzzahlen</span> den Wert <span class="clisting">[1, 2, 3]</span>, würde das obige Template folgende Ausgabe produzieren:</p>
+<div class="listing"><pre class="prettyprint">1 ist eine Ganzzahl 
+2 ist eine Ganzzahl 
+3 ist eine Ganzzahl</pre></div>
+<p>Als Letztes werden wir die sogenannte <span class="ckursiv">Vererbung bei Templates</span> besprechen.</p>
+<p>Es kommt häufig vor, dass viele Seiten einer Webanwendung das gleiche Grundgerüst aus beispielsweise Kopfzeile und Navigation besitzen. Wenn aber jede Seite ein eigenes Template hat, müsste dieses Grundgerüst redundant in allen Templates enthalten sein. Dies geht zu Lasten der Wartbarkeit.</p>
+<p>Um dieses Problem zu lösen, kann man das Grundgerüst der Seite in einem zentralen Template definieren und von diesem zentralen Template die konkret benötigten Templates ableiten.</p>
+<p>Angenommen, das Template in der Datei <span class="ckursiv">basis.html</span> enthält das Grundgerüst der Webseite, kann ich ein anderes Template mithilfe des <span class="clisting">extends</span>-Tags davon ableiten:</p>
+<div class="listing"><pre class="prettyprint">{% extends "basis.html" %}</pre></div>
+<p>Dies hat zur Folge, dass der komplette Inhalt von <span class="ckursiv">basis.html</span> in das erbende Template eingefügt wird. Damit ein erbendes Template auch den Inhalt der entstehenden Seite selbst bestimmen kann, kann ein Template sogenannte <span class="ckursiv">Blöcke</span> mit dem <span class="clisting">block</span>-Tag definieren.</p>
+<p>Ein Block ist dabei eine Stelle innerhalb eines Templates, die mit einem Namen versehen wird und durch erbende Templates mit konkretem Inhalt versehen werden kann.</p>
+<p>Betrachten wir zwei Beispieldateien:</p>
+<p><span class="ckursiv">basis.html</span></p>
+<div class="listing"><pre class="prettyprint">---------- Kopfzeile ------------ 
+{% block inhalt %}Standardinhalt{% endblock %} 
+---------- Fußzeile -------------</pre></div>
+<p>Wenn Sie dieses Template mit Django ausgeben lassen, wird das <span class="clisting">block</span>-Tag einfach ignoriert und durch seinen Inhalt ersetzt:</p>
+<div class="listing"><pre class="prettyprint">---------- Kopfzeile ------------ 
+Standardinhalt 
+---------- Fußzeile -------------</pre></div>
+<p>Interessant wird es dann, wenn wir ein anderes Template von <span class="ckursiv">basis.html</span> erben lassen:</p>
+<p><span class="ckursiv">erbendes_template.html</span></p>
+<div class="listing"><pre class="prettyprint">{%extends "basis.html" %} 
+ 
+{% block inhalt %}Hallo, ich habe geerbt!{% endblock}</pre></div>
+<p>Die Ausgabe von <span class="ckursiv">erbendes_template.html</span> sieht dann so aus:</p>
+<div class="listing"><pre class="prettyprint">---------- Kopfzeile ------------ 
+Hallo, ich habe geerbt! 
+---------- Fußzeile -------------</pre></div>
+<p>Natürlich ist ein Grundgerüst einer Seite nicht die einzige Anwendung für die Template-Vererbung. Sie können Vererbung immer dann einsetzen, wenn mehrere Seiten auf einer gemeinsamen abstrakten Struktur basieren sollen.</p>
+<p>Mit diesem Wissen können wir nun ein ansprechendes HTML-Template-Gefüge für unser Webprojekt erstellen. In einer Datei <span class="ckursiv">basis.html</span> werden wir das Grundgerüst der Seite mitsamt den CSS-Stylesheets [<em><strong>Cascading Style Sheets</strong></em> (<em><strong>CSS</strong></em>) ist eine Formatierungssprache, um beispielsweise HTML-Seiten optisch aufzuwerten.
+]  ablegen. Die Datei <span class="ckursiv">basis.html</span> hat den folgenden Inhalt, wobei aus Gründen der Übersichtlichkeit auf die Angabe von einigen Teilen verzichtet wurde:</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" ?&gt; 
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt; 
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt; 
+&lt;head&gt; 
+  &lt;title&gt;Unsere Django-Seite&lt;/title&gt; 
+  &lt;link rel="stylesheet" type="text/css" href="styles.css" /&gt; 
+  &lt;style type="text/css"&gt; 
+    /* Hier kommen die CSS-Styles hin */ 
+  &lt;/style&gt; 
+&lt;/head&gt; 
+&lt;body&gt; 
+  &lt;div id="inhalt"&gt; 
+    &lt;h2&gt;<span class="cfett">{% block titel %}Django Beispielseite{% endblock %}</span>&lt;/h2&gt;<br>
+   <span class="cfett"> {% block inhalt %}</span> 
+   <span class="cfett"> {% endblock %}</span> 
+  &lt;/div&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;</pre></div>
+<p>Das Template definiert eine einfache HTML-Seite, in der es zwei Template-Blöcke gibt: <span class="clisting">titel</span> und <span class="clisting">inhalt</span>. Diese Blöcke sollen nun von den Templates für die Meldungsübersicht und die Meldungsdetails mit Inhalt gefüllt werden.</p>
+<p>Die Datei <span class="ckursiv">meldungen.html</span>, in der das Template für die Meldungsübersicht definiert werden soll, sieht dann folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">{% extends "news/basis.html" %}</span><br>
+<span class="cfett">{% block titel %}</span>News-&amp;Uuml;bersicht<span class="cfett">{% endblock %}</span><br>
+<span class="cfett">{% block inhalt %}</span> 
+   <span class="cfett"> {% for n in object_list %}</span> 
+        &lt;div class="kontainer"&gt; 
+          &lt;div class="titelzeile"&gt; 
+            &lt;div class="titel"&gt;<span class="cfett">{{ n.titel|escape }}</span>&lt;/div&gt; 
+            &lt;div class="zeitstempel"&gt;<span class="cfett">{{ n.zeitstempel }}</span>&lt;/div&gt; 
+            &lt;div style="clear: both"&gt;&lt;/div&gt; 
+          &lt;/div&gt; 
+          &lt;div class="text"&gt; 
+           <span class="cfett"> {{ n.meldung|escape|linebreaksbr }}</span> 
+            &lt;div class="link_unten"&gt; 
+              &lt;a href="<span class="cfett">{{ n.id }}</span>/"&gt;Details&lt;/a&gt; 
+            &lt;/div&gt; 
+          &lt;/div&gt; 
+        &lt;/div&gt; 
+   <span class="cfett"> {% endfor %} 
+{% endblock %}</span></pre></div>
+<p>Wenn Sie die Dateien in dem <span class="ckursiv">template/news/</span>-Verzeichnis im Projektordner gespeichert haben, können Sie das Ergebnis in Ihrem Browser betrachten [Die vollständige <span class="ckursiv">basis.html</span>-Datei inklusive aller CSS-Styles finden Sie auf der Buch-CD.
+]  (siehe <a href="#Rxx_ref181943029">Abbildung 25.13</a>).</p>
+<p>Wenn Sie auf dieser Seite den <span class="cfett">Details</span>-Link anklicken, gelangen Sie natürlich weiterhin zu der tristen Textansicht der jeweiligen Meldung. Um dies zu ändern, werden wir auch die View-Funktion <span class="clisting">meldung_detail</span> umstricken:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> meldung_detail(request, meldungs_id): 
+    template = loader.get_template("news/meldung_detail.html")<br>
+    meldung = get_object_or_404(Meldung, id=meldungs_id) 
+    kontext = Context({"meldung" : meldung})<br>
+   <span class="cfett"> return</span> HttpResponse(template.render(kontext))</pre></div>
+<div class="bildbox">
+<p><a name="IDAHWSQ"></a><a onClick="OpenWin('bilder/django_views_template_meldungen.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindjango_views_template_meldungen.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 25.13    </strong>Schicke HTML-Ausgabe unseres ersten Templates</p>
+<p>Ihnen wird sicherlich aufgefallen sein, dass sich die beiden Views <span class="clisting">meldungen</span> und <span class="clisting">meldung_detail</span> strukturell sehr stark ähneln: Zuerst wird ein Template geladen, dann der Kontext über ein Dictionary erzeugt und schließlich ein <span class="clisting">HTTPResponse</span>-Objekt zurückgegeben, das den Rückgabewert von <span class="clisting">template.render</span> enthält.</p>
+<p>Um Schreibarbeit zu sparen, bietet Django für solche Fälle eine Shortcut-Funktion <span class="clisting">render_to_response</span> an. Mit <span class="clisting">render_to_response</span> können wir die beiden View-Funktionen noch einmal verkürzen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> meldungen(request): 
+   <span class="cfett"> return</span> render_to_response("news/meldungen.html", 
+        {"meldungen" : Meldung.objects.all()})<span class="cfett"> 
+ 
+def</span> meldungen_detail(request, meldungs_id): 
+   <span class="cfett"> return</span> render_to_response("news/meldung_detail.html", 
+        {"meldung" : get_object_or_404(Meldung, id=meldungs_id)})</pre></div>
+<p>Der Shortcut-Funktion <span class="clisting">render_to_response</span> wird der Pfad zu dem gewünschten Template als erster und das Dictionary mit dem Kontext als zweiter Parameter übergeben.</p>
+<p>Um unsere HTML-Ausgabe zu komplettieren, fehlt nur noch das Template für die Detailseite unserer Meldungen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">{% extends "news/basis.html" %}</span><br>
+<span class="cfett">{% block titel %}</span> 
+  News-Details f&amp;uuml;r Eintrag {{ meldung.id }}<span class="cfett"> 
+{% endblock %}</span><br>
+<span class="cfett">{% block inhalt %}</span> 
+  &lt;div class="kontainer"&gt; 
+    &lt;div class="titelzeile"&gt; 
+      &lt;div class="titel"&gt;<span class="cfett">{{ meldung.titel|escape }}</span>&lt;/div&gt; 
+      &lt;div class="zeitstempel"&gt;<span class="cfett">{{ meldung.zeitstempel }}</span>&lt;/div&gt; 
+      &lt;div style="clear: both"&gt;&lt;/div&gt; 
+    &lt;/div&gt; 
+    &lt;div class="text"&gt; 
+     <span class="cfett"> {{ meldung.text|escape|linebreaksbr }}</span> 
+    &lt;/div&gt; 
+  &lt;/div&gt;<br>
+  &lt;div class="kontainer"&gt; 
+    &lt;div class="titelzeile"&gt;Kommentare&lt;/div&gt; 
+   <span class="cfett"> {% if meldung.kommentar_set.count %}</span> 
+      &lt;table&gt; 
+     <span class="cfett"> {% for k in meldung.kommentar_set.all %}</span> 
+        &lt;tr class="kommentarzeile"&gt; 
+          &lt;td class="spaltenbezeichner"&gt;<span class="cfett">{{ k.autor }}</span>:&lt;/td&gt; 
+          &lt;td&gt;<span class="cfett">{{ k.text|escape|linebreaksbr }}</span>&lt;/td&gt; 
+        &lt;/tr&gt; 
+     <span class="cfett"> {% endfor %}</span> 
+      &lt;/table&gt; 
+   <span class="cfett"> {% else %}</span> 
+      Keine Kommentare 
+   <span class="cfett"> {% endif %}</span> 
+  &lt;/div&gt;<br>
+  &lt;div class="link_unten"&gt;&lt;a href="../"&gt;Zur&amp;uuml;ck&lt;/a&gt;&lt;/div&gt;<span class="cfett"> 
+{% endblock %}</span></pre></div>
+<p>Im Browser stellt sich das Ganze dann so dar wie in <a href="#Rxx_ref181943093">Abbildung 25.14</a>.</p>
+<div class="bildbox">
+<p><a name="IDAOYSQ"></a><a onClick="OpenWin('bilder/django_views_template_details.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindjango_views_template_details.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 25.14    </strong>Detailseite einer Meldung mit zwei Kommentaren</p>
+<p>Wir sind nun so weit, dass wir ansprechende Ausgaben mit wenig Aufwand erzeugen können. Unser Projekt ist damit fast fertiggestellt. Es fehlt nur noch die Möglichkeit für die Besucher der Seite, Kommentare zu den Meldungen abgeben zu können.</p>
+<p>Damit werden wir uns im letzten Abschnitt über Django befassen.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_25_007.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="25.7 Djangos Template-System"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_25_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_25_008.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

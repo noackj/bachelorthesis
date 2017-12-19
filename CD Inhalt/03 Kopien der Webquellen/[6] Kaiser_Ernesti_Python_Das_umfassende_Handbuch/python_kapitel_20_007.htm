@@ -1,0 +1,697 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 20.7 XML-RPC</title>
+<meta name="title" content="Galileo Computing :: Python - 20.7 XML-RPC">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 20.7 XML-RPC">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_20_006.htm">
+<link rel="next" href="python_kapitel_21_001.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_20_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_21_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d" class="navnav">20 Netzwerkkommunikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_001.htm#mja62901950a4d46ed586c0cbeca851b76" class="navnav">20.1 Socket API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjec5a627b57a6f464cae8952dff1b29bd" class="navnav">20.1.1 Client/Server-Systeme</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj30aa144d06bfbda567b400e1c9aabe0b" class="navnav">20.1.2 UDP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj39991ea943a5ced16cfb0f82e23d6267" class="navnav">20.1.3 TCP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj3e26029cb2fe9761934cae397c7bee0c" class="navnav">20.1.4 Blockierende und nicht-blockierende Sockets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mj71cca1384f82cf8c9383ca0a725fb00d" class="navnav">20.1.5 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjeff502fc2c89cbfcde6b121f1c9c6ae2" class="navnav">20.1.6 Netzwerk-Byte-Order</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjc0a8ce33f2ca54a6aff578a363939704" class="navnav">20.1.7 Multiplexende Server &#8211; select</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_001.htm#mjb11f39ffbe49131e4aeb49e5298e5be5" class="navnav">20.1.8 SocketServer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_002.htm#mja7bd045128f3673afe68420a4ddae7b6" class="navnav">20.2 Zugriff auf Ressourcen im Internet &#8211; urllib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_002.htm#mjdb126d022da9199ad232014227ef993f" class="navnav">20.2.1 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_003.htm#mjf2c50a134584c3cd96329ea233243a0a" class="navnav">20.3 Einlesen einer URL &#8211; urlparse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_004.htm#mjc608fa65c6e2a85e9c55bcbb0179eda7" class="navnav">20.4 FTP &#8211; ftplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_005.htm#mjf9b67beb12a70b4a0b02609da6bc5dee" class="navnav">20.5 E-Mail</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mjbf78b46f8a9a493e9d5a75011df76d08" class="navnav">20.5.1 SMTP &#8211; smtplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mjef70cbc06d943ba00c671366c1934c64" class="navnav">20.5.2 POP3 &#8211; poplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mj44a18a19feec0481e1774cbf0fdaf877" class="navnav">20.5.3 IMAP4 &#8211; imaplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mj14c7624ff8d2c29622f837a39bdaf02f" class="navnav">20.5.4 Erstellen komplexer E-Mails &#8211; email</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_006.htm#mj1783a4c1d0411ed0f8998971f7b75ad8" class="navnav">20.6 Telnet &#8211; telnetlib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj49407e7b67376a73ea92fcad6b9a616e" class="navh">20.7 XML-RPC</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj7e91c239d3a86b2c7b8b2a950e27939f" class="navh">20.7.1 Der Server</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjf943ea1a64037f0c66254a4608ef8942" class="navh">20.7.2 Der Client</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj20962ea6eea7210a5efc5fed2b83ecb3" class="navh">20.7.3 Multicall</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd2ea8b459e41a939f259057acdc43e98" class="navh">20.7.4 Einschränkungen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj49407e7b67376a73ea92fcad6b9a616e" name="mj49407e7b67376a73ea92fcad6b9a616e"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">20.7</span><span class="cfett"> XML-RPC</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Der Standard <span class="ckursiv">XML-RPC</span> (<span class="ckursiv">Extensible Markup Language Remote Procedure Call</span>) ermöglicht den entfernten Funktions- und Methodenaufruf über eine Netzwerkschnittstelle. Dabei können entfernte Funktionen aus Sicht des Programmierers aufgerufen werden, als gehörten sie zum lokalen Programm. Das Übertragen der Funktionsaufrufe und insbesondere der Parameter und des Rückgabewertes wird vollständig von der XML-RPC-Bibliothek übernommen, sodass der Programmierer die Funktionen tatsächlich nur aufzurufen braucht.</p>
+<p>Neben XML-RPC existieren weitere mehr oder weniger standardisierte Verfahren zum entfernten Funktionsaufruf. Da aber XML-RPC auf zwei bereits bestehenden Standards, nämlich XML und HTTP, basiert und keine völlig neuen binären Protokolle einführt, ist es vergleichsweise einfach umzusetzen und daher in vielen Programmiersprachen verfügbar.</p>
+<p>Da XML-RPC unabhängig von einer bestimmten Programmiersprache entwickelt wurde, ist es durchaus möglich, Client und Server in zwei verschiedenen Sprachen zu schreiben. Aus diesem Grund musste sich bei der XML-RPC-Spezifikation auf einen kleinsten gemeinsamen Nenner geeinigt werden, was die Eigenheiten bestimmter Programmiersprachen und besonders die verfügbaren Datentypen anbelangt. Sie werden feststellen, dass Sie bei einer Funktion mit einer XML-RPC-fähigen Schnittstelle bestimmte Einschränkungen zu beachten haben.</p>
+<p>Im Folgenden werden wir uns zunächst damit beschäftigen, wie durch einen XML-RPC-Server bestimmte Funktionen nach außen hin aufrufbar werden. Danach widmen wir uns der Client-Seite und klären, wie solche Funktionen dann aufgerufen werden.</p><a id="mj7e91c239d3a86b2c7b8b2a950e27939f" name="mj7e91c239d3a86b2c7b8b2a950e27939f"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">20.7.1</span><span class="cfett"> Der Server</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zum Aufsetzen eines XML-RPC-Servers wird das Modul <span class="clisting">SimpleXMLRPCServer</span> benötigt. Dieses Modul enthält im Wesentlichen die Klasse <span class="clisting">SimpleXMLRPCServer</span>, die einen entsprechenden Server aufsetzt und Methoden zur Verwaltung desselben bereitstellt. Der Konstruktor der Klasse hat folgende Schnittstelle:</p>
+<h5 class="t5"><span class="cfett">SimleXMLRPCServer(addr[, requestHandler[, logRequests[, allow_none[, encoding]]]])</span></h5>
+<p>Der einzige zwingend erforderliche Parameter ist <span class="ckursiv">addr</span> und spezifiziert die IP-Adresse und den Port, an die der Server gebunden wird. Die Angaben müssen in einem Tupel der Form <span class="clisting">(ip, port)</span> übergeben werden, wobei die IP-Adresse ein String und die Portnummer eine ganze Zahl zwischen <span class="clisting">0</span> und <span class="clisting">65535</span> ist. Technisch wird der Parameter an die zugrunde liegende <span class="clisting">Socket</span>-Instanz weitergereicht. Der Server kann sich nur an Adressen binden, die ihm auch zugeteilt sind. Wenn für <span class="clisting">ip</span> im Tupel ein leerer String angegeben wird, wird der Server an alle dem PC zugeteilten Adressen gebunden, beispielsweise auch an <span class="clisting">127.0.0.1</span> oder <span class="clisting">localhost</span>.</p>
+<p>Über den optionalen Parameter <span class="ckursiv">requestHandler</span> kann eine Art Backend festgelegt werden. In den meisten Fällen reicht die Voreinstellung des Standard-Handlers <span class="clisting">SimpleXMLRPCRequestHandler</span>. Die Aufgabe dieser Klasse ist es, eingehende Daten in einen Funktionsaufruf zurückzuverwandeln.</p>
+<p>Über den Parameter <span class="ckursiv">logRequest</span> kann festgelegt werden, ob einkommende Funktionsaufrufe protokolliert werden sollen oder nicht. Der Parameter ist mit <span class="clisting">True</span> vorbelegt.</p>
+<p>Der vierte Parameter, <span class="ckursiv">allow_none</span>, ermöglicht es, sofern hier <span class="clisting">True</span> übergeben wird, <span class="clisting">None</span> in XML-RPC-Funktionen zu verwenden. Normalerweise verursacht die Verwendung von <span class="clisting">None</span> eine Exception, da kein solcher Datentyp im XML-RPC-Standard vorgesehen ist. Da dies aber eine übliche Erweiterung des Standards darstellt, wird <span class="ckursiv">allow_none</span> von vielen XML-RPC-Implementationen unterstützt.</p>
+<p>Als letzter optionaler Parameter kann ein Encoding zur Datenübertragung festgelegt werden. Standardmäßig wird hier UTF-8 verwendet.</p>
+<p>Für gewöhnlich reicht zur Instanziierung des XML-RPC-Servers folgender Aufruf des Konstruktors:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> from</span> SimpleXMLRPCServer<span class="cfett"> import</span> SimpleXMLRPCServer<span class="cfett"> as</span> Server 
+&gt;&gt;&gt; srv = Server(("", 1337))</pre></div>
+<h4 class="t4"><span class="cfett">Die Klasse SimpleXMLRPCServer</span></h4>
+<p>Nachdem eine Instanz der Klasse <span class="clisting">SimpleXMLRPCServer</span> erzeugt wurde, verfügt diese über Methoden, um beispielsweise Funktionen zum entfernten Aufruf zu registrieren. Die wichtigsten Methoden einer <span class="clisting">SimpleXMLRPCServer</span>-Instanz sollen im Folgenden erläutert werden.</p>
+<p>Dazu ist noch zu sagen, dass die Klasse <span class="clisting">SimpleXMLRPCServer</span> von der Klasse <span class="clisting">SocketServer</span> des gleichnamigen Moduls erbt. Das bedeutet insbesondere, dass ein XML-RPC-Server ebenfalls über die Methode <span class="clisting">serve_forever</span> dazu instruiert wird, eine unbestimmte Anzahl von Anfragen zu beantworten. Näheres zum Modul <span class="clisting">SocketServer</span> erfahren Sie in Abschnitt <a href="#Rxx_ref178018579">20.1.8</a>.</p>
+<p>Im Folgenden sei <span class="ckursiv">s</span> eine Instanz der Klasse <span class="clisting">SimpleXMLRPCServer</span>.</p>
+<h5 class="t5"><span class="cfett">s.register_function(function[, name])</span></h5>
+<p>Registriert das Funktionsobjekt <span class="ckursiv">function</span> für einen RPC-Aufruf. Das bedeutet, dass ein zu diesem Server verbundener XML-RPC-Client die Funktion <span class="ckursiv">function</span> über das Netzwerk aufrufen kann.</p>
+<p>Optional kann der Funktion ein anderer Name gegeben werden, über den sie für den Client zu erreichen ist. Wenn ein solcher Name angegeben wird, kann dieser aus beliebigen Unicode-Zeichen bestehen, auch solchen, die in einem Python-Bezeichner eigentlich nicht erlaubt sind, beispielsweise ein Umlaut oder ein Punkt.</p>
+<h5 class="t5"><span class="cfett">s.register_instance(instance[, allow_dotted_names])</span></h5>
+<p>Registriert die Instanz <span class="ckursiv">instance</span> für den entfernten Zugriff. Wenn der verbundene Client eine Methode dieser Instanz aufruft, wird der Aufruf durch die spezielle Methode <span class="clisting">_dispatch</span> geleitet. Die Methode muss folgendermaßen definiert sein:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> _dispatch(self, method, params): 
+   <span class="cfett"> pass</span></pre></div>
+<p>Bei jedem entfernten Aufruf einer Methode dieser Instanz wird <span class="clisting">_dispatch</span> aufgerufen. Der Parameter <span class="clisting">method</span> enthält den Namen der aufgerufenen Methode, und <span class="clisting">params</span> enthält die dabei angegebenen Parameter. Wenn die Parameter entpackt und an eine Methode weitergereicht werden sollen, kann folgender Methodenaufruf verwendet werden:</p>
+<div class="listing"><pre class="prettyprint">self.meth(*params)</pre></div>
+<p>Eine konkrete Implementierung der Methode <span class="clisting">_dispatch</span>, die die tatsächliche Methode der registrierten Instanz mit dem Namen <span class="clisting">method</span> aufruft und die Parameter übergibt, sähe folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> _dispatch(self, method, params): 
+   <span class="cfett"> try</span>: 
+       <span class="cfett"> return</span> getattr(self, method)(*params) 
+   <span class="cfett"> except</span> (AttributeError, TypeError): 
+       <span class="cfett"> return</span> None</pre></div>
+<p>Diese Funktion gibt sowohl dann <span class="clisting">None</span> zurück, wenn keine Methode mit dem Namen <span class="clisting">method</span> vorhanden ist, als auch dann, wenn die Methode mit der falschen Zahl oder einem unpassenden Parameter aufgerufen wird.</p>
+<p>Wenn für den optionalen Parameter <span class="ckursiv">allow_dotted_names</span> <span class="clisting">True</span> übergeben wird, sind Punkte im entfernten Methodenaufruf möglich. Dadurch können auch Methoden von Attributen über das Netzwerk aufgerufen werden. Beachten Sie unbedingt, dass es damit einem Angreifer möglich gemacht wird, auf die globalen Variablen des Programms zuzugreifen und möglicherweise schädlichen Code auszuführen. Sie sollten <span class="ckursiv">allow_dotted_names</span> nur innerhalb eines lokalen, vertrauenswürdigen Netzes auf <span class="clisting">True</span> setzen, da sonst eine massive Sicherheitslücke geöffnet würde.</p>
+<h5 class="t5"><span class="cfett">s.register_introspection_functions()</span></h5>
+<p>Registriert die Funktionen <span class="clisting">system.listMethods</span>, <span class="clisting">system.methodHelp</span> und <span class="clisting">system.methodSignature</span> für den entfernten Zugriff. Diese Funktionen ermöglichen es einem verbundenen Client, eine Liste aller verfügbaren Funktionen und Informationen zu einzelnen dieser Funktionen zu bekommen.</p>
+<p>Näheres zur Verwendung der Funktionen <span class="clisting">system.listMethods</span>, <span class="clisting">system.method</span> <span class="clisting">Help</span> und <span class="clisting">system.methodSignature</span> erfahren Sie in Abschnitt <a href="#Rxx_ref176888668">20.7.2</a>, »<a href="#Rxx_ref176888681">Der Client</a>«.</p>
+<h5 class="t5"><span class="cfett">s.register_multicall_functions()</span></h5>
+<p>Registriert die Funktion <span class="clisting">system.multicall</span> für den entfernten Zugriff. Durch Aufruf der Funktion <span class="clisting">system.multicall</span> kann der Client mehrere Methodenaufrufe bündeln, um so Traffic zu sparen. Auch die Rückgabewerte der Methodenaufrufe werden gebündelt zurückgegeben.</p>
+<p>Näheres zur Verwendung der Funktion <span class="clisting">system.multicall</span> erfahren Sie in Abschnitt <a href="#Rxx_ref176888668">20.7.2</a>, »<a href="#Rxx_ref176888681">Der Client</a>«.</p>
+<h4 class="t4"><span class="cfett">Beispiel</span></h4>
+<p>Nachdem die wichtigsten Funktionen der Klasse <span class="clisting">SimpleXMLRPCServer</span> erläutert wurden, soll an dieser Stelle ein kleines Beispielprogramm entwickelt werden. Bei dem Programm handelt es sich um einen XML-RPC-Server, der zwei mathematische Funktionen (genauer gesagt die Berechnungsfunktionen für die Fakultät und das Quadrat einer ganzen Zahl) bereitstellt, die ein verbundener Client aufrufen kann.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> SimpleXMLRPCServer<span class="cfett"> import</span> SimpleXMLRPCServer<span class="cfett"> as</span> Server<br>
+<span class="cfett">def</span> fak(n): 
+    """ Berechnet die Fakultaet der ganzen Zahl n. """ 
+    erg = 1 
+   <span class="cfett"> for</span> i<span class="cfett"> in</span> xrange(2, n+1): 
+        erg *= i 
+   <span class="cfett"> return</span> erg<br>
+<span class="cfett">def</span> quad(n): 
+    """ Berechnet das Quadrat der Zahl n. """ 
+   <span class="cfett"> return</span> n*n<br>
+srv = Server(("", 1337)) 
+srv.register_function(fak) 
+srv.register_function(quad) 
+srv.serve_forever()</pre></div>
+<p>Zunächst werden die beiden Berechnungsfunktionen <span class="clisting">fak</span> und <span class="clisting">quad</span> für die Fakultät bzw. das Quadrat einer Zahl erstellt. Danach wird ein auf Port <span class="clisting">1337</span> horchender XML-RPC-Server erzeugt und werden die soeben erstellten Funktionen registriert. Schlussendlich wird der Server durch Aufruf der Methode <span class="clisting">serve_forever</span> gestartet und ist nun bereit, eingehende Verbindungsanfragen und Methodenaufrufe entgegenzunehmen und zu bearbeiten.</p>
+<p>Der hier vorgestellte Server ist natürlich nur eine Hälfte des Beispielprogramms. Im nächsten Abschnitt werden wir besprechen, wie ein XML-RPC-Client auszusehen hat, und schließlich werden wir am Ende des folgenden Abschnitts einen Client entwickeln, der mit diesem Server kommunizieren kann.</p><a id="mjf943ea1a64037f0c66254a4608ef8942" name="mjf943ea1a64037f0c66254a4608ef8942"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">20.7.2</span><span class="cfett"> Der Client</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Um einen XML-RPC-Client zu schreiben, wird das Modul <span class="clisting">xmlrpclib</span> der Standardbibliothek verwendet. In diesem Modul ist vor allem die Klasse <span class="clisting">ServerProxy</span> enthalten, über die die Kommunikation mit einem XML-RPC-Server abläuft. Hier sehen Sie zunächst die Schnittstelle des Konstruktors der Klasse <span class="clisting">ServerProxy</span>:</p>
+<h5 class="t5"><span class="cfett">ServerProxy(uri[, transport[, encoding[, verbose[, allow_none 
+[, use_datetime]]]]])</span></h5>
+<p>Erzeugt eine Instanz der Klasse <span class="clisting">ServerProxy</span>, die mit dem XML-RPC-Server verbunden ist, den die URI <span class="ckursiv">uri</span> beschreibt.</p>
+<p>An zweiter Stelle kann wie bei der Klasse <span class="clisting">SimpleXMLRPCServer</span> ein Art Backend festgelegt werden. Die voreingestellten Klassen <span class="clisting">Transport</span> für das HTTP- Protokoll und <span class="clisting">SafeTransport</span> für das HTTPS-Protokoll dürften in den meisten Anwendungsfällen genügen.</p>
+<p>Wenn für den vierten Parameter, <span class="ckursiv">verbose</span>, <span class="clisting">True</span> übergeben wird, gibt die <span class="clisting">Server Proxy</span>-Instanz alle ausgehenden und ankommenden XML-Pakete auf dem Bildschirm aus. Dies kann besonders zur Fehlersuche hilfreich sein.</p>
+<p>Wenn für den letzten Parameter <span class="ckursiv">use_datetime</span> <span class="clisting">True</span> übergeben wird, wird zur Repräsentation von Datums- und Zeitangaben statt der <span class="clisting">xmlrpclib</span>-internen Klasse <span class="clisting">DateTime</span> die Klasse <span class="clisting">datetime</span> des gleichnamigen Moduls verwendet, die einen wesentlich größeren Funktionsumfang besitzt.</p>
+<p>Auf die Parameter <span class="ckursiv">encoding</span> und <span class="ckursiv">allow_none</span> muss hier nicht weiter eingegangen werden, da sie dieselbe Bedeutung haben wie die gleichnamigen Parameter des Konstruktors der Klasse <span class="clisting">SimpleXMLRPCServer</span>, der zu Beginn des letzten Kapitels besprochen wurde.</p>
+<h4 class="t4"><span class="cfett">Die Klasse ServerProxy</span></h4>
+<p>Nach der Instanziierung der Klasse <span class="clisting">ServerProxy</span> ist diese mit einem XML-RPC-Server verbunden. Das bedeutet insbesondere, dass alle bei diesem Server registrierten Funktionen wie Methoden der <span class="clisting">ServerProxy</span>-Instanz aufgerufen und verwendet werden können. Es ist also keine weitere Sonderbehandlung nötig.</p>
+<p>Zusätzlich beinhaltet eine <span class="clisting">ServerProxy</span>-Instanz drei Methoden, die weitere Informationen über die verfügbaren entfernten Funktionen bereitstellen. Beachten Sie jedoch, dass der Server diese Methoden explizit zulassen muss. Dies geschieht durch Aufruf der Methoden <span class="clisting">register_introspection_functions</span> der <span class="clisting">Simple XMLRPCServer</span>-Instanz.</p>
+<p>Im Folgenden sei <span class="ckursiv">s</span> eine Instanz der Klasse <span class="clisting">ServerProxy</span>.</p>
+<h5 class="t5"><span class="cfett">s.system.listMethods()</span></h5>
+<p>Gibt die Namen aller beim XML-RPC-Server registrierten entfernten Funktionen in Form einer Liste von Strings zurück. Die Liste enthält keine dieser Systemmethoden.</p>
+<h5 class="t5"><span class="cfett">s.system.methodSignature(name)</span></h5>
+<p>Diese Methode gibt Auskunft über die Schnittstelle der registrierten Funktion mit dem Funktionsnamen <span class="ckursiv">name</span>. Die Schnittstellenbeschreibung ist ein String im Format:</p>
+<div class="listing"><pre class="prettyprint">"string, int, int, int"</pre></div>
+<p>wobei die erste Angabe dem Datentyp des Rückgabewertes und alle weiteren den Datentypen der Funktionsparameter entsprechen. Der XML-RPC-Standard sieht vor, dass zwei verschiedene Funktionen den gleichen Namen haben dürfen, sofern sie anhand ihrer Schnittstelle unterscheidbar sind. Aus diesem Grund wird von der Methode <span class="clisting">system.methodSignature</span> nicht ein einzelner String, sondern eine Liste von Strings zurückgegeben.</p>
+<p>Beachten Sie, dass der Methode <span class="clisting">system.methodSignature</span> nur eine tiefere Bedeutung zukommt, wenn der XML-RPC-Server in einer Sprache geschrieben wurde, bei der Funktionsparameter jeweils an einen Datentyp gebunden werden. Solche Sprachen sind beispielsweise C, C++, C# oder Java. Sollten Sie <span class="clisting">system.method Signature</span> bei einem XML-RPC-Server aufrufen, der in Python geschrieben wurde, so wird schlicht <span class="clisting">"signatures not supported"</span> zurückgegeben.</p>
+<h5 class="t5"><span class="cfett">s.system.methodHelp(name)</span></h5>
+<p>Gibt den Docstring der entfernten Funktion <span class="ckursiv">name</span> zurück, wenn ein solcher existiert. Wenn kein Docstring gefunden werden konnte, wird ein leerer String zurückgegeben.</p>
+<h4 class="t4"><span class="cfett">Beispiel</span></h4>
+<p>Damit wäre die Verwendung einer <span class="clisting">ServerProxy</span>-Instanz beschrieben und eigentlich denkbar einfach. Das folgende Beispiel implementiert einen zu dem XML-RPC-Server des letzten Kapitels passenden Client.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> xmlrpclib<br>
+cli = xmlrpclib.ServerProxy("http://<span class="clistingk">ip</span>:1337")<span class="cfett"> 
+print</span> cli.fak(5)<span class="cfett"> 
+print</span> cli.quad(5)</pre></div>
+<p>Sie sehen, dass das Verbinden zu einem XML-RPC-Server und das Ausführen einer entfernten Funktion nur wenige Codezeilen benötigt und damit fast so einfach ist, als befände sich die Funktion im Client-Programm selbst.</p><a id="mj20962ea6eea7210a5efc5fed2b83ecb3" name="mj20962ea6eea7210a5efc5fed2b83ecb3"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">20.7.3</span><span class="cfett"> Multicall</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Im Modul <span class="clisting">xmlrpc</span> ist eine Klasse namens <span class="clisting">MultiCall</span> enthalten. Diese Klasse ermöglicht es, mehrere Funktionsaufrufe gebündelt an den Server zu schicken, und instruiert diesen, die Rückgabewerte ebenfalls gebündelt zurückzusenden. Auf diese Weise lässt sich bei häufigen Funktionsaufrufen die Netzlast minimieren.</p>
+<p>Die Verwendung der <span class="clisting">MultiCall</span>-Klasse ist denkbar einfach und soll an folgendem Beispiel verdeutlicht werden. Das Beispiel benötigt einen laufenden Server, der die Funktionen <span class="clisting">fak</span> und <span class="clisting">quad</span> für den entfernten Zugriff bereitstellt, also genau so einen, wie wir ihn in Abschnitt <a href="#Rxx_ref176938267">20.7.1</a> vorgestellt haben. Zusätzlich muss der Server den Einsatz von Multicall durch Aufruf der Methode <span class="clisting">register_multicall_functions</span> erlauben.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> xmlrpclib<br>
+cli = xmlrpclib.ServerProxy("http://<span class="clistingk">ip</span>:1337")<br>
+mc = xmlrpclib.MultiCall(cli)<span class="cfett"> 
+for</span> i<span class="cfett"> in</span> xrange(10): 
+    mc.fak(i) 
+    mc.quad(i)<br>
+<span class="cfett">for</span> ergebnis<span class="cfett"> in</span> mc(): 
+   <span class="cfett"> print</span> ergebnis</pre></div>
+<p>Zunächst wird wie gehabt eine Verbindung zu dem XML-RPC-Server hergestellt. Danach wird eine Instanz der Klasse <span class="clisting">MultiCall</span> erzeugt und dem Konstruktor die zuvor erzeugte <span class="clisting">ServerProxy</span>-Instanz übergeben.</p>
+<p>Ab jetzt läuft die gebündelte Kommunikation mit dem Server über die <span class="clisting">MultiCall</span>-Instanz. Dazu können die entfernten Funktionen <span class="clisting">fak</span> und <span class="clisting">quad</span> aufgerufen werden, als wären es lokale Methoden der <span class="clisting">MultiCall</span>-Instanz. Beachten Sie aber, dass diese Methodenaufrufe keinen sofortigen entfernten Funktionsaufruf zur Folge haben und somit auch zu dieser Zeit keinen Wert zurückgeben.</p>
+<p>Im Beispiel werden <span class="clisting">fak</span> und <span class="clisting">quad</span> jeweils zehnmal mit einer fortlaufenden ganzen Zahl aufgerufen.</p>
+<p>Durch Aufruf der <span class="clisting">MultiCall</span>-Instanz (<span class="clisting">mc()</span>) werden alle gepufferten entfernten Funktionsaufrufe zusammen an den Server geschickt. Als Ergebnis wird ein Iterator zurückgegeben, der über alle Rückgabewerte in der Reihenfolge des jeweiligen Funktionsaufrufes iteriert. Im Beispielprogramm nutzen wir den Iterator dazu, die Ergebnisse mittels <span class="clisting">print</span> auszugeben.</p>
+<p>Gerade bei wenigen Rückgabewerten ist es sinnvoll, diese direkt zu referenzieren.</p>
+<div class="listing"><pre class="prettyprint">wert1, wert2, wert3 = mc()</pre></div>
+<p>Hier wird davon ausgegangen, dass zuvor drei entfernte Funktionsaufrufe durchgeführt wurden und dementsprechend auch drei Rückgabewerte vorliegen.</p><a id="mjd2ea8b459e41a939f259057acdc43e98" name="mjd2ea8b459e41a939f259057acdc43e98"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">20.7.4</span><span class="cfett"> Einschränkungen</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Der XML-RPC-Standard ist nicht auf Python allein zugeschnitten, sondern es wurde bei der Ausarbeitung des Standards versucht, einen kleinsten gemeinsamen Nenner vieler Programmiersprachen zu finden, sodass beispielsweise Server und Client auch dann problemlos miteinander kommunizieren können, wenn sie in verschiedenen Programmiersprachen geschrieben wurden.</p>
+<p>Aus diesem Grund bringt das Verwenden von XML-RPC einige Einschränkungen mit sich, was die komplexeren bzw. exotischeren Datentypen von Python betrifft. So gibt es im XML-RPC-Standard beispielsweise keine Repräsentation der Datentypen <span class="clisting">complex</span>, <span class="clisting">set</span> und <span class="clisting">frozenset</span>. Auch <span class="clisting">None</span> darf nur verwendet werden, wenn dies bei der Instanziierung der Server- bzw. Clientklasse explizit angegeben wurde. Das bedeutet natürlich nur, dass Instanzen dieser Datentypen nicht über die XML-RPC-Schnittstelle versendet werden dürfen. Programmintern können sie weiterhin verwendet werden. Sollten Sie versuchen, beispielsweise eine Instanz des Datentyps <span class="clisting">complex</span> als Rückgabewert einer Funktion über die XML-RPC-Schnittstelle zu versenden, so wird eine <span class="clisting">xmlrpclib.Fault</span>-Exception geworfen. Beachten Sie, dass es natürlich dennoch möglich ist, eine komplexe Zahl über eine XML-RPC-Schnittstelle zu schicken, indem Real- und Imaginärteil getrennt als jeweils ganze Zahl übermittelt werden.</p>
+<p>Die folgende Tabelle listet alle im XML-RPC-Standard vorgesehenen Datentypen auf und beschreibt, wie sich diese in Python verwenden lassen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 20.10    </strong>Erlaubte Datentypen bei XML-RPC
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">XML-RPC</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Python</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Anmerkungen</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Boolesche Werte</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">bool</pre></div>
+</td>
+<td class="tabellentext">
+<p>Keine Anmerkungen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Ganze Zahlen</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">int</pre></div>
+</td>
+<td class="tabellentext">
+<p>Keine Anmerkungen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Gleitkommazahlen</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">float</pre></div>
+</td>
+<td class="tabellentext">
+<p>Keine Anmerkungen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Strings</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">str</pre></div>
+</td>
+<td class="tabellentext">
+<p>Keine Anmerkungen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Arrays</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">list</pre></div>
+</td>
+<td class="tabellentext">
+<p>In der Liste dürfen als Elemente nur XML-RPC-konforme Instanzen verwendet werden.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Strukturen</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">dict</pre></div>
+</td>
+<td class="tabellentext">
+<p>Alle Schlüssel müssen Strings sein. Als Werte dürfen nur XML-RPC-konforme Instanzen verwendet werden.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Datum/Zeit</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">DateTime</pre></div>
+</td>
+<td class="tabellentext">
+<p>Der spezielle Datentyp <span class="clisting">xmlrpclib.DateTime</span> wird verwendet.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Binärdaten</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">Binary</pre></div>
+</td>
+<td class="tabellentext">
+<p>Der spezielle Datentyp <span class="clisting">xmlrpclib.Binary</span> wird verwendet.</p>
+</td>
+</tr>
+</table><br><p>Es ist möglich, Instanzen von selbst erstellten Klassen zu verwenden. In einem solchen Fall wird die Instanz in ein Dictionary, also eine Struktur, umgewandelt, in der die Namen der enthaltenen Attribute als Schlüssel eingetragen werden und die jeweils referenzierten Instanzen als Werte. Dies geschieht automatisch. Beachten Sie jedoch, dass das auf der Gegenseite ankommende Dictionary nicht automatisch wieder in eine Instanz der ursprünglichen Klasse umgewandelt wird.</p>
+<p>Die letzten beiden Datentypen, die in der Tabelle aufgelistet sind, sind neu. Es handelt sich dabei um Datentypen, die im Modul <span class="clisting">xmlrpclib</span> enthalten und speziell auf die Verwendung im Zusammenhang mit XML-RPC zugeschnitten sind. Die beiden erwähnten Datentypen <span class="clisting">DateTime</span> und <span class="clisting">Binary</span> sollen im Folgenden kurz erläutert werden.</p>
+<h4 class="t4"><span class="cfett">Der Datentyp DateTime</span></h4>
+<p>Der Datentyp <span class="clisting">DateTime</span> des Moduls <span class="clisting">xmlrpclib</span> kann verwendet werden, um Datums- und Zeitangaben über eine XML-RPC-Schnittstelle zu versenden. Statt einer <span class="clisting">DateTime</span>-Instanz kann, sofern der entsprechende Parameter bei der Instanziierung der <span class="clisting">ServerProxy</span>-Instanz übergeben wurde, auch direkt eine Instanz der bekannten Datentypen <span class="clisting">datetime.date</span>, <span class="clisting">datetime.time</span> oder <span class="clisting">datetime.datetime</span> verwendet werden.</p>
+<p>Bei der Erzeugung einer Instanz des Datentyps <span class="clisting">DateTime</span> kann entweder einer der Datentypen des Moduls <span class="clisting">datetime</span> übergeben werden oder ein UNIX-Timestamp als ganze Zahl:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> xmlrpclib 
+&gt;&gt;&gt;<span class="cfett"> import</span> datetime 
+&gt;&gt;&gt; xmlrpclib.DateTime(987654321) 
+&lt;DateTime '20010419T06:25:21' at 80fda4c&gt; 
+&gt;&gt;&gt; xmlrpclib.DateTime(datetime.date(2007, 9, 7)) 
+&lt;DateTime '20070907T00:00:00' at 8108f8c&gt;</pre></div>
+<p>Die erste <span class="clisting">DateTime</span>-Instanz wurde aus einem UNIX-Timestamp erzeugt, während dem <span class="clisting">DateTime</span>-Konstruktor bei der zweiten Instanziierung eine <span class="clisting">datetime.date</span>-Instanz übergeben wurde.</p>
+<p>Instanzen des Datentyps <span class="clisting">DateTime</span> können Sie bedenkenlos in Form eines Rückgabewertes oder eines Parameters über eine XML-RPC-Schnittstelle senden.</p>
+<h4 class="t4"><span class="cfett">Der Datentyp Binary</span></h4>
+<p>Der Datentyp <span class="clisting">Binary</span> des Moduls <span class="clisting">xmlrpclib</span> wird zum Versenden von Binärdaten über eine XML-RPC-Schnittstelle verwendet. Im Gegensatz zu Python macht der XML-RPC-Standard einen Unterschied zwischen ASCII-Strings und Binärdaten, was zur Folge hat, dass es eines zusätzlichen Datentyps für Binärdaten bedarf.</p>
+<p>Bei der Instanziierung des Datentyps <span class="clisting">Binary</span> wird ein String übergeben, der die binären Daten enthält. Diese können auf der Gegenseite über das Attribut <span class="clisting">data</span> wieder ausgelesen werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> xmlrpclib 
+&gt;&gt;&gt; b = xmlrpclib.Binary("\x00\x01\x02\x03") 
+&gt;&gt;&gt; b.data 
+'\x00\x01\x02\x03'</pre></div>
+<p>Instanzen des Datentyps <span class="clisting">Binary</span> können Sie bedenkenlos in Form eines Rückgabewertes oder eines Parameters über eine XML-RPC-Schnittstelle senden.</p>
+<p> </p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_20_007.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="20.7 XML-RPC"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_20_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_21_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

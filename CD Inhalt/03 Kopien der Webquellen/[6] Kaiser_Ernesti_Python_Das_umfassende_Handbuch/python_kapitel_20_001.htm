@@ -1,0 +1,954 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 20 Netzwerkkommunikation</title>
+<meta name="title" content="Galileo Computing :: Python - 20 Netzwerkkommunikation">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 20 Netzwerkkommunikation">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_19_006.htm">
+<link rel="next" href="python_kapitel_20_002.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_19_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_20_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj6a610f312e2abfe628f8f50a8629087d" class="navh">20 Netzwerkkommunikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mja62901950a4d46ed586c0cbeca851b76" class="navh">20.1 Socket API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjec5a627b57a6f464cae8952dff1b29bd" class="navh">20.1.1 Client/Server-Systeme</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj30aa144d06bfbda567b400e1c9aabe0b" class="navh">20.1.2 UDP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj39991ea943a5ced16cfb0f82e23d6267" class="navh">20.1.3 TCP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3e26029cb2fe9761934cae397c7bee0c" class="navh">20.1.4 Blockierende und nicht-blockierende Sockets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj71cca1384f82cf8c9383ca0a725fb00d" class="navh">20.1.5 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjeff502fc2c89cbfcde6b121f1c9c6ae2" class="navh">20.1.6 Netzwerk-Byte-Order</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjc0a8ce33f2ca54a6aff578a363939704" class="navh">20.1.7 Multiplexende Server &#8211; select</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb11f39ffbe49131e4aeb49e5298e5be5" class="navh">20.1.8 SocketServer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_002.htm#mja7bd045128f3673afe68420a4ddae7b6" class="navnav">20.2 Zugriff auf Ressourcen im Internet &#8211; urllib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_002.htm#mjdb126d022da9199ad232014227ef993f" class="navnav">20.2.1 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_003.htm#mjf2c50a134584c3cd96329ea233243a0a" class="navnav">20.3 Einlesen einer URL &#8211; urlparse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_004.htm#mjc608fa65c6e2a85e9c55bcbb0179eda7" class="navnav">20.4 FTP &#8211; ftplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_005.htm#mjf9b67beb12a70b4a0b02609da6bc5dee" class="navnav">20.5 E-Mail</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mjbf78b46f8a9a493e9d5a75011df76d08" class="navnav">20.5.1 SMTP &#8211; smtplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mjef70cbc06d943ba00c671366c1934c64" class="navnav">20.5.2 POP3 &#8211; poplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mj44a18a19feec0481e1774cbf0fdaf877" class="navnav">20.5.3 IMAP4 &#8211; imaplib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_005.htm#mj14c7624ff8d2c29622f837a39bdaf02f" class="navnav">20.5.4 Erstellen komplexer E-Mails &#8211; email</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_006.htm#mj1783a4c1d0411ed0f8998971f7b75ad8" class="navnav">20.6 Telnet &#8211; telnetlib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_20_007.htm#mj49407e7b67376a73ea92fcad6b9a616e" class="navnav">20.7 XML-RPC</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mj7e91c239d3a86b2c7b8b2a950e27939f" class="navnav">20.7.1 Der Server</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mjf943ea1a64037f0c66254a4608ef8942" class="navnav">20.7.2 Der Client</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mj20962ea6eea7210a5efc5fed2b83ecb3" class="navnav">20.7.3 Multicall</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_20_007.htm#mjd2ea8b459e41a939f259057acdc43e98" class="navnav">20.7.4 Einschränkungen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em><span class="ckursiv">»Alle reden von Kommunikation, aber die wenigsten haben sich etwas mitzuteilen.« 
+&#8211; Hans Magnus Enzensberger</span></em></p><a id="mj6a610f312e2abfe628f8f50a8629087d" name="mj6a610f312e2abfe628f8f50a8629087d"></a><h1 class="t1"><span class="cfett">20</span><span class="cfett"> Netzwerkkommunikation</span></h1>
+<p>Nachdem wir uns ausführlich mit der Speicherung von Daten in Dateien verschiedener Formate oder Datenbanken beschäftigt haben, folgt nun ein Kapitel, das sich mit einer weiteren interessanten Programmierdisziplin beschäftigt: mit der Netzwerkprogrammierung.</p>
+<p>Grundsätzlich lässt sich das Themenfeld der Netzwerkkommunikation in mehrere sogenannte <span class="ckursiv">Protokollebene</span><span class="ckursiv">n</span> (engl. <span class="ckursiv">layer</span>) aufteilen. <a href="#Rxx_ref181534734">Abbildung 20.1</a> zeigt eine stark vereinfachte Version des <span class="ckursiv">OSI-Schichtenmodell</span><span class="ckursiv">s</span>, das die Hierarchie der verschiedenen Protokollebenen veranschaulicht.</p>
+<div class="bildbox">
+<p><a name="IDACFSQ"></a><a onClick="OpenWin('bilder/osi.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinosi.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.1    </strong>Netzwerkprotokolle</p>
+<p>Das rudimentärste Protokoll steht in der Grafik ganz unten. Dabei handelt es sich um die blanke Leitung, über die die Daten in Form von elektrischen Impulsen übermittelt werden. Darauf aufbauend existieren etwas abstraktere Protokolle wie Ethernet und IP. Doch der für Anwendungsprogrammierer eigentlich interessante Teil fängt erst oberhalb des IP-Protokolls an, nämlich bei den Transportprotokollen TCP und UDP. Beide Protokolle werden wir ausführlich im Zusammenhang mit Sockets im nächsten Abschnitt besprechen.</p>
+<p>Die Protokolle, die auf TCP aufbauen, sind am weitesten abstrahiert und deshalb für uns ebenfalls sehr interessant. In diesem Buch werden wir folgende Protokolle ausführlich behandeln:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 20.1    </strong>Netzwerkprotokolle
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Protokoll</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Modul</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Abschnitt</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>TCP</p>
+</td>
+<td class="tabellentext">
+<p>Grundlegendes verbindungsorientiertes Netzwerkprotokoll</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">socket</span></p>
+</td>
+<td class="tabellentext">
+<p><a href="#Rxx_ref178256059">20.1.3</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>UDP</p>
+</td>
+<td class="tabellentext">
+<p>Grundlegendes verbindungsloses Netzwerkprotokoll</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">socket</span></p>
+</td>
+<td class="tabellentext">
+<p><a href="#Rxx_ref178256083">20.1.2</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>FTP</p>
+</td>
+<td class="tabellentext">
+<p>Dateiübertragung</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">ftplib</span></p>
+</td>
+<td class="tabellentext">
+<p><a href="#Rxx_ref178256147">20.4</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>SMTP</p>
+</td>
+<td class="tabellentext">
+<p>Versenden von E-Mails</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">smtplib</span></p>
+</td>
+<td class="tabellentext">
+<p><a href="#Rxx_ref178256320">20.5.1</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>POP3</p>
+</td>
+<td class="tabellentext">
+<p>Abholen von E-Mails</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">poplib</span></p>
+</td>
+<td class="tabellentext">
+<p><a href="#Rxx_ref178256411">20.5.2</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>IMAP4</p>
+</td>
+<td class="tabellentext">
+<p>Abholen von E-Mails</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">imaplib</span></p>
+</td>
+<td class="tabellentext">
+<p><a href="#Rxx_ref178256433">20.5.3</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Telnet</p>
+</td>
+<td class="tabellentext">
+<p>Terminalemulation</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">telnetlib</span></p>
+</td>
+<td class="tabellentext">
+<p><a href="#Rxx_ref178256606">20.6</a></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>HTTP</p>
+</td>
+<td class="tabellentext">
+<p>Übertragen von Textdateien, beispielsweise Webseiten</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">urllib</span></p>
+</td>
+<td class="tabellentext">
+<p><a href="#Rxx_ref178256684">20.2</a></p>
+</td>
+</tr>
+</table><br><p>Beachten Sie, dass es auch abstrakte Protokolle gibt, die auf UDP aufbauen, beispielsweise NFS (<span class="ckursiv">Network File System</span>). Wir werden in diesem Buch aber ausschließlich auf TCP basierende Protokolle behandeln.</p>
+<p>Wir werden im ersten Unterkapitel zunächst eine ganz grundlegende Einführung in das systemnahe Modul <span class="clisting">socket</span> bringen. Es lohnt sich absolut, einen Blick in dieses Modul zu riskieren, denn es bietet viele Möglichkeiten der Netzwerkprogrammierung, die bei den anderen, abstrakteren Modulen verloren gehen. Außerdem lernen Sie den Komfort, den die abstrakten Schnittstellen bieten, erst wirklich zu schätzen, wenn Sie das <span class="clisting">socket</span>-Modul kennengelernt haben.</p>
+<p>Nachdem wir uns mit der Socket API beschäftigt haben, folgen einige spezielle Module, die beispielsweise mit bestimmten Protokollen wie HTTP oder FTP umgehen können.</p><a id="mja62901950a4d46ed586c0cbeca851b76" name="mja62901950a4d46ed586c0cbeca851b76"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">20.1</span><span class="cfett"> Socket API</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Modul <span class="clisting">socket</span> der Standardbibliothek bietet grundlegende Funktionalität zur Netzwerkkommunikation. Das Modul bildet dabei die standardisierte <span class="ckursiv">Socket API</span> ab, die so oder in ganz ähnlicher Form auch für viele andere Programmiersprachen implementiert ist.</p>
+<p>Die Idee, die hinter der Socket API steht, ist die, dass das Programm, das Daten über die Netzwerkschnittstelle senden oder empfangen möchte, dies beim Betriebssystem anmeldet und von diesem einen sogenannten <span class="ckursiv">Socket</span> (dt. <span class="ckursiv">Steckdose</span>) bekommt. Über diesen Socket kann das Programm jetzt eine Netzwerkverbindung zu einem anderen Socket aufbauen. Dabei spielt es keine Rolle, ob sich der Zielsocket auf demselben Rechner, einem Rechner im lokalen Netzwerk oder einem Rechner im Internet befindet.</p>
+<p>Zunächst ein paar Worte dazu, wie ein Rechner in der komplexen Welt eines Netzwerks adressiert werden kann. Jeder Rechner besitzt in einem Netzwerk, auch dem Internet, eine eindeutige sogenannte <span class="ckursiv">IP-Adresse</span>, über die er angesprochen werden kann. Eine IP-Adresse ist ein String der folgenden Struktur:</p>
+<div class="listing"><pre class="prettyprint">"192.168.1.23"</pre></div>
+<p>Dabei repräsentiert jeder der vier Zahlenwerte ein Byte und kann somit zwischen <span class="clisting">0</span> und <span class="clisting">255</span> liegen. In diesem Fall handelt es sich um eine IP-Adresse eines lokalen Netzwerks, was an der Anfangssequenz <span class="clisting">192.168</span> zu erkennen ist.</p>
+<p>Damit ist es jedoch noch nicht getan, denn auf einem einzelnen Rechner könnten mehrere Programme laufen, die gleichzeitig Daten über die Netzwerkschnittstelle senden und empfangen möchten. Aus diesem Grund wird eine Netzwerkverbindung zusätzlich an einen sogenannten <span class="ckursiv">Port</span> gebunden. Der Port ermöglicht es, ein bestimmtes Programm anzusprechen, das auf einem Rechner mit einer bestimmten IP-Adresse läuft.</p>
+<p>Bei einem Port handelt es sich um eine 16-Bit-Zahl &#8211; grundsätzlich sind also 65.535 verschiedene Ports verfügbar. Allerdings sind viele dieser Ports für Protokolle und Anwendungen registriert und sollten nicht verwendet werden. Beispielsweise sind für HTTP- und FTP-Server die Ports 80 bzw. 21 registriert. Grundsätzlich können Sie Ports ab 49152 bedenkenlos verwenden.</p>
+<p>Beachten Sie, dass beispielsweise eine Firewall oder ein Router bestimmte Ports blockieren kann. Sollten Sie also auf Ihrem Rechner einen Server betreiben wollen, zu dem sich Clients über einen bestimmten Port verbinden können, müssen Sie diesen Port gegebenenfalls mit der entsprechenden Software freischalten.</p><a id="mjec5a627b57a6f464cae8952dff1b29bd" name="mjec5a627b57a6f464cae8952dff1b29bd"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">20.1.1</span><span class="cfett"> Client/Server-Systeme</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die beiden Kommunikationspartner einer Netzwerkkommunikation haben in der Regel verschiedene Aufgaben. So existiert zum einen ein <span class="ckursiv">Server</span> (dt. <span class="ckursiv">Diener</span>), der bestimmte Dienstleistungen anbietet, und zum anderen ein <span class="ckursiv">Client</span> (dt. <span class="ckursiv">Kunde</span>), der diese Dienstleistungen in Anspruch nimmt.</p>
+<p>Ein Server ist unter einer bekannten Adresse im Netzwerk erreichbar und operiert passiv, das heißt, er wartet auf eingehende Verbindungen. Sobald eine Verbindungsanfrage eines Clients eintrifft, wird, sofern der Server die Anfrage akzeptiert, ein neuer Socket erzeugt, über den die Kommunikation mit diesem speziellen Client läuft. Wir werden uns zunächst mit sogenannten <span class="ckursiv">seriellen Servern</span> befassen, das sind Server, bei denen die Kommunikation mit dem vorherigen Client abgeschlossen sein muss, bevor eine neue Verbindung akzeptiert werden kann. Dem gegenüber stehen die Konzepte der <span class="ckursiv">parallelen Server</span> und der <span class="ckursiv">multiplexenden Server</span>, auf die wir auch noch zu sprechen kommen werden.</p>
+<p>Der Client stellt den aktiven Kommunikationspartner dar. Das heißt, er sendet eine Verbindungsanfrage an den Server und nimmt dann aktiv dessen Dienstleistungen in Anspruch.</p>
+<p>Die Stadien, in denen sich ein serieller Server und ein Client vor, während und nach der Kommunikation befinden, sollen durch das Flussdiagramm aus <a href="#Rxx_ref181534922">Abbildung 20.2</a> verdeutlicht werden. Sie können es als eine Art Bauplan für einen seriellen Server und den dazu gehörigen Client auffassen.</p>
+<p>Zunächst wird im Serverprogramm der sogenannte <span class="ckursiv">Verbindungssocket</span> erzeugt. Das ist ein Socket, der ausschließlich dazu gedacht ist, auf eingehende Verbindungen zu horchen und diese gegebenenfalls zu akzeptieren. Über den Verbindungssocket läuft keine Kommunikation. Durch Aufruf der Methoden <span class="clisting">bind</span> und <span class="clisting">listen</span> wird der Verbindungssocket an eine Netzwerkadresse gebunden und dazu instruiert, nach einkommenden Verbindungsanfragen zu lauschen.</p>
+<p>Nachdem eine Verbindungsanfrage eingetroffen ist und mittels <span class="clisting">accept</span> akzeptiert wurde, wird ein neuer Socket, der sogenannte <span class="ckursiv">Kommunikationssocket</span> erzeugt. Über einen solchen Kommunikationssocket wird die vollständige Kommunikation zwischen Server und Client über Methoden wie <span class="clisting">send</span> oder <span class="clisting">recv</span> abgewickelt. Beachten Sie, dass ein Kommunikationssocket immer nur für einen verbundenen Client zuständig ist.</p>
+<p>Sobald die Kommunikation beendet ist, wird das Kommunikationsobjekt geschlossen und eventuell eine weitere Verbindung eingegangen. Beachten Sie, dass Verbindungsanfragen, die nicht sofort akzeptiert werden, keineswegs verloren sind, sondern gepuffert werden. Sie befinden sich in der sogenannten <span class="ckursiv">Queue</span> und können somit nacheinander abgearbeitet werden. Zum Schluss wird auch der Verbindungssocket geschlossen.</p>
+<div class="bildbox">
+<p><a name="IDARYSQ"></a><a onClick="OpenWin('bilder/client-server.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinclient-server.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.2    </strong>Das Client/Server-Modell</p>
+<p>Die Struktur des Clients ist vergleichsweise einfach. So gibt es beispielsweise nur einen Kommunikationssocket, über den mithilfe der Methode <span class="clisting">connect</span> eine Verbindungsanfrage an einen bestimmten Server gesendet werden kann. Danach erfolgt, ähnlich wie beim Server, die tatsächliche Kommunikation über Methoden wie <span class="clisting">send</span> oder <span class="clisting">recv</span>. Nach dem Ende der Kommunikation wird der Verbindungssocket geschlossen.</p>
+<p>Grundsätzlich kann für die Datenübertragung zwischen Server und Client aus zwei verfügbaren Netzwerkprotokollen gewählt werden: <span class="ckursiv">UDP</span> und <span class="ckursiv">TCP</span>. In den folgenden beiden Abschnitten sollen kleine Beispielserver und -clients für beide dieser Protokolle implementiert werden.</p>
+<p>Beachten Sie, dass sich das hier vorgestellte Flussdiagramm auf das verbindungsbehaftete und üblichere TCP-Protokoll bezieht. Die Handhabung des verbindungslosen UDP-Protokolls unterscheidet sich davon in einigen wesentlichen Punkten. Näheres dazu finden Sie im folgenden Abschnitt.</p><a id="mj30aa144d06bfbda567b400e1c9aabe0b" name="mj30aa144d06bfbda567b400e1c9aabe0b"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">20.1.2</span><span class="cfett"> UDP</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das Netzwerkprotokoll <span class="ckursiv">UDP</span> (<span class="ckursiv">User Datagram Protocol</span>) wurde 1977 als Alternative zu TCP für die Übertragung menschlicher Sprache entwickelt. Charakteristisch ist, dass UDP verbindungslos und nicht zuverlässig ist. Diese beiden Begriffe gehen miteinander einher und bedeuten zum einen, dass keine explizite Verbindung zwischen den Kommunikationspartnern aufgebaut wird, und zum anderen, dass UDP weder garantiert, dass gesendete Pakete in der Reihenfolge ankommen, in der sie gesendet wurden, noch dass sie überhaupt ankommen. Aufgrund dieser Einschränkungen können mit UDP jedoch vergleichsweise schnelle Übertragungen stattfinden, da beispielsweise keine Pakete neu angefordert oder gepuffert werden müssen.</p>
+<p>Damit eignet sich UDP insbesondere für Multimedia-Anwendungen wie VoIP, Audio- oder Videostreaming, bei denen es auf eine schnelle Übertragung der Daten ankommt und kleinere Übertragungsfehler toleriert werden können.</p>
+<p>Das im Folgenden entwickelte Beispielprojekt besteht aus einem Server- und einem Clientprogramm. Der Client schickt eine Textnachricht per UDP an eine bestimmte Adresse. Das dort laufende Serverprogramm nimmt die Nachricht entgegen und zeigt sie an. Betrachten wir zunächst den Quellcode des Clients:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> socket 
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)<br>
+ip = raw_input("IP-Adresse: ") 
+nachricht = raw_input("Nachricht: ")<br>
+s.sendto(nachricht, (ip, 50000)) 
+s.close()</pre></div>
+<p>Zunächst wird durch Aufruf der Funktion <span class="clisting">socket</span> eine Socket-Instanz erzeugt. Dabei können zwei Parameter übergeben werden: zum einen der zu verwendende Adresstyp und zum anderen das zu verwendende Netzwerkprotokoll. Die Konstanten <span class="clisting">AF_INET</span> und <span class="clisting">SOCK_DGRAM</span> stehen dabei für Internet/IPv4 und UDP.</p>
+<p>Danach werden zwei Angaben vom Benutzer eingelesen: die IP-Adresse, an die die Nachricht zu schicken ist, und die Nachricht selbst.</p>
+<p>Zum Schluss wird die Nachricht unter Verwendung der <span class="clisting">Socket</span>-Methode <span class="clisting">sendto</span> zur angegebenen IP-Adresse geschickt, wozu der Port <span class="clisting">50000</span> verwendet wird, und der Socket mittels <span class="clisting">close</span> geschlossen.</p>
+<p>Das Clientprogramm allein ist so gut wie wertlos, solange es kein dazu passendes Serverprogramm auf der anderen Seite gibt, das die Nachricht entgegennehmen und verwerten kann. Beachten Sie, dass UDP verbindungslos ist und sich die Implementation daher etwas vom Flussdiagramm eines Servers aus Abschnitt <a href="#Rxx_ref177301294">20.1.1</a> unterscheidet.</p>
+<p>Der Quelltext des Servers sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> socket 
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)<br>
+<span class="cfett">try</span>: 
+    s.bind(("", 50000)) 
+   <span class="cfett"> while</span> True: 
+        daten, addr = s.recvfrom(1024) 
+       <span class="cfett"> print</span> "[%s] %s" % (addr[0], daten)<span class="cfett"> 
+finally</span>: 
+    s.close()</pre></div>
+<p>Auch hier wird zunächst eine <span class="clisting">Socket</span>-Instanz erstellt. In der darauf folgenden <span class="clisting">try</span>/<span class="clisting">finally</span>-Anweisung wird dieser Socket durch Aufruf der Methode <span class="clisting">bind</span> an eine Adresse gebunden. Beachten Sie, dass diese Methode ein Adressobjekt als Parameter übergeben bekommt. Immer wenn im Zusammenhang mit Sockets von einem Adressobjekt die Rede ist, ist damit schlicht ein Tupel mit zwei Elementen gemeint: einer IP-Adresse als String und einer Portnummer als ganze Zahl.</p>
+<p>Das Binden eines Sockets an eine Adresse legt fest, über welche interne Schnittstelle der Socket Pakete empfangen kann. Wenn keine IP-Adresse angegeben wurde, bedeutet dies, dass Pakete über alle dem Server zugeordneten Adressen empfangen werden können, beispielsweise also auch über <span class="clisting">127.0.0.1</span> oder <span class="clisting">localhost</span>.</p>
+<p>Nachdem der Socket an eine Adresse gebunden worden ist, können Daten empfangen werden. Dazu wird die Methode <span class="clisting">recvfrom</span> (für <span class="ckursiv">receive from</span>) in einer Endlosschleife aufgerufen. Die Methode wartet so lange, bis ein Paket eingegangen ist, und gibt die gelesenen Daten mitsamt den Absenderinformationen als Tupel zurück. Der Parameter von <span class="clisting">recvfrom</span> kennzeichnet die maximale Paketgröße und sollte eine Zweierpotenz sein.</p>
+<p>An dieser Stelle wird auch der Sinn der <span class="clisting">try</span>/<span class="clisting">finally</span>-Anweisung deutlich: Das Programm wartet in einer Endlosschleife auf eintreffende Pakete und kann daher nur mit einem Programmabbruch durch Tastenkombination, also durch eine <span class="clisting">KeyboardInterrupt</span>&#8211;Exception, beendet werden. In einem solchen Fall muss der Socket trotzdem noch mittels <span class="clisting">close</span> geschlossen werden.</p><a id="mj39991ea943a5ced16cfb0f82e23d6267" name="mj39991ea943a5ced16cfb0f82e23d6267"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">20.1.3</span><span class="cfett"> TCP</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>TCP (<span class="ckursiv">Transmission Control Protocol</span>) ist kein Konkurrenzprodukt zu UDP, sondern füllt mit seinen Möglichkeiten die Lücken auf, die UDP offen lässt. So ist TCP vor allem verbindungsorientiert und zuverlässig. Verbindungsorientiert bedeutet, dass nicht, wie bei UDP, einfach Datenpakete an bestimmte IP-Adressen geschickt werden, sondern dass zuvor eine Verbindung aufgebaut wird und auf Basis dieser Verbindung weitere Operationen durchgeführt werden. Zuverlässig bedeutet, dass es mit TCP nicht, wie bei UDP, vorkommen kann, dass Pakete verloren gehen, fehlerhaft oder in falscher Reihenfolge ankommen. Solche Vorkommnisse korrigiert das TCP-Protokoll intern, indem es beispielsweise unvollständige oder fehlerhafte Pakete neu anfordert.</p>
+<p>Aus diesem Grund ist TCP zumeist die erste Wahl, wenn es um eine Netzwerkschnittstelle geht. Bedenken Sie aber unbedingt, dass jedes Paket, das neu angefordert werden muss, Zeit kostet und die Latenz der Verbindung somit steigen kann. Außerdem sind fehlerhafte Übertragungen in einem LAN äußerst selten, weswegen man gerade dort die Performance von UDP und die Verbindungsqualität von TCP gegeneinander abwägen sollte.</p>
+<p>Im Folgenden soll auch die Verwendung von TCP anhand eines kleinen Beispielprojekts erläutert werden: Es soll ein rudimentäres Chatprogramm entstehen, bei dem der Client eine Nachricht an den Server sendet, auf die der Server wieder antworten kann. Die Kommunikation soll also immer abwechselnd erfolgen. Der Quelltext des Servers sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span><span class="clisting"> socket</span><br>
+<span class="clisting">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+s.bind(("", 50000)) 
+s.listen(1)</span><br>
+<span class="cfett">try</span><span class="clisting">:</span> 
+   <span class="cfett"> while</span><span class="clisting"> True:</span> 
+       <span class="clisting"> komm, addr = s.accept()</span> 
+       <span class="cfett"> while</span><span class="clisting"> True:</span> 
+           <span class="clisting"> data = komm.recv(1024)</span><br>
+           <span class="cfett"> if not</span><span class="clisting"> data:</span> 
+               <span class="clisting"> komm.close()</span> 
+               <span class="cfett"> break</span><br>
+           <span class="cfett"> print</span><span class="clisting"> "[%s] %s" % (addr[0], data)</span> 
+           <span class="clisting"> nachricht = raw_input("Antwort: ")</span> 
+           <span class="clisting"> komm.send(nachricht)</span><span class="cfett"> 
+finally</span><span class="clisting">:</span> 
+   <span class="clisting"> s.close()</span></pre></div>
+<p>Bei der Erzeugung des Verbindungssockets unterscheidet sich TCP von UDP nur in den zu übergebenden Werten. In diesem Fall wird <span class="clisting">AF_INET</span> für das IPv4-Protokoll und <span class="clisting">SOCK_STREAM</span> für die Verwendung von TCP übergeben. Damit ist allerdings nur der Socket in seiner Rohform instanziiert. Auch bei TCP muss der Socket an eine IP-Adresse und einen Port gebunden werden. Beachten Sie, dass <span class="clisting">bind</span> ein Adressobjekt als Parameter erwartet &#8211; die Angaben von IP-Adresse und Port also noch in ein Tupel gefasst sind. Auch hier werden wieder alle IP-Adressen des Servers genutzt.</p>
+<p>Danach wird der Server durch Aufruf der Methode <span class="clisting">listen</span> in den passiven Modus geschaltet und instruiert, nach Verbindungsanfragen zu horchen. Beachten Sie, dass diese Methode noch keine Verbindung herstellt. Der übergebene Parameter bestimmt die maximale Anzahl von zu puffernden Verbindungsversuchen und sollte mindestens <span class="clisting">1</span> sein.</p>
+<p>In der darauf folgenden Endlosschleife wartet die aufgerufene Methode <span class="clisting">accept</span> des Verbindungssockets nun auf eine eingehende Verbindungsanfrage und akzeptiert diese. Zurückgegeben wird ein Tupel, dessen erstes Element der Kommunikationssocket ist, der zur Kommunikation mit dem verbundenen Client verwendet werden kann. Das zweite Element des Tupels ist das Adressobjekt des Verbindungspartners.</p>
+<p>Nachdem eine Verbindung hergestellt wurde, wird eine zweite Endlosschleife eingeleitet, deren Schleifenkörper im Prinzip aus zwei Teilen besteht: Zunächst wird immer eine Nachricht per <span class="clisting">komm.recv</span> vom Verbindungspartner erwartet und ausgegeben. Sollte von <span class="clisting">komm.recv</span> ein leerer String zurückgegeben werden, so bedeutet dies, dass der Verbindungspartner die Verbindung beendet hat. In einem solchen Fall wird die innere Schleife abgebrochen. Wenn eine wirkliche Nachricht angekommen ist, erlaubt es der Server dem Benutzer, eine Antwort einzugeben, und verschickt diese per <span class="clisting">komm.send</span>.</p>
+<p>Jetzt soll der Quelltext des Clients besprochen werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> socket<br>
+ip = raw_input("IP-Adresse: ") 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+s.connect((ip, 50000))<br>
+<span class="cfett">try</span>: 
+   <span class="cfett"> while</span> True: 
+        nachricht = raw_input("Nachricht: ") 
+        s.send(nachricht) 
+        antwort = s.recv(1024) 
+       <span class="cfett"> print</span> "[%s] %s" % (ip,antwort)<span class="cfett"> 
+finally</span>: 
+    s.close()</pre></div>
+<p>Auf der Clientseite wird der instanziierte Socket <span class="clisting">s</span> durch Aufruf der Methode <span class="clisting">connect</span> mit dem Verbindungspartner verbunden. Die Methode <span class="clisting">connect</span> verschickt genau die Verbindungsanfrage, die beim Server durch <span class="clisting">accept</span> akzeptiert werden kann. Wenn die Verbindung abgelehnt wurde, wird eine Exception geworfen.</p>
+<p>Die nachfolgende Endlosschleife funktioniert ähnlich wie die des Servers, mit dem Unterschied, dass zuerst eine Nachricht eingegeben und abgeschickt wird und danach auf eine Antwort des Servers gewartet wird. Damit wären Client und Server in einen Rhythmus gebracht, bei dem der Server immer dann auf eine Nachricht wartet, wenn beim Client eine eingegeben wird und umgekehrt.</p>
+<p>Genau dieser Rhythmus ist aber auch der größte Knackpunkt des Beispielprojekts, denn es ist für einen der Kommunikationspartner schlicht unmöglich, zwei Nachrichten direkt hintereinander abzusetzen. Für den praktischen Einsatz hätte das Programm also allenfalls Unterhaltungswert. Das Ziel war es auch nicht, eine möglichst perfekte Chat-Applikation zu schreiben, sondern eine einfache und kurze Beispielimplementation einer Client/Server-Kommunikation über TCP zu erstellen.</p>
+<p>Betrachten Sie es also als Herausforderung, Client und Server, beispielsweise durch Threads, zu einem brauchbaren Chat-Programm zu erweitern. Das könnte so aussehen, dass ein Thread jeweils <span class="clisting">s.recv</span> abhört und eingehende Nachrichten anzeigt und ein zweiter Thread es ermöglicht, dass die Benutzer Nachrichten per <span class="clisting">raw_input</span> eingeben,  und diese dann verschickt.</p><a id="mj3e26029cb2fe9761934cae397c7bee0c" name="mj3e26029cb2fe9761934cae397c7bee0c"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">20.1.4</span><span class="cfett"> Blockierende und nicht-blockierende Sockets</span>  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wenn ein Socket erstellt wird, befindet er sich standardmäßig im sogenannten <span class="ckursiv">blockierenden Modus</span> (engl. <span class="ckursiv">blocking mode</span>). Das bedeutet, dass alle Methodenaufrufe warten, bis die von ihnen angestoßene Operation durchgeführt wurde. So würde ein Aufruf der Methode <span class="clisting">recv</span> eines Sockets so lange das komplette Programm blockieren, bis tatsächlich Daten eingegangen sind und aus dem internen Puffer des Sockets gelesen werden können.</p>
+<p>In vielen Fällen ist dieses Verhalten durchaus gewünscht, doch möchte man bei einem Programm, in dem viele verbundene Sockets verwaltet werden, beispielsweise nicht, dass einer dieser Sockets mit seiner <span class="clisting">recv</span>-Methode das komplette Programm blockiert, nur weil noch keine Daten eingegangen sind, während an einem anderen Socket Daten zum Lesen bereitstehen. Um solche Probleme zu umgehen, lässt sich der Socket in den sogenannten <span class="ckursiv">nicht-blockierenden Modus</span> (engl. <span class="ckursiv">non-blocking mode</span>) versetzen. Dies wirkt sich folgendermaßen auf diverse Socket-Operationen aus:</p>
+<ul class="gp">
+<li>Die Methoden <span class="clisting">recv</span> und <span class="clisting">recvfrom</span> des Socket-Objekts geben nur noch ankommende Daten zurück, wenn sich diese bereits im internen Puffer des Sockets befinden. Sobald die Methode auf weitere Daten zu warten hätte, wirft sie eine <span class="clisting">socket.error</span>&#8211;Exception und gibt damit den Kontrollfluss wieder an das Programm ab.</li>
+</ul>
+<ul class="gp">
+<li>Die Methoden <span class="clisting">send</span> und <span class="clisting">sendto</span> versenden die angegebenen Daten nur, wenn sie direkt in den Ausgangspuffer des Sockets geschrieben werden können. Gelegentlich kommt es vor, dass dieser Puffer voll ist und <span class="clisting">send</span> bzw. <span class="clisting">sendto</span> zu warten hätten, bis der Puffer weitere Daten aufnehmen kann. In einem solchen Fall wird im nicht-blockierenden Modus eine <span class="clisting">socket.error</span>-Exception geworfen und der Kontrollfluss damit an das Programm zurückgegeben.</li>
+</ul>
+<ul class="gp">
+<li>Die Methode <span class="clisting">connect</span> sendet eine Verbindungsanfrage an den Zielsocket und wartet nicht, bis diese Verbindung zustande kommt. Wenn <span class="clisting">connect</span> aufgerufen wird und die Verbindungsanfrage noch läuft, wird eine <span class="clisting">socket.error</span>-Exception mit der Fehlermeldung »<span class="ckursiv">Operation now in progress</span>« geworfen. Durch mehrmaligen Aufruf von <span class="clisting">connect</span> lässt sich feststellen, ob die Operation immer noch durchgeführt wird.</li>
+</ul>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>Alternativ kann im nicht-blockierenden Modus die Methode <span class="clisting">connect_ex</span> für Verbindungsanfragen verwendet werden. Diese wirft keine <span class="clisting">socket.error</span>-Exception, sondern zeigt eine erfolgreiche Verbindung anhand eines Rückgabewertes von <span class="clisting">0</span> an. Bei echten Fehlern, die bei der Verbindung auftreten, wird auch bei <span class="clisting">connect_ex</span> eine Exception geworfen.</li>
+</ul>
+</li>
+</ul>
+<p>Ein Socket lässt sich durch Aufruf seiner Methode <span class="clisting">setblocking</span> in den nicht-blockierenden Zustand versetzen:</p>
+<div class="listing"><pre class="prettyprint">s.setblocking(0)</pre></div>
+<p>In diesem Fall würden sich Methodenaufrufe des Sockets <span class="clisting">s</span> wie oben beschrieben verhalten. Ein Parameter von <span class="clisting">1</span> versetzt den Socket wieder in den ursprünglichen blockierenden Modus.</p>
+<p>Socket-Operationen werden im Falle des blockierenden Modus auch <span class="ckursiv">synchrone Operationen</span> und im Falle des nicht-blockierenden Modus <span class="ckursiv">asynchrone Operationen</span> genannt.</p>
+<p>Es ist durchaus möglich, auch während des Betriebs zwischen dem blockierenden und nicht-blockierenden Modus eines Sockets umzuschalten. So könnte beispielsweise die Methode <span class="clisting">connect</span> blockierend und anschließend die Methode <span class="clisting">read</span> nicht-blockierend verwendet werden.</p><a id="mj71cca1384f82cf8c9383ca0a725fb00d" name="mj71cca1384f82cf8c9383ca0a725fb00d"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">20.1.5</span><span class="cfett"> Verwendung des Moduls</span>  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Da die Funktionen des Moduls oder die Methoden des Socket-Objekts in den beiden vorherigen Abschnitten vielleicht etwas zu kurz gekommen sind, möchten wir in diesem Abschnitt noch einmal eine Auflistung der wichtigsten dieser Funktionen und Methoden bringen. Wir beginnen mit den Funktionen und Konstanten des Moduls <span class="clisting">socket</span>.</p>
+<h4 class="t4"><span class="cfett">Funktionen</span></h4>
+<h5 class="t5"><span class="cfett">socket.getfqdn([name])</span></h5>
+<p>Gibt den vollständigen Domainnamen (FQDN, <span class="ckursiv">Fully qualified domain name</span>) der Domain <span class="ckursiv">name</span> zurück. Wenn <span class="ckursiv">name</span> weggelassen wird, wird der vollständige Domainname des lokalen Hosts zurückgegeben.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; socket.getfqdn() 
+'HOSTNAME.localdomain'</pre></div>
+<h5 class="t5"><span class="cfett">socket.gethostbyname(hostname)</span></h5>
+<p>Gibt die IPv4-Adresse des Hosts <span class="ckursiv">hostname</span> als String zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; socket.gethostbyname("HOSTNAME") 
+'192.168.1.23'</pre></div>
+<h5 class="t5"><span class="cfett">socket.gethostname()</span></h5>
+<p>Gibt den Hostnamen des Systems als String zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; socket.gethostname() 
+'HOSTNAME'</pre></div>
+<h5 class="t5"><span class="cfett">socket.getservbyname(servicename[, protocolname])</span></h5>
+<p>Gibt den Port für den Service <span class="ckursiv">servicename</span> mit dem Netzwerkprotokoll <span class="ckursiv">protocolname</span> zurück. Bekannte Services wären beispielsweise <span class="clisting">"http"</span> oder <span class="clisting">"ftp"</span> mit den Portnummern <span class="clisting">80</span> bzw. <span class="clisting">21</span>. Der Parameter <span class="ckursiv">protocolname</span> sollte entweder <span class="clisting">"tcp"</span> oder <span class="clisting">"udp"</span> sein.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; socket.getservbyname("http", "tcp") 
+80</pre></div>
+<h5 class="t5"><span class="cfett">socket.getservbyport(port[, protocolname])</span></h5>
+<p>Diese Funktion ist das Gegenstück zu <span class="clisting">getservbyname</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; socket.getservbyport(21) 
+'ftp'</pre></div>
+<h5 class="t5"><span class="cfett">socket.socket([family[, type]])</span></h5>
+<p>Erzeugt einen neuen Socket. Der erste Parameter <span class="ckursiv">family</span> kennzeichnet dabei die Adressfamilie und sollte entweder <span class="clisting">socket.AF_INET</span> für den IPv4-Namensraum oder <span class="clisting">socket.AF_INET6</span> für den IPv6-Namensraum sein.</p>
+<p>Der zweite Parameter <span class="ckursiv">type</span> kennzeichnet das zu verwendende Netzwerkprotokoll und sollte entweder <span class="clisting">socket.SOCK_STREAM</span> für TCP oder <span class="clisting">socket.SOCK_DGRAM</span> für UDP sein.</p>
+<h5 class="t5"><span class="cfett">socket.getdefaulttimeout(), socket.setdefaulttimeout(timeout)</span></h5>
+<p>Gibt in Form einer Gleitkommazahl die maximale Anzahl an Sekunden zurück, die beispielsweise die Methode <span class="clisting">recv</span> eines Socket-Objekts auf ein eingehendes Paket wartet. Durch die Funktion <span class="clisting">setdefaulttimeout</span> kann dieser Wert für alle neu erzeugten <span class="clisting">Socket</span>-Instanzen verändert werden.</p>
+<h4 class="t4"><span class="cfett">Die Socket-Klasse</span></h4>
+<p>Nachdem durch die Funktion <span class="clisting">socket</span> des Moduls <span class="clisting">socket</span> eine neue Instanz der Klasse <span class="clisting">Socket</span> erzeugt wurde, stellt diese natürlich weitere Funktionalität bereit, um sich mit einem zweiten Socket zu verbinden oder Daten an den Verbindungspartner zu übermitteln. Die Methoden der <span class="clisting">Socket</span>-Klasse sollen im Folgenden beschrieben werden.</p>
+<p>Beachten Sie, dass sich das Verhalten der Methoden im blockierenden und nicht-blockierenden Modus unterscheidet. Näheres dazu finden Sie in Abschnitt <a href="#Rxx_ref176630968">20.1.4</a>, »<a href="#Rxx_ref176630968">Blockierende und nicht-blockierende Sockets</a>«. Im Folgenden sei <span class="ckursiv">s</span> eine Instanz der Klasse <span class="clisting">socket.Socket</span>.</p>
+<h5 class="t5"><span class="cfett">s.accept()</span></h5>
+<p>Wartet auf eine eingehende Verbindungsanfrage und akzeptiert diese. Die <span class="clisting">Socket</span>-Instanz muss zuvor durch Aufruf der Methode <span class="clisting">bind</span> an eine bestimmte Adresse und einen Port gebunden worden sein und Verbindungsanfragen erwarten. Letzteres geschieht durch Aufruf der Methode <span class="clisting">listen</span>.</p>
+<p>Die Methode <span class="clisting">accept</span> gibt ein Tupel zurück, dessen erstes Element eine neue <span class="clisting">Socket</span>-Instanz, auch Connection-Objekt genannt, ist, über die die Kommunikation mit dem Verbindungspartner geschehen kann. Das zweite Element des Tupels ist ein weiteres Tupel, das IP-Adresse und Port des verbundenen Sockets enthält.</p>
+<p>Diese Methode ist für TCP gedacht.</p>
+<h5 class="t5"><span class="cfett">s.bind(address)</span></h5>
+<p>Bindet den Socket an die Adresse <span class="ckursiv">address</span>. Der Parameter <span class="ckursiv">address</span> muss ein Tupel der Form sein, wie es <span class="clisting">accept</span> zurückgibt.</p>
+<p>Nachdem ein Socket an eine bestimmte Adresse gebunden wurde, kann er, im Falle von TCP, in den passiven Modus geschaltet werden oder, im Falle von UDP, direkt Datenpakete empfangen.</p>
+<h5 class="t5"><span class="cfett">s.close()</span></h5>
+<p>Schließt den Socket. Das bedeutet, dass keine Daten mehr über ihn gesendet oder empfangen werden können.</p>
+<h5 class="t5"><span class="cfett">s.connect(address)</span></h5>
+<p>Verbindet zu einem Server mit der Adresse <span class="ckursiv">address</span>. Beachten Sie, dass dort ein Socket existieren muss, der auf dem gleichen Port auf Verbindungsanfragen wartet, damit die Verbindung zustande kommen kann. Der Parameter <span class="ckursiv">address</span> muss im Falle des IPv4-Protokolls ein Tupel sein, das aus der IP-Adresse und der Portnummer besteht.</p>
+<p>Diese Methode ist für TCP gedacht.</p>
+<h5 class="t5"><span class="cfett">s.connect_ex(address)</span></h5>
+<p>Unterscheidet sich von <span class="clisting">connect</span> nur darin, dass im nicht-blockierenden Modus keine Exception geworfen wird, wenn die Verbindung nicht sofort zustande kommt. Der Verbindungsstatus wird über einen ganzzahligen Rückgabewert angezeigt. Ein Rückgabewert von <span class="clisting">0</span> bedeutet, dass der Verbindungsversuch erfolgreich durchgeführt wurde.</p>
+<p>Beachten Sie, dass bei echten Fehlern, die beim Verbindungsversuch auftreten, weiterhin Exceptions geworfen werden, beispielsweise wenn der Zielsocket nicht erreicht werden konnte.</p>
+<p>Diese Methode ist für TCP gedacht.</p>
+<h5 class="t5"><span class="cfett">s.getpeername()</span></h5>
+<p>Gibt das Adressobjekt des mit diesem Socket verbundenen Sockets zurück. Das Adressobjekt ist ein Tupel, das IP-Adresse und Portnummer enthält.</p>
+<p>Diese Methode ist für TCP gedacht.</p>
+<h5 class="t5"><span class="cfett">s.getsockname()</span></h5>
+<p>Gibt das Adressobjekt zurück, über das dieser Socket mit dem verbundenen Socket kommuniziert.</p>
+<h5 class="t5"><span class="cfett">s.listen(backlog)</span></h5>
+<p>Versetzt einen Serversocket in den sogenannten Listen-Modus, das heißt, der Socket achtet auf Sockets, die sich mit ihm verbinden wollen. Nachdem diese Methode aufgerufen worden ist, können eingehende Verbindungswünsche mit <span class="clisting">accept</span> akzeptiert werden.</p>
+<p>Der Parameter <span class="ckursiv">backlog</span> legt die maximale Anzahl an gepufferten Verbindungsanfragen fest und sollte mindestens <span class="clisting">1</span> sein. Den größtmöglichen Wert für <span class="ckursiv">backlog</span> legt das Betriebssystem fest, meistens liegt er bei <span class="clisting">5</span>.</p>
+<p>Diese Methode ist für TCP gedacht.</p>
+<h5 class="t5"><span class="cfett">s.recv(bufsize)</span></h5>
+<p>Liest beim Socket eingegangene Daten. Durch den Parameter <span class="ckursiv">bufsize</span> wird die maximale Anzahl von zu lesenden Bytes festgelegt. Die gelesenen Daten werden in Form eines Strings zurückgegeben.</p>
+<p>Diese Methode ist für TCP gedacht.</p>
+<h5 class="t5"><span class="cfett">s.recvfrom(bufsize)</span></h5>
+<p>Unterscheidet sich von <span class="clisting">recv</span> in Bezug auf den Rückgabewert. Dieser ist bei <span class="clisting">recvfrom</span> ein Tupel, das als erstes Element die gelesenen Daten als String und als zweites Element das Adressobjekt des Verbindungspartners enthält.</p>
+<p>Diese Methode ist für UDP gedacht.</p>
+<h5 class="t5"><span class="cfett">s.send(string)</span></h5>
+<p>Sendet den String <span class="ckursiv">string</span> zum verbundenen Socket. Die Anzahl der gesendeten Bytes wird zurückgegeben. Beachten Sie, dass es unter Umständen vorkommt, dass die Daten nicht vollständig gesendet wurden. In einem solchen Fall ist die Anwendung dafür verantwortlich, die verbleibenden Daten erneut zu senden.</p>
+<p>Diese Methode ist für TCP gedacht.</p>
+<h5 class="t5"><span class="cfett">s.sendall(string)</span></h5>
+<p>Unterscheidet sich von <span class="clisting">send</span> darin, dass <span class="clisting">sendall</span> so lange versucht, die Daten zu senden, bis entweder der vollständige Datensatz <span class="ckursiv">string</span> versendet wurde oder ein Fehler aufgetreten ist. Im Fehlerfall wird eine entsprechende Exception geworfen.</p>
+<p>Diese Methode ist für TCP gedacht.</p>
+<h5 class="t5"><span class="cfett">s.sendto(string, address)</span></h5>
+<p>Versendet den Datensatz <span class="ckursiv">string</span> an einen Socket mit der Adresse <span class="ckursiv">address</span>. Da der Verbindungspartner explizit angegeben wird, brauchen die beiden Sockets nicht untereinander verbunden zu sein. Der Parameter <span class="ckursiv">address</span> muss ein Adressobjekt sein.</p>
+<p>Diese Methode ist für UDP gedacht.</p>
+<h5 class="t5"><span class="cfett">s.setblocking(flag)</span></h5>
+<p>Wenn für <span class="ckursiv">flag</span> <span class="clisting">0</span> übergeben wird, wird der Socket in den nicht-blockierenden Modus versetzt, sonst in den blockierenden Modus.</p>
+<p>Im blockierenden Modus warten Methoden wie <span class="clisting">send</span> oder <span class="clisting">recv</span>, bis Daten versendet bzw. gelesen werden konnten. Im nicht-blockierenden Modus würde ein Aufruf von <span class="clisting">recv</span> beispielsweise eine Exception verursachen, wenn keine Daten eingegangen sind, die gelesen werden könnten.</p>
+<h5 class="t5"><span class="cfett">s.settimeout(value), gettimeout()</span></h5>
+<p>Setzt einen Timeout-Wert für diesen Socket. Dieser Wert bestimmt im blockierenden Modus, wie lange auf das Eintreffen bzw. Versenden von Daten gewartet werden soll. Dabei kann für <span class="ckursiv">value</span> die Anzahl an Sekunden in Form einer Gleitkommazahl oder <span class="clisting">None</span> übergeben werden.</p>
+<p>Über die Methode <span class="clisting">gettimeout</span> kann der Timeout-Wert ausgelesen werden.</p>
+<p>Wenn ein Aufruf von beispielsweise <span class="clisting">send</span> oder <span class="clisting">recv</span> die maximale Wartezeit überschreitet, wird eine <span class="clisting">socket.timeout</span>-Exception geworfen.</p><a id="mjeff502fc2c89cbfcde6b121f1c9c6ae2" name="mjeff502fc2c89cbfcde6b121f1c9c6ae2"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">20.1.6</span><span class="cfett"> Netzwerk-Byte-Order</span>  <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das Schöne an standardisierten Protokollen wir TCP oder UDP ist, dass Computer verschiedenster Bauart eine gemeinsame Schnittstelle haben, über die sie miteinander kommunizieren können. Allerdings hören diese Gemeinsamkeiten hinter der Schnittstelle unter Umständen wieder auf. So ist beispielsweise die sogenannte <span class="ckursiv">Byte-Order</span> ein signifikanter Unterschied zwischen diversen Systemen. Diese Byte-Order legt die Speicherreihenfolge von Zahlen fest, die mehr als ein Byte Speicher benötigen.</p>
+<p>Bei der Übertragung von Binärdaten führt es zu Problemen, wenn diese ohne Konvertierung zwischen zwei Systemen mit verschiedener Byte-Order ausgetauscht werden. Das Protokoll TCP garantiert dabei nur, dass die gesendeten Bytes in der Reihenfolge ankommen, in der sie abgeschickt wurden.</p>
+<p>Solange Sie sich bei der Netzwerkkommunikation auf reine ASCII-Strings beschränken, können keine Probleme auftreten, da ASCII-Zeichen nie mehr als ein Byte Speicher benötigen. Außerdem sind Verbindungen zwischen zwei Computern derselben Plattform problemlos. So können beispielsweise Binärdaten zwischen zwei x86er-PCs übertragen werden, ohne Probleme befürchten zu müssen.</p>
+<p>Allerdings möchte man bei einer Netzwerkverbindung in der Regel Daten übertragen, ohne sich über die Plattform des verbundenen Rechners Gedanken zu machen. Dazu hat man die sogenannte <span class="ckursiv">Netzwerk-Byte-Order</span> definiert. Das ist die Byte-Order, die für Binärdaten im Netzwerk zu verwenden ist. Um diese Netzwerk-Byte-Order sinnvoll umzusetzen, sind im Modul <span class="clisting">socket</span> vier Funktionen enthalten, die entweder Daten von der Host-Byte-Order in die Netzwerk-Byte-Order (»hton«) oder umgekehrt (»ntoh«) konvertieren. Die folgende Tabelle listet diese Funktionen auf und erläutert ihre Bedeutung:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 20.2    </strong>Konvertierung von Binärdaten
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Alias</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">socket.ntohl(x)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Konvertiert eine 32-Bit-Zahl von der Netzwerk- in die Host-Byte-Order.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">socket.ntohs(x)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Konvertiert eine 16-Bit-Zahl von der Netzwerk- in die Host-Byte-Order.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">socket.htonl(x)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Konvertiert eine 32-Bit-Zahl von der Host- in die Netzwerk-Byte-Order.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">socket.htons(x)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Konvertiert eine 16-Bit-Zahl von der Host- in die Netzwerk-Byte-Order.</p>
+</td>
+</tr>
+</table><br><p>Der Aufruf dieser Funktionen ist möglicherweise überflüssig, wenn das entsprechende System bereits die Netzwerk-Byte-Order verwendet. Der gebräuchliche x86er-PC verwendet übrigens nicht die Netzwerk-Byte-Order.</p>
+<p>An dieser Stelle möchten wir noch einmal darauf hinweisen, dass eine Konvertierung von Binärdaten in einem professionellen Programm selbstverständlich dazugehört. Solange Sie jedoch im privaten Umfeld kleinere Netzwerkanwendungen schreiben, die Binärdaten ausschließlich zwischen x86er-PCs austauschen, brauchen Sie sich über die Byte-Order keine Gedanken zu machen. Zudem können ASCII-Zeichen, wie gesagt, problemlos auch zwischen Systemen mit verschiedener Byte-Order ausgetauscht werden, sodass auch in diesem Fall keine explizite Konvertierung nötig ist.</p><a id="mjc0a8ce33f2ca54a6aff578a363939704" name="mjc0a8ce33f2ca54a6aff578a363939704"></a><a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3"><span class="cfett">20.1.7</span><span class="cfett"> Multiplexende Server &#8211; select</span>  <a href="#t2t39"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein Server ist in den meisten Fällen nicht dazu gedacht, immer nur einen Client zu bedienen, wie es in den bisherigen Beispielen vereinfacht angenommen wurde. In der Regel muss ein Server eine ganze Reihe von verbundenen Clients verwalten, die sich in verschiedenen Phasen der Kommunikation befinden. Es stellt sich die Frage, wie so etwas sinnvoll in einem Prozess, also ohne den Einsatz von Threads, durchgeführt werden kann.</p>
+<p>Selbstverständlich könnte man alle verwendeten Sockets in den nicht-blockierenden Modus schalten und die Verwaltung selbst in die Hand nehmen. Das ist aber nur auf den ersten Blick eine Lösung, denn der blockierende Modus besitzt einen unschätzbaren Vorteil: Ein blockierender Socket veranlasst, dass das Programm bei einer Netzwerkoperation so lange schlafen gelegt wird, bis die Operation durchgeführt werden kann. Auf diese Weise kann die Prozessorauslastung reduziert werden.</p>
+<p>Im Gegensatz dazu müssten wir beim Einsatz von nicht-blockierenden Sockets in einer Schleife ständig über alle verbundenen Sockets iterieren und prüfen, ob sich etwas getan hat, also ob beispielsweise Daten zum Auslesen bereitstehen. Dieser Ansatz, auch <span class="ckursiv">Busy Waiting</span> genannt, ermöglicht uns zwar das quasi-parallele Auslesen mehrerer Sockets, das Programm lastet den Prozessor aber wesentlich mehr aus, da es über den gesamten Zeitraum aktiv ist.</p>
+<p>Das Modul <span class="clisting">select</span> ermöglicht es, im gleichen Prozess mehrere blockierende Sockets zu verwalten, sodass die Vorteile blockierender Sockets erhalten bleiben. Ein Server, der <span class="clisting">select</span> verwendet, wird <span class="ckursiv">multiplexender Server</span> genannt. Im Modul ist im Wesentlichen die Funktion <span class="clisting">select</span> enthalten, die im Folgenden besprochen werden soll.</p>
+<h5 class="t5"><span class="cfett">select.select(iwtd, owtd, ewtd[, timeout])</span></h5>
+<p>Im einfachsten Fall bekommt die Funktion <span class="clisting">select</span> als ersten Parameter <span class="ckursiv">iwtd</span> eine Liste von Sockets übergeben, mit denen eine Leseoperation durchgeführt werden soll. Nehmen wir einmal an, für die weiteren Parameter <span class="ckursiv">owtd</span> und <span class="ckursiv">ewtd</span> würde jeweils eine leere Liste übergeben. In diesem Fall würde die Funktion <span class="clisting">select</span> das Programm so lange schlafen legen, bis an mindestens einem der übergebenen Sockets Daten vorliegen, die ausgelesen werden können.</p>
+<p>Ähnlich verhält es sich mit dem zweiten Parameter, <span class="ckursiv">owtd</span>. Hier wird eine Liste von Sockets übergeben, mit denen eine Schreiboperation durchgeführt werden soll. Die Funktion <span class="clisting">select</span> weckt das Programm auf, sobald einer der hier übergebenen Sockets zum Schreiben bereit ist.</p>
+<p>Für den dritten Parameter, <span class="ckursiv">ewtd</span>, wird eine Liste von Sockets übergeben, bei denen möglicherweise sogenannte <span class="ckursiv">out-of-band data</span> eingegangen sind. Das sind TCP-Pakete, die als besonders wichtig (engl. <span class="ckursiv">urgent</span>) eingestuft sind und somit privilegiert übertragen werden. Mithilfe solcher Nachrichten kann ein Programm wichtige Ausnahmefälle signalisieren. Dennoch werden wir hier nicht näher darauf eingehen, da solche OOB-Pakete so gut wie nie verwendet werden.</p>
+<p>Als vierter, optionaler und letzter Parameter kann ein Timeout-Wert in Sekunden angegeben werden. Dieser veranlasst die Funktion <span class="clisting">select</span>, das Programm nach einer gewissen Zeit aufzuwecken, auch wenn sich bei keinem der übergebenen Sockets etwas getan hat. Wenn ein Timeout-Wert von <span class="clisting">0.0</span> übergeben wird, gibt <span class="clisting">select</span> nur die Sockets zurück, die beim Aufruf bereits bereit zum Lesen bzw. Schreiben sind.</p>
+<p>Es ist möglich, für <span class="ckursiv">iwtd</span>, <span class="ckursiv">owtd</span> oder <span class="ckursiv">ewtd</span> leere Listen zu übergeben, vor allem, weil in der Regel nur der erste dieser Parameter benötigt wird, denn es ist das klassische Anwendungsgebiet von <span class="clisting">select</span>, auf eintreffende Daten zu warten. Der zweite Parameter ist deshalb weniger wichtig, weil ein Socket in der Regel zu jeder Zeit zum Versenden von Daten bereitsteht. Und in den seltenen Fällen, bei denen dies nicht der Fall ist, ist die »Verstopfung« des Ausgangspuffers nur von kurzer Dauer und ein blockierender Aufruf von <span class="clisting">send</span> somit nicht weiter tragisch.</p>
+<p>Die Funktion <span class="clisting">select</span> gibt in jedem Fall ein Tupel zurück, das aus drei Listen besteht. Diese Listen enthalten jeweils die Sockets, bei denen entweder Daten gelesen oder geschrieben werden können oder, wie erwähnt, dringende Pakete vorliegen. Beachten Sie, dass dieselbe <span class="clisting">Socket</span>-Instanz beim Aufruf von <span class="clisting">select</span> durchaus in mehreren der übergebenen Listen vorkommen darf.</p>
+<p>Im folgenden Beispiel soll ein Server geschrieben werden, der Verbindungen von beliebig vielen Clients akzeptiert und verwaltet. Diese Clients sollen dazu in der Lage sein, dem Server mehrere Nachrichten zu schicken, die von diesem dann am Bildschirm angezeigt werden. Aus Gründen der Einfachheit verzichten wir auf eine Antwortmöglichkeit des Servers.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> socket<span class="cfett"> 
+import</span> select<br>
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+server.bind(("", 50000)) 
+server.listen(1)<br>
+clients = []<br>
+<span class="cfett">try</span>: 
+   <span class="cfett"> while</span> True: 
+        lesen, schreiben, oob = select.select([server] + clients, 
+                                              [], [])<br>
+       <span class="cfett"> for</span> sock<span class="cfett"> in</span> lesen: 
+           <span class="cfett"> if</span> sock<span class="cfett"> is</span> server: 
+                client, addr = server.accept() 
+                clients.append(client) 
+               <span class="cfett"> print</span> "+++ Client %s verbunden" % addr[0] 
+           <span class="cfett"> else</span>: 
+                nachricht = sock.recv(1024) 
+                ip = sock.getpeername()[0] 
+               <span class="cfett"> if</span> nachricht: 
+                   <span class="cfett"> print</span> "[%s] %s" % (ip, nachricht) 
+               <span class="cfett"> else</span>: 
+                   <span class="cfett"> print</span> "+++ Verbindung zu %s beendet" % ip 
+                    sock.close() 
+                    clients.remove(sock)<span class="cfett"> 
+finally:</span> 
+   <span class="cfett"> for</span><span class="clisting"> c</span><span class="cfett"> in</span><span class="clisting"> clients</span><span class="cfett">:</span> 
+       <span class="clisting"> c.close()</span> 
+    server.close()</pre></div>
+<p>Zunächst wird ein Socket <span class="clisting">server</span> erzeugt, der dazu gedacht ist, eingehende Verbindungsanfragen zu akzeptieren. Zudem wird die leere Liste <span class="clisting">clients</span> angelegt, die später alle verbundenen Client-Sockets enthalten soll. Die darauf folgende <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung hat die Aufgabe, alle verbundenen Sockets ordnungsgemäß durch Aufruf von <span class="clisting">close</span> zu schließen, wenn das Programm beendet wird.</p>
+<p>Viel interessanter ist aber die Endlosschleife innerhalb des <span class="clisting">try</span>-Zweiges, in der zunächst die Funktion <span class="clisting">select</span> aufgerufen wird. Dabei werden alle geöffneten Sockets, inklusive des Server-Sockets, als erster Parameter übergeben. Die von <span class="clisting">select</span> zurückgegebenen Listen werden von <span class="clisting">lesen</span>, <span class="clisting">schreiben</span> und <span class="clisting">oob</span> referenziert, wobei wir uns nur für die Liste <span class="clisting">lesen</span> näher interessieren.</p>
+<p>Nach dem Aufruf von <span class="clisting">select</span> wird über die zurückgegebene Liste <span class="clisting">lesen</span> iteriert und in jedem Iterationsschritt überprüft, ob es sich bei dem betrachteten Socket um den Server-Socket handelt. Wenn das der Fall ist, wenn also beim Server-Socket Daten zum Einlesen bereitstehen, bedeutet dies, dass eine Verbindungsanfrage vorliegt. Wir akzeptieren die Verbindung, fügen den neuen Socket in die Liste <span class="clisting">clients</span> ein und geben eine entsprechende Meldung aus.</p>
+<p>Wenn Daten bei einem Client-Socket eingegangen sind, bedeutet dies, dass entweder eine Nachricht von diesem eingetroffen ist oder dass die Verbindung beendet wurde. Um zu testen, welcher der beiden Fälle eingetreten ist, lesen wir die vorhandenen Daten mittels <span class="clisting">recv</span> aus. Wenn die Verbindung seitens des Clients beendet wurde, gibt <span class="clisting">recv</span> einen leeren String zurück. In diesem Fall löschen wir diesen Socket aus der Liste <span class="clisting">clients</span> und geben eine entsprechende Meldung aus.</p>
+<p>Der Vollständigkeit halber folgt hier noch der Quelltext des zu diesem Server passenden Clients:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> socket<br>
+ip = raw_input("IP-Adresse: ") 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+s.connect((ip, 50000))<br>
+<span class="cfett">try</span>: 
+   <span class="cfett"> while</span> True: 
+        nachricht = raw_input("Nachricht: ") 
+        s.send(nachricht)<span class="cfett"> 
+finally</span>: 
+    s.close()</pre></div>
+<p>Dabei handelt es sich tatsächlich um reine Socket-Programmierung, wie wir sie bereits in den vorherigen Kapiteln behandelt haben. Beachten Sie, dass der Client, abgesehen von eventuell auftretenden Latenzen, nicht bemerkt, ob er von einem seriellen oder einem multiplexenden Server bedient wird.</p><a id="mjb11f39ffbe49131e4aeb49e5298e5be5" name="mjb11f39ffbe49131e4aeb49e5298e5be5"></a><a name="t38"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t39"></a><h3 class="t3"><span class="cfett">20.1.8</span><span class="cfett"> SocketServer</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t38"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Sie werden festgestellt haben, dass das Schreiben eines Servers unter Verwendung des Moduls <span class="clisting">socket</span> mitunter eine sehr komplexe Aufgabe sein kann. Aus diesem Grund enthält Pythons Standardbibliothek das Modul <span class="clisting">SocketServer</span>, das es erleichtern soll, einen Server zu schreiben, der in der Lage ist, mehrere Clients zu bedienen.</p>
+<p>Im folgenden Beispiel soll der Chat-Server des vorherigen Abschnitts mit dem Modul <span class="clisting">SocketServer</span> nachgebaut werden. Dazu muss zunächst ein sogenannter <span class="ckursiv">Request Handler</span> erstellt werden. Das ist eine Klasse, die von der Basisklasse <span class="clisting">SocketServer.BaseRequestHandler</span> abgeleitet wird. Im Wesentlichen muss in dieser Klasse die Methode <span class="clisting">handle</span> überschrieben werden, in der die Kommunikation mit einem Client ablaufen soll:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> SocketServer<br>
+<span class="cfett">class</span> ChatRequestHandler(SocketServer.BaseRequestHandler):<br>
+   <span class="cfett"> def</span> handle(self): 
+        addr = self.client_address[0] 
+       <span class="cfett"> print</span> "[%s] Verbindung hergestellt" % addr 
+       <span class="cfett"> while</span> True: 
+            s = self.request.recv(1024) 
+           <span class="cfett"> if</span> s: 
+               <span class="cfett"> print</span> "[%s] %s" % (addr, s) 
+           <span class="cfett"> else</span>: 
+               <span class="cfett"> print</span> "[%s] Verbindung geschlossen" % addr 
+               <span class="cfett"> break</span></pre></div>
+<p>Hier wurde die Klasse <span class="clisting">ChatRequestHandler</span> erzeugt, die von <span class="clisting">BaseRequestHand</span> <span class="clisting">ler</span> erbt. Später wird von der <span class="clisting">SocketServer</span>-Instanz bei jeder hergestellten Verbindung eine neue Instanz dieser Klasse erzeugt und die Methode <span class="clisting">handle</span> aufgerufen. In dieser Methode läuft dann die Kommunikation mit dem verbundenen Client ab. Zusätzlich zur Methode <span class="clisting">handle</span> können noch die Methoden <span class="clisting">setup</span> und <span class="clisting">finish</span> überschrieben werden, die entweder vor (<span class="clisting">setup</span>) oder nach (<span class="clisting">finish</span>) dem Aufruf von <span class="clisting">handle</span> aufgerufen werden.</p>
+<p>In unserem Beispiel werden innerhalb der Methode <span class="clisting">handle</span> in einer Endlosschleife eingehende Daten eingelesen. Wenn ein leerer String eingelesen wurde, wird die Verbindung vom Kommunikationspartner geschlossen. Andernfalls wird der gelesene String ausgegeben.</p>
+<p>Damit ist die Arbeit am Request Handler beendet. Was jetzt noch fehlt, ist der Server, der eingehende Verbindungen akzeptiert und daraufhin den Request Handler instanziiert:</p>
+<div class="listing"><pre class="prettyprint">server = SocketServer.ThreadingTCPServer(("", 50000), 
+                                         ChatRequestHandler) 
+server.serve_forever()</pre></div>
+<p>Um den tatsächlichen Server zu erzeugen, wird eine Instanz der Klasse <span class="clisting">Threa</span> <span class="clisting">dingTCPServer</span> erzeugt. Dem Konstruktor wird dabei ein Adress-Tupel und die soeben erstellte Request Handler-Klasse <span class="clisting">ChatRequestHandler</span> übergeben. Durch Aufruf der Methode <span class="clisting">serve_forever</span> der <span class="clisting">ThreadingTCPServer</span>-Instanz wird der Server dazu instruiert, eine unbestimmte Anzahl an Verbindungen einzugehen.</p>
+<p>Beachten Sie, dass der Programmierer selbst Verantwortung für eventuell von mehreren Threads gemeinsam genutzte Ressourcen trägt. Diese müssen gegebenenfalls durch Critical Sections abgesichert werden.</p>
+<p>Neben der Klasse <span class="clisting">ThreadingTCPServer</span> können auch andere Klassen instanziiert werden, je nachdem, wie sich der Server verhalten soll. Die Schnittstelle der Konstruktoren ist immer dieselbe.</p>
+<h5 class="t5"><span class="cfett">SocketServer.TCPServer, SocketServer.UDPServer</span></h5>
+<p>Ein einfacher TCP- bzw. UDP-Server. Beachten Sie, dass diese Server immer nur eine Verbindung gleichzeitig eingehen können. Aus diesem Grund ist die Klasse <span class="clisting">TCPServer</span> für unser Beispielprogramm nicht einsetzbar.</p>
+<h5 class="t5"><span class="cfett">SocketServer.ThreadingTCPServer, SocketServer.ThreadingUDPServer</span></h5>
+<p>Diese Klassen implementieren einen TCP- bzw. UDP-Server, der jede Anfrage eines Clients in einem eigenen Thread behandelt, sodass der Server mit mehreren Clients gleichzeitig in Kontakt sein kann. Damit ist die Klasse <span class="clisting">ThreadingTCPSer</span> <span class="clisting">ver</span> ideal für unser obiges Beispiel.</p>
+<h5 class="t5"><span class="cfett">SocketServer.ForkingTCPServer, SocketServer.ForkingUDPServer</span></h5>
+<p>Diese Klassen implementieren einen TCP- bzw. UDP-Server, der jede Anfrage eines Clients in einem eigenen Prozess behandelt, sodass der Server mit mehreren Clients gleichzeitig in Kontakt sein kann. Beachten Sie dabei, dass die Methode <span class="clisting">handle</span> des Request Handlers in einem eigenen Prozess ausgeführt wird, also nicht auf Instanzen des Hauptprozesses zugreifen kann.</p>
+<h4 class="t4"><span class="cfett">Die Klasse SocketServer</span></h4>
+<p>An dieser Stelle sollen die wichtigsten Attribute und Methoden der Klasse <span class="clisting">SoketServer</span> besprochen werden. Im Folgenden sei <span class="ckursiv">s</span> eine Instanz der Klasse <span class="clisting">SocketServer</span>.</p>
+<h5 class="t5"><span class="cfett">s.address_family</span></h5>
+<p>Dieses Attribut referenziert ein Adress-Tupel, das die IP-Adresse und die Portnummer enthält, auf denen der Server <span class="ckursiv">s</span> nach eingehenden Verbindungsanfragen horcht.</p>
+<h5 class="t5"><span class="cfett">s.socket</span></h5>
+<p>Dieses Attribut referenziert die von dem Server verwendete <span class="clisting">Socket</span>-Instanz.</p>
+<h5 class="t5"><span class="cfett">s.fileno()</span></h5>
+<p>Gibt den Dateideskriptor des Server-Sockets zurück.</p>
+<h5 class="t5"><span class="cfett">s.handle_request()</span></h5>
+<p>Instruiert den Server, genau eine Verbindungsanfrage zu akzeptieren und zu behandeln.</p>
+<h5 class="t5"><span class="cfett">s.serve_forever()</span></h5>
+<p>Instruiert den Server, eine unbestimmte Anzahl von Verbindungsanfragen zu akzeptieren und zu behandeln.</p>
+<h4 class="t4"><span class="cfett">Die Klasse BaseRequestHandler</span></h4>
+<p>Die Klasse <span class="clisting">BaseRequestHandler</span> bietet einige Methoden und Attribute, die überschrieben oder verwendet werden können. Beachten Sie, dass eine Instanz der Klasse <span class="clisting">BaseRequestHandler</span> immer für einen verbundenen Client zuständig ist. Im Folgenden sei <span class="ckursiv">rh</span> eine Instanz der Klasse <span class="clisting">BaseRequestHandler</span>.</p>
+<h5 class="t5"><span class="cfett">rh.request</span></h5>
+<p>Über das Attribut <span class="clisting">request</span> können Informationen über die aktuelle Anfrage eines Clients herausgefunden werden. Bei einem TCP-Server referenziert <span class="clisting">request</span> die Socket-Instanz, die zur Kommunikation mit dem Client verwendet wird. Mit dieser können Daten gesendet oder empfangen werden. Bei Verwendung des verbindungslosen UDP-Protokolls referenziert <span class="clisting">request</span> einen String, der die gesendeten Daten enthält.</p>
+<h5 class="t5"><span class="cfett">rh.client_address</span></h5>
+<p>Das Attribut <span class="clisting">client_address</span> referenziert ein Adress-Tupel, das die IP-Adresse und die Portnummer des Clients enthält, dessen Anfrage mit dieser <span class="clisting">BaseRequest</span> <span class="clisting">Handler</span>-Instanz behandelt wird.</p>
+<h5 class="t5"><span class="cfett">rh.server</span></h5>
+<p>Das Attribut <span class="clisting">server</span> referenziert den verwendeten Server, also eine Instanz der Klassen <span class="clisting">TCPServer</span>, <span class="clisting">UDPServer</span>, <span class="clisting">ThreadingTCPServer</span>, <span class="clisting">ThreadingUDPServer</span>, <span class="clisting">ForkingTCPServer</span> oder <span class="clisting">ForkingUDPServer</span>.</p>
+<h5 class="t5"><span class="cfett">rh.handle()</span></h5>
+<p>Diese Methode sollte überschrieben werden. Wenn der Server eine Verbindungsanfrage eines Clients akzeptiert hat, wird eine neue Instanz der Request-Handler-Klasse erzeugt und diese Methode aufgerufen.</p>
+<h5 class="t5"><span class="cfett">rh.setup()</span></h5>
+<p>Diese Methode kann überschrieben werden und wird stets vor dem Aufruf von <span class="clisting">handle</span> aufgerufen.</p>
+<h5 class="t5"><span class="cfett">rh.finish()</span></h5>
+<p>Diese Methode kann überschrieben werden und wird stets nach dem Aufruf von <span class="clisting">handle</span> aufgerufen.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_20_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="20 Netzwerkkommunikation"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_19_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_20_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

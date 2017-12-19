@@ -1,0 +1,548 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 12.2 Vererbung</title>
+<meta name="title" content="Galileo Computing :: Python - 12.2 Vererbung">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 12.2 Vererbung">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_12_001.htm">
+<link rel="next" href="python_kapitel_12_003.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_12_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_12_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7" class="navnav">12 Objektorientierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_12_001.htm#mj7a7b81e033ac96b42cc3067c82e646eb" class="navnav">12.1 Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_001.htm#mjdb02db3d15cc2f5101b2883eb37f636d" class="navnav">12.1.1 Definieren von Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_001.htm#mja573271b00198256bf4fb374b9401db8" class="navnav">12.1.2 Konstruktor, Destruktor und die Erzeugung von Attributen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_001.htm#mj4e0c3a6a090bfdc9ee72a89c385b9ec3" class="navnav">12.1.3 Private Member</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_001.htm#mj3a2d8e94e02c540670bf279c0853ba45" class="navnav">12.1.4 Versteckte Setter und Getter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_001.htm#mj3e4e56aa5753c3e37aad343804cfe6b5" class="navnav">12.1.5 Statische Member</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj0ca8f9d3196e5a5fef88a593d630bc3d" class="navh">12.2 Vererbung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mja9ad55f483dad0b289bb6a13fc9dd3fa" class="navh">12.2.1 Mehrfachvererbung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_12_003.htm#mjc3a7810b0ba9ea9f34ae37cd13c50834" class="navnav">12.3 Magic Members</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_003.htm#mj6e5a6c5d5aae415228091d3e090f2ede" class="navnav">12.3.1 Allgemeine Magic Members</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_12_003.htm#mja67cc5e385a7e4eb847df8e2bbd716f5" class="navnav">12.3.2 Datentypen emulieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_12_004.htm#mj23414ecf2422550b1bf894fb9eda94a3" class="navnav">12.4 Objektphilosophie</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj0ca8f9d3196e5a5fef88a593d630bc3d" name="mj0ca8f9d3196e5a5fef88a593d630bc3d"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">12.2</span><span class="cfett"> <a id="Rxx_ref180777447" name="Rxx_ref180777447"></a>Vererbung</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Bisher haben wir nur objektorientierte Techniken behandelt, die durch Kapselung von Daten und Definition von Schnittstellen die Konsistenz der Objekte sichern. Eines der zu Anfang des Kapitels angesprochenen Ziele der Objektorientierung war es aber auch, dass unsere Programme auch leicht veränderlich sind, sodass sie auf Probleme angewandt werden können, die dem ursprünglichen Problem ähnlich sind. Dieses Ziel wird aber mit den bis jetzt eingeführten Techniken noch nicht erreicht.</p>
+<p>Wir haben im letzten Abschnitt unsere Klasse <span class="clisting">Konto</span> so erweitert, dass sie mittels eines statischen Attributs die Anzahl ihrer Instanzen nachhalten konnte. Wenn wir nun eine neue Klasse definieren wollten &#8211; nehmen wir beispielhaft eine Klasse, die Angestellte der Bank beschreibt &#8211; und diese ebenfalls die Anzahl ihrer eigenen Instanzen &#8211; in dem Fall also die Zahl der Angestellten &#8211; ermitteln soll, so müssten wir den Quellcode für das Instanzzählen ein weiteres Mal in die Klasse <span class="clisting">Angestellter</span> schreiben. Es wäre wünschenswert, einmal festzulegen, wie eine Klasse ihre eigenen Instanzen zählt, und diese Fähigkeit ohne erneutes Aufschreiben des Codes auf neue Klassen übertragen zu können.</p>
+<p>Dieses Konzept, Fähigkeiten einer Klasse auf eine andere zu übertragen, nennt man <span class="ckursiv">Vererbung</span>, wobei alle Member, also sowohl Attribute als auch Methoden, von der Mutter- auf die Tochterklasse übertragen werden. In unserem Beispiel hätten wir also eine Mutterklasse <span class="clisting">Zaehler</span>, die die Instanzzählung implementiert und von der die Klassen <span class="clisting">Konto</span> und <span class="clisting">Angestellter</span> diese Fähigkeit erben:</p>
+<div class="bildbox">
+<p><a name="IDAFDSQ"></a><a onClick="OpenWin('bilder/verhaeltnis_klasse_basisklasse.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinverhaeltnis_klasse_basisklasse.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 12.2    </strong>Konto und Angestellter erben von Zaehler.</p>
+<p>Man spricht auch davon, dass die <span class="ckursiv">Basisklasse</span> <span class="clisting">Zaehler</span> ihre Member an die beiden <span class="ckursiv">Subklassen</span>, <span class="clisting">Konto</span> und <span class="clisting">Angestellter</span>, vererbt.</p>
+<p>Wir wollen nun das angegebene Beispiel in Python implementieren, wobei wir uns zuerst der <span class="clisting">Zaehler</span>-Klasse zuwenden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Zaehler(object): 
+    Anzahl = 0 
+ 
+   <span class="cfett"> def</span> __init__(self): 
+        type(self).Anzahl += 1 
+ 
+   <span class="cfett"> def</span> __del__(self): 
+        type(self).Anzahl -= 1</pre></div>
+<p>Die Definition enthält bis auf den Zugriff auf das Attribut <span class="clisting">Anzahl</span> mittels <span class="clisting">type(self)</span> nichts Neues. Wir können deshalb nicht mehr direkt über den Klassennamen per <span class="clisting">Zaehler.Anzahl</span> auf das Attribut zugreifen, weil wir von der Klasse erben wollen und die Subklassen jeweils ihr eigenes statisches Attribut <span class="clisting">Anzahl</span> haben sollen. Würden wir mit <span class="clisting">Zaehler.Anzahl</span> arbeiten, könnten wir damit die Gesamtanzahl der <span class="clisting">Konto</span>- und <span class="clisting">Angestellter</span>-Instanzen berechnen. Mithilfe von <span class="clisting">type</span> lässt sich der Datentyp einer Instanz ermitteln, und das nutzen wir, um den Zähler abhängig davon, welchen Typ <span class="clisting">self</span> hat, für die richtige Klasse zu ändern.</p>
+<p>Um nun unsere Klasse <span class="clisting">Konto</span> von <span class="clisting">Zaehler</span> erben zu lassen, müssen wir anstatt des <span class="clisting">object</span> innerhalb der Klammern hinter dem Klassennamen <span class="clisting">Zaehler</span> verwenden. Tatsächlich ist es so, dass wir bis hierher alle unsere Klassen von der Basisklasse <span class="clisting">object</span> haben erben lassen, wodurch sie grundlegende Eigenschaften erhalten haben, damit sie überhaupt als Klasse nutzbar wurden.</p>
+<p>Der Grund dafür, dass diese Basisklasse explizit angegeben werden muss, ist historisch bedingt. Früher wurde in Python streng zwischen eingebauten Datentypen und Klassen unterschieden, sodass es insbesondere nicht möglich war, eigene Klassen von diesen Datentypen erben zu lassen. Als man erkannte, dass dies ein großer Nachteil war, vereinigte man eingebaute Datentypen und selbstdefinierte Klassen. Allerdings führte dieser Schritt unter bestimmten Bedingungen zu Problemen mit Programmen, die noch die »alten« Klassen verwendeten. Deshalb kann man heute durch das Erben von <span class="clisting">object</span> explizit angeben, dass man eine »neue« Klasse definieren möchte. Da die überholten <span class="ckursiv">old-style classes</span> gegenüber den von <span class="clisting">object</span> abgeleiteten <span class="ckursiv">new-style classes</span> nur Nachteile haben, sollten Sie ausschließlich mit Letzteren arbeiten.</p>
+<p>Nun wollen wir unsere <span class="clisting">Konto</span>-Klasse von <span class="clisting">Zaehler</span> erben lassen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Konto(Zaehler): 
+   <span class="cfett"> def</span> __init__(self, inhaber, kontonummer, kontostand, 
+                       max_tagesumsatz=1500):<br>
+        Zaehler.__init__(self) # Wichtige Zeile - siehe unten<br>
+        self.__Inhaber = inhaber 
+        self.__Kontonummer = kontonummer 
+        self.__Kontostand = kontostand 
+        self.__MaxTagesumsatz = max_tagesumsatz 
+        self.__UmsatzHeute = 0 
+ 
+    # hier wären die restlichen Methoden</pre></div>
+<p>Im Wesentlichen haben sich bei der neuen Definition von <span class="clisting">Konto</span> nur das schon angesprochene Ersetzen von <span class="clisting">object</span> durch <span class="clisting">Zaehler</span> und die erste Zeile des Konstruktors geändert. Mit <span class="clisting">Zaehler.__init__(self)</span> rufen wir den Konstruktor der Basisklasse auf, um unser Konto auch als Zähler benutzen zu können. Dies ist deshalb notwendig, weil eine Klasse nur eine Methode <span class="clisting">__init__</span> haben kann. Bei der Vererbung tritt nun oft der Fall ein, dass die erbende Klasse Methoden definiert, die auch schon in der Basisklasse vorhanden waren &#8211; in unserem Beispiel eben der Konstruktor <span class="clisting">__init__</span>. In einem solchen Fall werden die Methoden der Basisklasse mit denen, die die Subklasse selbst definiert, überschrieben, sodass im Beispiel <span class="clisting">self.__init__</span> eine Referenz auf den Konstruktor von <span class="clisting">Konto</span> und nicht auf den von <span class="clisting">Zaehler</span> enthält. Um trotzdem auf solche überschriebenen Methoden zugreifen zu können, ersetzt man beim Aufruf das <span class="clisting">self</span> vor dem Punkt durch den Namen der entsprechenden Basisklasse und übergibt <span class="clisting">self</span> explizit als Parameter. Würde <span class="clisting">Zaehler.__init__</span> noch weitere Parameter erwarten, so würden diese wie üblich durch Kommata getrennt dahinter geschrieben.</p>
+<p>Sie sollten sich außerdem als wichtige Regel merken, dass Sie im Konstruktor einer abgeleiteten Klasse immer den Konstruktor der Basisklasse aufrufen müssen, weil Ihre Instanzen sonst aufgrund der fehlenden Initialisierung in einen nicht definierten Zustand übergehen oder sich auf andere Weise falsch verhalten können.</p>
+<p>In unserem Fall würde die Instanzzählung ohne den Aufruf des Konstruktors der Basisklasse nicht funktionieren, da der Zähler nicht mit <span class="clisting">0</span> initialisiert würde.</p>
+<p>Natürlich können Sie von einer erbenden Klasse weitere Klassen erben lassen, sodass ganze »Stammbäume« entstehen. Wenn Sie beispielsweise bei der Speicherung der Bankangestellten eigene Klassen für jeden Tätigkeitsbereich definieren möchten, so könnten diese von der Klasse <span class="clisting">Angestellter</span> erben, die wiederum <span class="clisting">Zaehler</span> als Basisklasse hat:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Angestellter(Zaehler): 
+   <span class="cfett"> def</span> __init__(self, name, stundenlohn, stunden_pro_woche): 
+        Zaehler.__init__(self) 
+        self.Name = name 
+        self.Stundenlohn = stundenlohn 
+        self.StundenProWoche = stunden_pro_woche 
+ 
+   <span class="cfett"> def</span> befoerdere(self, neue_position): 
+        # hier würde der Code für eine Beförderung stehen 
+       <span class="cfett"> pass</span></pre></div>
+<p>Unsere Angestellten haben der Einfachheit halber nur ihren Namen, ihren Stundenlohn und ihre durchschnittliche Arbeitszeit pro Woche in Stunden als Attribute. Nun könnten wir die beiden speziellen Angestellten, <span class="clisting">Sekretaerin</span> und <span class="clisting">Bankdirektor</span>, definieren, die jeweils von der Klasse <span class="clisting">Angestellter</span> erben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Sekretaerin(Angestellter): 
+   <span class="cfett"> def</span> __init__(self, name): 
+        Angestellter.__init__(self, name, 15, 30) 
+<span class="cfett"> 
+class</span> Bankdirektor(Angestellter): 
+   <span class="cfett"> def</span> __init__(self, name, dienstwagen): 
+        Angestellter.__init__(self, name, 150, 50) 
+        self.Dienstwagen = dienstwagen</pre></div>
+<p>Da es in unserer Bank Standardarbeitszeiten und einheitliche Gehälter für jede Position gibt, brauchen diese Informationen nicht mehr an den Konstruktor der abgeleiteten Klassen übergeben zu werden, sondern werden bei dem Aufruf des Konstruktors der Basisklasse intern weitergegeben. Die <span class="clisting">Sekretaerin</span> hat in unserem einfachen Beispiel neben den von <span class="clisting">Angestellter</span> geerbten Members keine weiteren Attribute oder Methoden, und der <span class="clisting">Bankdirektor</span> bekommt neben dem »Erbgut« nur noch ein neues Attribut für seinen Dienstwagen dazu.</p>
+<p>Mithilfe des Konzepts der Vererbung wird Ihr Programmtext in hohem Maße wiederverwendbar, vorausgesetzt, Sie machen sich bei der Strukturierung Ihrer Programme entsprechende Gedanken und zerlegen sie in sinnvoll aufgeteilte Klassen.</p><a id="mja9ad55f483dad0b289bb6a13fc9dd3fa" name="mja9ad55f483dad0b289bb6a13fc9dd3fa"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">12.2.1</span><span class="cfett"> Mehrfachvererbung</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bisher haben wir eine Subklasse immer von genau einer Basisklasse erben lassen. Es gibt aber Situationen, in denen eine Klasse die Fähigkeiten von zwei oder noch mehr Basisklassen erben soll, um das gewünschte Ergebnis zu erzielen. Dieses Konzept, bei dem eine Klasse von mehreren Basisklassen erbt, wird <span class="ckursiv">Mehrfachvererbung</span> genannt.</p>
+<p>Möchte man eine Klasse von mehreren Basisklassen erben lassen, muss man die Basisklassen durch Kommata getrennt in die Klammern hinter dem Klassennamen schreiben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> NeueKlasse(Basisklasse1, Basisklasse2, Basisklasse3, ...): 
+    # Definition von Methoden und Attributen 
+   <span class="cfett"> pass</span></pre></div>
+<p>Wir werden die Mehrfachvererbung an einem einfachen Beispiel verdeutlichen. Angenommen, wir möchten eine Klasse für die Beschreibung von Hausbooten entwickeln, so könnten wir einfach jeweils eine Klasse für die Beschreibung eines Hauses und eine für die eines Bootes definieren, sodass wir durch Vererbung Spezialformen wie das Ferienhaus oder das Rennboot von jeweils einer der Klassen erben lassen könnten. [Dieses Beispiel ist zugegebenermaßen relativ praxisfern, eignet sich aber trotzdem gut, um das Konzept der Mehrfachvererbung zu veranschaulichen.
+] </p>
+<p>Unsere Hausbootklasse soll die Eigenschaften von beiden Klassen, <span class="clisting">Haus</span> und <span class="clisting">Boot</span> erben.</p>
+<p>Die beiden Klassen für das Haus und das Boot könnten in stark vereinfachter Form folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Haus(object): 
+   <span class="cfett"> def</span> __init__(self, anzahl_stockwerke, anzahl_zimmer, 
+                       flaeche, hausnummer): 
+        self.AnzahlStockwerke = anzahl_stockwerke 
+        self.AnzahlZimmer = anzahl_zimmer 
+        self.Flache = flaeche 
+        self.Hausnummer = hausnummer 
+ 
+        self.HaustuerOffen = False 
+ 
+   <span class="cfett"> def</span> oeffneHaustuer(self): 
+        self.HaustuerOffen = True 
+ 
+   <span class="cfett"> def</span> schliesseHaustuer(self): 
+        self.HaustuerOffen = False 
+<span class="cfett"> 
+class</span> Boot(object): 
+   <span class="cfett"> def</span> __init__(self, laenge, tiefgang, motorleistung): 
+        self.Laenge = laenge 
+        self.Tiefgang = tiefgang 
+        self.Motorleistung = motorleistung 
+ 
+        self.MotorIstEingeschaltet = False 
+        self.AnkerGeworfen = True 
+ 
+   <span class="cfett"> def</span> starteMotor(self): 
+        self.MotorIstEingeschaltet = True 
+ 
+   <span class="cfett"> def</span> stoppeMotor(self): 
+        self.MotorIstEingeschaltet = False 
+ 
+   <span class="cfett"> def</span> ankerWerfen(self): 
+        self.AnkerGeworfen = True 
+ 
+   <span class="cfett"> def</span> ankerLichten(self): 
+        self.AnkerGeworfen = False</pre></div>
+<p>Die Klasse <span class="clisting">Haus</span> kann sich einige grundlegende Eigenschaften eines Hauses merken und außerdem  speichern, ob die Haustür gerade offen bzw. geschlossen ist. Außerdem bietet sie zum Öffnen und Schließen der Türe entsprechende Methoden an.</p>
+<p>Mit der Klasse <span class="clisting">Boot</span> kann man die Länge, den Tiefgang und die Motorleistung in PS speichern. Sie verfügt zusätzlich über Eigenschaften für den Status des Motors und des Ankers, die auch jeweils über Methoden gesetzt werden können.</p>
+<p>Nun lassen wir unsere neue Klasse namens <span class="clisting">Hausboot</span> von den Klassen <span class="clisting">Haus</span> und <span class="clisting">Boot</span> erben, wodurch sie alle Fähigkeiten von ihnen übernimmt. Da wir keine zusätzliche Funktionalität hinzufügen wollen, definieren wir nur einen Konstruktor für die Klasse <span class="clisting">Hausboot</span>, der die Parameter an die Konstruktoren von <span class="clisting">Haus</span> und <span class="clisting">Boot</span> weitergibt:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Hausboot(Haus, Boot): 
+   <span class="cfett"> def</span><span class="clisting"> __init__(self,</span> anzahl_stockwerke, anzahl_zimmer, 
+                       flaeche, hausnummer, 
+                       laenge, tiefgang, motorleistung): 
+ 
+        Haus.__init__(self, anzahl_stockwerke, anzahl_zimmer, 
+                      flaeche, hausnummer) 
+        Boot.__init__(self, laenge, tiefgang, motorleistung)</pre></div>
+<p>Nun können wir eine Instanz der Klasse <span class="clisting">Hausboot</span> erzeugen und zur Demonstration den Anker werfen und den Motor starten:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; mein_hausboot = Hausboot(2, 10, 200, 5, 20, 1.5, 1000) 
+&gt;&gt;&gt; mein_hausboot.AnzahlStockwerke 
+2 
+&gt;&gt;&gt; mein_hausboot.starteMotor() 
+&gt;&gt;&gt; mein_hausboot.MotorGestartet 
+True 
+&gt;&gt;&gt; mein_hausboot.AnkerGeworfen 
+False 
+&gt;&gt;&gt; mein_hausboot.werfeAnker() 
+&gt;&gt;&gt; mein_hausboot.Ankergeworfen 
+True</pre></div>
+<p>Wie das Beispiel zeigt, können wir die Instanz <span class="clisting">mein_hausboot</span> problemlos wie ein <span class="clisting">Haus</span> und wie ein <span class="clisting">Boot</span> verwenden.</p>
+<p>Mehrfachvererbung wird erst dann kniffelig, wenn einer Klasse gleichnamige Attribute oder Methoden von verschiedenen Basisklassen vererbt werden.</p>
+<p>Was wäre beispielsweise passiert, wenn die Klasse <span class="clisting">Hausboot</span> keinen eigenen Konstruktor definiert hätte, der die Konstruktoren beider Basisklassen aufruft? Wäre der Konstruktor der Basisklasse <span class="clisting">Haus</span> oder der der Klasse <span class="clisting">Boot</span> oder wären vielleicht beide aufgerufen worden?</p>
+<p>Wenn in Python eine Klasse von mehreren Basisklassen gleichnamige Member erbt, wird nach der Reihenfolge entschieden, in der die Basisklassen angegeben werden: Es werden immer zuerst die Eigenschaften der weiter links stehenden Basisklasse vererbt.</p>
+<p>Wenn wir also eine Klasse <span class="clisting">Hausboot2</span> definieren, die ebenfalls von <span class="clisting">Haus</span> und <span class="clisting">Boot</span> erbt und deren Klassenkörper ausschließlich aus einer <span class="clisting">pass</span>-Anweisung besteht, würde <span class="clisting">Hausboot2</span> die <span class="clisting">__init__</span>-Methode von <span class="clisting">Haus</span> erben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett"> class</span> Hausboot2(Haus, Boot): 
+   <span class="cfett"> pass</span><br>
+<span class="clisting">&gt;&gt;&gt; mein_hausboot2 = Hausboot2() 
+Traceback (most recent call last):</span> 
+ <span class="clisting"> File "&lt;pyshell#0&gt;", line 1, in &lt;module&gt;</span> 
+   <span class="clisting"> mein_hausboot2 = Hausboot2() 
+TypeError: __init__() takes exactly 5 arguments (1 given)</span></pre></div>
+<p>Die Fehlermeldung teilt uns mit, dass der Konstruktor von <span class="clisting">Hausboot2</span> genau fünf Parameter erwartet, was genau der Parameteranzahl des Konstruktors von <span class="clisting">Haus</span> entspricht. Da die <span class="clisting">__init__</span>-Methode von <span class="clisting">Boot</span> nur vier Parameter benötigt, handelt es sich beim Konstruktor von <span class="clisting">Hausboot2</span> also um den der <span class="clisting">Haus</span>-Klasse.</p>
+<h4 class="t4"><span class="cfett">Mögliche Probleme der Mehrfachvererbung</span></h4>
+<p>Es ist kein Zufall, dass nur wenige Sprachen das Konzept der Mehrfachvererbung unterstützen, da Programme, die es verwenden, anfällig für schwierig auffindbare Fehler sind, weil gleichnamige Member auch dann überschrieben werden, wenn sie semantisch nichts miteinander zu tun haben.</p>
+<p>Besonders kritisch wird es dann, wenn eine Klasse über Umwege mehrmals von derselben Basisklasse erbt. Betrachten wir einmal folgende vereinfachte Klassenhierarchie:</p>
+<div class="bildbox">
+<p><a name="IDAQUSQ"></a><a onClick="OpenWin('bilder/mehrfachvererbung_fahrzeug.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinmehrfachvererbung_fahrzeug.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 12.3    </strong>Amphibienfahrzeug erbt auf zwei Wegen von Fahrzeug</p>
+<p>Die Klasse <span class="clisting">Amphibienfahrzeug</span> hat exakt ein Attribut <span class="clisting">Maximalgeschwindigkeit</span>, das sie entweder von <span class="clisting">Geländefahrzeug</span> oder von <span class="clisting">Wasserfahrzeug</span> erbt, je nachdem, in welche Reihenfolge die beiden Basisklassen bei der Definition von <span class="clisting">Amphibienfahrzeug</span> angegeben wurden. Dies ist aber nicht sinnvoll, da sich die <span class="clisting">Maximalgeschwindkeiten</span> zu Lande und zu Wasser in der Regel unterscheiden. Eine brauchbare Klasse zur Beschreibung von Amphibienfahrzeugen lässt sich also nicht durch die gezeigte Mehrfachvererbung definieren, wie es die Intuition raten würde.</p>
+<p>Sie sollten in Ihren eigenen Programmen sehr genau darauf achten, dass Sie nur dann Mehrfachvererbungen einsetzen, wenn dadurch keine Konflikte entstehen können, die den Sinn der resultierenden Klasse entstellen &#8211; und nach Möglichkeit ganz auf sie verzichten.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_12_002.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="12.2 Vererbung"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_12_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_12_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

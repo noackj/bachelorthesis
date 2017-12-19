@@ -1,0 +1,652 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 25.4 Erstellung der Applikation</title>
+<meta name="title" content="Galileo Computing :: Python - 25.4 Erstellung der Applikation">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 25.4 Erstellung der Applikation">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_25_003.htm">
+<link rel="next" href="python_kapitel_25_005.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_25_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_25_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141" class="navnav">25 Python als serverseitige Programmiersprache im WWW mit Django</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_001.htm#mjdd2204be5ba4b589f486242a81296d16" class="navnav">25.1 Installation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_002.htm#mj282c78d53879441971cf422f7721f36b" class="navnav">25.2 Konzepte und Besonderheiten im Überblick</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_003.htm#mje3062b1da2ff670ce178312184ec8595" class="navnav">25.3 Erstellen eines neuen Django-Projekts</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjd017713d500039b7388cd6501ad75461" class="navh">25.4 Erstellung der Applikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_005.htm#mjbec4cf343a331c2f9b5c108a6dba8c3b" class="navnav">25.5 Djangos Administrationsoberfläche</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_006.htm#mj191bf16ca79b0cc7c1219aeea3c3f8ea" class="navnav">25.6 Unser Projekt wird öffentlich</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_007.htm#mj1431bc22cc78c16b5a7d0e21d6379f28" class="navnav">25.7 Djangos Template-System</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_008.htm#mj9e4c615e6b781e13841677e90a85ec7f" class="navnav">25.8 Verarbeitung von Formulardaten</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjd017713d500039b7388cd6501ad75461" name="mjd017713d500039b7388cd6501ad75461"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">25.4</span><span class="cfett"> Erstellung der Applikation</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Ein Projekt ist nur der Rahmen für eine Webseite. Die eigentliche Funktionalität wird durch sogenannte <span class="ckursiv">Applikationen</span> implementiert, die in das Projekt eingebunden werden können. Genau wie für Projekte bietet Django auch für Applikationen ein Werkzeug an, mit dem das Grundgerüst einer Applikation erzeugt werden kann.</p>
+<p>Um unsere News-Applikation zu erzeugen, wechseln wir mit einer System-Shell in das Projektverzeichnis und führen den nachstehenden Befehl aus (das <span class="clisting">python</span> am Anfang kann unter Windows entfallen):</p>
+<div class="listing"><pre class="prettyprint">$ python manage.py startapp news</pre></div>
+<p>Dabei ist <span class="clisting">news</span> der gewünschte Name der neuen Applikation.</p>
+<p>Das Programm erzeugt in unserem Projektverzeichnis einen neuen Ordner namens <span class="clisting">news</span>, der drei Dateien enthält (siehe <a href="#Rxx_ref181940983">Abbildung 25.4</a>).</p>
+<div class="bildbox">
+<p><a name="IDAPCSQ"></a><a onClick="OpenWin('bilder/django_applikation_ordner.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindjango_applikation_ordner.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 25.4    </strong>Ordner einer neuen Django-Applikation</p>
+<p>Die Datei <span class="ckursiv">__init__.py</span> ist wie bei Projekten deshalb notwendig, damit die Applikation ein importierbares Python-Modul wird. Sie ist standardmäßig leer.</p>
+<p>Interessanter sind die beiden anderen Dateien, <span class="ckursiv">models.py</span> und <span class="ckursiv">views.py</span>, die dazu dienen, das Django zugrunde liegende <span class="ckursiv">Model-View-Konzept</span> umzusetzen (siehe <a href="#Rxx47670">Abbildung 25.5</a>).</p>
+<div class="bildbox">
+<p><a name="IDAFDSQ"></a><a onClick="OpenWin('bilder/django_model_view.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindjango_model_view.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 25.5    </strong>Das Model-View-Konzept</p>
+<p>Das sogenannte <span class="ckursiv">Model</span> definiert die Struktur unserer Daten und wie damit umgegangen werden muss. Außerdem bieten Models eine komfortable Schnittstelle für den Zugriff auf die gespeicherten Daten. Wie die konkrete Kommunikation mit der Datenbank vonstatten geht, bleibt dem Programmierer verborgen. Er kann beim Umgang mit den Daten auf die Schnittstellen des Models zurückgreifen, ohne sich um technische Details wie SQL-Statements kümmern zu müssen. [Natürlich ist es möglich, eigene SQL-Befehle an die Datenbank zu senden, falls die mächtige API von Django für einen speziellen Fall nicht ausreichen sollte. In der Praxis werden Sie allerdings höchstwahrscheinlich niemals darauf zurückgreifen müssen.
+]  Die Datenbank selbst bleibt ihm »verborgen«, weil er sie nur indirekt durch das Model »sieht«.</p>
+<p>Die sogenannte <span class="ckursiv">View</span> (dt. <span class="ckursiv">Sicht</span>) kümmert sich um die Aufbereitung der Daten für den Benutzer. Sie kann dabei auf die Models zurückgreifen und deren Daten auslesen und verändern. Wie dabei die Benutzerschnittstelle konkret aussieht, ist der View egal. Die Aufgabe der Views ist nur, die vom Benutzer abgefragten Daten zu ermitteln, diese zu verarbeiten und dann an ein sogenanntes <span class="ckursiv">Template</span> zu übergeben, das die eigentliche Anzeige übernimmt. Mit Templates werden wir uns später beschäftigen.</p>
+<h4 class="t4"><span class="cfett">Ein Model definieren</span></h4>
+<p>Der erste Schritt nach der Erstellung einer neuen Applikation ist die Definition eines Datenmodells. Diese Definition sieht so aus, dass für alle Arten von Datensätzen, die die Applikation braucht, eine Klasse erstellt wird. Diese Klassen müssen von der Basisklasse <span class="clisting">models.Model</span> im Paket <span class="clisting">django.db</span> abgeleitet werden und legen die Eigenschaften der Datensätze und ihre Verknüpfungen untereinander fest.</p>
+<p>Unser Beispielmodell für die News-Applikation definiert eine Modellklasse für die Meldungen und eine für die Besucherkommentare. Wir schreiben die Definition in die Datei <span class="ckursiv">models.py</span>, die dann Folgendes enthält:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> django.db<span class="cfett"> import</span> models 
+<span class="cfett"> 
+class</span> Meldung(models.Model): 
+    titel = models.CharField(max_length=100) 
+    zeitstempel = models.DateTimeField() 
+    text = models.TextField("Meldungstext") 
+<span class="cfett"> 
+class</span> Kommentar(models.Model): 
+    news = models.ForeignKey(Meldung) 
+    autor = models.CharField(max_length=70) 
+    text = models.TextField("Text")</pre></div>
+<p>Die Attribute der Datensätze werden über Klassenmember festgelegt, wobei jedes Attribut eine Instanz eines speziellen Feldtyps von Django sein muss. Über die Parameter der Feldtyp-Konstruktoren werden dabei die Eigenschaften der Attribute angegeben.</p>
+<p>Die Klasse <span class="clisting">Meldung</span> besitzt ein <span class="clisting">CharField</span> namens <span class="clisting">titel</span>, das eine maximale Länge von <span class="clisting">100</span> Zeichen haben soll. Der Feldtyp <span class="clisting">CharField</span> dient zum Speichern von Texten begrenzter Länge. Das Attribut <span class="clisting">zeitstempel</span> soll den Veröffentlichungszeitpunkt jeder Meldung angeben und benutzt den für Zeitangaben gedachten Feldtyp <span class="clisting">DateTimeField</span>. Im letzten Attribut namens <span class="clisting">text</span> wird der eigentliche Meldungstext gespeichert. Der verwendete Feldtyp <span class="clisting">TextField</span> kann beliebig lange Texte speichern.</p>
+<p>Die beiden Attribute <span class="clisting">autor</span> und <span class="clisting">text</span> der Klasse <span class="clisting">Kommentar</span> speichern den Namen desjenigen Besuchers, der den Kommentar geschrieben hat, und den Kommentartext selbst. Interessanter ist das Attribut <span class="clisting">meldung</span>, das eine Beziehung zwischen den Meldungen und Kommentaren herstellt.</p>
+<h5 class="t5"><span class="cfett">Beziehungen zwischen Modellen</span></h5>
+<p>Es ist so, dass es zu einer Meldung mehrere Kommentare geben kann und dass  sich umgekehrt jeder Kommentar genau auf eine Meldung bezieht. Mit dem Feldtyp <span class="clisting">ForeignKey</span> (dt. <span class="ckursiv">Fremdschlüssel</span>) wird eine <span class="ckursiv">One-To-Many Relation</span> (dt. <span class="ckursiv">Eins-zu-viele-Relation</span>) festgelegt, die besagt, dass es zu einem Kommentar genau eine Meldung gibt.</p>
+<div class="bildbox">
+<p><a name="IDA4FSQ"></a><a onClick="OpenWin('bilder/django_relation_one_to_many.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindjango_relation_one_to_many.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 25.6    </strong>One-To-Many Relation bei Meldung und Kommentar</p>
+<p>Neben den One-To-Many Relations unterstützt Django auch <span class="ckursiv">Many-To-Many</span> (dt. <span class="ckursiv">Viele-zu-vielen</span>) und <span class="ckursiv">One-To-One</span> Relations (dt. <span class="ckursiv">Eins-zu-eins-Relation</span>), die wir aber nicht thematisieren werden.</p>
+<p>Wir sind nun mit der Definition des Models fertig und können Django anweisen, eine entsprechende Datenbank anzulegen. Vorher müssen wir allerdings unsere Applikation noch in das Projekt einbinden. Dies wird dadurch erreicht, dass wir den Modulnamen der Applikation in das Tupel <span class="clisting">INSTALLED_APPS</span> am Ende der <span class="ckursiv">settings.py</span> unseres Projekts einfügen:</p>
+<div class="listing"><pre class="prettyprint">INSTALLED_APPS = ( 
+    'django.contrib.auth', 
+    'django.contrib.contenttypes', 
+    'django.contrib.sessions', 
+    'django.contrib.sites', 
+    'unser_projekt.news' 
+)</pre></div>
+<p>Das Tupel <span class="clisting">INSTALLED_APPS</span> enthält dabei die Importnamen aller Applikationen, die das Projekt verwendet. Sie werden sich jetzt wundern, warum unser eigentlich leeres Projekt schon vier Applikation enthält. Django bindet diese Applikationen standardmäßig ein, weil sie in eigentlich jedem Projekt gebraucht werden.</p>
+<p>Nachdem wir nun unsere Applikation erzeugt, ihr Datenmodell definiert und sie in das Projekt eingefügt haben, können wir die Datenbank erstellen. Wir rufen hierzu das Programm <span class="ckursiv">manage.py</span> mit dem Parameter <span class="clisting">syncdb</span> auf:</p>
+<div class="listing"><pre class="prettyprint">$ python manage.py syncdb 
+Creating table auth_message 
+Creating table auth_group 
+Creating table auth_user 
+Creating table auth_permission 
+Creating table django_content_type 
+Creating table django_session 
+Creating table django_site 
+Creating table news_meldung 
+Creating table news_kommentar</pre></div>
+<p>Django erzeugt anhand der Model-Definition automatisch die passenden SQL-Statements für die verwendete Datenbank. Für jede Modellklasse wird eine eigene Tabelle angelegt, die Spalten für alle Attribute der Klasse enthält. Die Namen der Spalten entsprechen dabei den Attributnamen. Zusätzlich gibt es in jeder Tabelle eine Spalte namens <span class="clisting">id</span>, mit der jeder Datensatz eindeutig über eine Ganzzahl identifiziert werden kann. [Sie können auch eigene <span class="clisting">id</span>-Spalten definieren. Nähres finden Sie in der Django-Dokumentation.
+] </p>
+<p>Nachdem die notwendigen Tabellen in der Datenbank erzeugt worden sind, fragt uns das Script, ob wir einen Benutzeraccount für die Administrationsoberfläche anlegen möchten. Wir beantworten die Frage mit »<span class="clisting">yes</span>« und geben entsprechende Daten ein. Natürlich sollten Sie an dieser Stelle andere Zugangsdaten wählen als im Beispiel.</p>
+<div class="listing"><pre class="prettyprint">You just installed Django's auth system, which means you don't have any superusers defined. 
+Would you like to create one now? (yes/no): yes 
+Username (Leave blank to use 'revelation'): Johannes 
+E-mail address: je@revelation-soft.de 
+Password: 
+Password (again): 
+Superuser created successfully.</pre></div>
+<h4 class="t4"><span class="cfett">Die Model-API</span></h4>
+<p>Bevor wir uns mit der automatisch generierten Administrationsoberfläche auseinandersetzen, wollen wir das Model-API kennenlernen, mit dem wir auf die Daten unseres Models zugreifen können. Das Programm <span class="ckursiv">manage.py</span> kann mit dem Parameter <span class="clisting">shell</span> in einem Shell-Modus gestartet werden, in dem wir über eine interaktive Python-Shell unsere Models verwenden können.</p>
+<h4 class="t4"><span class="cfett">Anlegen von Datensätzen</span></h4>
+<p>Zuerst wollen wir die Shell nutzen, um eine News-Meldung in die Datenbank zu schreiben:</p>
+<div class="listing"><pre class="prettyprint">$ python manage.py shell 
+&gt;&gt;&gt;<span class="cfett"> from</span> unser_projekt.news.models<span class="cfett"> import</span> Meldung, Kommentar 
+&gt;&gt;&gt;<span class="cfett"> from</span> datetime<span class="cfett"> import</span> datetime 
+&gt;&gt;&gt; m = Meldung(titel="Unsere erste Meldung", 
+                zeitstempel=datetime.now(), 
+                text="Klassischerweise steht hier 'Hallo Welt'.") 
+&gt;&gt;&gt; m.save()</pre></div>
+<p>Mit diesem einfachen Code wurde eine neue Meldung erzeugt und auch schon in der Datenbank abgelegt. Da sowohl das Projekt aus auch die Applikation einfache Python-Module sind, können wir sie über ein <span class="clisting">import</span>-Statement einbinden.</p>
+<p>Um neue Datensätze zu erzeugen, müssen wir nur die dazugehörige Model-Klasse instanziieren. Der Konstruktor der Model-Klasse erwartet dabei Schlüsselwortparameter für alle Attribute des Datensatzes. Wichtig ist außerdem, dass Django für jeden Spaltenwert einen Wert mit einem Datentyp erwartet, der zu der Spaltendefinition passt. Deshalb muss für den Umgang mit Datumsangaben der Typ <span class="clisting">datetime.datetime</span> importiert werden. Für die Textspalten sind Strings passend.</p>
+<p>Sie können auf die Attribute einer Model-Instanz auf gewohnte Weise zugreifen und sie auch über Zuweisungen verändern:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; m.titel 
+'Unsere erste Meldung' 
+&gt;&gt;&gt; m.titel = "'Hallo Welt'-Meldung" 
+&gt;&gt;&gt; m.save() 
+&gt;&gt;&gt; m.id 
+1</pre></div>
+<p>Mit der letzten Abfrage <span class="clisting">m.id</span> greifen wir auf die automatisch von Django eingefügte <span class="clisting">id</span>-Spalte des Models zu. Da es sich bei <span class="clisting">m</span> um den ersten Eintrag handelt, hat <span class="clisting">m.id</span> den Wert <span class="clisting">1</span>.</p>
+<p>Kommentare können wir direkt über die jeweilige Meldung einfügen. Durch die Bindung der Kommentar-Klasse an die Meldung bekommt jede <span class="clisting">Meldung</span>-Instanz ein Attribut <span class="clisting">kommentar_set</span>, das Zugriff auf die Kommentare der Meldung bietet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; m2 = Meldung(titel="Umfrage zu Django", 
+                zeitstempel=datetime.now(), 
+                text="Wie findet ihr das Framework?") 
+&gt;&gt;&gt; m2.save() 
+&gt;&gt;&gt; k1 = m2.kommentar_set.create(autor="Heinz", text="Super!") 
+&gt;&gt;&gt; k2 = m2.kommentar_set.create(autor="Jens", text="Klasse!") 
+&gt;&gt;&gt; m2.kommentar_set.count() 
+2 
+&gt;&gt;&gt; m2.save()</pre></div>
+<p>Nun gibt es eine zweite Meldung in unserer News-Tabelle, die bereits mit zwei Kommentaren versehen ist. Das erste <span class="clisting">m2.save()</span> ist deshalb erforderlich, da erst beim Speichern ein <span class="clisting">id</span>-Spaltenwert von der Datenbank erzeugt wird, um Kommentare mit dem Datensatz zu verknüpfen.</p>
+<p>Es gibt noch eine unschöne Stelle in unserem Modul, die wir beheben sollten. Schauen Sie sich einmal an, was Python ausgibt, wenn wir eine <span class="clisting">Meldung</span>-Instanz ausgeben lassen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; m2 
+&lt;Meldung: Meldung object&gt;</pre></div>
+<p>Diese Form der Darstellung ist nicht sehr nützlich, da sie uns keine Informationen über den Inhalt des Objekts liefert. Sie können in der <span class="ckursiv">models.py</span> jeder Klasse eine Methode namens <span class="clisting">__unicode__</span> angeben, die eine aussagekräftige Repräsentation des Objektinhalts zurückgeben sollte. Wir ändern unsere <span class="ckursiv">models.py</span> so ab, dass die <span class="clisting">__unicode__</span>-Methoden der Klassen <span class="clisting">Meldung</span> und <span class="clisting">Kommentar</span> jeweils das kennzeichnende Attribut <span class="clisting">text</span> zurückgeben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Meldung(models.Model): 
+    ... 
+   <span class="cfett"> def</span><span class="clisting"> __unicode__</span>(self): 
+       <span class="cfett"> return</span> self.text 
+<span class="cfett"> 
+class</span> Kommentar(models.Model): 
+    ... 
+   <span class="cfett"> def</span><span class="clisting"> __unicode__</span>(self): 
+       <span class="cfett"> return</span> self.text</pre></div>
+<p>Damit die Änderungen auch für unsere Shell wirksam werden, müssen wir sie neu starten. Sie beenden dazu einfach den Python-Interpreter mit der Tastenkombination 
+    <img src="common/icons/Strg.gif" align="top">
+  +
+    <img src="common/icons/D.gif" align="top">
+   oder 
+    <img src="common/icons/Strg.gif" align="top">
+  +
+    <img src="common/icons/Z.gif" align="top">
+   und starten ihn dann erneut. Dabei sollten Sie nicht vergessen, nach dem Neustart auch wieder die Model-Klassen und <span class="clisting">datetime</span> zu importieren.</p>
+<p>Wenn wir nun in der neuen Shell eine Meldung erzeugen, können wir sie auch in sinnvoller Weise ausgeben lassen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; m = Meldung(titel="Nun auch mit guten Ausgaben", 
+                zeitstempel=datetime.now(), 
+                text="Jetzt sehen die Ausgaben auch gut aus.") 
+&gt;&gt;&gt; m 
+&lt;Meldung: Jetzt sehen die Ausgaben auch gut aus.&gt; 
+&gt;&gt;&gt; m.save()</pre></div>
+<p>Sie sollten nach Möglichkeit alle Ihre Model-Klassen mit einer <span class="clisting">__unicode__</span>-Methode ausstatten, da Django oft darauf zurückgreift, um Informationen zu den Objekten auszugeben.</p>
+<h4 class="t4"><span class="cfett">Abfrage von Datensätzen</span></h4>
+<p>Mittlerweile wissen Sie, wie man neue Datensätze in die Datenbank eines Django-Projekts einfügt. Genauso wichtig wie das Anlegen neuer Datensätze ist aber auch das Abfragen von Datensätzen aus der Datenbank. Für den Zugriff auf die bereits in der Datenbank vorhandene Datensätze bietet jede Model-Klasse ein Attribut namens <span class="clisting">objects</span> an, dessen Methoden ein komfortables Auslesen von Daten ermöglichen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; Meldung.objects.all() 
+[&lt;Meldung: Klassischerweise steht hier 'Hallo Welt'.&gt;, 
+ &lt;Meldung: Wie findet ihr das Framework?&gt;, 
+ &lt;Meldung: Jetzt sehen die Ausgaben auch gut aus.&gt;]</pre></div>
+<p>Mit der <span class="clisting">all</span>-Methode von <span class="clisting">Meldung.objects</span> können wir uns eine Liste [Es handelt sich bei dem Rückgabewert von <span class="clisting">all</span> nicht um eine Liste im Sinne einer Instanz des Datentyps <span class="clisting">list</span>. Tatsächlich wird eine Instanz des Django-eigenen Datentyps <span class="clisting">QuerySet</span> zurückgegeben, der sich nach außen aber fast genauso wie <span class="clisting">list</span>-Instanzen verhält.
+]  mit allen Meldungen in der Datenbank zurückgeben lassen. Wirklich interessant sind aber die Methoden <span class="clisting">get</span> und <span class="clisting">filter</span> des <span class="clisting">objects</span>-Attributs, mit denen sich gezielt Datensätze ermitteln lassen, die bestimmte Bedingungen erfüllen. Die gewünschten Bedingungen werden bei den Abfragen als Schlüsselwort-Parameter übergeben. Wird mehr als eine Bedingung angegeben, verknüpft Django sie automatisch mit einem logischen UND.</p>
+<p>Mit <span class="clisting">get</span> lassen sich einzelne Datensätze abfragen. Sollten die geforderten Bedingungen auf mehr als einen Datensatz zutreffen, wirft <span class="clisting">get</span> eine <span class="clisting">AssertException</span>. Wird kein passender Datensatz gefunden, quittiert <span class="clisting">get</span> dies mit einem  <span class="clisting">DoesNot</span> <span class="clisting">Exist</span>-Fehler. Wir nutzen <span class="clisting">get</span>, um unsere Umfrage-Meldung aus der Datenbank zu lesen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; umfrage = Meldung.objects.get(titel="Umfrage zu Django") 
+&gt;&gt;&gt; umfrage.kommentar_set.all() 
+[&lt;Kommentar: Super!&gt;, &lt;Kommentar: Klasse!&gt;]</pre></div>
+<p>Wie Sie sehen, liest Django den entsprechenden Datensatz nicht nur aus der Datenbank, sondern erzeugt auch eine passende Instanz der dazugehörigen Model-Klasse, die sich anschließend genauso verwenden lässt, als sei sie gerade erst von uns erzeugt worden.</p>
+<h5 class="t5"><span class="cfett">Field Lookups</span></h5>
+<p>Mit der Methode <span class="clisting">filter</span> können wir auch mehrere Datensätze auf einmal auslesen, sofern sie den übergebenen Kriterien entsprechen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; Kommentar.objects.filter(meldung__id=2) 
+[&lt;Kommentar: Super!&gt;, &lt;Kommentar: Klasse!&gt;]</pre></div>
+<p>Bei dieser Abfrage liefert Django alle <span class="clisting">Kommentar</span>-Datensätze, die mit einer <span class="clisting">Mel</span> <span class="clisting">dung</span> verknüpft sind, deren <span class="clisting">id</span>-Attribut den Wert <span class="clisting">2</span> hat. Diese Art der Abfrage ist deshalb möglich, weil Django in der Lage ist, Verknüpfungen auch über mehrere Tabellen hinweg zu »folgen«. Der doppelte Unterstrich wird dabei als Trennung zwischen Objekt und Unterobjekt betrachtet, ähnlich dem Punkt in der Python-Syntax. Diese Art der Bedingungsübergabe wird auch von <span class="clisting">get</span> unterstützt.</p>
+<p>Der doppelte Unterstrich kann neben der Abfrage über die Verknüpfungen von verschiedenen Model-Klassen hinweg auch zur Verfeinerung normaler Bedingungen genutzt werden. Dazu wird einem Schlüsselwortparameter der doppelte Unterstrich, gefolgt von einem speziellen Namen, nachgestellt. Mit dem folgenden <span class="clisting">filter</span>-Aufruf können Sie beispielsweise alle Umfragen ermitteln, deren <span class="clisting">text</span>-Attribut mit der Zeichenfolge <span class="clisting">"Jetzt"</span> beginnt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; Meldung.objects.filter(text__startswith="Jetzt") 
+[&lt;Meldung: Jetzt sehen die Ausgaben auch gut aus.&gt;]</pre></div>
+<p>Diese Art der verfeinerten Abfrage wird in Django <span class="ckursiv">Field Lookup</span> (dt. <span class="ckursiv">Feldnachschlagen</span>) genannt. Alle Field Lookups werden in der Form <span class="clisting">attribut__lookup</span> <span class="clisting">typ=wert</span> an die Methode <span class="clisting">filter</span> übergeben. Django definiert sehr viele und teilweise spezielle Field-Lookup-Typen, weshalb die folgende Tabelle nur als Einblick zu verstehen ist:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 25.2    </strong>Eine Übersicht über die wichtigsten Field-Lookup-Typen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Field-Lookup-Typ</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Erklärung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">exact</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob das <span class="clisting">attribut</span> genau gleich <span class="clisting">wert</span> ist. Dies ist das Standardverhalten, wenn kein Field Lookup angegeben wird.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">iexact</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie <span class="clisting">exact</span>, aber es wird nicht zwischen Groß- und Kleinschreibung unterschieden.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">contains</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob <span class="clisting">attribute</span> den Wert von <span class="clisting">wert</span> enthält.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">icontains</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie <span class="clisting">contains</span>, aber es wird nicht zwischen Groß- und Kleinschreibung unterschieden.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">gt</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob <span class="clisting">attribut</span> größer als <span class="clisting">wert</span> ist. (<span class="clisting">gt</span>: engl. <span class="ckursiv">Greater Than</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">gte</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob <span class="clisting">attribut</span> größer als oder gleich <span class="clisting">wert</span> ist. (<span class="clisting">gte</span>: engl. <span class="ckursiv">Greater Than or Equal</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">lt</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob <span class="clisting">attribut</span> kleiner als <span class="clisting">wert</span> ist. (<span class="clisting">lt</span>: engl. <span class="ckursiv">Lower Than</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">lte</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob <span class="clisting">attribut</span> kleiner als oder gleich <span class="clisting">wert</span> ist. (<span class="clisting">lte</span>: engl. <span class="ckursiv">Lower Than or Equal</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">in</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob <span class="clisting">attribut</span> in der für <span class="clisting">wert</span> übergebenen Liste ist:</p>
+<p><span class="clisting">Meldung.objects.filter(id_in=[1, 2])</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">startswith</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob der Wert von <span class="clisting">attribut</span> mit <span class="clisting">wert</span> beginnt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">istartswith</span></p>
+</td>
+<td class="tabellentext">
+<p>Entspricht <span class="clisting">startswith</span>, aber es wird nicht zwischen Groß- und Kleinschreibung unterschieden.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">endswith</span> und <span class="clisting">iendswith</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie <span class="clisting">startswith</span> und <span class="clisting">istartswith</span>, aber auf das Ende von <span class="clisting">attribut</span> bezogen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">range</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob <span class="clisting">attribut</span> in dem Bereich ist, der von dem zweielementigen Tupel <span class="clisting">wert</span> definiert wird:</p>
+<p><span class="clisting">Meldung.objects.filter(id_range=(1, 3))</span></p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">Abfragen auf Ergebnismengen</span></h5>
+<p>Die <span class="clisting">filter</span>-Methode gibt eine Instanz des Datentyps <span class="clisting">QuerySet</span> zurück. Das Besondere an dem Datentyp <span class="clisting">QuerySet</span> ist, dass man auf seinen Instanzen wiederum die Methoden für den Datenbankzugriff ausführen kann. Auf diese Weise lassen sich sehr komfortabel Teilmengen von Abfrageergebnissen erzeugen.</p>
+<p>Beispielhaft ermitteln wir zuerst die Menge aller Kommentare, deren zugehörige Meldung den Titel <span class="clisting">"Umfrage zu Django"</span> hat. Anschließend extrahieren wir aus der Menge die Meldungen, deren Text <span class="clisting">"Super!"</span> lautet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; k = Kommentar.objects.filter(meldung__titel="Umfrage zu Django") 
+&gt;&gt;&gt; k 
+[&lt;Kommentar: Super!&gt;, &lt;Kommentar: Klasse!&gt;] 
+&gt;&gt;&gt; k.filter(text="Super!") 
+[&lt;Kommentar: Super!&gt;]</pre></div>
+<p>Sie sollten sich am besten vor dem Weiterlesen durch »Herumspielen« mit dem Model-API vertraut machen, weil es eine Schlüsselkomponente für den Umgang mit Django darstellt.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_25_004.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="25.4 Erstellung der Applikation"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_25_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_25_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

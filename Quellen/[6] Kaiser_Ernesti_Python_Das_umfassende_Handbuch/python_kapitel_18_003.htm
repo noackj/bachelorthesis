@@ -1,0 +1,648 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 18.3 Das Modul thread</title>
+<meta name="title" content="Galileo Computing :: Python - 18.3 Das Modul thread">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 18.3 Das Modul thread">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_18_002.htm">
+<link rel="next" href="python_kapitel_18_004.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_18_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_18_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21" class="navnav">18 Parallele Programmierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_18_001.htm#mjbf5e4ade8eab89f6f38e27e52d4fb3a6" class="navnav">18.1 Prozesse, Multitasking und Threads</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_18_002.htm#mj8df3749afa9265d105055a0e5e3d35bd" class="navnav">18.2 Die Thread-Unterstützung in Python</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjcb7a5e18f4352910d7d91cdfac8cb38e" class="navh">18.3 Das Modul thread</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjf9e26c833e319410aedb07ec0d5dfaad" class="navh">18.3.1 Datenaustausch zwischen Threads &#8211; locking</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_18_004.htm#mj6a088c87255d78ab32cc053633b5d48b" class="navnav">18.4 Das Modul threading</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_18_004.htm#mj9f5e460ed95970296446db73290809ac" class="navnav">18.4.1 Locking im threading-Modul</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_18_004.htm#mj70765f3b6cc492e932e491217076cfce" class="navnav">18.4.2 Worker-Threads und Queues</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_18_004.htm#mj1dc7e2a20934612976e86acb1b483fa6" class="navnav">18.4.3 Ereignisse definieren &#8211; threading.Event</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_18_004.htm#mjd9b2d0c7393ea3ddc0ae0af913a6f6c3" class="navnav">18.4.4 Eine Funktion zeitlich versetzt ausführen &#8211; threading.Timer</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjcb7a5e18f4352910d7d91cdfac8cb38e" name="mjcb7a5e18f4352910d7d91cdfac8cb38e"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">18.3</span><span class="cfett"> Das Modul thread</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Modul <span class="clisting">thread</span> kann einzelne Funktionen in einem separaten Thread ausführen. Dazu dient die Funktion <span class="clisting">thread.start_new_thread</span>, die mindestens zwei Parameter erwartet:</p>
+<h5 class="t5"><span class="cfett">thread.start_new_thread(function, args[, kwargs])</span></h5>
+<p>Der Parameter <span class="ckursiv">function</span> muss dabei eine Referenz auf die Funktion enthalten, die ausgeführt werden soll. Mit <span class="ckursiv">args</span> muss eine <span class="clisting">tuple</span>-Instanz übergeben werden, die die Parameter für <span class="ckursiv">function</span> enthält.</p>
+<p>Mit dem optionalen Parameter <span class="ckursiv">kwargs</span> kann ein Dictionary übergeben werden, das zusätzliche Schlüsselwortparameter für die Funktion <span class="ckursiv">function</span> bereitstellt.</p>
+<p>Als Rückgabewert gibt <span class="clisting">thread.start_new_thread</span> eine Zahl zurück, die den erzeugten Thread eindeutig identifiziert.</p>
+<p>Nachdem <span class="ckursiv">function</span> verlassen wurde, wird der Thread automatisch gelöscht.</p>
+<h4 class="t4"><span class="cfett">Parallele Berechnung von Pi</span></h4>
+<p>Als Beispiel für das Multithreading werden wir eine Funktion entwickeln, mit der die Kreiszahl 
+    <span class="clisting">&#960;</span>
+   mithilfe des Wallis&#8217;schen Produkts berechnet werden kann, das der englische Mathematiker John Wallis (1616 &#8211; 1703) im Jahre 1655 entdeckte:</p><span class="ckursiv"> </span><p>Im Zähler stehen dabei immer gerade Zahlen, die sich bei jedem zweiten Faktor um 2 erhöhen. Der Nenner enthält nur ungerade Zahlen, die sich mit Ausnahme des ersten Faktors ebenfalls alle zwei Faktoren um 2 erhöhen.</p>
+<p>Die Funktion <span class="clisting">naehere_pi_an</span>, die als Parameter die Anzahl der zu berücksichtigenden Faktoren erhält, kann damit folgendermaßen definiert werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> naehere_pi_an(n): 
+    pi_halbe = 1 
+    zaehler, nenner = 2.0, 1.0 
+ 
+   <span class="cfett"> for</span> i<span class="cfett"> in</span> xrange(n): 
+        pi_halbe *= zaehler / nenner 
+       <span class="cfett"> if</span> i % 2: 
+            zaehler += 2 
+       <span class="cfett"> else</span>: 
+            nenner += 2 
+ 
+   <span class="cfett"> print</span><span class="clisting"> "Annaeherung mit %d Faktoren: %.16f" % (n,</span> 2*pi_halbe)</pre></div>
+<p>Wenn für <span class="clisting">n</span> der Wert <span class="clisting">1000</span> übergeben wird, erzeugt die Funktion folgende Ausgabe, bei der nur die ersten beiden Nachkommastellen korrekt sind:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; naehere_pi_an(1000) 
+Annaeherung mit 1000 Faktoren: 3.140023818600586200</pre></div>
+<p>Wirklich brauchbare Näherungen werden erst für recht große <span class="clisting">n</span> erzielt, was aber auch mit wesentlich mehr Rechenzeit bezahlt werden muss. Beispielsweise benötigte ein Aufruf mit <span class="clisting">n</span> = <span class="clisting">10000000</span> auf unserem Testrechner ca. sieben Sekunden.</p>
+<p>Im nächsten Programm werden wir mithilfe von <span class="clisting">thread.start_new_thread</span> mehrere Threads erzeugen, die die Funktion <span class="clisting">naehere_pi_an</span> für verschiedene <span class="clisting">n</span> aufrufen.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> thread 
+ 
+thread.start_new_thread(naehere_pi_an, (10000000,)) 
+thread.start_new_thread(naehere_pi_an, (10000,)) 
+thread.start_new_thread(naehere_pi_an, (99999999,)) 
+thread.start_new_thread(naehere_pi_an, (123456789,)) 
+thread.start_new_thread(naehere_pi_an, (,), {"n" : 1337}) 
+<span class="cfett"> 
+while</span> True: 
+   <span class="cfett"> pass</span></pre></div>
+<p>Die Endlosschleife am Ende des Programms ist deshalb notwendig, damit der Thread des Hauptprogramms auf die anderen Threads wartet und nicht sofort beendet wird. Es ist nämlich so, dass alle Threads eines Programms sofort abgebrochen werden, wenn das Hauptprogramm sein Ende erreicht hat.</p>
+<p>Eine Endlosschleife für diesen Zweck zu benutzen ist natürlich sehr unschön, weil sie Rechenleistung sinnlos vergeudet und das Programm mit 
+    <img src="common/icons/Strg.gif" align="top">
+  +
+    <img src="common/icons/C.gif" align="top">
+   beendet werden muss. Wir werden erst bei dem Modul <span class="clisting">threading</span> bessere Methoden kennenlernen, um einen Thread auf das Ende eines anderen warten zu lassen.</p>
+<p>Das Interessante an diesem Programm ist die Reihenfolge der Ausgabe, die nicht mit der Reihenfolge der Aufrufe übereinstimmt:</p>
+<div class="listing"><pre class="prettyprint">Annaeherung mit 1337 Faktoren: 3.1427668611489281 
+Annaeherung mit 10000 Faktoren: 3.1414355935898644 
+Annaeherung mit 100000 Faktoren: 3.1415769458226377 
+Annaeherung mit 1234569 Faktoren: 3.1415939259321926 
+Annaeherung mit 11111111 Faktoren: 3.1415927949601699</pre></div>
+<p>Je größer das übergebene <span class="clisting">n</span> war, desto länger musste auf die Ausgabe der dazugehörigen Annäherung von 
+    <span class="clisting">&#960;</span>
+   gewartet werden, ganz egal, wann die Funktion gestartet wurde. Offensichtlich liefen alle Berechnungen parallel ab, wie wir es erwartet hatten.</p>
+<p>Im letzten Beispiel hatte jeder Thread seine eigenen Variablen und musste keine Daten mit anderen Threads austauschen. Im nächsten Abschnitt werden wir uns mit dem Datenaustausch zwischen Threads beschäftigen.</p><a id="mjf9e26c833e319410aedb07ec0d5dfaad" name="mjf9e26c833e319410aedb07ec0d5dfaad"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">18.3.1</span><span class="cfett"> Datenaustausch zwischen Threads &#8211; locking</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Threads haben gegenüber Prozessen den Vorteil, dass sie sich dieselben globalen Variablen teilen und deshalb sehr einfach Daten austauschen können. Trotzdem gibt es ein paar Stolperfallen, die beim Zugriff auf dieselbe Variable durch mehrere Threads beachtet werden müssen.</p>
+<p>Würde man beispielsweise unser vorhergehendes Beispiel um einen Zähler erweitern, der die Anzahl der zurzeit aktiven Threads enthält, damit das Programm nach dem Beenden aller Berechnungen von selbst terminiert, könnte man ganz naiv folgende Implementation vorschlagen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span><span class="clisting"> thread 
+ 
+anzahl_threads = 0 
+ 
+def</span> naehere_pi_an(n): 
+   <span class="cfett"> global</span><span class="clisting"> anzahl_threads</span> 
+   <span class="clisting"> anzahl_threads</span> += 1 
+ 
+    # hier wurde der Berechnungscode zur Übersicht ausgelassen 
+ 
+   <span class="clisting"> anzahl_threads</span> -= 1 
+ 
+thread.start_new_thread(naehere_pi_an, (10000000,)) 
+thread.start_new_thread(naehere_pi_an, (10000,)) 
+thread.start_new_thread(naehere_pi_an, (99999999,)) 
+thread.start_new_thread(naehere_pi_an, (123456789,)) 
+thread.start_new_thread(naehere_pi_an, (), {"n" : 1337}) 
+<span class="cfett"> 
+while</span><span class="clisting"> anzahl_threads</span> &gt; 0: 
+   <span class="cfett"> pass</span></pre></div>
+<p>Dieses Programm hat zwei schwerwiegende Fehler. Erstens funktioniert es nicht, weil die <span class="clisting">while</span>-Schleife erreicht wird, bevor überhaupt ein Thread gestartet werden konnte. Dies liegt einfach daran, dass die Zeitscheibe des Hauptprogramms nach den Aufrufen von <span class="clisting">thread.start_new_thread</span> noch nicht aufgebraucht war und deshalb die Schleife zu laufen beginnt, bevor auch nur ein einziger Thread seine Arbeit aufgenommen hat.</p>
+<p>Aber selbst, wenn dieses Problem bereits gelöst wäre, kann sich das Programm unter Umständen fehlerhaft verhalten. Die Gefahr lauert in den beiden Zeilen, die den Wert der globalen Variable <span class="clisting">anzahl_threads</span> verändern:</p>
+<p>Es ist theoretisch möglich, dass das Zeitfenster eines Threads genau während der Veränderung von <span class="clisting">anzahl_threads</span> endet, denn Zuweisungen bestehen intern aus mehreren Schritten. Zuerst muss der Wert von <span class="clisting">anzahl_threads</span> gelesen werden, dann muss eine neue Instanz mit dem um eins vergrößerten bzw. verringerten Wert erzeugt werden, die im letzten Schritt mit der Referenz <span class="clisting">anzahl_threads</span> verknüpft wird.</p>
+<p>Wenn ein Thread <span class="ckursiv">A</span> nun beim Erhöhen von <span class="clisting">anzahl_threads</span> während der Erzeugung der neuen Instanz schlafen gelegt wird, könnte ein anderer Thread  <span class="ckursiv">B</span> aktiviert werden, der ebenfalls <span class="clisting">anzahl_threads</span> erhöhen möchte. Weil aber der Thread <span class="ckursiv">A</span> seinen neuen Wert von <span class="clisting">anzahl_threads</span> noch nicht berechnet und auch nicht mit der Referenz verknüpft hat, würde der neu aktivierte Thread <span class="ckursiv">B</span> den alten Wert von <span class="clisting">anzahl_threads</span> lesen und erhöhen. Wird dann später der Thread <span class="ckursiv">A</span> wieder aktiv, erhöht er den schon vorher eingelesenen Wert um eins und weist ihn <span class="clisting">anzahl_threads</span> zu. Das Ende vom Lied wäre ein um eins zu kleiner Wert von <span class="clisting">anzahl_threads</span>, wodurch die Schleife im Hauptprogramm endlos laufen würde.</p>
+<p>Die folgende Tabelle soll das beschriebene Szenario veranschaulichen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 18.1    </strong>Problemszenario beim gleichzeitigen Zugriff auf eine globale Variable
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Zeitfenster</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Thread A</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Thread B</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>1</p>
+</td>
+<td class="tabellentext">
+<p>Wert von <span class="clisting">anzahl_threads</span> einlesen. Beispielsweise <span class="clisting">2</span>.</p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">schläft</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="3">
+<p>--------- Zeitfenster von <span class="ckursiv">A</span> endet, und der Thread <span class="ckursiv">B</span> wird aktiviert. -------------</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>2</p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">schläft</span></p>
+</td>
+<td class="tabellentext">
+<p>Wert von <span class="clisting">anzahl_threads</span> einlesen. In diesem Fall <span class="clisting">2</span>.</p>
+<p>Den Wert um <span class="clisting">1</span> erhöhen. Im Speicher existiert nun eine neue Instanz mit dem Wert <span class="clisting">3</span>.</p>
+<p>Die neue Instanz an die Referenz <span class="clisting">anzahl_threads</span> knüpfen. Damit verweist <span class="clisting">anzahl_threads</span> auf den Wert <span class="clisting">3</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="3">
+<p>--------- Zeitfenster von <span class="ckursiv">B</span> endet, und der Thread <span class="ckursiv">A</span> wird aktiviert. -------------</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>3</p>
+</td>
+<td class="tabellentext">
+<p>Den Wert um <span class="clisting">1</span> erhöhen. Im Speicher existiert nun eine neue Instanz mit dem Wert <span class="clisting">3</span>.</p>
+<p>Die neue Instanz an die Referenz <span class="clisting">anzahl_threads</span> knüpfen. Damit verweist <span class="clisting">anzahl_threads</span> auf den Wert <span class="clisting">3</span>.</p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">schläft</span></p>
+</td>
+</tr>
+</table><br><p>Im Beispiel wurde <span class="clisting">anzahl_threads</span> also nur um <span class="clisting">1</span> erhöht, obwohl zwei neue Threads gestartet wurden.</p>
+<p>Um solche Probleme zu vermeiden, kann ein Programm Stellen markieren, die nicht parallel in mehreren Threads laufen dürfen. Man bezeichnet solche Stellen auch als <span class="ckursiv">Critical Section</span><span class="ckursiv">s</span> (dt. <span class="ckursiv">kritische Abschnitte</span>).</p>
+<p>Critical Sections werden durch sogenannte <span class="ckursiv">Lock-Objekt</span><span class="ckursiv">e</span> (von engl. <span class="ckursiv">to lock = sperren</span>) realisiert. Mithilfe der parameterlosen Funktion <span class="clisting">thread.allocate_lock</span> kann ein neues Lock-Objekt erzeugt werden:</p>
+<div class="listing"><pre class="prettyprint">lock_objekt = thread.allocate_lock()</pre></div>
+<p>Lock-Objekte haben die beiden wichtigen Methoden <span class="clisting">acquire</span> und <span class="clisting">release</span>, die jeweils beim Betreten bzw. beim Verlassen einer Critical Section aufgerufen werden müssen. Wenn die <span class="clisting">acquire</span>-Methode eines Lock-Objekts aufgerufen wurde, ist es <span class="ckursiv">gesperrt</span>. Ruft ein Thread die <span class="clisting">acquire</span>-Methode eines gesperrten Lock-Objekts auf, muss er so lange warten, bis das Lock-Objekts wieder mit <span class="clisting">release</span> freigegeben worden ist. Durch diese Technik wird verhindert, dass eine Critical Section von mehreren Threads gleichzeitig ausgeführt werden kann.</p>
+<p>Wir können unser Beispielprogramm folgendermaßen um Critical Sections erweitern, wobei wir außerdem einen Schalter namens <span class="clisting">thread_gestartet</span> einfügen, damit das Hauptprogramm mindestens so lange wartet, bis die Threads gestartet worden sind. Der Zugriff auf die Variablen <span class="clisting">anzahl_threads</span> und <span class="clisting">thread_gestartet</span> wird durch das Lock-Objekt <span class="clisting">lock</span> gesichert:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> thread 
+ 
+anzahl_threads = 0 
+thread_gestartet = False 
+ 
+lock = thread.allocate_lock() 
+<span class="cfett"> 
+def</span> naehere_pi_an(n): 
+    global anzahl_threads, thread_gestartet 
+ 
+    lock.acquire() 
+    anzahl_threads += 1 
+    thread_gestartet = True 
+    lock.release() 
+ 
+    # hier wurde der Berechnungscode zur Übersicht ausgelassen 
+ 
+    lock.acquire() 
+    anzahl_threads -= 1 
+    lock.release() 
+ 
+thread.start_new_thread(naehere_pi_an, (100000,)) 
+thread.start_new_thread(naehere_pi_an, (10000,)) 
+thread.start_new_thread(naehere_pi_an, (11111111,)) 
+thread.start_new_thread(naehere_pi_an, (1234569,)) 
+thread.start_new_thread(naehere_pi_an, (), {"n" : 1337}) 
+<span class="cfett"> 
+while not</span> thread_gestartet: 
+   <span class="cfett"> pass 
+ 
+while</span> anzahl_threads &gt; 0: 
+   <span class="cfett"> pass</span></pre></div>
+<p>Am Anfang des Programms wird der Schalter <span class="clisting">thread_gestartet</span> auf <span class="clisting">False</span> gesetzt, und mittels <span class="clisting">thread.allocate_lock()</span> wird ein neues Lock-Objekt erzeugt. Innerhalb von <span class="clisting">naehere_pi_an</span> gibt es dann eine Critical Section, in der <span class="clisting">anzahl_threads</span> an die Anzahl der laufenden Threads angepasst bzw. die Variable <span class="clisting">thread_gestartet</span> auf <span class="clisting">True</span> gesetzt wird.</p>
+<p>Die erste <span class="clisting">while</span>-Schleife des Hauptprogramms sorgt nun dafür, dass auf jeden Fall so lange gewartet wird, bis ein Thread gestartet worden ist und den Wert von <span class="clisting">thread_gestartet</span> auf <span class="clisting">True</span> gesetzt hat. Die zweite Schleife sorgt wie gehabt dafür, dass das Programm so lange läuft, wie noch Threads ausgeführt werden.</p>
+<p>Um die Wirkungsweise eines Lock-Objekts zu verdeutlichen, zeigt Ihnen die folgende Tabelle, wie unser Problemszenario durch die Critical Sections gelöst wird:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 18.2    </strong>Lösung des »anzahl_threads«-Problems mit einem Lock-Objekt
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Zeitfenster</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Thread A</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Thread B</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>1</p>
+</td>
+<td class="tabellentext">
+<p>Das Lock-Objekt mit <span class="clisting">lock.acquire()</span> sperren.</p>
+<p>Wert von <span class="clisting">anzahl_threads</span> einlesen. Beispielsweise <span class="clisting">2</span>.</p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">schläft</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="3">
+<p>--------- Zeitfenster von <span class="ckursiv">A</span> endet, und der Thread <span class="ckursiv">B</span> wird aktiviert. -------------</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>2</p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">schläft</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">lock.acquire</span> wird aufgerufen, aber das Lock-Objekt ist bereits gesperrt. Deshalb wird <span class="ckursiv">B</span> schlafen gelegt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="3">
+<p>--- <span class="ckursiv">B</span> wurde durch <span class="clisting">lock.acquire</span> schlafen gelegt. <span class="ckursiv">A</span> wird weiter ausgeführt.  ----</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>3</p>
+</td>
+<td class="tabellentext">
+<p>Den Wert um <span class="clisting">1</span> erhöhen. Im Speicher existiert nun eine neue Instanz mit dem Wert <span class="clisting">3</span>.</p>
+<p>Die neue Instanz an die Referenz <span class="clisting">anzahl_threads</span> knüpfen. Damit verweist <span class="clisting">anzahl_threads</span> auf den Wert <span class="clisting">3</span>.</p>
+<p>Das Lock-Objekt wird mittels <span class="clisting">lock.release()</span> wieder freigegeben.</p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">schläft</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="3">
+<p>--------- Zeitfenster von <span class="ckursiv">A</span> endet, und der Thread <span class="ckursiv">B</span> wird aktiviert. -------------</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>4</p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">schläft</span></p>
+</td>
+<td class="tabellentext">
+<p>Das Lock-Objekt wird automatisch gesperrt, da <span class="ckursiv">B</span> <span class="clisting">lock.acquire</span> aufgerufen hat.</p>
+<p>Wert von <span class="clisting">anzahl_threads</span> einlesen. In diesem Fall <span class="clisting">3</span>.</p>
+<p>Den Wert um <span class="clisting">1</span> erhöhen. Im Speicher existiert nun eine neue Instanz mit dem Wert <span class="clisting">4</span>.</p>
+<p>Die neue Instanz an die Referenz <span class="clisting">anzahl_threads</span> knüpfen. Damit verweist <span class="clisting">anzahl_threads</span> auf den Wert <span class="clisting">4</span>.</p>
+<p>Das Lock-Objekt wird mit <span class="clisting">lock. release()</span> wieder freigegeben.</p>
+</td>
+</tr>
+</table><br><p>Sie sollten darauf achten, dass Sie in Ihren eigenen Programmen alle Stellen, in denen Probleme durch Zugriffe von mehreren Threads vorkommen können, durch Critical Sections schützen.</p>
+<p>Unzureichend abgesicherte Programme mit mehreren Threads können sehr schwer reproduzierbare und lokalisierbare Fehler produzieren. Die Herausforderung beim Umgang mit Threads besteht deshalb darin, solche Probleme zu umgehen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Achtung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Wenn Sie mehrere Lock-Objekte verwenden, kann es passieren, dass sich ein Programm in einem sogenannten <span class="ckursiv">Deadlock</span> aufhängt, weil zwei gelockte Threads gegenseitig aufeinander warten.</p>
+</td>
+</tr>
+</table><br><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_18_003.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="18.3 Das Modul thread"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_18_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_18_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

@@ -1,0 +1,659 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 17 Schnittstelle zum Betriebssystem</title>
+<meta name="title" content="Galileo Computing :: Python - 17 Schnittstelle zum Betriebssystem">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 17 Schnittstelle zum Betriebssystem">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_16_002.htm">
+<link rel="next" href="python_kapitel_17_002.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_16_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_17_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj1ca63a01c44856e9ecf8daef9834ac38" class="navh">17 Schnittstelle zum Betriebssystem</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj77e936b71966154869b7d24a1574b1df" class="navh">17.1 Funktionen des Betriebssystems &#8211; os</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3ff7a541af35722b98a3a8fd78f762ff" class="navh">17.1.1 Zugriff auf den eigenen Prozess und andere Prozesse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj9ed2c275d7bfba6527100a0e902359a9" class="navh">17.1.2 Zugriff auf das Dateisystem</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_002.htm#mj5ab2f76578af6aa33e677a2a7512c746" class="navnav">17.2 Umgang mit Pfaden &#8211; os.path</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_003.htm#mj97b5c269a76139d85f7ed0c69a992072" class="navnav">17.3 Zugriff auf die Laufzeitumgebung &#8211; sys</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mjff3bf28f7c46dba2812a48ea44e6c439" class="navnav">17.3.1 Konstanten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mj5712860f2c6affdb1abfb994add18e1f" class="navnav">17.3.2 Exceptions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mj711f6ced68c90e735afd07cedd438f99" class="navnav">17.3.3 Hooks</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mj10a59e950befd97269ece0155ad0a2db" class="navnav">17.3.4 Sonstige Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_004.htm#mjc5f177869459290f657b77629ea88776" class="navnav">17.4 Informationen über das System &#8211; platform</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_004.htm#mj33d8f846c9c856f68871e8b0263b2819" class="navnav">17.4.1 Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_005.htm#mj811770aef1f82a99f21bfeae941a3fe6" class="navnav">17.5 Kommandozeilenparameter &#8211; optparse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_005.htm#mj71f8556c1b5b0cd6ec963d0aaffa2296" class="navnav">17.5.1 Taschenrechner &#8211; ein einfaches Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_005.htm#mja82de697442f64f8b7d1386535b413c3" class="navnav">17.5.2 Weitere Verwendungsmöglichkeiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_006.htm#mjc96b1149114c87b8cb9ce33af7a7f2d0" class="navnav">17.6 Kopieren von Instanzen &#8211; copy</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_007.htm#mj8b1cfd55535f4741469c6ea432d9a846" class="navnav">17.7 Zugriff auf das Dateisystem &#8211; shutil</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_008.htm#mj764aaa21ce7136bc5cea7bf42d82c9da" class="navnav">17.8 Das Programmende &#8211; atexit</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em><span class="ckursiv">»Aber ich kann dir nur die Tür zeigen, durchgehen musst du ganz allein. Tank, das Sprungprogramm!« 
+&#8211; Morpheus in Matrix</span></em></p><a id="mj1ca63a01c44856e9ecf8daef9834ac38" name="mj1ca63a01c44856e9ecf8daef9834ac38"></a><h1 class="t1"><span class="cfett">17</span><span class="cfett"> Schnittstelle zum Betriebssystem</span></h1>
+<p>Um Ihre Programme mit dem Betriebssystem interagieren zu lassen, auf dem sie ausgeführt werden, benötigen Sie Zugriff auf dessen Funktionen. Ein Problem dabei ist, dass sich die verschiedenen Betriebssysteme teilweise sehr stark in ihrem Funktionsumfang und in der Art unterscheiden, wie die vorhandenen Operationen zu benutzen sind. Python wurde aber von Grund auf als plattformübergreifende Sprache konzipiert. Um auch Programme, die auf Funktionen des Betriebssystems zurückgreifen müssen, auf möglichst vielen Plattformen ohne Änderungen ausführen zu können, hat man eine Schnittstelle geschaffen, die einheitlichen Zugriff auf Betriebssystemfunktionen bietet. Im Klartext bedeutet dies, dass Sie durch die Benutzung dieser einheitlichen Schnittstelle Programme schreiben können, die plattformunabhängig bleiben, selbst wenn sie auf Betriebssystemfunktionen zurückgreifen.</p>
+<p>Die Schnittstelle wird durch das Modul <span class="clisting">os</span> implementiert, mit dem wir uns im weiteren Verlauf des Kapitels beschäftigen werden.</p><a id="mj77e936b71966154869b7d24a1574b1df" name="mj77e936b71966154869b7d24a1574b1df"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">17.1</span><span class="cfett"> Funktionen des Betriebssystems &#8211; os</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Mit dem <span class="clisting">os</span>-Modul können Sie auf mehrere Klassen von Operationen zugreifen. Da die gebotenen Funktionen sehr umfangreich sind und zu einem großen Teil nur selten gebraucht werden, beschränken wir uns hier auf eine Teilmenge, die sich in folgende Kategorien einteilen lässt:</p>
+<ul class="gp">
+<li>Zugriff auf den Prozess, in dem unser Python-Programm läuft, und auf andere Prozesse</li>
+</ul>
+<ul class="gp">
+<li>Zugriff auf das Dateisystem</li>
+</ul>
+<ul class="gp">
+<li>Informationen über das Betriebssystem</li>
+</ul>
+<p>Außerdem stellt das Submodul <span class="clisting">os.path</span> nützliche Operationen für die Manipulation und Verarbeitung von Pfadnamen bereit.</p>
+<p>Das Modul <span class="clisting">os</span> hat eine eigene Exception-Klasse namens <span class="clisting">os.error</span>. Immer wenn Sie Fehler innerhalb dieses Moduls abfangen möchten, können Sie dies über <span class="clisting">os.error</span> tun. Ein alternativer Name für die Fehlerklasse ist <span class="clisting">OSError</span>.</p>
+<p>Wir werden nun eine Auswahl von Funktionen der drei Kategorien besprechen.</p><a id="mj3ff7a541af35722b98a3a8fd78f762ff" name="mj3ff7a541af35722b98a3a8fd78f762ff"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">17.1.1</span><span class="cfett"> Zugriff auf den eigenen Prozess und andere Prozesse</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<h5 class="t5"><span class="cfett">os.environ</span></h5>
+<p>Diese Konstante enthält ein Dictionary, das die Umgebungsvariablen speichert, die für unser Programm vom Betriebssystem bereitgestellt wurden. Beispielsweise lässt sich auf vielen Plattformen mit <span class="clisting">os.environ['HOME']</span> der Pfad des Ordners für die Dateien des aktiven Benutzers ermitteln. Die folgenden Beispiele zeigen den Wert von <span class="clisting">os.environ['HOME']</span> auf einem Windows- und einem Linux-Rechner:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> print</span> os.environ['HOME'] 
+C:\Dokumente und Einstellungen\revelation<br>
+&gt;&gt;&gt; print os.environ['HOME'] 
+/home/revelation</pre></div>
+<p>Sie können die Werte des <span class="clisting">os.environ</span>-Dictionarys auch verändern, was allerdings auf bestimmten Plattformen zu Problemen führen kann und deshalb mit Vorsicht zu genießen ist.</p>
+<h5 class="t5"><span class="cfett">os.getpid()</span></h5>
+<p>Jeder laufende Prozess hat eine eindeutige Identifikationsnummer, die sich mit <span class="clisting">os.getpid()</span> ermitteln lässt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.getpid() 
+1360</pre></div>
+<p>Diese Funktion ist nur unter Windows- und Unix-Systemen verfügbar.</p>
+<h5 class="t5"><span class="cfett">os.system(cmd)</span></h5>
+<p>Mit <span class="clisting">os.system</span> können Sie beliebige Kommandos des Betriebssystems ausführen, so als ob Sie es in einer echten Konsole tun würden. Beispielsweise lassen wir uns mit folgendem Beispiel einen neuen Ordner mit dem Namen <span class="ckursiv">test_ordner</span> über das »mkdir«-Kommando anlegen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.system("mkdir test_ordner") 
+0</pre></div>
+<p>Der Rückgabewert von <span class="clisting">os.system</span> ist der Statuscode, mit dem das aufgerufene Programm beendet wurde, in diesem Fall <span class="clisting">0</span>.</p>
+<p>Ein Problem der <span class="clisting">os.system</span>-Funktion ist, dass die Ausgabe des aufgerufenen Programms nicht ohne Weiteres ermittelt werden kann. Für solche Zwecke eignet sich die folgende <span class="clisting">os.popen</span>-Funktion.</p>
+<h5 class="t5"><span class="cfett">os.popen(command[, mode[, bufsize]])</span></h5>
+<p>Mit der Funktion <span class="clisting">os.popen</span> können beliebige Befehle wie auf einer Kommandozeile des Betriebssystems ausgeführt werden. Die Funktion gibt ein Dateiobjekt zurück, mit dem auf die Ausgabe des ausgeführten Programms zugegriffen werden kann. Mit dem Parameter <span class="clisting">mode</span> wird wie bei der Built-in Function <span class="clisting">open</span> angegeben, ob das Dateiobjekt lesend (<span class="clisting">"r"</span>) oder schreibend (<span class="clisting">"w"</span>) geöffnet werden soll. Bei schreibendem Zugriff können auch Daten an das laufende Programm übergeben werden.</p>
+<p>Im folgenden Beispiel nutzen wir das Windows-Kommando »dir«, um eine Liste der Dateien und Ordner unter <span class="ckursiv">C:\</span> zu erzeugen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; ausgabe = os.popen(<span class="clisting">"dir /B C:\\") 
+&gt;&gt;&gt; dateien = [zeile.strip()</span><span class="cfett"> for</span><span class="clisting"> zeile</span><span class="cfett"> in</span><span class="clisting"> ausgabe] 
+&gt;&gt;&gt; dateien 
+['AUTOEXEC.BAT', 'CONFIG.SYS', 'Dokumente und Einstellungen',  
+'Programme', 'Python25', 'WINDOWS']</span></pre></div>
+<p>Die genaue Bedeutung von <span class="clisting">mode</span> und <span class="clisting">bufsize</span> können Sie in Abschnitt <a href="./python_kapitel_09_003.htm#Rxx_ref170503060">9.3</a>, »<a href="./python_kapitel_09_003.htm#Rxx_ref170503060">Dateien</a>«, nachlesen.</p><a id="mj9ed2c275d7bfba6527100a0e902359a9" name="mj9ed2c275d7bfba6527100a0e902359a9"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">17.1.2</span><span class="cfett"> Zugriff auf das Dateisystem</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Mit den nachfolgend beschriebenen Funktionen können Sie sich wie mit einer Shell durch das Dateisystem bewegen, Informationen zu Dateien und Ordnern ermitteln, diese umbenennen, löschen oder erstellen.</p>
+<p>Sie werden oft einen sogenannten <span class="ckursiv">Pfad</span> (engl. <span class="ckursiv">path</span>) als Parameter an die beschriebenen Funktionen übergeben können. Dabei unterscheiden wir zwischen absoluten und relativen Pfaden, wobei Letztere sich auf das aktuelle Arbeitsverzeichnis beziehen.</p>
+<p>Sofern nichts anderes angemerkt ist, werden Pfade als <span class="clisting">str</span>- oder <span class="clisting">unicode</span>-Instanzen übergeben.</p>
+<h5 class="t5"><span class="cfett">os.access(path, mode)</span></h5>
+<p>Mit <span class="clisting">os.access</span> kann überprüft werden, welche Rechte das laufende Python-Programm für den Pfad <span class="ckursiv">path</span> hat. Der Parameter <span class="ckursiv">mode</span> gibt dabei eine Bitmaske an, die die zu überprüfenden Rechte enthält.</p>
+<p>Folgende Werte können einzeln oder mithilfe des bitweisen ODERs zusammengefasst übergeben werden:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 17.1    </strong>Wert für den mode-Parameter von os.access
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Konstante</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">os.F_OK</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob der Pfad überhaupt exisitert.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">os.R_OK</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob der Pfad gelesen werden darf.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">os.W_OK</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob der Pfad geschrieben werden darf.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">os.X_OK</span></p>
+</td>
+<td class="tabellentext">
+<p>Prüft, ob der Pfad ausführbar ist.</p>
+</td>
+</tr>
+</table><br><p>Der Rückgabewert von <span class="clisting">os.access</span> ist <span class="clisting">True</span>, wenn alle für <span class="ckursiv">mode</span> übergebenen Werte auf den Pfad zutreffen, und <span class="clisting">False</span>, wenn mindestens ein Zugriffsrecht für das Programm nicht gilt.</p>
+<h5 class="t5"><span class="cfett">os.chdir(path)</span></h5>
+<p>Setzt das aktuelle Arbeitsverzeichnis auf den mit <span class="ckursiv">path</span> übergebenen Pfad.</p>
+<h5 class="t5"><span class="cfett">os.getcwd()</span></h5>
+<p>Gibt einen String zurück, der den Pfad des aktuellen Arbeitsverzeichnisses (<span class="ckursiv">Current Working Directory</span>) enthält.</p>
+<h5 class="t5"><span class="cfett">os.getcwdu()</span></h5>
+<p>Wie <span class="clisting">os.getcwd</span>, gibt aber eine <span class="clisting">unicode</span>-Instanz zurück.</p>
+<h5 class="t5"><span class="cfett">os.chmod(path, mode)</span></h5>
+<p>Setzt die Zugriffsrechte der Datei oder des Ordners unter dem übergebenen Pfad. <span class="ckursiv">mode</span> ist dabei eine dreistellige Oktalzahl, bei der jede Ziffer die Zugriffsrechte für eine Benutzerklasse angibt. Die erste Ziffer steht für den <span class="ckursiv">Besitzer</span> der Datei, die zweite für seine <span class="ckursiv">Gruppe</span> und die dritte für alle <span class="ckursiv">anderen Benutzer</span>.</p>
+<p>Dabei sind die einzelnen Ziffern Summen aus den folgenden drei Werten:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 17.2    </strong>Zugriffsflags für os.chmod
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Wert</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">1</span></p>
+</td>
+<td class="tabellentext">
+<p>Ausführen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">2</span></p>
+</td>
+<td class="tabellentext">
+<p>Schreiben</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">4</span></p>
+</td>
+<td class="tabellentext">
+<p>Lesen</p>
+</td>
+</tr>
+</table><br><p>Wenn Sie nun beispielsweise den nachstehenden <span class="clisting">os.chmod</span>-Aufruf durchführen, erteilen Sie dem Besitzer vollen Lese- und Schreibzugriff:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.chmod("eine_datei", 0640)</pre></div>
+<p>Ausführen kann er die Datei aber trotzdem nicht. Die restlichen Benutzer seiner Gruppe dürfen die Datei auslesen, aber nicht verändern, und für alle anderen bleibt aufgrund der fehlenden Leseberechtigung auch der Inhalt der Datei verborgen.</p>
+<p>Beachten Sie die führende <span class="clisting">0</span> bei den Zugriffsrechten, die das Literal einer Oktalzahl einleitet.</p>
+<p>Diese Funktion ist nur unter Windows- und Unix-Systemen verfügbar.</p>
+<h5 class="t5"><span class="cfett">os.listdir(path)</span></h5>
+<p>Gibt eine Liste zurück, die alle Dateien und Unterordner des Ordners angibt, der mit <span class="ckursiv">path</span> übergeben wurde. Diese Liste enthält nicht die speziellen Einträge für das Verzeichnis selbst (<span class="clisting">"."</span>) und das nächsthöhere Verzeichnis (<span class="clisting">".."</span>).</p>
+<p>Die Elemente der Liste haben den gleichen Typ wie der übergebene <span class="ckursiv">path</span>-Parameter, also entweder <span class="clisting">str</span> oder <span class="clisting">unicode</span>.</p>
+<h5 class="t5"><span class="cfett">os.mkdir(path[, mode])</span></h5>
+<p>Legt einen neuen Ordner in dem mit <span class="ckursiv">path</span> übergebenen Pfad an. Der optionale Parameter <span class="ckursiv">mode</span> gibt dabei eine Bitmaske an, die die Zugriffsrechte für den neuen Ordner festlegt. Standardmäßig wird für <span class="ckursiv">mode</span> die Oktalzahl <span class="clisting">0777</span> verwendet (siehe zu <span class="ckursiv">mode</span> auch <span class="clisting">os.chmod</span>).</p>
+<p>Ist der angegebene Ordner bereits vorhanden, wird eine <span class="clisting">os.error</span>-Exception geworfen.</p>
+<p>Beachten Sie, dass <span class="clisting">os.mkdir</span> nur dann den neuen Ordner erstellen kann, wenn alle übergeordneten Verzeichnisse bereits existieren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.mkdir(r"C:\Diesen\Pfad\gibt\es\so\noch\nicht") 
+[…] 
+WindowsError: [Error 3] Das System kann den angegebenen Pfad nicht  
+finden: 'C:\\Diesen\\Pfad\\gibt\\es\\so\\noch\\nicht'</pre></div>
+<p>Wenn Sie bei Bedarf die Erzeugung der kompletten Ordnerstruktur wünschen, verwenden Sie <span class="clisting">os.makedirs</span>.</p>
+<h5 class="t5"><span class="cfett">os.makedirs(path[, mode])</span></h5>
+<p>Wie <span class="clisting">os.mkdir</span>; erzeugt aber im Gegensatz dazu die komplette Verzeichnisstruktur inklusive aller übergeordneten Verzeichnisse. Damit funktioniert auch folgendes Beispiel:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.makedirs(r"C:\Diesen\Pfad\gibt\es\so\noch\nicht") 
+&gt;&gt;&gt;</pre></div>
+<p>Wenn der übergebene Ordner schon existiert, wird eine <span class="clisting">os.error</span>-Exception geworfen.</p>
+<h5 class="t5"><span class="cfett">os.remove(path)</span></h5>
+<p>Entfernt die mit <span class="ckursiv">path</span> angegebene Datei aus dem Dateisystem. Wird statt eines Pfads zu einer Datei ein Pfad zu einem Ordner übergeben, wirft <span class="clisting">os.remove</span> eine <span class="clisting">os.error</span>-Exception (siehe dazu <span class="clisting">os.rmdir</span>).</p>
+<p>Beachten Sie bitte, dass es unter Windows-Systemen nicht möglich ist, eine Datei zu löschen, die gerade benutzt wird. In diesem Fall wird ebenfalls eine Exception geworfen.</p>
+<h5 class="t5"><span class="cfett">os.removedirs(path)</span></h5>
+<p>Löscht eine ganze Ordnerstruktur. Dabei löscht es von der tiefsten bis zur höchsten Ebene nacheinander alle Ordner, sofern diese leer sind. Kann der tiefste Ordner nicht gelöscht werden, wird eine <span class="clisting">os.error</span>-Exception geworfen. Fehler, die beim Entfernen der Elternverzeichnisse auftreten, werden ignoriert.</p>
+<p>Wenn Sie beispielsweise</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.removedirs(r"C:\Irgend\ein\Beispielpfad")</pre></div>
+<p>schreiben, wird zuerst versucht, den Ordner <span class="ckursiv">C:\Irgend\ein\Beispielpfad</span> zu löschen. Wenn dies erfolgreich war, wird <span class="ckursiv">C:\Irgend\ein</span> entfernt und bei Erfolg anschließend <span class="ckursiv">C:\Irgend</span>.</p>
+<h5 class="t5"><span class="cfett">os.rename(src, dst)</span></h5>
+<p>Benennt die mit <span class="ckursiv">src</span> angegebene Datei oder den Ordner in <span class="ckursiv">dst</span> um. Wenn unter dem Pfad <span class="ckursiv">dst</span> bereits eine Datei oder ein Ordner existiert, wird <span class="clisting">os.error</span> geworfen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Achtung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Auf Unix-Systemen wird eine bereits unter dem Pfad <span class="ckursiv">dst</span> erreichbare Datei ohne Meldung überschrieben, wenn Sie <span class="clisting">os.rename</span> aufrufen. Bei bereits existierenden Ordnern wird aber weiterhin eine Exception erzeugt.</p>
+</td>
+</tr>
+</table><br><p>Die Methode <span class="clisting">os.rename</span> funktioniert nur dann, wenn bereits alle übergeordneten Verzeichnisse von <span class="ckursiv">dst</span> existieren. Wenn Sie die Erzeugung der nötigen Verzeichnisstruktur wünschen, benutzen Sie stattdessen <span class="clisting">os.renames</span>.</p>
+<h5 class="t5"><span class="cfett">os.renames(src, dst)</span></h5>
+<p>Wie <span class="clisting">os.rename</span>, legt aber bei Bedarf die Verzeichnisstruktur des Zielpfads an. Außerdem wird nach dem Benennungsvorgang versucht, den <span class="ckursiv">src</span>-Pfad mittels <span class="clisting">os.removedirs</span> von leeren Ordnern zu reinigen.</p>
+<h5 class="t5"><span class="cfett">os.rmdir(path)</span></h5>
+<p>Entfernt den übergebenen Ordner aus dem Dateisystem oder wirft <span class="clisting">os.error</span>, wenn der Ordner nicht existiert.</p>
+<h5 class="t5"><span class="cfett">os.tmpfile()</span></h5>
+<p>Legt eine temporäre Datei an und gibt ein geöffnetes Dateiobjekt für sie zurück. Nach dem Schließen der Datei wird sie automatisch gelöscht.</p>
+<p>Diese Funktion ist äußerst praktisch, wenn Sie kurz Daten auf die Festplatte auslagern möchten.</p>
+<h5 class="t5"><span class="cfett">os.walk(top[, topdown=True[, onerror=None]])</span></h5>
+<p>Eine sehr komfortable Möglichkeit, einen Verzeichnisbaum komplett zu durchlaufen, stellt die Funktion <span class="clisting">os.walk</span> bereit. Der Parameter <span class="ckursiv">top</span> gibt dabei die Wurzel des zu durchlaufenden Teilbaums an. Die Iteration geht dabei so vonstatten, dass <span class="clisting">os.walk</span> für den Ordner <span class="ckursiv">top</span> und für jeden seiner Unterordner ein Tupel mit drei Elementen zurückgibt. Ein solches Tupel kann beispielsweise folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint">('ein\\pfad', ['ordner1'], ['datei1', 'datei2'])</pre></div>
+<p>Das erste Element ist dabei der Pfad zu dem Unterordner inklusive des Pfads relativ zu <span class="ckursiv">top</span>, das zweite Element enthält eine Liste mit allen Ordnern, die der aktuelle Unterordner selbst enthält, und das letzte Element speichert alle Dateien des Unterordners.</p>
+<p>Um dies genau zu verstehen, betrachten wir einen Beispielverzeichnisbaum:</p>
+<div class="bildbox">
+<p><a name="IDAZZSQ"></a><a onClick="OpenWin('bilder/os.walk_beispiel.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinos.walk_beispiel.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 17.1    </strong>Beispielverzeichnisbaum</p>
+<p>Wir nehmen an, dass unser aktuelles Arbeitsverzeichnis der Ordner ist, der dem Ordner <span class="ckursiv">ich</span> direkt übergeordnet ist.</p>
+<p>Dann könnten wir uns einmal die Ausgabe von <span class="clisting">os.walk</span> für das Verzeichnis <span class="ckursiv">ich</span> ansehen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> for</span> t<span class="cfett"> in</span> os.walk("ich"): 
+    <span class="cfett">print</span> t 
+ 
+('ich', ['freunde', 'eltern'], []) 
+('ich\\freunde', ['entfernte_freunde'], ['peter', 'christian', 'lucas']) 
+('ich\\freunde\\entfernte_freunde', [], ['heinz', 'erwin']) 
+('ich\\eltern', [], ['vater', 'mutter'])</pre></div>
+<p>Wie Sie sehen, wird für jeden Ordner ein Tupel erzeugt, das die beschriebenen Informationen enthält. Die doppelten Backslashs <span class="clisting">"\\"</span> rühren daher, dass das Beispiel auf einem Windows-Rechner agiusgeführt wurde und Backslashs innerhalb von String-Literalen als Escape-Sequenz geschrieben werden müssen.</p>
+<p>Sie können die in dem Tupel gespeicherten Listen auch bei Bedarf anpassen, um beispielsweise die Reihenfolge zu verändern, in der die Unterverzeichnisse des aktuellen Verzeichnisses besucht werden sollen, oder wenn Sie Änderungen wie das Hinzufügen oder Löschen von Dateien und Ordnern vorgenommen haben.</p>
+<p>Mit dem optionalen Parameter <span class="ckursiv">topdown</span>, dessen Standardwert <span class="clisting">True</span> ist, kann man festlegen, wo mit dem Durchlaufen begonnen werden soll. Bei der Standardeinstellung wird in dem Verzeichnis begonnen, das im Verzeichnisbaum der Wurzel am nächsten steht, im Beispiel <span class="ckursiv">ich</span>. Wird <span class="ckursiv">topdown</span> auf <span class="clisting">False</span> gesetzt, geht <span class="clisting">os.walk</span> genau umgekehrt vor und beginnt mit dem am tiefsten verschachtelten Ordner. In unserem Beispielbaum ist das <span class="ckursiv">ich/freunde/entfernte_freunde</span>:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> for</span> t<span class="cfett"> in</span> os.walk("ich", False): 
+    <span class="cfett">print</span> t 
+ 
+('ich\\freunde\\entfernte_freunde', [], ['heinz', 'erwin']) 
+('ich\\freunde', ['entfernte_freunde'], ['peter', 'christian', 'lucas']) 
+('ich\\eltern', [], ['vater', 'mutter']) 
+('ich', ['freunde', 'eltern'], [])</pre></div>
+<p>Zu guter Letzt kann mit dem letzten Parameter namens <span class="ckursiv">onerror</span> festgelegt werden, wie die Funktion sich verhalten soll, wenn ein Fehler beim Ermitteln des Inhalts eines Verzeichnisses auftritt. Wenn Sie <span class="ckursiv">onerror</span> nicht auf dem Standardwert <span class="clisting">None</span>, der keine Operation vorsieht, belassen wollen, müssen Sie eine Referenz auf eine Funktion, die einen Parameter erwartet, übergeben. Im Fehlerfall wird dann diese Funktion mit einer <span class="clisting">os.error</span>-Instanz, die den Fehler beschreibt, als Parameter aufgerufen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Wichtig</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Wenn Sie mit einem Betriebssystem arbeiten, das symbolische Links auf Verzeichnisse unterstützt, werden diese beim Durchlaufen der Struktur nicht mit berücksichtigt. Dieses Verhalten ist deshalb sinnvoll, weil sonst schwierig zu vermeidende Endlosschleifen entstehen können.</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Achtung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Wenn Sie wie in unserem Beispiel einen relativen Pfadnamen angeben, dürfen Sie das aktuelle Arbeitsverzeichnis nicht während des Durchlaufens mittels <span class="clisting">os.walk</span> verändern.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+Wenn Sie es dennoch tun, kann dies zu nicht definiertem Verhalten führen.</p>
+</td>
+</tr>
+</table><br><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_17_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="17 Schnittstelle zum Betriebssystem"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_16_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_17_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

@@ -1,0 +1,1036 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 19.3 Datenbanken</title>
+<meta name="title" content="Galileo Computing :: Python - 19.3 Datenbanken">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 19.3 Datenbanken">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_19_002.htm">
+<link rel="next" href="python_kapitel_19_004.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_19_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_19_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166" class="navnav">19 Datenspeicherung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_001.htm#mj50322fedc1f8490eef0fafc7d36e87ec" class="navnav">19.1 Komprimierte Dateien lesen und schreiben &#8211; gzStandardbibliothekgzipip</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_002.htm#mjfb129af936cf736637fadc5cdc7fb80f" class="navnav">19.2 XML</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_19_002.htm#mj7b6b6575efca95cb4e2a8271bedd2fd8" class="navnav">19.2.1 DOM &#8211; Document Object Model</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_19_002.htm#mj814634fd2dce5dc0aee7c29e59536e3d" class="navnav">19.2.2 SAX &#8211; Simple API for XML</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_19_002.htm#mj10de3bcca53a40f74b605ca1b6763f1e" class="navnav">19.2.3 ElementTree</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj080f219370513600ef96af394d02fbee" class="navh">19.3 Datenbanken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjea5883d439a425e2f974548b406b56c0" class="navh">19.3.1 Pythons eingebaute Datenbank &#8211; sqlite3</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd4e355cc1c649fc6067edb05093491f1" class="navh">19.3.2 MySQLdb</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_004.htm#mjeb8a39f5c42513f80eca039dfe9b1c06" class="navnav">19.4 Serialisierung von Instanzen &#8211; pickle</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_005.htm#mj068051f9093b3bd5bfc5628714320a14" class="navnav">19.5 Das Tabellenformat CSV &#8211; csv</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_006.htm#mjcc3ffbef726889b6a10108557bca2ef2" class="navnav">19.6 Temporäre Dateien &#8211; tempfile</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj080f219370513600ef96af394d02fbee" name="mj080f219370513600ef96af394d02fbee"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">19.3</span><span class="cfett"> Datenbanken</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Je mehr Daten ein Programm verwalten muss und je komplexer die Struktur dieser Daten wird, desto größer wird der programmtechnische Aufwand für die dauerhafte Speicherung und Verwaltung der Daten. Außerdem gibt es eine ganze Reihe von Aufgaben wie das Lesen, Schreiben oder Aktualisieren, die in fast jedem Programm gebraucht werden, aber immer wieder neu implementiert werden müssten.</p>
+<p>Abhilfe für diese Problematik wurde dadurch geschaffen, dass man eine Abstraktionsschicht zwischen dem benutzenden Programm und dem physikalischen Massenspeicher einzog, die sogenannte <span class="ckursiv">Datenbank</span>. Dabei erfolgt die Kommunikation zwischen Benutzerprogramm und Datenbank über eine vereinheitlichte Schnittstelle.</p>
+<div class="bildbox">
+<p><a name="IDARCSQ"></a><a onClick="OpenWin('bilder/datenbanken_schema.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindatenbanken_schema.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 19.3    </strong>Die Datenbankschnittstelle</p>
+<p>Das Datenbanksystem nimmt dabei Abfragen, sogenannte <span class="ckursiv">Queries</span>, entgegen und gibt alle Datensätze zurück, die den Bedingungen der Abfragen genügen.</p>
+<p>Wir werden uns in diesem Kapitel ausschließlich mit sogenannten <span class="ckursiv">relationalen Datenbanken</span> beschäftigen, die einen Datenbestand in Tabellen organisieren. [Der Attribut »relational« geht auf den Begriff der <em><strong>Relation</strong></em> aus der Mathematik zurück. Vereinfacht gesagt ist eine Relation eine Zuordnung von Elementen zweier oder mehrerer Mengen.
+]  Für die Abfragen in relationalen Datenbanken wurde eine eigene Sprache entwickelt, deren Name <span class="ckursiv">SQL</span> (<span class="ckursiv">Structured Query Language</span>, dt. <span class="ckursiv">strukturierte Abfragesprache</span>) ist. SQL ist zu komplex, um es in diesem Kapitel erschöpfend zu beschreiben. Wir werden hier nur auf grundlegende Befehle von SQL eingehen, die nötig sind, um das Prinzip von Datenbanken und deren Anwendung in Python zu verdeutlichen.</p>
+<p>SQL ist standardisiert und wird von eigentlich allen Datenbanksystemen unterstützt. Dabei ist zu beachten, dass die Systeme immer nur Teilmengen der Sprache implementieren und teilweise geringfügig abändern. Aus diesem Grund werden wir Sie hier in das SQL einführen, das von SQLite, der Standarddatenbank in Python, genutzt wird. Im Abschnitt über die Nutzung des Datenbankservers MySQL gehen wir dann auf die kleinen Unterschiede ein.</p>
+<p>Neben der Abfragesprache SQL ist in Python auch die Schnittstelle der Datenbankmodule standardisiert. Dies hat für den Programmierer den angenehmen Nebeneffekt, dass sein Code mit minimalen Anpassungen auf allen Datenbanksystemen lauffähig ist, die diesen Standard implementieren. Die genaue Definition dieser sogenannten <span class="ckursiv">Python Database API Specification</span> können Sie im Internet unter der Adresse <a href="http://www.python.org/dev/peps/pep-0249/">http://www.python.org/dev/peps/pep-0249/</a> nachlesen.</p>
+<p>Bevor wir uns aber eingehend mit der Abfragesprache SQL selbst beschäftigen, werden wir eine kleine Beispieldatenbank erarbeiten und uns überlegen, welche Operationen man überhaupt ausführen könnte. Anschließend werden wir dieses Beispiel mithilfe von SQLite implementieren und dabei auf Teile der Abfragesprache SQL und die Verwendung in Python-Programmen eingehen.</p>
+<p>Stellen wir uns vor, wir müssten das Lager eines Computerversands verwalten. Wir wären dafür verantwortlich, dass die gelieferten Teile an der richtigen Stelle im Lager aufbewahrt werden, wobei für jede Komponente der Lieferant, der Lieferzeitpunkt und die Nummer des Fachs im Lager gespeichert werden soll. Für Kunden, die bei dem Versand ihre Rechner bestellen, werden die entsprechenden Teile reserviert, und diese sind dann für andere Kunden nicht mehr verfügbar. Außerdem sollen wir Listen mit allen Kunden und Lieferanten der Firma bereitstellen.</p>
+<p>Um ein Datenbankmodell für dieses Szenario zu erstellen, legen wir zuerst eine Tabelle namens »Lager« an, die alle im Lager befindlichen Komponenten enthält. Wir gehen der Einfachheit halber davon aus, dass unser Lager in 100 Fächer eingeteilt ist, die fortlaufend nummeriert sind. Dabei kann jedes Fach nur ein einzelnes Computerteil aufnehmen. Eine entsprechende Tabelle mit ein paar Beispieldatensätzen für das Lager könnte dann wie folgt aussehen, wenn wir zusätzlich den Lieferanten und den Reservierungsstatus speichern wollen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 19.3    </strong>Tabelle »Lager« für den Lagerbestand
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Fachnummer</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Seriennummer</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Komponente</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Lieferant</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Reserviert</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>1</p>
+</td>
+<td class="tabellentext">
+<p>26071987</p>
+</td>
+<td class="tabellentext">
+<p>Grafikkarte Typ 1</p>
+</td>
+<td class="tabellentext">
+<p>FC</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>2</p>
+</td>
+<td class="tabellentext">
+<p>19870109</p>
+</td>
+<td class="tabellentext">
+<p>Prozessor Typ 13</p>
+</td>
+<td class="tabellentext">
+<p>LPE</p>
+</td>
+<td class="tabellentext">
+<p>57</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>10</p>
+</td>
+<td class="tabellentext">
+<p>06198823</p>
+</td>
+<td class="tabellentext">
+<p>Netzteil Typ 3</p>
+</td>
+<td class="tabellentext">
+<p>FC</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>25</p>
+</td>
+<td class="tabellentext">
+<p>11198703</p>
+</td>
+<td class="tabellentext">
+<p>LED-Lüfter</p>
+</td>
+<td class="tabellentext">
+<p>FC</p>
+</td>
+<td class="tabellentext">
+<p>57</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>26</p>
+</td>
+<td class="tabellentext">
+<p>19880105</p>
+</td>
+<td class="tabellentext">
+<p>Festplatte 128 GB</p>
+</td>
+<td class="tabellentext">
+<p>LPE</p>
+</td>
+<td class="tabellentext">
+<p>12</p>
+</td>
+</tr>
+</table><br><p>Die Spalte »Lieferant« enthält dabei das Kürzel der liefernden Firma, und das Feld »Reserviert« ist auf »0« gesetzt, wenn der betreffende Artikel noch nicht von einem Kunden reserviert wurde. Ansonsten enthält das Feld die Kundenummer des reservierenden Kunden. In der Tabelle werden nur die belegten Fächer gespeichert, weshalb alle Fächer, für die kein Eintrag existiert, mit neuen Teilen gefüllt werden können.</p>
+<p>Die ausführlichen Informationen zu Lieferanten und Kunden werden in zwei weiteren Tabellen namens »Lieferanten« und »Kunden« abgelegt:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 19.4    </strong>Tabelle »Lieferanten«
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Kurzname</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Name</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Telefonnummer</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>FC</p>
+</td>
+<td class="tabellentext">
+<p>FiboComputing Inc.</p>
+</td>
+<td class="tabellentext">
+<p>011235813</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>LPE</p>
+</td>
+<td class="tabellentext">
+<p>LettgenPetersErnesti</p>
+</td>
+<td class="tabellentext">
+<p>026741337</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>GC</p>
+</td>
+<td class="tabellentext">
+<p>Golden Computers</p>
+</td>
+<td class="tabellentext">
+<p>016180339</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 19.5    </strong>Tabelle »Kunden«
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Kundennummer</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Name</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Anschrift</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>12</p>
+</td>
+<td class="tabellentext">
+<p>Heinz Elhurg</p>
+</td>
+<td class="tabellentext">
+<p>Turnhallenstr. 1, 3763 Sporthausen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>57</p>
+</td>
+<td class="tabellentext">
+<p>Markus Altbert</p>
+</td>
+<td class="tabellentext">
+<p>Kämperweg 24, 2463 Duisschloss</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>64</p>
+</td>
+<td class="tabellentext">
+<p>Steve Apple</p>
+</td>
+<td class="tabellentext">
+<p>Podmacstr 2, 7467 Iwarhausen</p>
+</td>
+</tr>
+</table><br><p>Damit wir als Lagerverwalter von dieser Datenbank profitieren können, müssen wir die Möglichkeit haben, den Datenbestand zu manipulieren. Wir brauchen Routinen, um neue Kunden und Lieferanten hinzuzufügen, ihre Daten beispielsweise bei einem Umzug zu aktualisieren oder sie auf Wunsch aus unserer Datenbank zu entfernen. Auch in die Tabelle »Lager« müssen neue Einträge eingefügt und alte gelöscht oder angepasst werden können. Um die Datenbank aktuell zu halten, benötigen wir also Funktionen zum <span class="ckursiv">Hinzufügen</span> und <span class="ckursiv">Löschen</span>.</p>
+<p>Wirklich nützlich wird die Datenbank aber erst, wenn wir die enthaltenen Daten nach bestimmten Kriterien abfragen können. Im einfachsten Fall könnten wir beispielsweise einfach nur eine Liste aller Kunden oder Lieferanten anfordern oder uns informieren wollen, welche Fächer zurzeit belegt sind. Uns könnte aber auch interessieren, ob und wenn ja, welche Artikel der Kunde mit dem Namen »Markus Altbert« reserviert hat und wo diese gelagert werden oder welche Komponenten wir von dem Lieferanten mit der Telefonnummer »011235813« nachbestellen müssen, weil sie nicht mehr vorhanden oder bereits reserviert sind. Bei diesen Operationen werden immer Datensätze nach bestimmten Kriterien <span class="ckursiv">ausgewählt</span> und an das aufrufende Benutzerprogramm zurückgegeben.</p>
+<p>Nach dieser theoretischen Vorbereitung werden wir uns der Implementation des Beispiels in einer SQLite-Datenbank zuwenden.</p><a id="mjea5883d439a425e2f974548b406b56c0" name="mjea5883d439a425e2f974548b406b56c0"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">19.3.1</span><span class="cfett"> Pythons eingebaute Datenbank &#8211; sqlite3</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>SQLite ist ein sehr einfaches Datenbanksystem, das seine Daten in normalen Dateien abspeichert. Trotzdem ist es extrem schnell und auch für verhältnismäßig große Datenmengen geeignet.</p>
+<p>In Python muss man das Modul <span class="clisting">sqlite3</span> importieren, um mit der Datenbank zu arbeiten. Anschließend muss man eine Verbindung zu der Datenbank aufbauen, indem man die <span class="clisting">connect-</span>Funktion, die ein <span class="clisting">Connection</span>-Objekt zu der Datenbank zurückgibt, aufruft und ihr den Dateinamen für die Datenbank übergibt:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> sqlite3 
+connection = sqlite3.connect("lagerverwaltung.db")</pre></div>
+<p>Die Dateiendung kann frei gewählt werden und hat keinerlei Einfluss auf die Funktionsweise der Datenbank. Obiger Code führt dazu, dass die Datenbank, die in der Datei <span class="ckursiv">lagerverwaltung.db</span> im selben Verzeichnis wie das Programm liegt, eingelesen und mit dem <span class="clisting">Connection</span>-Objekt <span class="clisting">connection</span> verbunden wird. Wenn es noch keine Datei mit dem Namen <span class="ckursiv">lagerverwaltung.db</span> gibt, so wird eine leere Datenbank erzeugt und die Datei angelegt.</p>
+<p>Oft benötigt man eine Datenbank nur während des Programmlaufs, um Daten zu verwalten oder zu ordnen, ohne dass diese dauerhaft auf der Festplatte gespeichert werden müssen. Zu diesem Zweck gibt es die Möglichkeit, eine Datenbank im Arbeitsspeicher zu erzeugen, indem man anstatt eines Dateinamens den String <span class="clisting">":memory:"</span> an die <span class="clisting">connect</span>-Methode übergibt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; connection = sqlite3.connect(":memory:")</pre></div>
+<p>Um mit der verbundenen Datenbank arbeiten zu können, werden sogenannte <span class="ckursiv">Cursor</span> (dt. <span class="ckursiv">Positionsanzeigen</span>) benötigt. Einen Cursor kann man sich ähnlich wie den blinkenden Strich in Textverarbeitungsprogrammen als aktuelle Bearbeitungsposition innerhalb der Datenbank vorstellen. Erst mit solchen Cursorn können wir Datensätze verändern oder abfragen, wobei es zu einer Datenbankverbindung beliebig viele Cursor geben kann. Ein neuer Cursor kann mithilfe der <span class="clisting">cursor</span>-Methode des <span class="clisting">Connection</span>-Objekts erzeugt werden:</p>
+<div class="listing"><pre class="prettyprint">cursor = connection.cursor()</pre></div>
+<h4 class="t4"><span class="cfett">Neue Tabellen anlegen</span></h4>
+<p>Nun können wir endlich unser erstes SQL-Statement an die Datenbank schicken, um unsere Tabellen anzulegen. Für das Anlegen unserer Tabelle »Lager« sähe das SQL-Statement folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">CREATE TABLE lager ( 
+    fachnummer INTEGER, seriennummer INTEGER, komponente TEXT, 
+    lieferant TEXT, reserviert INTEGER 
+)</pre></div>
+<p>Alle großgeschriebenen Wörter sind Bestandteile der Sprache SQL. Es ist allerdings so, dass SQL nicht zwischen Groß- und Kleinschreibung unterscheidet und wir deshalb auch alles hätten kleinschreiben können. Wegen der besseren Lesbarkeit werden wir SQL-Schlüsselwörter immer komplett groß- und von uns vergebene Namen durchgängig kleinschreiben.</p>
+<p>Die Zeichenketten <span class="clisting">INTEGER</span> und <span class="clisting">TEXT</span> hinter den Spaltennamen geben den Datentyp an, der in den Spalten gespeichert werden soll. Sinnvollerweise werden die Spalten <span class="clisting">fachnummer</span>, <span class="clisting">seriennummer</span> und <span class="clisting">reserviert</span> als Ganzzahlen und die Spalten <span class="clisting">komponente</span> und <span class="clisting">lieferant</span> als Zeichenketten definiert. SQLite kennt mehrere solcher Datentypen, in die Python-Datentypen beim Schreiben der Datenbank automatisch umgewandelt werden, wie es die folgende Tabelle zeigt:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 19.6    </strong>So konvertiert SQLite beim Schreiben der Daten.
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Python-Datentyp</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">SQLite-Datentyp</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">None</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">NULL</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">int</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">INTEGER</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">long</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">INTEGER</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">float</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">REAL</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">str (UTF8-Kodiert)</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">TEXT</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">unicode</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">TEXT</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">Buffer</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">BLOB</span></p>
+</td>
+</tr>
+</table><br><p>Es ist auch möglich, andere Datentypen in SQLite-Datenbanken abzulegen, wenn entsprechende Konvertierungsfunktionen definiert wurden. Wie das genau erreicht werden kann, wird später behandelt.</p>
+<p>Nun können wir das SQL-Statement mithilfe der <span class="clisting">execute</span>-Methode des <span class="clisting">Cursor</span>-Objekts an die SQLite-Datenbank senden:</p>
+<div class="listing"><pre class="prettyprint">cursor.execute("""CREATE TABLE lager ( 
+    fachnummer INTEGER, seriennummer INTEGER, 
+    komponente TEXT, lieferant TEXT, reserviert INTEGER)""")</pre></div>
+<p>Die Tabellen für die Lieferanten und Kunden erzeugen wir auf die gleiche Weise:</p>
+<div class="listing"><pre class="prettyprint">cursor.execute("""CREATE TABLE lieferanten ( 
+    kurzname TEXT, name TEXT, telefonnummer TEXT)""") 
+ 
+cursor.execute("""CREATE TABLE kunden ( 
+    kundennummer INTEGER, name TEXT, anschrift TEXT)""")</pre></div>
+<h4 class="t4"><span class="cfett">Daten in die Tabellen einfügen</span></h4>
+<p>Als Nächstes werden wir die noch leeren Tabellen mit unseren Beispieldaten füllen. Zum Einfügen neuer Datensätze in eine bestehende Tabelle dient das <span class="clisting">INSERT</span>-Statement, das für den ersten Beispieldatensatz folgendermaßen aussieht:</p>
+<div class="listing"><pre class="prettyprint">INSERT INTO lager VALUES ( 
+    1, 26071987, 'Grafikkarte Typ 1', 'FC', 0 
+)</pre></div>
+<p>Innerhalb der Klammern hinter <span class="clisting">VALUES</span> stehen die Werte für jede einzelne Spalte in der gleichen Reihenfolge, wie auch die Spalten selbst definiert wurden. Wie bei allen anderen Datenbankabfragen auch können wir per <span class="clisting">execute</span> unser Statement abschicken:</p>
+<div class="listing"><pre class="prettyprint">cursor.execute("""INSERT INTO lager VALUES ( 
+    1, 26071987, 'Grafikkarte Typ 1', 'FC', 0)""")</pre></div>
+<p>Beim Einfügen von Datensätzen müssen Sie allerdings beachten, dass die neuen Daten nicht sofort nach Ausführen eines <span class="clisting">INSERT</span>-Statements in die Datenbank <span class="clisting">daten</span> geschrieben werden, sondern vorerst nur im Arbeitsspeicher liegen. Um sicherzugehen, dass die Daten wirklich auf der Festplatte landen und damit dauerhaft gespeichert sind, muss man die <span class="clisting">commit</span>-Methode des <span class="clisting">Connection</span>-Objekts aufrufen: [Dies ist deshalb notwendig, damit die Datenbank transaktionssicher ist. Transaktionen sind Ketten von Operationen, die vollständig ausgeführt werden müssen, damit die Konsistenz der Datenbank erhalten bleibt. Stellen Sie sich einmal vor, bei einer Bank würde während einer Überweisung zwar das Geld von Ihrem Konto abgebucht, jedoch aufgrund eines Fehlers nicht dem Empfänger gutgeschrieben werden. Mit der Methode <span class="clisting">rollback</span> können alle Operationen seit dem letzten <span class="clisting">commit</span>-Aufruf wieder rückgängig gemacht werden, um solche Probleme zu vermeiden.
+] </p>
+<div class="listing"><pre class="prettyprint">connection.commit()</pre></div>
+<p>In der Regel werden die Daten, die wir in die Datenbank einfügen wollen, nicht schon vor dem Programmlauf bekannt sein und deshalb auch nicht in Form von String-Konstanten im Quellcode stehen. Stattdessen werden es Benutzereingaben oder Berechnungsergebnisse sein, die wir dann als Python-Instanzen im Speicher haben. Auf den ersten Blick scheint für solche Fälle der Formatierungsoperator <span class="clisting">%</span> für Strings ein geeignetes Mittel zu sein, und die letzte <span class="clisting">INSERT</span>-Anweisung hätte auch folgendermaßen zusammengebaut werden können:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; werte = (1, 26071987, "Grafikkarte Typ 1", "FC", 0) 
+&gt;&gt;&gt; "INSERT INTO lager VALUES (%d, %d, '%s', '%s', %d)" % werte 
+'INSERT INTO lager VALUES (1, 26071987, 'Grafikkarte Typ 1', 'FC', 0)'</pre></div>
+<p>Diese auf den ersten Blick sehr elegante Methode entpuppt sich bei genauer Betrachtung aber als gefährliche Sicherheitslücke. Betrachten wir einmal folgende <span class="clisting">INSERT</span>-Anweisung, die einen neuen Lieferanten in die Tabelle »Lieferanten« einfügen soll:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; werte = ("DR", "Danger Electronics", 
+             "666'); Hier kann Schadcode stehen") 
+&gt;&gt;&gt; "INSERT INTO lieferanten VALUES ('%s', '%s', '%s')" % werte 
+'INSERT INTO lager VALUES ('DR', 'Danger Electronics', '666'); Hier kann Schadcode stehen')'</pre></div>
+<p>Wie Sie sehen, haben wir dadurch, dass der Wert für die Telefonnummer den String <span class="clisting">"');"</span> enthält, die SQL-Abfrage verunstaltet, sodass der Versuch, sie auszuführen, zu einem Fehler führen und damit unser Programm zum Absturz bringen würde. Durch den außerdem enthaltenen Text <span class="clisting">"Hier kann Schadcode stehen"</span> wird angedeutet, dass es unter Umständen sogar möglich ist, eine Abfrage so zu manipulieren, dass wieder gültiger SQL-Code dabei herauskommt, wobei jedoch eine andere Operation als beabsichtigt (zum Beispiel das Auslesen von Benutzerdaten) ausgeführt wird. [Man nennt diese Form des Angriffs auf verwundbare Programme auch <em><strong>SQL Injection</strong></em>.
+] </p>
+<p><span class="cfett">Verwenden Sie deshalb niemals die String-Formatierung zur Übergabe von Parametern in SQL-Abfragen!</span></p>
+<p>Um sichere Parameterübergaben durchzuführen, schreibt man in den Query-String an die Stelle, an der der Parameter stehen soll, ein Fragezeichen und übergibt der <span class="clisting">execute</span>-Methode ein Tupel mit den entsprechenden Werten als zweiten Parameter:</p>
+<div class="listing"><pre class="prettyprint">werte = ("DR", "Danger Electronics", 
+         "666'); Hier kann Schadcode stehen") 
+sql = "INSERT INTO lieferanten VALUES (?, ?, ?)" 
+cursor.execute(sql, werte)</pre></div>
+<p>In diesem Fall kümmert sich SQLite darum, dass die übergebenen Werte korrekt umgewandelt werden und es zu keinen Sicherheitslücken durch böswillige Parameter kommen kann.</p>
+<p>Analog zur String-Formatierung gibt es auch hier die Möglichkeit, den übergebenen Parametern Namen zu geben und statt der <span class="clisting">tuple</span>-Instanz mit einem Dictionary zu arbeiten. Dazu wird im Query-String statt des Fragezeichens ein Doppelpunkt, gefolgt von dem symbolischen Namen des Parameters, geschrieben und das passende Dictionary als zweiter Parameter an <span class="clisting">execute</span> übergeben:</p>
+<div class="listing"><pre class="prettyprint">werte = {"kurz" : "DR", "name" : "Danger Electronics", 
+         "telefon" : "123456"} 
+sql = "INSERT INTO lieferanten VALUES (:kurz, :name, :telefon)" 
+cursor.execute(sql, werte)</pre></div>
+<p>Mit diesem Wissen können wir unsere Tabellen elegant und sicher mit Daten füllen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> row<span class="cfett"> in</span> ((1, "2607871987", "Grafikkarte Typ 1", "FC", 0), 
+            (2, "19870109", "Prozessor Typ 13", "LPE", 57), 
+            (10, "06198823", "Netzteil Typ 3", "FC", 0), 
+            (25, "11198703", u"LED-Lüfter", "FC", 57), 
+            (26, "19880105", "Festplatte 128 GB", "LPE", 12)): 
+    cursor.execute("INSERT INTO lager VALUES (?,?,?,?,?)", row)</pre></div>
+<p>Ihnen ist bestimmt aufgefallen, dass der String <span class="clisting">"LED-Lüfter"</span> als einziger durch das führende »<span class="clisting">u</span>« in eine <span class="clisting">unicode</span>-Instanz überführt worden ist. Das ist deshalb notwendig, weil SQLite nur mit UTF-8 kodierte Strings richtig verarbeiten kann. Wie Sie aber seit Abschnitt <a href="./python_kapitel_08_005.htm#Rxx_ref177141007">8.5.3</a>, »<a href="./python_kapitel_08_005.htm#Rxx_ref177141007">Strings &#8211; str, unicode</a>«, über String-Kodierung wissen, werden meist standardmäßig andere Kodierungsverfahren verwendet, was zu Fehlern beim Datenbankzugriff führen würde. Durch die Umwandlung in eine <span class="clisting">unicode</span>-Instanz sind wir in jedem Fall auf der sicheren Seite. Zusätzlich könnten Sie den Umlaut <span class="clisting">ü</span> auch durch die Escape-Sequenz <span class="clisting">\xfc</span> kodieren, was zusätzlich den Vorteil hätte, dass Ihr Quellcode nur aus ASCII-Zeichen bestünde und somit unabhängig von der Lokalisierung des Betriebssystems überall lauffähig ist.</p>
+<p>Generell ist es problemlos möglich, an alle im Modul <span class="clisting">sqlite3</span> enthaltenen Funktionen Unicode-Strings zu übergeben.</p>
+<p>Strukturen wie die obige <span class="clisting">for</span>-Schleife, die die gleiche Datenbankoperation sehr oft für jeweils andere Daten durchführen, kommen sehr häufig vor und bieten großes Optimierungspotenzial. Aus diesem Grund haben <span class="clisting">cursor</span>-Instanzen zusätzlich noch die Methode <span class="clisting">executemany</span>, die als zweiten Parameter eine Sequenz oder ein anderes iterierbares Objekt erwartet, das die Daten für die einzelnen Operationen enthält. Wir nutzen <span class="clisting">executemany</span>, um unsere Tabellen »Lieferanten« und »Kunden« mit Daten zu füllen:</p>
+<div class="listing"><pre class="prettyprint">lieferanten = (("FC", "FiboComputing Inc.", "011235813"), 
+               ("LPE", "LettgenPetersErnesti", "026741337"), 
+               ("GC", "Golden Computers", "016180339")) 
+cursor.executemany("INSERT INTO lieferanten VALUES (?,?,?)", 
+                   lieferanten) 
+ 
+kunden = ((12, "Heinz Elhurg", 
+           "Turnhallenstr. 1, 3763 Sporthausen"), 
+          (57, "Markus Altbert", 
+           u"K\xe4mperweg 24, 2463 Duisschloss"), 
+          (64, "Steve Apple", 
+           "Podmacstr 2, 7467 Iwarhausen")) 
+cursor.executemany("INSERT INTO kunden VALUES (?,?,?)", kunden)</pre></div>
+<p>Nun haben wir gelernt, wie man Datenbanken und Tabellen anlegt und diese mit Daten füllt. Im nächsten Schritt wollen wir uns mit dem Abfragen von Daten beschäftigen.</p>
+<h4 class="t4"><span class="cfett">Daten abfragen</span></h4>
+<p>Um Daten aus der Datenbank abzufragen, dient das <span class="clisting">SELECT</span>-Statement. <span class="clisting">SELECT</span> erwartet als Parameter durch Kommata getrennt die Spalten, die uns von den Datensätzen interessieren, und den Tabellennamen der Tabelle, aus der wir abfragen wollen. Standardmäßig werden alle Zeilen aus der abgefragten Tabelle zurückgegeben. Mit einer <span class="clisting">WHERE</span>-Klausel können wir nur bestimmte Datensätze auswählen, indem wir Bedingungen für die Auswahl angeben. Stark vereinfacht ist ein <span class="clisting">SELECT</span>-Statement folgendermaßen aufgebaut:</p>
+<div class="listing"><pre class="prettyprint">SELECT &lt;spaltenliste&gt; FROM &lt;tabellenname&gt; [WHERE &lt;bedingung&gt;]</pre></div>
+<p>Wie durch die eckigen Klammern angedeutet wird, ist die <span class="clisting">WHERE</span>-Klausel optional und kann entfallen.</p>
+<p>Wenn wir beispielsweise alle belegten Fachnummern und die dazugehörigen Komponenten abfragen wollen, können wir das mit dem folgenden Statement tun:</p>
+<div class="listing"><pre class="prettyprint">SELECT fachnummer, komponente FROM lager</pre></div>
+<p>Auch bei Datenabfragen benutzen wir die <span class="clisting">execute</span>-Methode des Cursor-Objekts, um der Datenbank unser Anliegen mitzuteilen. Anschließend können wir uns mittels <span class="clisting">cursor.fetchall</span> alle Datensätze zurückgeben lassen, die unsere Abfrage ergeben hat:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; cursor.execute("SELECT fachnummer, komponente FROM lager") 
+&gt;&gt;&gt; cursor.fetchall() 
+[(1, u'Grafikkarte Typ 1'), (2, u'Prozessor Typ 13'), 
+ (10, u'Netzteil Typ 3'), (25, u'LED-L\xfcfter'), 
+ (26, u'Festplatte 128 GB')]</pre></div>
+<p>Der Rückgabewert von <span class="clisting">fetchall</span> ist eine Liste, die für jeden Datensatz ein Tupel mit den Werten der angeforderten Spalten enthält. [Standardmäßig werden bei der Abfrage alle <span class="clisting">TEXT</span>-Spalten als <span class="clisting">unicode</span>-Instanzen zurückgegeben. Wie Sie dieses Verhalten anpassen können, werden wir später behandeln.
+] </p>
+<p>Mit einer passenden <span class="clisting">WHERE</span>-Klausel können wir die Auswahl auf die Computerteile beschränken, die noch nicht reserviert sind:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; cursor.execute(""" 
+    SELECT fachnummer, komponente FROM lager WHERE reserviert=0 
+""") 
+&gt;&gt;&gt; cursor.fetchall() 
+[(1, u'Grafikkarte Typ 1'), (10, u'Netzteil Typ 3')]</pre></div>
+<p>Es können auch mehrere Bedingungen mittels logischer Operatoren wie <span class="clisting">AND</span> und <span class="clisting">OR</span> zusammengefasst werden. Damit könnten wir beispielsweise ermitteln, welche Artikel, die von der Firma »FiboComputing Inc.« geliefert wurden, schon reserviert worden sind:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; cursor.execute(""" 
+    SELECT fachnummer, komponente FROM lager 
+    WHERE reserviert!=0 AND lieferant='FC' 
+""") 
+&gt;&gt;&gt; cursor.fetchall() 
+[(25, u'LED-L\xfcfter')]</pre></div>
+<p>Da es lästig ist, immer die auszuwählenden Spaltennamen anzugeben, und man sehr oft Abfragen über alle Spalten machen möchte, gibt es dafür eine verkürzte Schreibweise, bei der die Spaltenliste durch ein Sternchen ersetzt wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; cursor.execute("SELECT * FROM kunden") 
+&gt;&gt;&gt; cursor.fetchall() 
+[(12, u'Heinz Elhurg', u'Turnhallenstr. 1, 3763 Sporthausen'), <br>(57, u'Markus Altbert', u'K\xe4mperweg 24, 2463 Duisschloss'),  
+(64, u'Steve Apple', u'Podmacstr 2, 7467 Iwarhausen')]</pre></div>
+<p>Die Reihenfolge der Spaltenwerte richtet sich danach, in welcher Reihenfolge die Spalten der Tabelle mit <span class="clisting">CREATE</span> definiert wurden.</p>
+<p>Als letzte Ergänzung zum <span class="clisting">SELECT</span>-Statement wollen wir uns mit den Abfragen über mehrere Tabellen, den sogenannten <span class="ckursiv">Join</span><span class="ckursiv">s</span> (dt. <span class="ckursiv">Verbindungen</span>), beschäftigen. Wir möchten zum Beispiel abfragen, welche Komponenten des Lieferanten mit der Telefonnummer <span class="clisting">011235813</span> zurzeit im Lager vorhanden sind und in welchen Fächern sie liegen.</p>
+<p>Eine Abfrage über mehrere Tabellen unterscheidet sich von einfachen Abfragen dadurch, dass anstelle des einfachen Tabellennamens eine durch Kommata getrennte Liste angegeben wird, die alle an der Abfrage beteiligten Tabellen enthält. Wenn auf Spalten, zum Beispiel in der <span class="clisting">WHERE</span>-Bedingung, verwiesen wird, muss der jeweilige Tabellenname mit angegeben werden. Das gilt auch für die auszuwählenden Spalten direkt hinter <span class="clisting">SELECT</span>. Unsere Beispielabfrage betrifft nur die Tabellen »Lager« und »Lieferanten« und lässt sich als Join folgendermaßen formulieren:</p>
+<div class="listing"><pre class="prettyprint">SELECT lager.fachnummer, lager.komponente, lieferanten.name 
+FROM lager, lieferanten 
+WHERE lieferanten.telefonnummer='011235813' AND 
+      lager.lieferant=lieferanten.kurzname</pre></div>
+<p>Man kann sich die Verarbeitung eines solchen Joins so vorstellen, dass die Datenbank jede Zeile der Tabelle »Lager« mit jeder Zeile der Tabelle »Lieferanten« zu neuen Datensätzen verknüpft und aus der dadurch entstehenden Liste alle Zeilen zurückgibt, bei denen die Spalte <span class="clisting">lieferanten.telefonnummer</span> den Wert <span class="clisting">'011235813'</span> hat und die Spalten <span class="clisting">lager.lieferant</span> und <span class="clisting">lieferanten.kurzname</span> übereinstimmen.</p>
+<p>Führen wir die Abfrage mit SQLite aus, erhalten wir die erwartete Ausgabe:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; sql = """ 
+SELECT lager.fachnummer, lager.komponente, lieferanten.name 
+FROM lager, lieferanten 
+WHERE lieferanten.telefonnummer='011235813' AND 
+      lager.lieferant=lieferanten.kurzname""" 
+&gt;&gt;&gt; cursor.execute(sql) 
+&gt;&gt;&gt; cursor.fetchall() 
+[(1, u'Grafikkarte Typ 1', u'FiboComputing Inc.'), 
+ (10, u'Netzteil Typ 3', u'FiboComputing Inc.'), 
+ (25, u'LED-L\xfcfter', u'FiboComputing Inc.')]</pre></div>
+<p>Bis hierher haben wir nach einer Abfrage immer mit <span class="clisting">cursor.fetchall</span> direkt alle Ergebnisse der Abfrage aus der Datenbank geladen und dann gesammelt ausgegeben. Diese Methode eignet sich allerdings nur für relativ kleine Datenmengen, da erstens das Programm so lange warten muss, wie die Datenbank noch alle Ergebnisse ermittelt und zurückgibt, und zweitens das Resultat komplett als Liste im Speicher gehalten wird. Dass dies bei sehr umfangreichen Ergebnissen eine Verschwendung von Speicherplatz darstellt, bedarf keiner weiteren Erklärung. Aus diesem Grund gibt es die Möglichkeit, die Daten zeilenweise, also immer in kleinen Portionen, abzufragen. Wir erreichen durch dieses Vorgehen, dass wir nicht mehr auf die Berechnung der kompletten Ergebnismenge warten müssen, sondern schon währenddessen mit der Verarbeitung beginnen können. Außerdem müssen nicht mehr alle Datensätze zeitgleich im Arbeitsspeicher verfügbar sein.</p>
+<p>Mit der Methode <span class="clisting">fetchone</span> der <span class="clisting">cursor</span>-Klasse können wir jeweils ein Ergebnis-Tupel anfordern. Wurden bereits alle Datensätze der letzten Abfrage ausgelesen, gibt <span class="clisting">fetchone None</span> zurück. Damit lassen sich auch große Datenmengen speichereffizient auslesen, auch wenn unser Beispiel mangels einer großen Datenbank nur drei Zeilen ermittelt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; cursor.execute("SELECT * FROM kunden") 
+&gt;&gt;&gt; row = cursor.fetchone() 
+&gt;&gt;&gt;<span class="cfett"> while</span> row: 
+       <span class="cfett"> print</span> row 
+        row = cursor.fetchone() 
+(12, u'Heinz Elhurg', u'Turnhallenstr. 1, 3763 Sporthausen') 
+(57, u'Markus Altbert', u'K\xe4mperweg 24, 2463 Duisschloss') 
+(64, u'Steve Apple', u'Podmacstr 2, 7467 Iwarhausen')</pre></div>
+<p>Diese Methode führt durch die <span class="clisting">while</span>-Schleife zu etwas holprigem Code und wird deshalb seltener eingesetzt. Eine wesentlich elegantere Methode bietet die Iterator-Schnittstelle der <span class="clisting">cursor</span>-Klasse, die es uns erlaubt, wie bei einer Liste mithilfe von <span class="clisting">for</span> über die Ergebniszeilen zu iterieren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> for</span> row<span class="cfett"> in</span> cursor: 
+       <span class="cfett"> print</span> row 
+(12, u'Heinz Elhurg', u'Turnhallenstr. 1, 3763 Sporthausen') 
+(57, u'Markus Altbert', u'K\xe4mperweg 24, 2463 Duisschloss') 
+(64, u'Steve Apple', u'Podmacstr 2, 7467 Iwarhausen')</pre></div>
+<p>Aufgrund des wesentlich besser lesbaren Programmtextes ist die Iterator-Methode für solche Anwendungen der Methode <span class="clisting">fetchone</span> vorzuziehen. Sie sollten <span class="clisting">fetchone</span> nur dann benutzen, wenn Sie gezielt jede Ergebniszeile separat und auf eine andere Weise verarbeiten wollen.</p>
+<h4 class="t4"><span class="cfett">Der Umgang mit Datentypen bei SQLite</span></h4>
+<p>Wie Ihnen sicherlich schon aufgefallen ist, gibt SQLite beim Abfragen von Daten für <span class="clisting">TEXT</span>-Spalten immer <span class="clisting">unicode</span>-Instanzen zurück, auch wenn beim Schreiben der Daten ursprünglich eine <span class="clisting">str</span>-Instanz an die Datenbank übergeben wurde. Aus dem einleitenden Teil dieses Abschnitts kennen Sie bereits das Schema, nach dem SQLite Daten beim Schreiben der Datenbank konvertiert. Die entsprechende Rückübersetzung von SQLite-Datentypen zu Python-Datentypen wird durch folgende Tabelle beschrieben:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 19.7    </strong>Typumwandlung beim Lesen von SQLite-Datenbanken
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">SQLite-Datentyp</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Python-Datentyp</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">NULL</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">None</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">INTEGER</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span> oder <span class="clisting">long</span>, je nachdem, ob der Wertebereich von <span class="clisting">int</span> ausreicht oder nicht.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">REAL</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">float</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">TEXT</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">unicode</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">BLOB</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">buffer</span></p>
+</td>
+</tr>
+</table><br><p>Im Wesentlichen wirft diese Tabelle nur zwei Fragen auf: Wie speichere ich andere Datentypen, beispielsweise Listen oder meine eigenen Klassen, in der Datenbank, wenn doch nur diese Typen unterstützt werden? Und wie kann ich erreichen, dass ich für <span class="clisting">TEXT</span>-Spalten anstatt <span class="clisting">unicode</span>- wieder <span class="clisting">str</span>-Instanzen erhalte?</p>
+<p>Wir werden zuerst die zweite Frage beantworten.</p>
+<h5 class="t5"><span class="cfett">Connection.text_factory</span></h5>
+<p>Jede von <span class="clisting">sqlite3.connect</span> erzeugte <span class="clisting">Connection</span>-Instanz hat ein Attribut <span class="clisting">text_factory</span>, das eine Referenz auf eine Funktion enthält, die immer dann aufgerufen wird, wenn <span class="clisting">TEXT</span>-Spalten ausgelesen werden. Im Ergebnistupel der Datenbankabfrage steht dann der Rückgabewert dieser Funktion. Standardmäßig ist das <span class="clisting">text_factory</span>-Attribut auf die Built-in Function <span class="clisting">unicode</span> gesetzt, was auch erklärt, warum immer <span class="clisting">unicode</span>-Instanzen zurückgegeben werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; connection = sqlite3.connect("lagerverwaltung.db") 
+&gt;&gt;&gt; connection.text_factory 
+&lt;type 'unicode'&gt;</pre></div>
+<p>Um unser Ziel zu erreichen, <span class="clisting">str</span>-Instanzen für <span class="clisting">TEXT</span>-Spalten zu erhalten, können wir eine eigene <span class="clisting">text_factory</span>-Funktion angeben. Diese Funktionen müssen einen Parameter erwarten und den konvertierten Wert zurückgeben. Im Falle der <span class="clisting">str</span>-Instanzen brauchen wir uns noch nicht einmal eine eigene Funktion dafür zu schreiben, da die Built-in Function <span class="clisting">str</span> bereits alle Kriterien erfüllt. Damit können wir unsere Kundendaten folgendermaßen direkt als Byte-Strings ermitteln:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; connection.text_factory = str 
+&gt;&gt;&gt; cursor = connection.cursor() 
+&gt;&gt;&gt; cursor.execute("SELECT * FROM kunden") 
+&gt;&gt;&gt; cursor.fetchall() 
+[(12, 'Heinz Elhurg', 'Turnhallenstr. 1, 3763 Sporthausen'), 
+ (57, 'Markus Altbert', 'K\xc3\xa4mperweg 24, 2463 Duisschloss'), 
+ (64, 'Steve Apple', 'Podmacstr 2, 7467 Iwarhausen')]</pre></div>
+<p>Beachten Sie hierbei, dass <span class="clisting">sqlite3</span> alle Sonderzeichen mit UTF-8 kodiert.</p>
+<h5 class="t5"><span class="cfett">Connection.row_factory</span></h5>
+<p>Ein ähnliches Attribut wie <span class="clisting">text_factory</span> für <span class="clisting">TEXT</span>-Spalten existiert auch für ganze Zeilen. In dem Attribut <span class="clisting">row_factory</span> kann eine Referenz auf eine Funktion gespeichert werden, die Zeilen für das Benutzerprogramm aufbereitet. Standardmäßig wird die Funktion <span class="clisting">tuple</span> benutzt. Wir wollen beispielhaft eine Funktion implementieren, die uns auf die Spaltenwerte eines Datensatzes über die Namen der jeweiligen Spalten zugreifen lässt. Das Ergebnis soll dann folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; cursor.execute("SELECT * FROM kunden") 
+&gt;&gt;&gt; cursor.fetchall() 
+[{'anschrift': 'Turnhallenstr. 1, 3763 Sporthausen', 'kundennummer': 12, 'name': 'Heinz Elhurg'}, 
+ {'anschrift': 'K\xc3\xa4mperweg 24, 2463 Duisschloss', 
+ 'kundennummer': 57, 'name': 'Markus Altbert'}, 
+ {'anschrift': 'Podmacstr 2, 7467 Iwarhausen', 'kundennummer': 64, 
+ 'name': 'Steve Apple'}]</pre></div>
+<p>Um dies zu bewerkstelligen, benötigen wir noch das Attribut <span class="clisting">description</span> der <span class="clisting">Cursor</span>-Klasse, das uns Informationen zu den Spaltennamen der letzten Abfrage liefert. <span class="clisting">description</span> enthält dabei eine Sequenz, die für jede Spalte ein Tupel mit sieben Elementen bereitstellt, von denen uns aber nur das erste, nämlich der Spaltenname, interessiert:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; cursor.execute("SELECT * FROM kunden") 
+&gt;&gt;&gt; cursor.description 
+(('kundennummer', None, None, None, None, None, None), 
+ ('name', None, None, None, None, None, None), 
+ ('anschrift', None, None, None, None, None, None))</pre></div>
+<p>Die <span class="clisting">row_factory</span>-Funktionen erhalten als Parameter eine Referenz auf den Cursor, der für die Abfrage verwendet wurde, und die Ergebniszeile als Tupel.</p>
+<p>Mit diesem Wissen können wir unsere <span class="clisting">row_factory</span>-Funktion namens <span class="clisting">zeilen_dict</span> wie folgt implementieren:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> zeilen_dict(cursor, zeile): 
+    ergebnis = {} 
+   <span class="cfett"> for</span> spaltennr, spalte<span class="cfett"> in</span> enumerate(cursor.description): 
+        ergebnis[spalte[0]] = zeile[spaltennr] 
+   <span class="cfett"> return</span> ergebnis</pre></div>
+<p>Zur Erinnerung: <span class="clisting">enumerate</span> erzeugt einen Iterator, der für jedes Element der übergebenen Sequenz ein Tupel zurückgibt, das den Index des Elements in der Sequenz und seinen Wert enthält.</p>
+<p>In der Praxis arbeitet unsere <span class="clisting">row_factory</span> wie folgt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; connection.row_factory = zeilen_dict 
+&gt;&gt;&gt; cursor = connection.cursor() 
+&gt;&gt;&gt; cursor.execute("SELECT * FROM kunden") 
+&gt;&gt;&gt; cursor.fetchall() 
+[{'anschrift': 'Turnhallenstr. 1, 3763 Sporthausen', 'kundennummer': 12, 'name': 'Heinz Elhurg'}, 
+ {'anschrift': 'K\xc3\xa4mperweg 24, 2463 Duisschloss', 
+ 'kundennummer': 57, 'name': 'Markus Altbert'}, 
+ {'anschrift': 'Podmacstr 2, 7467 Iwarhausen', 'kundennummer': 64, 
+ 'name': 'Steve Apple'}]</pre></div>
+<p>Pythons <span class="clisting">sqlite3</span>-Modul liefert schon eine erweiterte <span class="clisting">row_factory</span> namens <span class="clisting">sqlite3.Row</span> mit, die die Zeilen ihn ähnlicher Weise verarbeitet wie unsere <span class="clisting">zeilen_dict</span>-Funktion. Da <span class="clisting">sqlite3.Row</span> sehr stark optimiert ist und außerdem der  Zugriff auf die Spaltenwerte über deren Namen unabhängig von Groß- und Kleinschreibung erfolgen kann, sollten Sie die eingebaute Funktion unserem Beispiel vorziehen und nur dann eine eigene <span class="clisting">row_factory</span> implementieren, wenn Sie etwas ganz anderes erreichen möchten.</p>
+<p>Nach diesem kleinen Ausflug zu den <span class="clisting">factory</span>-Funktionen wenden wir uns endlich der ersten unserer beiden Fragen zu: Wie können wir beliebige Datentypen in SQLite-Datenbanken speichern?</p>
+<h4 class="t4"><span class="cfett">Adapter und Konvertierer</span></h4>
+<p>Wie Sie bereits wissen, unterstützt SQLite nur eine beschränkte Menge von Datentypen. Als Folge davon müssen wir alle anderen Datentypen, die wir in der Datenbank ablegen möchten, durch die vorhandenen abbilden. Aufgrund ihrer Flexibilität eignen sich die <span class="clisting">TEXT</span>-Spalten am besten, um beliebige Daten aufzunehmen, weshalb wir uns im Folgenden auf diese beschränken.</p>
+<p>Analog zur String-Kodierung, bei der wir <span class="clisting">unicode</span>-Instanzen mittels ihrer <span class="clisting">encode</span>-Methode in gleichwertige <span class="clisting">str</span>-Instanzen umformen und die ursprünglichen Unicode-Daten mithilfe der <span class="clisting">decode</span>-Methode wiederherstellen konnten, brauchen wir nun Operationen, um beliebige Datentypen erst in Strings zu transformieren und anschließend die Ursprungsdaten wieder aus dem String zu extrahieren.</p>
+<p>Das Umwandeln von beliebigen Datentypen in einen String wird <span class="ckursiv">Adaption</span> genannt, und die Rückgewinnung der Daten aus diesem String heißt <span class="ckursiv">Konvertierung</span>. <a href="#Rxx_ref181509332">Abbildung 19.4</a> veranschaulicht diesen Zusammenhang am Beispiel der Klasse <span class="clisting">Kreis</span>, die als Attribute die Koordinaten des Kreismittelpunktes <span class="clisting">Mx</span> und <span class="clisting">My</span> sowie die Länge des Radius <span class="clisting">R</span> besitzt:</p>
+<div class="bildbox">
+<p><a name="IDAUJTQ"></a><a onClick="OpenWin('bilder/sqlite_adaption_konvertierung.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinsqlite_adaption_konvertierung.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 19.4    </strong>Schema der Adaption und Konvertierung</p>
+<p>Eine entsprechende Kreis-Klasse lässt sich folgendermaßen definieren:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> Kreis(object): 
+   <span class="cfett"> def</span> __init__(self, mx, my, r): 
+        self.Mx = mx 
+        self.My = my 
+        self.R = r</pre></div>
+<p>Nun müssen wir eine Adapterfunktion erstellen, die aus unseren Kreis-Instanzen Strings macht. Die Umwandlung nehmen wir so vor, dass wir einen String erstellen, der durch Semikola getrennt die drei Attribute des Kreises enthält:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> kreisadapter(k): 
+   <span class="cfett"> return</span> "%f;%f;%f" % (k.Mx, k.My, k.R)</pre></div>
+<p>Damit die Datenbank weiß, dass wir die Kreise mit dieser Funktion adaptieren möchten, muss sie registriert und mit dem Datentyp <span class="clisting">Kreis</span> verknüpft werden. Dies geschieht durch den Aufruf der <span class="clisting">sqlite3.register_adapter</span>-Methode, die als ersten Parameter den zu adaptierenden Datentyp und als zweiten Parameter die Adapterfunktion erwartet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; sqlite3.register_adapter(Kreis, kreisadapter)</pre></div>
+<p>Durch diese Schritte ist es uns möglich, Kreise in <span class="clisting">TEXT</span>-Spalten abzulegen. Wirklich nützlich wird das Ganze aber erst dann, wenn beim Auslesen auch automatisch wieder <span class="clisting">Kreis</span>-Instanzen generiert werden.</p>
+<p>Deshalb müssen wir noch die Umkehrfunktion von <span class="clisting">kreisadapter</span>, den Konverter, definieren, der aus dem String die ursprüngliche <span class="clisting">Kreis</span>-Instanz wiederherstellt. In unserem Beispiel erweist sich das als sehr einfach:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> kreiskonverter(string): 
+    mx, my, r = string.split(";") 
+   <span class="cfett"> return</span> Kreis(float(mx), float(my), float(r))</pre></div>
+<p>Genau wie der Adapter muss auch die Konverterfunktion bei SQLite registriert werden, was mit der Methode <span class="clisting">sqlite3.register_converter()</span> erreicht wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; sqlite3.register_converter("KREIS", kreiskonverter)</pre></div>
+<p>Anders als <span class="clisting">register_adapter</span> erwartet <span class="clisting">register_convert</span> dabei einen String als ersten Parameter, der dem zu konvertierenden Datentyp einen Namen innerhalb von SQLite zuweist. Dadurch haben wir einen neuen SQLite-Datentyp namens <span class="clisting">KREIS</span> definiert, den wir genau wie die eingebauten Typen für die Spalten unserer Tabellen verwenden können. Allerdings müssen wir SQLite beim Verbinden zu der Datenbank mitteilen, dass wir von uns definierte Typen verwenden möchten. Dazu übergeben wir der <span class="clisting">connect</span>-Methode einen entsprechenden Wert als Schlüsselwortparameter <span class="clisting">detect_types</span>:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; connection = sqlite3.connect(":memory:", 
+                            detect_types=sqlite3.PARSE_DECLTYPES)</pre></div>
+<p>Nachfolgend wird die Definition und Verwendung unseres neuen Datentyps <span class="clisting">kreis</span> in einem Miniprogramm demonstriert:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> sqlite3 
+<span class="cfett"> 
+class</span> Kreis(object): 
+   <span class="cfett"> def</span> __init__(self, mx, my, r): 
+        self.Mx = mx 
+        self.My = my 
+        self.R = r 
+<span class="cfett"> 
+def</span> kreisadapter(k): 
+   <span class="cfett"> return</span> "%f;%f;%f" % (k.Mx, k.My, k.R) 
+<span class="cfett"> 
+def</span> kreiskonverter(string): 
+    mx, my, r = string.split(";") 
+   <span class="cfett"> return</span> Kreis(float(mx), float(my), float(r)) 
+ 
+# Adapter und Konverter registrieren 
+sqlite3.register_adapter(Kreis, kreisadapter) 
+sqlite3.register_converter("KREIS", kreiskonverter) 
+ 
+# Hier wird eine Beispieldatenbank im Arbeitsspeicher mit 
+# einer einspaltigen Tabelle für Kreise definiert 
+connection = sqlite3.connect(":memory:", 
+                        detect_types=sqlite3.PARSE_DECLTYPES) 
+cursor = connection.cursor() 
+cursor.execute("CREATE TABLE kreis_tabelle(k KREIS)") 
+ 
+# Kreis in die Datenbank schreiben 
+kreis = Kreis(1, 2.5, 3) 
+cursor.execute("INSERT INTO kreis_tabelle VALUES (?)", (kreis,)) 
+ 
+# Kreis wieder auslesen 
+cursor.execute("SELECT * FROM kreis_tabelle") 
+ 
+gelesener_kreis = cursor.fetchall()[0][0]<span class="cfett"> 
+print</span> type(gelesener_kreis)<span class="cfett"> 
+print</span> gelesener_kreis.Mx, gelesener_kreis.My, gelesener_kreis.R</pre></div>
+<p>Die Ausgabe dieses Programms ergibt sich wie folgt und zeigt, dass <span class="clisting">gelesener_kreis</span> tatsächlich eine Instanz unserer <span class="clisting">Kreis</span>-Klasse mit den korrekten Attributen ist:</p>
+<div class="listing"><pre class="prettyprint">&lt;class '__main__.Kreis'&gt; 
+1.0 2.5 3.0</pre></div>
+<h4 class="t4"><span class="cfett">Einschränkungen</span></h4>
+<p>Das Datenbanksystem SQLite ist in bestimmten Punkten eingeschränkt. Beispielsweise wird eine Datenbank beim Verändern oder Hinzufügen von Datensätzen für Lesezugriffe gesperrt, was besonders bei Webanwendungen sehr hinderlich ist: In der Regel werden mehrere Besucher eine Internetseite gleichzeitig aufrufen, und wenn jemand beispielsweise einen neuen Foreneintrag erstellt, wollen die anderen Besucher nicht länger auf die Anzeige der Seite warten müssen.</p>
+<p>Deshalb gibt es andere Systeme, die auch mit den Anforderungen größerer Projekte zurechtkommen. Wir werden uns im nächsten Abschnitt mit dem verbreiteten Datenbankserver namens MySQL beschäftigen.</p><a id="mjd4e355cc1c649fc6067edb05093491f1" name="mjd4e355cc1c649fc6067edb05093491f1"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">19.3.2</span><span class="cfett"> MySQLdb</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>MySQL ist ein Datenbankserver, der speziell für die schnelle Verwaltung sehr großer Datenmengen konzipiert wurde. Das System wird von der schwedischen Firma <span class="ckursiv">MySQL AB</span> entwickelt und ist als quelloffene Software unter der <span class="ckursiv">GNU General Public License</span> (GPL) verfügbar. Sie können sich die Software von der Homepage des Herstellers kostenlos herunterladen: <a href="http://www.mysql.com.">http://www.mysql.com.</a></p>
+<p>Für Internetanwendungen hat sich MySQL zum De-facto-Standard entwickelt, sodass heute praktisch jedes Hosting-Paket auch MySQL-Datenbanken enthält. Weil Python sich besonders für die Entwicklung von Webanwendungen eignet, haben wir uns entschlossen, an dieser Stelle die MySQL-Datenbank zu beschreiben, auch wenn sie nicht Teil der Python-Standardbibliothek ist.</p>
+<p>Im Gegensatz zu SQLite, das sämtliche Funktionen der Datenbank in den Python-Interpreter kompiliert, wählt MySQL einen <span class="ckursiv">Client/Server</span><span class="ckursiv">-Ansatz</span>. Das bedeutet, dass sich ein eigenes Programm, der sogenannte Server, um die Verwaltung der Daten kümmert. Die sogenannten Clients können sich mit diesem Server verbinden und ihre Abfragen senden bzw. Daten empfangen. Die Verbindungen zwischen Server und Client werden über Netzwerkschnittstellen aufgebaut, sodass der Datenbankserver nicht auf demselben Rechner laufen muss wie seine Clients. Außerdem können auf diese Weise viele Clients, die auf verschiedenen Computern laufen, denselben Datenbestand benutzen, ohne sich darum kümmern zu müssen, wo die Daten letztendlich physikalisch abgelegt sind.</p>
+<p>Neben der größeren Flexibilität ermöglicht der Client/Server-Ansatz eine Rechteverwaltung für die Benutzer der Datenbank. Jeder Client muss sich beim Verbindungsaufbau zu dem Server mit Zugangsdaten einloggen. Der Server kann dann anhand der Benutzerdaten bestimmen, welche Aktionen der Client durchführen darf, oder den Verbindungsaufbau ganz ablehnen, wenn der übergebene Benutzer nicht existiert oder das Passwort falsch war.</p>
+<p>Für den Zugriff auf die Datenbank muss der Client neben den Login-Daten nur die Netzwerkadresse des Datenbankservers kennen.</p>
+<p>Sie können eine aktuelle Version des <span class="clisting">MySQLdb</span>-Moduls für Python unter der Adresse http://sourceforge.net/projects/mysql-python/ herunterladen.</p>
+<p>Nach der Installation können Sie das Modul <span class="clisting">MySQLdb</span> mittels <span class="clisting">import</span> einbinden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> MySQLdb</pre></div>
+<p>Nun können Sie mit der <span class="clisting">connect</span>-Funktion eine Verbindung zu einem Datenbankserver herstellen. Wir gehen bei den folgenden Beispielen davon aus, dass ein MySQL-Server unter der Adresse <span class="clisting">"192.168.0.128"</span> erreichbar ist und einen Benutzer namens <span class="clisting">"root"</span> mit dem Passwort <span class="clisting">"123456"</span> hat:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; connection = MySQLdb.connect("192.168.0.128", 
+                                 "root", "123456", "test")</pre></div>
+<p>Der letzte Parameter mit dem Wert <span class="clisting">"test"</span> gibt die Datenbank an, die wir auf dem Server verwenden möchten. MySQL ermöglicht es nämlich, mehrere Datenbanken auf demselben Server zu verwalten. Wir gehen davon aus, dass die Datenbank namens <span class="clisting">"test"</span> bereits auf dem Server existiert, denn sie wird bei der Verbindung nicht automatisch erzeugt.</p>
+<p>Nun können wir genau wie bei <span class="clisting">sqlite3</span> ein <span class="clisting">Cursor</span>-Objekt für die Verbindung erzeugen und damit Anfragen an die Datenbank senden. Die Details zum Umgang mit Datenbankverbindungen und Cursor-Objekten können Sie im Abschnitt über SQLite nachlesen.</p>
+<p>Zur Demonstration werden wir eine einfache Tabelle erzeugen, die die Marke, die Leistung und das Baujahr von Autos speichern kann:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> MySQLdb 
+connection = MySQLdb.connect("www.hostname.de", 
+                         "benutzername", "passwort", "datenbank") 
+cursor = connection.cursor() 
+cursor.execute(""" 
+   CREATE TABLE autos (marke TEXT, ps INTEGER, baujahr INTEGER) 
+    """) 
+cursor.execute("INSERT INTO autos VALUES('Volvo', 130, 1995)") 
+daten = (("Audi", 350, 2005), 
+         ("Ford", 110, 2000), 
+         ("VW", 60, 2001)) 
+cursor.executemany("INSERT INTO autos VALUES(%s, %s, %s)", daten) 
+ 
+cursor.execute("SELECT marke, ps, baujahr FROM autos")<span class="cfett"> 
+for</span> row<span class="cfett"> in</span> cursor: 
+   <span class="cfett"> print</span> "Marke: %s, Leistung: %d PS, Baujahr: %d" % row</pre></div>
+<p>Die Ausgabe des Programms sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">Marke: Volvo, Leistung: 130 PS, Baujahr: 1995 
+Marke: Audi, Leistung: 350 PS, Baujahr: 2005 
+Marke: Ford, Leistung: 110 PS, Baujahr: 2000 
+Marke: VW, Leistung: 60 PS, Baujahr: 2001</pre></div>
+<p>Im Unterschied zu <span class="clisting">sqlite3</span> verwendet <span class="clisting">MySQLdb</span> bei Parameterübergaben nicht das Fragezeichen als Platzhalter, sondern die Zeichenfolge <span class="clisting">"%s"</span>. Wie im Beispiel gezeigt wird, können Sie <span class="clisting">"%s"</span> auch für andere Datentypen als <span class="clisting">str</span> verwenden. Das Modul <span class="clisting">MySQLdb</span> kümmert sich dann um die entsprechende Umwandlung.</p>
+<p>Anstelle von <span class="clisting">"%s"</span> können Sie die Parameter auch mit Namen versehen und dann statt einer Sequenz ein Dictionary übergeben. Die folgenden beiden Aufrufe von <span class="clisting">execute</span> erzeugen das gleiche Ergebnis:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; cursor.execute(""" 
+    SELECT * FROM autos WHERE marke=%s AND ps=%s""", 
+    ("Volvo", 130) 
+    ) 
+&gt;&gt;&gt; cursor.execute(""" 
+    SELECT * FROM autos 
+    WHERE marke=%(marke)s AND ps=%(leistung)s""", 
+    {"marke" : "Volvo", "Leistung" : 130} 
+    )</pre></div>
+<p>Allerdings bietet <span class="clisting">MySQLdb</span> keine komfortable Schnittstelle zum Speichern eigener Datentypen. Sie müssen sich in Ihren Programmen selbst darum kümmern, dass Ihre Objekte beim Speichern in einen String und beim Lesen wieder in den entsprechenden Datentyp konvertiert werden.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_19_003.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="19.3 Datenbanken"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_19_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_19_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

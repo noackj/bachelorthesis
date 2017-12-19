@@ -1,0 +1,650 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 21.2 Inspizieren von Instanzen &#8211; inspect</title>
+<meta name="title" content="Galileo Computing :: Python - 21.2 Inspizieren von Instanzen &#8211; inspect">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 21.2 Inspizieren von Instanzen &#8211; inspect">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_21_001.htm">
+<link rel="next" href="python_kapitel_21_003.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_21_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_21_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5" class="navnav">21 Debugging</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_001.htm#mjc9ed2f03eb0e2dc23b8fcfef30a0e880" class="navnav">21.1 Der Debugger</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj7bb4e0fdebd5dc9dfe18d833bb52d5db" class="navh">21.2 Inspizieren von Instanzen &#8211; inspect</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj30443824b855deb14b2106456abba8ae" class="navh">21.2.1 Datentypen, Attribute und Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj26cf2cec03b118c739fc0c825d9ea501" class="navh">21.2.2 Quellcode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj8b1fd73c253dea118d50990cc7b54bb3" class="navh">21.2.3 Klassen und Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_003.htm#mjbfa58d234253bf05a2380680f0407805" class="navnav">21.3 Formatierte Ausgabe von Instanzen &#8211; pprint</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_004.htm#mj9d693b2a9ceb411a7e63099048b7290f" class="navnav">21.4 Logdateien &#8211; logging</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_004.htm#mj0ed595222838429b2af6515588091b69" class="navnav">21.4.1 Das Meldungsformat anpassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_004.htm#mj53cbe44b8a4f8b6f2d1151cf0c78a680" class="navnav">21.4.2 Logging Handler</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_005.htm#mj0006b6d104143c9d0eb05fe0e3418768" class="navnav">21.5 Automatisiertes Testen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_005.htm#mj283ed24cbfec45887f9207dc538785ba" class="navnav">21.5.1 Testfälle in Docstrings &#8211; doctest</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_005.htm#mj833e694a147693a7840c4727b047fd14" class="navnav">21.5.2 Unit Tests &#8211; unittest</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_006.htm#mjf3af0f14f9fbd165ee0566cf30eb3f53" class="navnav">21.6 Traceback-Objekte &#8211; traceback</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_21_007.htm#mjd9a88b16927a4a97c0d43c013cd80600" class="navnav">21.7 Analyse des Laufzeitverhaltens</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_007.htm#mj2c6ec836b07cb7f425660b5bd840b9c7" class="navnav">21.7.1 Laufzeitmessung &#8211; timeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_007.htm#mj37c250b6464b8c5c176a4619f7669d53" class="navnav">21.7.2 Profiling &#8211; cProfile</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_21_007.htm#mj17fb8dda4fb94ebbed32afccbbfe12cb" class="navnav">21.7.3 Tracing &#8211; trace</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj7bb4e0fdebd5dc9dfe18d833bb52d5db" name="mj7bb4e0fdebd5dc9dfe18d833bb52d5db"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">21.2</span><span class="cfett"> Inspizieren von Instanzen &#8211; inspect</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Modul <span class="clisting">inspect</span> stellt Funktionen bereit, über die der Programmierer detaillierte Informationen über eine Instanzgi erlangen kann. So könnte beispielsweise der Inhalt einer Klasse oder die Parameterliste einer Funktion ermittelt werden. Damit eignet sich <span class="clisting">inspect</span> besonders zum Erstellen von detaillierten Debug-Ausgaben.</p>
+<p>Grundsätzlich lässt sich die Funktionalität von <span class="clisting">inspect</span> in vier Teilbereiche gliedern, die im Folgenden erklärt werden sollen:</p>
+<ul class="gp">
+<li>Funktionen, die sich auf Datentypen, Attribute und Methoden einer Instanz beziehen</li>
+</ul>
+<ul class="gp">
+<li>Funktionen, die sich auf ein Stück des Quellcodes beziehen, das im Zusammenhang mit einer Instanz steht</li>
+</ul>
+<ul class="gp">
+<li>Funktionen, die sich auf Klassen- und Funktionsobjekte beziehen</li>
+</ul>
+<p>Bevor Sie die Beispiele dieser Kapitel ausführen können, müssen Sie das Modul <span class="clisting">inspect</span> einbinden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> inspect</pre></div><a id="mj30443824b855deb14b2106456abba8ae" name="mj30443824b855deb14b2106456abba8ae"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">21.2.1</span><span class="cfett"> Datentypen, Attribute und Methoden</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In diesem Kapitel sollen die Funktionen des Moduls <span class="clisting">inspect</span> besprochen werden, mit deren Hilfe der Programmierer Informationen über den Datentyp, Attribute oder Methoden einer Instanz abfragen kann. Im Folgenden werden die wichtigsten dieser Funktionen besprochen.</p>
+<h5 class="t5"><span class="cfett">inspect.getmembers(object[, predicate])</span></h5>
+<p>Gibt alle Attribute und Methoden, auch <span class="ckursiv">Member</span> genannt, der Instanz <span class="ckursiv">object</span> in Form einer Liste von Tupeln zurück. Jedes Tupel enthält dabei den Namen des jeweiligen Members als erstes Element und den Wert des Members als zweites Element. Im Falle einer Methode entspricht das Funktionsobjekt dem Wert des Members. Die zurückgegebene Liste ist nach Member-Namen sortiert.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> class</span> klasse(object):<br>
+...    <span class="cfett"> def</span> __init__(self): 
+...         self.a = 1 
+...         self.b = 2 
+...         self.c = 3<br>
+...    <span class="cfett"> def</span> hallo(self): 
+...        <span class="cfett"> return</span> "welt" 
+... 
+&gt;&gt;&gt; inspect.getmembers(klasse()) 
+ [('__class__', &lt;class '__main__.klasse'&gt;),<span class="cfett"> […]</span> 
+('a', 1), ('b', 2), ('c', 3), ('hallo', &lt;bound method klasse.hallo  
+of &lt;__main__.klasse object at 0xb7a9d08c&gt;&gt;)]</pre></div>
+<p>Für den optionalen Parameter <span class="ckursiv">predicate</span> kann eine Filterfunktion übergeben werden. Diese Funktion wird für jeden Member der Instanz <span class="ckursiv">object</span> aufgerufen und bekommt diesen als einzigen Parameter übergeben. Es werden alle Member in die Ergebnisliste aufgenommen, für die die Filterfunktion <span class="clisting">True</span> zurückgegeben hat.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; inspect.getmembers(klasse(),<span class="cfett"> lambda</span> x: inspect.ismethod(x)) 
+[('__init__', &lt;bound method klasse.__init__ of &lt;__main__.klasse  
+object at 0xb7a9df2c&gt;&gt;), ('hallo', &lt;bound method klasse.hallo of  
+&lt;__main__.klasse object at 0xb7a9df2c&gt;&gt;)]</pre></div>
+<p>In diesem Fall wurde eine Lambda-Form übergeben, die <span class="clisting">True</span> zurückgibt, wenn es sich bei dem Member <span class="clisting">x</span> um eine Methode handelt. Dementsprechend klein ist die Ergebnisliste. Auf die verwendete Funktion <span class="clisting">ismethod</span> wird später noch eingegangen.</p>
+<p>Zusätzlich zu <span class="clisting">getmembers</span> sind im Modul <span class="clisting">inspect</span> eine Menge Funktionen enthalten, deren Namen allesamt mit <span class="clisting">is</span> beginnen. Eine dieser Funktionen wurde im vorangegangenen Beispiel bereits erfolgreich eingesetzt. Die folgende Tabelle listet die wichtigsten dieser Funktionen auf.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 21.1    </strong>Auf Member bezogene Funktionen des Moduls <span class="clisting">inspect</span>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Funktion</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Rückgabewert</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">isclass(object)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn <span class="clisting">object</span> eine Klasse ist, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">ismodule(object)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn <span class="clisting">object</span> ein Modul ist, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">ismethod(object)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn <span class="clisting">object</span> eine Methode ist, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">isfunction(object)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn <span class="clisting">object</span> eine Funktion ist, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">istraceback(object)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn <span class="clisting">object</span> ein Traceback-Objekt ist, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">iscode(object)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn <span class="clisting">object</span> ein Code-Objekt ist, andernfalls <span class="clisting">False</span>. Näheres zum Code-Objekt erfahren Sie im nächsten Kapitel.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">isbuiltin(object)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn <span class="clisting">object</span> eine Built-in Function ist, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">isroutine(object)</span></pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span>, wenn <span class="clisting">object</span> eine Funktion oder Methode ist, andernfalls <span class="clisting">False</span>.</p>
+</td>
+</tr>
+</table><br><p>Grundsätzlich werden die Methoden folgendermaßen verwendet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> def</span> a(): 
+...    <span class="cfett"> print</span> "Hallo Welt" 
+... 
+&gt;&gt;&gt; inspect.isbuiltin(a) 
+False 
+&gt;&gt;&gt; inspect.isfunction(a) 
+True 
+&gt;&gt;&gt; inspect.isroutine(a) 
+True</pre></div>
+<p>Damit sind die wichtigsten Funktionen des Moduls <span class="clisting">inspect</span>, die sich auf Datentypen, Attribute oder Methoden beziehen, beschrieben.</p><a id="mj26cf2cec03b118c739fc0c825d9ea501" name="mj26cf2cec03b118c739fc0c825d9ea501"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">21.2.2</span><span class="cfett"> Quellcode</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In diesem Abschnitt sollen die wichtigsten Funktionen des Moduls <span class="clisting">inspect</span> behandelt werden, die sich direkt auf den Quellcode beispielsweise einer Funktion beziehen.</p>
+<h5 class="t5"><span class="cfett">inspect.getfile(object)</span></h5>
+<p>Gibt den Namen der Datei zurück, in der das Objekt <span class="ckursiv">object</span> definiert wurde. Dabei kann es sich sowohl um eine Quellcode-Datei als auch um eine Bytecode-Datei handeln.</p>
+<p>Diese Funktion wirft eine <span class="clisting">TypeError</span>-Exception, wenn es sich bei <span class="ckursiv">object</span> um ein eingebautes Objekt, beispielsweise eine Built-in Function handelt. Das liegt daran, dass Built-in Functions intern in C implementiert sind und somit keiner Quelldatei zugeordnet werden können.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; inspect.getfile(inspect.getfile) 
+'/usr/lib/python2.5/inspect.py'</pre></div>
+<p>In diesem Beispiel wurde die Funktion <span class="clisting">getfile</span> verwendet, um herauszufinden, in welcher Quelldatei sie selbst definiert ist.</p>
+<h5 class="t5"><span class="cfett">inspect.getmodule(object)</span></h5>
+<p>Gibt die Modulinstanz des Moduls zurück, in dem das Objekt <span class="ckursiv">object</span> definiert wurde.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; inspect.getmodule(inspect.getmodule) 
+&lt;module 'inspect' from 'C:\Programme\Python25\lib\inspect.pyc'&gt;</pre></div>
+<p>In diesem Beispiel wurde <span class="clisting">getmodule</span> dazu verwendet, den Pfad des Moduls herauszufinden, in dem sie selbst definiert ist.</p>
+<h5 class="t5"><span class="cfett">inspect.getsourcefile(object)</span></h5>
+<p>Gibt den Namen der Quellcode-Datei zurück, in der das Objekt <span class="ckursiv">object</span> definiert wurde. Diese Funktion wirft eine <span class="clisting">TypeError</span>-Exception, wenn es sich bei <span class="ckursiv">object</span> um ein eingebautes Objekt, beispielsweise eine Built-in Function handelt. Das liegt daran, dass diese Objekte entweder intern in C implementiert sind oder die Quelldatei nur als Kompilat vorliegt. Dem Objekt kann also kein tatsächlicher Quellcode zugeordnet werden. Diese Einschränkung betrifft auch viele Funktionen der Standardbibliothek.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; inspect.getsourcefile(inspect.getsourcefile) 
+'/usr/lib/python2.5/inspect.py'</pre></div>
+<p>In diesem Fall wurde <span class="clisting">getsourcefile</span> dazu verwendet, die Quellcodedatei herauszufinden, in der die Funktion selbst definiert ist.</p>
+<h5 class="t5"><span class="cfett">inspect.getsourcelines(object)</span></h5>
+<p>Gibt ein Tupel mit zwei Elementen zurück. Das erste ist eine Liste von Strings, die alle dem Objekt <span class="ckursiv">object</span> zugeordneten Quellcodezeilen enthält. Das zweite Element des zurückgegebenen Tupels ist die Zeilennummer der ersten dem Objekt <span class="ckursiv">object</span> zugeordneten Quellcodezeile.</p>
+<p>Für <span class="ckursiv">object</span> kann ein Modul, eine Methode, eine Funktion, ein Traceback-Objekt oder ein Frame-Objekt übergeben werden. Näheres zum Frame-Objekt erfahren Sie im nächsten Kapitel.</p>
+<p>Die Funktion wirft eine <span class="clisting">IOError</span>-Exception, wenn der Quellcode zum Objekt <span class="ckursiv">object</span> nicht geladen werden konnte.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; inspect.getsourcelines(inspect.getsourcelines) 
+(['def getsourcelines(object):\n', […], 610)</pre></div>
+<p>In diesem Fall wurde die Funktion <span class="clisting">getsourcelines</span> dazu verwendet, die Quellcodezeilen ihrer eigenen Definition zurückzugeben. Beachten Sie, dass das Auslassungszeichen keine rekursive Liste andeutet, sondern weitere Quellcodezeilen andeuten soll.</p>
+<h5 class="t5"><span class="cfett">inspect.getsource(object)</span></h5>
+<p>Gibt die dem Objekt <span class="ckursiv">object</span> zugeordneten Quellcodezeilen in einem einzigen String zurück. Die Funktion unterscheidet sich demzufolge nur im Rückgabewert von <span class="clisting">getsourcelines</span>.</p>
+<p>Für <span class="ckursiv">object</span> kann ein Modul, eine Methode, eine Funktion, ein Traceback-Objekt oder ein Frame-Objekt übergeben werden.</p>
+<p>Die Funktion wirft eine <span class="clisting">IOError</span>-Exception, wenn der Quellcode zum Objekt <span class="ckursiv">object</span> nicht geladen werden konnte.</p><a id="mj8b1fd73c253dea118d50990cc7b54bb3" name="mj8b1fd73c253dea118d50990cc7b54bb3"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">21.2.3</span><span class="cfett"> Klassen und Funktionen</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In diesem Abschnitt sollen die wichtigsten Funktionen des Moduls <span class="clisting">inspect</span> behandelt werden, die sich auf Klassen und Funktionen beziehen.</p>
+<h5 class="t5"><span class="cfett">inspect.getclasstree(classes[, unique])</span></h5>
+<p>Gibt die Vererbungshierarchie der übergebenen Klassen in Form eines Baums [Bei einem Baum handelt es sich grundsätzlich um nichts anderes als um eine verschachtelte Liste. Gerade im Zusammenhang mit <span class="clisting">getclasstree</span> ist die zurückgegebene Liste ausdrücklich als Baum zu sehen.
+]  zurück. Im ersten Teil des Beispielprogramms bauen wir daher zunächst eine Klassenhierarchie auf:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> class</span> a(object): 
+...    <span class="cfett"> pass</span> 
+... 
+&gt;&gt;&gt;<span class="cfett"> class</span> b(a): 
+...    <span class="cfett"> pass</span> 
+... 
+&gt;&gt;&gt;<span class="cfett"> class</span> c(a): 
+...    <span class="cfett"> pass</span> 
+... 
+&gt;&gt;&gt;<span class="cfett"> class</span> d(b): 
+...    <span class="cfett"> pass</span> 
+... 
+&gt;&gt;&gt;<span class="cfett"> class</span> e(b): 
+...    <span class="cfett"> pass</span> 
+...</pre></div>
+<p><a href="#Rxx_ref181612434">Abbildung 21.2</a> veranschaulicht die Hierarchie.</p>
+<div class="bildbox">
+<p><a name="IDAVWSQ"></a><a onClick="OpenWin('bilder/inspect-hierarchie.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleininspect-hierarchie.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 21.2    </strong>Die Klassenhierarchie</p>
+<p>Die Funktion <span class="clisting">getclasstree</span> bereitet Teile dieser Hierarchie zu einem Baum auf. Dazu müssen beim Funktionsaufruf die Klassen übergeben werden, die im resultierenden Baum enthalten sein sollen. Im folgenden Beispiel soll die Hierarchie um die Klasse <span class="clisting">b</span> erzeugt werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; inspect.getclasstree([b]) 
+[ 
+(&lt;class '__main__.a'&gt;, (&lt;type 'object'&gt;,)), 
+    [ 
+    (&lt;class '__main__.b'&gt;, (&lt;class '__main__.a'&gt;,)) 
+    ] 
+]</pre></div>
+<p>Der resultierende Baum, hier aus Gründen der Übersichtlichkeit formatiert, besteht aus einer Liste von Tupeln, die jeweils eine Klasse repräsentieren. Ein solches Tupel ist folgendermaßen aufgebaut:</p>
+<div class="listing"><pre class="prettyprint">(Klasse, (Basisklassen))</pre></div>
+<p>Nach jedem solchen Tupel kann eine eingebettete Liste folgen, die alle Klassen enthält, die von der Klasse abgeleitet sind, die das Tupel beschreibt. Auch diese eingebetteten Listen bestehen aus Tupeln des obigen Formats.</p>
+<p>Wie Sie sehen, wurde im Beispiel ein Baum erzeugt, der nur die Klasse <span class="clisting">b</span> selbst und ihre Basisklasse <span class="clisting">a</span> enthält.</p>
+<p>Für den ersten Parameter <span class="ckursiv">classes</span> von <span class="ckursiv">getclasstree</span> muss eine Liste übergeben werden, die auch, anders als im vorangegangenen Beispiel, mehrere Klassen enthalten darf, die dann alle im resultierenden Baum vorkommen. So soll im folgenden Beispiel die Hierarchie um die Klassen <span class="clisting">b</span> und <span class="clisting">a</span> erstellt werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; inspect.getclasstree([b, a]) 
+[ 
+(&lt;type 'object'&gt;, ()), 
+    [ 
+    (&lt;class '__main__.a'&gt;, (&lt;type 'object'&gt;,)), 
+        [ 
+        (&lt;class '__main__.b'&gt;, (&lt;class '__main__.a'&gt;,)) 
+        ] 
+    ] 
+]</pre></div>
+<p>Der resultierende Baum enthält die aufgelisteten Klassen <span class="clisting">a</span> und <span class="clisting">b</span> sowie die Basisklasse <span class="clisting">object</span> von <span class="clisting">a</span>.</p>
+<p>Wenn für den optionalen Parameter <span class="ckursiv">unique</span> <span class="clisting">True</span> übergeben wird, taucht jede Klasse auch im Falle von Mehrfachvererbung nur ein einziges Mal im Klassenbaum auf.</p>
+<h5 class="t5"><span class="cfett">inspect.getmro(cls)</span></h5>
+<p>Gibt ein Tupel zurück, das alle Basisklassen der Klasse <span class="ckursiv">cls</span> inklusive der Klasse <span class="ckursiv">cls</span> selbst enthält. Die Klassen sind dabei so angeordnet, dass die allgemeinste Basisklasse als letzte im Tupel enthalten ist. Das bedeutet umgekehrt, dass die Klasse <span class="ckursiv">cls</span> selbst als erstes Element des resultierenden Tupels geführt wird.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; inspect.getmro(b) 
+( 
+&lt;class '__main__.b'&gt;, 
+&lt;class '__main__.a'&gt;, 
+&lt;type 'object'&gt; 
+)</pre></div>
+<p>Dieses Beispiel bezieht sich auf die bei <span class="clisting">getclasstree</span> angelegte Klassenhierarchie.</p>
+<h5 class="t5"><span class="cfett">inspect.getargspec(func)</span></h5>
+<p>Gibt die Funktionsschnittstelle der Funktion <span class="ckursiv">func</span>, also die Namen und vordefinierten Werte der Funktionsparameter zurück. Das Ergebnis ist ein Tupel mit vier Elementen. Das erste Element ist eine Liste mit den Namen aller Parameter. Das zweite und das dritte Element des zurückgegebenen Tupels enthalten den Parameternamen, über den beliebige Positions- oder Schlüsselwortparameter funktionsintern angesprochen werden. Das letzte Element des Tupels ist ein Tupel mit vordefinierten Werten der Parameter.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> def</span> funktion(a, b, c=1, d=2, *args): 
+...    <span class="cfett"> pass</span> 
+... 
+&gt;&gt;&gt; inspect.getargspec(funktion) 
+(['a', 'b', 'c', 'd'], 'args', None, (1, 2))</pre></div>
+<p>In diesem Fall besteht die Funktionsschnittstelle also aus den Parametern <span class="clisting">a</span>, <span class="clisting">b</span>, <span class="clisting">c</span> und <span class="clisting">d</span> sowie aus einer Möglichkeit, beliebige weitere Positionsparameter zu übergeben. Auf diese zusätzlichen Parameter wird funktionsintern über den Namen <span class="clisting">args</span> zugegriffen. Eine Möglichkeit, beliebige Schlüsselwortparameter zu übergeben, gibt es nicht, das entsprechende Element des Tupels ist <span class="clisting">None</span>. Schlussendlich können dem Tupel noch die vordefinierten Werte für die letzten beiden Parameter <span class="clisting">c</span> und <span class="clisting">d</span> entnommen werden.</p>
+<h5 class="t5"><span class="cfett">inspect.getargvalues(frame)</span></h5>
+<p>Gibt Informationen über die einer Funktion tatsächlich übergebenen Werte zurück. Der Rückgabewert ist ein Tupel mit vier Elementen. Die ersten drei Elemente des Tupels entsprechen denen des Tupels, das von der Funktion <span class="clisting">getargspec</span> zurückgegeben wird. Das vierte Element des Tupels enthält ein Dictionary mit den Namen und Werten aller lokalen Variablen des übergebenen Frame-Objekts <span class="ckursiv">frame</span>.</p>
+<p>Das sogenannte <span class="ckursiv">Frame-Objekt</span> repräsentiert einen Codeblock und kann mithilfe der Funktion <span class="clisting">inspect.currentframe</span> erzeugt werden.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> def</span> funktion(a, b, c=1, d=2): 
+...    <span class="cfett"> print</span> inspect.getargvalues(inspect.currentframe()) 
+... 
+&gt;&gt;&gt; funktion("Hallo", "Welt") 
+(['a', 'b', 'c', 'd'], None, None, 
+{'a': 'Hallo', 'c': 1, 'b': 'Welt', 'd': 2})</pre></div>
+<p>Beachten Sie, dass die beiden <span class="clisting">None</span>-Elemente des Tupels nur Bedeutung haben, wenn die Funktionsschnittstelle das Übergeben beliebiger Positions- oder Schlüsselwortparameter ermöglicht, was hier nicht der Fall ist.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_21_002.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="21.2 Inspizieren von Instanzen &#8211; inspect"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_21_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_21_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

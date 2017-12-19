@@ -1,0 +1,961 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 24.6 Zeichenfunktionalität</title>
+<meta name="title" content="Galileo Computing :: Python - 24.6 Zeichenfunktionalität">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 24.6 Zeichenfunktionalität">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_24_005.htm">
+<link rel="next" href="python_kapitel_24_007.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_24_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_24_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753" class="navnav">24 Grafische Benutzeroberflächen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_001.htm#mj7e4bb4efefd7ce44aa67ef15eb795819" class="navnav">24.1 Toolkits</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_002.htm#mj410d039d691c33c9eaae3c5d98711ba6" class="navnav">24.2 Einführung in PyQt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_002.htm#mj1684f423c06c11a7858373f78c379bd3" class="navnav">24.2.1 Installation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_002.htm#mjdcac6d188caaadff2d97262b63d1924c" class="navnav">24.2.2 Grundlegende Konzepte von Qt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_003.htm#mjfc92f7f0a3a50a7adbdab1fd29bafccb" class="navnav">24.3 Entwicklungsprozess</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_003.htm#mj9db1bbea0411d23987eec58164bfcca2" class="navnav">24.3.1 Erstellen des Dialogs</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_003.htm#mj07a1c3efb2f661d7025237efdab7d505" class="navnav">24.3.2 Schreiben des Programms</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_004.htm#mj4fe5432befd9b269f465778525b31a3e" class="navnav">24.4 Signale und Slots</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_005.htm#mjc3b7342ca80134e5e7ffe20ceb05f0c2" class="navnav">24.5 Überblick über das Qt-Framework</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjbee8e14f9a227769775f297cf44af44f" class="navh">24.6 Zeichenfunktionalität</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj6baaa60f60c4ee337c7f2618558965cc" class="navh">24.6.1 Werkzeuge</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj09ce1ef12f59e463f2d0b2a627f3dff8" class="navh">24.6.2 Koordinatensystem</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj4e47879515982231ab3e15a2f80dd87e" class="navh">24.6.3 Einfache Formen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj23c5f85dbd4874e55733f08c53200348" class="navh">24.6.4 Grafiken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjef9e638bd97da97f7d98650a62ad3aef" class="navh">24.6.5 Text</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj9f1387a929546375d73241894c08fedd" class="navh">24.6.6 Eye-Candy</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_007.htm#mj1ea36fb17db37638e0480e8c9937e6d1" class="navnav">24.7 Model-View-Architektur</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_007.htm#mj5c95ff8527068d367a6f8d8f25d15ed8" class="navnav">24.7.1 Beispielprojekt: Ein Adressbuch</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_007.htm#mjd71e703821b611cbd37eefb80cb38244" class="navnav">24.7.2 Auswählen von Einträgen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_007.htm#mjd504a61938116a86354b4928b72c8220" class="navnav">24.7.3 Editieren von Einträgen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_008.htm#mj2109c1a87ec1a3262198a32ccd4d37da" class="navnav">24.8 Wichtige Widgets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjd7810289c9aed6f9c751881e1018465c" class="navnav">24.8.1 QCheckBox</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj2049b0d4b09d164f2476d7dfc2ec45d2" class="navnav">24.8.2 QComboBox</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj295c86558eb7790a1caad3caadcbd14c" class="navnav">24.8.3 QDateEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj59aa1db582f3b839a69b147bc0487858" class="navnav">24.8.4 QDateTimeEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj3da964dfd16810d718e1b2d9bcb688fc" class="navnav">24.8.5 QDial</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj48fac9fb739a93491b1db3d33005834f" class="navnav">24.8.6 QDialog</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjb7c1c34af70ba881939ed78c8f09cb4a" class="navnav">24.8.7 QGLWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjd53a9048d9c571639ee4ddf703314dfd" class="navnav">24.8.8 QLineEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj753a3b774e44a835d684a14b3db04bdf" class="navnav">24.8.9 QListView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj174335c173cec288eda1580821430bde" class="navnav">24.8.10 QListWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjeb6c6758021833d8054cc62bbcca6e9d" class="navnav">24.8.11 QProgressBar</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj23d215e0756bba97ab8dcb09790ac00f" class="navnav">24.8.12 QPushButton</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj3376ce50168855804718b93fce86d2bd" class="navnav">24.8.13 QRadioButton</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj94112aa4fd117f48c3d39f9618b58181" class="navnav">24.8.14 QScrollArea</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjfddd4b80d093f9d97306b20f84578ee3" class="navnav">24.8.15 QSlider</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj5a52f70c91ed3907254124d05e894fe8" class="navnav">24.8.16 QTableView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjcbe42edfb63ff02ed61c895f76d00c1d" class="navnav">24.8.17 QTableWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj3e9d765f8b7dbd06d7b2a84a17401cf8" class="navnav">24.8.18 QTabWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj176a65642a71e61180f6f59b6579e7dd" class="navnav">24.8.19 QTextEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj37ef18de50443152c7f3bd72d6ea7b60" class="navnav">24.8.20 QTimeEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj170d41005e686d65c1a2e6da1ac5d9d3" class="navnav">24.8.21 QTreeView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj6abe0a2a3e93af31dcf36fb5a6f44975" class="navnav">24.8.22 QTreeWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjeb86779df41a41f7511c860b831f87b0" class="navnav">24.8.23 QWidget</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjbee8e14f9a227769775f297cf44af44f" name="mjbee8e14f9a227769775f297cf44af44f"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">24.6</span><span class="cfett"> Zeichenfunktionalität</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Nachdem die praxisorientierte Einführung in die Programmierung grafischer Benutzeroberflächen mithilfe des Qt-Frameworks hinter uns liegt, möchten wir uns dem ersten Spezialgebiet von Qt zuwenden: der Zeichenfunktionalität. Wenn Sie ein eigenes Widget erstellen, also eine Klasse definieren, die von einem Steuerelement oder direkt von <span class="clisting">QWidget</span> erbt, haben Sie die Möglichkeit, selbst beliebige Inhalte in das Widget zu zeichnen. Das ist besonders dann interessant, wenn eine Anwendung Inhalte in einem Widget anzeigen möchte, für die es im Qt-Framework keine vorgefertigte Klasse gibt. Das könnte zum Beispiel ein Diagramm oder eine spezifische Grafik sein.</p>
+<p>Im Folgenden werden wir uns zunächst mit den Grundlagen des Zeichnens in Qt beschäftigen und danach einige einfache Formen, beispielsweise einen Kreis oder ein Rechteck, auf den Bildschirm bringen.</p>
+<p>Die in den folgenden Unterkapiteln präsentieren Beispielklassen verstehen sich im folgenden Kontext:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> PyQt4<span class="cfett"> import</span> QtGui<span class="cfett"> 
+import</span> sys<br>
+<span class="cfett">class</span> MeinWidget(QtGui.QWidget): 
+   <span class="cfett"> def</span> __init__(self, parent=None): 
+        QtGui.QWidget.__init__(self, parent)<br>
+app = QtGui.QApplication(sys.argv) 
+widget = MeinWidget() 
+widget.resize(150, 150) 
+widget.show() 
+sys.exit(app.exec_())</pre></div>
+<p>Dabei werden wir in den Beispielen jeweils nur die Klasse <span class="clisting">MeinWidget</span> neu implementieren. Um aus diesen Beispielen ein tatsächlich lauffähiges PyQt-Programm zu erstellen, muss die vorgestellte Klasse in den obigen Kontext eingefügt werden. Beachten Sie, dass je nach Beispielprogramm auch noch der Namensraum <span class="clisting">QtCore</span> eingebunden werden muss.</p><a id="mj6baaa60f60c4ee337c7f2618558965cc" name="mj6baaa60f60c4ee337c7f2618558965cc"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">24.6.1</span><span class="cfett"> Werkzeuge</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Um innerhalb eines Widgets zeichnen zu können, muss der Eventhandler <span class="clisting">paintEvent</span> implementiert werden. Dabei handelt es sich um eine Methode, die vom Qt-Framework immer dann aufgerufen wird, wenn das Widget teilweise oder vollständig neu gezeichnet werden muss. Das passiert beispielsweise dann, wenn das Anwendungsfenster teilweise verdeckt oder minimiert war und vom Benutzer in den Vordergrund geholt wurde. Die Methode <span class="clisting">paintEvent</span> bekommt eine Instanz der Klasse <span class="clisting">QPaintEvent</span> übergeben, die unter anderem den Bereich des Widgets enthält, der neu gezeichnet werden soll. [In unseren einfachen Beispielen werden wir beim Aufrufen der <span class="clisting">paintEvent</span>-Methode stets die komplette Zeichnung neu zeichnen. Je komplexer und aufwendiger eine Zeichnung jedoch zu zeichnen ist, desto eher sollte man nur den durch die <span class="clisting">QPaintEvent</span>-Instanz spezifizierten Bereich tatsächlich neu zeichnen.
+] </p>
+<p>Innerhalb der <span class="clisting">paintEvent</span>-Methode muss der sogenannte <span class="ckursiv">Painter</span> (dt. <span class="ckursiv">Maler</span>) erzeugt werden, mit dessen Hilfe die Zeichenoperationen später durchgeführt werden können. Bei einem Painter handelt es sich um eine Instanz der Klasse <span class="clisting">QtGui.QPainter</span>. Ein grundlegendes Widget, das das Paint-Event implementiert und einen Painter erzeugt, sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> MeinWidget(QtGui.QWidget): 
+   <span class="cfett"> def</span> __init__(self, parent=None): 
+        QtGui.QWidget.__init__(self, parent)<br>
+   <span class="cfett"> def</span> paintEvent(event): 
+        painter = QtGui.QPainter(self)</pre></div>
+<p>Nach dem Erzeugen der <span class="clisting">QPainter</span>-Instanz können mithilfe des Painters beliebige Zeichenoperationen durchgeführt werden.</p>
+<p>Zum Zeichnen gibt es in Qt neben dem Painter zwei grundsätzliche Werkzeuge: einen Pen und einen Brush.</p>
+<p>Als <span class="ckursiv">Pen</span> (dt. <span class="ckursiv">Stift</span>) wird eine Instanz der Klasse <span class="clisting">QtGui.QPen</span> bezeichnet. Um einen Pen zu verwenden, muss dieser dem Painter &#8211; also einer <span class="clisting">QPainter</span>-Instanz &#8211; mithilfe der Methode <span class="clisting">setPen</span> bekannt gegeben werden. Grundsätzlich wird ein Pen zum Zeichnen von Linien, beispielsweise für Umrandungen bestimmter Figuren, verwendet. Dazu enthält ein Pen im Wesentlichen drei Informationen: die Linienfarbe, die Liniendicke und den Linienstil. Ein Pen wird folgendermaßen erzeugt:</p>
+<div class="listing"><pre class="prettyprint">pen = QtGui.QPen(QtGui.QColor(255,0,0))</pre></div>
+<p>Dem Konstruktor des Pens wird eine Instanz der Klasse <span class="clisting">QColor</span> übergeben, um die Farbe des Pens, in diesem Fall Rot [Eine Farbangabe besteht aus drei einzelnen Werten zwischen <span class="clisting">0</span> und <span class="clisting">255</span>. Der erste übergebene Wert spezifiziert den Rot-, der zweite den Grün- und der dritte den Blauanteil der Farbe. Nähere Informationen dazu finden Sie im Internet unter dem Stichwort »RGB«.
+] , zu spezifizieren. Nachdem ein Pen erzeugt worden ist, kann seine Liniendicke bzw. der Linienstil mithilfe der Methoden <span class="clisting">setWidth</span> und <span class="clisting">setStyle</span> festgelegt werden:</p>
+<div class="listing"><pre class="prettyprint">pen.setWidth(7) 
+pen.setStyle(QtCore.Qt.DashLine)</pre></div>
+<p>Die der Methode <span class="clisting">setWidth</span> übergebene ganze Zahl entspricht der Liniendicke in Pixeln, die eine mit diesem Pen gezeichnete Linie später auf dem Bildschirm haben wird. Der Methode <span class="clisting">setStyle</span> können verschiedene Konstanten übergeben werden, die jeweils einen bestimmten Linienstil vorschreiben. Eine Auswahl dieser Konstanten finden Sie in der folgenden Tabelle:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 24.3    </strong>Linienstile eines Pens
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Konstante</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtCore.Qt.SolidLine</pre></div>
+</td>
+<td class="tabellentext">
+<p>Eine durchgezogene Linie. Dies ist die Standardeinstellung und braucht nicht explizit gesetzt zu werden.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtCore.Qt.DashLine</pre></div>
+</td>
+<td class="tabellentext">
+<p>Eine gestrichelte Linie</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtCore.Qt.DotLine</pre></div>
+</td>
+<td class="tabellentext">
+<p>Eine gepunktete Linie</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtCore.Qt.DashDotLine</pre></div>
+</td>
+<td class="tabellentext">
+<p>Eine Linie, die abwechselnd gestrichelt und gepunktet ist</p>
+</td>
+</tr>
+</table><br><p>Das zweite wichtige Werkzeug zum Zeichnen ist der sogenannte <span class="ckursiv">Brush</span> (dt. <span class="ckursiv">Pinsel</span>), mit dessen Hilfe Flächen gefüllt werden. Ein Brush spezifiziert, ähnlich wie ein Pen, zunächst einmal die Farbe, in der eine Fläche gefüllt werden soll. Analog zum Pen wird ein Brush folgendermaßen erzeugt:</p>
+<div class="listing"><pre class="prettyprint">brush = QtGui.QBrush(QtGui.QColor(0,0,255))</pre></div>
+<p>Auch dem Konstruktor des Brushs wird der Farbwert, in diesem Fall Blau, in Form einer <span class="clisting">QColor</span>-Instanz übergeben. Nachdem der Brush erzeugt worden ist, kann auch hier mit der Methode <span class="clisting">setStyle</span> ein Stil festgelegt werden. Mithilfe eines solches Stils ist es beispielsweise möglich, Flächen verschieden stark bzw. in unterschiedliche Richtungen schraffiert zu füllen. Näheres dazu erfahren Sie in der Qt-Dokumentation.</p>
+<p>Allgemein gilt, dass Pens und Brushes selektiert werden müssen, bevor sie benutzt werden können. Dazu werden die Methoden <span class="clisting">setPen</span> bzw. <span class="clisting">setBrush</span> eines Painters aufgerufen und wird die jeweilige <span class="clisting">QPen</span>- bzw. <span class="clisting">QBrush</span>-Instanz als Parameter übergeben. Eine darauf folgende Zeichenoperation wird dann mit den ausgewählten Werkzeugen durchgeführt. Beachten Sie, dass immer nur ein Brush und ein Pen gleichzeitig selektiert sein können.</p><a id="mj09ce1ef12f59e463f2d0b2a627f3dff8" name="mj09ce1ef12f59e463f2d0b2a627f3dff8"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">24.6.2</span><span class="cfett"> Koordinatensystem</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bevor es ans Zeichnen einfacher geometrischer Formen geht, müssen wir uns Gedanken über das in Qt verwendete Koordinatensystem machen. Dieses lehnt sich an andere GUI-Toolkits an und soll durch <a href="#Rxx_ref181854518">Abbildung 24.12</a> veranschaulicht werden.</p>
+<div class="bildbox">
+<p><a name="IDAEWSQ"></a><a onClick="OpenWin('bilder/gui-koordinatensystem.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-koordinatensystem.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.12    </strong>Das Koordinatensystem</p>
+<p>Jeder Pixel innerhalb des Widgets kann mithilfe des Koordinatensystems beschrieben werden. Beachten Sie, dass der Ursprung des Koordinatensystems in der oberen linken Ecke des Widgets liegt und dass die Y-Achse, im Gegensatz zum in der Mathematik verwendeten kartesischen Koordinatensystem, nach unten zeigt. Die Einheit des Koordinatensystems ist Pixel.</p>
+<p>Jedes Widget verfügt über ein eigenes lokales Koordinatensystem, dessen Ursprung stets relativ zur Position des Widgets in dessen oberer linken Ecke liegt. Das hat den Vorteil, dass eine Zeichnung nicht angepasst werden muss, wenn das Widget in seiner Position auf dem Bildschirm oder innerhalb eines anderen Widgets verändert wird.</p><a id="mj4e47879515982231ab3e15a2f80dd87e" name="mj4e47879515982231ab3e15a2f80dd87e"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">24.6.3</span><span class="cfett"> Einfache Formen</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das Qt-Framework bietet eine ganze Reihe von abstrakten Zeichenoperationen, die das Zeichnen einfacher geometrischer Formen, wie beispielsweise eines Rechtecks oder einer Ellipse, ermöglichen. Grundsätzlich sind Zeichenoperationen als Methoden der Klasse <span class="clisting">QPainter</span>, also eines Painters, implementiert.</p>
+<p>Wir beginnen damit, ein Rechteck zu zeichnen. Dazu wird die Methode <span class="clisting">drawRect</span> eines Painters verwendet. Bevor ein Rechteck gezeichnet werden kann, sollten ein Pen für den Rand des Rechtecks und ein Brush für die Füllung erzeugt und ausgewählt werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> MeinWidget(QtGui.QWidget): 
+   <span class="cfett"> def</span> __init__(self, parent=None): 
+        QtGui.QWidget.__init__(self, parent) 
+        self.pen = QtGui.QPen(QtGui.QColor(0,0,0)) 
+        self.pen.setWidth(3) 
+        self.brush = QtGui.QBrush(QtGui.QColor(255,255,255))<br>
+   <span class="cfett"> def</span> paintEvent(self, event): 
+        painter = QtGui.QPainter(self) 
+        painter.setPen(self.pen) 
+        painter.setBrush(self.brush) 
+        painter.drawRect(10, 10, 130, 130)</pre></div>
+<p>Im Konstruktor der Widget-Klasse <span class="clisting">MeinWidget</span> werden Pen und Brush angelegt, die zum Zeichnen des Rechtecks verwendet werden sollen. In diesem Fall handelt es sich um einen schwarzen Pen mit einer Stiftdicke von drei Pixeln sowie um einen weißen Brush. In der Methode <span class="clisting">paintEvent</span> wird zunächst ein Painter erzeugt und werden die für die Zeichnung zu verwendenden Werkzeuge, also ein Brush und ein Pen, selektiert. Danach wird mittels <span class="clisting">drawRect</span> ein Rechteck auf dem Bildschirm gemalt. Die übergebenen Parameter kennzeichnen der Reihe nach die X-Koordinate der oberen linken Ecke, die Y-Koordinate der oberen linken Ecke, die Breite des Rechtecks sowie die Höhe des Rechtecks. Alle Werte werden in Pixel angegeben. Beachten Sie, dass das Koordinatensystem, in dem das Rechteck gezeichnet wird, relativ zur Position des Widgets liegt.</p>
+<p>Auf dem Bildschirm erscheint das Rechteck, genauer betrachtet ein Quadrat (siehe <a href="#Rxx_ref181854636">Abbildung 24.13</a>).</p>
+<div class="bildbox">
+<p><a name="IDAKXSQ"></a><a onClick="OpenWin('bilder/gui-painter-drawrect.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-painter-drawrect.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.13    </strong>Ein mit <span class="clisting">drawRect</span> gezeichnetes Quadrat</p>
+<p>Auf ganz ähnliche Weise können noch weitere Figuren gezeichnet werden, deren Form durch Angabe eines umschließenden Rechtecks beschrieben ist. So braucht beispielsweise nur der Methodenname <span class="clisting">drawRect</span> ausgetauscht zu werden, um ein Rechteck mit runden Ecken (<span class="clisting">drawRoundRect</span>) oder eine Ellipse (<span class="clisting">drawEllipse</span>) zu zeichnen.</p>
+<div class="bildbox">
+<p><a name="IDAXXSQ"></a><a onClick="OpenWin('bilder/gui-painter-drawellipse.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-painter-drawellipse.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.14    </strong>Ein Rechteck mit runden Ecken und eine Ellipse</p>
+<p>Um eine dieser Figuren in ihrer Größe an das Widget anzupassen, kann die parameterlose Methode <span class="clisting">rect</span> einer Widgetklasse verwendet werden, die die Dimensionen des Widgets als <span class="clisting">QRect</span>-Instanz [Die Klasse <span class="clisting">QRect</span> beschreibt ein Rechteck und verfügt unter anderem über die Methoden <span class="clisting">x</span>, <span class="clisting">y</span>, <span class="clisting">width</span> und <span class="clisting">height</span>, mit denen auf die Koordinaten der oberen linken Ecke und die Dimensionen des Rechtecks zugegriffen werden kann. Näheres zur Klasse <span class="clisting">QRect</span> finden Sie in der Qt-Dokumentation.
+]  zurückgibt. Auf diese Weise ist es beispielsweise möglich, das gesamte Widget mit einer Form zu füllen.</p>
+<p>Neben diesen drei grundlegenden Formen existiert eine Reihe weiterer Methoden zum Zeichnen spezieller Formen. Die folgende Tabelle gibt eine Übersicht über die wichtigsten dieser Methoden, die in diesem Kapitel nicht weiter besprochen werden. [Ein Polygon ist eine Fläche, die durch einen Linienzug begrenzt ist. Eine Fläche heißt konvex, wenn die Verbindungslinie zwischen je zwei Punkten in der Fläche vollständig innerhalb der Fläche verläuft. Das Gegenteil eines konvexen Polygons ist ein konkaves Polygon, das wesentlich aufwendiger darzustellen ist.
+] </p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 24.4    </strong>Methoden eines Painters
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Methode</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">drawArc</pre></div>
+</td>
+<td class="tabellentext">
+<p>Zeichnet einen geöffneten Bogen mit dem selektierten Pen. »Geöffnet« bedeutet in diesem Fall, dass die beiden Enden des Bogens nicht durch eine Linie miteinander verbunden sind.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">drawChord</pre></div>
+</td>
+<td class="tabellentext">
+<p>Zeichnet einen geschlossenen Bogen mit dem selektierten Pen, der mit dem selektierten Brush gefüllt wird. »Geschlossen« bedeutet, dass die beiden Enden des Bogens durch eine Linie miteinander verbunden sind.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">drawConvexPolygon</pre></div>
+</td>
+<td class="tabellentext">
+<p>Zeichnet ein konvexes Polygon<a href="#Rxx12595"><sup>5  </sup></a> mit dem selektierten Pen, das mit dem selektierten Brush gefüllt wird.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">drawLine</pre></div>
+</td>
+<td class="tabellentext">
+<p>Zeichnet eine Linie mit dem selektierten Pen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">drawLines</pre></div>
+</td>
+<td class="tabellentext">
+<p>Zeichnet einen Linienzug mit dem selektierten Pen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">drawPie</pre></div>
+</td>
+<td class="tabellentext">
+<p>Zeichnet mit dem selektierten Pen einen Ausschnitt einer Ellipse, der umgangssprachlich als »Tortenstück« bezeichnet wird.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">drawPolygon</pre></div>
+</td>
+<td class="tabellentext">
+<p>Zeichnet mit dem selektierten Pen ein beliebiges Polygon, das mit dem selektierten Brush gefüllt wird. Diese Methode ist allgemeiner und hat eine komplexere Schnittstelle als <span class="clisting">drawConvexPolygon</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">fillRect</pre></div>
+</td>
+<td class="tabellentext">
+<p>Zeichnet ein Rechteck ohne Rand. Dieses Rechteck wird mit dem selektierten Brush gefüllt.</p>
+</td>
+</tr>
+</table><br><a id="mj23c5f85dbd4874e55733f08c53200348" name="mj23c5f85dbd4874e55733f08c53200348"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">24.6.4</span><span class="cfett"> Grafiken</span>  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Neben dem Zeichnen der grundlegenden geometrischen Formen ermöglicht es das Qt-Framework komfortabel, Grafiken der verschiedensten Formate von der Festplatte zu laden und mithilfe eines Painters anzuzeigen.</p>
+<p>Das Laden einer Grafik von der Festplatte hat noch nichts mit der Anzeige und damit auch nichts mit der Klasse <span class="clisting">QPainter</span> zu tun. Dafür existiert die Klasse <span class="clisting">QImage</span>, die eine Grafik repräsentiert und Methoden anbietet, um Grafiken diverser Formate zu laden, zu manipulieren und zu speichern. [Eine Liste aller Grafikformate, die Qt »versteht«, finden Sie in der Dokumentation der Klasse <span class="clisting">QImage</span>.
+]  Das folgende Beispielprogramm lädt die Grafik <span class="ckursiv">buch.png</span> und zeigt sie mithilfe der Methode <span class="clisting">drawImage</span> des Painters an:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> MeinWidget(QtGui.QWidget): 
+   <span class="cfett"> def</span> __init__(self, parent=None): 
+        QtGui.QWidget.__init__(self, parent) 
+        self.grafik = QtGui.QImage("buch.png") 
+        self.ziel = QtCore.QRect(10, 10, 130, 130) 
+        self.quelle = QtCore.QRect(0, 0, 
+                                   self.grafik.width(), 
+                                   self.grafik.height())<br>
+   <span class="cfett"> def</span> paintEvent(self, event): 
+        painter = QtGui.QPainter(self) 
+        painter.drawImage(self.ziel, self.grafik, self.quelle)</pre></div>
+<p>Im Konstruktor der Widgetklasse <span class="clisting">MeinWidget</span> wird zunächst eine Instanz der Klasse <span class="clisting">QImage</span> erzeugt. Dem Konstruktor der <span class="clisting">QImage</span>-Klasse wird der Dateipfad der zu ladenden Grafik übergeben.</p>
+<p>Nachdem die Grafik geladen wurde, werden zwei Rechtecke namens <span class="clisting">self.quelle</span> und <span class="clisting">self.ziel</span> erzeugt. Das Rechteck <span class="clisting">self.ziel</span> spezifiziert das Rechteck im Widget, in das die Grafik gezeichnet werden soll. Das Rechteck <span class="clisting">self.quelle</span> spezifiziert den Ausschnitt der Grafik, der dabei gezeichnet werden soll. In diesem Fall umschließt das Quellrechteck das gesamte Bild.</p>
+<p>Das mit diesem Code erstellte Widget sieht so aus wie in <a href="#Rxx_ref181854811">Abbildung 24.15</a>.</p>
+<div class="bildbox">
+<p><a name="IDAJ3SQ"></a><a onClick="OpenWin('bilder/gui-painter-qimage.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-painter-qimage.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.15    </strong>Eine Grafik in einem Widget</p>
+<p>Beachten Sie, dass in diesem Fall ein nicht quadratisches Bild auf eine quadratische Fläche gezeichnet und somit beim Zeichnen leicht gestreckt wird. Um dies zu vermeiden, müsste das Seitenverhältnis des Zielrechtecks an das des Quellrechtecks angepasst werden.</p>
+<p>Abgesehen vom bloßen Laden eines Bildes bietet die Klasse <span class="clisting">QImage</span> eine Fülle von Methoden, mit denen das geladene Bild manipuliert werden kann. Es ist nicht sinnvoll, in dieser Einführung einen vollständigen Überblick über diese Möglichkeiten zu geben. Stattdessen verweisen wir auf die ausführliche Qt-Dokumentation, in der Sie weiterführende Informationen zu <span class="clisting">QImage</span> finden.</p><a id="mjef9e638bd97da97f7d98650a62ad3aef" name="mjef9e638bd97da97f7d98650a62ad3aef"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">24.6.5</span><span class="cfett"> Text</span>  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nachdem wir sowohl geometrische Formen als auch Grafiken in ein Widget zeichnen können, fehlt noch eine mehr oder weniger große Disziplin: das Zeichnen von Text. Für viele Zeichnungen wird die Ausgabe von Text benötigt, sei es für die Beschriftungen eines Diagramms oder das Ziffernblatt einer Uhr.</p>
+<p>Zum Zeichnen von Text in einem Widget wird die Methode <span class="clisting">drawText</span> eines Painters verwendet. Im folgenden Beispiel wird der Text »Hallo Welt« im Widget zentriert ausgegeben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> MeinWidget(QtGui.QWidget): 
+   <span class="cfett"> def</span> __init__(self, parent=None): 
+        QtGui.QWidget.__init__(self, parent) 
+        self.font = QtGui.QFont("Helvetica", 16) 
+        self.pen = QtGui.QPen(QtGui.QColor(0,0,255))<br>
+   <span class="cfett"> def</span> paintEvent(self, event): 
+        painter = QtGui.QPainter(self) 
+        painter.setPen(self.pen) 
+        painter.setFont(self.font) 
+        painter.drawText(self.rect(), QtCore.Qt.AlignCenter, 
+                         "Hallo Welt")</pre></div>
+<p>Im Konstruktor der Klasse <span class="clisting">MeinWidget</span> wird zunächst eine Instanz der Klasse <span class="clisting">QFont</span> erzeugt. Diese Klasse repräsentiert einen Font, also einen Schrifttyp in einer bestimmten Größe und mit bestimmten weiteren Eigenschaften. Zudem wird ein Pen erzeugt, der die Schriftfarbe vorgibt, in der unser Text geschrieben werden soll.</p>
+<p>In der Methode <span class="clisting">paintEvent</span> wird zunächst, wie gehabt, ein Painter erzeugt, und dann werden mittels <span class="clisting">setFont</span> und <span class="clisting">setPen</span> Font und Pen selektiert. Durch einen Aufruf der Methode <span class="clisting">drawText</span> wird der Text gezeichnet. Die Methode bekommt ein Rechteck als ersten und eine Positionsanweisung innerhalb dieses Rechtecks als zweiten Parameter übergeben. Als dritter Parameter wird der zu schreibende Text übergeben. Zur Positionierung des Texts innerhalb des angegebenen Rechtecks können mehrere Konstanten mithilfe des binären ODERs verknüpft werden. Die wichtigsten dieser Konstanten sind in folgender Tabelle aufgelistet und kurz erläutert:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 24.5    </strong>Konstanten zur Positionierung des Texts
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Konstante</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtCore.Qt.AlignLeft</pre></div>
+</td>
+<td class="tabellentext">
+<p>Richtet den Text am linken Rand des Rechtecks aus.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtCore.Qt.AlignRight</pre></div>
+</td>
+<td class="tabellentext">
+<p>Richtet den Text am rechten Rand des Rechtecks aus.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtCore.Qt.AlignHCenter</pre></div>
+</td>
+<td class="tabellentext">
+<p>Richtet den Text horizontal zentriert im Rechteck aus.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtCore.Qt.AlignTop</pre></div>
+</td>
+<td class="tabellentext">
+<p>Richtet den Text am oberen Rand des Rechtecks aus.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtCore.Qt.AlignBottom</pre></div>
+</td>
+<td class="tabellentext">
+<p>Richtet den Text am unteren Rand des Rechtecks aus.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtCore.Qt.AlignVCenter</pre></div>
+</td>
+<td class="tabellentext">
+<p>Richtet den Text vertikal zentriert im Rechteck aus.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtCore.Qt.AlignCenter</pre></div>
+</td>
+<td class="tabellentext">
+<p>Richtet den Text horizontal und vertikal zentriert im Rechteck aus.</p>
+</td>
+</tr>
+</table><br><p>Das mit diesem Code erstellte Widget sieht so aus wie in <a href="#Rxx_ref181854860">Abbildung 24.16</a>.</p>
+<div class="bildbox">
+<p><a name="IDAVBTQ"></a><a onClick="OpenWin('bilder/gui-painter-text.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-painter-text.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.16    </strong>Mittels <span class="clisting">drawText</span> kann Text gezeichnet werden.</p>
+<p>Es gibt noch eine zweite, vereinfachte Variante, <span class="clisting">drawText</span> zu verwenden. Dabei werden ebenfalls drei Parameter übergeben: die X-Koordinate, an die der Text geschrieben werden soll, die Y-Koordinate, an die der Text geschrieben werden soll, und ein String, der den Text enthält. Wenn im obigen Beispielprogramm der Aufruf von <span class="clisting">drawText</span> durch folgende Codezeile ersetzt wird,</p>
+<div class="listing"><pre class="prettyprint">painter.drawText(0, 16, "Hallo Welt")</pre></div>
+<p>dann sieht das erstellte Widget so aus wie in <a href="#Rxx_ref181854901">Abbildung 24.17</a>.</p>
+<div class="bildbox">
+<p><a name="IDAGCTQ"></a><a onClick="OpenWin('bilder/gui-painter-text2.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-painter-text2.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.17    </strong>Eine Variante von <span class="clisting">drawText</span></p>
+<p>Beachten Sie, dass sich die Koordinaten, die bei der zweiten Variante von <span class="clisting">drawText</span> übergeben werden, auf die untere linke Ecke des Texts beziehen, sodass der Text nicht an die Position <span class="clisting">0/0</span> geschrieben werden kann. Der als Y-Koordinate übergebene Wert von <span class="clisting">16</span> Pixeln entspricht genau der gewählten Schriftgröße, weswegen der Text direkt unter dem oberen Rand des Widgets erscheint.</p><a id="mj9f1387a929546375d73241894c08fedd" name="mj9f1387a929546375d73241894c08fedd"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">24.6.6</span><span class="cfett"> Eye-Candy</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Eingangs wurde erwähnt, dass das Qt-Framework unter anderem in Bezug auf seine Zeichenfunktionalität aus der Masse der GUI-Toolkits heraussticht. Zugegebenermaßen sind die bislang besprochenen Grundlagen zum Zeichnen in einem Qt-Widget zwar wichtig, aber auch nicht besonders beeindruckend. Funktionalität zum Zeichnen von grundlegenden geometrischen Formen, Grafiken und Text finden Sie so oder so ähnlich auch in vielen anderen Toolkits. Aus diesem Grund möchten wir in diesem Kapitel einige Aspekte der Zeichenfunktionalität von Qt in den Vordergrund holen und als »Eye-Candy« (dt. <span class="ckursiv">Blickfang</span>, <span class="ckursiv">Augenweide</span>) präsentieren. Die hier besprochenen Aspekte des Zeichnens in Qt dienen als Demonstration der Zeichenfunktionalität und sollen Stichwörter liefern, unter denen in der Qt-Dokumentation näher nachgeforscht werden kann. Den Quelltext der hier vorgeführten Beispielanwendungen finden Sie auf der CD, die diesem Buch beiliegt.</p>
+<h4 class="t4"><span class="cfett">Farbverläufe</span></h4>
+<p>Abgesehen von einem flächigen Farbanstrich kann ein Brush einen beliebigen Bereich auch mit komplexeren Strukturen füllen. So kann ein Brush beispielsweise verwendet werden, um das Innere eines Rechtecks mit einem Farbverlauf zu füllen, wie in dem Widget aus <a href="#Rxx_ref181854950">Abbildung 24.18</a> zu sehen ist.</p>
+<div class="bildbox">
+<p><a name="IDAJDTQ"></a><a onClick="OpenWin('bilder/gui-candy-verlauf.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-candy-verlauf.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.18    </strong>Ein Farbverlauf mit <span class="clisting">QLinearGradient</span></p>
+<p>Um einen Brush zu erstellen, der Flächen mit einem Farbverlauf füllt, muss zunächst eine Instanz einer Gradient-Klasse erzeugt werden. Eine solche Gradient-Klasse (dt. <span class="ckursiv">Gefälle</span>) enthält alle Informationen, die benötigt werden, um einen Farbverlauf zu zeichnen. Es existieren drei verschiedene Gradient-Klassen, die jeweils einen eigenen Typus von Farbverlauf beschreiben. Die folgende Tabelle benennt und erläutert kurz jede dieser Klassen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 24.6    </strong>Gradient-Klassen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Klasse</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtGui.QConicalGradient</pre></div>
+</td>
+<td class="tabellentext">
+<p>Beschreibt einen konischen Farbverlauf. Das Ergebnis ähnelt der Draufsicht eines Kegels.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtGui.QLinearGradient</pre></div>
+</td>
+<td class="tabellentext">
+<p>Beschreibt einen linearen Farbverlauf. Ein solcher wurde im Beispielwidget aus <a href="#Rxx_ref181854950">Abbildung 24.18</a> verwendet.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">QtGui.QRadialGradient</pre></div>
+</td>
+<td class="tabellentext">
+<p>Beschreibt einen radialen (kreisförmigen) Farbverlauf.</p>
+</td>
+</tr>
+</table><br><p>Nachdem eine Instanz einer Gradient-Klasse mit den erforderlichen Informationen über den Farbverlauf erzeugt wurde, kann diese dem Konstruktor eines Brushs als Parameter übergeben werden. Ein auf diese Weise erzeugter Brush kann dann verwendet werden, um eine Fläche mit einem Farbverlauf zu füllen.</p>
+<h4 class="t4"><span class="cfett">Transparenz</span></h4>
+<p>Das Qt-Framework unterstützt sowohl bei einem Brush als auch bei einem Pen das sogenannte <span class="ckursiv">Alpha-Blending</span>. Darunter versteht man einen Transparenzwert, den jeder Farbwert besitzt und der bei der Erzeugung einer <span class="clisting">QColor</span>-Instanz als vierter Parameter übergeben werden kann. Auf diese Weise ist es möglich, teilweise transparente, Formen zu zeichnen, die sich überlappen. Das soll das Beispiel-Widget aus <a href="#Rxx_ref181855058">Abbildung 24.19</a> demonstrieren.</p>
+<div class="bildbox">
+<p><a name="IDAAGTQ"></a><a onClick="OpenWin('bilder/gui-candy-transparenz.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-candy-transparenz.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.19    </strong>Alpha-Blending</p>
+<p> Zum Verwenden von Alpha-Blending reicht es tatsächlich aus, bei der Erzeugung eines Brushs bzw. eines Pens eine <span class="clisting">QColor</span>-Instanz mit einem Transparenzwert zu übergeben.</p>
+<p>Diese Möglichkeiten zur Darstellung von Transparenzen lassen sich beispielsweise im Zusammenhang mit den bereits besprochenen Farbverläufen für interessante Effekte nutzen (siehe <a href="#Rxx_ref181855081">Abbildung 24.20</a>).</p>
+<div class="bildbox">
+<p><a name="IDAMGTQ"></a><a onClick="OpenWin('bilder/gui-candy-transparenz2.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-candy-transparenz2.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.20    </strong>Transparenzeffekt</p>
+<p>In diesem Beispielwidget wird eine Grafik angezeigt, die von einem Rechteck überlagert wird. Das Innere dieses Rechtecks ist mit einem Farbverlauf-Brush gezeichnet. Die Zielfarbe dieses Farbverlaufs ist vollständig transparent. Dieses Beispiel soll demonstrieren, dass das Qt-Framework tatsächlich eine grundlegende Unterstützung für Transparenzen in allen Bereichen des Zeichnens bietet.</p>
+<h4 class="t4"><span class="cfett">Anti-Aliasing</span></h4>
+<p>Wenn Sie sich das Beispielwidget mit den beiden überlappenden, teilweise transparenten Kreisen noch einmal ansehen, werden Sie feststellen, dass man die einzelnen Pixel, aus denen der Umriss der Kreise besteht, erkennen kann. Die Kreise sehen deswegen nicht besonders ansprechend aus. In vielen Fällen soll eine solche oder ähnliche Zeichnung »sauber« aussehen. Genau zu diesem Zweck existiert eine Technik namens <span class="ckursiv">Anti-Aliasing</span>, von der Sie vielleicht schon im Zusammenhang mit Computerspielen gehört haben. Beim Anti-Aliasing werden die Randbereiche einer Zeichnung geglättet, sodass einzelne Pixel nicht mehr auszumachen sind. Das Qt-Framework bietet grundlegende Unterstützung zum Zeichnen mit Anti-Aliasing.</p>
+<p>Das Transparenz-Beispiel mit aktiviertem Anti-Aliasing sieht so aus wie in <a href="#Rxx_ref181855136">Abbildung 24.21</a>.</p>
+<div class="bildbox">
+<p><a name="IDA5GTQ"></a><a onClick="OpenWin('bilder/gui-candy-antialiasing.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-candy-antialiasing.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.21    </strong>Anti-Aliasing</p>
+<p>Um Anti-Aliasing bei einem Painter zu aktivieren, wird die Codezeile</p>
+<div class="listing"><pre class="prettyprint">painter.setRenderHints(QtGui.QPainter.Antialiasing)</pre></div>
+<p>verwendet, wobei <span class="clisting">painter</span> eine <span class="clisting">QPainter</span>-Instanz ist.</p>
+<h4 class="t4"><span class="cfett">Transformationen</span></h4>
+<p>Eine weitere interessante Möglichkeit, die Qt bietet, sind <span class="ckursiv">Transformationen</span>, die mithilfe einer <span class="ckursiv">Transformationsmatrix</span> auf eine beliebige zu zeichnende Form angewandt werden können. Eine Transformationsmatrix wird durch die Klasse <span class="clisting">QMatrix</span> repräsentiert.</p>
+<div class="bildbox">
+<p><a name="IDA3HTQ"></a><a onClick="OpenWin('bilder/gui-candy-matrix.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-candy-matrix.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.22    </strong>Matrixtransformationen</p>
+<p>Im Beispiel aus <a href="#Rxx_ref181855197">Abbildung 24.22</a> wurde zunächst eine Figur erstellt, die nachher transformiert werden sollte. Da es sich dabei nicht um eine Form handelt, die in Qt bereits vorgesehen ist, wie beispielsweise ein Rechteck oder eine Ellipse, muss die Figur mithilfe eines sogenannten <span class="ckursiv">Painter Path</span> zu einer Einheit zusammengefügt werden. Ein Painter Path ist eine Instanz der Klasse <span class="clisting">QPainterPath</span>. Die Form dieses Beispiels besteht aus zwei Linien und einer <span class="ckursiv">Beziérkurve</span> [Eine Beziérkurve ist eine Kurve, die durch eine mathematische Funktion mit, im Falle einer kubischen Beziérkurve, vier Parametern beschrieben wird. Beziérkurven können auch in vielen Grafikprogrammen erstellt werden.
+] .</p>
+<p>Nachdem sowohl die Matrix als auch der Painter Path erstellt worden sind, kann die Matrix auf den Painter Path angewandt und der resultierende, transformierte Painter Path schließlich gezeichnet werden. Im Beispiel wurde die Matrix in fünf Iterationsschritten immer wieder verändert und die entstandende Figur jeweils mit einem unterschiedlichen Pen gezeichnet.</p>
+<p>Beide Klassen, <span class="clisting">QPainterPath</span> und <span class="clisting">QMatrix</span>, enthalten viele Methoden, die das Arbeiten mit ihnen erheblich erleichtern. In der Qt-Dokumentation finden Sie ausführliche und grafisch sehr ansprechende Beispielprogramme zu dieser Thematik.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_24_006.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="24.6 Zeichenfunktionalität"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_24_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_24_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

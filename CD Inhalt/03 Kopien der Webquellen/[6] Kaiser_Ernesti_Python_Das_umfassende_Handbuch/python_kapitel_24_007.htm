@@ -1,0 +1,965 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 24.7 Model-View-Architektur</title>
+<meta name="title" content="Galileo Computing :: Python - 24.7 Model-View-Architektur">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 24.7 Model-View-Architektur">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_24_006.htm">
+<link rel="next" href="python_kapitel_24_008.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_24_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_24_008.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753" class="navnav">24 Grafische Benutzeroberflächen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_001.htm#mj7e4bb4efefd7ce44aa67ef15eb795819" class="navnav">24.1 Toolkits</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_002.htm#mj410d039d691c33c9eaae3c5d98711ba6" class="navnav">24.2 Einführung in PyQt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_002.htm#mj1684f423c06c11a7858373f78c379bd3" class="navnav">24.2.1 Installation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_002.htm#mjdcac6d188caaadff2d97262b63d1924c" class="navnav">24.2.2 Grundlegende Konzepte von Qt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_003.htm#mjfc92f7f0a3a50a7adbdab1fd29bafccb" class="navnav">24.3 Entwicklungsprozess</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_003.htm#mj9db1bbea0411d23987eec58164bfcca2" class="navnav">24.3.1 Erstellen des Dialogs</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_003.htm#mj07a1c3efb2f661d7025237efdab7d505" class="navnav">24.3.2 Schreiben des Programms</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_004.htm#mj4fe5432befd9b269f465778525b31a3e" class="navnav">24.4 Signale und Slots</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_005.htm#mjc3b7342ca80134e5e7ffe20ceb05f0c2" class="navnav">24.5 Überblick über das Qt-Framework</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_006.htm#mjbee8e14f9a227769775f297cf44af44f" class="navnav">24.6 Zeichenfunktionalität</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj6baaa60f60c4ee337c7f2618558965cc" class="navnav">24.6.1 Werkzeuge</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj09ce1ef12f59e463f2d0b2a627f3dff8" class="navnav">24.6.2 Koordinatensystem</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj4e47879515982231ab3e15a2f80dd87e" class="navnav">24.6.3 Einfache Formen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj23c5f85dbd4874e55733f08c53200348" class="navnav">24.6.4 Grafiken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mjef9e638bd97da97f7d98650a62ad3aef" class="navnav">24.6.5 Text</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj9f1387a929546375d73241894c08fedd" class="navnav">24.6.6 Eye-Candy</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj1ea36fb17db37638e0480e8c9937e6d1" class="navh">24.7 Model-View-Architektur</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj5c95ff8527068d367a6f8d8f25d15ed8" class="navh">24.7.1 Beispielprojekt: Ein Adressbuch</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd71e703821b611cbd37eefb80cb38244" class="navh">24.7.2 Auswählen von Einträgen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd504a61938116a86354b4928b72c8220" class="navh">24.7.3 Editieren von Einträgen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_008.htm#mj2109c1a87ec1a3262198a32ccd4d37da" class="navnav">24.8 Wichtige Widgets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjd7810289c9aed6f9c751881e1018465c" class="navnav">24.8.1 QCheckBox</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj2049b0d4b09d164f2476d7dfc2ec45d2" class="navnav">24.8.2 QComboBox</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj295c86558eb7790a1caad3caadcbd14c" class="navnav">24.8.3 QDateEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj59aa1db582f3b839a69b147bc0487858" class="navnav">24.8.4 QDateTimeEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj3da964dfd16810d718e1b2d9bcb688fc" class="navnav">24.8.5 QDial</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj48fac9fb739a93491b1db3d33005834f" class="navnav">24.8.6 QDialog</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjb7c1c34af70ba881939ed78c8f09cb4a" class="navnav">24.8.7 QGLWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjd53a9048d9c571639ee4ddf703314dfd" class="navnav">24.8.8 QLineEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj753a3b774e44a835d684a14b3db04bdf" class="navnav">24.8.9 QListView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj174335c173cec288eda1580821430bde" class="navnav">24.8.10 QListWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjeb6c6758021833d8054cc62bbcca6e9d" class="navnav">24.8.11 QProgressBar</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj23d215e0756bba97ab8dcb09790ac00f" class="navnav">24.8.12 QPushButton</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj3376ce50168855804718b93fce86d2bd" class="navnav">24.8.13 QRadioButton</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj94112aa4fd117f48c3d39f9618b58181" class="navnav">24.8.14 QScrollArea</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjfddd4b80d093f9d97306b20f84578ee3" class="navnav">24.8.15 QSlider</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj5a52f70c91ed3907254124d05e894fe8" class="navnav">24.8.16 QTableView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjcbe42edfb63ff02ed61c895f76d00c1d" class="navnav">24.8.17 QTableWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj3e9d765f8b7dbd06d7b2a84a17401cf8" class="navnav">24.8.18 QTabWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj176a65642a71e61180f6f59b6579e7dd" class="navnav">24.8.19 QTextEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj37ef18de50443152c7f3bd72d6ea7b60" class="navnav">24.8.20 QTimeEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj170d41005e686d65c1a2e6da1ac5d9d3" class="navnav">24.8.21 QTreeView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj6abe0a2a3e93af31dcf36fb5a6f44975" class="navnav">24.8.22 QTreeWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjeb86779df41a41f7511c860b831f87b0" class="navnav">24.8.23 QWidget</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj1ea36fb17db37638e0480e8c9937e6d1" name="mj1ea36fb17db37638e0480e8c9937e6d1"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">24.7</span><span class="cfett"> Model-View-Architektur</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Mit Qt4 wurde die sogenannte <span class="ckursiv">Model-View-Architektur</span> in das Framework eingeführt. Die grundsätzliche Idee dieser Art der Programmierung ist es, Form und Inhalt voneinander zu trennen. Bezogen auf Qt bedeutet das, dass Klassen, die bestimmte Daten enthalten, von Klassen getrennt werden sollen, die diese Daten an der grafischen Benutzeroberfläche anzeigen. So soll es eine <span class="ckursiv">Modellklasse</span> geben, die ein bekanntes Interface für die gespeicherten Daten bereitstellt, und eine <span class="ckursiv">Viewklasse</span>, die über die Modellklasse auf die Daten zugreift und auf der grafischen Oberfläche anzeigt. Beachten Sie dabei, dass nicht vorausgesetzt wird, dass die Daten tatsächlich in der Modellklasse enthalten sind, sondern nur, dass die Modellklasse Methoden bereitstellt, um auf die Daten zuzugreifen. Die Daten selbst können durchaus in einer Datenbank oder Datei gespeichert sein.</p>
+<p>Das Aufteilen der Programmlogik in Modell- und Viewklassen hat den Vorteil, dass das Programm insgesamt einfacher und besser strukturiert wird. Außerdem führen Änderungen beispielsweise in der Art, wie die Daten gespeichert sind, nicht dazu, dass die Anzeigeklasse angepasst werden muss. Umgekehrt ist es der Modellklasse egal, in welcher Form die von ihr bereitgestellten Daten am Bildschirm angezeigt werden.</p>
+<p>Das Verhältnis zwischen Modell- und Viewklasse lässt sich durch <a href="#Rxx_ref181855353">Abbildung 24.23</a> anschaulich beschreiben.</p>
+<div class="bildbox">
+<p><a name="IDALQSQ"></a><a onClick="OpenWin('bilder/modelview0.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinmodelview0.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.23    </strong>Die Model-View-Architektur</p>
+<p>Das Qt-Framework bietet einige Klassen, die dem Programmierer beim Erstellen einer Model-View-Architektur helfen. Darunter finden sich Basisklassen sowohl für die Modell- als auch für die Viewklassen.</p>
+<p>Im Folgenden soll die Verwendung einiger dieser Klassen anhand einer einfachen Anwendung mit Model-View-Architektur demonstriert werden. Bei dieser Anwendung soll es sich um ein rudimentäres Adressbuch im Stil von Microsoft Outlook handeln.</p><a id="mj5c95ff8527068d367a6f8d8f25d15ed8" name="mj5c95ff8527068d367a6f8d8f25d15ed8"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">24.7.1</span><span class="cfett"> Beispielprojekt: Ein Adressbuch</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In diesem Abschnitt bieten wir einen praxisorientierten Einstieg in die Programmierung einer Model-View-Architektur anhand eines einfachen Beispielprogramms. Dazu dient ein grafisches Adressbuch das beim Starten mehrere Adresssätze aus einer Textdatei einliest und dann grafisch auf dem Bildschirm anzeigt. Intern sollen dabei die Datensätze durch eine Modellklasse eingelesen und aufbereitet werden. Eine Viewklasse soll sich dann um die Anzeige der Daten kümmern.</p>
+<p>Wir werden uns zunächst auf das bloße Einlesen und Anzeigen konzentrieren. Danach werden wir das Programm um bestimmte sinnvolle Extras erweitern, anhand derer weitere Aspekte von Model-View-Architekturen in Qt vorgestellt werden. Die vorläufige Anwendung, die in diesem Kapitel entwickelt wird, soll so aussehen wie in <a href="#Rxx_ref181855452">Abbildung 24.24</a>.</p>
+<div class="bildbox">
+<p><a name="IDA3QSQ"></a><a onClick="OpenWin('bilder/gui-adressbuch.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-adressbuch.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.24    </strong>Ein Adressbuch</p>
+<p>Die Adressdaten sollen aus einer Datei des folgenden Formats ausgelesen werden:</p>
+<div class="listing"><pre class="prettyprint">Donald Duck 
+don@ld.de 
+Pechvogelstraße 13 
+12345 Entenhausen 
+01234/313 
+ 
+Dagobert Duck 
+d@gobert.de 
+Geldspeicherweg 42 
+12345 Entenhausen 
+0190/123456 
+[…]</pre></div>
+<p>Die Adressdaten sind also zeilenweise in einer Datei gespeichert. Zwei Einträge im Adressbuch werden durch eine Leerzeile in der Quelldatei voneinander getrennt. Abgesehen davon, dass der Name der Person, zu der der Eintrag gehört, in der ersten Zeile des Eintrags stehen sollte, gibt es keine weiteren Anforderungen an die Formatierung der Daten. [Tatsächlich ist das Dateiformat für den vorgestellten Verwendungszweck eher ungeeignet, da es beispielsweise für das Programm, das die Datei einliest, keine effiziente Möglichkeit gibt, die einzelnen Teilinformationen des Eintrags zuzuordnen, beispielsweise also die E-Mail-Adresse herauszufiltern.
+ Das Dateiformat wird hier jedoch aufgrund seiner Einfachheit verwendet, schließlich geht es nicht darum, eine perfekte Applikation zu schreiben.
+] </p>
+<p>Das Adressbuch soll eine Beispielimplementation für eine Model-View-Architektur darstellen. Es ist auch relativ klar, welche Aufgaben dabei der Modell- und welche der Viewklasse zukommen.</p>
+<p>Die Modellklasse hat die Aufgabe, die Quelldatei mit den Adressdaten einzulesen und eine Schnittstelle bereitzustellen, über die auf diese Daten zugegriffen werden kann.</p>
+<p>Die Viewklasse soll auf die in der Modellklasse gespeicherten Daten zugreifen und diese dann in geeigneter Form auf dem Bildschirm präsentieren. Da es sich bei dem Adressbuch im Prinzip um eine Liste von Adresseinträgen handelt, können wir hier auf die Basisklasse <span class="clisting">QListView</span> des Qt-Frameworks zurückgreifen, die die grundlegende Funktionalität zum Anzeigen von Modelldaten mit Listenstruktur bereitstellt. Hätten die Daten eine andere Struktur, könnten wir die Basisklassen <span class="clisting">QTreeView</span> oder <span class="clisting">QTableView</span> verwenden, die eine baumartige bzw. tabellarische Struktur der Daten visualisieren.</p>
+<p><a href="#Rxx_ref181855490">Abbildung 24.25</a> stellt die Programmstruktur grafisch dar.</p>
+<div class="bildbox">
+<p><a name="IDASRSQ"></a><a onClick="OpenWin('bilder/modelview1.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinmodelview1.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.25    </strong>Die Model-View-Architektur unseres Beispielprogramms</p>
+<p>Der Quellcode der Modellklasse befindet sich in der Programmdatei <span class="ckursiv">modell.py</span> und sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> PyQt4<span class="cfett"> import</span> QtCore<br>
+<span class="cfett">class</span> Modell(QtCore.QAbstractListModel): 
+   <span class="cfett"> def</span> __init__(self, dateiname): 
+        QtCore.QAbstractListModel.__init__(self) 
+        self.datensatz = []<br>
+        # Lade Datensatz 
+        f = open(dateiname) 
+       <span class="cfett"> try</span>: 
+            lst = [] 
+           <span class="cfett"> for</span> zeile<span class="cfett"> in</span> f: 
+               <span class="cfett"> if not</span> zeile.strip(): 
+                    self.datensatz.append(QtCore.QVariant(lst)) 
+                    lst = [] 
+               <span class="cfett"> else</span>: 
+                    lst.append(zeile.strip()) 
+           <span class="cfett"> if</span> lst: 
+                self.datensatz.append(QtCore.QVariant(lst)) 
+       <span class="cfett"> finally</span>: 
+            f.close()<br>
+   <span class="cfett"> def</span> rowCount(self, parent=QtCore.QModelIndex()): 
+       <span class="cfett"> return</span> len(self.datensatz)<br>
+   <span class="cfett"> def</span> data(self, index, role=QtCore.Qt.DisplayRole): 
+       <span class="cfett"> return</span> QtCore.QVariant(self.datensatz[index.row()])</pre></div>
+<p>Es wird die Modellklasse <span class="clisting">Modell</span> definiert, die von der Basisklasse <span class="clisting">QtCore.</span>   <span class="clisting">QAbstractListModel</span> abgeleitet ist. Diese Basisklasse implementiert grundlegende Funktionalität einer Modellklasse für einen Datensatz, der als eindimensionale Folge von Werten, also als Liste, angesehen werden soll.</p>
+<p>Im Konstruktor der Klasse <span class="clisting">Modell</span> sollen die Adressdaten aus einer Textdatei des oben beschriebenen Formats geladen werden. Dazu bekommt der Konstruktor den Dateinamen dieser Datei übergeben. Da das Dateiformat, in dem die Daten vorliegen, sehr einfach ist, ist auch der Einlesevorgang vergleichsweise simpel und braucht nicht näher erläutert zu werden. Wichtig ist aber, dass die einzelnen Einträge des Adressbuchs klassenintern in einer Liste gespeichert werden, die durch das Attribut <span class="clisting">self.datensatz</span> referenziert wird. Jeder Eintrag dieser Liste ist wiederum eine Liste von Strings, die jeweils eine Zeile des Eintrags repräsentieren.</p>
+<p>Beachten Sie zudem, dass die einzelnen Einträge als Instanzen der Klasse <span class="clisting">QVariant</span> gespeichert werden. An der Schnittstelle zwischen Modell- und Viewklasse werden grundsätzlich <span class="clisting">QVariant</span>-Instanzen übertragen. Die Klasse <span class="clisting">QVariant</span> ist ein Konzept der C++-Welt, aus der Qt kommt, und ermöglicht es dort, Werte beliebiger Datentypen über dieselbe Schnittstelle zu schicken. Dieses Konzept erlaubt sehr flexible Schnittstellen in C++, ist aber im Zusammenhang mit Python eher kontraproduktiv, da Schnittstellen in Python von Haus aus flexibel bezüglich der verwendeten Datentypen sind. Trotzdem müssen wir <span class="clisting">QVariant</span> verwenden, da PyQt auf größtmögliche Kompatibilität zu den C++-Schnittstellen setzt.</p>
+<p>Am Ende der Klassendefinition werden noch zwei Methoden definiert, die jede Modellklasse implementieren muss. Diese Methoden bilden die Schnittstelle, über die die Viewklasse später auf die in der Modellklasse gespeicherten Daten zugreifen kann.</p>
+<p>Die Methode <span class="clisting">rowCount</span> muss die Anzahl der Elemente als ganze Zahl zurückgeben, die der Datensatz enthält. Der dabei übergebene Parameter <span class="clisting">parent</span> soll an dieser Stelle keine Rolle spielen.</p>
+<p>Die Methode <span class="clisting">data</span> wird von der Viewklasse aufgerufen, um auf ein bestimmtes Element des Datensatzes zuzugreifen. Welches das ist, wird beim Aufruf der Methode <span class="clisting">data</span> über den Parameter <span class="clisting">index</span> mitgeteilt. Bei <span class="clisting">index</span> handelt es sich aber nicht um eine ganze Zahl, sondern um eine <span class="clisting">QModelIndex</span>-Instanz. Auf den tatsächlichen Index kann über die Methode <span class="clisting">row</span> dieser Instanz zugegriffen werden. Die Methode <span class="clisting">data</span> muss eine <span class="clisting">QVariant</span>-Instanz zurückgeben.</p>
+<p>So viel zur Modellklasse. Die dazu passende Viewklasse sieht folgendermaßen aus und ist in der Programmdatei <span class="ckursiv">view.py</span> enthalten:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> View(QtGui.QListView): 
+  <span class="cfett"> def</span> __init__(self, modell, parent=None): 
+       QtGui.QListView.__init__(self, parent) 
+       self.delegate = ViewDelegate() 
+       self.setItemDelegate(self.delegate) 
+       self.setModel(modell) 
+       self.setVerticalScrollMode(QtGui.QListView.ScrollPerPixel)</pre></div>
+<p>Die Viewklasse <span class="clisting">View</span> wird von der Basisklasse <span class="clisting">QtGui.QListView</span> abgeleitet. Diese Basisklasse stellt die Funktionalität bereit, die benötigt wird, um einen listenartigen Datensatz grafisch darzustellen. Alternativ hätten auch die Klassen <span class="clisting">QTreeView</span> und <span class="clisting">QTableView</span> als Basisklassen dienen können, wenn zur Darstellung der Daten eine baumartige oder tabellarische Struktur verwendet werden soll.</p>
+<p>Dem Konstruktor der Klasse <span class="clisting">View</span> wird die Instanz der soeben definierten Modellklasse <span class="clisting">Modell</span> übergeben, die mithilfe der Viewklasse grafisch dargestellt werden soll. Um die Daten jedoch tatsächlich anzuzeigen, wird eine weitere Klasse benötigt, der sogenannte <span class="ckursiv">Delegate</span> (dt. <span class="ckursiv">Abgesandter</span>). Eine Instanz der Delegate-Klasse, die im Anschluss an die Viewklasse besprochen werden soll, wird der Viewklasse über die Methode <span class="clisting">setItemDelegate</span> zugewiesen. Die Delegate-Klasse enthält die Zeichenroutinen für ein Element des Datensatzes.</p>
+<p>Zum Schluss wird noch das Modell mittels <span class="clisting">setModel</span> eingebunden und, was eher eine kosmetische Angelegenheit ist, der Scrollmodus auf »pixelweise« gesetzt. Im Normalzustand würde das <span class="clisting">QListView</span>-Widget beim Verschieben der Scrollbar immer um ganze Einträge weiter scrollen, was bei wenigen großen Einträgen nicht schön aussieht.</p>
+<p>Neben der Viewklasse wurde eine sogenannte Delegate-Klasse angesprochen, von der innerhalb der Viewklasse eine Instanz erstellt wurde. Die Aufgabe einer solchen Delegate-Klasse, die mehr oder weniger als Teil der Viewklasse zu betrachten ist, besteht darin, das Zeichnen eines einzelnen Eintrags in der Liste zu erledigen. Dazu kann die Delegate-Klasse über die Schnittstelle der Modellklasse auf den eingelesenen Datensatz zugreifen. Die Grafik, die eingangs die Model-View-Architektur des Beispielprogramms veranschaulichte, enthielt aus Gründen der Einfachheit keine Informationen über die Delegate-Klasse. Das möchten wir an dieser Stelle nachholen und zeigen in <a href="#Rxx_ref181855713">Abbildung 24.26</a>, wie sich die Delegate-Klasse in die Model-View-Architektur integiert.</p>
+<div class="bildbox">
+<p><a name="IDASVSQ"></a><a onClick="OpenWin('bilder/modelview2.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinmodelview2.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.26    </strong>Die Model-View-Architektur des Beispielprogramms</p>
+<p>Die Delegate-Klasse positioniert sich zwischen der View- und der Modellklasse und ist für das Zeichnen eines einzelnen Eintrags im ListView Widget zuständig. Bei der Delegate-Klasse handelt es sich nicht um ein Widget, sondern nur um eine Hilfsklasse der Viewklasse. Die Viewklasse ruft die Methode <span class="clisting">paint</span> der Delegate-Klasse für jeden Eintrag im Datensatz auf und stellt aus den Einzelzeichnungen das ListView Widget zusammen, das an der grafischen Benutzeroberfläche angezeigt wird. Wie bei der View- und Modellklasse auch, existiert im Qt-Framework eine Basisklasse, von der eine selbst definierte Delegate-Klasse abgeleitet werden muss. Um das Zeichnen eines Eintrags dann an die jeweiligen Bedürfnisse anzupassen, müssen in der abgeleiteten Klasse diverse Methoden implementiert werden. Näheres dazu erfahren Sie anhand des Beispielprogramms im Laufe dieses Kapitels.</p>
+<p>Um einen Eintrag adäquat zeichnen zu können, kann die Delegate-Klasse über die von der Modellklasse bereitgestellte Schnittstelle auf den Datensatz zugreifen. Selbstverständlich kann auch die Viewklasse selbst auf diesem Wege Daten des Datensatzes lesen.</p>
+<p>Im Folgenden soll die Delegate-Klasse für die vorher besprochene Viewklasse erläutert werden. Die Delegate-Klasse ist in der gleichen Programmdatei definiert wie die Viewklasse. Da die Delegate-Klasse vergleichsweise umfangreich ist, werden wir sie Methode für Methode besprechen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> PyQt4<span class="cfett"> import</span> QtGui, QtCore<br>
+<span class="cfett">class</span> ViewDelegate(QtGui.QItemDelegate): 
+   <span class="cfett"> def</span> __init__(self): 
+        QtGui.QItemDelegate.__init__(self)<br>
+        self.rahmenStift = QtGui.QPen(QtGui.QColor(0,0,0)) 
+        self.titelTextStift = QtGui.QPen( 
+                                       QtGui.QColor(255,255,255)) 
+        self.titelFarbe = QtGui.QBrush(QtGui.QColor(120,120,120)) 
+        self.textStift = QtGui.QPen(QtGui.QColor(0,0,0)) 
+        self.titelSchriftart = QtGui.QFont("Helvetica", 10, 
+                                           QtGui.QFont.Bold) 
+        self.textSchriftart = QtGui.QFont("Helvetica", 10)<br>
+        self.zeilenHoehe = 15 
+        self.titelHoehe = 20 
+        self.abstand = 4 
+        self.abstandInnen = 2 
+        self.abstandText = 4</pre></div>
+<p>Im Konstruktor der Klasse <span class="clisting">ViewDelegate</span> werden einige Attribute initialisiert, die zum Zeichnen eines Adresseintrags von Bedeutung sind. Dazu zählen zum einen die Zeichenwerkzeuge wie beispielsweise Brushs und Pens, mit denen der Adresseintrag gezeichnet werden soll, und zum anderen einige Konstanten, die Abstände und Richtgrößen zum Zeichnen eines Eintrags festlegen. Um zu besprechen, welches Attribut wofür gedacht ist, vergegenwärtigen wir uns anhand von <a href="#Rxx_ref181855817">Abbildung 24.27</a> noch einmal, wie ein Eintrag im späteren Programm gezeichnet werden soll.</p>
+<div class="bildbox">
+<p><a name="IDAOWSQ"></a><a onClick="OpenWin('bilder/gui-adressbuch-eintrag.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-adressbuch-eintrag.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.27    </strong>Ein Eintrag im Adressbuch</p>
+<p>Die folgende Tabelle listet alle Attribute, darunter vor allem die angelegten Zeichenwerkzeuge, der Klasse <span class="clisting">ViewDelegate</span> mit einer kurzen Beschreibung der jeweiligen Bedeutung auf.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 24.7    </strong>Attribute der Klasse »ViewDelegate«
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Attribut</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">rahmenStift</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Pen, mit dem der dünne schwarze Rahmen um den Eintrag gezeichnet werden soll</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">titelTextStift</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Pen, mit dem die Überschrift geschrieben werden soll</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">titelFarbe</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Brush, mit dem das graue Rechteck unter der Überschrift gezeichnet wird</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">titelSchriftart</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die Schriftart, in der die Überschrift geschrieben werden soll</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">textStift</pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Pen, mit dem die Adressdaten geschrieben werden sollen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">textSchriftart</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die Schriftart, in der die Adressdaten geschrieben werden sollen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">zeilenHoehe</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die Höhe einer Zeile der Adressdaten in Pixel</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">titelHoehe</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Die Höhe der Überschrift in Pixel</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">abstand</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Abstand des Eintrags vom Dialogrand und anderen Einträgen in Pixel</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">abstandInnen</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Abstand zwischen dem grauen Rechteck unter der Überschrift und der Umrandung des Eintrags in Pixel</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">abstandText</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Der Abstand des Texts von der Umrandung des Eintrags auf der linken Seite in Pixel</p>
+</td>
+</tr>
+</table><br><p>Damit wäre der Konstruktor vollständig beschrieben. Es folgt die Methode <span class="clisting">size</span> <span class="clisting">Hint</span>, die jede Delegate-Klasse implementieren muss. Diese Methode wird vom <span class="clisting">QListView</span>-Widget aufgerufen, um die Dimensionen herauszufinden, die ein bestimmter Eintrag des Datensatzes in der Anzeige benötigt.</p>
+<div class="listing"><pre class="prettyprint">   <span class="cfett"> def</span> sizeHint(self, option, index): 
+        anz = len(index.data().toList()) 
+       <span class="cfett"> return</span> QtCore.QSize(170, 
+                          self.zeilenHoehe*anz + self.titelHoehe)</pre></div>
+<p>Die Methode wird aufgerufen, um die Höhe und die Breite eines einzelnen Eintrags in Erfahrung zu bringen. Dabei bekommt sie zwei Parameter übergeben: <span class="clisting">option</span> und <span class="clisting">index</span>.</p>
+<p>Für den Parameter <span class="clisting">option</span> wird eine Instanz der Klasse <span class="clisting">QStyleOptionViewItem</span> übergeben, die verschiedene Anweisungen enthalten kann, in welcher Form der Eintrag gezeichnet werden soll. Da diese Formatanweisungen möglicherweise auch Einfluss auf die Maße eines Eintrags haben, werden sie auch der Funktion <span class="clisting">sizeHint</span> übergeben. In unserem Beispielprogramm ist der Parameter <span class="clisting">option</span> nicht von Belang und wird nicht weiter erläutert.</p>
+<p>Mit dem zweiten Parameter, <span class="clisting">index</span>, wird das Element spezifiziert, dessen Dimensionen zurückgegeben werden sollen. Für <span class="clisting">index</span> wird eine Instanz der Klasse <span class="clisting">QModelIndex</span> übergeben. Wichtig ist vor allem die Methode <span class="clisting">data</span> der <span class="clisting">QModel</span> <span class="clisting">Index</span>-Instanz, über die auf die Daten des Eintrags zugegriffen werden kann. Bei den Daten handelt es sich um die <span class="clisting">QVariant</span>-Instanz, die in der Methode <span class="clisting">data</span> der Modellklasse zurückgegeben wird.</p>
+<p>In der Methode <span class="clisting">sizeHint</span> wird jetzt über die Methode <span class="clisting">data</span> der übergebenen <span class="clisting">QModelIndex</span>-Instanz auf die Daten des Adresseintrags zugegriffen. Da es sich dabei um eine <span class="clisting">QVariant</span>-Instanz handelt, muss diese erst durch Aufruf der Methode <span class="clisting">toList</span> in eine Liste konvertiert werden. Danach wird die Größe berechnet, die der Eintrag beim späteren Zeichnen haben wird, und in Form einer <span class="clisting">QSize</span>-Instanz zurückgegeben. Beachten Sie, dass die Breite der Einträge in diesem Beispiel bei konstanten <span class="clisting">170</span> Pixeln liegt. [Dabei handelt es sich um eine Vereinfachung des Beispielprogramms. In einem wirklichen Programm müsste die Breite des Eintrags anhand der längsten Zeile berechnet werden. Dazu kann die Methode <span class="clisting">width</span> einer <span class="clisting">QFontMetrics</span>-Instanz verwendet werden. Näheres dazu finden Sie in der Qt- bzw. PyQt-Dokumentation.
+] </p>
+<p>Die folgende Methode <span class="clisting">paint</span> muss von einer Delegate-Klasse implementiert werden und wird immer dann aufgerufen, wenn ein einzelner Eintrag neu gezeichnet werden muss. Beachten Sie, dass <span class="clisting">paint</span> pro Aufruf immer nur einen Eintrag zeichnet.</p>
+<div class="listing"><pre class="prettyprint">   <span class="cfett"> def</span> paint(self, painter, option, index): 
+        rahmen = option.rect.adjusted(self.abstand, self.abstand, 
+                                    -self.abstand, -self.abstand) 
+        rahmenTitel = rahmen.adjusted(self.abstandInnen, 
+                      self.abstandInnen, -self.abstandInnen+1, 0) 
+        rahmenTitel.setHeight(self.titelHoehe) 
+        rahmenTitelText = rahmenTitel.adjusted(self.abstandText, 
+                                        0, self.abstandText, 0) 
+        datensatz = index.data().toList() 
+        painter.save() 
+        painter.setPen(self.rahmenStift) 
+        painter.drawRect(rahmen) 
+        painter.fillRect(rahmenTitel, self.titelFarbe)<br>
+        # Titel schreiben 
+        painter.setPen(self.titelTextStift) 
+        painter.setFont(self.titelSchriftart) 
+        painter.drawText(rahmenTitelText, 
+                    QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter, 
+                    datensatz[0].toString())<br>
+        # Adresse schreiben 
+        painter.setPen(self.textStift) 
+        painter.setFont(self.textSchriftart) 
+       <span class="cfett"> for</span> i, eintrag<span class="cfett"> in</span> enumerate(datensatz[1:]): 
+            painter.drawText(rahmenTitel.x() + self.abstandText, 
+                   rahmenTitel.bottom() + (i+1)*self.zeilenHoehe, 
+                   "%s" % eintrag.toString()) 
+        painter.restore()</pre></div>
+<p>Die Methode <span class="clisting">paint</span> bekommt die drei Parameter <span class="clisting">painter</span>, <span class="clisting">option</span> und <span class="clisting">index</span> übergeben. Für den Parameter <span class="clisting">painter</span> wird eine <span class="clisting">QPainter</span>-Instanz übergeben, die dazu verwendet werden soll, den Eintrag zu zeichnen. Die beiden Parameter <span class="clisting">option</span> und <span class="clisting">index</span> haben die gleiche Bedeutung wie bei der Methode <span class="clisting">sizeHint</span> der Delegate-Klasse.</p>
+<p>In der Methode <span class="clisting">paint</span> werden zunächst einige Rechtecke berechnet, die nachher zum Zeichnen des Eintrags verwendet werden. Beachten Sie, dass <span class="clisting">option.rect</span> eine <span class="clisting">QRect</span>-Instanz referenziert, die das Rechteck beschreibt, in das der Eintrag gezeichnet werden soll. Alle Zeichenoperationen sollten sich also an diesem Rechteck ausrichten. Die angelegten lokalen Referenzen haben folgende Bedeutung:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 24.8    </strong>Lokale Referenzen in der Methode »paint«
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Attribut</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">rahmen</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Das Rechteck, um das der dünne schwarze Rahmen gezogen werden soll</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">rahmenTitel</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Das Rechteck der grau hinterlegten Titelzeile</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">rahmenTitelText</span></pre></div>
+</td>
+<td class="tabellentext">
+<p>Das Rechteck, in das der Text in der Titelzeile geschrieben wird. Dazu wird ein Rechteck benötigt, da der Text vertikal zentriert werden soll.</p>
+</td>
+</tr>
+</table><br><p>Nachdem die lokalen Referenzen angelegt wurden, wird der Status des Painters mittels <span class="clisting">save</span> gespeichert, um ihn am Ende der Methode mittels <span class="clisting">restore</span> wiederherstellen zu können. Beachten Sie, dass ein auf einem solchen Wege übergebener Painter immer in den Ausgangszustand zurückversetzt werden sollte, nachdem die Zeichenoperationen durchgeführt wurden, da sonst ein ungewollter Seiteneffekt in der übergeordneten Funktion, in diesem Fall also im Qt-Framework, auftritt.</p>
+<p>Danach werden mithilfe der Methoden <span class="clisting">drawRect</span> und <span class="clisting">fillRect</span> des Painters der Rahmen um den Eintrag und die grau hinterlegte Titelzeile gezeichnet. Jetzt fehlen nur noch die Beschriftungen des Eintrags. Dazu werden zunächst die passende Schriftart und das gewünschte Stiftwerkzeug mittels <span class="clisting">setFont</span> und <span class="clisting">setPen</span> ausgewählt. Die Titelzeile des Eintrags wird mit der fetten Schriftart <span class="clisting">titel</span> <span class="clisting">Schriftart</span> und einem weißen Pen geschrieben. Außerdem wird sie im Rechteck <span class="clisting">rahmenTitelText</span> vertikal zentriert und horizontal linksbündig positioniert.</p>
+<p>Beachten Sie, dass die Methode <span class="clisting">drawText</span> des Painters in mehreren Varianten aufgerufen werden kann. So ist es beispielsweise möglich (wie bei der Titelzeile) ein Rechteck und eine Positionsanweisung innerhalb dieses Rechtecks zu übergeben oder (wie bei den Adresszeilen des Eintrags) direkt die Koordinaten anzugeben, an die der Text geschrieben werden soll.</p>
+<p>Zu guter Letzt riskieren wir noch einen Blick auf das Hauptprogramm, das in der Programmdatei <span class="ckursiv">programm.py</span> stehen soll:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> PyQt4<span class="cfett"> import</span> QtGui<span class="cfett"> 
+import</span> sys<span class="cfett"> 
+import</span> modell<span class="cfett"> 
+import</span> view<br>
+m = modell.Modell("adressbuch.txt")<br>
+app = QtGui.QApplication(sys.argv) 
+liste = view.View(m) 
+liste.resize(200, 500) 
+liste.show() 
+sys.exit(app.exec_())</pre></div>
+<p>Nachdem vor allem die lokalen Module <span class="clisting">modell</span> und <span class="clisting">view</span> eingebunden wurden, wird eine Instanz der Klasse <span class="clisting">Modell</span> erzeugt, die den Datensatz aus der Datei <span class="ckursiv">adressbuch.txt</span> repräsentieren soll. Nachdem die Modellklasse instanziiert wurde, wird nach dem bekannten Schema eine PyQt-Applikation erstellt.</p>
+<p>Beachten Sie dabei, dass die Viewklasse <span class="clisting">View</span> als einziges Widget der Applikation gleichzeitig als Fensterklasse dient. Bevor das Widget mittels <span class="clisting">show</span> angezeigt wird, wird seine Größe durch Aufruf der Methode <span class="clisting">resize</span> auf einen sinnvollen Wert (<span class="clisting">200</span> Pixel breit und <span class="clisting">500</span> Pixel hoch) gesetzt.</p>
+<p>Wenn das Hauptprogramm ausgeführt wird, können Sie sehen, dass sich die Basisklasse <span class="clisting">QListView</span> der Viewklasse tatsächlich um Feinheiten wie das Scrollen von Einträgen oder das Anpassen der Einträge bei einer Größenänderung kümmert (siehe <a href="#Rxx_ref181938409">Abbildung 24.28</a>).</p>
+<div class="bildbox">
+<p><a name="IDAECTQ"></a><a onClick="OpenWin('bilder/gui-adressbuch-scroll.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-adressbuch-scroll.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.28    </strong>Scrollen im Adressbuch</p><a id="mjd71e703821b611cbd37eefb80cb38244" name="mjd71e703821b611cbd37eefb80cb38244"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">24.7.2</span><span class="cfett"> Auswählen von Einträgen</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nachdem wir die Adressdaten erfolgreich als eine Art Liste in einem Widget angezeigt haben, drängt sich die Frage auf, ob abgesehen vom bloßen Anzeigen der Daten noch weitere Aktionen durchgeführt werden können. So soll das Programm in diesem Abschnitt dahingehend weiterentwickelt werden, dass der Benutzer einen Eintrag des Adressbuchs auswählen kann.</p>
+<p>An der Grundstruktur des Beispielprogramms und insbesondere der Viewklasse muss dafür nicht viel verändert werden, denn genau genommen ist das Auswählen im vorherigen Beispielprogramm schon möglich gewesen, allerdings haben wir bis dato alle Einträge der Liste gleich gezeichnet. Was noch fehlt, ist also die grafische Hervorhebung des ausgewählten Eintrags, damit der Benutzer erkennen kann, welcher Eintrag momentan selektiert ist.</p>
+<p>Ein ausgewählter Eintrag im Adressbuch soll später folgendermaßen aussehen:</p>
+<div class="bildbox">
+<p><a name="IDARCTQ"></a><a onClick="OpenWin('bilder/gui-adressbuch-auswahl.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-adressbuch-auswahl.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.29    </strong>Ein ausgewählter Eintrag im Adressbuch</p>
+<p>Der ausgewählte Eintrag soll sich in der Farbe der Titelleiste von den anderen unterscheiden. Statt in einem dunklen Grau soll sie in einem Blauton gezeichnet werden. Dazu legen wir im Konstruktor der Delegate-Klasse zunächst einen neuen Brush mit diesem Blauton als Farbe an:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> __init__(self): 
+    QtGui.QItemDelegate.__init__(self) 
+    […] 
+    self.titelFarbeAktiv = QtGui.QBrush(QtGui.QColor(0,0,120)) 
+    self.hintergrundFarbeAktiv = QtGui.QBrush( 
+                                       QtGui.QColor(230,230,255)) 
+[…]</pre></div>
+<p>Jetzt muss nur noch beim Zeichnen eines Eintrags, also in der Methode <span class="clisting">paint</span>, unterschieden werden, ob es sich bei dem zu zeichnenden Eintrag um den momentan ausgewählten handelt oder nicht. Dies lässt sich anhand des Attributs <span class="clisting">state</span> der <span class="clisting">QStyleOptionViewItem</span>-Instanz feststellen, die beim Aufruf der Methode <span class="clisting">paint</span> für den Parameter <span class="clisting">option</span> übergeben wird.</p>
+<p>Wir ändern also das Zeichnen des grauen Titelrechtecks in folgenden Code:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if</span> option.state &amp; QtGui.QStyle.State_Selected: 
+    painter.fillRect(rahmen, self.hintergrundFarbeAktiv) 
+    painter.fillRect(rahmenTitel, self.titelFarbeAktiv)<span class="cfett"> 
+else</span>: 
+    painter.fillRect(rahmenTitel, self.titelFarbe)</pre></div>
+<p>Beachten Sie, dass dieser Code vor dem Zeichnen des dünnen schwarzen Rahmens stehen muss:</p>
+<div class="listing"><pre class="prettyprint">painter.setPen(self.rahmenStift) 
+painter.drawRect(rahmen)</pre></div>
+<p>Das waren tatsächlich schon alle notwendigen Schritte, um es dem Benutzer zu erlauben, einen Eintrag des Adressbuchs auszuwählen. Beachten Sie, dass mit dem binären UND-Operator <span class="clisting">&amp;</span> überprüft wird, ob das Statusflag <span class="clisting">Status_Selected</span> gesetzt ist oder nicht.</p>
+<p>Neben <span class="clisting">Status_Selected</span> existieren noch weitere vordefinierte Zustände, von denen mitunter auch mehrere gleichzeitig gesetzt sein können. Diese Zustände sind teilweise sehr speziell und sollen hier nicht näher erläutert werden.</p><a id="mjd504a61938116a86354b4928b72c8220" name="mjd504a61938116a86354b4928b72c8220"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">24.7.3</span><span class="cfett"> Editieren von Einträgen</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nachdem wir uns damit beschäftigt haben, wie die Adressdaten in einem <span class="clisting">QList</span> <span class="clisting">View</span>-Widget angezeigt werden können, und das Beispielprogramm dahingehend erweitert haben, dass ein Eintrag vom Benutzer ausgewählt werden kann, liegt die Frage nahe, ob wir dem Benutzer auch das Editieren eines Datensatzes erlauben können. Es ist zwar nicht ganz so banal wie das Selektieren eines Eintrags im vorherigen Kapitel, doch auch für das Editieren eines Eintrags bietet die Model-View-Architektur von Qt eine komfortable Schnittstelle an.</p>
+<p>Im späteren Programm soll das Editieren eines Eintrags so aussehen, wie es in <a href="#Rxx_ref181938511">Abbildung 24.30</a> gezeigt ist.</p>
+<div class="bildbox">
+<p><a name="IDAEETQ"></a><a onClick="OpenWin('bilder/gui-adressbuch-edit.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-adressbuch-edit.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.30    </strong>Editieren eines Adresseintrags</p>
+<p>Um das Editieren von Einträgen zu ermöglichen, müssen die einzelnen Einträge des Datensatzes von der Modellklasse zunächst explizit als editierbar gekennzeichnet werden. Dazu muss die Modellklasse die Methode <span class="clisting">flags</span> implementieren:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> flags(self, index): 
+   <span class="cfett"> return</span> QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable\ 
+                                      | QtCore.Qt.ItemIsEnabled</pre></div>
+<p>Diese Methode wird immer dann aufgerufen, wenn das <span class="clisting">QListView</span>-Widget nähere Informationen über den Eintrag erhalten will, der durch die <span class="clisting">QModelIndex</span>-Instanz <span class="clisting">index</span> spezifiziert wird. In unserem Fall werden unabhängig vom Index des Eintrags pauschal die Flags <span class="clisting">ItemIsSelectable</span>, <span class="clisting">ItemIsEditable</span> und <span class="clisting">Item</span> <span class="clisting">IsEnabled</span> zurückgegeben, die für einen selektierbaren, editierbaren und aktivierten Eintrag stehen. Standardmäßig &#8211; also wenn die Methode <span class="clisting">flags</span> nicht implementiert wird &#8211; erhält jeder Eintrag die Flags <span class="clisting">ItemIsSelectable</span> und <span class="clisting">Item</span> <span class="clisting">IsEnabled</span>.</p>
+<p>Zusätzlich zur Methode <span class="clisting">flags</span> sollte die Modellklasse die Methode <span class="clisting">setData</span> implementieren, die die Aufgabe hat, die vom Benutzer veränderten Einträge in den Datensatz zu übernehmen.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> setData(self, index, value, role=QtCore.Qt.EditRole): 
+    self.datensatz[index.row()] = value 
+    self.emit(QtCore.SIGNAL("layoutChanged()")) 
+   <span class="cfett"> return</span> True</pre></div>
+<p>Die Methode bekommt den Index des veränderten Eintrags und den veränderten Inhalt dieses Eintrags übergeben. Der zusätzliche Parameter <span class="clisting">role</span> soll an dieser Stelle nicht weiter interessieren. Im Körper der Methode wird der alte Eintrag in dem in der Modellklasse gespeicherten Datensatz <span class="clisting">self.datensatz</span> durch den veränderten ersetzt. Danach wird das Signal <span class="clisting">layoutChanged</span> gesendet, das die Viewklasse dazu anhält, die Anzeige vollständig neu aufzubauen. Das ist sinnvoll, da sich durch die Änderungen des Benutzers die Zeilenzahl und damit die Höhe des jeweiligen Eintrags verändert haben könnte.</p>
+<p>Das sind alle Änderungen, die an der Modellklasse vorgenommen werden müssen, um das Editieren eines Eintrags zu erlauben. Doch auch die Delegate-Klasse muss einige zusätzliche Methoden implementieren. Dabei handelt es sich um die Methoden <span class="clisting">createEditor</span>, <span class="clisting">setEditorData</span>, <span class="clisting">updateEditorGeometry</span>, <span class="clisting">setModel</span> <span class="clisting">Data</span> und <span class="clisting">eventFilter</span>, die im Folgenden besprochen werden.</p>
+<p>Die Methode <span class="clisting">createEditor</span> wird aufgerufen, wenn der Benutzer doppelt auf einen Eintrag klickt, um diesen zu editieren. Die Methode <span class="clisting">createEditor</span> muss ein Widget zurückgeben, das dann statt des entsprechenden Eintrags zum Editieren angezeigt wird.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> createEditor(self, parent, option, index): 
+   <span class="cfett"> return</span> QtGui.QTextEdit(parent)</pre></div>
+<p>Die Methode bekommt die bereits bekannten Parameter <span class="clisting">option</span> und <span class="clisting">index</span> übergeben, die den zu editierenden Eintrag spezifizieren. Zusätzlich wird für <span class="clisting">parent</span> das Widget übergeben, das als Elternwidget des Editorwidgets eingetragen werden soll. In diesem Fall erstellen wir ein <span class="clisting">QTextEdit</span>-Widget, in dem der Benutzer den Eintrag editieren soll.</p>
+<p>Die Methode <span class="clisting">setEditorData</span> wird vom <span class="clisting">QListView</span>-Widget aufgerufen, um das von <span class="clisting">createEditor</span> erzeugte Widget mit Inhalt zu füllen.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> setEditorData(self, editor, index): 
+    l = [unicode(s.toString())<span class="cfett"> for</span> s<span class="cfett"> in</span> index.data().toList()] 
+    text = "\n".join(l) 
+    editor.setPlainText(text)</pre></div>
+<p>Dazu bekommt die Methode das Editorwidget in Form des Parameters <span class="clisting">editor</span> und den bekannten Parameter <span class="clisting">index</span> übergeben, der den zu editierenden Eintrag spezifiziert. Im Methodenkörper werden die Daten des zu editierenden Eintrags ausgelesen und mittels <span class="clisting">join</span> zu einem einzigen String zusammengefügt. Dieser String wird dann durch Aufruf der Methode <span class="clisting">setPlainText</span> in das <span class="clisting">QTextEdit</span>-Widget geschrieben.</p>
+<p>Die Methode <span class="clisting">updateEditorGeometry</span> wird vom <span class="clisting">QListView</span>-Widget aufgerufen, um die Größe des Editorwidgets festlegen zu lassen.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> updateEditorGeometry(self, editor, option, index): 
+    rahmen = option.rect.adjusted(self.abstand, self.abstand, 
+                                 -self.abstand, -self.abstand) 
+    editor.setGeometry(rahmen)</pre></div>
+<p>Die Methode bekommt die bekannten Parameter <span class="clisting">option</span> und <span class="clisting">index</span> und zusätzlich das Editorwidget <span class="clisting">editor</span> übergeben. In diesem Fall verpassen wir dem Editorwidget mittels <span class="clisting">setGeometry</span> die gleiche Größe, die der entsprechende Eintrag gehabt hätte, wenn er normal gezeichnet werden würde.</p>
+<p>Die Methode <span class="clisting">setModelData</span> wird aufgerufen, wenn das Editieren durch den Benutzer erfolgt ist, um die veränderten Daten aus dem Editorwidget auszulesen und an die Modellklasse weiterzureichen.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> setModelData(self, editor, model, index): 
+    txt = editor.toPlainText() 
+    l = [QtCore.QVariant(s)<span class="cfett"> for</span> s<span class="cfett"> in</span> txt.split("\n")] 
+    model.setData(index, QtCore.QVariant(l))</pre></div>
+<p>Die Methode bekommt sowohl das Editorwidget als auch die Modellklasse in Form der Parameter <span class="clisting">editor</span> und <span class="clisting">model</span> übergeben. Zusätzlich wird eine <span class="clisting">QModel</span> <span class="clisting">Index</span>-Instanz übergeben, die den editierten Eintrag spezifiziert. In der Methode wird der Text des <span class="clisting">QTextEdit</span>-Widgets ausgelesen und in einzelne Zeilen unterteilt. Danach wird die vorhin angelegte Methode <span class="clisting">setData</span> der Modellklasse aufgerufen.</p>
+<p>Damit ist die grundlegende Funktionalität zum Editieren eines Eintrags implementiert. Allerdings werden Sie beim Ausführen des Programms feststellen, dass die Enter-Taste beim Editieren eines Eintrags sowohl eine neue Zeile beginnt als auch das Editieren des Eintrags beendet. Das ist kein besonders glücklicher Umstand und sollte behoben werden. Dazu implementieren wir die Methode <span class="clisting">eventFilter</span>, die immer dann aufgerufen wird, wenn ein sogenanntes <span class="ckursiv">Event</span> eintritt. Ein Event ist beispielsweise das Drücken einer Taste während des Editierens eines Eintrags.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> eventFilter(self, editor, event): 
+   <span class="cfett"> if</span> event.type() == QtCore.QEvent.KeyPress \ 
+      <span class="cfett"> and</span> event.key()<span class="cfett"> in</span> (QtCore.Qt.Key_Return, 
+                           QtCore.Qt.Key_Enter): 
+       <span class="cfett"> return</span> False 
+   <span class="cfett"> return</span> QtGui.QItemDelegate.eventFilter(self, editor, event)</pre></div>
+<p>Die Methode bekommt das Editorwidget <span class="clisting">editor</span> und eine <span class="clisting">QEvent</span>-Instanz übergeben, die das eingetretene Event spezifiziert. Im Körper der Methode wird überprüft, ob es sich bei dem Event um einen Tastendruck handelt und wenn ja, ob es sich bei der gedrückten Taste um die Enter- oder die Return-Taste handelt. Beachten Sie, dass es einen Unterschied zwischen diesen beiden Tasten gibt. Enter finden Sie auf der Tastatur unten rechts vom Nummernblock, während die Return-Taste diejenige ist, die Sie verwenden, um in einem Text eine neue Zeile zu beginnen.</p>
+<p>Nur wenn es sich bei dem Event nicht um eine gedrückte Enter- oder Return-Taste handelt, wird die Standardimplementation der Methode aufgerufen, beispielsweise soll also bei gedrückter Escape-Taste weiterhin das Editieren des Eintrags abgebrochen werden. Im Falle der Enter- oder der Return-Taste wird nichts dergleichen unternommen.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_24_007.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="24.7 Model-View-Architektur"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_24_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_24_008.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

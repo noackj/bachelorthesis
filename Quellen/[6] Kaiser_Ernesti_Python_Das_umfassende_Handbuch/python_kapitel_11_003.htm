@@ -1,0 +1,426 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 11.3 Pakete</title>
+<meta name="title" content="Galileo Computing :: Python - 11.3 Pakete">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 11.3 Pakete">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_11_002.htm">
+<link rel="next" href="python_kapitel_11_004.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_11_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_11_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9" class="navnav">11 Modularisierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_11_001.htm#mj2335c624c9da3d181d6690581e1569b3" class="navnav">11.1 Einbinden externer Programmbibliotheken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_11_002.htm#mj1ab0044c3b39b2d348a72f101f4a9f91" class="navnav">11.2 Eigene Module</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_11_002.htm#mj63bdbd76c0f33790236839a3eefa2e58" class="navnav">11.2.1 Modulinterne Referenzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj49609264548f8a9cd20fce19718f24d4" class="navh">11.3 Pakete</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0c0c563a330093e6bc0f05ae10c9a379" class="navh">11.3.1 Importieren aller Module eines Pakets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0bca3fd09de7f0361295a31c6ff35d00" class="navh">11.3.2 Relative Importanweisungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_11_004.htm#mjdf230712c7c69e2318f2d9d3701f9b09" class="navnav">11.4 Built-in Functions</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj49609264548f8a9cd20fce19718f24d4" name="mj49609264548f8a9cd20fce19718f24d4"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">11.3</span><span class="cfett"> Pakete</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Python ermöglicht es Ihnen, mehrere Module in einem sogenannten <span class="ckursiv">Paket</span> zu kapseln. Das ist vorteilhaft, wenn diese Module thematisch zusammengehören. Ein Paket kann, im Gegensatz zu einem einzelnen Modul, beliebig viele weitere Pakete enthalten, die ihrerseits wieder Module bzw. Pakete enthalten können.</p>
+<p>Um ein Paket zu erstellen, muss im Wesentlichen ein Unterordner im Programmverzeichnis erzeugt werden. Der Name des Ordners entspricht dem Namen des Pakets. Zusätzlich muss in diesem Ordner eine Programmdatei namens <span class="ckursiv">__init__.py</span> existieren. (Beachten Sie, dass es sich um jeweils zwei Unterstriche vor und hinter »init« handelt.) Diese Datei darf leer, muss aber vorhanden sein und enthält Initialisierungscode, der beim Einbinden des Paketes einmalig ausgeführt wird. Ein Programm mit mehreren Paketen und Unterpaketen hat also eine solche oder ähnliche Verzeichnisstruktur, wie Sie in <a href="#Rxx_ref181273005">Abbildung 11.1</a> sehen.</p>
+<div class="bildbox">
+<p><a name="IDADCSQ"></a><a onClick="OpenWin('bilder/pakete.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinpakete.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 11.1    </strong>Paketstruktur eines Beispielprogramms</p>
+<p>Im weiteren Verlauf des Kapitels werden wir immer wieder auf dieses Beispiel zurückkommen, deswegen soll es hier kurz besprochen werden. Es handelt sich um die Verzeichnisstruktur eines fiktiven Bildbearbeitungsprogramms. Das Hauptprogramm befindet sich in der Datei <span class="ckursiv">programm.py</span>. Neben dem Hauptprogramm existieren im Programmverzeichnis zwei Pakete:</p>
+<ul class="gp">
+<li>Das Paket <span class="clisting">effekte</span> soll bestimmte Effekte auf ein bereits geladenes Bild anwenden können. Dazu enthält das Paket neben der Datei <span class="ckursiv">__init__.py</span> drei Module, die jeweils einen grundlegenden Effekt durchführen sollen. Es handelt sich um die Module <span class="clisting">blur</span> (zum Verwischen des Bildes), <span class="clisting">flip</span> (zum Spiegeln des Bildes) und <span class="clisting">rotate</span> (zum Drehen des Bildes).</li>
+</ul>
+<ul class="gp">
+<li>Das Paket <span class="clisting">formate</span> soll dazu in der Lage sein, bestimmte Grafikformate zu lesen und schreiben. Dazu definiert es in seiner <span class="ckursiv">__init__.py</span> zwei Funktionen namens <span class="clisting">leseBild</span> und <span class="clisting">schreibeBild</span>. Wir möchten nicht näher auf Funktionsschnittstellen oder Ähnliches eingehen, sondern relativ abstrakt bleiben. Damit das Lesen und Schreiben von Grafiken diverser Formate möglich ist, enthält das Paket <span class="clisting">formate</span> zwei Unterpakete namens <span class="clisting">bmp</span> und <span class="clisting">png</span>, die je zwei Module zum Lesen bzw. Schreiben des entsprechenden Formats enthalten.</li>
+</ul>
+<p>Im Hauptprogramm sollen zunächst die Pakete <span class="clisting">effekte</span> und <span class="clisting">formate</span> eingebunden und verwendet werden. Dies ermöglicht die <span class="clisting">import</span>-Anweisung:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> effekte, formate</pre></div>
+<p>bzw:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> effekte<span class="cfett"> 
+import</span> formate</pre></div>
+<p>Beachten Sie, dass es zu einem Namenskonflikt kommt, wenn beispielsweise neben dem Paket <span class="clisting">effekte</span> ein Modul gleichen Namens, also eine Programmdatei namens <span class="ckursiv">effekte.py,</span> existiert. Es ist grundsätzlich so, dass bei Namensgleichheit ein Paket Vorrang vor einem Modul hat, es also keine Möglichkeit mehr gibt, das Modul zu importieren.</p>
+<p>Die <span class="clisting">import</span>-Anweisung veranlasst, dass die Programmdatei <span class="ckursiv">__init__.py</span> des einzubindenden Paketes ausgeführt und der Inhalt dieser Datei als Modul in einem eigenen Namensraum verfügbar gemacht wird. So könnte nach den obigen <span class="clisting">import</span>-Anweisungen folgendermaßen auf die Funktionen <span class="clisting">leseBild</span> und <span class="clisting">schreibeBild</span> zugegriffen werden:</p>
+<div class="listing"><pre class="prettyprint">formate.leseBild() 
+formate.schreibeBild()</pre></div>
+<p>Um das nun geladene Bild zu modifizieren, soll diesmal ein Modul des Paketes <span class="clisting">effekte</span> geladen werden. Auch dies ist mit der <span class="clisting">import</span>-Anweisung möglich. Der Paketname wird durch einen Punkt vom Modulnamen getrennt. Auf diese Weise kann ein Modul aus einer beliebigen Paketstruktur importiert werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> effekte.blur</pre></div>
+<p>In diesem Fall wurde das Paket <span class="clisting">effekte</span> vorher eingebunden. Wenn dies nicht der Fall gewesen wäre, so würde das Importieren von <span class="clisting">effekte.blur</span> dafür sorgen, dass zunächst das Paket <span class="clisting">effekte</span> eingebunden und die dazugehörige <span class="ckursiv">__init__.py</span> ausgeführt werden würde. Danach wird das Untermodul <span class="clisting">blur</span> eingebunden. Das Modul kann fortan wie jedes andere verwendet werden:</p>
+<div class="listing"><pre class="prettyprint">effekte.blur.verschwemmeBild()</pre></div>
+<p>Auf diese Weise kann auch direkt auf ein Modul zugegriffen werden, das tiefer in der Paketstruktur steht. Hier greifen wir beispielsweise auf das Modul <span class="clisting">formate.bmp.write</span> zu und rufen die Funktion <span class="clisting">schreibeBMP</span> auf, die in diesem Modul definiert werden soll.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> formate.bmp.write 
+formate.bmp.write.schreibeBMP()</pre></div>
+<p>Auf ein eingebundenes Modul oder Paket kann nur über seinen vollen Namen, also inklusive aller übergeordneten Pakete, zugegriffen werden. Allerdings ist es auch hier möglich, durch <span class="clisting">as</span> ein Alias zu vergeben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> formate.bmp.write<span class="cfett"> as</span> w 
+w.schreibeBMP()</pre></div><a id="mj0c0c563a330093e6bc0f05ae10c9a379" name="mj0c0c563a330093e6bc0f05ae10c9a379"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">11.3.1</span><span class="cfett"> Importieren aller Module eines Pakets</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bisher konnte mit</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> abc<span class="cfett"> import</span> *</pre></div>
+<p>der gesamte Inhalt eines Moduls in den aktuellen Namensraum importiert werden. Dies funktioniert für Pakete nicht. Der Grund dafür ist, dass einige Betriebssysteme, darunter vor allem Windows, bei Datei- und Ordnernamen nicht zwischen Groß- und Kleinschreibung unterscheiden &#8211; Python aber sehr wohl. Angenommen, die obige Anweisung würde wie gehabt funktionieren und <span class="clisting">abc</span> wäre ein Paket, so wäre es beispielsweise unter Windows völlig unklar, ob ein Untermodul namens <span class="clisting">modul</span> als <span class="clisting">Modul</span>, <span class="clisting">MODUL</span> oder <span class="clisting">modul</span> eingebunden werden soll.</p>
+<p>Aus diesem Grund importiert die obige Anweisung nicht alle im Paket enthaltenen Module in den aktuellen Namensraum, sondern importiert nur das Paket an sich und führt den Initialisierungscode in <span class="ckursiv">__init__.py</span> aus. Sowohl alle in dieser Datei angelegten Elemente als auch alle Elemente von eventuell vorher importierten Modulen dieses Pakets werden in den aktuellen Namensraum eingeführt.</p>
+<p>Es gibt zwei Möglichkeiten, das gewünschte Verhalten der obigen Anweisung zu erreichen. Beide müssen vom Autor des Pakets implementiert werden.</p>
+<p>Zum einen können alle Module des Pakets innerhalb der <span class="ckursiv">__init__.py</span> per <span class="clisting">import</span>-Anweisung importiert werden. Dies hätte zur Folge, dass sie beim Einbinden des Paketes und damit nach dem Ausführen des Codes der <span class="ckursiv">__init__.py</span>-Datei eingebunden wären.</p>
+<p>Zum anderen kann dies durch Anlegen einer Referenz namens <span class="clisting">__all__</span> geschehen. Diese muss eine Liste von Strings mit den zu importierenden Modulnamen referenzieren:</p>
+<div class="listing"><pre class="prettyprint">__all__ = ["blur", "flip", "rotate"]</pre></div>
+<p>Es liegt im Ermessen des Programmierers, welches Verhalten <span class="cfett">from</span> <span class="clisting">abc</span> <span class="cfett">import</span> <span class="clisting">*</span> bei seinen Paketen zeigen soll. Beachten Sie aber, dass das Importieren des kompletten Modul- bzw. Paketinhalts in den aktuellen Namensraum zu unerwünschten Namenskonflikten führen kann. Aus diesem Grund sollten Sie importierte Module stets in einem eigenen Namensraum führen.</p><a id="mj0bca3fd09de7f0361295a31c6ff35d00" name="mj0bca3fd09de7f0361295a31c6ff35d00"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">11.3.2</span><span class="cfett"> Relative Importanweisungen</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bei der Verwendung der klassischen <span class="clisting">import</span>-Anweisung, die bislang besprochen wurde, kann es, wie bereits angemerkt wurde, zu Namenskonflikten zwischen der Standardbibliothek und einem lokalen Modul oder Paket kommen. Wenn also beispielsweise ein lokales Modul namens <span class="clisting">math</span> existiert, gibt es keine saubere Möglichkeit mehr, das gleichnamige Modul der Standardbibliothek einzubinden.</p>
+<p>Um solchen Konfliktfällen entgegenzuwirken, soll sich das Verhalten der <span class="clisting">import</span>-Anweisung in künftigen Python-Versionen dahingehend ändern, dass im Konfliktfall das globale Modul bzw. Paket eingebunden wird. Das explizite Einbinden eines lokalen Moduls oder Pakets geschieht über eine sogenannte <span class="ckursiv">relative Importanweisung</span>. Auf diese Weise können Namenskonflikte vermieden werden.</p>
+<p>Seit Version 2.5 von Python sind relative Importanweisungen in die Sprache aufgenommen worden. Das Verhalten der normalen <span class="clisting">import</span>-Anweisung wurde jedoch nicht geändert. Allerdings ist es möglich, Python 2.5 in einen Modus zu schalten, in dem sich die <span class="clisting">import</span>-Anweisung nach den zukünftigen Regeln verhält. Dazu muss folgende Codezeile zu Beginn der jeweiligen Programmdatei geschrieben werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> __future__<span class="cfett"> import</span> absolute_imports</pre></div>
+<p>Näheres zum Modul <span class="clisting">__future__</span> und seiner Bedeutung erfahren Sie in Abschnitt <a href="./python_kapitel_13_007.htm#Rxx_ref179907090">13.7</a>.</p>
+<p>Eine relative Importanweisung wird folgendermaßen geschrieben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> .<span class="cfett"> import</span> math</pre></div>
+<p>Als Basis für die relative Importanweisung dient die <span class="clisting">from</span>/<span class="clisting">import</span>-Anweisung, bei der ein Punkt für das aktuelle Paket steht. Im Beispiel würde also das lokale Modul <span class="clisting">math</span> eingebunden, das sich im selben Paket befindet wie das Modul, in dem die relative Importanweisung steht.</p>
+<p>Um ein Modul oder Paket einzubinden, das sich in einem Unterpaket befindet, wird folgende relative Importanweisung verwendet:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> .math<span class="cfett"> import</span> trig</pre></div>
+<p>Dieses Mal wurde vorausgesetzt, dass ein Unterpaket <span class="clisting">math</span> existiert, in dem es ein Modul oder Paket namens <span class="clisting">trig</span>, beispielsweise für trigonometrische Funktionen, gibt.</p>
+<p>Mithilfe einer relativen Importanweisung ist es auch möglich, ein Modul oder Paket einzubinden, das sich in einem Paket befindet, das in der Pakethierarchie höher angeordnet ist. Im folgenden Beispiel wird das Modul <span class="clisting">trig</span> des direkt übergeordneten Pakets <span class="clisting">math</span> eingebunden, indem dem Paketnamen ein weiterer Punkt vorangestellt wurde:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> ..math<span class="cfett"> import</span> trig</pre></div>
+<p>Beachten Sie bei der Verwendung von relativen Importanweisungen, dass diese nur innerhalb einer Paketstruktur verwendet werden dürfen. Eine Programmdatei, die direkt ausgeführt wird, befindet sich nicht in einer Paketstruktur und darf deshalb keine relativen Importanweisungen enthalten. Dies bezieht sich insbesondere auch auf den interaktiven Modus.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_11_003.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="11.3 Pakete"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_11_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_11_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

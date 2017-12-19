@@ -1,0 +1,138 @@
+
+/* Basis-CSS */
+
+body { font: 100.01% Verdana, Arial, Helvetica, sans-serif; background-color: #EFEFEF; margin: 0; padding: 0; }
+form { display: inline; }
+input, textarea, select, button { border: #000000 1px solid; }
+input:focus, textarea:focus, select:focus { border: #FF0000 1px solid; background-color: #FFEFEF; }
+a:link { color: #F00; }
+a:visited { color: #900; }
+a:active { color:#00F; }
+a:hover { color: #00F; }
+
+
+/* Basis-Layout */
+
+#topline { padding: 4px; border-bottom: 1px solid #777; background-color: #ddd; margin: 0px 0px 15px 0px; text-align: center; }
+#page { width: 96%; margin: 10px auto; }
+#header { height: 85px; padding: 10px; background-color: #ffffff; }
+#navigation { height: 43px; background-color: #ffffff; }
+#subnavigation { margin-bottom: 15px;  padding-bottom: 5px; background-color: #ffffff; border-bottom: 1px solid #999; }
+#content { background-color: #FFFFFF; font-family: Verdana, Geneva, sans-serif; font-size: 0.9em; margin-right: 315px; padding: 10px; }
+#forum { background-color: #FFFFFF; font-family: Verdana, Geneva, sans-serif; font-size: 0.9em; padding: 0px; }
+#shop { background-color: #FFFFFF; font-family: Verdana, Geneva, sans-serif; font-size: 0.9em; padding: 10px; }
+#control { float: right; width: 300px; background-color: #EFEFEF; }
+#footer { margin-top: 15px; clear: both; padding: 5px 10px; border-top: 4px solid #a80329; background-color: #ddd; font-family: Arial, Helvetica, sans-serif; font-size: 0.8em; }
+
+
+/* Topline */
+
+#topline ul { margin: 0px; }
+#topline ul li { font-family: Arial, Helvetica, sans-serif; font-size: 0.8em; font-weight: normal; margin: 0px 0px 0px 20px; padding: 0px; display: inline; list-style-image: none; list-style-position: outside; list-style-type: none; }
+#topline ul li a { color: #000; text-decoration: none; }
+#topline ul li a:hover { color: #000; }
+
+
+/* Header */
+
+#logo { float: left; }
+#search { float: left; margin-top: 60px; margin-left: 60px; }
+#contact { float: right; }
+#contact ul { margin: 0px; }
+#contact ul li { list-style-position: outside; line-height: 1.8em; font-family: Verdana, Geneva, sans-serif; font-size: 0.9em; text-decoration: none; font-weight: bold; }
+#contact ul li a { color: #f00; text-decoration: none; }
+#contact ul li a:hover { color: #00f; text-decoration: none; }
+li.contact_newsletter { list-style-image: url("/res/layout/images/email_16.png"); }
+li.contact_twitter { list-style-image: url("/res/layout/images/twitter_16.png"); }
+li.contact_feed { list-style-image: url("/res/layout/images/rss_16.png"); }
+
+
+/* Navigation */
+
+ul#menu { width: 100%; height: 43px; background: #FFF url("/res/layout/images/menu-bg.gif") top left repeat-x; font-size: 0.8em; font-family: Verdana, Geneva, sans-serif; font-weight: bold; list-style-type: none; margin: 0 auto; padding: 0; }
+ul#menu li { display: block; float: left; margin: 0 0 0 5px; }
+ul#menu li a { height: 32px; color: #555; text-decoration: none; display: block; float: left; line-height: 200%; padding: 8px 15px 0; }
+ul#menu li a:hover { color: #333; }
+ul#menu li a.current { color: #FFF; background: #FFF url("/res/layout/images/current-bg.gif") top left repeat-x; padding: 5px 15px 0; }
+
+ul#submenu { width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 0.8em; list-style-type: none; margin: 0; padding: 5px 10px 0px 10px; }
+ul#submenu li { display: block; float: left; margin: 0 15px 0 0; padding: 3px 0px; }
+ul#submenu li a { color: #f00; text-decoration: none; display: block; float: left; }
+ul#submenu li a:hover { color: #00f; }
+ul#submenu li a.current { color: #000; font-weight: bold; }
+
+
+/* Control */
+
+#control div { margin-bottom: 15px; padding: 0px; overflow: hidden; }
+#control div.controlsl { float: left; width: 142px; }
+#control div.controlsr { float: right; width: 142px; }
+#control div.controlclear { clear: right; padding: 0; margin: 0; border: 0; }
+#control h4 { margin: 0; padding: 5px; background-color: #a80329; color: #FFF; border: 1px solid #900; font-family: Verdana, Geneva, sans-serif; font-size: 0.8em; }
+#control div div { overflow: hidden; margin: 0; padding: 5px; border: 1px solid #fff; background-color: #FFF; font-family: Arial, Helvetica, sans-serif; font-size: 0.8em; }
+#control div div div { margin: 0; padding 0; }
+#control ul { margin: 0px; }
+#control ul li { list-style-position: outside; list-style-type: none; margin: 0 0 0 -40px; line-height: 1.4em; }
+#control ul li a { color: #f00; text-decoration: none; }
+#control ul li a:hover { color: #00f; text-decoration: none; }
+
+
+/* Footer */
+
+#footer_l { float: left; font-weight: bolder; }
+#footer_r { float: right; font-weight: bolder; }
+
+
+/* Content */
+
+#content h1, #content h2 { clear: left; font-family: Arial, Helvetica, sans-serif; font-size: 1.8em; margin-bottom: 0.2em; margin-top: 0px; }
+#content h3 { clear: left; font-family: Arial, Helvetica, sans-serif; font-size: 1.3em; margin-bottom: 0.2em; margin-top: 1.2em; }
+#content h4 { clear: left; font-family: Arial, Helvetica, sans-serif; font-size: 1.2em; margin-bottom: 0.2em; }
+#content h5, #content h6 { clear: left; font-family: Arial, Helvetica, sans-serif; font-size: 1em; font-weight: bold; margin-bottom: 0.2em; }
+#content p li { line-height: 1.4em; }
+#content p, #content ul, #content ol, #content dl, #content table, #content pre { /* clear: left; */ margin-top: 0em; margin-bottom: 1.7em; }
+#content p ul { margin-top: 0em; margin-bottom: 0em; }
+#content sup, sub { font-size: smaller; }
+#content ul ul, #content ul ul ul { margin-top: 0em; margin-bottom: 0em; }
+#content ins { margin-bottom: 8px !important; }
+#content table { clear: left; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 0.8em; }
+#content table table { clear: left; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 1em; margin-bottm: 0px; }
+#content iframe, #content object { clear: left; margin-top: 0em; margin-bottom: 1em; }
+#content p iframe, #content p object { margin: 0; padding 0; }
+
+#content pre.dosbox { font-family: "Courier New", Courier, mono; font-size: 1em; color: #FFFFFF; background-color: #000000; border: medium solid #000000; padding: 1px; height: auto; width: auto; }
+#content p.achtung { padding: 5px; border: 1px solid #FF0000; background-color: #FFCCCC; }
+#content p.breadcrumb { font-family: Arial, Helvetica, sans-serif; font-size: 0.8em; font-weight: bold; }
+#content div.line { height: 1px; background-color: #999; margin: 0px 0px 15px 0px; clear: left; }
+#content span.share { padding-right: 30px; }
+#content .share a { background: url("/res/layout/images/facebook_share.jpg") no-repeat scroll left top transparent; border: 0 none; display: inline-block; /* float: left; */ height: 24px; left: 0; margin: 0 auto; overflow: hidden; padding: 0; text-decoration: none !important; text-indent: -9999px; width: 78px; }
+#content div.social { border: 5px solid #EFEFEF; padding: 5px; border-radius: 10px; margin-bottom: 1.7em; }
+
+#content .werbung h3 { font-size: 25px; margin-bottom: 15px; }
+#content .werbung ul { margin-left: 20px; }
+#content .werbung ul li { font-size: 16px; padding: 3px; list-style-image: url('res/bilder/icon_werbung_check.gif'); vertical-align: top; }
+#content .werbung p a { margin-top: 20px; font-size: 15px; font-weight: bold; text-decoration: none; background-color: #FC3; border: solid 1px #333; color: #000; padding: 5px; border-radius: 5px; -moz-border-radius: 5px; -kit-border-radius: 5px; }
+
+
+/* Online-Shop */
+#bottomnavigation { margin-top: 15px; clear: both; padding: 5px 10px; background-color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 0.8em; }
+div.floatbox { display: block; font-family: Arial, Helvetica, sans-serif; font-weight: bolder; font-size: smaller; }
+div.floatbox p { float: left !important; display: block; margin: 0; padding: 5px; text-align: center; }
+div.floatbox p a { display: block; border: 1px solid #fff; text-decoration: none; }
+div.floatbox p a:hover { display: block; border: 1px solid #00F; text-decoration: none; }
+.formularfeld-pflicht { background-color: #FF9999; }
+.formularfeld-ok { color: #000000; font-weight: bold; }
+.formularfeld-fehler { color: #FF0000; font-weight: bold; }
+button.shop-button { border: 0px; cursor: pointer; background-color: #fff; display: inline; padding: 0px; margin: 0px; }
+.achtung { padding: 5px; border: 1px solid #FF0000; background-color: #FFCCCC; }
+
+
+/* Wordpress spezifisch */
+
+.post { margin: 0 0 40px 0; }
+.postmetadata { font-family: Arial, Helvetica, sans-serif; font-size: 0.8em; margin: 3px 0px 10px 0px; }
+.navigation { font-family: Arial, Helvetica, sans-serif; font-size: 0.8em; font-weight: bold; display: block; padding: 0px 0px 30px 0px; clear: left; }
+.alignright { float: right; margin: 0px 0px 5px 10px; }
+.alignleft { float: left; margin: 0px 10px 5px 0px; }
+.clear { clear: both; }
+img.size-full { border: 0; }

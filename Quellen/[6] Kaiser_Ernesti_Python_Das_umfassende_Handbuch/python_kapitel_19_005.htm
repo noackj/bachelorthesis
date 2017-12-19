@@ -1,0 +1,551 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 19.5 Das Tabellenformat CSV &#8211; csv</title>
+<meta name="title" content="Galileo Computing :: Python - 19.5 Das Tabellenformat CSV &#8211; csv">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 19.5 Das Tabellenformat CSV &#8211; csv">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_19_004.htm">
+<link rel="next" href="python_kapitel_19_006.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_19_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_19_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166" class="navnav">19 Datenspeicherung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_001.htm#mj50322fedc1f8490eef0fafc7d36e87ec" class="navnav">19.1 Komprimierte Dateien lesen und schreiben &#8211; gzStandardbibliothekgzipip</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_002.htm#mjfb129af936cf736637fadc5cdc7fb80f" class="navnav">19.2 XML</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_19_002.htm#mj7b6b6575efca95cb4e2a8271bedd2fd8" class="navnav">19.2.1 DOM &#8211; Document Object Model</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_19_002.htm#mj814634fd2dce5dc0aee7c29e59536e3d" class="navnav">19.2.2 SAX &#8211; Simple API for XML</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_19_002.htm#mj10de3bcca53a40f74b605ca1b6763f1e" class="navnav">19.2.3 ElementTree</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_003.htm#mj080f219370513600ef96af394d02fbee" class="navnav">19.3 Datenbanken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_19_003.htm#mjea5883d439a425e2f974548b406b56c0" class="navnav">19.3.1 Pythons eingebaute Datenbank &#8211; sqlite3</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_19_003.htm#mjd4e355cc1c649fc6067edb05093491f1" class="navnav">19.3.2 MySQLdb</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_004.htm#mjeb8a39f5c42513f80eca039dfe9b1c06" class="navnav">19.4 Serialisierung von Instanzen &#8211; pickle</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj068051f9093b3bd5bfc5628714320a14" class="navh">19.5 Das Tabellenformat CSV &#8211; csv</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_19_006.htm#mjcc3ffbef726889b6a10108557bca2ef2" class="navnav">19.6 Temporäre Dateien &#8211; tempfile</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj068051f9093b3bd5bfc5628714320a14" name="mj068051f9093b3bd5bfc5628714320a14"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">19.5</span><span class="cfett"> Das Tabellenformat CSV &#8211; csv</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Ein sehr verbreitetes Import- und Exportformat für Datenbanken und Tabellenkalkulationen ist das <span class="ckursiv">CSV</span><span class="ckursiv">-Format</span> (für <span class="ckursiv">Comma Separated Values</span>). CSV-Dateien sind Textdateien, die zeilenweise Datensätze enthalten. Innerhalb der Datensätze sind die einzelnen Werte durch ein Trennzeichen wie beispielsweise das Komma voneinander getrennt, daher auch der Name.</p>
+<p>Eine CSV-Datei, die Informationen zu Personen speichert und das Komma als Trennzeichen nutzt, könnte beispielsweise so aussehen:</p>
+<div class="listing"><pre class="prettyprint">vorname,nachname,geburtsdatum,wohnort,haarfarbe 
+Daniel,Zakowski,29.11.1987,Dinslaken,Schwarz 
+David,Schönauer,10.09.1988,Aachen,Braun 
+Sebastian,Sentner,06.09.1987,Sydney,Dunkelblond 
+Jan,Fitzke,13.09.1987,Köln,Schwarz 
+Lucas,Hövelmann,25.03.1988,Canberra,Hellrot</pre></div>
+<p>Die erste Zeile enthält die jeweiligen Spaltenköpfe, und alle folgenden Zeilen enthalten die eigentlichen Datensätze.</p>
+<p>Leider existiert kein Standard für CSV-Dateien, sodass sich beispielsweise das Trennzeichen von Programm zu Programm unterscheiden kann. Dieser Umstand erschwert es, CSV-Dateien von verschiedenen Quellen zu lesen, da immer auf das besondere Format der exportierenden Anwendung eingegangen werden muss.</p>
+<p>Um trotzdem mit CSV-Dateien der verschiedensten Formate umgehen zu können, stellt Python das Modul <span class="clisting">csv</span> zur Verfügung. Das <span class="clisting">csv</span>-Modul implementiert <span class="clisting">reader</span>- und <span class="clisting">writer</span>-Klassen, die den Lese- bzw. Schreibzugriff auf CSV-Daten kapseln. Mithilfe sogenannter <span class="ckursiv">Dialekte</span> kann dabei das Format der Datei angegeben werden. Standardmäßig gibt es vordefinierte Dialekte für die CVS-Dateien, die von Microsoft Excel generiert werden. Außerdem stellt das Modul eine Klasse namens <span class="clisting">Sniffer</span> (dt. <span class="ckursiv">Schnüffler</span>) bereit, die den Dialekt einer Datei erraten kann.</p>
+<p>Eine Liste aller definierten Dialekte kann man mit <span class="clisting">csv.list_dialects</span> erhalten:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> csv 
+&gt;&gt;&gt; csv.list_dialects() 
+['excel-tab', 'excel']</pre></div>
+<h4 class="t4"><span class="cfett">reader-Objekte</span></h4>
+<p>Mithilfe von <span class="clisting">reader</span>-Objekten können CSV-Dateien gelesen werden. Der Konstruktor sieht dabei folgendermaßen aus:</p>
+<h5 class="t5"><span class="cfett">csv.reader(csvfile[, dialect][, fmtparam])</span></h5>
+<p>Der Parameter <span class="ckursiv">csvfile</span> muss eine Referenz auf ein für den Lesezugriff geöffnetes Dateiobjekt sein, aus dem die Daten gelesen werden sollen. Die Dateiobjekte sollten dabei im Binärmodus (<span class="clisting">"rb"</span>) geöffnet worden sein, weil es sonst auf manchen Plattformen Probleme geben kann.</p>
+<p>Mit <span class="ckursiv">dialect</span> kann angegeben werden, in welchem Format die zu lesende Datei geschrieben wurde. Dazu kann als <span class="ckursiv">dialect</span> ein String übergeben werden, der in der Liste enthalten ist, die <span class="clisting">csv.list_dialects</span> zurückgibt. Alternativ kann eine Instanz der Klasse <span class="clisting">Dialect</span> angegeben werden, die wir später besprechen werden. Standardmäßig wird der Wert <span class="clisting">"excel"</span> für <span class="ckursiv">dialect</span> verwendet, wobei die damit kodierten Dateien das Komma als Trennzeichen verwenden.</p>
+<p>Der Platzhalter <span class="ckursiv">fmtparam</span> steht nicht für einen einzelnen Parameter, sondern für Schlüsselwortparameter, die übergeben werden können, um den Dialekt ohne Umweg über die <span class="clisting">Dialect</span>-Klasse festzulegen. Ein Beispiel, bei dem wir auf diese Weise das Semikolon als Trennzeichen zwischen den einzelnen Werten festlegen, sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; reader = csv.reader(open("datei.csv", "rb"), delimiter=";")</pre></div>
+<p>Wir werden uns später ausführlich mit Dialekten beschäftigen.</p>
+<p>Die <span class="clisting">reader</span>-Instanzen implementieren das Iterator-Protokoll und lassen sich deshalb komfortabel mit einer <span class="clisting">for</span>-Schleife verarbeiten. Im folgenden Beispiel lesen wir die CSV-Datei mit den Personen aus der Einleitung:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; reader = csv.reader(open("namen.csv", "rb")) 
+&gt;&gt;&gt;<span class="cfett"> for</span> row<span class="cfett"> in</span> reader: 
+       <span class="cfett"> print</span> row 
+['vorname', 'nachname', 'geburtsdatum', 'wohnort', 'haarfarbe'] 
+['Daniel', 'Zakowski', '29.11.1987', 'Dinslaken', 'Schwarz'] 
+['David', 'Sch\xf6nauer', '10.09.1988', 'Aachen', 'Braun'] 
+['Sebastian', 'Sentner', '06.09.1987', 'Sydney', 'Dunkelblond'] 
+['Jan', 'Fitzke', '13.09.1987', 'K\xf6ln', 'Schwarz'] 
+['Lucas', 'H\xf6velmann', '25.03.1988', 'Canberra', 'Hellrot']</pre></div>
+<p>Wie Sie sehen, gibt uns der <span class="clisting">reader</span> für jede Zeile eine Liste mit den Werten der einzelnen Spalten zurück. Wichtig ist dabei, dass die Spaltenwerte immer als Strings zurückgegeben werden.</p>
+<p>Neben dem Standard-<span class="clisting">reader</span>, der Listen zurückgibt, existiert noch der sogenannte <span class="clisting">DictReader</span>, der für jede Zeile ein Dictionary erzeugt, das den Spaltenköpfen die Werte der jeweiligen Zeile zuordnet.</p>
+<p>Unser letztes Beispiel verändert sich durch die Verwendung von <span class="clisting">DictReader</span> wie folgt, wobei wir nur die ersten beiden Datensätze ausgeben, um Platz zu sparen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; reader = csv.DictReader(open("namen.csv", "rb")) 
+&gt;&gt;&gt;<span class="cfett"> for</span> row<span class="cfett"> in</span> reader: 
+       <span class="cfett"> print</span> row 
+{'nachname': 'Zakowski', 'geburtsdatum': '29.11.1987', 'wohnort':  
+'Dinslaken', 'vorname': 'Daniel', 'haarfarbe': 'Schwarz'} 
+{'nachname': 'Sch\xf6nauer', 'geburtsdatum': '10.09.1988',  
+'wohnort': 'Aachen', 'vorname': 'David', 'haarfarbe': 'Braun'}</pre></div>
+<h4 class="t4"><span class="cfett">writer-Objekte</span></h4>
+<p>Der Konstruktor der <span class="clisting">writer</span>-Klasse erwartet die gleichen Parameter wie der Konstruktor der <span class="clisting">reader</span>-Klasse, mit der Ausnahme, dass das für <span class="ckursiv">csvfile</span> übergebene Dateiobjekt für den Schreibzugriff im Binärmodus (<span class="clisting">"wb"</span>) geöffnet worden sein muss.</p>
+<h5 class="t5"><span class="cfett">csv.reader(csvfile[, dialect][, fmtparam])</span></h5>
+<p>Das resultierende <span class="clisting">writer</span>-Objekt hat die beiden Methoden <span class="clisting">writerow</span> und <span class="clisting">writerows</span>, mit denen sich einzelne bzw. mehrere Zeilen auf einmal in die CSV-Datei schreiben lassen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; writer = csv.writer(open(<span class="clisting">"autos.csv", "wb")) 
+&gt;&gt;&gt; writer.writerow(["marke", "modell", "leistung_in_ps"]) 
+&gt;&gt;&gt; daten = (</span> 
+   <span class="clisting"> ["Volvo", "P245", "130"], ["Ford", "Focus", "90"],</span> 
+   <span class="clisting"> ["Mercedes", "CLK", "250"], ["Audi", "A6", "350"],</span> 
+   <span class="clisting"> ) 
+&gt;&gt;&gt; writer.writerows(daten)</span></pre></div>
+<p>In dem Beispiel erzeugen wir eine neue CSV-Datei mit dem Namen <span class="clisting">"autos.csv"</span>. Mit der <span class="clisting">writerow</span>-Methode schreiben wir die Spaltenköpfe in die erste Zeile der neuen Datei und mit <span class="clisting">writerows</span> anschließend vier Beispieldatensätze.</p>
+<p>Analog zur <span class="clisting">DictReader</span>-Klasse existiert auch eine <span class="clisting">DictWriter</span>-Klasse, die sich fast genauso wie die normale <span class="clisting">writer</span>-Klasse erzeugen lässt, außer dass neben dem Dateiobjekt noch eine Liste mit den Spaltenköpfen übergeben werden muss. Für ihre <span class="clisting">writerow</span>- und <span class="clisting">writerows</span>-Methoden erwarten <span class="clisting">DictWriter</span>-Instanzen Dictionarys als Parameter. Das folgende Beispiel erzeugt die gleiche CSV-Datei wie das letzte:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; writer = csv.DictWriter(open(<span class="clisting">"autos.csv", "wb"),</span> 
+                  <span class="clisting"> ["marke", "modell", "leistung_in_ps"]) 
+ 
+&gt;&gt;&gt; writer.writerow({"marke" : "marke", "modell" : "modell",</span> 
+                    <span class="clisting"> "leistung_in_ps" : "leistung_in_ps"}) 
+&gt;&gt;&gt; daten = ({"marke" : "Volvo", "modell" : "P245",</span> 
+             <span class="clisting"> "leistung_in_ps" : "130"},</span> 
+            <span class="clisting"> {"marke" : "Ford", "modell" : "Focus",</span> 
+             <span class="clisting"> "leistung_in_ps" : "90"},</span> 
+            <span class="clisting"> {"marke" : "Mercedes", "modell" : "CLK",</span> 
+             <span class="clisting"> "leistung_in_ps" : "250"},</span> 
+            <span class="clisting"> {"marke" : "Audi", "modell" : "A6",</span> 
+             <span class="clisting"> "leistung_in_ps" : "350}) 
+&gt;&gt;&gt; writer.writerows(daten)</span></pre></div>
+<p>Die merkwürdige Zeile mit <span class="clisting">writerow</span> ist notwendig, um die Spaltenköpfe zu schreiben, da dies nicht automatisch geschieht.</p>
+<h4 class="t4"><span class="cfett">Dialect-Objekte</span></h4>
+<p>Die Instanzen der Klasse <span class="clisting">csv.Dialect</span> dienen dazu, den Aufbau von CSV-Dateien zu beschreiben. Sie sollten <span class="clisting">Dialect</span>-Objekte nicht direkt erzeugen, sondern stattdessen die Funktion <span class="clisting">csv.register_dialect</span> verwenden. Mit <span class="clisting">register_dialect</span> können Sie einen neuen Dialekt erzeugen und mit einem Namen versehen. Dieser Name kann dann später als Parameter an die Konstruktoren der <span class="clisting">reader</span>- und <span class="clisting">writer</span>-Klassen übergeben werden. Außerdem ist jeder registrierte Name in der von <span class="clisting">csv.get_dialects</span> zurückgegebenen Liste enthalten.</p>
+<p>Die Funktion <span class="clisting">register_dialect</span> hat folgende Schnittstelle:</p>
+<h5 class="t5"><span class="cfett">csv.register_dialect(name[, dialect][, fmtparam])</span></h5>
+<p>Der Parameter <span class="ckursiv">name</span> muss dabei ein String sein, der den neuen Dialekt identifizieren soll. Mit <span class="ckursiv">dialect</span> kann ein bereits bestehendes <span class="clisting">Dialect</span>-Objekt übergeben werden, das dann mit dem entsprechenden Namen verknüpft wird.</p>
+<p>Am wichtigsten ist der Platzhalter <span class="ckursiv">fmtparam</span>, der für eine Reihe optionaler Schlüsselwortparameter steht, die den neuen Dialekt beschreiben. Es sind die in der folgenden Tabelle aufgeführten Parameter erlaubt:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 19.9    </strong>Schlüsselwortparameter für register_dialect
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Name</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">delimiter</span></p>
+</td>
+<td class="tabellentext">
+<p>Trennzeichen zwischen den Spaltenwerten. Der Standardwert ist das Komma (<span class="clisting">,</span>).</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">quotechar</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeichen, um Felder zu umschließen, die besondere Zeichen wie das Trennzeichen oder den Zeilenumbruch enthalten. Der Standardwert sind die doppelten Anführungszeichen (<span class="clisting">"</span>).</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">doublequote</span></p>
+</td>
+<td class="tabellentext">
+<p>Ein boolescher Wert, der angibt, wie das für <span class="clisting">quotechar</span> angegebene Zeichen innerhalb von Feldern selbst maskiert werden soll.</p>
+<p>Hat <span class="clisting">doublequote</span> den Wert <span class="clisting">True</span>, so wird <span class="clisting">quotechar</span> zweimal hintereinander eingefügt. Ist der Wert von <span class="clisting">doublequote False</span>, wird stattdessen das für <span class="clisting">escapechar</span> angegebene Zeichen vor <span class="clisting">quotechar</span> geschrieben.</p>
+<p>Standardmäßig hat <span class="clisting">doublequote</span> den Wert <span class="clisting">True</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">escapechar</span></p>
+</td>
+<td class="tabellentext">
+<p>Ein Zeichen, das benutzt wird, um das Trennzeichen innerhalb von Spaltenwerten zu maskieren, sofern <span class="clisting">quoting</span> den Wert <span class="clisting">QUOTE_NONE</span> hat.</p>
+<p>Bei einem <span class="clisting">dobulequote</span>-Wert von <span class="clisting">False</span> wird <span class="clisting">escapechar</span> außerdem für die Maskierung von den <span class="clisting">quotechar</span> verwendet.</p>
+<p>Standardmäßig ist die Maskierung deaktiviert und <span class="clisting">escapechar</span> hat den Wert <span class="clisting">None</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">lineterminator</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeichen, das zum Trennen der Zeilen benutzt wird. Standardmäßig ist es auf <span class="clisting">"\r\n"</span> gesetzt.</p>
+<p>Bitte beachten Sie, dass diese Einstellung nur den Writer betrifft. Alle <span class="clisting">reader</span>-Objekte bleiben von der <span class="clisting">lineterminator</span>-Einstellung unbeeinflusst und verwenden immer <span class="clisting">"\r"</span>, <span class="clisting">"\n"</span> oder die Kombination aus beiden als Zeilentrennzeichen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">quoting</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt an, ob und wann Spaltenwerte mit <span class="clisting">quotechar</span> umschlossen werden sollen.</p>
+<p>Gültige Werte sind:</p>
+<p><span class="clisting">QUOTE_ALL</span> &#8211; Alle Spaltenwerte werden umschlossen.</p>
+<p><span class="clisting">QUOTE_MINIMAL</span> &#8211; Nur die Felder mit speziellen Zeichen wie Zeilenvorschüben oder dem Trennzeichen für Spaltenwerte werden umschlossen.</p>
+<p><span class="clisting">QUOTE_NONNUMERIC</span> &#8211; Beim Schreiben werden alle nicht-numerischen Felder von <span class="clisting">quotechar</span> umschlossen. Beim Lesen werden alle nicht umschlossenen Felder automatisch nach <span class="clisting">float</span> konvertiert.</p>
+<p><span class="clisting">QUOTE_NONE</span> &#8211; Keine Umschließung mit <span class="clisting">quotechar</span> wird vorgenommen.</p>
+<p>Standardmäßig ist <span class="clisting">quoting</span> auf <span class="clisting">QUOTE_MINIMAL</span> eingestellt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">skipinitialspace</span></p>
+</td>
+<td class="tabellentext">
+<p>Ein boolescher Wert, der angibt, wie mit führenden Whitespaces in einem Spaltenwert verfahren werden soll.</p>
+<p>Eine Einstellung auf <span class="clisting">True</span> bewirkt, dass alle führenden Whitespaces ignoriert werden; bei einem Wert von <span class="clisting">False</span> wird der komplette Spalteninhalt gelesen und zurückgegeben.</p>
+<p>Der Standardwert ist <span class="clisting">False</span>.</p>
+</td>
+</tr>
+</table><br><p>Wir wollen als Beispiel einen neuen Dialekt namens <span class="clisting">"mein_dialekt"</span> registrieren, der als Trennzeichen den Tabulator verwendet und alle Felder mit Anführungszeichen umschließt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; csv.register_dialect(<span class="clisting">"mein_dialekt", delimiter="\t",</span> 
+                                        <span class="clisting"> quoting=csv.QUOTE_ALL)</span></pre></div>
+<p>Diesen neuen Dialekt können wir nun dem Konstruktor unserer <span class="clisting">reader</span>- und <span class="clisting">writer</span>-Klassen übergeben und auf diese Weise unsere eigenen CSV-Dateien schreiben und lesen.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_19_005.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="19.5 Das Tabellenformat CSV &#8211; csv"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_19_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_19_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

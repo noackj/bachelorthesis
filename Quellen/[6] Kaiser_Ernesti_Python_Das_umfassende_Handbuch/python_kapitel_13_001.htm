@@ -1,0 +1,720 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 13 Weitere Spracheigenschaften</title>
+<meta name="title" content="Galileo Computing :: Python - 13 Weitere Spracheigenschaften">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 13 Weitere Spracheigenschaften">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_12_004.htm">
+<link rel="next" href="python_kapitel_13_002.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_12_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_13_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj4ec2d9702da110e2dacd99679d3c813d" class="navh">13 Weitere Spracheigenschaften</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj9c47e95ef0de2b51b8795360350d0a36" class="navh">13.1 Exception Handling</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3f943e2f2b146758936395ab700b1a95" class="navh">13.1.1 Eingebaute Exceptions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj9a39e9bacbeb90df594e637f72c3e6ab" class="navh">13.1.2 Werfen einer Exception</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj2bf223cf5076971dac89ce850f422655" class="navh">13.1.3 Abfangen einer Exception</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj895579472648ac2c14f13006f018c0ab" class="navh">13.1.4 Eigene Exceptions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb2e82a98750dc84939d28981bc7dd025" class="navh">13.1.5 Erneutes Werfen einer Exception</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_13_002.htm#mjde4dfaadeda6f0449d0fe28c495d80eb" class="navnav">13.2 List Comprehensions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_13_003.htm#mj4f43dabfe129e9471aaf49d6abe8d0cc" class="navnav">13.3 Docstrings</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_13_004.htm#mjac0bfc00292240b2c8d8cf0edee8f986" class="navnav">13.4 Generatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_13_005.htm#mj9d03049cdb368743dcb32d8c937ad98d" class="navnav">13.5 Iteratoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_13_006.htm#mjaa7fba753afb73402cf1ee2f39350c3f" class="navnav">13.6 Interpreter im Interpreter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_13_007.htm#mjdd13a8178c498ff3a23ce9a22856d14d" class="navnav">13.7 Geplante Sprachelemente</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_13_008.htm#mj7d0d3991b4235110254b1112cbcd4a2b" class="navnav">13.8 Die with-Anweisung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_13_009.htm#mj9d7c6bf482ebc41e3bd636b21d9fede6" class="navnav">13.9 Function Decorator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_13_010.htm#mjca1b2081508a228232b78471117cf515" class="navnav">13.10 assert</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_13_011.htm#mj46ff656653ce2b43f6d5afd3cc57ec7f" class="navnav">13.11 Weitere Aspekte der Syntax</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_13_011.htm#mj5cfc92f112171ba0c9429fe827eea9bf" class="navnav">13.11.1 Umbrechen langer Zeilen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_13_011.htm#mj4ca46e5125c65f2879f164b604d1a3c4" class="navnav">13.11.2 Zusammenfügen mehrerer Zeilen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_13_011.htm#mj139c488059c2024c3467473548c00f3e" class="navnav">13.11.3 String conversions</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em><span class="ckursiv">»Die Grenzen meiner Sprache sind die Grenzen meiner Welt« 
+&#8211; Ludwig Wittgenstein</span></em></p><a id="mj4ec2d9702da110e2dacd99679d3c813d" name="mj4ec2d9702da110e2dacd99679d3c813d"></a><h1 class="t1"><span class="cfett">13</span><span class="cfett"> Weitere Spracheigenschaften</span></h1>
+<p>Zu diesem Zeitpunkt sollten Sie bereits relativ gut in Python programmieren können. In diesem Kapitel werden wir einige weitere Spracheigenschaften von Python behandeln. Wichtig ist, dass dieses Kapitel kein Sammelbecken für »den uninteressanten Rest« darstellt, sondern dass viele der hier vorgestellten Techniken sehr elegant und wichtig sind. Betrachten Sie dieses Kapitel also als essentielle Ergänzung zum bisher Gelernten.</p><a id="mj9c47e95ef0de2b51b8795360350d0a36" name="mj9c47e95ef0de2b51b8795360350d0a36"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">13.1</span><span class="cfett"> <a id="Rxx_ref180780236" name="Rxx_ref180780236"></a><a id="Rxx_ref180780233" name="Rxx_ref180780233"></a><a id="Rxx_ref180693639" name="Rxx_ref180693639"></a><a id="Rxx_ref180693617" name="Rxx_ref180693617"></a>Exception Handling</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Stellen Sie sich einmal ein Programm vor, das über eine vergleichsweise tiefe Aufrufhierarchie verfügt, das heißt, dass Funktionen weitere Unterfunktionen aufrufen, die ihrerseits wieder Funktionen aufrufen. Es ist häufig so, dass die übergeordneten Funktionen nicht korrekt weiterarbeiten können, wenn in einer ihrer Unterfunktionen ein Fehler aufgetreten ist. Es ist also notwendig, die Information, dass ein Fehler aufgetreten ist, durch die Aufrufhierarchie nach oben zu schleusen, damit jede übergeordnete Funktion auf den Fehler reagieren und sich daran anpassen kann.</p>
+<p>Bislang konnten wir Fehler, die innerhalb einer Funktion aufgetreten sind, allein anhand des Rückgabewertes der Funktion kenntlich machen. Es wäre mit viel Aufwand verbunden, einen solchen Rückgabewert durch die Funktionshierarchie nach oben durchzureichen, zumal es sich hierbei um Ausnahmen handelt. Wir würden also sehr viel Code dafür aufwenden, um sehr seltene Fälle zu behandeln.</p>
+<p>Für genau solche Fälle unterstützt Python ein Programmierkonzept, das <span class="ckursiv">Exceptionhandling</span> (dt. <span class="ckursiv">Ausnahmebehandlung</span>) genannt wird. Im Fehlerfall würde unsere Unterfunktion dann eine sogenannte Exception erzeugen und, bildlich gesprochen, nach oben werfen. Die Ausführung der Funktion ist damit beendet. Jede übergeordnete Funktion hat jetzt drei Möglichkeiten:</p>
+<ul class="gp">
+<li>Sie fängt die Exception ab, führt den Code aus, der für den Fehlerfall vorgesehen ist, und fährt dann normal fort. In einem solchen Fall bemerken weitere übergeordnete Funktionen die Exception nicht.</li>
+</ul>
+<ul class="gp">
+<li>Sie fängt die Exception ab, führt den Code aus, der für den Fehlerfall vorgesehen ist, und wirft die Exception weiter nach oben. In einem solchen Fall ist auch die Ausführung dieser Funktion sofort beendet, und die übergeordnete Funktion steht vor der Wahl, die Exception abzufangen oder nicht.</li>
+</ul>
+<ul class="gp">
+<li>Sie lässt die Exception passieren, ohne sie abzufangen. In diesem Fall ist die Ausführung der Funktion sofort beendet, und die übergeordnete Funktion steht vor der Wahl, die Exception abzufangen oder nicht.</li>
+</ul>
+<p>Bisher haben wir bei einer solchen Ausgabe</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; abc 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+NameError: name 'abc' is not defined</pre></div>
+<p>ganz allgemein von einem »Fehler« oder einer »Fehlermeldung« gesprochen. Dies ist nicht ganz korrekt: Im Folgenden möchten wir diese Ausgabe als <span class="ckursiv">Traceback</span> bezeichnen. Welche Informationen ein Traceback enthält und wie diese verwendet werden können, wurde bereits in Abschnitt <a href="./python_kapitel_05_004.htm#Rxx_ref174438394">5.4</a>, »<a href="./python_kapitel_05_004.htm#Rxx_ref174438394">Der Fehlerfall</a>«, behandelt. Ein Traceback wird immer dann angezeigt, wenn eine Exception bis nach ganz oben durchgereicht wurde, ohne abgefangen zu werden, doch was genau ist eine Exception?</p>
+<p>Eine <span class="ckursiv">Exception</span> ist eine Klasse, die Attribute und Methoden zur Klassifizierung und Bearbeitung des Fehlers enthält. Einige dieser Informationen werden im Traceback angezeigt, so etwa die Beschreibung des Fehlers (»<span class="clisting">name 'abc' is not defined</span>«). Eine Exception kann im Programm selbst abgefangen und behandelt werden, ohne dass der Benutzer etwas davon mitbekommt. Näheres zum Abfangen einer Exception erfahren Sie im weiteren Verlauf dieses Kapitels. Sollte eine Exception nicht abgefangen werden, so wird sie in Form eines Tracebacks ausgegeben und der Programmablauf wird beendet.</p><a id="mj3f943e2f2b146758936395ab700b1a95" name="mj3f943e2f2b146758936395ab700b1a95"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">13.1.1</span><span class="cfett"> <a id="Rxx_ref177990000" name="Rxx_ref177990000"></a>Eingebaute Exceptions</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In Python existieren eine Reihe von eingebauten Exceptions, zum Beispiel die bereits bekannten Exceptions <span class="clisting">SyntaxError</span>, <span class="clisting">NameError</span> oder <span class="clisting">TypeError</span>. Solche Exceptions werden von Funktionen der Standardbibliothek oder vom Interpreter selbst geworfen. Diese Exceptions sind eingebaut, das bedeutet, dass sie zu jeder Zeit im Quelltext verwendet werden können:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; NameError 
+&lt;type 'exceptions.NameError'&gt; 
+&gt;&gt;&gt; SyntaxError 
+&lt;type 'exceptions.SyntaxError'&gt;</pre></div>
+<p>Die eingebauten Exceptions sind hierarchisch organisiert, das heißt, sie erben von gemeinsamen Basisklassen. Sie sind deswegen in ihrem Attribut- und Methodenumfang weitestgehend identisch. Die Vererbungshierarchie sieht so aus wie in <a href="#Rxx_ref181275213">Abbildung 13.1</a>.</p>
+<div class="bildbox">
+<p><a name="IDACGSQ"></a><a onClick="OpenWin('bilder/exceptions.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinexceptions.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 13.1    </strong><a id="Rxx_ref181275213" name="Rxx_ref181275213"></a>Vererbungshierarchie der eingebauten Exceptions</p>
+<p>Nachfolgend soll die Verwendung der Exception <span class="clisting">BaseException</span> besprochen werden, da sie die Basisklasse aller Exceptions darstellt. Sie stellt eine gewisse Grundfunktionalität bereit, die folglich für alle Exception-Typen vorhanden ist. Im Anhang finden Sie eine Beschreibung aller eingebauten Exceptions.</p>
+<h5 class="t5"><span class="cfett">BaseException</span></h5>
+<p>Die Klasse <span class="clisting">BaseException</span> verfügt im Wesentlichen über zwei Attribute namens <span class="clisting">message</span> und <span class="clisting">args</span>, in denen nähere Informationen zur Exception stehen können. Das Tupel <span class="clisting">args</span> enthält alle bei der Instanziierung von <span class="clisting">BaseException</span> übergebenen Argumente. Wenn nur eines übergeben wurde, wird dieses zusätzlich in <span class="clisting">message</span> geschrieben, sodass direkt auf dieses Argument zugegriffen werden kann:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; e = BaseException("Hallo Welt") 
+&gt;&gt;&gt; e.message 
+'Hallo Welt' 
+&gt;&gt;&gt; e.args 
+('Hallo Welt',)</pre></div>
+<p>Werden bei der Instanziierung mehrere Argumente übergeben, so werden diese in das Tupel <span class="clisting">args</span> geschrieben. Das Attribut <span class="clisting">message</span> ist in diesem Fall ein leerer String:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; e = BaseException(1,2,3,4,5,6) 
+&gt;&gt;&gt; e.message 
+'' 
+&gt;&gt;&gt; e.args 
+(1, 2, 3, 4, 5, 6)</pre></div>
+<p>Die Klasse <span class="clisting">BaseException</span> erlaubt es, durch Slicing auf die gespeicherten Argumente zuzugreifen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; e = BaseException(1,2,3,4,5,6) 
+&gt;&gt;&gt; e[2:4] 
+(3, 4)</pre></div><a id="mj9a39e9bacbeb90df594e637f72c3e6ab" name="mj9a39e9bacbeb90df594e637f72c3e6ab"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">13.1.2</span><span class="cfett"> Werfen einer Exception</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bisher haben wir nur Exceptions betrachtet, die in einem Fehlerfall vom Python-Interpreter geworfen wurden. Es ist jedoch auch möglich, mithilfe der <span class="clisting">raise</span>-Anweisung selbst eine Exception zu werfen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> raise</span> SyntaxError("Hallo Welt") 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+SyntaxError: Hallo Welt</pre></div>
+<p>Dazu wird das Schlüsselwort <span class="clisting">raise</span>, gefolgt von einer Instanz, geschrieben. Diese darf nur Instanz einer selbst erstellten Klasse oder eines vordefinierten Exception-Typs sein. Es ist zwar auch möglich, einen String zu werfen, davon wird jedoch ausdrücklich abgeraten, da dies als »deprecated« eingestuft wurde und in späteren Python-Versionen nicht mehr möglich sein wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> raise</span> "Hallo Welt" 
+__main__:1: DeprecationWarning: raising a string exception is deprecated 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+Hallo Welt</pre></div>
+<p>Das Werfen anderer Datentypen ist nicht möglich:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> raise</span> 123 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+TypeError: exceptions must be classes, instances, or strings  
+(deprecated), not int</pre></div>
+<p>Die <span class="clisting">raise</span>-Anweisung kann in zwei Varianten verwendet werden. Die erste Möglichkeit haben Sie eben kennengelernt, also das Schlüsselwort <span class="clisting">raise</span>, gefolgt von einer Instanz einer Klasse.</p>
+<p>Durch die zweite Verwendungsmöglichkeit von <span class="clisting">raise</span> spart man sich die explizite Instanziierung der Klasse. Dazu folgen auf das Schlüsselwort <span class="clisting">raise</span> drei durch Kommata getrennte Angaben:</p>
+<ul class="gp">
+<li>Die erste Angabe muss der Datentyp der Exception sein, die geworfen werden soll. Da die beiden folgenden Angaben optional sind, kann eine <span class="clisting">raise</span>-Anweisung auch so aussehen:</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; <span class="cfett">raise</span> SyntaxError 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+SyntaxError: None</pre></div>
+</blockquote>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>In diesem Fall wird automatisch eine Instanz der Klasse <span class="clisting">SyntaxError</span> erzeugt und geworfen. Der Konstruktor der Klasse bekommt dabei keine Argumente übergeben, sodass hier beispielsweise keine Fehlermeldung erscheint (<span class="clisting">SyntaxError: None</span>).</li>
+</ul>
+</li>
+</ul>
+<ul class="gp">
+<li>Als zweite, optionale Angabe der <span class="clisting">raise</span>-Anweisung kann ein Argument für den Konstruktor der Klasse übergeben werden. Im Falle einer Standard-Exception entspricht dieses der Fehlermeldung.</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; <span class="cfett">raise</span> SyntaxError, "Dies ist ein Fehler" 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+SyntaxError: Dies ist ein Fehler
+&gt;&gt;&gt; <span class="cfett">raise</span> SyntaxError, [1,2,3,4] 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+SyntaxError: [1, 2, 3, 4]</pre></div>
+</blockquote>
+<ul class="gp">
+<li>Die dritte, ebenfalls optionale Angabe der <span class="clisting">raise</span>-Anweisung kann ein sogenanntes Traceback-Objekt sein. Ein solches Objekt hält den aktuellen Programmstatus fest und erlaubt es somit, eine Exception aus einem bestimmten Kontext heraus zu werfen, obwohl sich der Programmfluss selbst nicht in diesem Kontext befindet. Näheres zum Traceback-Objekt erfahren Sie im Zusammenhang mit dem Modul <span class="clisting">traceback</span> in Abschnitt <a href="./python_kapitel_21_006.htm#Rxx_ref178529879">21.6</a>.</li>
+</ul>
+<ul class="gp">
+<li>Im folgenden Abschnitt möchten wir besprechen, wie Exceptions im Programm abgefangen werden können, sodass sie nicht in einem Traceback enden, sondern zur Ausnahmebehandlung eingesetzt werden können. Beachten Sie, dass wir sowohl in diesem als auch im nächsten Kapitel bei den eingebauten Exceptions bleiben. Selbstdefinierte Exceptions werden das Thema von Abschnitt <a href="#Rxx_ref174608404">13.1.4</a> sein.</li>
+</ul><a id="mj2bf223cf5076971dac89ce850f422655" name="mj2bf223cf5076971dac89ce850f422655"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">13.1.3</span><span class="cfett"> Abfangen einer Exception</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Es wurde bereits gesagt, dass eine Exception innerhalb des Programms abgefangen und behandelt werden kann. Stellen Sie sich dazu einmal vor, wir wollten eine Funktion schreiben, die es uns erlaubt, auf ein Element einer Liste <span class="clisting">lst</span> mit dem Index <span class="clisting">n</span> zuzugreifen. Die Funktion muss intern prüfen, ob ein <span class="clisting">n</span>-tes Element in <span class="clisting">lst</span> existiert, und, wenn ja, dieses zurückgeben. Sollte kein solches Element existieren, soll die Funktion <span class="clisting">None</span> zurückgeben.</p>
+<p>Nach Ihrem bisherigem Kenntnisstand würde die Funktion folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> get(lst, n): 
+   <span class="cfett"> if</span> 0 &lt;= n &lt; len(lst): 
+       <span class="cfett"> return</span> lst[n] 
+   <span class="cfett"> else</span>: 
+       <span class="cfett"> return</span> None</pre></div>
+<p>Eine zweite &#8211; und in vielen Fällen elegantere &#8211; Variante wäre es, einfach auf das <span class="clisting">n</span>-te Element der Liste <span class="clisting">lst</span> zuzugreifen und eine eventuell geworfene <span class="clisting">IndexError</span>-Exception abzufangen. Wenn diese Exception abgefangen wurde, gibt die Funktion <span class="clisting">None</span> zurück:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> get(lst, n): 
+   <span class="cfett"> try</span>: 
+       <span class="cfett"> return</span> lst[n] 
+   <span class="cfett"> except</span> IndexError: 
+       <span class="cfett"> return</span> None</pre></div>
+<p>Zum Abfangen einer Exception wird eine sogenannte <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung verwendet. Eine solche Anweisung besteht zunächst einmal aus zwei Teilen:</p>
+<ul class="gp">
+<li>Der <span class="clisting">try</span>-Block wird durch das Schlüsselwort <span class="clisting">try</span> eingeleitet, gefolgt von einem Doppelpunkt und, um eine Ebene weiter eingerückt, einem beliebigen Codeblock. Dieser Codeblock wird zunächst ausgeführt. Wenn in diesem Codeblock eine Exception auftritt, wird seine Ausführung sofort beendet und der <span class="clisting">except</span>-Zweig der Anweisung ausgeführt.</li>
+</ul>
+<ul class="gp">
+<li>Der <span class="clisting">except</span>-Zweig wird durch das Schlüsselwort <span class="clisting">except</span> eingeleitet, gefolgt von einer optionalen Liste von Exception-Typen, einem Doppelpunkt und, um eine Ebene weiter eingerückt, einem beliebigen Codeblock. Dieser Codeblock wird nur dann ausgeführt, wenn innerhalb des <span class="clisting">try</span>-Blocks eine der aufgelisteten Exceptions geworfen wurde.</li>
+</ul>
+<p>Eine grundlegende <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung hat also folgende Struktur:</p>
+<div class="bildbox">
+<p><a name="IDAEUSQ"></a><a onClick="OpenWin('bilder/try-except.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleintry-except.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 13.2    </strong>Struktur einer try/except-Anweisung</p>
+<p>Kommen wir zurück zu unserer Beispielfunktion <span class="clisting">get</span>. Es wäre durchaus möglich, dass bei einem Funktionsaufruf für <span class="clisting">n</span> fälschlicherweise keine ganze Zahl, sondern zum Beispiel ein String übergeben wird. In einem solchen Fall wird kein <span class="clisting">Index</span> <span class="clisting">Error</span>, sondern ein <span class="clisting">TypeError</span> geworfen, welcher von der <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung bislang nicht abgefangen wird:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; get([1,2,3], "s") 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+  File "&lt;stdin&gt;", line 3, in get 
+TypeError: list indices must be integers</pre></div>
+<p>Die Funktion soll nun dahingehend erweitert werden, dass auch ein <span class="clisting">TypeError</span> abgefangen und dann ebenfalls <span class="clisting">None</span> zurückgegeben wird. Dazu haben wir im Wesentlichen drei Möglichkeiten. Die erste wäre es, die Liste der abzufangenden Exception-Typen im vorhandenen <span class="clisting">except</span>-Zweig um den <span class="clisting">TypeError</span> zu erweitern. Beachten Sie dabei, dass zwei oder mehr Exception-Typen im Kopf eines <span class="clisting">except</span>-Zweiges als Tupel angegeben werden müssen.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">try</span>: 
+   <span class="cfett"> return</span> lst[n]<span class="cfett"> 
+except</span> (IndexError, TypeError): 
+   <span class="cfett"> return</span> None</pre></div>
+<p>Dies ist recht einfach und führt im gewählten Beispiel zu dem gewünschten Resultat. Stellen Sie sich jedoch einmal vor, Sie wollten je nach Exception-Typ verschiedenen Code ausführen. Um ein solches Verhalten erreichen zu können, kann eine <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung über beliebig viele <span class="clisting">except</span>-Zweige verfügen.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">try</span>: 
+   <span class="cfett"> return</span> lst[n]<span class="cfett"> 
+except</span> IndexError: 
+   <span class="cfett"> return</span> None<span class="cfett"> 
+except</span> TypeError: 
+   <span class="cfett"> return</span> None</pre></div>
+<p>Die dritte &#8211; weniger elegante &#8211; Möglichkeit wäre es, alle Exceptions auf einmal abzufangen. Dazu wird einfach ein <span class="clisting">except</span>-Zweig ohne Angabe eines Exception-Typs geschrieben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">try</span>: 
+   <span class="cfett"> return</span> lst[n]<span class="cfett"> 
+except</span>: 
+   <span class="cfett"> return</span> None</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Beachten Sie unbedingt, dass es nur in wenigen Fällen sinnvoll ist, alle möglichen Exceptions auf einmal abzufangen. Durch diese Art Exception Handlings kann es vorkommen, dass unabsichtlich auch Exceptions abgefangen werden, die nichts mit dem obigen Code zu tun haben. Das betrifft unter anderem die <span class="clisting">KeyInterrupt</span>-Exception, die bei einem Programmabbruch per Tastenkombination geworfen wird.</p>
+</td>
+</tr>
+</table><br><p>Eine Exception ist nichts anderes als eine Instanz einer Klasse. Von daher stellt sich die Frage, ob und wie man innerhalb eines <span class="clisting">except</span>-Zweiges Zugriff auf die geworfene Instanz erlangt. Das ist möglich, indem nach dem Tupel der abzufangenden Exception-Typen und durch ein Komma von diesem getrennt ein Bezeichner geschrieben wird. Unter diesem Namen kann nun innerhalb des Codeblocks auf die geworfene Exception zugegriffen werden. Dies könnte folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">try</span>: 
+   <span class="cfett"> print</span> [1,2,3][10]<span class="cfett"> 
+except</span> (IndexError, TypeError), e: 
+   <span class="cfett"> print</span> "Fehlermeldung:", e.message</pre></div>
+<p>Die Ausgabe des obigen Beispiels lautet:</p>
+<div class="listing"><pre class="prettyprint">Fehlermeldung: list index out of range</pre></div>
+<p>Zusätzlich kann eine <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung über einen <span class="clisting">else</span>- und einen <span class="clisting">finally</span>-Zweig verfügen, die jeweils nur ein einziges Mal pro Anweisung vorkommen dürfen. Der dem <span class="clisting">else</span>-Zweig zugehörige Codeblock wird ausgeführt, wenn keine Exception aufgetreten ist, und der dem <span class="clisting">finally</span>-Zweig zugehörige Codeblock wird in jedem Fall nach Behandlung aller Exceptions und nach dem Ausführen des <span class="clisting">else</span>-Zweigs ausgeführt, egal, ob oder welche Exceptions vorher aufgetreten sind. Dieser <span class="clisting">finally</span>-Zweig eignet sich daher besonders für Dinge, die in jedem Fall erledigt werden müssen, wie beispielsweise das Schließen eines Dateiobjekts.</p>
+<p>Beachten Sie, dass sowohl der <span class="clisting">else</span>- als auch der <span class="clisting">finally</span>-Zweig ans Ende der <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung geschrieben werden müssen. Wenn beide Zweige vorkommen, muss der <span class="clisting">else</span>-Zweig vor dem <span class="clisting">finally</span>-Zweig stehen.</p>
+<p><a href="#Rxx_ref181419065">Abbildung 13.3</a> zeigt eine vollständige <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung.</p>
+<div class="bildbox">
+<p><a name="IDA2YSQ"></a><a onClick="OpenWin('bilder/try-except-else-finally.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleintry-except-else-finally.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 13.3    </strong>Eine vollständige <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung</p>
+<p>Abschließend noch einige Bemerkungen dazu, wie eine <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung ausgeführt wird. Zunächst wird der dem <span class="clisting">try</span>-Zweig zugehörige Code ausgeführt. Sollte innerhalb dieses Codes eine Exception geworfen werden, so wird der dem entsprechenden <span class="clisting">except</span>-Zweig zugehörige Code ausgeführt. Ist kein passender <span class="clisting">except</span>-Zweig vorhanden, so wird die Exception nicht abgefangen und endet, wenn sie auch anderswo nicht abgefangen wird, als Traceback auf dem Bildschirm. </p>
+<p>Sollte im <span class="clisting">try</span>-Zweig keine Exception geworfen werden, so wird keiner der <span class="clisting">except</span>-Zweige ausgeführt, sondern zunächst der <span class="clisting">else</span>- und dann der <span class="clisting">finally</span>-Zweig, wobei beide Zweige optional sind. Beachten Sie, dass der <span class="clisting">finally</span>-Zweig in jedem Fall, also auch wenn Exceptions aufgetreten sind, zum Schluss ausgeführt wird.</p>
+<p>Exceptions, die innerhalb eines <span class="clisting">except</span>-, <span class="clisting">else</span>- oder <span class="clisting">finally</span>-Zweiges geworfen werden, werden so behandelt, als würfe die gesamte <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung diese Exception. Exceptions, die in diesen Zweigen geworfen werden, können also nicht von nachfolgenden <span class="clisting">except</span>-Zweigen der gleichen Anweisung wieder abgefangen werden. Es ist jedoch möglich, <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisungen zu verschachteln:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">try</span>: 
+   <span class="cfett"> try</span>: 
+       <span class="cfett"> raise</span> TypeError 
+   <span class="cfett"> except</span> IndexError: 
+       <span class="cfett"> print</span> "Ein IndexError ist aufgetreten"<span class="cfett"> 
+except</span> TypeError: 
+   <span class="cfett"> print</span> "Ein TypeError ist aufgetreten"</pre></div>
+<p>Im <span class="clisting">try</span>-Zweig der inneren <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung wird ein <span class="clisting">TypeError</span> geworfen, der von der Anweisung selbst nicht abgefangen wird. Die Exception wandert dann, bildlich gesprochen, eine Ebene höher und durchläuft die nächste <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung. In dieser wird der geworfene <span class="clisting">TypeError</span> abgefangen und eine entsprechende Meldung ausgegeben. Die Ausgabe des Beispiels lautet also: <span class="clisting">Ein TypeError ist aufgetreten</span>, es wird kein Traceback angezeigt.</p><a id="mj895579472648ac2c14f13006f018c0ab" name="mj895579472648ac2c14f13006f018c0ab"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">13.1.4</span><span class="cfett"> Eigene Exceptions</span>  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Beim Werfen und Abfangen von Exceptions sind Sie nicht auf den eingebauten Satz von Exception-Typen beschränkt, vielmehr können Sie selbst beliebige neue Typen erstellen. Theoretisch brauchen Sie dabei auch keine besonderen Regeln einhalten, denn eine Exception kann eine beliebige selbst definierte Klasse sein.</p>
+<p>Im Programmieralltag werden Sie jedoch vermutlich kaum eine selbst definierte Exception von Grund auf neu schreiben, vielmehr möchten Sie auf das Verhalten der vorhandenen Exception-Typen zurückgreifen und nur Platz für weitere Informationen schaffen oder gar überhaupt keine Änderungen vornehmen.</p>
+<p>In solchen Fällen erstellen Sie eine eigene Klasse, die von einer der eingebauten Exceptions erbt. Dazu bietet sich die Basisklasse <span class="clisting">Exception</span> an. Die folgende Beispielfunktion soll zwei ganze Zahlen dividieren und im Falle einer Division durch Null keinen <span class="clisting">ZeroDivisionError</span>, sondern einen eigenen Exception-Typ mit weiteren Informationen werfen. Dazu definieren wir zunächst eine von <span class="clisting">Exception</span> abgeleitete Klasse und fügen ein Attribut für den Zähler der Division hinzu:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> DivisionByZeroError(Exception): 
+   <span class="cfett"> def</span> __init__(self, z): 
+        self.zaehler = z</pre></div>
+<p>Dann definieren wir die Funktion. Sie erwartet zwei Parameter und gibt das Ergebnis ihrer Division zurück. Wenn der Nenner null ist, wird die soeben erstellte Klasse <span class="clisting">DivisionByZeroError</span> geworfen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> division(z, n): 
+   <span class="cfett"> if</span> n == 0: 
+       <span class="cfett"> raise</span> DivisionByZeroError(z) 
+   <span class="cfett"> return</span> z / n</pre></div>
+<p>Die dem Konstruktor der Klasse übergebenen zusätzlichen Informationen werden im Traceback nicht angezeigt:</p>
+<div class="listing"><pre class="prettyprint">Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+  File "&lt;stdin&gt;", line 4, in division 
+__main__.DivisionByZeroError</pre></div>
+<p>Sie kommen erst zum Tragen, wenn die Exception abgefangen und bearbeitet wird:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">try</span>: 
+    division(12, 0)<span class="cfett"> 
+except</span> DivisionByZeroError, e: 
+   <span class="cfett"> print</span> "Nulldivision: %d / 0" % e.zaehler</pre></div>
+<p>Dieser Code fängt die entstandene Exception ab und gibt daraufhin eine Fehlermeldung aus. Aufgrund der zusätzlichen Informationen, die die Klasse durch das Attribut <span class="clisting">zaehler</span> bereitstellt, lässt sich die vorangegangene Berechnung rekonstruieren. Die Ausgabe des Beispiels lautet:</p>
+<div class="listing"><pre class="prettyprint">Nulldivision: 12 / 0</pre></div>
+<p>Damit eine solche selbst definierte Exception mit weiterführenden Informationen auch eine Fehlermeldung enthalten kann, muss sie die Magic-Function            <span class="clisting">__str__</span> implementieren:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">class</span> DivisionByZeroError(Exception): 
+   <span class="cfett"> def</span> __init__(self, z): 
+        self.zaehler = z 
+ 
+   <span class="cfett"> def</span> __str__(self): 
+       <span class="cfett"> return</span> "Division durch Null"</pre></div>
+<p>Ein Traceback, der durch diese Exception verursacht wird, würde folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> raise</span> DivisionByZeroError(12, 0) 
+Traceback (most recent call last): 
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+__main__.DivisionByZeroError: Division durch Null</pre></div>
+<p>Das Exception Handling hilft ungemein beim Schreiben von strukturiertem und lesbarem Code, sodass Sie diese Techniken verinnerlichen sollten. Wir werden auch im Laufe dieses Buches immer wieder Exceptions verwenden.</p><a id="mjb2e82a98750dc84939d28981bc7dd025" name="mjb2e82a98750dc84939d28981bc7dd025"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">13.1.5</span><span class="cfett"> Erneutes Werfen einer Exception</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In vielen Fällen, gerade bei einer tiefen Funktionshierarchie, ist es sinnvoll, eine Exception abzufangen, die für diesen Fall vorgesehene Fehlerbehandlung zu starten und die Exception danach erneut zu werfen. Dazu folgendes Beispiel:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> funktion3(): 
+   <span class="cfett"> raise</span> TypeError<br>
+<span class="cfett">def</span> funktion2(): 
+    funktion3()<br>
+<span class="cfett">def</span> funktion1(): 
+    funktion2()<br>
+funktion1()</pre></div>
+<p>Im Beispiel wird die Funktion <span class="clisting">funktion1</span> aufgerufen, die ihrerseits <span class="clisting">funktion2</span> aufruft, in der die Funktion <span class="clisting">funktion3</span> aufgerufen wird. Es handelt sich also um insgesamt drei verschachtelte Funktionsaufrufe. Im Innersten dieser Funktionsaufrufe, in <span class="clisting">funktion3</span>, wird eine <span class="clisting">TypeError</span>-Exception geworfen. Diese Exception wird nicht abgefangen, deshalb sieht der dazugehörige Traceback so aus:</p>
+<div class="listing"><pre class="prettyprint">Traceback (most recent call last): 
+  File "test.py", line 10, in &lt;module&gt; 
+    funktion1() 
+  File "test.py", line 8, in funktion1 
+    return funktion2() 
+  File "test.py", line 5, in funktion2 
+    return funktion3() 
+  File "test.py", line 2, in funktion3 
+    raise TypeError 
+TypeError</pre></div>
+<p>Der Traceback beschreibt erwartungsgemäß die Funktionshierarchie zum Zeitpunkt der <span class="clisting">raise</span>-Anweisung. Diese Liste wird auch <span class="ckursiv">Call Stack</span> genannt.</p>
+<p>Der Gedanke, der hinter dem Exception-Prinzip steht, ist der, dass sich eine Exception in der Aufrufhierarchie nach oben arbeitet und an jeder Station abgefangen werden kann. In unserem Beispiel soll die Funktion <span class="clisting">funktion1</span> die <span class="clisting">TypeError</span>-Exception abfangen, damit sie eine spezielle, auf den <span class="clisting">TypeError</span> zugeschnittene Fehlerbehandlung durchführen kann. So könnte dann beispielsweise ein Dateiobjekt geschlossen werden. Nachdem <span class="clisting">funktion1</span> ihre funktionsinterne Fehlerbehandlung durchgeführt hat, soll die Exception weiter nach oben gereicht werden. Dazu wird sie erneut geworfen, wie im folgenden Beispiel:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> funktion3(): 
+   <span class="cfett"> raise</span> TypeError<br>
+<span class="cfett">def</span> funktion2(): 
+    funktion3()<br>
+<span class="cfett">def</span> funktion1(): 
+   <span class="cfett"> try</span>: 
+        funktion2() 
+   <span class="cfett"> except</span> TypeError: 
+        # Fehlerbehandlung 
+       <span class="cfett"> raise</span> TypeError<br>
+funktion1()</pre></div>
+<p>Im Gegensatz zum vorherigen Beispiel sieht der nun auftretende Traceback so aus:</p>
+<div class="listing"><pre class="prettyprint">Traceback (most recent call last): 
+  File "test.py", line 14, in &lt;module&gt; 
+    funktion1() 
+  File "test.py", line 12, in funktion1 
+    raise TypeError 
+TypeError</pre></div>
+<p>Man sieht, dass dieser Traceback Informationen über den Kontext der zweiten <span class="clisting">raise</span>-Anweisung enthält. Diese sind aber gar nicht von Belang, sondern eher ein Nebenprodukt der Fehlerbehandlung innerhalb der Funktion <span class="clisting">funktion1</span>. Optimal wäre es, wenn trotz des temporären Abfangens der Exception in <span class="clisting">funktion1</span> der resultierende Traceback den Kontext der ursprünglichen <span class="clisting">raise</span>-Anweisung beschreiben würde. Um das zu erreichen, wird eine <span class="clisting">raise</span>-Anweisung ohne Angabe eines Exception-Typs geschrieben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> funktion3(): 
+   <span class="cfett"> raise</span> TypeError<br>
+<span class="cfett">def</span> funktion2(): 
+    funktion3()<br>
+<span class="cfett">def</span> funktion1(): 
+   <span class="cfett"> try</span>: 
+        funktion2() 
+   <span class="cfett"> except</span> TypeError, e: 
+        # Fehlerbehandlung 
+       <span class="cfett"> raise</span><br>
+funktion1()</pre></div>
+<p>Der in diesem Beispiel ausgegebene Traceback sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">Traceback (most recent call last): 
+  File "test.py", line 16, in &lt;module&gt; 
+    funktion1() 
+  File "test.py", line 11, in funktion1 
+    funktion2() 
+  File "test.py", line 7, in funktion2 
+    funktion3() 
+  File "test.py", line 4, in funktion3 
+    raise TypeError 
+TypeError</pre></div>
+<p>Sie sehen, dass es sich dabei um den Stacktrace der Stelle handelt, an der die Exception ursprünglich geworfen wurde. Der Traceback enthält damit die gewünschten Informationen über die Stelle, an der der Fehler tatsächlich aufgetreten ist.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_13_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="13 Weitere Spracheigenschaften"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_12_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_13_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

@@ -1,0 +1,438 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 25 Python als serverseitige Programmiersprache im WWW mit Django</title>
+<meta name="title" content="Galileo Computing :: Python - 25 Python als serverseitige Programmiersprache im WWW mit Django">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 25 Python als serverseitige Programmiersprache im WWW mit Django">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_24_008.htm">
+<link rel="next" href="python_kapitel_25_002.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_24_008.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_25_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mjbea967a6f2023581a39d524b6d91a141" class="navh">25 Python als serverseitige Programmiersprache im WWW mit Django</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjdd2204be5ba4b589f486242a81296d16" class="navh">25.1 Installation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_002.htm#mj282c78d53879441971cf422f7721f36b" class="navnav">25.2 Konzepte und Besonderheiten im Überblick</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_003.htm#mje3062b1da2ff670ce178312184ec8595" class="navnav">25.3 Erstellen eines neuen Django-Projekts</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_004.htm#mjd017713d500039b7388cd6501ad75461" class="navnav">25.4 Erstellung der Applikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_005.htm#mjbec4cf343a331c2f9b5c108a6dba8c3b" class="navnav">25.5 Djangos Administrationsoberfläche</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_006.htm#mj191bf16ca79b0cc7c1219aeea3c3f8ea" class="navnav">25.6 Unser Projekt wird öffentlich</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_007.htm#mj1431bc22cc78c16b5a7d0e21d6379f28" class="navnav">25.7 Djangos Template-System</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_008.htm#mj9e4c615e6b781e13841677e90a85ec7f" class="navnav">25.8 Verarbeitung von Formulardaten</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em><span class="ckursiv">»Ich sage voraus, dass sich das Internet bald zu einer Supernova aufbläht und 1996 katastrophal kollabieren wird.« 
+&#8211; Robert Metcalfe</span></em></p><a id="mjbea967a6f2023581a39d524b6d91a141" name="mjbea967a6f2023581a39d524b6d91a141"></a><h1 class="t1"><span class="cfett">25</span><span class="cfett"> Python als serverseitige Programmiersprache im WWW mit Django</span></h1>
+<p>In der heutigen Zeit unterscheidet sich die Technik im World Wide Web drastisch von ihren Anfängen: Das rein informative Netzwerk aus statischen HTML-Seiten hat sich zu einer interaktiven Austauschplattform entwickelt, mit der praktisch alles möglich ist. Man kann über das Internet einkaufen, seinen nächsten Urlaub buchen, die Nachrichten verfolgen, seine sozialen Kontakte in Chats oder auf Community-Seiten pflegen oder sogar bei der Gestaltung von Wissensdatenbanken wie der Wikipedia mitwirken.</p>
+<p>Alle diese neuen Möglichkeiten verdankt das Internet im Wesentlichen den Programmen, die bei einem Aufruf einer Webseite dynamisch HTML-Code mit den geforderten Daten generieren. Die Webprogrammierung war lange Zeit hauptsächlich eine Domäne für die Scriptsprache PHP [PHP (rekursive Abkürzung von<span class="ckursiv"> PHP: Hypertext Preprozessor</span>) ist eine Skriptsprache, die für die Einbettung in HTML-Seiten entwickelt wurde. Die Syntax von PHP ist an die Programmiersprache C angelehnt. Nahezu jeder Hosting-Service bietet heute Unterstützung für PHP-Skripte an.
+] , die sich in der Vergangenheit &#8211; mangels Alternativen &#8211; durchsetzen konnte. Scriptsprachen eignen sich deshalb besonders für die Programmierung von Webanwendungen, weil sich die Entwicklungszeiten gegenüber maschinennahen Programmiersprachen erheblich verkürzen lassen, sodass man schnell neue Funktionen einbauen kann. Außerdem ist gerade bei Programmen im WWW die Ausführungsgeschwindigkeit weniger wichtig, da die meiste Zeit in der Regel nach dem Ende des Programms durch die verhältnismäßig langsame Verbindung zwischen Server und Client verloren geht.</p>
+<p>Heutzutage ist PHP nicht mehr die einzige serverseitige Programmiersprache, die die oben genannten Kriterien erfüllt. An die Seite von PHP gesellen sich Sprachen wie Perl, JAVA, Ruby und im Besonderen auch Python.</p>
+<p>Da Pythons Standardbibliothek nur wenige Module enthält, mit denen sich effiziente Webentwicklung betreiben lässt, wurde für diesen Zweck eine Reihe von sogenannten <span class="ckursiv">Webframeworks</span> entwickelt. Das Ziel dieser Frameworks besteht darin, dem Programmierer die immer wiederkehrenden Aufgaben abzunehmen, die sich bei der Erstellung von dynamischen Internetseiten ergeben. Dazu zählen insbesondere:</p>
+<ul class="gp">
+<li>die Kommunikation mit dem Webserver</li>
+</ul>
+<ul class="gp">
+<li>die Generierung von HTML-Ausgaben durch Template-Systeme</li>
+</ul>
+<ul class="gp">
+<li>der Zugriff auf Datenbanken</li>
+</ul>
+<p>Im Optimalfall braucht der Entwickler sich nicht mehr um die Besonderheiten der Datenbank und des Servers zu kümmern, sondern kann sich darauf konzentrieren, die Funktionen seiner Anwendung zu implementieren.</p>
+<p>Es gibt sehr viele Webframeworks für Python, die alle ihre Vor- und Nachteile haben. Wir werden im Rahmen dieses Buchs ein Framework namens <span class="ckursiv">Django</span> behandeln, das sich durch seinen Funktionsumfang, seine Eleganz und seine weite Verbreitung auszeichnet. Um Sie mit den Grundlagen von Django vertraut zu machen, werden wir eine kleine Webanwendung implementieren, die News-Beiträge verwalten kann. Außerdem wird es für die Besucher der Seite möglich sein, Kommentare zu den einzelnen Meldungen abzugeben.</p>
+<p>Django ist ein relativ junges Framework, das 2005 zum ersten Mal veröffentlicht wurde. Es ist  kostenlos unter der BSD-Lizenz verfügbar und ist besonders für die Entwicklung komplexer, datenbankgestützter Anwendungen konzipiert.</p>
+<p>Aufgrund des großen Umfangs von Django werden wir Ihnen in diesem Kapitel nur grundlegendes Wissen vermitteln können. Es gibt aber im Internet sehr viel gute Dokumentation zum Thema Django. Besonders sei Ihnen dabei die Homepage des Projekts, <a href="http://www.djangoproject.com">http://www.djangoproject.com</a>, ans Herz gelegt.</p><a id="mjdd2204be5ba4b589f486242a81296d16" name="mjdd2204be5ba4b589f486242a81296d16"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">25.1</span><span class="cfett"> Installation</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Wir werden in diesem Abschnitt die Installation des Moduls <span class="ckursiv">Django</span> beschreiben, die notwendig ist, um Django-Anwendungen zu entwickeln. Wie Sie fertige Anwendungen auf einem Webserver der Öffentlichkeit zur Verfügung stellen, können Sie in der Django-Dokumentation auf <a href="http://www.djangoproject.org/">http://www.djangoproject.org/</a> nachlesen. [Stichwörter dazu sind Apache-Webserver, <span class="clisting">mod_python</span> und WSGI.
+] </p>
+<p>Django befindet sich zum aktuellen Zeitpunkt (Oktober 2007) in einer sehr schnellen Entwicklung. Seit dem letzten offiziellen Release mit der Versionsnummer 0.96 vom 23.03.2007 hat sich Django stark verändert. So wurden viele neue Features hinzugefügt und Fehler beseitigt. Aus diesem Grund raten die Django-Entwickler von der Verwendung der Version 0.96 ab und empfehlen, die aktuelle Entwicklerversion direkt aus dem <span class="ckursiv">SVN-Repository</span> [<em><strong>Subversion</strong></em> (<em><strong>SVN</strong></em>) ist ein System, mit dem Entwickler ihren Quellcode komfortabel verwalten können. Außerdem ist es uns als Benutzern der Programme über SVN möglich, auf die aktuellen Quellen zuzugreifen.
+]  zu laden.</p>
+<p>Wegen dieser Empfehlung und der Tatsache, dass Django sich bis zur geplanten Version 1.0 in vielen Punkten von der Version 0.96 unterscheiden wird, haben wir uns entschlossen, die SVN-Version zu beschreiben.</p>
+<p>Um auf das SVN-Repository von Django zugreifen zu können, müssen Sie die SVN-Software auf Ihrem Computer installieren. Wenn Sie unter Linux arbeiten, können Sie in der Paket-Datenbank Ihrer Distribution nachsehen. In der Regel sollte sich dort ein entsprechendes Paket finden. Windows-Benutzer finden eine Installationsdatei für SVN auf der Buch-CD.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Wenn Sie Linux einsetzen, ist es nicht unwahrscheinlich, dass Ihre Distribution bereits aktuelle SVN-Snapshots von Django als Paket anbietet. Ist dies der Fall, können Sie besser darauf zurückgreifen und sich so die manuelle Installation ersparen.</p>
+</td>
+</tr>
+</table><br><p>Die Installation von Django erfolgt in den folgenden Schritten:</p>
+<h4 class="t4"><span class="cfett">Herunterladen des aktuellen Quellcodes</span></h4>
+<p>Erstellen Sie einen Ordner, in dem Sie den Quellcode von Django abspeichern möchten. Wir haben als Beispiel den Ordner <span class="ckursiv">C:\django-svn</span> gewählt. Nun öffnen Sie eine Kommandozeile und navigieren in den neu erstellten Ordner.</p>
+<p>Den aktuellen Quellcode können Sie mit der folgenden Anweisung aus dem SVN-Repository laden: [Die Zahl <span class="clisting">6525</span> im Listing wird sich wahrscheinlich von der Ausgabe auf Ihrem Bildschirm unterscheiden, denn es handelt sich dabei um eine Art Versionsnummer.
+] </p>
+<div class="listing"><pre class="prettyprint">$ svn co http://code.djangoproject.com/svn/django/trunk/ 
+... 
+Checked out revision 6525.</pre></div>
+<p>Das Herunterladen der Daten kann je nach Verbindungsgeschwindigkeit Ihres Rechners einige Zeit in Anspruch nehmen.</p>
+<h4 class="t4"><span class="cfett">Das Django-Modul für Python importierbar machen</span></h4>
+<p>Damit Sie den Code nutzen können, muss Python das Django-Modul importieren können. Um das zu erreichen, gibt es mehrere Methoden, die je nach Ihrem Betriebssystem unterschiedlich gut für Sie geeignet sind.</p>
+<h5 class="t5"><span class="cfett">Windows XP</span></h5>
+<p>Unter Windows erstellen Sie am besten eine Umgebungsvariable namens <span class="clisting">PYTHONPATH</span>, die auf den Ordner <span class="ckursiv">trunk</span> im Verzeichnis <span class="ckursiv">django-svn</span> verweist. Dies können Sie in den Systemeigenschaften erledigen, die sich dadurch öffnen lassen, dass sie mit der rechten Maustaste auf <span class="cfett">Arbeitsplatz</span> und im erscheinenden Kontextmenü auf <span class="cfett">Eigenschaften</span> klicken.</p>
+<p>Auf der Registerkarte <span class="cfett">Erweitert</span> klicken Sie dann auf den Button <span class="cfett">Umgebungsvariablen</span>. Anschließend erstellen Sie die neue Umgebungsvariable durch einen Klick auf den Button <span class="cfett">Neu</span> oben im sich öffnenden Fenster. Nun können Sie die Werte für die neue Umgebungsvariable eingeben, wobei Sie den Pfad an den Ordner anpassen müssen, in dem Sie den Quellcode von Django gespeichert haben:</p>
+<div class="bildbox">
+<p><a name="IDAEFSQ"></a><a onClick="OpenWin('bilder/django_installation_umgebungsvariable.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindjango_installation_umgebungsvariable.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 25.1    </strong>Umgebungsvariable PYTHONPATH anlegen</p>
+<p>Nun können Sie Python starten und prüfen, ob Sie <span class="clisting">django</span> importieren können:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> django 
+&gt;&gt;&gt;</pre></div>
+<p>Erscheint keine Fehlermeldung beim Importieren des Moduls <span class="clisting">django</span>, ist der größte Teil der Konfiguration abgeschlossen.</p>
+<h5 class="t5"><span class="cfett">Linux und Mac  OS X</span></h5>
+<p>Unter Linux oder Mac  OS X setzen Sie am besten einen symbolischen Link auf das Verzeichnis <span class="ckursiv">django-svn/trunk/django</span> in den Python-Ordner <span class="ckursiv">site-packages</span>. Wo sich <span class="ckursiv">site-packages</span> befindet, können Sie folgendermaßen ermitteln:</p>
+<div class="listing"><pre class="prettyprint">$ python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"<br>
+/usr/lib/python2.5/site-packages</pre></div>
+<p>Jetzt können Sie den symbolischen Link erzeugen, wenn Sie sich mit der Kommandozeile in dem Verzeichnis befinden, in das Sie den Django-Code heruntergeladen haben:</p>
+<div class="listing"><pre class="prettyprint">$ ln -s `pwd`/django-trunk/django /usr/lib/python2.5/site-packages/django</pre></div>
+<h5 class="t5"><span class="cfett">Abschluss der Installation</span></h5>
+<p>Wir werden im weiteren Verlauf des Abschnitts das Programm <span class="ckursiv">django-admin</span><span class="ckursiv">.py</span> im Verzeichnis <span class="ckursiv">C:\django-svn\trunk\django\bin</span> verwenden. Damit Sie nicht immer den kompletten Pfad angeben müssen, sollten Sie das Programm <span class="ckursiv">django-admin.py</span> in einen Ordner kopieren, der in der Umgebungsvariable <span class="clisting">PATH</span> angegeben ist.</p>
+<p>Dafür kommt unter Linux beispielsweise der Pfad <span class="ckursiv">/usr/local/bin</span> und unter Windows üblicherweise der Pfad <span class="ckursiv">C:\Windows</span> infrage.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_25_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="25 Python als serverseitige Programmiersprache im WWW mit Django"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_24_008.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_25_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

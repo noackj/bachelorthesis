@@ -1,0 +1,49 @@
+\select@language {ngerman}
+\contentsline {chapter}{Kurzfassung}{1}
+\contentsline {chapter}{\numberline {1}Einleitung}{4}
+\contentsline {section}{\numberline {1.1}Ziele dieser Arbeit}{7}
+\contentsline {section}{\numberline {1.2}Gliederung der Arbeit}{8}
+\contentsline {chapter}{\numberline {2}Grundlagen}{9}
+\contentsline {section}{\numberline {2.1}Systemkonzept ADAS Test System}{9}
+\contentsline {section}{\numberline {2.2}ADTF}{11}
+\contentsline {subsection}{\numberline {2.2.1}Vorstellung der Software}{11}
+\contentsline {subsection}{\numberline {2.2.2}Python-Schnittstelle}{13}
+\contentsline {section}{\numberline {2.3}Python}{13}
+\contentsline {subsection}{\numberline {2.3.1}Vorstellung der Skriptsprache Python}{13}
+\contentsline {subsection}{\numberline {2.3.2}Unterschiede zu anderen Hochsprachen}{13}
+\contentsline {subsection}{\numberline {2.3.3}Parallele Programmierung}{14}
+\contentsline {section}{\numberline {2.4}Digitale Kommunikationsarchitekturen}{15}
+\contentsline {subsection}{\numberline {2.4.1}Client-Server-System}{15}
+\contentsline {subsection}{\numberline {2.4.2}Kommunikationsprotokoll TCP}{17}
+\contentsline {section}{\numberline {2.5}Testautomatisierungsadapter f\IeC {\"u}r ADTF}{17}
+\contentsline {chapter}{\numberline {3}Anforderungsanalyse Measurement Device}{18}
+\contentsline {section}{\numberline {3.1}Steuerung von ADTF}{18}
+\contentsline {section}{\numberline {3.2}Testkampagnenmanagement}{19}
+\contentsline {section}{\numberline {3.3}Online-Auswertung}{20}
+\contentsline {section}{\numberline {3.4}Initialisierung und Fehlermanagement}{21}
+\contentsline {chapter}{\numberline {4}Entwurf Measurement Device}{24}
+\contentsline {section}{\numberline {4.1}Verwendung des TAA}{24}
+\contentsline {section}{\numberline {4.2}Gesamtkonzept}{25}
+\contentsline {section}{\numberline {4.3}ADTF Adapter}{28}
+\contentsline {subsection}{\numberline {4.3.1}Kommunikationsadapter}{29}
+\contentsline {subsection}{\numberline {4.3.2}ADTF Steuerung}{33}
+\contentsline {subsection}{\numberline {4.3.3}Kommunikationsprotokoll}{35}
+\contentsline {section}{\numberline {4.4}Filtergraph}{41}
+\contentsline {section}{\numberline {4.5}Testkampagnenmanagement}{42}
+\contentsline {section}{\numberline {4.6}Online-Auswertung}{43}
+\contentsline {chapter}{\numberline {5}Implementierung und Test des ADTF Adapters}{49}
+\contentsline {section}{\numberline {5.1}Test des PSS}{50}
+\contentsline {section}{\numberline {5.2}Struktur des Skriptes}{50}
+\contentsline {section}{\numberline {5.3}Programmablauf}{53}
+\contentsline {subsection}{\numberline {5.3.1}Konfiguration Laden}{54}
+\contentsline {subsection}{\numberline {5.3.2}Alive-Counter}{57}
+\contentsline {subsection}{\numberline {5.3.3}Online-Analyse}{57}
+\contentsline {section}{\numberline {5.4}Vorgehen beim Test des ADTF Adapters}{62}
+\contentsline {chapter}{\numberline {6}Zusammenfassung}{65}
+\contentsline {section}{\numberline {6.1}Zusammenfassung und Bewertung}{65}
+\contentsline {section}{\numberline {6.2}Ausblick}{66}
+\contentsline {chapter}{\numberline {A}Anhang}{70}
+\contentsline {section}{\numberline {A.1}Verwendete Software}{71}
+\contentsline {section}{\numberline {A.2}Inhalt der Disc}{71}
+\contentsline {section}{\numberline {A.3}Bedienungsanleitung}{72}
+\contentsline {chapter}{Eidesstattliche Versicherung}{73}

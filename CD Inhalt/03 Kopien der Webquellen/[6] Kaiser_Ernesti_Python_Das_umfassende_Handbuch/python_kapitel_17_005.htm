@@ -1,0 +1,541 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 17.5 Kommandozeilenparameter &#8211; optparse</title>
+<meta name="title" content="Galileo Computing :: Python - 17.5 Kommandozeilenparameter &#8211; optparse">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 17.5 Kommandozeilenparameter &#8211; optparse">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_17_004.htm">
+<link rel="next" href="python_kapitel_17_006.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_17_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_17_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38" class="navnav">17 Schnittstelle zum Betriebssystem</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_001.htm#mj77e936b71966154869b7d24a1574b1df" class="navnav">17.1 Funktionen des Betriebssystems &#8211; os</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_001.htm#mj3ff7a541af35722b98a3a8fd78f762ff" class="navnav">17.1.1 Zugriff auf den eigenen Prozess und andere Prozesse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_001.htm#mj9ed2c275d7bfba6527100a0e902359a9" class="navnav">17.1.2 Zugriff auf das Dateisystem</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_002.htm#mj5ab2f76578af6aa33e677a2a7512c746" class="navnav">17.2 Umgang mit Pfaden &#8211; os.path</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_003.htm#mj97b5c269a76139d85f7ed0c69a992072" class="navnav">17.3 Zugriff auf die Laufzeitumgebung &#8211; sys</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mjff3bf28f7c46dba2812a48ea44e6c439" class="navnav">17.3.1 Konstanten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mj5712860f2c6affdb1abfb994add18e1f" class="navnav">17.3.2 Exceptions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mj711f6ced68c90e735afd07cedd438f99" class="navnav">17.3.3 Hooks</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mj10a59e950befd97269ece0155ad0a2db" class="navnav">17.3.4 Sonstige Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_004.htm#mjc5f177869459290f657b77629ea88776" class="navnav">17.4 Informationen über das System &#8211; platform</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_004.htm#mj33d8f846c9c856f68871e8b0263b2819" class="navnav">17.4.1 Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj811770aef1f82a99f21bfeae941a3fe6" class="navh">17.5 Kommandozeilenparameter &#8211; optparse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj71f8556c1b5b0cd6ec963d0aaffa2296" class="navh">17.5.1 Taschenrechner &#8211; ein einfaches Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mja82de697442f64f8b7d1386535b413c3" class="navh">17.5.2 Weitere Verwendungsmöglichkeiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_006.htm#mjc96b1149114c87b8cb9ce33af7a7f2d0" class="navnav">17.6 Kopieren von Instanzen &#8211; copy</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_007.htm#mj8b1cfd55535f4741469c6ea432d9a846" class="navnav">17.7 Zugriff auf das Dateisystem &#8211; shutil</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_008.htm#mj764aaa21ce7136bc5cea7bf42d82c9da" class="navnav">17.8 Das Programmende &#8211; atexit</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj811770aef1f82a99f21bfeae941a3fe6" name="mj811770aef1f82a99f21bfeae941a3fe6"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">17.5</span><span class="cfett"> Kommandozeilenparameter &#8211; optparse</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Im vorletzten Abschnitt wurde gesagt, dass man über <span class="clisting">sys.argv</span> auf die Kommandozeilenparameter zugreifen kann, die beim Aufruf des Programms übergeben wurden. Das ist richtig und funktioniert. Das Modul <span class="clisting">optparse</span> erlaubt Ihnen jedoch einen wesentlich komfortableren Umgang mit Kommandozeilenparametern.</p>
+<p>Doch zunächst möchten wir uns allgemein mit der Thematik der Kommandozeilenparameter befassen. Bislang wurden hier ausschließlich Konsolenprogramme behandelt, das heißt Programme, die eine rein textbasierte Schnittstelle zum Benutzer haben. Solche Programme werden üblicherweise aus einer Konsole, auch <span class="ckursiv">Shell</span> genannt, gestartet. Eine Konsole ist beispielsweise die »Eingabeaufforderung« unter Windows.</p>
+<p>Unter Windows wird ein Python-Programm aus der Eingabeaufforderung heraus gestartet, indem in das Programmverzeichnis gewechselt und dann der Name der Programmdatei eingegeben wird. Hinter dem Namen können jetzt zum einen sogenannte <span class="ckursiv">Option</span><span class="ckursiv">en</span> und zum anderen sogenannte <span class="ckursiv">Argument</span><span class="ckursiv">e</span> übergeben werden:</p>
+<ul class="gp">
+<li>Ein Argument wird einfach hinter den Namen der Programmdatei geschrieben. Um einen Vergleich zu Funktionsparametern zu ziehen, könnte man von <span class="ckursiv">positional arguments</span> sprechen. Das bedeutet vor allem, dass die Argumente anhand ihrer Reihenfolge zugeordnet werden. Ein Programmaufruf mit drei Argumenten könnte beispielsweise folgendermaßen aussehen:</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">programm.py karl 1337 heinz</pre></div>
+</blockquote>
+<ul class="gp">
+<li>Neben den Argumenten können Optionen übergeben werden. Optionen sind, wie der Name sagt, optional und deshalb <span class="ckursiv">keyword arguments</span>. Das bedeutet, dass jede Option einen Namen hat und über diesen angesprochen wird. Beim Programmaufruf müssen Optionen vor den Argumenten geschrieben und jeweils durch einen Bindestrich eingeleitet werden. Dann folgen der Optionsname, ein Leerzeichen und der gewünschte Wert. Ein Programmaufruf mit Optionen und Argumenten könnte also folgendermaßen aussehen:</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">programm.py -a karl -b heinz -c 1337 hallo welt</pre></div>
+</blockquote>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>In diesem Fall existieren drei Optionen namens <span class="clisting">a</span>, <span class="clisting">b</span> und <span class="clisting">c</span> mit den Werten <span class="clisting">"karl"</span>, <span class="clisting">"heinz"</span> und <span class="clisting">1337</span>. Zudem wurden zwei Argumente angegeben, die Strings <span class="clisting">"hallo"</span> und <span class="clisting">"welt"</span>.</li>
+</ul>
+</li>
+</ul>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>Neben diesen parameterbehafteten Optionen gibt es parameterlose Optionen, die mit einem Flag vergleichbar sind. Das bedeutet, dass sie entweder vorhanden (aktiviert) oder nicht vorhanden (deaktiviert) sind:</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">programm.py -a -b 1 hallo welt</pre></div>
+</blockquote>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>In diesem Fall handelt es sich bei <span class="clisting">a</span> um eine parameterlose Option.</li>
+</ul>
+</li>
+</ul>
+<p>Im Weiteren soll die Verwendung des Moduls optparse anhand zweier Beispiele besprochen werden.</p><a id="mj71f8556c1b5b0cd6ec963d0aaffa2296" name="mj71f8556c1b5b0cd6ec963d0aaffa2296"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">17.5.1</span><span class="cfett"> Taschenrechner &#8211; ein einfaches Beispiel</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das erste Beispiel soll ein einfacher Taschenrechner sein, bei dem sowohl die Rechenoperation als auch die Operanden über Kommandozeilenparameter angegeben werden. Das Programm soll folgendermaßen aufgerufen werden können:</p>
+<div class="listing"><pre class="prettyprint">calc.py -o plus 7 5 
+calc.py -o minus 13 29 
+calc.py -o mal 4 11 
+calc.py -o geteilt 3 2</pre></div>
+<p>Das bedeutet, dass über die Option <span class="clisting">-o</span> eine Rechenoperation festgelegt werden kann, die auf die beiden folgenden Argumente angewendet wird. Wenn die Option nicht angegeben wurde, sollen die Argumente addiert werden.</p>
+<p>Zu Beginn des Programms muss die Klasse <span class="clisting">OptionParser</span> des Moduls <span class="clisting">optparse</span> eingebunden und instanziiert werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> optparse<span class="cfett"> import</span> OptionParser 
+parser = OptionParser()</pre></div>
+<p>Jetzt können durch die Methode <span class="clisting">add_option</span> der <span class="clisting">OptionParser</span>-Instanz erlaubte Optionen hinzugefügt werden. In unserem Fall ist es nur eine:</p>
+<div class="listing"><pre class="prettyprint">parser.add_option("-o", "--operation", dest="operation")</pre></div>
+<p>Der erste Parameter der Methode gibt den Kurznamen der Option an. Jede Option ist auch mit einer ausgeschriebenen Version des Namens verwendbar, sofern diese Alternative durch Angabe des zweiten Parameters gegeben ist. In diesem Fall wären die Optionen <span class="clisting">-o</span> und <span class="clisting">--operation</span> gleichbedeutend. Der letzte Parameter, ein <span class="ckursiv">keyword argument</span> wohlgemerkt, gibt an, unter welchem Namen der Wert der Option später im Programm verfügbar gemacht werden soll.</p>
+<p>Nachdem alle Optionen hinzugefügt worden sind, wird die Methode <span class="clisting">parse_args</span> aufgerufen, die die Kommandozeilenparameter ausliest und in der gewünschten Form aufbereitet.</p>
+<div class="listing"><pre class="prettyprint">(optionen, args) = parser.parse_args()</pre></div>
+<p>Die Methode gibt ein Tupel mit zwei Werten zurück: zum einen eine Instanz, die alle übergebenen Optionen enthält (<span class="clisting">optionen</span>), und zum anderen eine Liste mit allen weiteren Argumenten (<span class="clisting">args</span>).</p>
+<p>Um korrekt arbeiten zu können, müssen dem Taschenrechner-Programm exakt zwei Argumente übergeben worden sein, was wir an dieser Stelle im Quelltext überprüfen. Wenn die Anzahl der Argumente ungleich zwei ist, kann keine Berechnung durchgeführt werden und das Programm beendet sich:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if</span> len(args) != 2: 
+    parser.error("Es werden exakt zwei Argumente erwartet")</pre></div>
+<p>Für Fehler, die aufgrund falscher oder fehlender Kommandozeilenparameter auftreten, eignet sich die Methode <span class="clisting">error</span> der <span class="clisting">OptionParser</span>-Instanz, die eine entsprechende Fehlermeldung ausgibt und das Programm beendet.</p>
+<p>Als Nächstes legen wir ein Dictionary an, das alle möglichen Rechenoperationen als Schlüssel und die dazugehörigen Berechnungsfunktionen als jeweiligen Wert enthalten. Die Schlüssel sind dieselben, die über die Option <span class="clisting">-o</span> angegeben werden können, sodass wir anhand des bei der Option übergebenen Strings direkt auf die zu verwendende Berechnungsfunktion schließen können:</p>
+<div class="listing"><pre class="prettyprint">calc = { 
+       "plus" :<span class="cfett"> lambda</span> a, b: a + b, 
+       "minus" :<span class="cfett"> lambda</span> a, b: a - b, 
+       "mal" :<span class="cfett"> lambda</span> a, b: a * b, 
+       "geteilt" :<span class="cfett"> lambda</span> a, b: a / b, 
+       None :<span class="cfett"> lambda</span> a, b: a + b 
+       }</pre></div>
+<p>Prinzipiell braucht jetzt nur noch der Wert ausgelesen werden, der mit der Option <span class="clisting">-o</span> übergeben wurde. Der Zugriff auf eine Option ist anhand der von <span class="clisting">parse_args</span> zurückgegebenen Instanz <span class="clisting">optionen</span> relativ einfach, da jede Option unter ihrem gewählten Namen als Attribut dieser Instanz verfügbar ist. Der von uns gewählte Name für die Option <span class="clisting">-o</span> war <span class="clisting">operation</span>.</p>
+<div class="listing"><pre class="prettyprint">op = optionen.operation<span class="cfett"> 
+if</span> op<span class="cfett"> in</span> calc: 
+   <span class="cfett"> print</span> "Ergebnis:", calc[op](float(args[0]), float(args[1]))<span class="cfett"> 
+else</span>: 
+    parser.error("%s ist keine Operation" % op)</pre></div>
+<p>Beachten Sie, dass im Falle einer nicht angegebenen Option das entsprechende Attribut nicht etwa nicht vorhanden ist, sondern lediglich <span class="clisting">None</span> referenziert. Da <span class="clisting">None</span> im Dictionary <span class="clisting">calc</span> als Schlüssel geführt wird und auf die Berechnungsfunktion der Addition verweist, werden die beiden Argumente in einem solchen Fall schlicht zusammengezählt.</p><a id="mja82de697442f64f8b7d1386535b413c3" name="mja82de697442f64f8b7d1386535b413c3"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">17.5.2</span><span class="cfett"> Weitere Verwendungsmöglichkeiten</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In diesem Abschnitt soll das Beispielprogramm des letzten Abschnitts dahingehend erweitert werden, dass weitere Verwendungsmöglichkeiten des Moduls <span class="clisting">optparse</span> hervorgehoben werden. Hier sehen Sie zunächst den Quellcode des veränderten Beispielprogramms:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> optparse<span class="cfett"> import</span> OptionParser<br>
+parser = OptionParser("calc2.py [Optionen] Operand1 Operand2") 
+parser.add_option("-o", "--operation", dest="operation", 
+                  help="Rechenoperation") 
+parser.add_option("-v", "--verbose", action="store_true", 
+                  dest="verbose", default=False, 
+                  help="Schwafelmodus")<br>
+(optionen, args) = parser.parse_args()<span class="cfett"> 
+if</span> len(args) != 2: 
+    parser.error("Es werden exakt zwei Argumente erwartet")<br>
+calc = { 
+       "plus" :<span class="cfett"> lambda</span> a, b: a + b, 
+       "minus" :<span class="cfett"> lambda</span> a, b: a - b, 
+       "mal" :<span class="cfett"> lambda</span> a, b: a * b, 
+       "geteilt" :<span class="cfett"> lambda</span> a, b: a / b, 
+       None :<span class="cfett"> lambda</span> a, b: a + b 
+       }<br>
+<span class="cfett">if</span> optionen.verbose: 
+   <span class="cfett"> print</span> "Das Ergebnis wird berechnet" 
+op = optionen.operation<span class="cfett"> 
+if</span> op<span class="cfett"> in</span> calc: 
+   <span class="cfett"> print</span> "Ergebnis:", calc[op](float(args[0]), float(args[1]))<span class="cfett"> 
+else</span>: 
+    parser.error("%s ist keine Operation" % op)</pre></div>
+<p>Zunächst einmal werden Sie feststellen, dass bei der Instanziierung von <span class="clisting">Option</span> <span class="clisting">Parser</span> ein String übergeben wurde. Zusätzlich haben auch die Aufrufe der Methode <span class="clisting">add_option</span> ein weiteres <span class="ckursiv">keyword argument</span> namens <span class="clisting">help</span> spendiert bekommen. Diese Angaben sind zwar nicht notwendig, sollten jedoch getätigt werden, da die <span class="clisting">OptionParser</span>-Instanz aus den dort übergebenen Strings automatisch eine Hilfeseite generiert, wenn das Programm mit den Optionen <span class="clisting">-h</span> oder        <span class="clisting">--help</span> gestartet wird. In dieser Hilfeseite wird die Verwendung des Programms kurz umrissen. Dazu gehört eine Auflistung aller möglichen Optionen, jeweils mit einem kurzen erläuternden Satz. Für das obige Beispiel sieht der Hilfetext folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">Usage: calc2.py [Optionen] Operand1 Operand2 
+ 
+Options: 
+  -h, --help            show this help message and exit 
+  -o OPERATION, --operation=OPERATION 
+                        Rechenoperation 
+  -v, --verbose         Schwafelmodus</pre></div>
+<p>Zusätzlich zu der bereits im ursprünglichen Beispielprogramm vorhandenen Option <span class="clisting">-o</span> wurde eine weitere Option namens <span class="clisting">-v</span> bzw. <span class="clisting">--verbose</span> angelegt. Viele bekannte Programme verwenden die Option <span class="clisting">-v</span> als Schalter, um das Programm in eine Art geschwätzigen Zustand zu versetzen. Das bedeutet, dass auch nicht essenzielle Statusmeldungen auf dem Bildschirm ausgegeben werden. Diese Funktionalität soll auch unser Beispielprogramm bekommen. Der geschwätzige Modus soll aktiviert werden, wenn <span class="clisting">-v</span> oder <span class="clisting">--verbose</span> angegeben wurden, und sonst deaktiviert bleiben. Programmintern sollte die Option daher als boolescher Wert ankommen.</p>
+<p>Dazu werden der Methode <span class="clisting">add_option</span> zwei weitere <span class="ckursiv">keyword arguments</span> übergeben. Zum einen wird der Parameter <span class="clisting">action</span> auf <span class="clisting">"store_true"</span> gesetzt, was bedeutet, dass das dazugehörige Attribut <span class="clisting">verbose</span> auf <span class="clisting">True</span> gesetzt wird, wenn die Option <span class="clisting">-v</span> vorhanden ist. Analog dazu wäre auch <span class="clisting">"store_false"</span> für den umgekehrten Fall möglich gewesen.</p>
+<p>Der zweite neue Parameter ist die Angabe eines Default-Wertes. Das ist der Wert, den das dazugehörige Attribut <span class="clisting">vebose</span> annimmt, wenn die Option <span class="clisting">-v</span> nicht vorhanden ist.</p>
+<p>Der resultierende boolesche Wert <span class="clisting">optionen.verbose</span> wird im Programm abgefragt, und dann wird eventuell eine zugegebenermaßen sinnlose Statusmeldung ausgegeben. Die Ausgabe des Programms sieht bei Angabe der Option <span class="clisting">-v</span> folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint">Das Ergebnis wird berechnet 
+Ergebnis: 19.0</pre></div>
+<p>Damit wäre der grundlegende Funktionsumfang von <span class="clisting">optparse</span> erläutert.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_17_005.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="17.5 Kommandozeilenparameter &#8211; optparse"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_17_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_17_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

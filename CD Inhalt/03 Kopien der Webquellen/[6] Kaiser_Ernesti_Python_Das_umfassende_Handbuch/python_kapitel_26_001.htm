@@ -1,0 +1,774 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 26 Anbindung an andere Programmiersprachen</title>
+<meta name="title" content="Galileo Computing :: Python - 26 Anbindung an andere Programmiersprachen">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 26 Anbindung an andere Programmiersprachen">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_25_008.htm">
+<link rel="next" href="python_kapitel_26_002.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_25_008.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_26_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj43e9e45f2e92366984e5b113f832514f" class="navh">26 Anbindung an andere Programmiersprachen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj79293d95df76d9b449a1e6e806fd1fa1" class="navh">26.1 Dynamisch ladbare Bibliotheken &#8211; ctypes</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj1c24ac56e553b4b791199dbfcba82c9b" class="navh">26.1.1 Ein einfaches Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mje61621c82f7956ef7804559ec3d1346d" class="navh">26.1.2 Die eigene Bibliothek</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjcfd01d151b691d22000db87b26aabc88" class="navh">26.1.3 Schnittstellenbeschreibung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj39ee465fe9dbac00d4eef8eee39b23db" class="navh">26.1.4 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_26_002.htm#mje3a3733f3f8de78f7ba77dd8e0ac5901" class="navnav">26.2 Schreiben von Extensions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_002.htm#mj4dea29d71bb2ed5b16ac651367b420d4" class="navnav">26.2.1 Ein einfaches Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_002.htm#mj07ab783270f2137d940528c629ec76b2" class="navnav">26.2.2 Exceptions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_002.htm#mj4d44675e63b648fe7fb94e305a18b192" class="navnav">26.2.3 Erzeugen der Extension</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_002.htm#mj082b77d3a9087beb91b7ee7b4fb57796" class="navnav">26.2.4 Reference Counting</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_26_003.htm#mjc6b49d1c4e0ceb18304013caf898a2e0" class="navnav">26.3 Python als eingebettete Skriptsprache</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_003.htm#mj0d2f049d403e75f2bad50133564f01e5" class="navnav">26.3.1 Ein einfaches Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_003.htm#mj2ba31933b924c7593b5e7dfb0e8d423a" class="navnav">26.3.2 Ein komplexeres Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_26_003.htm#mj62d29fde1147d5eccb00da7f6cafa3d6" class="navnav">26.3.3 Python-API-Referenz</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em><span class="ckursiv">»Wenn die Sprache nicht stimmt, ist das, was gesagt wird, nicht das, was gemeint ist.« 
+&#8211; Konfuzius</span></em></p><a id="mj43e9e45f2e92366984e5b113f832514f" name="mj43e9e45f2e92366984e5b113f832514f"></a><h1 class="t1"><span class="cfett">26</span><span class="cfett"> <a id="Rxx_ref180767019" name="Rxx_ref180767019"></a>Anbindung an andere Programmiersprachen</span></h1>
+<p>Dieser Abschnitt beschäftigt sich mit der Interoperabilität zwischen Python und anderen Programmiersprachen, hier ausschließlich C. Grundsätzlich gibt es dabei zwei Strategien, ein Programm zu schreiben, das Python mit einer anderen Sprache kombiniert:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>1.</strong></td>
+<td valign="top" width="100%" align="left"> In einem Python-Programm soll C-Code ausgeführt werden.</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td valign="top" width="10"><strong>2.</strong></td>
+<td valign="top" width="100%" align="left"> In einem C-Programm soll ein Python-Script ausgeführt werden.</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table>
+<p>Zu 1.: In einem größeren Projekt kann Python als sehr komfortable und gut zu wartende Sprache beispielsweise für die Programmlogik eingesetzt werden, während man einige wenige zeitkritische Algorithmen des Projekts aus Effizienzgründen in einer nicht interpretierten Sprache wie C oder C++ schreibt. Zu diesem Ansatz besprechen wir im ersten Abschnitt, wie Sie mit dem Modul <span class="clisting">ctypes</span> der Standardbibliothek auf dynamische Bibliotheken, beispielsweise Windows-DLLs, zugreifen können. Der zweite Abschnitt soll Möglichkeiten aufzeigen, C- oder C++-Code direkt in den Python-Quelltext einzubetten.</p>
+<p>Zu 2.: Häufig möchte man auch den umgekehrten Weg beschreiten und in einem größeren C/C++-Projekt Python als eingebettete Scriptsprache für dynamische Elemente des Programms verwenden. In einem Computerspiel könnte beispielsweise C/C++ für die hauptsächlich laufzeitkritische Hauptanwendung und die gesamte Algorithmik verwendet werden, während Python für die dynamischen Elemente des Spiels, beispielsweise Ereignisse in bestimmten Leveln oder das Verhalten verschiedener Spielfiguren, verwendet wird. Dieser Ansatz soll in Abschnitt <a href="#Rxx_ref180774079">26.3</a> verfolgt werden.</p>
+<p>Grundsätzlich benötigen Sie zum Verständnis der folgenden Kapitel zumindest rudimentäre Kenntnisse der Programmiersprache C.</p><a id="mj79293d95df76d9b449a1e6e806fd1fa1" name="mj79293d95df76d9b449a1e6e806fd1fa1"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">26.1</span><span class="cfett"> Dynamisch ladbare Bibliotheken &#8211; ctypes</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Mit dem Modul <span class="clisting">ctypes</span> ist es möglich, Funktionen einer sogenannten <span class="ckursiv">dynamisch ladbaren Bibliothek</span>, im Folgenden <span class="ckursiv">dynamische Bibliothek</span> genannt, aufzurufen. Zu solchen dynamischen Bibliotheken zählen beispielsweise DLL-Dateien (<span class="ckursiv">Dynamic Link Library</span>) unter Windows oder SO-Dateien (Shared Object) unter Linux bzw. Unix.</p>
+<p>Das Aufrufen von Funktionen einer dynamischen Bibliothek ist besonders dann sinnvoll, wenn bestimmte laufzeitkritische Teile eines Python-Programms in einer hardwarenäheren und damit effizienteren Programmiersprache geschrieben werden sollen oder wenn man schlicht eine in C oder C++ geschriebene Bibliothek in Python nutzen möchte.</p>
+<p>Beachten Sie grundsätzlich, dass das Erstellen einer dynamischen Bibliothek keine Eigenschaft der Programmiersprache C ist. Im Gegenteil: Eine dynamische Bibliothek kann als eine sprachunabhängige Schnittstelle zwischen verschiedenen Programmen betrachtet werden. Es ist absolut möglich, ein Python-Programm zu schreiben, das auf eine in C geschriebene dynamische Bibliothek zugreift, die ihrerseits auf eine dynamische Bibliothek zugreift, die in Pascal geschrieben wurde. Dies gilt allerdings nur für Sprachen, die sich zu einer dynamischen Bibliothek kompilieren lassen: PHP würde beispielsweise außen vor bleiben.</p><a id="mj1c24ac56e553b4b791199dbfcba82c9b" name="mj1c24ac56e553b4b791199dbfcba82c9b"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">26.1.1</span><span class="cfett"> Ein einfaches Beispiel</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zum Einstieg in das Modul <span class="clisting">ctypes</span> soll ein einfaches Beispiel dienen. Im Beispielprogramm soll die dynamische Bibliothek der <span class="ckursiv">C Runtime Library</span> eingebunden und die darin enthaltene Funktion <span class="clisting">printf</span> dazu genutzt werden, den Text »Hallo Welt« auszugeben. Die C Runtime Library ist unter Windows unter dem Namen <span class="ckursiv">msvcrt.dll</span> und unter Unix-ähnlichen Systemen unter dem Namen <span class="ckursiv">libc.so.6</span> zu finden. Dazu betrachten wir zunächst den Quellcode des Beispielprogramms:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> ctypes 
+bibliothek = ctypes.CDLL("MSVCRT") 
+bibliothek.printf("Hallo Welt\n")</pre></div>
+<p>Zunächst wird das Modul <span class="clisting">ctypes</span> eingebunden und dann eine Instanz der Klasse <span class="clisting">CDLL</span> erzeugt. Eine Instanz dieser Klasse repräsentiert eine geladene dynamische Bibliothek. Beachten Sie, dass die Dateiendung <span class="ckursiv">.dll</span> unter Windows weggelassen und der Name der Bibliothek großgeschrieben werden muss, wenn eine System-Bibliothek geladen werden soll. Unter Linux sähe die Instanziierung der Klasse <span class="clisting">CDLL</span> beispielsweise so aus:</p>
+<div class="listing"><pre class="prettyprint">bibliothek = ctypes.CDLL("libc.so.6")</pre></div>
+<p>Nachdem die dynamische Bibliothek eingebunden worden ist, kann die Funktion <span class="clisting">printf</span> wie eine Methode der <span class="clisting">CDLL</span>-Instanz aufgerufen werden. [Beachten Sie, dass die Funktion <span class="clisting">printf</span> nicht nach <span class="clisting">sys.stdout</span>, sondern in den tatsächlichen <span class="clisting">stdout</span>-Stream des Betriebssystems schreibt. Das bedeutet für Sie, dass Sie im obigen Beispiel nur dann eine Ausgabe sehen, wenn Sie das Programm in einer Python-Shell ausführen. Keine Ausgabe erscheint dagegen beispielsweise in IDLE.
+]  In diesem Fall können wir ganz unbesorgt einen Python-String übergeben. Behalten Sie bei der Arbeit mit <span class="clisting">ctypes</span> aber immer im Hinterkopf, dass es teilweise große Unterschiede zwischen den Datentypen von C/C++ und denen von Python gibt. Es können also nicht alle Funktionen so einfach verwendet werden. Im Laufe dieses Kapitels werden wir noch eingehend darauf zurückkommen.</p><a id="mje61621c82f7956ef7804559ec3d1346d" name="mje61621c82f7956ef7804559ec3d1346d"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">26.1.2</span><span class="cfett"> Die eigene Bibliothek</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>An dieser Stelle soll eine dynamische Bibliothek erstellt werden, auf die wir dann in den folgenden Abschnitten zugreifen werden. Die Bibliothek ist in C geschrieben und enthält drei Funktionen mit unterschiedlich komplexer Schnittstelle. Wir werden hier nur den Quelltext der drei Funktionen zeigen, auf die wir uns in den folgenden Beispielen beziehen. Es wird keine Anleitung geben, wie Sie den C-Code zu einer dynamischen Bibliothek kompilieren können oder Ähnliches. Das ist nicht Gegenstand dieses Buches und würde sich zudem bei den verschiedensten Betriebssystemen und Entwicklungsumgebungen zum Teil stark unterscheiden. Sie finden dazu nach einer kurzen Recherche im Internet genügend Anleitungen.</p>
+<div class="listing"><pre class="prettyprint">// Berechnet die Fakultaet einer ganzen Zahl<span class="cfett"> 
+int</span> fakultaet(<span class="cfett">int</span> n) 
+    { 
+   <span class="cfett"> int</span> i; 
+   <span class="cfett"> int</span> ret = 1; 
+   <span class="cfett"> for</span>(i = 1; i &lt;= n; i++) 
+        ret *= i; 
+   <span class="cfett"> return</span> ret; 
+    }<br>
+// Berechnet die Laenge eines Vektors im R3<span class="cfett"> 
+double</span> veclen(<span class="cfett">double</span> x,<span class="cfett"> double</span> y,<span class="cfett"> double</span> z) 
+    { 
+   <span class="cfett"> return</span> sqrt(x*x + y*y + z*z); 
+    }<br>
+// Bubblesort<span class="cfett"> 
+void</span> sortiere(<span class="cfett">int</span> *array,<span class="cfett"> int</span> len) 
+    { 
+   <span class="cfett"> int</span> i, j, tmp; 
+   <span class="cfett"> for</span>(i = 0; i &lt; len; i++) 
+        { 
+       <span class="cfett"> for</span>(j = 0; j &lt; i; j++) 
+            { 
+           <span class="cfett"> if</span>(array[j] &gt; array[i]) 
+                { 
+                tmp = array[j]; 
+                array[j] = array[i]; 
+                array[i] = tmp; 
+                } 
+            } 
+        } 
+    }</pre></div>
+<p>Die erste Funktion, <span class="clisting">fakultaet</span>, berechnet die Fakultät einer ganzen Zahl und gibt das Ergebnis ebenfalls in Form einer ganzen Zahl zurück. Die zweite Funktion, <span class="clisting">veclen</span>, berechnet die Länge eines dreidimensionalen Vektors. Sie bekommt dazu die drei Koordinaten des Vektors in Form von drei Gleitkommazahlen übergeben und gibt die Länge des Vektors ebenfalls in Form einer Gleitkommazahl zurück.</p>
+<p>Die dritte, etwas komplexere Funktion, <span class="clisting">sortiere</span>, implementiert den sogenannten <span class="ckursiv">Bubblesort</span>-Algorithmus, um ein Array von beliebig vielen ganzen Zahlen aufsteigend zu sortieren. Dazu bekommt die Funktion einen Pointer auf das erste Element sowie die Anzahl der Elemente des Arrays übergeben.</p>
+<p>Im Folgenden gehen wir davon aus, dass der oben stehende Quellcode zu einer dynamischen Bibliothek kompiliert wurde und unter dem Namen <span class="ckursiv">bibliothek.dll</span> im jeweiligen Programmverzeichnis der kommenden Beispielprogramme zu finden ist. Sollten Sie ein Unix-ähnliches Betriebssystem wie beispielsweise Linux einsetzen, müssen Sie zur Adaption der Beispielprogramme den Hinweis des vorherigen Abschnitts beachten.</p>
+<h4 class="t4"><span class="cfett">Datentypen</span></h4>
+<p>An dieser Stelle haben wir eine fertige dynamische Bibliothek mit drei Funktionen, die wir jetzt mittels <span class="clisting">ctypes</span> aus einem Python-Programm heraus aufrufen können. Der praktischen Umsetzung dieses Vorhabens stehen jedoch die teilweise inkompatiblen Datentypen von C und Python im Wege. Solange Instanzen der Datentypen <span class="clisting">long</span>, <span class="clisting">int</span>, <span class="clisting">str</span>, <span class="clisting">unicode</span> oder <span class="clisting">NoneType [</span>Wenn die Instanz <span class="clisting">None</span> an eine C-Funktion übergeben wird, kommt sie dort als <span class="clisting">NULL</span>-Pointer an. Umgekehrt wird ein von einer C-Funktion zurückgegebener <span class="clisting">NULL</span>-Pointer in Python zu <span class="clisting">None</span>.
+]  übergeben werden, funktioniert der Funktionsaufruf einwandfrei, denn diese Instanzen können eins zu eins nach C übertragen werden. So ist beispielsweise der Aufruf der Funktion <span class="clisting">fakultaet</span> mit keinerlei Problemen behaftet:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> ctypes<span class="cfett"> import</span> CDLL 
+bib = CDLL("bibliothek.dll")<span class="cfett"> 
+print</span> bib.fakultaet(5)</pre></div>
+<p>Doch bereits das Übergeben einer <span class="clisting">float</span>-Instanz scheitert. Für diesen und andere Datentypen von C implementiert das Modul <span class="clisting">ctypes</span> entsprechende Gegenstücke in Python, deren Instanzen über die Schnittstelle geschickt werden können. Die folgende Tabelle listet alle in <span class="clisting">ctypes</span> enthaltenen Datentypen sowie ihre Entsprechungen in C und Python auf.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 26.1    </strong>Datentypen des Moduls »ctypes«
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Datentyp (ctypes)</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Datentyp (C)</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Datentyp (Python)</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_char</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">char</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">str</span> (ein Zeichen)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_wchar</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">wchar_t</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">unicode</span> (ein Zeichen)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_byte</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">char</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_ubyte</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">unsigned char</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_short</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">short</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_ushort</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">unsigned short</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_int</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">int</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_uint</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">unsigned int</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_long</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">long</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_ulong</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">unsigned long</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_longlong</span></pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">__int64</span>, <span class="clisting">long long</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_ulonglong</span></pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">unsigned __int64</span>,</p>
+<p><span class="clisting">unsigned long long</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_float</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">float</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_double</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">double</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_char_p</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">char *</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">str</span>, <span class="clisting">None</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_wchar_p</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">wchar_t *</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">unicode</span>, <span class="clisting">None</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">c_void_p</span></pre></div>
+</td>
+<td class="tabellentext">
+<div class="clisting">void *</pre></div>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span>, <span class="clisting">None</span></p>
+</td>
+</tr>
+</table><br><p>All diese <span class="clisting">ctypes</span>-Datentypen können durch Aufruf ihres Konstruktors instanziiert und mit einer Instanz des angegebenen Python-Datentyps initialisiert werden. Über das Attribut <span class="clisting">value</span> kann der jeweilige Wert eines <span class="clisting">ctypes</span>-Datentyps verändert werden.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> ctypes 
+&gt;&gt;&gt; f = ctypes.c_float(1.337) 
+&gt;&gt;&gt;<span class="cfett"> print</span> f 
+c_float(1.3370000123977661) 
+&gt;&gt;&gt; d = ctypes.c_double(1.337) 
+&gt;&gt;&gt;<span class="cfett"> print</span> d 
+c_double(1.337) 
+&gt;&gt;&gt; s = ctypes.c_char_p("Hallo Welt") 
+&gt;&gt;&gt;<span class="cfett"> print</span> s 
+c_char_p('Hallo Welt') 
+&gt;&gt;&gt; null = ctypes.c_void_p(None) 
+&gt;&gt;&gt;<span class="cfett"> print</span> null 
+c_void_p(None)</pre></div>
+<p>Um ein Array eines bestimmten Datentyps anzulegen, wird der zugrunde liegende Datentyp mit der Anzahl der Elemente, die er aufnehmen soll, multipliziert. Das Ergebnis ist ein Datentyp, der das gewünschte Array speichert. Im konkreten Beispiel sieht das so aus:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; arraytyp = ctypes.c_int * 5 
+&gt;&gt;&gt; a = arraytyp(1, 5, 2, 1, 9) 
+&gt;&gt;&gt; a 
+&lt;__main__.c_long_Array_5 object at 0xb7af82fc&gt;</pre></div>
+<p>Einen solchen Array-Typ können wir beispielsweise der Funktion <span class="clisting">sortiere</span> übergeben, die ein Array von ganzen Zahlen sortiert:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> ctypes<span class="cfett"> import</span> CDLL, c_int 
+bib = CDLL("bibliothek.dll") 
+arraytyp = c_int * 10 
+a = arraytyp(0,2,5,2,8,1,4,7,3,8)<span class="cfett"> 
+print</span> "Vorher: ", [i for i in a] 
+bib.sortiere(a, 10)<span class="cfett"> 
+print</span> "Nachher: ", [i for i in a]</pre></div>
+<p>Die Ausgabe dieses Beispielprogramms lautet:</p>
+<div class="listing"><pre class="prettyprint">Vorher:  [0, 2, 5, 2, 8, 1, 4, 7, 3, 8] 
+Nachher:  [0, 1, 2, 2, 3, 4, 5, 7, 8, 8]</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Achtung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Häufig verlangen C-Funktionen einen Pointer auf einen String als Parameter, über den der String dann manipuliert wird. Beachten Sie unbedingt, dass Sie dann keine Instanz des Python-Datentyps <span class="clisting">str</span> übergeben dürfen. Das liegt daran, dass <span class="clisting">str</span> zu den unveränderlichen Datentypen gehört und auch von einer C-Funktion nicht neu beschrieben werden kann.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+Um einer solchen Funktion dennoch einen beschreibbaren String zur Verfügung zu stellen, dient die Funktion <span class="clisting">create_string_buffer</span>, die wir zusammen mit den anderen Funktionen des Moduls <span class="clisting">ctypes</span> gegen Ende dieses Kapitels besprechen werden.</p>
+</td>
+</tr>
+</table><br><a id="mjcfd01d151b691d22000db87b26aabc88" name="mjcfd01d151b691d22000db87b26aabc88"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">26.1.3</span><span class="cfett"> Schnittstellenbeschreibung</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Im folgenden Beispiel sollen die Parameter der Funktion <span class="clisting">veclen</span>, wie von der Funktion verlangt, als Gleitkommazahlen übergeben werden.</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> ctypes<span class="cfett"> import</span> CDLL, c_double 
+bib = CDLL("bibliothek.dll")<span class="cfett"> 
+print</span> bib.veclen(c_double(1.5), c_double (2.7), c_double (3.9))</pre></div>
+<p>Wird dieser Code ausgeführt, so erhält man</p>
+<p><span class="clisting">1080623743</span></p>
+<p>als Ergebnis, was nun wirklich nicht der gesuchten Vektorlänge entspricht. Wie es zu diesem Fehler kommen konnte und wie er sich vermeiden lässt, soll Thema dieses Abschnitts sein.</p>
+<p>Der Rückgabewert und die Parameter einer Funktion, also ihre Schnittstelle, sind in C anders als in Python an bestimmte Datentypen gebunden. Der oben beschriebene Problemfall resultiert daher, dass nach dem Laden einer dynamischen Bibliothek von <span class="clisting">ctypes</span> angenommen wird, dass jede enthaltene C-Funktion eine ganze Zahl zurückgibt, was natürlich in vielen Fällen falsch ist. Die eigentliche Gleitkommazahl wurde also aus Unwissenheit als ganze Zahl interpretiert und entsprechend ausgegeben. Damit dies in Zukunft nicht mehr passiert, kann über das Attribut <span class="clisting">restype</span> eines Funktionsobjekts der Datentyp des Rückgabewertes explizit angegeben werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> ctypes<span class="cfett"> import</span> CDLL, c_double 
+bib = CDLL("bibliothek.dll") 
+bib.veclen.restype = c_double<span class="cfett"> 
+print</span> bib.veclen(c_double(1.5), c_double(2.7), c_double(3.9))</pre></div>
+<p>Bei diesem Beispielprogramm wird der Rückgabewert der C-Funktion korrekt interpretiert, wie die Ausgabe zeigt:</p>
+<div class="listing"><pre class="prettyprint">4.97493718553</pre></div>
+<p>Es wurde angesprochen, dass auch die Parameter einer Funktion in C an einen bestimmten Datentyp gebunden sind. Würden Sie beispielsweise im obigen Programm statt des Datentyps <span class="clisting">c_double</span> Instanzen des Datentyps <span class="clisting">c_float</span> übergeben, so würde bereits bei der Parameterübergabe ein Fehler in der Interpretation der Daten passieren, der letztlich in einem falschen Rückgabewert mündet.</p>
+<p>Python bietet es Ihnen an, über das Attribut <span class="clisting">argtypes</span> die Datentypen der Parameter festzulegen. Wenn das gemacht wird, werden übergebene Instanzen eines falschen Datentyps in den korrekten Datentyp konvertiert, oder es wird, wenn dies nicht möglich ist, eine <span class="clisting">ArgumentError</span>-Exception geworfen. Im folgenden Programm wird die vollständige Schnittstelle der Funktion <span class="clisting">veclen</span> vorgegeben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> ctypes<span class="cfett"> import</span> CDLL, c_double 
+bib = CDLL("bibliothek.dll") 
+bib.veclen.restype = c_double 
+bib.veclen.argtypes = [c_double, c_double, c_double]<span class="cfett"> 
+print</span> bib.veclen(c_double(1.5), c_double(2.7), c_double(3.9))</pre></div>
+<p>Es ist zwar so, dass unter Verwendung des Moduls <span class="clisting">ctypes</span> in vielen Fehlerfällen Exceptions geworfen werden, beispielsweise wenn zu viele, zu wenige oder die falschen Parameter übergeben werden, doch Sie sollten sich immer vergegenwärtigen, dass Sie mit <span class="clisting">ctypes</span> viele Schutzmechanismen von Python umgehen und möglicherweise direkt im Speicher arbeiten. Es ist also durchaus möglich, unter Verwendung von <span class="clisting">ctypes</span> den Python-Interpreter zum Absturz zu bringen. Und mit »Absturz« ist keine Exception im bisherigen Sinne gemeint, sondern ein tatsächlicher Absturz durch einen Speicherzugriffsfehler beispielsweise.</p><a id="mj39ee465fe9dbac00d4eef8eee39b23db" name="mj39ee465fe9dbac00d4eef8eee39b23db"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">26.1.4</span><span class="cfett"> Verwendung des Moduls</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>An dieser Stelle möchten wir noch einen kurzen Überblick über die wichtigsten im Modul <span class="clisting">ctypes</span> enthaltenen Funktionen bieten, die einem die Arbeit mit C–Funktionen teils erheblich erleichtern.</p>
+<h5 class="t5"><span class="cfett">ctypes.addressof(obj)</span></h5>
+<p>Gibt die Speicheradresse der Instanz <span class="ckursiv">obj</span> zurück. Für den Parameter <span class="ckursiv">obj</span> muss dabei eine Instanz eines <span class="clisting">ctypes</span>-Datentyps übergeben werden.</p>
+<h5 class="t5"><span class="cfett">ctypes.byref(obj)</span></h5>
+<p>Erzeugt einen Pointer auf die Instanz <span class="ckursiv">obj</span> eines <span class="clisting">ctypes</span>-Datentyps. Der zurückgegebene Pointer kann einer C-Funktion übergeben werden.</p>
+<h5 class="t5"><span class="cfett">ctypes.cast(obj, type)</span></h5>
+<p>Die Funktion <span class="clisting">cast</span> bildet den Cast-Operator von C in Python ab. Die Funktion gibt eine neue Instanz des <span class="clisting">ctypes</span>-Datentyps <span class="ckursiv">type</span> zurück, die auf die gleiche Speicherstelle verweist wie <span class="ckursiv">obj</span>.</p>
+<h5 class="t5"><span class="cfett">ctypes.create_string_buffer(init_or_size[, size])</span></h5>
+<p>Diese Funktion erzeugt einen veränderlichen String-Buffer, in den aus einer C–Funktion heraus geschrieben werden kann. Zurückgegeben wird ein Array von <span class="clisting">c_char</span>-Instanzen. Für den ersten Parameter <span class="ckursiv">init_or_size</span> kann entweder eine ganze Zahl übergeben werden, die die Länge des zu erzeugenden Buffers enthält, oder ein String, mit dem der Buffer initialisiert werden soll. Beachten Sie im Falle eines Strings, dass der Buffer ein Zeichen größer gemacht wird, als der String lang ist. In dieses letzte Zeichen wird der Terminator <span class="clisting">\0</span> geschrieben.</p>
+<p>Wenn für <span class="ckursiv">init_or_size</span> ein String übergeben wurde, kann über den Parameter <span class="ckursiv">size</span> die Größe des Buffers festgelegt werden, sofern nicht die Länge des Strings genommen werden soll.</p>
+<h5 class="t5"><span class="cfett">ctypes.create_unicode_buffer(init_or_size[, size])</span></h5>
+<p>Diese Funktion verhält sich wie <span class="clisting">create_string_buffer</span>, mit dem Unterschied, dass ein Array von veränderlichen <span class="clisting">c_wchar</span>-Instanzen, also ein Unicode-Buffer, erzeugt und zurückgegeben wird.</p>
+<h5 class="t5"><span class="cfett">ctypes.sizeof(obj_or_type)</span></h5>
+<p>Die Funktion <span class="clisting">sizeof</span> bildet den <span class="clisting">sizeof</span>-Operator von C auf Python ab. Zurückgegeben wird die Größe der übergebenen Instanz bzw. des übergebenen <span class="clisting">ctypes</span>-Datentyps in Byte.</p>
+<h5 class="t5"><span class="cfett">ctypes.string_at(address[, size])</span></h5>
+<p>Gibt den String zurück, der an der Speicheradresse <span class="ckursiv">address</span> steht. Sollte der String im Speicher nicht null-terminiert sein, so kann über den Parameter <span class="ckursiv">size</span> die genaue Länge des Strings übergeben werden.</p>
+<p>Für <span class="ckursiv">address</span> muss eine ganze Zahl übergeben werden, die sinnvollerweise mit <span class="clisting">addressof</span> geholt und verändert wurde.</p>
+<h5 class="t5"><span class="cfett">ctypes.wstring_at(address[, size])</span></h5>
+<p>Die Funktion <span class="clisting">wstring_at</span> funktioniert wie <span class="clisting">string_at</span>, nur für Unicode-Strings.</p>
+<p>In diesem Abschnitt konnte Ihnen nur ein Einblick in die Funktionalität von <span class="clisting">ctypes</span> gegeben werden. So enthält das Modul <span class="clisting">ctypes</span> noch weitere Konzepte zur Verwendung von Pointern, Strukturen und Unions beispielsweise. Sollte Ihr Interesse am Modul <span class="clisting">ctypes</span> geweckt worden sein und sollten Sie mehr darüber herausfinden möchten, sei Ihnen die ausführliche Python-Dokumentation zu diesem Thema ans Herz gelegt.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_26_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="26 Anbindung an andere Programmiersprachen"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_25_008.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_26_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

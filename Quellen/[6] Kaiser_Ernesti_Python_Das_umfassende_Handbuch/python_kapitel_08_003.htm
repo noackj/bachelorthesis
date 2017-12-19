@@ -1,0 +1,1435 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 8.3 Numerische Datentypen</title>
+<meta name="title" content="Galileo Computing :: Python - 8.3 Numerische Datentypen">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 8.3 Numerische Datentypen">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_08_002.htm">
+<link rel="next" href="python_kapitel_08_004.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_08_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_08_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d" class="navnav">8 Basisdatentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_001.htm#mjc72b335a8a5f76207edbafa941f933de" class="navnav">8.1 Operatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_002.htm#mj6409c0926804636387412c613b7b7be5" class="navnav">8.2 Das Nichts &#8211; NoneType</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj6cf370d61a53204c7a0195c414bc872b" class="navh">8.3 Numerische Datentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj867e954dbc429fc5bec56a0c953d45d8" class="navh">8.3.1 Ganze Zahlen &#8211; int, long</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj6d41cdafb4b90464f2c005027f9c91d5" class="navh">8.3.2 Gleitkommazahlen &#8211; float</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjfb4d02fccab9edcdc5ad084f35eaeaa6" class="navh">8.3.3 Boolesche Werte &#8211; bool</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mje0a568fae09049a37bd3c3eec46428e7" class="navh">8.3.4 Komplexe Zahlen &#8211; complex</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_004.htm#mj59a6387bf7db64f12c8c0e08237ac604" class="navnav">8.4 Methoden und Parameter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_005.htm#mj3d61fb54438f66879e52e5a74e2e25a3" class="navnav">8.5 Sequenzielle Datentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_005.htm#mj706b778fd2162b5144d8f07b6222092d" class="navnav">8.5.1 Listen &#8211; list</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_005.htm#mj91f49981165d738734c4d64190f3f2cf" class="navnav">8.5.2 Unveränderliche Listen &#8211; tuple</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_005.htm#mjeb87145a10dfeb18cb5b0215f08f30ad" class="navnav">8.5.3 Strings &#8211; str, unicode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_006.htm#mj5492a22c8e50d661f8f6ed931b282817" class="navnav">8.6 Mappings</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_006.htm#mj40cd82a0f398e53c7af3f38de47c4b46" class="navnav">8.6.1 Dictionary &#8211; dict</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_08_007.htm#mja76bcb53bc9fb07ee9aacd533d393490" class="navnav">8.7 Mengen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_007.htm#mj85ece89f8351590b611dc9cb7fe22c36" class="navnav">8.7.1 Mengen &#8211; set</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_08_007.htm#mjefba418c399f3218461e693613231aeb" class="navnav">8.7.2 Unveränderliche Mengen &#8211; frozenset</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj6cf370d61a53204c7a0195c414bc872b" name="mj6cf370d61a53204c7a0195c414bc872b"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">8.3</span><span class="cfett"> Numerische Datentypen</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Die numerischen Datentypen sind eine Kategorie, zu der fünf Basisdatentypen gehören: <span class="clisting">int</span> und <span class="clisting">long</span> zum Speichern von ganzen Zahlen, <span class="clisting">float</span> für Gleitkommazahlen, <span class="clisting">complex</span> für komplexe Zahlen und <span class="clisting">bool</span> für boolesche Werte. Alle numerischen Datentypen sind immutable, also unveränderlich. Beachten Sie, dass dies nicht bedeutet, dass es keine Operatoren gibt, um Zahlen zu verändern, sondern vielmehr, dass nach jeder Veränderung eine neue Instanz des jeweiligen Datentyps erzeugt werden muss. Aus Sicht des Programmierers besteht also zunächst kaum ein Unterschied.</p>
+<p>Für alle numerischen Datentypen sind folgende Operatoren definiert:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.1    </strong>Gemeinsame Operatoren numerischer Datentypen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Ergebnis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x + y</span></p>
+</td>
+<td class="tabellentext">
+<p>Summe von <span class="clisting">x</span> und <span class="clisting">y</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x</span> &#8211; <span class="clisting">y</span></p>
+</td>
+<td class="tabellentext">
+<p>Differenz von <span class="clisting">x</span> und <span class="clisting">y</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x * y</span></p>
+</td>
+<td class="tabellentext">
+<p>Produkt von <span class="clisting">x</span> und <span class="clisting">y</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x / y</span></p>
+</td>
+<td class="tabellentext">
+<p>Quotient von <span class="clisting">x</span> und <span class="clisting">y</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x % y</span></p>
+</td>
+<td class="tabellentext">
+<p>Rest beim Teilen von <span class="clisting">x</span> durch <span class="clisting">y</span> (außer bei <span class="clisting">complex</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">+x</span></p>
+</td>
+<td class="tabellentext">
+<p>Positives Vorzeichen, lässt <span class="clisting">x</span> unverändert</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">-x</span></p>
+</td>
+<td class="tabellentext">
+<p>Negatives Vorzeichen &#8211; Vorzeichenwechsel bei <span class="clisting">x</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x ** y</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">x</span> hoch <span class="clisting">y</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x // y</span></p>
+</td>
+<td class="tabellentext">
+<p>Abgerundeter Quotient von <span class="clisting">x</span> und <span class="clisting">y</span> (außer bei <span class="clisting">complex</span>)</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Hinweis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Sollten Sie bereits eine C-ähnliche Programmiersprache beherrschen, wundern Sie sich zu Recht, denn in Python existiert kein Operator für Inkrementierungen (<span class="clisting">x++</span>) oder Dekrementierungen (<span class="clisting">x--</span>).</p>
+</td>
+</tr>
+</table><br><p>Neben diesen grundlegenden Operatoren existiert in Python eine Reihe zusätzlicher Operatoren. Oftmals möchte man beispielsweise die Summe von <span class="clisting">x</span> und <span class="clisting">y</span> berechnen und das Ergebnis in <span class="clisting">x</span> speichern, <span class="clisting">x</span> also um <span class="clisting">y</span> erhöhen. Dazu ist mit den obigen Operatoren folgende Anweisung nötig:</p>
+<div class="listing"><pre class="prettyprint">x = x + y</pre></div>
+<p>Für solche Fälle gibt es in Python sogenannte <span class="ckursiv">erweiterte Zuweisungen</span> (engl. <span class="ckursiv">augmented assignments</span>), die als eine Art Abkürzung für die obige Anweisung angesehen werden können.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.2    </strong>Gemeinsame Operatoren numerischer Datentypen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Entsprechung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x += y</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x + y</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x -= y</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x &#8211; y</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x *= y</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x * y</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x /= y</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x / y</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x %= y</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x % y</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x **= y</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x ** y</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x //= y</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x // y</pre></div>
+</td>
+</tr>
+</table><br><p>Wichtig ist, dass Sie hier für <span class="clisting">y</span> einen beliebigen arithmetischen Ausdruck einsetzen können, während <span class="clisting">x</span> ein Ausdruck sein muss, der auch als Ziel einer normalen Zuweisung eingesetzt werden könnte.</p>
+<p>Für die Datentypen <span class="clisting">int</span>, <span class="clisting">long</span>, <span class="clisting">float</span> und <span class="clisting">bool</span> sind außerdem <span class="ckursiv">vergleichende Operatoren</span> definiert. Da komplexe Zahlen prinzipiell nicht sinnvoll anzuordnen sind, lässt der Datentyp <span class="clisting">complex</span> nur die Verwendung der ersten drei Operatoren zu:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.3    </strong>Gemeinsame Operatoren numerischer Datentypen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Ergebnis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">==</span></p>
+</td>
+<td class="tabellentext">
+<p>Wahr, wenn <span class="clisting">x</span> und <span class="clisting">y</span> gleich sind</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">!=</span></p>
+</td>
+<td class="tabellentext">
+<p>Wahr, wenn <span class="clisting">x</span> und <span class="clisting">y</span> verschieden sind</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&lt;&gt;</span></p>
+</td>
+<td class="tabellentext">
+<p>Analog zu <span class="clisting">!=</span>, bitte nicht verwenden</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&lt;</span></p>
+</td>
+<td class="tabellentext">
+<p>Wahr, wenn <span class="clisting">x</span> kleiner ist als <span class="clisting">y</span> (außer bei <span class="clisting">complex</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&lt;=</span></p>
+</td>
+<td class="tabellentext">
+<p>Wahr, wenn <span class="clisting">x</span> kleiner oder gleich <span class="clisting">y</span> ist (außer bei <span class="clisting">complex</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&gt;</span></p>
+</td>
+<td class="tabellentext">
+<p>Wahr, wenn <span class="clisting">x</span> größer ist als <span class="clisting">y</span> (außer bei <span class="clisting">complex</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&gt;=</span></p>
+</td>
+<td class="tabellentext">
+<p>Wahr, wenn <span class="clisting">x</span> größer oder gleich <span class="clisting">y</span> ist (außer bei <span class="clisting">complex</span>)</p>
+</td>
+</tr>
+</table><br><p>Jeder dieser vergleichenden Operatoren liefert als Ergebnis einen Wahrheitswert. Ein solcher Wert wird zum Beispiel als Bedingung einer <span class="clisting">if</span>-Anweisung erwartet. Die Operatoren könnten also folgendermaßen verwendet werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if</span> x &lt; 4: 
+   <span class="cfett"> print</span><span class="clisting"> "x ist kleiner als 4"</span></pre></div>
+<p>Es können beliebig viele der vergleichenden Operatoren zu einer Reihe verkettet werden. Das obere Beispiel ist genau genommen nur ein Spezialfall dieser Regel, mit lediglich zwei Operanden. Die Bedeutung einer solchen Verkettung entspricht der mathematischen Sichtweise und soll am folgenden Beispiel zu erkennen sein:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if</span> 2 &lt; x &lt; 4: 
+   <span class="cfett"> print</span><span class="clisting"> "x liegt zwischen 2 und 4"</span></pre></div>
+<p>Mehr zu booleschen Werten folgt im Unterabschnitt des entsprechenden Basisdatentyps <span class="clisting">bool</span>.</p>
+<p>Numerische Datentypen können ineinander umgeformt werden. Dabei können je nach Umformung Informationen verloren gehen. Als Beispiel betrachten wir einige Konvertierungen im interaktiven Modus:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; float(33) 
+33.0 
+&gt;&gt;&gt; int(33.5) 
+33 
+&gt;&gt;&gt; bool(12) 
+True 
+&gt;&gt;&gt; complex(True) 
+ (1+0j)</pre></div>
+<p>Allgemein wird zunächst der Name des Datentyps geschrieben, in den konvertiert werden soll, gefolgt von dem zu konvertierenden Wert in Klammern. Statt eines konkreten Literals kann auch eine Referenz eingesetzt werden bzw. eine Referenz mit dem entstehenden Wert verknüpft werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; var1 = 12.5 
+&gt;&gt;&gt; int(var1) 
+12 
+&gt;&gt;&gt; var2 = int(40.25) 
+&gt;&gt;&gt; var2 
+40</pre></div>
+<p>So viel zur allgemeinen Einführung in die numerischen Datentypen. Die folgenden Abschnitt werden jeden dieser Datentypen im Detail behandeln.</p><a id="mj867e954dbc429fc5bec56a0c953d45d8" name="mj867e954dbc429fc5bec56a0c953d45d8"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">8.3.1</span><span class="cfett"> Ganzzahlen &#8211; int, long</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Im Raum der ganzen Zahlen gibt es in Python zwei Datentypen: den Typ <span class="clisting">int</span> für den begrenzten Zahlenraum von &#8211;2<sup>31  </sup> bis 2<sup>31  </sup> &#8211; 1 (auf 32-Bit-Systemen) und den Typ <span class="clisting">long</span> für ganze Zahlen, deren Länge theoretisch unbegrenzt ist.</p>
+<p>Der Datentyp <span class="clisting">int</span> hat dabei durchaus seine Berechtigung, da er intern als ein Datenwort der zugrunde liegenden Rechnerarchitektur gespeichert wird und somit sehr schnell verarbeitet werden kann. Um mit dem Datentyp <span class="clisting">long</span> zu arbeiten, muss intern sehr viel mehr Aufwand betrieben werden, weshalb die Verarbeitung von <span class="clisting">int</span> im Verhältnis zu <span class="clisting">long</span> grundsätzlich schneller ist. Falls das Ergebnis einer Operation nicht mehr durch den Datentyp <span class="clisting">int</span> abgebildet werden kann, erzeugt Python automatisch eine Instanz vom Typ <span class="clisting">long</span>. Vor dem Programmierer bleibt das in den meisten Fällen verborgen.</p>
+<p>Der bevorzugte Datentyp für ganze Zahlen ist <span class="clisting">int</span>. Möchte man eine Zahl explizit als <span class="clisting">long</span> definieren, so kennzeichnet man dies durch ein <span class="clisting">L</span> oder <span class="clisting">l</span> am Ende des Literals. Auch wenn beides zulässig ist, empfehlen wir hier, stets ein großes <span class="clisting">L</span> zu verwenden, da das kleine allzu häufig, und gerade am Ende einer Zahl, mit der <span class="clisting">1</span> (Eins) verwechselt wird:</p>
+<div class="listing"><pre class="prettyprint">v_int = 12345 
+v_long = 12348975128537394593873245<span class="cfett">L</span></pre></div>
+<h4 class="t4"><span class="cfett">Zahlensysteme</span></h4>
+<p>Ganze Zahlen, egal ob <span class="clisting">int</span> oder <span class="clisting">long</span>, können in Python in mehreren Zahlensystemen geschrieben werden.</p>
+<ul class="gp">
+<li>Zahlen, die, wie im obigen Beispiel, ohne ein spezielles Präfix geschrieben sind, werden im <span class="ckursiv">Dezimalsystem</span> interpretiert. Zu beachten ist, dass einer solchen Zahl keine führenden Nullen vorangestellt werden dürfen:</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">v_dez1 = 1337 
+v_dez2 = 1337L</pre></div>
+</blockquote>
+<ul class="gp">
+<li>Eine führende Null kennzeichnet eine Zahl, die im <span class="ckursiv">Oktalsystem</span> geschrieben wurde. Die Verwendung des Oktalsystems ist ein Relikt aus älteren Zeiten und wird heute kaum noch benötigt. Beachten Sie, dass hier nur Ziffern von <span class="clisting">0</span> bis <span class="clisting">7</span> erlaubt sind:</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">v_okt1 = 02471 
+v_okt2 = 02471L</pre></div>
+</blockquote>
+<ul class="gp">
+<li>Die nächste und weitaus gebräuchlichere Variante ist das <span class="ckursiv">Hexadezimalsystem</span>, das durch das Präfix <span class="clisting">0x</span> bzw. <span class="clisting">0X</span> gekennzeichnet wird. Die Zahl selbst darf aus den Ziffern <span class="clisting">0 - 9</span> und den Buchstaben <span class="clisting">A</span>&#8211;<span class="clisting">F</span> bzw. <span class="clisting">a</span>&#8211;<span class="clisting">f</span> gebildet werden:</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">v_hex1 = 0x5A3F 
+v_hex2 = 0X5a3fL</pre></div>
+</blockquote>
+<p>Für alle diese Literale ist die Verwendung eines negativen Vorzeichens möglich:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; -1234 
+-1234 
+&gt;&gt;&gt; -0777 
+-511 
+&gt;&gt;&gt; -0xFF 
+-255</pre></div>
+<p>Vielleicht möchten Sie sich nicht auf diese drei Zahlensysteme beschränken, die von Python explizit unterstützt werden, sondern ein exotischeres verwenden. Natürlich gibt es in Python nicht für jedes mögliche Zahlensystem ein eigenes Literal. Stattdessen können Sie sich folgender Schreibweise bedienen:</p>
+<p><span class="clisting">v_6 = int("54425", 6)</span></p>
+<p>Es handelt sich um eine alternative Methode, eine Instanz des Datentyps <span class="clisting">int</span> zu erzeugen und mit einem Anfangswert zu versehen. Dazu werden in den Klammern ein String, der den gewünschten Initialwert in dem gewählten Zahlensystem enthält, sowie die Basis dieses Zahlensystems als ganze Zahl geschrieben. Beide Werte müssen durch ein Komma getrennt werden. Im Beispiel wurde das Sechsersystem verwendet.</p>
+<p>Python unterstützt Zahlensysteme mit einer Basis zwischen 2 und 36. Wenn ein Zahlensystem mehr als zehn verschiedene Ziffern zur Darstellung einer Zahl benötigt, werden zusätzlich zu den Ziffern 0 bis 9 die Buchstaben des englischen Alphabets A bis Z verwendet.</p>
+<p><span class="clisting">v_6</span> hat jetzt den Wert <span class="clisting">7505</span> (im Dezimalsystem).</p>
+<p>Beachten Sie, dass es sich bei den Zahlensystemen nur um eine alternative Schreibweise des gleichen Wertes handelt. Der Datentyp <span class="clisting">int</span> springt beispielsweise nicht in eine Art Hexadezimalmodus, sobald er einen solchen Wert enthält. Ein Zahlensystem ist nur bei Wertzuweisungen oder -ausgaben von Bedeutung. Standardmäßig werden alle Zahlen im Dezimalsystem ausgegeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; v1 = 0xFF 
+&gt;&gt;&gt; v2 = 0777 
+&gt;&gt;&gt; v1 
+255 
+&gt;&gt;&gt; v2 
+511</pre></div>
+<p>Wir werden später, im Zusammenhang mit Strings, darauf zurückkommen, wie sich Zahlen in anderen Zahlensystemen ausgeben lassen.</p>
+<h4 class="t4"><span class="cfett">Bit-Operationen</span></h4>
+<p>Neben dem Hexadezimal- und dem Oktalsystem ist in der Informatik das Dualsystem von großer Bedeutung. Das Dualsystem, oder auch Binärsystem, ist ein Zahlensystem mit der Basis 2. Eine ganze Zahl wird also als Folge von Einsen und Nullen dargestellt. In Python existiert kein Literal, mit dem Zahlen in Dualschreibweise direkt verwendet werden könnten, jedoch sind für die Datentypen <span class="clisting">int</span> und <span class="clisting">long</span> einige Operatoren definiert, die sich explizit auf die binäre Darstellung der Zahl beziehen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.4    </strong>Bit-Operatoren der Datentypen int und long
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Ergebnis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x &amp; y</span></p>
+</td>
+<td class="tabellentext">
+<p>Bitweises UND von <span class="clisting">x</span> und <span class="clisting">y</span> (AND)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x | y</span></p>
+</td>
+<td class="tabellentext">
+<p>Bitweises nicht ausschließendes ODER von <span class="clisting">x</span> und <span class="clisting">y</span> (OR)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x ^ y</span></p>
+</td>
+<td class="tabellentext">
+<p>Bitweises ausschließendes ODER von <span class="clisting">x</span> und <span class="clisting">y</span> (XOR)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">~x</span></p>
+</td>
+<td class="tabellentext">
+<p>Bitweises Komplement von <span class="clisting">x</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x &lt;&lt; n</span></p>
+</td>
+<td class="tabellentext">
+<p>Bitverschiebung um <span class="clisting">n</span> Stellen nach links</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x &gt;&gt; n</span></p>
+</td>
+<td class="tabellentext">
+<p>Bitverschiebung um <span class="clisting">n</span> Stellen nach rechts</p>
+</td>
+</tr>
+</table><br><p>Auch hier sind erweiterte Zuweisungen mithilfe der folgenden Operatoren möglich:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.5    </strong>Bit-Operatoren der Datentypen int und long
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Entsprechung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x &amp;= y</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x &amp; y</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x |= y</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x | y</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x ^= y</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x ^ y</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x &lt;&lt;= n</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x &lt;&lt; n</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x &gt;&gt;= n</span></p>
+</td>
+<td class="tabellentext">
+<div class="clisting">x = x &gt;&gt; n</pre></div>
+</td>
+</tr>
+</table><br><p>Da vielleicht nicht jedem unmittelbar klar ist, was die einzelnen Operationen bewirken, möchten wir sie im Folgenden im Detail besprechen.</p>
+<p>Das <span class="ckursiv">bitweise UND</span> zweier Zahlen wird gebildet, indem beide Zahlen in ihrer Binärdarstellung Bit für Bit miteinander verknüpft werden. Die resultierende Zahl hat in ihrer Binärdarstellung genau da eine <span class="clisting">1</span>, wo die jeweiligen Bits der Operanden übereinstimmen, und es hat da eine <span class="clisting">0</span>, wo sich diese unterscheiden. Dies soll durch die folgende Grafik veranschaulicht werden:</p>
+<div class="bildbox">
+<p><a name="IDAQFTQ"></a><a onClick="OpenWin('bilder/bin-und.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinbin-und.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 8.1    </strong>Bitweises UND</p>
+<p>Im interaktiven Modus von Python probieren wir aus, ob das bitweise UND mit den in der Grafik gewählten Operanden tatsächlich das erwartete Ergebnis zurückgibt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 106 &amp; 12 
+8</pre></div>
+<p>Diese Prüfung des Ergebnisses werden wir nicht für jede Operation einzeln durchführen. Um allerdings mit den bitweisen Operatoren vertrauter zu werden, lohnt es sich, hier ein wenig zu experimentieren.</p>
+<p>Das <span class="ckursiv">bitweise ODER</span> zweier Zahlen wird gebildet, indem beide Zahlen in ihrer Binärdarstellung Bit für Bit miteinander verglichen werden. Die resultierende Zahl hat in ihrer Binärdarstellung genau da eine 1, wo mindestens eines der jeweiligen Bits der Operanden 1 ist. <a href="#Rxx_ref181090008">Abbildung 8.2</a> veranschaulicht dies.</p>
+<div class="bildbox">
+<p><a name="IDAFGTQ"></a><a onClick="OpenWin('bilder/bin-inkl-oder.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinbin-inkl-oder.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 8.2    </strong>Bitweises nicht ausschließendes ODER</p>
+<p>Das <span class="ckursiv">bitweise ausschließende ODER</span> zweier Zahlen wird gebildet, indem beide Zahlen in ihrer Binärdarstellung Bit für Bit miteinander verglichen werden. Die resultierende Zahl hat in ihrer Binärdarstellung genau da eine 1, wo sich die jeweiligen Bits der Operanden voneinander unterscheiden, und da eine 0, wo sie gleich sind. Dies wird von <a href="#Rxx_ref181090028">Abbildung 8.3</a> veranschaulicht.</p>
+<div class="bildbox">
+<p><a name="IDAXGTQ"></a><a onClick="OpenWin('bilder/bin-exkl-oder.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinbin-exkl-oder.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 8.3    </strong>Bitweises exklusives ODER</p>
+<p>Das <span class="ckursiv">bitweise Komplement</span> bildet das sogenannte Einerkomplement einer Dualzahl, das der Negation aller vorkommenden Bits entspricht. In Python ist dies auf Bitebene nicht möglich, da eine ganze Zahl in ihrer Länge unbegrenzt ist und das Komplement immer in einem abgeschlossenen Zahlenraum gebildet werden muss. Deswegen wird die eigentliche Bit-Operation zur arithmetischen Operation und folgendermaßen definiert: [Das ist sinnvoll, da man zur Darstellung negativer Zahlen in abgeschlossenen Zahlenräumen das sogenannte Zweierkomplement verwendet. Dieses erhält man, indem man zum Einerkomplement 1 addiert.
+ Also: &#8211;<span class="ckursiv">x</span> = Zweierkomplement von x = <span class="ckursiv">~x</span> + 1
+ Daraus folgt: <span class="ckursiv">~ x = &#8211;x &#8211;</span> 1
+] </p><span class="ckursiv">~ x = &#8211;x &#8211; 1</span><p>Bei der <span class="ckursiv">Bitverschiebung</span> wird die Bitfolge in der binären Darstellung des ersten Operanden um die durch den zweiten Operanden gegebene Anzahl Stellen nach links bzw. rechts verschoben. Die entstandene Lücke wird mit Nullen gefüllt. <a href="#Rxx_ref181090058">Abbildung 8.4</a> und <a href="#Rxx_ref181090064">Abbildung 8.5</a> veranschaulichen eine Verschiebung um zwei Stellen nach links bzw. nach rechts.</p>
+<div class="bildbox">
+<p><a name="IDACITQ"></a><a onClick="OpenWin('bilder/bin-shift-l.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinbin-shift-l.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 8.4    </strong>Bitverschiebung um zwei Stellen nach links</p>
+<div class="bildbox">
+<p><a name="IDAGITQ"></a><a onClick="OpenWin('bilder/bin-shift-r.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinbin-shift-r.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 8.5    </strong>Bitverschiebung um zwei Stellen nach rechts</p>
+<p>Die in der Bitdarstellung entstehenden Lücken auf der rechten bzw. linken Seite werden mit Nullen aufgefüllt.</p><a id="mj6d41cdafb4b90464f2c005027f9c91d5" name="mj6d41cdafb4b90464f2c005027f9c91d5"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">8.3.2</span><span class="cfett"> <a id="Rxx_ref176010158" name="Rxx_ref176010158"></a>Gleitkommazahlen &#8211; float</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zu Beginn dieses Teils des Buches sind wir bereits oberflächlich auf Gleitkommazahlen eingegangen, was wir hier ein wenig vertiefen möchten. Zum Speichern einer Gleitkommazahl mit begrenzter Genauigkeit wird der Datentyp <span class="clisting">float</span> verwendet.</p>
+<p>Wie bereits besprochen wurde, sieht eine Gleitkommazahl im einfachsten Fall folgendermaßen aus:</p>
+<p><span class="clisting">v = 3.141</span></p>
+<p>Python unterstützt außerdem eine Notation, die es ermöglicht, die Exponentialschreibweise zu verwenden:</p>
+<p><span class="clisting">v = 3.141e-12</span></p>
+<p>Durch ein kleines oder großes <span class="clisting">e</span> wird die <span class="ckursiv">Mantisse</span> (<span class="clisting">3.141</span>) vom <span class="ckursiv">Exponenten</span> (<span class="clisting">-12</span>) getrennt. Übertragen in die mathematische Schreibweise, entspricht <span class="clisting">3.141e-12</span> 3,141 · 10<sup>&#8211;  </sup><sup>12  </sup><span class="clisting">.</span> Beachten Sie, dass sowohl die Mantisse als auch der Exponent im Dezimalsystem anzugeben sind. Andere Zahlensysteme sind nicht vorgesehen, was die gefahrlose Verwendung von führenden Nullen ermöglicht:</p>
+<div class="listing"><pre class="prettyprint">v = 03.141e-0012</pre></div>
+<p>Es gibt noch weitere Varianten, eine gültige Gleitkommazahl zu definieren. Es handelt sich dabei um Spezialfälle der obigen Notation, weswegen sie etwas exotisch wirken. Sie sollten der Vollständigkeit halber trotzdem erwähnt werden. Pythons interaktiver Modus gibt nach jeder Eingabe ihren Wert aus. Das machen wir uns zunutze und lassen zu jedem Spezialfall den normal formatierten Wert automatisch ausgeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; -3. 
+-3.0 
+&gt;&gt;&gt; .001 
+0.001 
+&gt;&gt;&gt; 3e2 
+300.0</pre></div>
+<p>Eventuell haben Sie gerade schon etwas mit den Gleitkommazahlen experimentiert und sind dabei auf einen vermeintlichen Fehler des Interpreters gestoßen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 0.9 
+0.90000000000000002</pre></div>
+<p>Aufgrund der Begrenztheit von <span class="clisting">float</span> können rationale Zahlen nicht unendlich präzise gespeichert werden. Stattdessen werden sie mit einer bestimmten Genauigkeit angenähert. In diesem Fall konnte keine präzisere Annäherung an die <span class="clisting">0.9</span> gefunden werden. Es ist unter Verwendung der Basisdatentypen nicht möglich mit beliebig genauen Dezimalzahlen zu rechnen. Dazu muss die Standardbibliothek bemüht werden, was wir zu gegebener Zeit behandeln werden.</p>
+<p>Gleitkommazahlen können nicht beliebig genau gespeichert werden. Das impliziert auch, dass es sowohl eine Ober- als auch eine Untergrenze für diesen Datentyp geben muss. Und tatsächlich können Gleitkommazahlen, die in ihrer Größe ein bestimmtes Limit überschreiten, in Python nicht mehr dargestellt werden. Wenn das Limit überschritten wird, wird die Zahl als <span class="clisting">inf</span> gespeichert, bzw. als <span class="clisting">-inf</span>, wenn das untere Limit unterschritten wurde. Es kommt also zu keinem Fehler, und es ist immer noch möglich, eine übergroße Zahl mit anderen zu vergleichen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 3.0e999 
+inf 
+&gt;&gt;&gt; -3.0e999 
+-inf 
+&gt;&gt;&gt; 3.0e999 &lt; 12.0 
+False 
+&gt;&gt;&gt; 3.0e999 &gt; 12.0 
+True 
+&gt;&gt;&gt; 3.0e999 == 3.0e999999999999 
+True</pre></div>
+<p>Es ist zwar möglich, zwei unendlich große Gleitkommazahlen miteinander zu vergleichen, jedoch lässt sich nur bedingt mit ihnen rechnen. Dazu folgendes Beispiel:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 3.0e999 + 1.5e999999 
+inf 
+&gt;&gt;&gt; 3.0e999 - 1.5e999999 
+nan 
+&gt;&gt;&gt; 3.0e999 * 1.5e999999 
+inf 
+&gt;&gt;&gt; 3.0e999 / 1.5e999999 
+nan</pre></div>
+<p>Zwei unendlich große Gleitkommazahlen lassen sich problemlos addieren oder multiplizieren. Das Ergebnis ist in beiden Fällen wieder <span class="clisting">inf</span>. Ein Problem gibt es aber, wenn versucht wird, zwei solche Zahlen zu subtrahieren bzw. zu dividieren. Da diese Rechenoperationen nicht sinnvoll sind, ergeben sie <span class="clisting">nan</span>. Der Status <span class="clisting">nan</span> ist vom Typ her ähnlich wie <span class="clisting">inf</span>, bedeutet jedoch »not a number«, also so viel wie »nicht berechenbar«.</p>
+<p>Beachten Sie, dass weder <span class="clisting">inf</span> noch <span class="clisting">nan</span> eine Konstante ist, die Sie selbst in einem Python-Programm verwenden könnten.</p><a id="mjfb4d02fccab9edcdc5ad084f35eaeaa6" name="mjfb4d02fccab9edcdc5ad084f35eaeaa6"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">8.3.3</span><span class="cfett"> Boolesche Werte &#8211; bool</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Eine Instanz des Datentyps <span class="clisting">bool</span> kann nur zwei verschiedene Werte annehmen: »Wahr« oder »Falsch« oder, um innerhalb der Python-Syntax zu bleiben, <span class="clisting">True</span> bzw. <span class="clisting">False</span>. Deshalb ist es auf den ersten Blick absurd, <span class="clisting">bool</span> den numerischen Datentypen unterzuordnen. Python sieht hier jedoch <span class="clisting">True</span> analog zur <span class="clisting">1</span> und <span class="clisting">False</span> analog zur <span class="clisting">0</span>, sodass sich mit booleschen Werten genauso rechnen lässt wie beispielsweise schon mit den ganzen Zahlen. Bei den Namen <span class="clisting">True</span> und <span class="clisting">False</span> handelt es sich um Konstanten, die im Quelltext verwendet werden können. Zu beachten ist besonders, dass die Konstanten mit einem Großbuchstaben beginnen:</p>
+<div class="listing"><pre class="prettyprint">v1 =<span class="clisting"> True</span> 
+v2 =<span class="clisting"> False</span></pre></div>
+<h4 class="t4"><span class="cfett">Logische Operatoren</span></h4>
+<p>Ein oder mehrere boolesche Werte lassen sich mithilfe von bestimmten Operatoren zu einem booleschen Ausdruck kombinieren. Ein solcher Ausdruck resultiert, wenn er ausgewertet wurde, wieder in einem booleschen Wert, also in <span class="clisting">True</span> oder <span class="clisting">False</span>. Bevor es zu theoretisch wird, folgt hier zunächst die Tabelle der sogenannten <span class="ckursiv">logischen Operatoren</span>, und darunter sehen Sie weitere Erklärungen mit konkreten Beispielen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.6    </strong>Logische Operatoren des Datentyps bool
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Ergebnis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>not <span class="clisting">x</span></p>
+</td>
+<td class="tabellentext">
+<p>Logische Negierung von <span class="clisting">x</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x</span> and <span class="clisting">y</span></p>
+</td>
+<td class="tabellentext">
+<p>Logisches UND zwischen <span class="clisting">x</span> und <span class="clisting">y</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x</span> or <span class="clisting">y</span></p>
+</td>
+<td class="tabellentext">
+<p>Logisches (nicht ausschließendes) ODER zwischen <span class="clisting">x</span> und <span class="clisting">y</span></p>
+</td>
+</tr>
+</table><br><p>Die <span class="ckursiv">logische Negierung</span> eines booleschen Wertes ist schnell erklärt: Der entsprechende Operator <span class="clisting">not</span> macht <span class="clisting">True</span> zu <span class="clisting">False</span> und <span class="clisting">False</span> zu <span class="clisting">True</span>. In einem konkreten Beispiel würde das folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if not</span> x: 
+   <span class="cfett"> print</span><span class="clisting"> "x ist False"</span><span class="cfett"> 
+else</span><span class="clisting">:</span> 
+   <span class="cfett"> print</span><span class="clisting"> "x ist True"</span></pre></div>
+<p>Das <span class="ckursiv">logische UND</span> zwischen zwei Wahrheitswerten ergibt nur dann <span class="clisting">True</span>, wenn beide Operanden bereits <span class="clisting">True</span> sind. In folgender Tabelle sind alle möglichen Fälle aufgelistet:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.7    </strong>Mögliche Fälle des logischen UNDs
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">x</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">y</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Ausdruck: a and b</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+</tr>
+</table><br><p>In einem konkreten Beispiel würde die Anwendung des logischen UNDs so aussehen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if</span> x<span class="cfett"> and</span> y: 
+   <span class="cfett"> print</span><span class="clisting"> "x und y sind True"</span></pre></div>
+<p>Das <span class="ckursiv">logische ODER</span> zwischen zwei Wahrheitswerten ergibt genau dann eine wahre Aussage, wenn mindestens einer der beiden Operanden wahr ist. Es handelt sich demnach um ein nicht ausschließendes ODER. Ein Operator für ein logisches ausschließendes (exklusives) ODER existiert in Python nicht. Folgende Tabelle listet alle möglichen Fälle auf:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.8    </strong>Mögliche Fälle des logischen ODERs
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">x</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">y</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Ausdruck: a or b</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">True</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+</tr>
+</table><br><p>Ein logisches ODER könnte folgendermaßen implementiert werden:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if</span> x<span class="cfett"> or</span> y: 
+   <span class="cfett"> print</span><span class="clisting"> "x oder y ist True"</span></pre></div>
+<p>Selbstverständlich können all diese Operatoren miteinander kombiniert und in einem komplexen Ausdruck verwendet werden. Das könnte etwa folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if</span> x<span class="cfett"> and</span> y<span class="cfett"> or</span> y<span class="cfett"> and</span> z<span class="cfett"> and not</span> x: 
+   <span class="cfett"> print</span><span class="clisting"> "Holla die Waldfee"</span></pre></div>
+<p>Wir möchten diesen Ausdruck hier nicht im Einzelnen besprechen. Es sei nur gesagt, dass der Einsatz von Klammern den erwarteten Effekt hat, nämlich dass umklammerte Ausdrücke zuerst ausgewertet werden. Die folgende Tabelle zeigt den Wahrheitswert des Ausdruckes auf, und zwar in Abhängigkeit von den drei Parametern <span class="clisting">x</span>, <span class="clisting">y</span> und <span class="clisting">z</span>:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.9    </strong>Mögliche Ergebnisse des Ausdrucks
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">x</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">y</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">z</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Ausdruck: x and y or y and z and not x</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<span class="clisting">True</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+<td class="tabellentext">
+<span class="clisting">False</span>
+</td>
+</tr>
+</table><br><p>Zu Beginn des Abschnitts über numerische Datentypen haben wir einige vergleichende Operatoren eingeführt, die eine Wahrheitsaussage in Form eines booleschen Wertes ergeben. Das folgende Beispiel zeigt, dass diese ganz selbstverständlich zusammen mit den logischen Operatoren verwendet werden können:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if</span> x &gt; y<span class="cfett"> or</span> (y &gt; z<span class="cfett"> and</span> x != 0): 
+   <span class="cfett"> print</span><span class="clisting"> "Mein lieber Schwan"</span></pre></div>
+<p>In diesem Fall muss es sich bei <span class="clisting">x</span>, <span class="clisting">y</span> und <span class="clisting">z</span> um Variablen der Typen <span class="clisting">int</span>, <span class="clisting">float</span> oder auch <span class="clisting">bool</span> handeln.</p>
+<h4 class="t4"><span class="cfett">Wahrheitswerte anderer Datentypen</span></h4>
+<p>In Python lassen sich Instanzen eines jeden Basisdatentyps in einen booleschen Wert überführen. Dies ist eine sinnvolle Eigenschaft, da sich eine Instanz der Basisdatentypen häufig in zwei Stadien befinden kann: »leer« und »nicht leer«. Oftmals möchte man beispielsweise testen, ob ein String Buchstaben enthält oder nicht. Dadurch, dass ein String in einen booleschen Wert konvertiert werden kann, wird ein solcher Test sehr einfach durch logische Operatoren möglich:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> not</span> "" 
+True 
+&gt;&gt;&gt;<span class="cfett"> not</span> "abc" 
+False</pre></div>
+<p>Durch Verwendung eines logischen Operators wird der Operand automatisch als Wahrheitswert interpretiert.</p>
+<p>Für jeden Basisdatentyp wurde ein bestimmter Wert als <span class="clisting">False</span> definiert. Alle davon abweichenden Werte sind <span class="clisting">True</span>. Die folgende Tabelle listet für jeden Datentyp den entsprechenden <span class="clisting">False</span>-Wert auf. Einige der Datentypen wurden noch nicht eingeführt, woran Sie sich an dieser Stelle jedoch nicht weiter stören sollten.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.10    </strong>Wahrheitswerte anderer Datentypen
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Basisdatentyp</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">False-Wert</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">NoneType</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">None</span></p>
+</td>
+<td class="tabellentext">
+<p>Der Wert None</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="3">
+<p><span class="cfett">Numerische Datentypen</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">0</span></p>
+</td>
+<td class="tabellentext">
+<p>Der Wert Null</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">float</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">0.0</span></p>
+</td>
+<td class="tabellentext">
+<p>Der Wert Null</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">complex</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">0 + 0j</span></p>
+</td>
+<td class="tabellentext">
+<p>Der Wert Null</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="3">
+<p><span class="cfett">Sequenzielle Datentypen</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">str</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">""</span></p>
+</td>
+<td class="tabellentext">
+<p>Eine leerer String</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">list</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">[]</span></p>
+</td>
+<td class="tabellentext">
+<p>Eine leere Liste</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">tuple</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">()</span></p>
+</td>
+<td class="tabellentext">
+<p>Ein leeres Tupel</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="3">
+<p><span class="cfett">Assoziative Datentypen</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">dict</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">{}</span></p>
+</td>
+<td class="tabellentext">
+<p>Ein leeres Dictionary</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext" colspan="3">
+<p><span class="cfett">Mengen</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">set, frozenset</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">set()</span>, <span class="clisting">frozenset()</span></p>
+</td>
+<td class="tabellentext">
+<p>Eine leere Menge</p>
+</td>
+</tr>
+</table><br><p>Alle anderen Werte ergeben <span class="clisting">True</span>.</p>
+<p>Betrachten wir die Konvertierung eines Wertes in einen Wahrheitswert anhand einer Gleitkommazahl:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; bool(0.0) 
+False 
+&gt;&gt;&gt; bool(0.0e12) 
+False 
+&gt;&gt;&gt; bool(1.0) 
+True 
+&gt;&gt;&gt; bool(123.456) 
+True</pre></div>
+<h4 class="t4"><span class="cfett">Auswertung logischer Operatoren</span></h4>
+<p>Python wertet logische Ausdrücke grundsätzlich von links nach rechts, also Im folgenden Beispiel zuerst <span class="clisting">a</span> und dann <span class="clisting">b</span>, aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">if</span> a<span class="cfett"> or</span> b: 
+   <span class="cfett"> print</span><span class="clisting"> "a oder b sind True"</span></pre></div>
+<p>Es wird aber nicht garantiert, dass jeder Teil des Ausdruckes tatsächlich ausgewertet wird. Aus Optimierungsgründen bricht Python die Auswertung des Ausdruckes sofort ab, wenn das Ergebnis feststeht. Wenn im obigen Beispiel also <span class="clisting">a</span> bereits den Wert <span class="clisting">True</span> hat, ist der Wert von <span class="clisting">b</span> nicht weiter von Belang. <span class="clisting">b</span> würde dann nicht mehr ausgewertet werden. Dieses Detail scheint unwichtig, kann aber zu schwer auffindbaren Fehlern führen.</p>
+<p>Zu Beginn dieses Kapitels wurde gesagt, dass ein boolescher Ausdruck stets einen booleschen Wert ergibt, wenn er ausgewertet wurde. Das ist nicht ganz korrekt, denn auch hier wurde die Arbeitsweise des Interpreters in einer Weise optimiert, über die man Bescheid wissen sollte. Deutlich wird dies an folgendem Beispiel aus dem interaktiven Modus:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 0<span class="cfett"> or</span> 1 
+1</pre></div>
+<p>Nach dem, was wir bisher besprochen haben, sollte das Ergebnis des Ausdrucks <span class="clisting">True</span> sein, was mitnichten der Fall ist. Stattdessen gibt Python hier den ersten Operanden mit dem Wahrheitswert <span class="clisting">True</span> zurück. Das ist um einiges effizienter, da keine neue Instanz erzeugt werden muss, und hat in vielen Fällen trotzdem den erwünschten Effekt, denn der zurückgegebene Wert wird problemlos automatisch in den Wahrheitswert <span class="clisting">True</span> überführt. Die Auswertung der beiden Operatoren <span class="clisting">or</span> und <span class="clisting">and</span> läuft dabei folgendermaßen ab:</p>
+<ul class="gp">
+<li>Das logische ODER (<span class="clisting">or</span>) nimmt den Wert des ersten Operanden an, der den Wahrheitswert <span class="clisting">True</span> besitzt, oder &#8211; wenn es einen solchen nicht gibt &#8211; den Wert des letzten Operanden.</li>
+</ul>
+<ul class="gp">
+<li>Das logische UND (<span class="clisting">and</span>) nimmt den Wert des ersten Operanden an, der den Wahrheitswert <span class="clisting">False</span> besitzt, oder &#8211; wenn es einen solchen nicht gibt &#8211; den Wert des letzten Operanden.</li>
+</ul>
+<p>Diese Details haben dabei auch durchaus ihren unterhaltsamen Wert:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; "Python"<span class="cfett"> or</span> "Java" 
+'Python'</pre></div><a id="mje0a568fae09049a37bd3c3eec46428e7" name="mje0a568fae09049a37bd3c3eec46428e7"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">8.3.4</span><span class="cfett"> Komplexe Zahlen &#8211; complex</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Überraschenderweise findet sich ein Datentyp zur Speicherung komplexer Zahlen unter Pythons Basisdatentypen. In vielen Programmiersprachen würden komplexe Zahlen eher eine Randnotiz in der Standardbibliothek darstellen oder ganz außen vor bleiben. Sollten Sie nicht mit komplexen Zahlen vertraut sein, können Sie dieses Kapitel gefahrlos überspringen. Es wird nichts behandelt, was für das weitere Erlernen von Python vorausgesetzt würde.</p>
+<p>Komplexe Zahlen bestehen aus einem reellen Realteil und einem Imaginärteil, der aus einer reellen Zahl besteht, die mit der imaginären Einheit <span class="ckursiv">j</span> multipliziert wird. Das in der Mathematik eigentlich übliche Symbol der imaginären Einheit ist <span class="ckursiv">i</span>. Python hält sich hier an die Notationen der Elektrotechnik. Die imaginäre Einheit <span class="ckursiv">j</span> kann als Lösung der Gleichung</p><span class="ckursiv">j</span><span class="ckursiv"><sup>2  </sup></span><span class="ckursiv"> = &#8211;1</span><p>verstanden werden. Im folgenden Beispiel weisen wir einer komplexen Zahl den Namen <span class="clisting">v</span> zu:</p>
+<div class="listing"><pre class="prettyprint">v = 4j</pre></div>
+<p>Wenn man, wie im Beispiel, nur einen Imaginärteil angibt, wird der Realteil automatisch als <span class="clisting">0</span> angenommen. Um den Realteil festzulegen, wird dieser auf den Imaginärteil addiert. Die beiden folgenden Schreibweisen sind äquivalent:</p>
+<div class="listing"><pre class="prettyprint">v1 = 3 + 4j 
+v2 = 4j + 3</pre></div>
+<p>Statt des kleinen <span class="clisting">j</span> ist auch ein großes <span class="clisting">J</span> als Literal für den Imaginärteil einer komplexen Zahl zulässig. Entscheiden Sie hier ganz nach Ihren Vorlieben, welche der beiden Möglichkeiten Sie verwenden möchten.</p>
+<p>Sowohl der Real- als auch der Imaginärteil kann eine beliebige reelle Zahl sein, also Instanzen der Typen <span class="clisting">int</span> oder <span class="clisting">float</span>. Folgende Schreibweise ist demnach auch korrekt:</p>
+<div class="listing"><pre class="prettyprint">v3 = 3.4 + 4e2j</pre></div>
+<p>Zu Beginn des Abschnitts über numerische Datentypen wurde bereits angedeutet, dass sich komplexe Zahlen von den anderen numerischen Datentypen unterscheiden. Da für komplexe Zahlen keine mathematische Reihenfolge definiert ist, können Instanzen des Datentyps <span class="clisting">complex</span> nur auf Gleichheit oder Ungleichheit verglichen werden. Die Menge der vergleichenden Operatoren ist also auf <span class="clisting">==</span>, <span class="clisting">!=</span> und <span class="clisting">&lt;&gt;</span> beschränkt.</p>
+<p>Des Weiteren sind sowohl der Modulo-Operator <span class="clisting">%</span> als auch der Operator <span class="clisting">//</span> für eine ganzzahlige Division im Komplexen zwar formal möglich, haben jedoch keinen mathematischen Sinn. Deswegen sind sie in Python inzwischen als <span class="ckursiv">deprecated</span> (dt. <span class="ckursiv">abgelehnt</span>), also als nicht mehr zu verwenden, eingestuft. Sollten Sie die Operatoren dennoch verwenden, wird eine entsprechende Warnung ausgegeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; 4j % 2+3j 
+sys:1: DeprecationWarning: complex divmod(), // and % are deprecated 
+7j</pre></div>
+<p>Der Datentyp <span class="clisting">complex</span> besitzt zwei sogenannte <span class="ckursiv">Attribute</span>, die das Arbeiten mit ihm erheblich erleichtern. Es kommt zum Beispiel vor, dass man Berechnungen nur mit dem Realteil oder nur mit dem Imaginärteil der gespeicherten Zahl anstellen möchte. Um einen der beiden Teile zu isolieren, erlaubt Python folgende Notationen, die hier exemplarisch an einer Referenz auf eine komplexe Zahl namens <span class="clisting">x</span> gezeigt werden:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.11    </strong>Attribute des Datentyps complex
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Attribut</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x.real</span></p>
+</td>
+<td class="tabellentext">
+<p>Realteil von <span class="clisting">x</span> als reelle Zahl (<span class="clisting">float</span>)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x.imag</span></p>
+</td>
+<td class="tabellentext">
+<p>Imaginärteil von <span class="clisting">x</span> als reelle Zahl (<span class="clisting">float</span>)</p>
+</td>
+</tr>
+</table><br><p>Diese können im Code ganz selbstverständlich verwendet werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; c = 23 + 4j 
+&gt;&gt;&gt; c.real 
+23.0 
+&gt;&gt;&gt; c.imag 
+4.0</pre></div>
+<p>Wir werden im Zusammenhang mit objektorientierter Programmierung darauf zurückkommen und näher darauf eingehen, was ein Attribut genau ist.</p>
+<p>Außer über seine zwei Attribute verfügt der Datentyp <span class="clisting">complex</span> über eine sogenannte <span class="ckursiv">Methode</span>, die in der Tabelle exemplarisch für eine Referenz auf eine komplexe Zahl namens <span class="clisting">x</span> erklärt wird.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 8.12    </strong>Methoden des Datentyps complex
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Methode</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">x.conjugate()</span></p>
+</td>
+<td class="tabellentext">
+<p>Liefert die zu <span class="clisting">x</span> konjugiert komplexe Zahl</p>
+</td>
+</tr>
+</table><br><p>Im Quelltext kann eine Methode ähnlich einfach verwendet werden wie ein Attribut:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; c = 23 + 4j 
+&gt;&gt;&gt; c.conjugate() 
+(23-4j)</pre></div>
+<p>Das Ergebnis von <span class="clisting">conjugate</span> ist wieder eine komplexe Zahl, der selbstverständlich ein Name zugewiesen werden kann. Außerdem verfügt natürlich auch das Ergebnis über eine Methode <span class="clisting">conjugate</span>:</p>
+<div class="listing"><pre class="prettyprint"> &gt;&gt;&gt; c = 23 + 4j 
+&gt;&gt;&gt; c2 = c.conjugate() 
+&gt;&gt;&gt; c2 
+(23-4j)<br>
+&gt;&gt;&gt; c3 = c2.conjugate() 
+&gt;&gt;&gt; c3 
+(23+4j)</pre></div>
+<p>Näheres zur Verwendung von Methoden erfahren Sie im nächsten Abschnitt.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_08_003.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="8.3 Numerische Datentypen"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_08_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_08_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

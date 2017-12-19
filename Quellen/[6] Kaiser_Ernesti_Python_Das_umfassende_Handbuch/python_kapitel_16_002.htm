@@ -1,0 +1,661 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 16.2 Komfortable Datumsfunktionen &#8211; datetime</title>
+<meta name="title" content="Galileo Computing :: Python - 16.2 Komfortable Datumsfunktionen &#8211; datetime">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 16.2 Komfortable Datumsfunktionen &#8211; datetime">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_16_001.htm">
+<link rel="next" href="python_kapitel_17_001.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_16_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_17_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845" class="navnav">16 Datum und Zeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_16_001.htm#mjcff2c67a55dd9f24a68b0f1ff3efa605" class="navnav">16.1 Elementare Zeitfunktionen &#8211; time</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj22c67d1cbc74eec9b9fd87fab425a1c0" class="navh">16.2 Komfortable Datumsfunktionen &#8211; datetime</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjfc03e19de98197eaefe9b62134ce4452" class="navh">16.2.1 datetime.date</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj446442de94a61999e10e143c04a7c091" class="navh">16.2.2 datetime.time</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj95e5ef0248164d2f711ef8d5955c9a05" class="navh">16.2.3 datetime.datetime</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj22c67d1cbc74eec9b9fd87fab425a1c0" name="mj22c67d1cbc74eec9b9fd87fab425a1c0"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">16.2</span><span class="cfett"> Komfortable Datumsfunktionen &#8211; datetime</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Modul <span class="clisting">datetime</span> ist im Vergleich zum <span class="clisting">time</span>-Modul wesentlich abstrakter und durch seine eigenen Zeit- und Datumstypen auch wesentlich angenehmer zu benutzen.</p>
+<p>Das Modul unterscheidet zwei Arten von Datums- und Zeitobjekten: die sogenannten <span class="ckursiv">naiven</span> und die <span class="ckursiv">bewussten</span> Objekte.</p>
+<p>Ein <span class="ckursiv">naives</span> Objekt kümmert sich nicht darum, auf welche Zeitzone sich sein Wert bezieht, und enthält auch keine Informationen darüber, wohingegen ein <span class="ckursiv">bewusstes</span> Objekt mit Informationen zu seiner Zeitzone verknüpft ist. Ihre Programme können selbst entscheiden, ob die von ihnen benutzten Objekte <span class="ckursiv">naiv</span> oder <span class="ckursiv">bewusst</span> sind.</p>
+<p>Wie das genau funktioniert, wird hier nicht näher thematisiert. Weitere Informationen darüber finden Sie in der Python-Dokumentation.</p>
+<h4 class="t4"><span class="cfett">Konstanten des Moduls datetime</span></h4>
+<p>Es gibt zwei Konstanten, die das <span class="clisting">datetime</span>-Modul definiert, um den Wertebereich für die Jahreszahlen zu definieren:</p>
+<h5 class="t5"><span class="cfett">datetime.MINYEAR</span></h5>
+<p>Der minimal mögliche Wert für eine Jahreszahl. Der Wert ist in der Regel <span class="clisting">1</span>.</p>
+<h5 class="t5"><span class="cfett">datetime.MAXYEAR</span></h5>
+<p>Der maximal mögliche Wert für eine Jahreszahl. Der Wert ist in der Regel <span class="clisting">9999</span>.</p>
+<h4 class="t4"><span class="cfett">Die fünf Datentypen von datetime</span></h4>
+<p>Das Modul <span class="clisting">datetime</span> definiert fünf eigene Datentypen für den Umgang mit Datum und Zeit. Alle diese Datentypen sind <span class="ckursiv">immutable</span>.</p>
+<h5 class="t5"><span class="cfett">datetime.date</span></h5>
+<p>Ein Datentyp zum Speichern von Datumsangaben. Alle Instanzen dieses Datentyps sind prinzipiell <span class="ckursiv">naiv</span>, kümmern sich also nicht um die Gegebenheiten der lokalen Zeitzone.</p>
+<h5 class="t5"><span class="cfett">datetime.time</span></h5>
+<p>Mit <span class="clisting">datetime.time</span> können Zeitpunkte an einem Tag gespeichert werden. Dabei wird idealisiert angenommen, dass jeder Tag 24*60*60 Sekunden umfasst und dass es keine Schaltsekunden gibt.</p>
+<h5 class="t5"><span class="cfett">datetime.datetime</span></h5>
+<p>Die Kombination aus <span class="clisting">datetime.date</span> und <span class="clisting">datetime.time</span> zum Speichern von ganzen Zeitpunkten, die sowohl ein Datum als auch eine Uhrzeit umfassen. Der Datentyp <span class="clisting">datetime.datetime</span> ist der wichtigste des Moduls.</p>
+<h5 class="t5"><span class="cfett">datetime.timedelta</span></h5>
+<p>Es ist möglich, Differenzen zwischen <span class="clisting">datetime.date</span>- und auch <span class="clisting">datetime.date</span> <span class="clisting">time</span>-Instanzen zu bilden. Die Ergebnisse solcher Subtraktionen sind dann <span class="clisting">date</span> <span class="clisting">time.timedelta</span>-Objekte.</p>
+<h5 class="t5"><span class="cfett">datetime.tzinfo</span></h5>
+<p>Dieser Typ wird benötigt, um mit Zeitzonen umzugehen. Dafür muss das Programm eine Subklasse von <span class="clisting">datetime.tzinfo</span> erzeugen und bestimmte Methoden überschreiben.</p>
+<p>Aus Platzgründen werden wir diesen Datentyp nicht behandeln. Allerdings finden Sie in der Python-Dokumentation ein gutes Beispiel für die Implementation einer <span class="clisting">datetime.tzinfo</span>-Klasse.</p><a id="mjfc03e19de98197eaefe9b62134ce4452" name="mjfc03e19de98197eaefe9b62134ce4452"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">16.2.1</span><span class="cfett"> datetime.date</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Hier werden wir die Attribute und Methoden des Datentyps <span class="clisting">datetime.date</span> behandeln.</p>
+<h4 class="t4"><span class="cfett">Konstruktoren der Klasse datetime.date</span></h4>
+<p>Es gibt drei Konstruktoren für <span class="clisting">datetime.date</span>-Instanzen:</p>
+<h5 class="t5"><span class="cfett">datetime.date(year, month, day)</span></h5>
+<p>Erzeugt eine neue Instanz des Datentyps <span class="clisting">datetime.date</span>, die den durch die Parameter festgelegten Tag repräsentiert. Dabei müssen die Parameter folgenden Bedingungen genügen:</p>
+<ul class="gp">
+<li><span class="clisting">datetime.MINYEAR &lt;=</span> <span class="ckursiv">year</span> <span class="clisting">&lt;= datetime.MAXYEAR</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">1 &lt;=</span> <span class="ckursiv">month</span> <span class="clisting">&lt;= 12</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">1 &lt;=</span> <span class="ckursiv">day</span> <span class="clisting">&lt;=</span> (Anzahl der Tage des übergebenen Monats)</li>
+</ul>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; geburtstag = datetime.date(1987, 11, 3) 
+&gt;&gt;&gt; geburtstag 
+datetime.date(1987, 11, 3)</pre></div>
+<h5 class="t5"><span class="cfett">datetime.date.today()</span></h5>
+<p>Erzeugt eine neue <span class="clisting">datetime.date</span>-Instanz, die den aktuellen Tag repräsentiert:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; datetime.date.today() 
+datetime.date(2007, 9, 19)</pre></div>
+<h5 class="t5"><span class="cfett">datetime.date.fromtimestamp(timestamp)</span></h5>
+<p>Erzeugt ein neues <span class="clisting">datetime.date</span>-Objekt, das das Datum des übergebenen Unix-Timestamps speichert.</p>
+<h4 class="t4"><span class="cfett">Klassenmember von datetime.date</span></h4>
+<h5 class="t5"><span class="cfett">datetime.date.min</span></h5>
+<p>Ein Klassenattribut, das den frühesten Tag beinhaltet, der durch den <span class="clisting">date</span> <span class="clisting">time.date</span>-Typ abgebildet werden kann. Wie das folgende Beispiel zeigt, ist dies der 1. Januar im Jahr 1:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; datetime.date.min 
+datetime.date(1, 1, 1)</pre></div>
+<h5 class="t5"><span class="cfett">datetime.date.max</span></h5>
+<p>Das Klassenattribut <span class="clisting">datetime.date.max</span> speichert eine <span class="clisting">datetime.date</span>-Instanz, die den spätesten Tag repräsentiert, der von <span class="clisting">datetime.date</span> verwaltet werden kann: den 31.12. im Jahr 9999.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; datetime.date.max 
+datetime.date(9999, 12, 31)</pre></div>
+<h4 class="t4"><span class="cfett">Operatoren für datetime.date-Instanzen</span></h4>
+<p>Sie können Differenzen zwischen zwei <span class="clisting">datetime.date</span>-Instanzen bilden. Das Ergebnis einer solchen Subtraktion ist ein <span class="clisting">datetime.timedelta</span>-Objekt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; datetime.date(1987, 7, 26) - datetime.date(1987, 1, 9) 
+datetime.timedelta(198)</pre></div>
+<p>In dem Beispiel liegen die beiden Zeitpunkte 198 Tage auseinander.</p>
+<p>Es ist auch möglich, zu einer <span class="clisting">datetime.date</span>-Instanz ein <span class="clisting">datetime.timedelta</span>-Objekt zu addieren oder es davon abzuziehen. In diesem Fall ist das Ergebnis ein <span class="clisting">datetime.date</span>-Objekt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; datetime.date(1987, 1, 9) + datetime.timedelta(198) 
+datetime.date(1987, 7, 26)</pre></div>
+<p>Außerdem können <span class="clisting">datetime.date</span>-Instanzen mit den Vergleichsoperatoren <span class="clisting">&lt;</span> und <span class="clisting">&gt;</span> verglichen werden. Dabei wird das Datum als »kleiner« betrachtet, das in der Zeit weiter in Richtung Vergangenheit liegt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; datetime.date(1987, 1, 9) &lt; datetime.date(1987, 7, 26) 
+True</pre></div>
+<h4 class="t4"><span class="cfett">Die Attribute und Methoden von datetime.date-Instanzen</span></h4>
+<p>Im Folgenden sei <span class="ckursiv">d</span> eine <span class="clisting">datetime.date</span>-Instanz.</p>
+<h5 class="t5"><span class="cfett">d.year</span></h5>
+<p>Speichert das Jahr des Datums. Dieses Attribut kann nur gelesen werden.</p>
+<h5 class="t5"><span class="cfett">d.month</span></h5>
+<p>Speichert den Monat des Datums. Dieses Attribut kann nur gelesen werden.</p>
+<h5 class="t5"><span class="cfett">d.day</span></h5>
+<p>Speichert den Tag des Datums. Dieses Attribut kann nur gelesen werden.</p>
+<h5 class="t5"><span class="cfett">d.replace(year, month, day)</span></h5>
+<p>Erzeugt ein neues Datum, dessen Attribute den übergebenen Parametern entsprechen. Fehlt eine Angabe, wird das entsprechende Attribut von <span class="ckursiv">d</span> verwendet:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d = datetime.date(1987, 7, 26) 
+&gt;&gt;&gt; d.replace(month=11, day=3) 
+datetime.date(1987, 11, 3)</pre></div>
+<h5 class="t5"><span class="cfett">d.timetuple()</span></h5>
+<p>Gibt eine <span class="clisting">time.struct_time</span>-Instanz [Siehe dazu Abschnitt <a href="#Rxx_ref177933518">16.1</a>, »<a href="#Rxx_ref177933518">Elementare Zeitfunktionen &#8211; time</a>«.
+]  zurück, die das Datum von <span class="ckursiv">d</span> repräsentiert. Die Elemente für die Uhrzeit werden dabei auf <span class="clisting">0</span> und das <span class="clisting">tm_isdst</span>-Attribut wird auf <span class="clisting">-1</span> gesetzt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d = datetime.date(2007, 7, 6) 
+&gt;&gt;&gt; d.timetuple() 
+(2007, 7, 6, 0, 0, 0, 4, 187, -1)</pre></div>
+<h5 class="t5"><span class="cfett">d.weekday()</span></h5>
+<p>Gibt den Wochentag als Zahl zurück, wobei Montag als <span class="clisting">0</span> und Sonntag als <span class="clisting">6</span> angegeben werden.</p>
+<h5 class="t5"><span class="cfett">d.isoweek()</span></h5>
+<p>Gibt den Wochentag als Zahl zurück, wobei Montag den Wert <span class="clisting">0</span> und Sonntag den Wert <span class="clisting">7</span> ergibt.</p>
+<p>Siehe dazu auch <span class="clisting">d.isocalendar()</span>.</p>
+<h5 class="t5"><span class="cfett">d.isocalendar()</span></h5>
+<p>Gibt ein Tupel zurück, das drei Elemente enthält: <span class="clisting">(ISO year, ISO week number, ISO weekday)</span>.</p>
+<p>Die Angaben in dem Tupel erfolgen dabei im Format des sogenannten <span class="ckursiv">ISO-Kalenders</span>, der eine Variante des gregorianischen Kalenders ist. Im ISO-Kalender wird ein Jahr in 52 oder 53 Wochen geteilt. Jede der Wochen beginnt mit einem Montag und endet mit einem Sonntag. Die erste Woche eines Jahres, deren Donnerstag in diesem Jahr liegt, erhält im ISO-Kalender die Wochennummer 1.</p>
+<p>Die drei Elemente des zurückgegebenen Tupels bedeuten das Folgende: <span class="clisting">(Jahr, Wochennummer, Tagesnummer)</span>.</p>
+<p>Beispielsweise wird der 01.01.2008 ein Dienstag sein, weshalb der 31.12.2007 der erste Tag im Jahr 2008 des ISO-Kalenders ist:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d = datetime.date(2007, 12, 31) 
+&gt;&gt;&gt; d.isocalendar() 
+(2008, 1, 1)</pre></div>
+<h5 class="t5"><span class="cfett">d.isoformat()</span></h5>
+<p>Gibt einen String zurück, der den von <span class="ckursiv">d</span> repräsentierten Tag im ISO-8601-Format enthält. Dieses Standardformat sieht folgendermaßen aus: YYYY-MM-DD, wobei die »Y« für die Ziffern der Jahreszahl, die »M« für die Ziffern der Monatszahl und die »D« für die Ziffern des Tages im Monat stehen.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d = datetime.date(2007, 6, 18) 
+&gt;&gt;&gt; d.isoformat() 
+'2007-06-18'</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Achtung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Die Methode <span class="clisting">isoformat</span> hat nichts mit dem ISO-Kalender zu tun, den die Methoden <span class="clisting">isoweekday</span> und <span class="clisting">isocalendar</span> verwenden.</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">d.ctime()</span></h5>
+<p>Gibt einen String in einem 24-Zeichen-Format aus, der den von <span class="ckursiv">d</span> gespeicherten Tag repräsentiert. Die Platzhalter für Stunde, Minute und Sekunde werden dabei auf <span class="clisting">"00"</span> gesetzt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; d = datetime.date(2007, 10, 23) 
+&gt;&gt;&gt; d.ctime() 
+'Tue Oct 23 00:00:00 2007'</pre></div>
+<h5 class="t5"><span class="cfett">d.strftime(format)</span></h5>
+<p>Gibt den von <span class="clisting">d</span> repräsentierten Tag formatiert aus, wobei der Parameter <span class="ckursiv">format</span> die Beschreibung des gewünschten Ausgabeformats enthält.</p>
+<p>Nähere Informationen können Sie in Abschnitt <a href="#Rxx_ref177933518">16.1</a>, »<a href="#Rxx_ref177933522">Elementare Zeitfunktionen &#8211; time</a>«, unter <span class="clisting">time.strftime</span> nachschlagen.</p><a id="mj446442de94a61999e10e143c04a7c091" name="mj446442de94a61999e10e143c04a7c091"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">16.2.2</span><span class="cfett"> datetime.time</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In diesem Abschnitt werden wir uns mit den Methoden und Attributen des Datentyps <span class="clisting">datettime.time</span> beschäftigen.</p>
+<p>Objekte des Typs <span class="clisting">datetime.time</span> dienen dazu, Tageszeiten anhand von Stunde, Minute, Sekunde und auch Mikrosekunde zu verwalten.</p>
+<p>In dem Attribut <span class="clisting">tzinfo</span> können <span class="clisting">datetime.time</span>-Instanzen Informationen zur lokalen Zeitzone speichern und ihre Werte damit an die Lokalzeit anpassen. Dadurch ist es möglich, sowohl <span class="ckursiv">naive</span> als auch <span class="ckursiv">bewusste</span> <span class="clisting">datettime.time</span>-Instanzen zu erzeugen.</p>
+<h4 class="t4"><span class="cfett">Konstruktor von datetime.time</span></h4>
+<p>Ein neues <span class="clisting">datetime.time</span>-Objekt kann mit dem folgenden Konstruktor erzeugt werden:</p>
+<h5 class="t5"><span class="cfett">datetime.time([hour[, minute[, second[, microsecond[, tzinfo]]]]])</span></h5>
+<p>Die vier ersten Parameter legen den Zeitpunkt fest und müssen folgende Bedingungen erfüllen, wobei nur Ganzzahlen zugelassen sind:</p>
+<ul class="gp">
+<li><span class="clisting">0 &lt;=</span> <span class="ckursiv">hour</span> <span class="clisting">&lt; 24</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">0 &lt;=</span> <span class="ckursiv">minute</span> <span class="clisting">&lt; 60</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">0 &lt;=</span> <span class="ckursiv">second</span> <span class="clisting">&lt; 60</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">0 &lt;=</span> <span class="ckursiv">microsecond</span> <span class="clisting">&lt; 1000000</span></li>
+</ul>
+<p>Die Standardbelegung für <span class="ckursiv">hour</span>, <span class="ckursiv">minute</span>, <span class="ckursiv">second</span> und <span class="ckursiv">microsecond</span> ist der Wert <span class="clisting">0</span>.</p>
+<p>Für den letzten Parameter namens <span class="ckursiv">tzinfo</span> können Informationen über die lokale Zeitzone in Form einer <span class="clisting">datetime.tztime</span>-Instanz übergeben werden. Wie das genau geht, können Sie der Python-Dokumentation entnehmen.</p>
+<h4 class="t4"><span class="cfett">Klassenmember von datetime.time</span></h4>
+<p>Der Datentyp <span class="clisting">datetime.time</span> verfügt über folgende Klassenmember:</p>
+<h5 class="t5"><span class="cfett">datetime.time.min</span></h5>
+<p>Der früheste Zeitpunkt, der gespeichert werden kann, in der Regel <span class="clisting">date</span> <span class="clisting">time.time(0, 0, 0, 0).</span></p>
+<h5 class="t5"><span class="cfett">datetime.time.max</span></h5>
+<p>Der späteste darstellbare Zeitpunkt, in der Regel <span class="clisting">datetime.time(23, 59, 59, 999999)</span>.</p>
+<h5 class="t5"><span class="cfett">datetime.time.resolution</span></h5>
+<p>Der minimale Unterschied zwischen zwei unterschiedlichen <span class="clisting">datetime.time</span>-Objekten. Diese kleinstmögliche Zeiteinheit wird auch <span class="ckursiv">Auflösung</span> genannt.</p>
+<h4 class="t4"><span class="cfett">Attribute und Methoden von datetime.time-Instanzen</span></h4>
+<p>Nachfolgend wird angenommen, dass <span class="clisting">t</span> eine Instanz des Datentyps <span class="clisting">date</span> <span class="clisting">time.time</span> ist.</p>
+<h5 class="t5"><span class="cfett">t.hour</span></h5>
+<p>Speichert den Stundenanteil des Zeitpunkts <span class="ckursiv">t</span>.</p>
+<h5 class="t5"><span class="cfett">t.minute</span></h5>
+<p>Speichert den Minutenanteil des Zeitpunkts <span class="ckursiv">t</span>.</p>
+<h5 class="t5"><span class="cfett">t.second</span></h5>
+<p>Speichert den Sekundenanteil des Zeitpunkts <span class="ckursiv">t</span>.</p>
+<h5 class="t5"><span class="cfett">t.microsecond</span></h5>
+<p>Speichert den Mikrosekundenanteil (Mikrosekunde = Millionstelsekunde) des Zeitpunkts <span class="ckursiv">t</span>.</p>
+<h5 class="t5"><span class="cfett">t.tzinfo</span></h5>
+<p>Information zur lokalen Zeitzone. Näheres dazu entnehmen Sie bitte der Python-Dokumentation.</p>
+<h5 class="t5"><span class="cfett">t.replace([hour[, minute[, second[, microsecond[,tzinfo]]]]])</span></h5>
+<p>Analog zur <span class="clisting">datetimte.date.replace</span>-Methode.</p>
+<p>Eignet sich sehr gut dazu, aus einem <span class="ckursiv">naiven</span> ein <span class="ckursiv">bewusstes</span> <span class="clisting">time</span>-Objekt zu machen, ohne dass die Daten-Member angepasst werden. Dazu ruft man <span class="clisting">replace</span> mit <span class="ckursiv">tzinfo</span> als einzigem Parameter auf.</p>
+<h5 class="t5"><span class="cfett">t.isoformat()</span></h5>
+<p>Gibt einen String zurück, der den Zeitpunkt <span class="clisting">t</span> im ISO-8601-Format enthält. Das Format ist folgendermaßen aufgebaut, wobei die »H« für die Ziffern der Stunde, die »M« für die Ziffern der Minute, die »S« für die Ziffern der Sekunden und die »m« für die Ziffern der Mikrosekunden stehen: »HH:MM:SS:mmmmmm«.</p>
+<p>Ist das <span class="clisting">microseconds</span>-Attribut von <span class="clisting">t</span> gleich <span class="clisting">0</span>, entfallen die Mikrosekunden, und das Format verkürzt sich auf »HH:MM:SS«.</p>
+<h5 class="t5"><span class="cfett">t.strftime(format)</span></h5>
+<p>Erzeugt einen String, der den Zeitpunkt <span class="clisting">t</span> nach der Formatbeschreibung in <span class="ckursiv">format</span> enthält. Näheres dazu können Sie unter <span class="clisting">time.strftime</span> nachlesen.</p>
+<h5 class="t5"><span class="cfett">t.utcoffset()</span></h5>
+<p>Wenn <span class="clisting">t</span> ein <span class="ckursiv">bewusstes</span> Objekt ist, also <span class="clisting">t.tzinfo</span> nicht den Wert <span class="clisting">None</span> hat, gibt <span class="clisting">t.utcoffset</span> den Wert zurück, der von <span class="clisting">t.tzinfo.utcoffset(None)</span> erzeugt wird.</p>
+<p>Dies sollte die Verschiebung der Lokalzeit relativ zur UTC in Sekunden sein.</p>
+<h5 class="t5"><span class="cfett">t.tzname()</span></h5>
+<p>Gibt den Namen der Zeitzone zurück, wenn <span class="clisting">t.tzinfo</span> nicht den Wert <span class="clisting">None</span> hat. Ist <span class="clisting">t.tzinfo</span> gleich <span class="clisting">None</span>, wird stattdessen <span class="clisting">None</span> zurückgegeben.</p>
+<p>(Der Wert wird dadurch bestimmt, dass intern <span class="clisting">t.tzinfo.tzname(None)</span> aufgerufen wird.)</p><a id="mj95e5ef0248164d2f711ef8d5955c9a05" name="mj95e5ef0248164d2f711ef8d5955c9a05"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">16.2.3</span><span class="cfett"> datetime.datetime</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In den meisten Fällen werden die Fähigkeiten der Datentypen <span class="clisting">datetime.date</span> und <span class="clisting">datetime.time</span> jeweils einzeln nicht ausreichen, um Zeitpunkte zu verwalten, da Zeitangaben in der Regel aus einem Datum und der Uhrzeit an dem jeweiligen Tag bestehen.</p>
+<p>Der Datentyp <span class="clisting">datetime.datetime</span> ist genau das, was sein Name vermuten lässt: ein Typ zum Speichern von Datums- und Uhrzeitangaben. Er vereint dazu die Fähigkeiten von <span class="clisting">datetime.date</span> und <span class="clisting">datetime.time</span> in einem Datentyp.</p>
+<h4 class="t4"><span class="cfett">Konstruktoren von datetime.datetime</span></h4>
+<p>Es gibt acht Konstruktoren, um neue <span class="clisting">datetime.datetime</span>-Instanzen zu erzeugen:</p>
+<h5 class="t5"><span class="cfett">datetime.datetime(year, month, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]])</span></h5>
+<p>Die Parameter haben die gleiche Bedeutung wie die gleichnamigen Elemente der Konstruktoren von <span class="clisting">datetime.date</span> und <span class="clisting">datetime.time</span>, weshalb hier auf eine Wiederholung verzichtet wird.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; bescherung = datetime.datetime(2007, 12, 24, 18, 30) 
+&gt;&gt;&gt; bescherung 
+datetime.datetime(2007, 12, 24, 18, 30)</pre></div>
+<h5 class="t5"><span class="cfett">datetime.datetime.today()</span></h5>
+<p>Erzeugt eine <span class="clisting">datetime.datetime</span>-Instanz, die die aktuelle Lokalzeit speichert. Das <span class="clisting">tzinfo</span>-Attribut wird dabei immer auf <span class="clisting">None</span> gesetzt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; datetime.datetime.today() 
+datetime.datetime(2007, 9, 19, 18, 46, 29, 87000)</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Achtung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Auch wenn der Name der Methode <span class="clisting">today</span> (dt. <span class="ckursiv">heute</span>) darauf schließen lassen könnte, dass nur die Attribute für das Datum und nicht die für die Zeit gesetzt werden, erzeugt <span class="clisting">datetime.today</span> ein <span class="clisting">datetime.datetime</span>-Objekt, das auch die Uhrzeit enthält.</p>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">datetime.now([tz])</span></h5>
+<p>Erzeugt eine <span class="clisting">datetime.datetime</span>-Instanz mit dem aktuellen Datum und der aktuellen Zeit. Wird die Methode ohne Parameter aufgerufen, erzeugt sie das gleiche Ergebnis wie <span class="clisting">datetime.datetime.today</span>.</p>
+<p>Mit dem optionalen Parameter <span class="ckursiv">tz</span> können Informationen zur Lokalzeit übergeben werden. Näheres dazu entnehmen Sie bitte der Python-Dokumentation.</p>
+<h5 class="t5"><span class="cfett">datetime.utcnow()</span></h5>
+<p>Gibt die aktuelle koordinierte Weltzeit (UTC) zurück, wobei das <span class="clisting">tzinfo</span>-Attribut der resultierenden <span class="clisting">datetime.datetime</span>-Instanz den Wert <span class="clisting">None</span> hat.</p>
+<h5 class="t5"><span class="cfett">datetime.fromtimestamp(timestamp[, tz])</span></h5>
+<p>Erzeugt eine <span class="clisting">datetime.datetime</span>-Instanz, die den gleichen Zeitpunkt wie der für <span class="clisting">timestamp</span> übergebene Unix-Zeitstempel repräsentiert.</p>
+<p>Wird für <span class="ckursiv">tz</span> kein Wert oder <span class="clisting">None</span> übergeben, ist der Rückgabewert ein <span class="ckursiv">naives</span> Zeitobjekt.</p>
+<p>Wie mit dem Parameter <span class="ckursiv">tz</span> Informationen zur Zeitzone übergeben werden, können Sie in der Python-Dokumentation nachlesen.</p>
+<h5 class="t5"><span class="cfett">datetime.utcfromtimestamp(timestamp)</span></h5>
+<p>Wandelt den übergebenen Unix-Timestamp in ein <span class="clisting">datetime.datetime</span>-Objekt um, das die koordinierte Weltzeit (UTC) speichert. Der Unix-Zeitstempel wird dabei als lokale Zeit interpretiert. Deshalb wird bei der Umwandlung nach UTC die Zeitverschiebung berücksichtigt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; import time 
+&gt;&gt;&gt; t = time.time() 
+&gt;&gt;&gt; datetime.datetime.fromtimestamp(t) 
+datetime.datetime(2007, 9, 21, 1, 48, 13, 718000) 
+&gt;&gt;&gt; datetime.datetime.utcfromtimestamp(t) 
+datetime.datetime(2007, 9, 20, 23, 48, 13, 718000)</pre></div>
+<p>Wie Sie sehen, liegen die von <span class="clisting">fromtimestamp</span> und <span class="clisting">utcfromtimestamp</span> gelieferten <span class="clisting">datetime.datetime</span>-Objekte um genau zwei Stunden auseinander. Dies rührt daher, dass das Beispiel auf einem Computer mit deutscher Lokalzeit (UTC+1) während der Sommerzeit (noch einmal eine Stunde mehr nach vorne) ausgeführt wurde.</p>
+<h5 class="t5"><span class="cfett">datetime.combine(date, time)</span></h5>
+<p>Erzeugt ein <span class="clisting">datetime.datetime</span>-Objekt, das aus der Kombination von <span class="ckursiv">date</span> und <span class="ckursiv">time</span> hervorgeht. Der Parameter <span class="ckursiv">date</span> muss eine <span class="clisting">datetime.date</span>-Instanz enthalten, und der Parameter <span class="ckursiv">time</span> muss auf ein <span class="clisting">datetime.time</span>-Objekt verweisen.</p>
+<p>Alternativ kann für <span class="ckursiv">date</span> auch ein <span class="clisting">datetime.datetime</span>-Objekt übergeben werden. In diesem Fall wird die in <span class="ckursiv">date</span> enthaltene Uhrzeit ignoriert und nur das Datum betrachtet.</p>
+<h5 class="t5"><span class="cfett">datetime.strptime(date_string, format)</span></h5>
+<p>Interpretiert den String, der als Parameter <span class="ckursiv">date_string</span> übergeben wurde, gemäß der Formatbeschreibung aus <span class="ckursiv">format</span> als Zeitinformation und gibt ein entsprechendes <span class="clisting">datetime.datetime</span>-Objekt zurück.</p>
+<p>Für die Formatbeschreibung gelten die gleichen Regeln wie bei <span class="clisting">time.strftime</span>.</p>
+<h4 class="t4"><span class="cfett">Operatoren für datetime.datetime</span></h4>
+<p>Der Datentyp <span class="clisting">datetime.datetime</span> überlädt die Operatoren für die Subtraktion und Addition, sodass mit Zeitangaben gerechnet werden kann.</p>
+<p>Dabei sind folgende Summen und Differenzen möglich, wobei <span class="clisting">d1</span> und <span class="clisting">d2</span> jeweils <span class="clisting">datetime.datetime</span>-Instanzen sind und <span class="clisting">t</span> ein <span class="clisting">datetime.timedelta</span>-Objekt referenziert:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 16.3    </strong>Rechnen mit datetime.datetime
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Ausdruck</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Hinweise</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d2 = d1 + t</span></p>
+</td>
+<td class="tabellentext">
+<p>Der von <span class="clisting">d2</span> beschriebene Zeitpunkt ergibt sich dadurch, dass in der Zeit von <span class="clisting">d1</span> aus um die von <span class="clisting">t</span> beschriebene Zeitspanne in die Zukunft oder die Vergangenheit gegangen wird, je nachdem, ob der Wert von <span class="clisting">t</span> positiv oder negativ ist.</p>
+<p>Das <span class="clisting">datetime.datetime</span>-Objekt <span class="clisting">d2</span> übernimmt außerdem das <span class="clisting">tzinfo</span>-Attribut von <span class="clisting">d1</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d2 = d1</span> &#8211; <span class="clisting">t</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie bei der Addition, außer dass nun bei positivem <span class="clisting">t</span> in Richtung Vergangenheit und bei negativem <span class="clisting">t</span> in Richtung Zukunft gegangen wird.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">t = d1 &#8211; d2</span></p>
+</td>
+<td class="tabellentext">
+<p>Das <span class="clisting">datetime.timedelta</span>-Objekt <span class="clisting">t</span> beschreibt den zeitlichen Abstand zwischen den Zeitpunkten <span class="clisting">d1</span> und <span class="clisting">d2</span>. Dabei wird <span class="clisting">t</span> so gewählt, dass <span class="clisting">d1 = d2 + t</span> gilt.</p>
+<p>Diese Operation kann nur durchgeführt werden, wenn <span class="clisting">d1</span> und <span class="clisting">d2</span> <span class="ckursiv">bewusst</span> oder beide <span class="ckursiv">naiv</span> sind. Ist dies nicht der Fall, wird ein <span class="clisting">TypeError</span> erzeugt. Die Details zu <span class="ckursiv">naiven</span> und <span class="ckursiv">bewussten</span> Zeitobjekten entnehmen Sie bitte der Python-Dokumentation.</p>
+</td>
+</tr>
+</table><br><p>Es ist auch möglich, zwei <span class="clisting">datetime.datetime</span>-Instanzen mit den Vergleichsoperatoren <span class="clisting">&lt;</span> und <span class="clisting">&gt;</span> zu vergleichen. Dabei gilt das Zeitobjekt als »kleiner«, das in der Zeit weiter in Richtung Vergangenheit liegt.</p>
+<p>Beispiele für die Verwendung dieser Operatoren können Sie im Kapitel über <span class="clisting">datetime.date</span> nachlesen, da die Verwendung für <span class="clisting">datetime.datetime</span> analog erfolgt.</p>
+<h4 class="t4"><span class="cfett">Statische und dynamische Attribute von datetime.datetime</span></h4>
+<p>Der Datentyp <span class="clisting">datetime.datetime</span> besitzt die gleichen Member, die auch <span class="clisting">date</span> <span class="clisting">time.date</span> und <span class="clisting">datetime.time</span> besitzen: <span class="clisting">min</span>, <span class="clisting">max</span>, <span class="clisting">resoultion</span>, <span class="clisting">year</span>, <span class="clisting">month</span>, <span class="clisting">day</span>, <span class="clisting">hour</span>, <span class="clisting">minute</span>, <span class="clisting">second</span> und <span class="clisting">microsecond</span>.</p>
+<p>Die Bedeutung der einzelnen Member können Sie in den Kapiteln zu <span class="clisting">date</span> <span class="clisting">time.date</span> und <span class="clisting">datetime.time</span> nachlesen.</p>
+<h4 class="t4"><span class="cfett">Methoden von datetime.datetime-Instanzen</span></h4>
+<p>Im Folgenden wird angenommen, dass <span class="clisting">d</span> eine Instanz des Datentyps <span class="clisting">date</span> <span class="clisting">time.datetime</span> ist.</p>
+<h5 class="t5"><span class="cfett">d.date()</span></h5>
+<p>Gibt ein <span class="clisting">datetime.date</span>-Objekt zurück, das die gleichen <span class="clisting">year</span>-, <span class="clisting">month</span>- und <span class="clisting">day</span>-Attribute wie <span class="clisting">d</span> hat.</p>
+<h5 class="t5"><span class="cfett">d.time()</span></h5>
+<p>Gibt ein <span class="clisting">datetime.time</span>-Objekt zurück, das die gleichen <span class="clisting">hour</span>-, <span class="clisting">minute</span>-, <span class="clisting">second</span>- und <span class="clisting">microsecond</span>-Attribute wie <span class="clisting">d</span> hat.</p>
+<h5 class="t5"><span class="cfett">d.timetz()</span></h5>
+<p>Wie <span class="clisting">d.time</span>, aber es wird zusätzlich das <span class="clisting">tzinfo</span>-Attribut mitkopiert.</p>
+<h5 class="t5"><span class="cfett">d.replace( [year[, month[, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]]]])</span></h5>
+<p>Erzeugt eine neue <span class="clisting">datetime.datetime</span>-Instanz, die aus <span class="ckursiv">d</span> dadurch hervorgeht, dass die Attribute, die der <span class="clisting">replace</span>-Methode übergeben wurden, durch die neuen Werte ersetzt werden.</p>
+<h5 class="t5"><span class="cfett">d.utcoffset()</span></h5>
+<p>Wenn <span class="ckursiv">d</span> ein <span class="ckursiv">bewusstes</span> Objekt ist, also <span class="clisting">d.tzinfo</span> nicht den Wert <span class="clisting">None</span> hat, gibt <span class="clisting">d.utcoffset</span> den Wert zurück, der von <span class="clisting">d.tzinfo.utcoffset(None)</span> erzeugt wird. Dies sollte die Verschiebung der Lokalzeit relativ zur UTC in Sekunden sein.</p>
+<h5 class="t5"><span class="cfett">d.tzname()</span></h5>
+<p>Gibt den Namen der Zeitzone zurück, wenn <span class="clisting">d.tzinfo</span> nicht den Wert <span class="clisting">None</span> hat. Ist <span class="clisting">d.tzinfo</span> gleich <span class="clisting">None</span>, wird stattdessen <span class="clisting">None</span> zurückgegeben.</p>
+<p>(Der Wert wird dadurch bestimmt, dass intern <span class="clisting">d.tzinfo.tzname(None)</span> aufgerufen wird.)</p>
+<h5 class="t5"><span class="cfett">d.timetuple()</span></h5>
+<p>Gibt ein <span class="clisting">time.struct_time</span>-Objekt zurück, das den von <span class="clisting">d</span> beschriebenen Zeitpunkt enthält.</p>
+<h5 class="t5"><span class="cfett">d.utctimetuple()</span></h5>
+<p>Wenn <span class="clisting">d</span> ein <span class="ckursiv">naives</span> Zeitobjekt ist, also wenn <span class="clisting">d.tzinfo</span> den Wert <span class="clisting">None</span> hat, verhält sich <span class="clisting">d.utctimetuple</span> genau wie <span class="clisting">d.timetuple</span>.</p>
+<p>Ist <span class="clisting">d</span> ein <span class="ckursiv">bewusstes</span> Zeitobjekt, wird sein Wert erst in die globale Weltzeit umgerechnet und dann als <span class="clisting">time.struct_time</span>-Instanz zurückgegeben.</p>
+<h5 class="t5"><span class="cfett">d.weekday()</span></h5>
+<p>Gibt den Wochentag als Zahl zurück, wobei Montag als <span class="clisting">0</span> und Sonntag als <span class="clisting">6</span> betrachtet wird.</p>
+<h5 class="t5"><span class="cfett">d.isoweekday()</span></h5>
+<p>Gibt den Wochentag als Zahl zurück, wobei Montag den Wert <span class="clisting">1</span> und Sonntag den Wert <span class="clisting">7</span> ergibt.</p>
+<h5 class="t5"><span class="cfett">d.isocalendar()</span></h5>
+<p>Gibt ein Tupel mit drei Elementen zurück, das den von <span class="clisting">d</span> beschriebenen Tag als Datum im ISO-Kalender ausdrückt.</p>
+<p>Näheres dazu finden Sie unter der Methode <span class="clisting">isocalendar</span> des Datentyps <span class="clisting">date</span> <span class="clisting">time.date</span>.</p>
+<h5 class="t5"><span class="cfett">d.isoformat()</span></h5>
+<p>Gibt den von <span class="clisting">d</span> beschriebenen Zeitpunkt im ISO-8601-Format zurück. Das Format ist folgendermaßen aufgebaut:</p>
+<p>YYYY-MM-DDTHH:MM:SS.mmmmmm</p>
+<p>Die »Y« stehen für die Ziffern der Jahreszahl, die »M« für die Ziffern der Monatszahl und die »D« für die Ziffern des Tages. Das große »T« ist ein Trennzeichen, das zwischen Datums- und Zeitangabe steht. In der Zeitangabe stehen die »H« für die Ziffern der Stunde, die »M« für die Ziffern der Minute und die »S« für die Ziffern der Sekunden.</p>
+<p>Ist das <span class="clisting">microseconds</span>-Attribut von <span class="clisting">d</span> von <span class="clisting">0</span> verschieden, werden die Mikrosekunden, durch einen Doppelpunkt abgetrennt, an das Ende des Strings geschrieben. Ansonsten entfällt der Mikrosekundenteil inklusive Doppelpunkt.</p>
+<h5 class="t5"><span class="cfett">d.ctime()</span></h5>
+<p>Gibt einen String zurück, der den von <span class="clisting">d</span> repräsentierten Zeitpunkt beschreibt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; datetime.datetime(1987, 07, 26, 10, 15, 00).ctime() 
+'Sun Jul 26 10:15:00 1987'</pre></div>
+<h5 class="t5"><span class="cfett">d.strftime()</span></h5>
+<p>Erzeugt einen String, der den von <span class="ckursiv">d</span> beschriebenen Zeitpunkt formatiert enthält.</p>
+<p>Genaueres können Sie unter <span class="clisting">time.strftime</span> nachlesen.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_16_002.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="16.2 Komfortable Datumsfunktionen &#8211; datetime"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_16_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_17_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

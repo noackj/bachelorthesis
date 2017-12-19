@@ -1,0 +1,546 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 6.2 Schleifen</title>
+<meta name="title" content="Galileo Computing :: Python - 6.2 Schleifen">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 6.2 Schleifen">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_06_001.htm">
+<link rel="next" href="python_kapitel_06_003.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_06_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_06_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126" class="navnav">6 Kontrollstrukturen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_06_001.htm#mj315802685528763e7aacb6283d198a6c" class="navnav">6.1 Fallunterscheidungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_06_001.htm#mj2406a4e6f0bfa83434576c10466ac71c" class="navnav">6.1.1 If, elif, else</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_06_001.htm#mjf200b575b5f73f6e31fb422467445f17" class="navnav">6.1.2 Conditional expressions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj42c01733d4c5b057a5ca2e4649a9fbd0" class="navh">6.2 Schleifen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj5d66d3bd2c2c62ca5faf5d2726e071dc" class="navh">6.2.1 While-Schleife</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj2b109b8dbf1d0132f67082039b96e9c1" class="navh">6.2.2 Vorzeitiger Abbruch einer Schleife</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjcc2c8dc99efa68e9920df8bbee6ad07a" class="navh">6.2.3 Vorzeitiger Abbruch eines Schleifendurchlaufs</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj73e80e87b47ab3e6447afd4694a80c3c" class="navh">6.2.4 For-Schleife</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_06_003.htm#mj4ef30095cc7c666bd28b73e0f3e69634" class="navnav">6.3 Die pass-Anweisung</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj42c01733d4c5b057a5ca2e4649a9fbd0" name="mj42c01733d4c5b057a5ca2e4649a9fbd0"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">6.2</span><span class="cfett"> Schleifen</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Eine sogenannte <span class="ckursiv">Schleife</span> ermöglicht es ganz allgemein, einen Codeblock, den sogenannten <span class="ckursiv">Schleifenkörper</span>, mehrmals hintereinander auszuführen. Python unterscheidet zwei Typen von Schleifen: eine <span class="clisting">while</span>-Schleife als sehr simples Konstrukt und eine <span class="clisting">for</span>-Schleife zum Durchlaufen komplexerer Datentypen.</p><a id="mj5d66d3bd2c2c62ca5faf5d2726e071dc" name="mj5d66d3bd2c2c62ca5faf5d2726e071dc"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">6.2.1</span><span class="cfett"> While-Schleife</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die <span class="clisting">while</span>-Schleife haben wir bereits in unserem Spiel »Zahlenraten« verwendet. Sie dient dazu, einen Codeblock so lange auszuführen, wie eine bestimmte Bedingung erfüllt ist. In unserem ersten Programm aus Abschnitt <a href="./python_kapitel_05_002.htm#Rxx_ref172133393">5.2</a> wurde mithilfe einer <span class="clisting">while</span>-Schleife so lange eine neue Zahl vom Spieler eingelesen, bis die eingegebene Zahl mit der gesuchten Zahl übereinstimmte.</p>
+<p>Grundsätzlich besteht eine <span class="clisting">while</span>-Schleife aus einem Schleifenkopf, in dem die Bedingung steht, sowie einem Schleifenkörper, der dem auszuführenden Codeblock entspricht. Beachten Sie, dass die Schleife läuft, <span class="ckursiv">solange</span> die Bedingung erfüllt ist, und nicht, <span class="ckursiv">bis</span> sie erfüllt ist.</p>
+<div class="bildbox">
+<p><a name="IDAKDSQ"></a><a onClick="OpenWin('bilder/kontroll-while.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinkontroll-while.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 6.5    </strong>Struktur einer while-Schleife</p>
+<p>Das folgende Beispiel ist ein etwas verknappter Ausschnitt des »Zahlenraten«-Spiels und soll die Verwendung der <span class="clisting">while</span>-Schleife veranschaulichen:</p>
+<div class="listing"><pre class="prettyprint">secret = 1337 
+guess = 0<span class="cfett"> 
+while</span> guess != secret: 
+   <span class="clisting"> guess = input("Raten Sie: ")</span></pre></div>
+<p>Das Schlüsselwort <span class="clisting">while</span> leitet den Schleifenkopf ein und wird von der gewünschten Bedingung und einem Doppelpunkt gefolgt. In den nächsten Zeilen folgt, um eine Stufe weiter eingerückt, der Schleifenkörper. Dort wird eine Zahl vom Benutzer eingelesen und mit dem Namen <span class="clisting">guess</span> versehen. Dieser Prozess läuft so lange, bis die im Schleifenkopf genannte Bedingung erfüllt ist, bis also die Eingabe des Benutzers (<span class="clisting">guess</span>) mit der geheimen Zahl (<span class="clisting">secret</span>) übereinstimmt.</p>
+<p>Ähnlich wie eine <span class="clisting">if</span>-Anweisung kann eine <span class="clisting">while</span>-Schleife um einen <span class="clisting">else</span>-Zweig erweitert werden. Der Codeblock, der zu diesem Zweig gehört, wird genau einmal ausgeführt, nämlich dann, wenn die Schleife vollständig abgearbeitet wurde, also die Bedingung zum ersten Mal <span class="clisting">False</span> ergibt:</p>
+<div class="bildbox">
+<p><a name="IDALESQ"></a><a onClick="OpenWin('bilder/kontroll-while-else.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinkontroll-while-else.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 6.6    </strong>Struktur einer while-Schleife mit else-Zweig</p>
+<p>Betrachten wir dies an einem konkreten Beispiel:</p>
+<div class="listing"><pre class="prettyprint">secret = 1337 
+guess = 0<span class="cfett"> 
+while</span> guess != secret: 
+   <span class="clisting"> guess = input("Raten Sie: ")</span><span class="cfett"> 
+else</span>: 
+   <span class="cfett"> print</span><span class="clisting"> "Sie haben es geschafft!"</span></pre></div>
+<p>Aus Benutzersicht bedeutet dies, dass die Erfolgsmeldung ausgegeben wird, wenn die richtige Zahl geraten wurde:</p>
+<div class="listing"><pre class="prettyprint">Raten Sie: 100 
+Raten Sie: 200 
+Raten Sie: 1337 
+Sie haben es geschafft!</pre></div>
+<p>Momentan scheint dieser <span class="clisting">else</span>-Zweig überflüssig, da der gleiche Effekt durch folgenden Code erreicht werden kann:</p>
+<div class="listing"><pre class="prettyprint">secret = 1337 
+guess = 0<span class="cfett"> 
+while</span> guess != secret: 
+   <span class="clisting"> guess = input("Raten Sie: ")</span><span class="cfett"> 
+print</span><span class="clisting"> "Sie haben es geschafft!"</span></pre></div>
+<p>Die beiden Beispiele sind in diesem Anwendungsfall völlig äquivalent zu verwenden. Dies ist nicht immer der Fall. Dass der <span class="clisting">else</span>-Zweig einer <span class="clisting">while</span>-Schleife durchaus seine Berechtigung hat, werden Sie im nächsten Abschnitt sehen.</p><a id="mj2b109b8dbf1d0132f67082039b96e9c1" name="mj2b109b8dbf1d0132f67082039b96e9c1"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">6.2.2</span><span class="cfett"> Vorzeitiger Abbruch einer Schleife</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Stellen Sie sich einmal vor, wir wollten das Beispiel, das wir im vorherigen Abschnitt eingeführt haben, dahingehend erweitern, dass das Spiel durch Eingabe einer <span class="clisting">0</span> beendet werden kann. Dies ist mit Ihrem bisherigen Kenntnisstand zwar möglich, jedoch nur über Umwege zu erreichen. Was wirklich fehlt, ist eine Möglichkeit, eine Schleife in besonderen Fällen vorzeitig zu beenden. Genau dies wird mit der sogenannten <span class="clisting">break</span>-Anweisung erreicht:</p>
+<div class="listing"><pre class="prettyprint">secret = 1337 
+guess = 0<span class="cfett"> 
+while</span> guess != secret: 
+   <span class="clisting"> guess = input("Raten Sie: ")</span> 
+   <span class="cfett"> if</span><span class="clisting"> guess == 0:</span> 
+       <span class="cfett"> print</span><span class="clisting"> "Das Spiel wird beendet"</span> 
+       <span class="cfett"> break 
+else</span>: 
+   <span class="cfett"> print</span><span class="clisting"> "Sie haben es geschafft!"</span></pre></div>
+<p>Das Beispiel wurde durch eine <span class="clisting">if</span>-Anweisung erweitert. Direkt nachdem eine Zahl vom Spieler eingegeben und mit dem Namen <span class="clisting">guess</span> versehen wurde, wird geprüft, ob es sich bei der Eingabe um eine <span class="clisting">0</span> handelt (<span class="clisting">guess == 0</span>). Sollte dies der Fall sein, wird eine entsprechende Meldung ausgegeben und die <span class="clisting">while</span>-Schleife mittels <span class="clisting">break</span> beendet.</p>
+<p>In Kombination mit <span class="clisting">break</span> zeigt sich auch die eigentliche Bedeutung des <span class="clisting">else</span>-Zweigs einer Schleife. Der <span class="clisting">else</span>-Zweig wird nur ausgeführt, wenn die Schleife vollständig durchlaufen wurde, und nicht, wenn sie durch <span class="clisting">break</span> vorzeitig beendet wurde. Das Ablaufprotokoll gibt uns hier recht:</p>
+<div class="listing"><pre class="prettyprint">Raten Sie: 100 
+Raten Sie: 200 
+Raten Sie: 0 
+Das Spiel wird beendet</pre></div><a id="mjcc2c8dc99efa68e9920df8bbee6ad07a" name="mjcc2c8dc99efa68e9920df8bbee6ad07a"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">6.2.3</span><span class="cfett"> Vorzeitiger Abbruch eines Schleifendurchlaufs</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wir haben mit <span class="clisting">break</span> bereits eine Möglichkeit vorgestellt, den Ablauf einer Schleife zu beeinflussen. Die sogenannte <span class="clisting">continue</span>-Anweisung bricht im Gegensatz zu <span class="clisting">break</span> jedoch nicht die gesamte Schleife ab, sondern nur den aktuellen Schleifendurchlauf. Um dies zu veranschaulichen, betrachten wir das folgende Beispiel, das bisher noch ohne <span class="clisting">continue</span>-Anweisung auskommt:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">while</span> True: 
+    zahl = input("Geben Sie eine Zahl ein: ") 
+    ergebnis = 1 
+   <span class="cfett"> while</span> zahl &gt; 0: 
+        ergebnis = ergebnis * zahl 
+        zahl = zahl - 1 
+   <span class="cfett"> print</span> "Ergebnis: ", ergebnis</pre></div>
+<p>Zur Erklärung des Beispiels: In einer Endlosschleife, also einer <span class="clisting">while</span>-Schleife, deren Bedingung unter allen Umständen erfüllt ist (<span class="clisting">while True</span>), wird eine Zahl eingelesen und die Variable <span class="clisting">ergebnis</span> mit <span class="clisting">1</span> initialisiert. In einer darauf folgenden weiteren <span class="clisting">while</span>-Schleife wird <span class="clisting">ergebnis</span> so lange mit <span class="clisting">zahl</span> multipliziert, wie die Bedingung <span class="clisting">zahl &gt; 0</span> erfüllt ist. Zudem wird in jedem Durchlauf der inneren Schleife der Wert von <span class="clisting">zahl</span> um <span class="clisting">1</span> verringert.</p>
+<p>Nachdem die innere Schleife durchlaufen ist, wird die Variable <span class="clisting">ergebnis</span> ausgegeben. Wie Sie vermutlich bereits erkannt haben, berechnet das Beispielprogramm die Fakultät einer jeden eingegebenen Zahl:</p>
+<div class="listing"><pre class="prettyprint">Geben Sie eine Zahl ein: 4 
+Ergebnis:  24 
+Geben Sie eine Zahl ein: 5 
+Ergebnis:  120 
+Geben Sie eine Zahl ein: 6 
+Ergebnis:  720</pre></div>
+<p>Allerdings erlaubt der obige Code auch eine solche Eingabe:</p>
+<div class="listing"><pre class="prettyprint">Geben Sie eine Zahl ein: -10 
+Ergebnis:  1</pre></div>
+<p>Durch die Eingabe einer negativen Zahl ist die Bedingung der inneren Schleife (<span class="clisting">zahl &gt; 0</span>) von vornherein <span class="clisting">False</span>, die Schleife wird also gar nicht erst ausgeführt. Aus diesem Grund wird sofort der Wert von <span class="clisting">ergebnis</span> ausgegeben, der in diesem Fall <span class="clisting">1</span> ist.</p>
+<p>Das ist allerdings nicht ganz das, was in diesem Fall erwartet werden würde. Bei einer negativen Zahl handelt es sich um eine ungültige Eingabe. Idealerweise sollte das Programm also bei Eingabe einer ungültigen Zahl die Berechnung abbrechen und kein Ergebnis anzeigen. Eben dies wird durch Verwendung einer <span class="clisting">continue</span>-Anweisung erreicht:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">while</span> True: 
+    zahl = input("Geben Sie eine Zahl ein: ") 
+   <span class="cfett"> if</span> zahl &lt; 0: 
+       <span class="cfett"> print</span> "Negative Zahlen sind nicht erlaubt" 
+       <span class="cfett"> continue</span> 
+    ergebnis = 1 
+   <span class="cfett"> while</span> zahl &gt; 0: 
+        ergebnis = ergebnis * zahl 
+        zahl = zahl - 1 
+   <span class="cfett"> print</span> "Ergebnis: ", ergebnis</pre></div>
+<p>Direkt nachdem die Eingabe des Benutzers eingelesen wurde, wird in einer <span class="clisting">if</span>-Abfrage überprüft, ob es sich um eine negative Zahl handelt (<span class="clisting">zahl &lt; 0</span>). Sollte das der Fall sein, so wird mittels <span class="clisting">print</span> eine entsprechende Fehlermeldung ausgegeben und der aktuelle Schleifendurchlauf mit <span class="clisting">continue</span> abgebrochen. Das heißt, dass alle Codezeilen, die zur Schleife gehören und hinter <span class="clisting">continue</span> stehen, erst im nächsten Schleifendurchlauf wieder interpretiert werden. Aus Benutzersicht bedeutet das, dass nach Eingabe einer negativen Zahl kein Ergebnis, sondern eine Fehlermeldung ausgegeben wird. Danach wird zur Eingabe der nächsten Zahl aufgefordert:</p>
+<div class="listing"><pre class="prettyprint">Geben Sie eine Zahl ein: 4 
+Ergebnis:  24 
+Geben Sie eine Zahl ein: 5 
+Ergebnis:  120 
+Geben Sie eine Zahl ein: -10 
+Negative Zahlen sind nicht erlaubt 
+Geben Sie eine Zahl ein: -100 
+Negative Zahlen sind nicht erlaubt</pre></div>
+<div class="bildbox">
+<p><a name="IDA0RSQ"></a><a onClick="OpenWin('bilder/kontroll-break-continue.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinkontroll-break-continue.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 6.7    </strong>Eine Schleife mit break und continue</p>
+<p>Rückblickend möchten wir an dieser Stelle noch einmal den Unterschied zwischen <span class="clisting">break</span> und <span class="clisting">continue</span> herausarbeiten (siehe <a href="#Rxx19964">Abbildung 6.7</a>).</p>
+<p>Während <span class="clisting">break</span> die Schleife vollständig abbricht, beendet <span class="clisting">continue</span> nur den aktuellen Schleifendurchlauf, die Schleife an sich läuft aber weiter.</p><a id="mj73e80e87b47ab3e6447afd4694a80c3c" name="mj73e80e87b47ab3e6447afd4694a80c3c"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">6.2.4</span><span class="cfett"> <a id="Rxx_ref172574015" name="Rxx_ref172574015"></a><a id="Rxx_ref172568196" name="Rxx_ref172568196"></a>For-Schleife</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Neben der bisher behandelten <span class="clisting">while</span>-Schleife existiert in Python ein weiteres Schleifenkonstrukt, die sogenannte <span class="clisting">for</span>-Schleife. Eine <span class="clisting">for</span>-Schleife kann im einfachsten Fall als <span class="ckursiv">Zählschleife</span> verwendet werden. Das ist eine Schleife, die es dem Programmierer ermöglicht, festzulegen wie oft ein Codeblock erneut ausgeführt werden soll. Die Anzahl der bisherigen Schleifendurchläufe steht im Codeblock als Variable, dem sogenannten <span class="ckursiv">Schleifenzähler</span>, zur Verfügung (siehe <a href="#Rxx49032">Abbildung 6.8</a>).</p>
+<div class="bildbox">
+<p><a name="IDASTSQ"></a><a onClick="OpenWin('bilder/kontroll-for.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinkontroll-for.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 6.8    </strong>Struktur einer for-Schleife</p>
+<p>Was genau für <span class="clisting">Objekt</span> eingesetzt werden kann, werden wir im Folgenden erklären. Konkret im Quelltext sieht eine <span class="clisting">for</span>-Schleife beispielsweise so aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> i<span class="cfett"> in</span> range(5): 
+   <span class="cfett"> print</span> i</pre></div>
+<p>In diesem Beispiel werden alle ganzen Zahlen von <span class="clisting">0</span> bis einschließlich <span class="clisting">4</span> ausgegeben. <span class="clisting">range</span> kann dabei nicht nur ein Limit setzen, sondern allgemein in drei Varianten verwendet werden:</p>
+<p><span class="clisting">range(</span><span class="ckursiv">stop</span><span class="clisting">) 
+range(</span><span class="ckursiv">start</span>, <span class="ckursiv">stop</span><span class="clisting">) 
+range(</span><span class="ckursiv">start</span>, <span class="ckursiv">stop</span>, <span class="ckursiv">step</span><span class="clisting">)</span></p>
+<p>Der Platzhalter <span class="ckursiv">start</span> steht dabei für die Zahl, mit der begonnen wird. Die Schleife wird beendet, sobald <span class="ckursiv">stop</span> erreicht wurde. Wichtig ist zu wissen, dass der Schleifenzähler selbst niemals den Wert <span class="ckursiv">stop</span> erreicht, er bleibt stets kleiner. In jedem Schleifendurchlauf wird der Schleifenzähler um <span class="ckursiv">step</span> erhöht. Sowohl <span class="ckursiv">start</span> als auch <span class="ckursiv">stop</span> und <span class="ckursiv">step</span> müssen ganze Zahlen sein. Wenn alle Werte angegeben sind, sieht die <span class="clisting">for</span>-Schleife folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> i<span class="cfett"> in</span> range(1, 10, 2): 
+   <span class="cfett"> print</span> i</pre></div>
+<p>Die Zählvariable <span class="clisting">i</span> beginnt jetzt mit dem Wert <span class="clisting">1</span>, die Schleife wird ausgeführt, solange <span class="clisting">i</span> kleiner ist als <span class="clisting">10</span>, und in jedem Schleifendurchlauf wird <span class="clisting">i</span> um <span class="clisting">2</span> erhöht. Damit gibt die Schleife die Werte <span class="clisting">1</span>, <span class="clisting">3</span>, <span class="clisting">5</span>, <span class="clisting">7</span> und <span class="clisting">9</span> auf dem Bildschirm aus.</p>
+<p>Eine <span class="clisting">for</span>-Schleife kann nicht nur in positiver Richtung verwendet werden, es ist  auch möglich, herunterzuzählen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> i<span class="cfett"> in</span> range(10, 1, -2): 
+   <span class="cfett"> print</span> i</pre></div>
+<p>In diesem Fall wird <span class="clisting">i</span> zu Beginn der Schleife auf den Wert <span class="clisting">10</span> gesetzt und in jedem Durchlauf um <span class="clisting">2</span> verringert. Die Schleife läuft, solange <span class="clisting">i</span> größer ist als <span class="clisting">1</span>,  und würde die Werte <span class="clisting">10</span>, <span class="clisting">8</span>, <span class="clisting">6</span>, <span class="clisting">4</span> und <span class="clisting">2</span> auf dem Bildschirm ausgeben.</p>
+<p>Damit bietet sich die <span class="clisting">for</span>-Schleife geradezu an, um das Beispiel des letzten Abschnitts zur Berechnung der Fakultät einer Zahl zu überarbeiten. Es ist gleichzeitig ein Beispiel dafür, dass <span class="clisting">while</span>- und <span class="clisting">for</span>-Schleifen wie selbstverständlich ineinander verwendet werden können:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">while</span> True: 
+    zahl = input("Geben Sie eine Zahl ein: ") 
+   <span class="cfett"> if</span> zahl &lt; 0: 
+       <span class="cfett"> print</span> "Negative Zahlen sind nicht erlaubt" 
+       <span class="cfett"> continue</span> 
+    ergebnis = 1 
+   <span class="cfett"> for</span> i<span class="cfett"> in</span> range(2, zahl+1): 
+        ergebnis = ergebnis * i 
+   <span class="cfett"> print</span> "Ergebnis: ", ergebnis</pre></div>
+<p>Nachdem eine Eingabe durch den Benutzer erfolgt ist und diese auf ihr Vorzeichen hin überprüft wurde, wird eine <span class="clisting">for</span>-Schleife eingeleitet. Der Schleifenzähler <span class="clisting">i</span> der Schleife beginnt mit dem Wert <span class="clisting">2</span>. Die Schleife läuft, solange <span class="clisting">i</span> kleiner als <span class="clisting">zahl+1</span> ist: Der höchstmögliche Wert von <span class="clisting">i</span> ist also <span class="clisting">zahl</span>. In jedem Schleifendurchlauf wird dann die Variable <span class="clisting">ergebnis</span> mit <span class="clisting">i</span> multipliziert.</p>
+<p>Es wurde bereits angedeutet, dass eine Zählschleife nur eine mögliche Verwendung der <span class="clisting">for</span>-Schleife darstellt. Ganz allgemein durchläuft eine <span class="clisting">for</span>-Schleife ein sogenanntes <span class="ckursiv">iterierbares Objekt</span>. Ohne näher ins Detail gehen zu wollen, ist zu sagen, dass ein solches Objekt in der Regel eine Art Container für eine Reihe verschiedener Werte darstellt. Sie werden im Laufe dieses Buchs viele solcher Objekte kennenlernen, und wir werden dabei jedes Mal auf die Verwendung der <span class="clisting">for</span>-Schleife zurückkommen.</p>
+<p>Eines dieser iterierbaren Objekte haben Sie jedoch bereits kennengelernt: Ein String kann ganz allgemein als ein Container für eine Reihe von Buchstaben betrachtet werden, und als solcher auch mithilfe der <span class="clisting">for</span>-Schleife durchlaufen werden. Der Vorgang wird auch <span class="ckursiv">Iterieren</span> genannt. Es wird »über einen String iteriert«:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> c<span class="cfett"> in</span> "Hallo Welt": 
+   <span class="cfett"> print</span> c</pre></div>
+<p>Die Ausgabe dieses Beispiels lautet:</p>
+<div class="listing"><pre class="prettyprint">H 
+a 
+l 
+l 
+o 
+ 
+W 
+e 
+l 
+t</pre></div>
+<p>Der Namenswechsel der Schleifenvariable von <span class="clisting">i</span> nach <span class="clisting">c</span> hat übrigens keine syntaktische Bedeutung, sondern eher eine assoziative: <span class="clisting">i</span> kann als Abkürzung für »integer« (dt. <span class="ckursiv">ganze Zahl</span>) und <span class="clisting">c</span> für »character« (dt. <span class="ckursiv">Buchstabe</span>) angesehen werden.</p>
+<p>Dass jeder Buchstabe in eine neue Zeile geschrieben wurde, hat nichts mit der Schleife zu tun, sondern ist ein normales Verhalten der <span class="clisting">print</span>-Anweisung.</p>
+<p>Abschließend ist noch zu sagen, dass eine <span class="clisting">for</span>-Schleife genauso über einen <span class="clisting">else</span>-Zweig verfügen kann wie eine <span class="clisting">while</span>-Schleife. Auch bei einer <span class="clisting">for</span>-Schleife ist ein <span class="clisting">else</span>-Zweig nur in Kombination mit <span class="clisting">break</span> sinnvoll (siehe <a href="#Rxx60836">Abbildung 6.9</a>).</p>
+<p>Konkret:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">for</span> c<span class="cfett"> in</span> "abc": 
+   <span class="cfett"> print</span> c<span class="cfett"> 
+else</span>: 
+   <span class="cfett"> print</span> "abc"</pre></div>
+<div class="bildbox">
+<p><a name="IDAB1SQ"></a><a onClick="OpenWin('bilder/kontroll-for-else.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinkontroll-for-else.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 6.9    </strong>Struktur einer for-Schleife mit else-Zweig</p>
+<p>Dies führt zu folgender Ausgabe:</p>
+<div class="listing"><pre class="prettyprint">a 
+b 
+c 
+abc</pre></div><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_06_002.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="6.2 Schleifen"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_06_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_06_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

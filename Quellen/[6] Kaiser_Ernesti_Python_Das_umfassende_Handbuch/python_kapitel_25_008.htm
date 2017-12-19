@@ -1,0 +1,440 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 25.8 Verarbeitung von Formulardaten</title>
+<meta name="title" content="Galileo Computing :: Python - 25.8 Verarbeitung von Formulardaten">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 25.8 Verarbeitung von Formulardaten">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_25_007.htm">
+<link rel="next" href="python_kapitel_26_001.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_25_007.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_26_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141" class="navnav">25 Python als serverseitige Programmiersprache im WWW mit Django</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_001.htm#mjdd2204be5ba4b589f486242a81296d16" class="navnav">25.1 Installation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_002.htm#mj282c78d53879441971cf422f7721f36b" class="navnav">25.2 Konzepte und Besonderheiten im Überblick</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_003.htm#mje3062b1da2ff670ce178312184ec8595" class="navnav">25.3 Erstellen eines neuen Django-Projekts</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_004.htm#mjd017713d500039b7388cd6501ad75461" class="navnav">25.4 Erstellung der Applikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_005.htm#mjbec4cf343a331c2f9b5c108a6dba8c3b" class="navnav">25.5 Djangos Administrationsoberfläche</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_006.htm#mj191bf16ca79b0cc7c1219aeea3c3f8ea" class="navnav">25.6 Unser Projekt wird öffentlich</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_007.htm#mj1431bc22cc78c16b5a7d0e21d6379f28" class="navnav">25.7 Djangos Template-System</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj9e4c615e6b781e13841677e90a85ec7f" class="navh">25.8 Verarbeitung von Formulardaten</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj9e4c615e6b781e13841677e90a85ec7f" name="mj9e4c615e6b781e13841677e90a85ec7f"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">25.8</span><span class="cfett"> Verarbeitung von Formulardaten</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Um eine dynamische Webanwendung wirklich interaktiv werden zu lassen, müssen die Benutzer neben dem einfachen Navigieren über die Seite auch zum Inhalt der Seite beitragen können. Dies geschieht oft über Gästebücher, Foren oder Kommentarfunktionen wie in unserem Beispiel.</p>
+<p>Auf der technischen Seite muss für diese Funktionalitäten eine Schnittstelle existieren, mit der Daten vom Browser des Benutzers an die Serveranwendung übertragen werden können.</p>
+<p>Das HTTP-Protokoll bietet für diesen Zweck zwei Methoden für die sogenannte <span class="ckursiv">Argumentübertragung</span> an: <span class="ckursiv">GET</span> und <span class="ckursiv">POST</span>. Der prinzipielle Unterschied zwischen den beiden Übertragungsarten ist, dass mit GET übertragene Daten direkt an die Adresse der jeweiligen Seite angehängt werden und so für den Benutzer unmittelbar sichtbar sind, während die POST-Methode für den Benutzer unsichtbar im Hintergrund Daten übertragen kann.</p>
+<p>Beide Methoden arbeiten mit benannten Platzhaltern, die üblicherweise durch HTML-Formulare mit Daten verknüpft werden.</p>
+<h4 class="t4"><span class="cfett">Unser Formular für die Kommentarabgabe</span></h4>
+<p>Wir werden auf der Detailseite jeder Meldung ein Formular anbieten, in dem der Besucher neue Kommentare zu der angezeigten Meldung eingeben kann. Das Formular wird zwei Textfelder besitzen: eines für den Namen des Besuchers und eines für den Kommentar selbst. Im Browser soll es später so aussehen wie in <a href="#Rxx_ref181943162">Abbildung 25.15</a>.</p>
+<div class="bildbox">
+<p><a name="IDATCSQ"></a><a onClick="OpenWin('bilder/django_formulare_formular.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindjango_formulare_formular.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 25.15    </strong>Unser Kommentarformular</p>
+<p>Als Übertragungsart für die eingegebenen Daten wählen wir die POST-Methode, um die Adressleiste nicht zu überfüllen. Das Speichern der neuen Kommentare wird unsere View-Funktion <span class="clisting">meldung_detail</span> übernehmen, der beim Abschicken des Formulars ein GET-Parameter namens <span class="clisting">speichere_kommentar</span> übergeben wird. Außerdem soll das Formular ein Feld für Fehlerausgaben besitzen, falls der Benutzer zu wenige Angaben gemacht hat.</p>
+<p>Das Template für die Formulardefinition sieht dann folgendermaßen aus: [Dieser Teil muss unten in der <span class="ckursiv">meldung_detail.html</span> eingefügt werden. Die vollständige Template-Datei finden Sie auf der Buch-CD.
+] </p>
+<div class="listing"><pre class="prettyprint">&lt;div class="kontainer"&gt; 
+  &lt;div class="titelzeile"&gt;Neuer Kommentar&lt;/div&gt; 
+  &lt;span class="fehler"&gt;<span class="cfett">{{ fehler }}</span>&lt;/span&gt; 
+  &lt;form method="post" action="?kommentar_speichern"&gt; 
+    &lt;table&gt; 
+      &lt;tr class="kommentarzeile"&gt; 
+        &lt;td class="spaltenbezeichner"&gt;Ihr Name:&lt;/td&gt; 
+        &lt;td&gt;&lt;input type="text" name="besuchername" 
+                   value="<span class="cfett">{{ bentzername }}</span>"/&gt;&lt;/td&gt; 
+        &lt;/tr&gt; 
+        &lt;tr class="kommentarzeile"&gt; 
+          &lt;td class="spaltenbezeichner"&gt;Kommentar:&lt;/td&gt; 
+          &lt;td&gt; 
+            &lt;textarea name="kommentartext"&gt; 
+             <span class="cfett"> {{ kommentar }}</span> 
+            &lt;/textarea&gt; 
+          &lt;/td&gt; 
+        &lt;/tr&gt; 
+      &lt;/table&gt; 
+      &lt;input type="submit" value="Abschicken" /&gt; 
+    &lt;/form&gt; 
+  &lt;/div&gt;</pre></div>
+<p>Wie Sie der Zeile <span class="clisting">&lt;form method="post" action="?kommentar_speichern"&gt;</span> entnehmen können, wird beim Versenden des Formulars die Detailseite der Meldung mit dem GET-Parameter <span class="clisting">kommentar_speichern</span> aufgerufen. Außerdem werden die Werte der Textfelder <span class="clisting">besuchername</span> und <span class="clisting">kommentartext</span> als POST-Daten übergeben.</p>
+<p>Sollten beim Speichern eines Kommentars Fehler auftreten, kann eine Meldung über die Kontextvariable <span class="clisting">fehler</span> von der View-Funktion gesetzt werden. Damit die Eingaben des Benutzers in einem solchen Fall nicht verloren gehen, können die Textfelder über die Kontextvariablen <span class="clisting">benutzername</span> und <span class="clisting">kommentar</span> von der View mit Initialwerten versehen werden.</p>
+<h4 class="t4"><span class="cfett">Zugriff auf POST- und GET-Variablen in View-Funktionen</span></h4>
+<p>Wie Sie bereits wissen, bekommt jede View-Funktion von Django einen Parameter namens <span class="clisting">request</span> übergeben. Dieser Parameter enthält Informationen über den Seitenaufruf und damit insbesondere die GET- und POST-Parameter. Dazu hat <span class="clisting">request</span> zwei Attribute namens <span class="clisting">GET</span> und <span class="clisting">POST</span>, die den Zugriff auf die Parameter über ihre Namen wie in einem Dictionary ermöglichen.</p>
+<p>Mit diesem Wissen können wir unsere View-Funktion <span class="clisting">model_detail</span> folgendermaßen erweitern (die noch nicht bekannten Elemente im Listing werden anschließend erläutert):</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> meldung_detail(request, meldungs_id): 
+    meldung = get_object_or_404(Meldung, id=meldungs_id) 
+ 
+   <span class="cfett"> if</span> "kommentar_speichern"<span class="cfett"> in</span> request.GET: 
+        name = request.POST.get("besuchername", "") 
+        text = request.POST.get("kommentartext", "") 
+ 
+       <span class="cfett"> if</span> name<span class="cfett"> and</span> text: 
+            kommentar = meldung.kommentar_set.create( 
+                autor=name, text=text) 
+            kommentar.save() 
+           <span class="cfett"> return</span> HttpResponseRedirect(".") 
+ 
+       <span class="cfett"> else</span>: 
+           <span class="cfett"> return</span> render_to_response("news/meldung_detail.html", 
+                {"meldung" : meldung, 
+                 "fehler": "Sie m&amp;uuml;ssen Ihren Namen und \ 
+                            einen Kommentar angeben.", 
+                 "besuchername" : name, "kommentartext" : text}) 
+ 
+   <span class="cfett"> return</span> render_to_response("news/meldung_detail.html", 
+        {"meldung" : meldung})</pre></div>
+<p>Am Anfang der Funktion lesen wir wie gehabt die betreffende Meldung aus der Datenbank oder geben einen <span class="clisting">Http404</span>-Fehler zurück. Anschließend prüfen wir mit dem <span class="clisting">in</span>-Operator, ob <span class="clisting">"kommentar_speichern"</span> per GET übergeben worden ist, um gegebenenfalls einen neuen Kommentar zu speichern. Wurde <span class="clisting">"kommentar_speichern"</span> nicht übergeben, wird der <span class="clisting">if</span>-Block ausgelassen und die Detailseite angezeigt.</p>
+<p>Wenn ein neuer Kommentar gespeichert werden soll, lesen wir den eingegebenen Namen und den Kommentartext aus <span class="clisting">request.POST</span>. Anschließend prüfen wir, ob in beide Textfelder etwas eingegeben wurde. Fehlt mindestens eine Angabe, wird im <span class="clisting">else</span>-Zweig die Detailseite erneut angezeigt, wobei ein entsprechender Fehlertext ausgegeben wird. Dadurch, dass wir die Kontext-Variablen <span class="clisting">besuchername</span> und <span class="clisting">kommentartext</span> auf die zuvor übergebenen Werte setzen, gehen eventuell vom Benutzer gemachte Eingaben nicht verloren, sondern erscheinen wieder in den Textfeldern.</p>
+<p>Haben die beiden Variablen <span class="clisting">name</span> und <span class="clisting">text</span> korrekte Werte, erzeugen wir ein neues Kommenter-Objekt in der Datenbank. Allerdings benutzen wir in diesem Fall die Klasse <span class="clisting">HttpResponseRedirect</span>, um den Besucher zu der Detailseite weiterzuleiten, anstatt ein Template auszugeben. Der Grund dafür ist einfach: Wenn ein Besucher einen neuen Kommentar verfasst hat und nun wieder auf der Detailseite gelandet ist, könnte er die Aktualisieren-Funktion seines Browsers benutzen, um die Seite neu zu laden. Beim Aktualisieren einer Seite werden aber sowohl GET- als auch POST-Daten erneut übertragen. Deshalb würde bei jeder Aktualisierung derselbe Kommentar noch einmal gespeichert werden. Durch die indirekte Weiterleitung mittels <span class="clisting">HttpResponseRedirect</span> lösen wir dieses Problem, da nun die POST- und GET-Variablen verworfen werden.</p>
+<p>Sie können <span class="clisting">HttpResponseRedirect</span> per <span class="clisting">import</span> aus dem Modul <span class="clisting">django.http</span> einbinden.</p>
+<p>Nun ist unsere Beispielanwendung vollständig funktionsfähig. Wenn Sie Ihre Django-Kenntnisse vertiefen möchten, um auch die weiterführenden Techniken kennenzulernen, empfehlen wir Ihnen die Lektüre der ausgezeichneten Online-Dokumentation auf der Django-Homepage unter <a href="http://www.djangoproject.com.">http://www.djangoproject.com.</a></p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_25_008.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="25.8 Verarbeitung von Formulardaten"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_25_007.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_26_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

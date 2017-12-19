@@ -1,0 +1,751 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 16 Datum und Zeit</title>
+<meta name="title" content="Galileo Computing :: Python - 16 Datum und Zeit">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 16 Datum und Zeit">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_15_005.htm">
+<link rel="next" href="python_kapitel_16_002.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_15_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_16_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mjbc5f03a28f08a0ff6fff3f6eafb13845" class="navh">16 Datum und Zeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjcff2c67a55dd9f24a68b0f1ff3efa605" class="navh">16.1 Elementare Zeitfunktionen &#8211; time</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_16_002.htm#mj22c67d1cbc74eec9b9fd87fab425a1c0" class="navnav">16.2 Komfortable Datumsfunktionen &#8211; datetime</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_16_002.htm#mjfc03e19de98197eaefe9b62134ce4452" class="navnav">16.2.1 datetime.date</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_16_002.htm#mj446442de94a61999e10e143c04a7c091" class="navnav">16.2.2 datetime.time</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_16_002.htm#mj95e5ef0248164d2f711ef8d5955c9a05" class="navnav">16.2.3 datetime.datetime</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em><span class="ckursiv">»Zehn Minuten!«  
+&#8211; Edmund Stoiber</span></em></p><a id="mjbc5f03a28f08a0ff6fff3f6eafb13845" name="mjbc5f03a28f08a0ff6fff3f6eafb13845"></a><h1 class="t1"><span class="cfett">16</span><span class="cfett"> Datum und Zeit</span></h1>
+<p>In diesem Kapitel werden Sie die Python-Module kennenlernen, mit deren Hilfe Sie komfortabel mit Zeit- und Datumsangaben arbeiten können.</p>
+<p>Python stellt dafür zwei Module zur Verfügung: <span class="clisting">time</span> und <span class="clisting">datetime</span>.</p>
+<p>Das erste Modul, <span class="clisting">time</span>, orientiert sich an den Funktionen, die von der zugrunde liegenden C-Bibliothek implementiert werden. Mit <span class="clisting">datetime</span> werden Klassen zur Verfügung gestellt, mit denen sich in der Regel einfacher und angenehmer als mit Einzelfunktionen arbeiten lässt.</p>
+<p>Wir werden im Folgenden beide Module und ihre Funktionen beleuchten.</p><a id="mjcff2c67a55dd9f24a68b0f1ff3efa605" name="mjcff2c67a55dd9f24a68b0f1ff3efa605"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">16.1</span><span class="cfett"> <a id="Rxx_ref177933518" name="Rxx_ref177933518"></a>Elementare Zeitfunktionen &#8211; time</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Bevor wir uns mit den Funktionen des <span class="clisting">time</span>-Moduls beschäftigen, müssen wir einige Begriffe einführen, die für das Verständnis, wie Zeitangaben verwaltet werden, erforderlich sind.</p>
+<p>Das <span class="clisting">time</span>-Modul setzt direkt auf den Zeitfunktionen der C-Bibliothek des Betriebssystems auf und speichert deshalb alle Zeitangaben als sogenannten <span class="ckursiv">Unix-Timestamp</span>. Unix-Timestamps sind Zahlen, die einen Zeitpunkt dadurch identifizieren, dass sie die seit Beginn der sogenannten <span class="ckursiv">Unix-Epoche</span> (auch nur <span class="ckursiv">Epoch</span> genannt) vergangene Zeit in Sekunden angeben. Die Unix-Epoche begann am 01.01.1970 um 00:00 Uhr.</p>
+<p>Ein Unix-Timestamp mit dem Wert 1190132696.0 markiert beispielsweise den 18.09.2007 um 18:24 Uhr und 56 Sekunden, da seit dem Beginn der Unix-Epoche bis zu diesem Zeitpunkt genau 1190132696.0 Sekunden vergangen sind.</p>
+<p>Bei dem Umgang mit Zeitstempeln muss man zwei verschiedene Angaben unterscheiden: die <span class="ckursiv">Lokalzeit</span> und die sogenannte <span class="ckursiv">koordinierte Weltzeit</span>.</p>
+<p>Die Lokalzeit ist abhängig von dem Standort der jeweiligen Uhr und bezieht sich darauf, was die Uhren an diesem Standort anzeigen müssen, um richtig zu gehen. Als koordinierte Weltzeit wird die Lokalzeit auf dem Null-Meridian verstanden, der unter anderem durch Großbritannien verläuft. Die koordinierte Weltzeit wird mit <span class="ckursiv">UTC</span> für <span class="ckursiv">Coordinated Universal Time</span> abgekürzt [Nein, die Abkürzung UTC für <span class="ckursiv">Coordinated Universal Time</span> ist nicht fehlerhaft, sondern rührt daher, dass man einen Kompromiss zwischen der englischen Variante »Coordinated Universal Time« und der französischen Bezeichnung »Temps Universel Coordonné« finden wollte.
+] . Alle Lokalzeiten lassen sich relativ zur UTC angeben, indem man die Abweichung in Stunden nennt. Beispielsweise hat Mitteleuropa die Lokalzeit UTC+1, was bedeutet, dass unsere Uhren im Vergleich zu denen in England um eine Stunde vorgehen.</p>
+<p>Die tatsächliche Lokalzeit kann noch von einem weiteren Faktor beeinflusst werden, der Sommer- bzw. Winterzeit. Diese auch mit <span class="ckursiv">DST</span> für <span class="ckursiv">Daylight Saving Time</span> (dt. <span class="ckursiv">Sommerzeit</span>) abgekürzte Verschiebung ist von den gesetzlichen Regelungen der jeweiligen Region abhängig und hat in der Regel je nach Jahreszeit einen anderen Wert. Das <span class="clisting">time</span>-Modul findet für den Programmierer heraus, welcher DST-Wert auf der gerade benutzten Plattform an dem aktuellen Standort der richtige ist, sodass wir uns darum nicht zu kümmern brauchen.</p>
+<p>Neben der schon angesprochenen Zeitdarstellung durch Unix-Timestamps gibt es ein weiteres Format, das durch einen eigenen Datentyp namens <span class="clisting">time_struct</span> implementiert wird. Instanzen des Typs <span class="clisting">time_struct</span> haben neun Attribute, die wahlweise über einen Index oder ihren Namen angesprochen werden können. Die folgende Tabelle zeigt den genauen Aufbau des Datentyps: [Diese Begrenzung kommt durch den Wertebereich für die Unix-Timestamps zustande. Und ja, alle Programme, die auf Unix-Zeitstempel setzen, werden im Jahr 2038 ein Problem bekommen…
+] </p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 16.1    </strong>Aufbau des Datentyps struct_time
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Index</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Attributname</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung und Wertebereich</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">0</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">tm_year</span></p>
+</td>
+<td class="tabellentext">
+<p>Die Jahreszahl des Zeitstempels</p>
+<p>Werte:<a href="#Rxx51616">2</a> 1970-2038</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">1</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">tm_mon</span></p>
+</td>
+<td class="tabellentext">
+<p>Nummer des Monats</p>
+<p>Werte: 1-12</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">2</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">tm_mday</span></p>
+</td>
+<td class="tabellentext">
+<p>Nummer des Tags im Monat</p>
+<p>Werte: 1-31</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">3</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">tm_hour</span></p>
+</td>
+<td class="tabellentext">
+<p>Stunde der Uhrzeit des Zeitstempels</p>
+<p>Werte: 0-23</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">4</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">tm_min</span></p>
+</td>
+<td class="tabellentext">
+<p>Minute der Uhrzeit des Zeitstempels</p>
+<p>Werte: 0-59</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">5</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">tm_sec</span></p>
+</td>
+<td class="tabellentext">
+<p>Sekunde der Uhrzeit des aktuellen Zeitstempels</p>
+<p>Werte:<a href="#Rxx62641">3</a> 0-61</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">6</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">tm_wday</span></p>
+</td>
+<td class="tabellentext">
+<p>Nummer des Wochentages</p>
+<p>Werte: 0-6 (0 entspricht Montag)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">7</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">tm_yday</span></p>
+</td>
+<td class="tabellentext">
+<p>Nummer des Tages im Jahr</p>
+<p>Werte: 0-366</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">8</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">tm_isdst</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt an, ob der Zeitstempel durch die Sommerzeit angepasst wurde.</p>
+<p>Werte: 0 für »Nein«, 1 für »Ja« und &#8211;1 für »Unbekannt«</p>
+</td>
+</tr>
+</table><br><p>Allen Funktionen, die <span class="clisting">time_struct</span>-Instanzen als Parameter erwarten, kann alternativ auch ein Tupel mit neun Elementen übergeben werden, das für die entsprechenden Indizes die gewünschten Werte enthält. [Es ist tatsächlich der Bereich von 0 bis 61, um sogenannte Schaltsekunden zu kompensieren. Schaltsekunden dienen dazu, die Ungenauigkeiten der Erdrotation bei Zeitangaben auszugleichen. Sie werden sich in der Regel nicht darum kümmern müssen.
+] </p>
+<p>Nun gehen wir zu der Besprechung der Modulfunktionen und -attribute über.</p>
+<h4 class="t4"><span class="cfett">Attribute</span></h4>
+<h5 class="t5"><span class="cfett">time.accept2dyear</span></h5>
+<p>Dieses Attribut enthält einen Wahrheitswert, der angibt, ob Jahreszahlen mit nur zwei Ziffern anstatt vier Ziffern angegeben werden können.</p>
+<h5 class="t5"><span class="cfett">time.altzone</span></h5>
+<p>Speichert die Verschiebung der Lokalzeit von der UTC in Sekunden, wobei eine eventuell vorhandene Sommerzeit auch berücksichtigt wird. Liegt die aktuelle Zeitzone östlich vom Null-Meridian, ist der Wert von <span class="clisting">time.altzone</span> positiv, liegt die lokale Zeitzone westlich davon, negativ.</p>
+<p>Dieses Attribut sollte nur dann benutzt werden, wenn <span class="clisting">time.daylight</span> nicht den Wert <span class="clisting">0</span> hat.</p>
+<h5 class="t5"><span class="cfett">time.daylight</span></h5>
+<p>Hat einen Wert, der von <span class="clisting">0</span> verschieden ist, wenn es in der lokalen Zeitzone eine Sommerzeit gibt. Ist für den lokalen Standort keine Sommerzeit definiert, hat <span class="clisting">time.daylight</span> den Wert <span class="clisting">0</span>. Die durch die Sommerzeit entstehende Verschiebung lässt sich mit <span class="clisting">time.altzone</span> ermitteln.</p>
+<h5 class="t5"><span class="cfett">time.struct_time</span></h5>
+<p>Referenz auf den in der Einleitung besprochenen Datentyp <span class="clisting">struct_time</span>.</p>
+<p>Sie können mit <span class="clisting">time.struct_time</span> direkt Instanzen dieses Typs erzeugen, indem Sie dem Konstruktor eine Sequenz mit neun Elementen übergeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; t = time.struct_time((2007, 9, 18, 18, 24, 56, 0, 0, 0)) 
+&gt;&gt;&gt; t.tm_year 
+2007</pre></div>
+<h5 class="t5"><span class="cfett">time.timezone</span></h5>
+<p>Speichert die Verschiebung der Lokalzeit relativ zur UTC in Sekunden, wobei eine eventuell vorhandene Sommerzeit nicht berücksichtigt wird.</p>
+<h5 class="t5"><span class="cfett">time.tzname</span></h5>
+<p>Enthält ein Tupel mit zwei Strings. Der erste String ist der Name der lokalen Zeitzone und der zweite der der lokalen Zeitzone mit Sommerzeit. Wenn die Lokalzeit keine Sommerzeit kennt, sollte das zweite Element des Tupels nicht verwendet werden.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; time.tzname 
+('Westeurop\xe4ische Normalzeit', 'Westeurop\xe4ische Sommerzeit')</pre></div>
+<h4 class="t4"><span class="cfett">Funktionen</span></h4>
+<h5 class="t5"><span class="cfett">time.asctime([t])</span></h5>
+<p>Wandelt eine <span class="clisting">time.struct_time</span>-Instanz oder ein Tupel mit neun Elementen in einen 24-Zeichen-String um. Die Form des resultierenden Strings zeigt das folgende Beispiel:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; time.asctime((1987, 7, 26, 10, 40, 0, 0, 0, 0)) 
+'Mon Jul 26 10:40:00 1987'</pre></div>
+<p>Wird der optionale Parameter <span class="ckursiv">t</span> nicht übergeben, gibt <span class="clisting">time.asctime</span> einen 24–Zeichen-String für den aktuellen Zeitpunkt der Lokalzeit zurück.</p>
+<h5 class="t5"><span class="cfett">time.clock()</span></h5>
+<p>Gibt die aktuelle Prozessorzeit zurück. Was dies konkret bedeutet, hängt von der gleichnamigen C-Funktion ab, die zu diesem Zweck aufgerufen wird.</p>
+<p>Unter Unix gibt <span class="clisting">time.clock</span> die Prozessorzeit zurück, die der Python-Prozess schon benutzt hat. Unter Windows ist es der zeitliche Abstand zum ersten Aufruf der Funktion.</p>
+<p>Wenn Sie die Laufzeit Ihrer Programme analysieren wollen, ist <span class="clisting">time.clock</span> in jedem Fall die richtige Wahl:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; start = time.clock() 
+&gt;&gt;&gt; rechenintensive_funktion() 
+&gt;&gt;&gt; ende = time.clock() 
+&gt;&gt;&gt;<span class="cfett"> print</span> "Die Funktion lief %1.2f Sekunden" % (ende - start) 
+Die Funktion lief 7.46 Sekunden</pre></div>
+<h5 class="t5"><span class="cfett">time.ctime([secs])</span></h5>
+<p>Wandelt den als Parameter übergebenen Unix-Timestamp in einen 24-Zeichen-String wie <span class="clisting">time.asctime</span> um. Wird der optionale Parameter nicht übergeben oder hat er den Wert <span class="clisting">None</span>, wird der aktuelle Zeitpunkt verwendet.</p>
+<h5 class="t5"><span class="cfett">time.gmtime([secs])</span></h5>
+<p>Wandelt einen Unix-Timestamp in ein <span class="clisting">time.struct_time</span>-Objekt um. Dabei wird immer die koordinierte Weltzeit benutzt, und das <span class="clisting">tm_isdst</span>-Attribut des resultierenden Objekts hat immer den Wert <span class="clisting">0</span>.</p>
+<p>Wird der Parameter <span class="ckursiv">secs</span> nicht übergeben oder hat er den Wert <span class="clisting">None</span>, wird der aktuelle Zeitstempel, wie er von <span class="clisting">time.time</span> zurückgegeben wird, benutzt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; time.gmtime() 
+(2007, 9, 18, 21, 40, 38, 1, 261, 0)</pre></div>
+<p>Das obige Beispiel wurde also nach UTC am 18.09.2007 um 21:40 Uhr ausgeführt.</p>
+<h5 class="t5"><span class="cfett">time.localtime([secs])</span></h5>
+<p>Genau wie <span class="clisting">time.gmtime</span>, aber wandelt den übergebenen Timestamp in eine Angabe der lokalen Zeitzone um.</p>
+<h5 class="t5"><span class="cfett">time.mktime(t)</span></h5>
+<p>Wandelt eine <span class="clisting">time.struct_time</span>-Instanz in einen Unix-Timestamp der Lokalzeit um. Der Rückgabewert ist eine Gleitkommazahl.</p>
+<p>Die Funktionen <span class="clisting">time.localtime</span> und <span class="clisting">time.mktime</span> sind jeweils Umkehrfunktionen voneinander:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; t1 = time.localtime() 
+&gt;&gt;&gt; t2 = time.localtime(time.mktime(t1)) 
+&gt;&gt;&gt; t1 == t2 
+True</pre></div>
+<h5 class="t5"><span class="cfett">time.sleep(secs)</span></h5>
+<p>Unterbricht die Programmausführung für die übergebene Zeitspanne. Der Parameter <span class="ckursiv">secs</span> muss dabei eine Gleitkommazahl sein, die die Dauer der Unterbrechung in Sekunden angibt.</p>
+<h5 class="t5"><span class="cfett">time.strftime(format[, t])</span></h5>
+<p>Wandelt die <span class="clisting">time.struct_time</span>-Instanz <span class="ckursiv">t</span> oder ein neunelementiges Tupel <span class="ckursiv">t</span> in einen String um. Dabei wird mit dem ersten Parameter namens <span class="ckursiv">format</span> ein String übergeben, der das gewünschte Format des Ausgabestrings enthält.</p>
+<p>Ähnlich wie der Formatierungsoperator für Strings enthält der Format-String eine Reihe von Platzhaltern, die im Ergebnis durch die entsprechenden Werte ersetzt werden. Jeder Platzhalter besteht aus einem Prozentzeichen und einem Identifikationsbuchstaben. Die folgende Tabelle zeigt alle unterstützten Platzhalter:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 16.2    </strong>Übersicht über alle Platzhalter der time.strftime-Funktion
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Platzhalter</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%a</span></p>
+</td>
+<td class="tabellentext">
+<p>Lokale Abkürzung für den Namen des Wochentags</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%A</span></p>
+</td>
+<td class="tabellentext">
+<p>Der komplette Name des Wochenstags in der lokalen Sprache</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%b</span></p>
+</td>
+<td class="tabellentext">
+<p>Lokale Abkürzung for den Namen des Monats</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%B</span></p>
+</td>
+<td class="tabellentext">
+<p>Der vollständige Name des Monats in der lokalen Sprache</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%c</span></p>
+</td>
+<td class="tabellentext">
+<p>Das Format für eine angemessene Datums- und Zeitdarstellung auf der lokalen Plattform</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%d</span></p>
+</td>
+<td class="tabellentext">
+<p>Nummer des Tages im aktuellen Monat. Ergibt einen String der Länge 2 im Bereich [01,31].</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%H</span></p>
+</td>
+<td class="tabellentext">
+<p>Stunde im 24-Stunden-Format. Das Ergebnis hat immer zwei Ziffern und liegt im Bereich [00,23].</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%I</span></p>
+</td>
+<td class="tabellentext">
+<p>Stunde im 12-Stunden-Format. Das Ergebnis hat immer zwei Ziffern und liegt im Bereich [01,12].</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%j</span></p>
+</td>
+<td class="tabellentext">
+<p>Nummer des Tages im Jahr. Das Ergebnis hat immer drei Ziffern und liegt im Bereich [001, 366].</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%m</span></p>
+</td>
+<td class="tabellentext">
+<p>Nummer des Monats bestehend aus zwei Ziffern im Bereich [01,12]</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%M</span></p>
+</td>
+<td class="tabellentext">
+<p>Minute als Zahl mit zwei Ziffern. Liegt immer im Bereich [00,59].</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%p</span></p>
+</td>
+<td class="tabellentext">
+<p>Die lokale Entsprechung für AM bzw. PM</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%S</span></p>
+</td>
+<td class="tabellentext">
+<p>Sekunde als Zahl mit zwei Ziffern. Liegt immer im Bereich [00,61].</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%U</span></p>
+</td>
+<td class="tabellentext">
+<p>Nummer der aktuellen Woche im Jahr, wobei der Sonntag als erster Tag der Woche betrachtet wird. Das Ergebis hat immer zwei Ziffern und liegt im Bereich [01,53].</p>
+<p>Der Zeitraum am Anfang eines Jahres vor dem ersten Sonntag wird als 0. Woche gewertet.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%w</span></p>
+</td>
+<td class="tabellentext">
+<p>Nummer das aktuellen Tages in der Woche. Sonntag wird als 0. Tag betrachtet. Das Ergebnis liegt im Bereich [0,6].</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%W</span></p>
+</td>
+<td class="tabellentext">
+<p>Wie <span class="clisting">%U</span>, nur dass statt des Sonntags der Montag als erster Tag der Woche betrachtet wird.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%x</span></p>
+</td>
+<td class="tabellentext">
+<p>Datumsformat der lokalen Plattform</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%X</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeitformat der lokalen Plattform</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%y</span></p>
+</td>
+<td class="tabellentext">
+<p>Jahr ohne Jahrhundertangabe. Das Ergebnis besteht immer aus zwei Ziffern und liegt im Bereich [00,99].</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%Y</span></p>
+</td>
+<td class="tabellentext">
+<p>Komplette Jahreszahl mit Jahrhundertangabe</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%Z</span></p>
+</td>
+<td class="tabellentext">
+<p>Name der lokalen Zeitzone oder ein leerer String, wenn keine lokale Zeitzone festgelegt wurde.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%%</span></p>
+</td>
+<td class="tabellentext">
+<p>Ergibt ein Prozentzeichen »<span class="clisting">%</span>« im Resultatstring.</p>
+</td>
+</tr>
+</table><br><p>Mit dem folgenden Ausdruck erzeugen Sie beispielsweise eine Ausgabe des aktuellen Zeitpunkts in einem für Deutschland üblichen Format zu erhalten:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; time.strftime("%d.%m.%Y um %H:%M:%S Uhr") 
+'19.09.2007 um 00:21:17 Uhr'</pre></div>
+<h5 class="t5"><span class="cfett">time.strptime(string[, format])</span></h5>
+<p>Mit <span class="clisting">time.strptime</span> können Sie einen Zeit-String wieder in eine <span class="clisting">time.struct_time</span>-Instanz umwandeln. Der Parameter <span class="ckursiv">format</span> gibt dabei das Format an, in dem der String die Zeit enthält. Den Aufbau solcher Format-Strings ist der gleiche wie bei <span class="clisting">time.strftime</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; zeit_string = '19.09.2007 um 00:21:17 Uhr' 
+&gt;&gt;&gt; time.strptime(zeit_string, "%d.%m.%Y um %H:%M:%S Uhr") 
+(2007, 9, 19, 0, 21, 17, 2, 262, -1)</pre></div>
+<p>Wird der optionale Parameter <span class="ckursiv">format</span> nicht angegeben, wird der Standardwert <span class="clisting">"%a %b %d %H:%M:%S %Y"</span> verwendet. Dies entspricht dem Ausgabeformat von <span class="clisting">time.ctime</span>.</p>
+<h5 class="t5"><span class="cfett">time.time()</span></h5>
+<p>Gibt den aktuellen Unix-Zeitstempel in UTC als Gleitkommazahl zurück.</p>
+<p>Beachten Sie hierbei, dass nicht alle Systeme eine höhere Auflösung als eine Sekunde unterstützen und der Nachkommateil somit nicht unbedingt verlässlich ist.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_16_001.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="16 Datum und Zeit"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_15_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_16_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

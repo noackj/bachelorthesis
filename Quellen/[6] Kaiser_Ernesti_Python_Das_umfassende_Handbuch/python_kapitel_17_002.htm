@@ -1,0 +1,547 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 17.2 Umgang mit Pfaden &#8211; os.path</title>
+<meta name="title" content="Galileo Computing :: Python - 17.2 Umgang mit Pfaden &#8211; os.path">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 17.2 Umgang mit Pfaden &#8211; os.path">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_17_001.htm">
+<link rel="next" href="python_kapitel_17_003.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_17_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_17_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38" class="navnav">17 Schnittstelle zum Betriebssystem</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_001.htm#mj77e936b71966154869b7d24a1574b1df" class="navnav">17.1 Funktionen des Betriebssystems &#8211; os</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_001.htm#mj3ff7a541af35722b98a3a8fd78f762ff" class="navnav">17.1.1 Zugriff auf den eigenen Prozess und andere Prozesse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_001.htm#mj9ed2c275d7bfba6527100a0e902359a9" class="navnav">17.1.2 Zugriff auf das Dateisystem</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj5ab2f76578af6aa33e677a2a7512c746" class="navh">17.2 Umgang mit Pfaden &#8211; os.path</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_003.htm#mj97b5c269a76139d85f7ed0c69a992072" class="navnav">17.3 Zugriff auf die Laufzeitumgebung &#8211; sys</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mjff3bf28f7c46dba2812a48ea44e6c439" class="navnav">17.3.1 Konstanten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mj5712860f2c6affdb1abfb994add18e1f" class="navnav">17.3.2 Exceptions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mj711f6ced68c90e735afd07cedd438f99" class="navnav">17.3.3 Hooks</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_003.htm#mj10a59e950befd97269ece0155ad0a2db" class="navnav">17.3.4 Sonstige Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_004.htm#mjc5f177869459290f657b77629ea88776" class="navnav">17.4 Informationen über das System &#8211; platform</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_004.htm#mj33d8f846c9c856f68871e8b0263b2819" class="navnav">17.4.1 Funktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_005.htm#mj811770aef1f82a99f21bfeae941a3fe6" class="navnav">17.5 Kommandozeilenparameter &#8211; optparse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_005.htm#mj71f8556c1b5b0cd6ec963d0aaffa2296" class="navnav">17.5.1 Taschenrechner &#8211; ein einfaches Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_17_005.htm#mja82de697442f64f8b7d1386535b413c3" class="navnav">17.5.2 Weitere Verwendungsmöglichkeiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_006.htm#mjc96b1149114c87b8cb9ce33af7a7f2d0" class="navnav">17.6 Kopieren von Instanzen &#8211; copy</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_007.htm#mj8b1cfd55535f4741469c6ea432d9a846" class="navnav">17.7 Zugriff auf das Dateisystem &#8211; shutil</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_17_008.htm#mj764aaa21ce7136bc5cea7bf42d82c9da" class="navnav">17.8 Das Programmende &#8211; atexit</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj5ab2f76578af6aa33e677a2a7512c746" name="mj5ab2f76578af6aa33e677a2a7512c746"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">17.2</span><span class="cfett"> Umgang mit Pfaden &#8211; os.path</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Verschiedene Plattformen &#8211; verschiedene Pfadnamenskonventionen. Während beispielsweise Windows-Betriebssysteme bei absoluten Pfadnamen das Laufwerk erwarten, auf das sich der Pfad bezieht, wird unter Unix ein einfacher Slash vorangestellt. Außerdem unterscheiden sich auch die Trennzeichen für einzelne Ordner innerhalb des Pfadnamens, denn Microsoft hat sich im Gegensatz zur Unix-Welt, in der der Slash üblich ist, für den Backslash entschieden.</p>
+<p>Als Programmierer für plattformübergreifende Software stehen Sie nun vor dem Problem, dass Ihre Programme mit diesen verschiedenen Konventionen und auch denen dritter Betriebssysteme zurechtkommen müssen.</p>
+<p>Damit dafür keine programmtechnischen Verrenkungen notwendig werden, wurde das Modul <span class="clisting">os.path</span> entwickelt, mit dem Sie Pfadnamen komfortabel verwenden können.</p>
+<p>Sie können das Modul auf zwei verschiedene Arten nutzen:</p>
+<ul class="gp">
+<li>Sie importieren erst <span class="clisting">os</span> und greifen dann über <span class="clisting">os.path</span> darauf zu.</li>
+</ul>
+<ul class="gp">
+<li>Sie importieren <span class="clisting">os.path</span> direkt.</li>
+</ul>
+<p>Bevor wir mit der Beschreibung der Funktionen dieses Moduls beginnen, möchten wir Sie drauf hinweisen, dass unter Windows nicht alle Funktionen korrekt mit UNC-Pfadnamen [Uniform/Universal Naming Convention (UNC) ist ein Standard, um Ressourcen in einem Netzwerk anzusprechen.
+]  umgehen können. Nur für <span class="clisting">splitunc</span> und <span class="clisting">ismount</span> wird garantiert, dass sie mit solchen Pfaden richtig verfahren können.</p>
+<h5 class="t5"><span class="cfett">os.path.abspath(path)</span></h5>
+<p>Gibt zu einem relativen Pfad den dazugehörigen absoluten und normalisierten Pfad (siehe dazu <span class="clisting">os.normpath</span>) zurück. Das folgende Beispiel verdeutlicht die Arbeitsweise:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.path.abspath(".") 
+'Z:\\beispiele\\os'</pre></div>
+<p>In diesem Fall haben wir mithilfe des relativen Pfads <span class="clisting">"."</span> auf das aktuelle Verzeichnis herausgefunden, dass unser Script unter <span class="clisting">'Z:\\beispiele\\os'</span> gespeichert ist.</p>
+<h5 class="t5"><span class="cfett">os.path.basename(path)</span></h5>
+<p>Gibt den sogenannten <span class="ckursiv">Basisnamen</span> des Pfads zurück. Der Basisname eines Pfads ist der Teil hinter dem letzten Ordnertrennzeichen, wie zum Beispiel <span class="clisting">\</span> oder <span class="clisting">/</span>. Diese Funktion eignet sich sehr gut, um den Dateinamen aus einem vollständigen Pfad zu extrahieren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.path.basename(r"C:\Windows\System32\ntoskrnl.exe") 
+'ntoskrnl.exe'</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Wichtig</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Diese Funktion unterscheidet sich von dem Unix-Kommando <span class="ckursiv">basename</span> dadurch, dass sie einen leeren String zurückgibt, wenn der String mit einem Ordnertrennzeichen endet:</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting"><span class="clisting">&gt;&gt;&gt; os.path.basename(r"/usr/lib/compiz/") 
+''</span></pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+Im Gegensatz dazu sieht die Ausgabe des gleichnamigen Unix-Kommandos so aus:</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">$ basename /usr/lib/compiz/ 
+compiz</pre></div>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">os.path.commonprefix(list)</span></h5>
+<p>Gibt einen möglichst langen String zurück, mit dem alle Elemente der als Parameter übergebenen Pfadliste <span class="ckursiv">list</span> beginnen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.path.commonprefix([r"C:\Windows\System32\ntoskrnl.exe", 
+             r"C:\Windows\System\TAPI.dll", 
+             r"C:\Windows\system32\drivers"]) 
+'C:\\Windows\\'</pre></div>
+<p>Es ist aber nicht garantiert, dass der resultierende String auch ein gültiger und existierender Pfad ist, da die Pfade als einfache Strings betrachtet werden.</p>
+<h5 class="t5"><span class="cfett">os.path.dirname(path)</span></h5>
+<p>Gibt den Ordnerpfad zurück, den <span class="ckursiv">path</span> enthält:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.path.dirname(r"C:\Windows\System\TAPI.dll") 
+'C:\\Windows\\System'</pre></div>
+<p>Genau wie bei <span class="clisting">os.path.basename</span> müssen Sie auch hier das abweichende Verhalten bei Pfaden beachten, die mit einem Ordnertrennzeichen enden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.path.dirname(r"/usr/lib/compiz") 
+'/usr/lib' 
+&gt;&gt;&gt; os.path.dirname(r"/usr/lib/compiz/") 
+'/usr/lib/compiz'</pre></div>
+<h5 class="t5"><span class="cfett">os.path.exists(path)</span></h5>
+<p>Gibt <span class="clisting">True</span> zurück, wenn der angegebene Pfad auf eine existierende Datei oder ein vorhandenes Verzeichnis verweist, ansonsten <span class="clisting">False</span>.</p>
+<h5 class="t5"><span class="cfett">os.path.getatime(path)</span></h5>
+<p>Gibt den Unix-Zeitstempel des letzten Zugriffs auf den übergebenen Pfad zurück. Kann auf die übergebene Datei oder den Ordner nicht zugegriffen werden oder ist sie bzw. er nicht vorhanden, führt dies zu einem <span class="clisting">os.error</span>.</p>
+<p>Unix-Zeitstempel sind Ganzzahlen, die die Sekunden seit Beginn der Unix-Epoche, also dem 01.01.1970, angeben.</p>
+<h5 class="t5"><span class="cfett">os.path.getmtime(path)</span></h5>
+<p>Gibt einen Unix-Zeitstempel zurück, der angibt, wann die Datei oder der Ordner unter <span class="ckursiv">path</span> zum letzten Mal verändert wurde. Existiert der übergebene Pfad nicht im Dateisystem, wird <span class="clisting">os.error</span> geworfen.</p>
+<p>Unix-Zeitstempel sind Zahlen, die die Sekunden seit Beginn der Unix-Epoche, also dem 01.01.1970 um 00:00 Uhr, angeben.</p>
+<h5 class="t5"><span class="cfett">os.path.getsize(path)</span></h5>
+<p>Gibt die Größe der unter <span class="ckursiv">path</span> zu findenden Datei in Bytes zurück. Der Rückgabewert ist dabei immer eine <span class="clisting">long</span>-Instanz.</p>
+<h5 class="t5"><span class="cfett">os.path.isabs(path)</span></h5>
+<p>Der Rückgabewert ist <span class="clisting">True</span>, wenn es sich bei <span class="ckursiv">path</span> um eine absolute Pfadangabe handelt, sonst <span class="clisting">False</span>.</p>
+<h5 class="t5"><span class="cfett">os.path.isfile(path)</span></h5>
+<p>Gibt <span class="clisting">True</span> zurück, wenn <span class="ckursiv">path</span> auf eine Datei verweist, sonst <span class="clisting">False</span>. Die Funktion folgt dabei gegebenenfalls symbolischen Links.</p>
+<h5 class="t5"><span class="cfett">os.path.isdir(path)</span></h5>
+<p>Wenn der übergebene Pfad auf einen Ordner verweist, wird <span class="clisting">True</span> zurückgegeben, ansonsten <span class="clisting">False</span>.</p>
+<h5 class="t5"><span class="cfett">os.path.islink(path)</span></h5>
+<p>Gibt <span class="clisting">True</span> zurück, wenn unter <span class="ckursiv">path</span> ein symbolischer Link zu finden ist, sonst <span class="clisting">False</span>.</p>
+<h5 class="t5"><span class="cfett">os.path.join(path1[, path2[, …]])</span></h5>
+<p>Fügt die übergebenen Pfadangaben zu einem einzigen Pfad zusammen, indem sie verkettet werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.path.join(r"C:\Windows", r"System\ntoskrnl.exe") 
+'C:\\Windows\\System\\ntoskrnl.exe'</pre></div>
+<p>Wird ein absoluter Pfad als zweites oder späteres Argument übergeben, ignoriert <span class="clisting">os.path.join</span> alle übergebenen Pfade vor dem absoluten:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.path.join(r"Das\wird\ignoriert", r"C:\Windows", r"System\ntoskrnl.exe")<br>
+'C:\\Windows\\System\\ntoskrnl.exe'</pre></div>
+<h5 class="t5"><span class="cfett">os.path.normcase(path)</span></h5>
+<p>Auf Betriebssystemen, die bei Pfaden nicht hinsichtlich Groß- und Kleinschreibung unterscheiden (z. B. Windows), werden alle Großbuchstaben durch ihre kleinen Entsprechungen ersetzt. Außerdem werden unter Windows alle Slashs durch Backslashs ausgetauscht:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.path.normcase(r"C:\Windows/System32/ntoskrnl.exe") 
+'c:\\windows\\system32\\ntoskrnl.exe'</pre></div>
+<p>Unter Unix wird der übergebene Pfad ohne Änderung zurückgegeben.</p>
+<h5 class="t5"><span class="cfett">os.path.realpath(path)</span></h5>
+<p>Gibt einen zu <span class="ckursiv">path</span> äquivalenten Pfad zurück, der keine Umwege über symbolische Links enthält.</p>
+<h5 class="t5"><span class="cfett">os.path.split(path)</span></h5>
+<p>Teilt den übergebenen Pfad in den Namen des Ordners oder der Datei, die er beschreibt, und den Pfad zu dem direkt übergeordneten Verzeichnis und gibt ein Tupel zurück, das die beiden Teile enthält:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.path.split(r"C:\<span class="clisting">Windows</span>\System32\ntoskrnl.exe") 
+('C:\\Windows\System32', 'ntoskrnl.exe')</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Wichtig</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">Wenn der Pfad mit einem Slash oder Backslash endet, ist das zweite Element des Tupels ein leerer String:</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<div class="clisting">&gt;&gt;&gt; os.path.split("/home/revelation/") 
+('/home/revelation', '')</pre></div>
+</td>
+</tr>
+</table><br><h5 class="t5"><span class="cfett">os.path.splitdrive(path)</span></h5>
+<p>Teilt den übergebenen Pfad in die Laufwerksangabe und den Rest, sofern die Plattform Laufwerksangaben unterstützt:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.path.splitdrive(r"C:\Windows/System32/ntoskrnl.exe") 
+('C:', '\\Windows/System32/ntoskrnl.exe')</pre></div>
+<h5 class="t5"><span class="cfett">os.path.splitext(path)</span></h5>
+<p>Teilt den <span class="ckursiv">path</span> in den Pfad zu der Datei und die Dateiendung. Beide Elemente werden in einem Tupel zurückgegeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; os.path.splitext(r"C:\Windows\System32\Notepad.exe") 
+('C:\\Windows\\System32\\Notepad', '.exe')</pre></div><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_17_002.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="17.2 Umgang mit Pfaden &#8211; os.path"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_17_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_17_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

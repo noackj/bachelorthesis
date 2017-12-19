@@ -1,0 +1,783 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 24.3 Entwicklungsprozess</title>
+<meta name="title" content="Galileo Computing :: Python - 24.3 Entwicklungsprozess">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 24.3 Entwicklungsprozess">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_24_002.htm">
+<link rel="next" href="python_kapitel_24_004.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_24_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_24_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753" class="navnav">24 Grafische Benutzeroberflächen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_001.htm#mj7e4bb4efefd7ce44aa67ef15eb795819" class="navnav">24.1 Toolkits</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_002.htm#mj410d039d691c33c9eaae3c5d98711ba6" class="navnav">24.2 Einführung in PyQt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_002.htm#mj1684f423c06c11a7858373f78c379bd3" class="navnav">24.2.1 Installation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_002.htm#mjdcac6d188caaadff2d97262b63d1924c" class="navnav">24.2.2 Grundlegende Konzepte von Qt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjfc92f7f0a3a50a7adbdab1fd29bafccb" class="navh">24.3 Entwicklungsprozess</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj9db1bbea0411d23987eec58164bfcca2" class="navh">24.3.1 Erstellen des Dialogs</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj07a1c3efb2f661d7025237efdab7d505" class="navh">24.3.2 Schreiben des Programms</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_004.htm#mj4fe5432befd9b269f465778525b31a3e" class="navnav">24.4 Signale und Slots</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_005.htm#mjc3b7342ca80134e5e7ffe20ceb05f0c2" class="navnav">24.5 Überblick über das Qt-Framework</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_006.htm#mjbee8e14f9a227769775f297cf44af44f" class="navnav">24.6 Zeichenfunktionalität</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj6baaa60f60c4ee337c7f2618558965cc" class="navnav">24.6.1 Werkzeuge</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj09ce1ef12f59e463f2d0b2a627f3dff8" class="navnav">24.6.2 Koordinatensystem</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj4e47879515982231ab3e15a2f80dd87e" class="navnav">24.6.3 Einfache Formen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj23c5f85dbd4874e55733f08c53200348" class="navnav">24.6.4 Grafiken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mjef9e638bd97da97f7d98650a62ad3aef" class="navnav">24.6.5 Text</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_006.htm#mj9f1387a929546375d73241894c08fedd" class="navnav">24.6.6 Eye-Candy</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_007.htm#mj1ea36fb17db37638e0480e8c9937e6d1" class="navnav">24.7 Model-View-Architektur</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_007.htm#mj5c95ff8527068d367a6f8d8f25d15ed8" class="navnav">24.7.1 Beispielprojekt: Ein Adressbuch</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_007.htm#mjd71e703821b611cbd37eefb80cb38244" class="navnav">24.7.2 Auswählen von Einträgen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_007.htm#mjd504a61938116a86354b4928b72c8220" class="navnav">24.7.3 Editieren von Einträgen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_24_008.htm#mj2109c1a87ec1a3262198a32ccd4d37da" class="navnav">24.8 Wichtige Widgets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjd7810289c9aed6f9c751881e1018465c" class="navnav">24.8.1 QCheckBox</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj2049b0d4b09d164f2476d7dfc2ec45d2" class="navnav">24.8.2 QComboBox</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj295c86558eb7790a1caad3caadcbd14c" class="navnav">24.8.3 QDateEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj59aa1db582f3b839a69b147bc0487858" class="navnav">24.8.4 QDateTimeEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj3da964dfd16810d718e1b2d9bcb688fc" class="navnav">24.8.5 QDial</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj48fac9fb739a93491b1db3d33005834f" class="navnav">24.8.6 QDialog</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjb7c1c34af70ba881939ed78c8f09cb4a" class="navnav">24.8.7 QGLWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjd53a9048d9c571639ee4ddf703314dfd" class="navnav">24.8.8 QLineEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj753a3b774e44a835d684a14b3db04bdf" class="navnav">24.8.9 QListView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj174335c173cec288eda1580821430bde" class="navnav">24.8.10 QListWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjeb6c6758021833d8054cc62bbcca6e9d" class="navnav">24.8.11 QProgressBar</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj23d215e0756bba97ab8dcb09790ac00f" class="navnav">24.8.12 QPushButton</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj3376ce50168855804718b93fce86d2bd" class="navnav">24.8.13 QRadioButton</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj94112aa4fd117f48c3d39f9618b58181" class="navnav">24.8.14 QScrollArea</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjfddd4b80d093f9d97306b20f84578ee3" class="navnav">24.8.15 QSlider</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj5a52f70c91ed3907254124d05e894fe8" class="navnav">24.8.16 QTableView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjcbe42edfb63ff02ed61c895f76d00c1d" class="navnav">24.8.17 QTableWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj3e9d765f8b7dbd06d7b2a84a17401cf8" class="navnav">24.8.18 QTabWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj176a65642a71e61180f6f59b6579e7dd" class="navnav">24.8.19 QTextEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj37ef18de50443152c7f3bd72d6ea7b60" class="navnav">24.8.20 QTimeEdit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj170d41005e686d65c1a2e6da1ac5d9d3" class="navnav">24.8.21 QTreeView</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mj6abe0a2a3e93af31dcf36fb5a6f44975" class="navnav">24.8.22 QTreeWidget</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_24_008.htm#mjeb86779df41a41f7511c860b831f87b0" class="navnav">24.8.23 QWidget</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjfc92f7f0a3a50a7adbdab1fd29bafccb" name="mjfc92f7f0a3a50a7adbdab1fd29bafccb"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">24.3</span><span class="cfett"> Entwicklungsprozess</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>In diesem Abschnitt soll der vollständige Entwicklungsprozess einer einfachen PyQt-Anwendung dargestellt werden. Auf dem hier erarbeiteten Wissen werden wir später aufbauen, wenn es an eine komplexere Anwendung geht.</p>
+<p>Bei dem Beispielprogramm, das in diesem Kapitel entwickelt wird, handelt es sich um ein Formular, das einige persönliche Daten vom Benutzer einliest. Sie kennen ein solches Formular von anmeldepflichtigen Internetportalen.</p><a id="mj9db1bbea0411d23987eec58164bfcca2" name="mj9db1bbea0411d23987eec58164bfcca2"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">24.3.1</span><span class="cfett"> Erstellen des Dialogs</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bevor wir damit beginnen, das Programm zu schreiben, müssen wir uns Gedanken darüber machen, wie die grafische Oberfläche aussehen soll. Dazu gehört zunächst einmal die Frage, welche Informationen vom Benutzer eingelesen werden sollen.</p>
+<p>In diesem Beispiel sollen Vorname, Nachname, Geburtsdatum und Adresse des Benutzers eingelesen und gespeichert werden. Zusätzlich soll der Benutzer die allgemeinen Geschäftsbedingungen unseres Pseudo-Portals akzeptieren müssen und optional einen Warenkatalog bestellen können.</p>
+<p>Auf Basis dieser Voraussetzungen können wir im nächsten Schritt einen <span class="ckursiv">Dialog</span> erstellen. Unter einem Dialog versteht man ein einzelnes Fenster der grafischen Benutzeroberfläche. Häufig besitzt eine Anwendung einen <span class="ckursiv">Hauptdialog</span>, in dem der Großteil der Kommunikation mit dem Benutzer abläuft.</p>
+<p>Der Hauptdialog unserer Beispielanwendung soll so aussehen wie in <a href="#Rxx_ref181853610">Abbildung 24.1</a>.</p>
+<div class="bildbox">
+<p><a name="IDAOQSQ"></a><a onClick="OpenWin('bilder/gui-anmeldung.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-anmeldung.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.1    </strong>Hauptdialog der Anwendung</p>
+<p>Der Hauptdialog enthält mehrere sogenannte <span class="ckursiv">Widget</span><span class="ckursiv">s</span>. Unter einem Widget (dt. <span class="ckursiv">Dingsbums</span>) versteht man ein einzelnes Steuer- oder Bedienelement der grafischen Oberfläche. Ein Widget kann beliebig viele untergeordnete Widgets enthalten, sogenannte <span class="ckursiv">Children</span> (dt. <span class="ckursiv">Kinder</span>). Im Dialog aus <a href="#Rxx_ref181853610">Abbildung 24.1</a> sind beispielsweise die Eingabefelder, die ihrerseits ebenfalls Widgets sind, dem Gruppierungswidget »Persönliche Daten« untergeordnet.</p>
+<p><a href="#Rxx_ref181853657">Abbildung 24.2</a> gibt Aufschluss über die Namen und Bedeutungen der einzelnen Widgets, aus denen der Hauptdialog besteht.</p>
+<div class="bildbox">
+<p><a name="IDANRSQ"></a><a onClick="OpenWin('bilder/gui-widgets.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-widgets.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.2    </strong>Verschiedene Widgets</p>
+<p>Jetzt können wir damit beginnen, den Dialog zu erstellen. Qt stellt dafür ein komfortables Entwicklungswerkzeug, den <span class="ckursiv">Qt Designer</span>, bereit. Mithilfe des Qt Designers lassen sich auch komplexe Dialoge problemlos editieren.</p>
+<p>Unter Windows finden Sie das Programm Qt Designer im Startmenü unter dem Eintrag <span class="cfett">Qt</span> bzw. <span class="cfett">PyQt</span>. Sollten Sie Linux oder Mac  OS X einsetzen, müssen Sie den Qt Designer gegebenenfalls über den Befehl <span class="clisting">designer</span> aus einer Shell heraus starten.</p>
+<p>Nach dem Starten des Designers wird die Möglichkeit angeboten, ein sogenanntes <span class="ckursiv">Template</span> zu laden. Wir entscheiden uns in diesem Fall für das Template »Dialog without buttons«, das einen vollständig leeren Dialog bereitstellt. Danach präsentiert sich der Qt Designer so wie in <a href="#Rxx_ref181853708">Abbildung 24.3</a>.</p>
+<div class="bildbox">
+<p><a name="IDAGSSQ"></a><a onClick="OpenWin('bilder/qtdesigner.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinqtdesigner.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.3    </strong>Der Qt-Designer</p>
+<p>Die Arbeitsfläche des Qt Designers lässt sich grob in drei Bereiche unterteilen:</p>
+<ul class="gp">
+<li>In der Mitte finden Sie Ihre Dialogvorlage, die zu diesem Zeitpunkt noch leer ist.</li>
+</ul>
+<ul class="gp">
+<li>Auf der linken Seite befindet sich eine Liste aller verfügbaren Steuerelemente. Um eines dieser Steuerelemente zum Dialog hinzuzufügen, wählen Sie es aus und ziehen es auf den Dialog. Nachdem ein Steuerelement zum Dialog hinzugefügt worden ist, kann es beliebig positioniert oder in seiner Größe verändert werden.</li>
+</ul>
+<ul class="gp">
+<li>Auf der rechten Seite können die Eigenschaften des aktuell ausgewählten Steuerelements bearbeitet werden. Beachten Sie, dass diese Eigenschaften teilweise sehr speziell sind und in diesem Buch nicht zur Gänze beschrieben werden können.</li>
+</ul>
+<p>Wir beginnen damit, die beiden Buttons <span class="cfett">OK</span> und <span class="cfett">Abbrechen</span> im Dialog zu platzieren. Dazu ziehen Sie zwei Buttons aus der Liste am linken Rand und platzieren sie im Dialog. Die Aufschrift der Buttons lässt sich durch einen Doppelklick auf den bisherigen Text verändern. Um die Schaltfläche <span class="cfett">OK</span> zur Standardschaltfläche des Dialogs zu machen, ändern Sie die Eigenschaft »default« des Buttons in der Liste auf der rechten Seite auf »true«.</p>
+<p>Danach sollen die Group Boxes zur Gruppierung der weiteren Steuerelemente im Dialog platziert werden. Dazu ziehen Sie zwei Group Boxes auf den Dialog und passen Größe und Position Ihren Wünschen an. Der Titel einer Group Box lässt sich durch einen Doppelklick auf den bisherigen Text anpassen (siehe <a href="#Rxx_ref181853781">Abbildung 24.4</a>).</p>
+<div class="bildbox">
+<p><a name="IDA0SSQ"></a><a onClick="OpenWin('bilder/gui-groupbox.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-groupbox.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.4    </strong>Dialog mit Group Boxes</p>
+<p>Jetzt könnten im Prinzip weitere Widgets zum Dialog hinzugefügt werden, indem sie in eine der beiden Gruppen platziert werden. Das macht sie automatisch zu untergeordneten Widgets der jeweiligen Gruppe.</p>
+<p>Wenn wir die Eingabefelder jedoch mitsamt erklärendem Text absolut im Dialog positionieren würden, müssten wir jedes Mal alle Steuerelemente anpassen, wenn wir die Größe des Dialogs verändern. Um dieses Dilemma zu vermeiden, unterstützt Qt sogenannte <span class="ckursiv">Layout</span><span class="ckursiv">s</span>.</p>
+<p>Ein Layout ist eine Art Container, in dem mehrere Widgets automatisch angeordnet werden. Um ein Layout zu erstellen, markieren Sie alle Widgets, die dazugehören sollen, und wählen eine dieser drei hervorgehobenen Schaltflächen aus der Toolbar (siehe <a href="#Rxx_ref181853815">Abbildung 24.5</a>).</p>
+<div class="bildbox">
+<p><a name="IDAMTSQ"></a><a onClick="OpenWin('bilder/gui-layouts.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-layouts.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.5    </strong>Layout-Toolbar</p>
+<p>Ein Klick auf das erste Icon ordnet die Steuerelemente horizontal an, ein Klick auf das zweite Icon vertikal. Die beiden folgenden Icons erstellen einen sogenannten <span class="ckursiv">Splitter</span> (dt. <span class="ckursiv">Trenner</span>) zwischen den Steuerelementen, der später vom Benutzer verschoben werden kann. Dies ist für unseren Dialog nicht weiter wichtig und wird deshalb von uns nicht benötigt. Interessant ist allerdings  noch die dritte Schaltfläche, die die markierten Steuerelemente tabellarisch anordnet. Ein Klick auf das letzte Icon löst ein bestehendes Layout auf.</p>
+<p>Wenn Sie sich den Inhalt der Group Box »Persönliche Daten« im geplanten Dialog noch einmal ansehen, werden Sie feststellen, dass es sich um einen zweispaltigen tabellarischen Aufbau handelt, bei dem stets eine Beschreibung der anzugebenden Daten links und das entsprechende Eingabefeld rechts steht.</p>
+<div class="bildbox">
+<p><a name="IDA0TSQ"></a><a onClick="OpenWin('bilder/gui-pers.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-pers.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.6    </strong>Tabellarischer Aufbau</p>
+<p>Um diese Anordnung der Steuerelemente durch ein Layout zu erzielen, fügen wir die Steuerelemente zunächst an ihrem ungefähren Platz in den Dialog ein. Dabei finden Sie die Beschriftungen unter dem Namen <span class="ckursiv">Label</span> und die Eingabefelder unter den Namen <span class="ckursiv">Edit Box</span>, <span class="ckursiv">Date Box</span> und <span class="ckursiv">Text Box</span> im Steuerelemente-Menü des Qt Designers.</p>
+<p>Nachdem die Steuerelemente ungefähr an ihrem Platz sind, markieren wir sie und klicken auf das oben beschriebene Icon in der Toolbar zum Aufbau eines tabellarischen Layouts. Beachten Sie, dass es egal ist, in welcher Reihenfolge die Steuerelemente zuvor markiert wurden, da Qt die Position im Layout anhand ihrer vorherigen Position im Dialog abschätzt. Kleinere Ungenauigkeiten in der Positionierung werden dabei automatisch korrigiert. Das fertige Layout wird durch einen roten Rahmen angezeigt und kann jetzt als Ganzes neu positioniert oder in der Größe verändert werden. Sie werden feststellen, dass alle enthaltenen Steuerelemente bei einer Größenänderung automatisch mit angepasst werden.</p>
+<p><a href="#Rxx_ref181853853">Abbildung 24.7</a> soll noch einmal veranschaulichen, was das Hinzufügen eines Layouts für das Arrangement der Steuerelemente bedeutet.</p>
+<div class="bildbox">
+<p><a name="IDANUSQ"></a><a onClick="OpenWin('bilder/gui-layout-vorher.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-layout-vorher.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.7    </strong>Vor dem Festlegen eines Layouts</p>
+<p>Wenn jetzt alle Widgets markiert werden und ein tabellarisches Layout ausgewählt wird, ordnet der Qt Designer die Steuerelemente so an, wie es in <a href="#Rxx_ref181853885">Abbildung 24.8</a> zu sehen ist.</p>
+<div class="bildbox">
+<p><a name="IDAWUSQ"></a><a onClick="OpenWin('bilder/gui-layout-nachher.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-layout-nachher.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.8    </strong>Nach dem Festlegen eines Layouts</p>
+<p>Das Auswählen und Positionieren des Layouts kann etwas »fummelig« sein, da Sie auf den dünnen Rahmen klicken müssen.</p>
+<p>Beachten Sie, dass dem Date Edit Widget automatisch nur so viel Platz eingeräumt wurde, wie zum Anzeigen des Datums benötigt wird. Der dahinter eingefügte Leerraum wird durch ein dünnes rotes Rechteck gekennzeichnet. Wenn Sie selbst solche Aussparungen in ein Layout einbauen möchten, können Sie dies mithilfe eines sogenannten <span class="ckursiv">Spacer</span><span class="ckursiv">s</span> tun, den Sie im Steuerelemente-Menü finden. Ein Spacer verhält sich wie ein Widget, wird aber im späteren Dialog nicht angezeigt.</p>
+<p>Im nächsten Schritt müssen wir den hinzugefügten Label Widgets einen beschreibenden Text verpassen. Dazu klicken Sie, wie bei einer Group Box, doppelt auf den bisherigen Text.</p>
+<p>Ähnlich wie eben besprochen können Sie das Hinzufügen der beiden Check Boxes angehen. Allerdings sollten Sie in diesem Fall ein vertikales Layout wählen (siehe <a href="#Rxx_ref181853922">Abbildung 24.9</a>).</p>
+<div class="bildbox">
+<p><a name="IDAJVSQ"></a><a onClick="OpenWin('bilder/gui-layout-check.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-layout-check.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.9    </strong>Check Boxes im vertikalen Layout</p>
+<p>Damit wäre der Dialog äußerlich gestaltet, doch eine wichtige Sache fehlt noch. Jedes Steuerelement benötigt einen Namen, unter dem es nachher im Programm angesprochen werden kann. Dieser Name kann im Qt Designer festgelegt werden, und es ist auch empfehlenswert, das zu tun. Um einem Widget einen neuen Namen zu verpassen, markieren Sie es, öffnen mit einem Rechtsklick das entsprechende Kontextmenü und wählen den Menüpunkt <span class="cfett">Objektnamen ändern</span>.</p>
+<p>Die folgende Tabelle listet die im Beispiel vergebenen Namen für alle wichtigen Steuerelemente auf. Steuerelemente, die nur aus Layoutgründen existieren, beispielsweise die Group Boxes und Labels, müssen nicht benannt werden, da später keine Operationen mit ihnen durchgeführt werden sollen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 24.1    </strong>Die Namen der wichtigen Steuerelemente
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Steuerelement</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Name</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Der Dialog selbst</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">Hauptdialog</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Das Line Edit Widget »Vorname«</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">vorname</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Das Line Edit Widget »Nachname«</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">nachname</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Das Date Edit Widget »Geburtsdatum«</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">geburtsdatum</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Das Text Edit Widget »Adresse«</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">adresse</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Das Check Box Widget »AGB«</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">agb</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Das Check Box Widget »Newsletter«</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">newsletter</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Das Button Widget »OK«</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">buttonOK</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Das Button Widget »Abbrechen«</p>
+</td>
+<td class="tabellentext">
+<div class="clisting">buttonAbbrechen</pre></div>
+</td>
+</tr>
+</table><br><p>Nachdem alle Namen vergeben wurden, ist das Layout des Hauptdialogs fertig und kann im Projektverzeichnis gespeichert werden. Dazu wählen Sie den Menüpunkt <span class="kapitalchen">Datei</span> 
+    •
+   <span class="kapitalchen">Formular Speichern</span>. Ein mit dem Qt Designer erstellter Dialog wird als UI-Datei (<span class="ckursiv">*.ui</span>) gespeichert.</p>
+<p>Im Falle dieses Beispielprogramms soll der Dialog unter dem Dateinamen <span class="ckursiv">hauptdialog.ui</span> gespeichert werden.</p>
+<h4 class="t4"><span class="cfett">Die Tabulatorreihenfolge</span></h4>
+<p>Ein wichtiges, aber nicht essenzielles Thema ist die sogenannte <span class="ckursiv">Tabulatorreihenfolge</span>. Bei grafischen Benutzeroberflächen gilt die Maxime, dass ihre Bedienung zwar für die Maus entworfen ist, jederzeit aber auch vollständig über die Tastatur erfolgen kann. Ein wichtiges Instrument dafür ist die Tabulatortaste, mit der der Eingabefokus zwischen den einzelnen Widgets eines Dialogs gewechselt werden kann. Damit dies in einer für den Benutzer nachvollziehbaren Reihenfolge funktioniert, sollten Sie im Qt Designer für jeden Dialog Ihres Projekts die Tabulatorreihenfolge festlegen.</p>
+<p>Um die Tabulatorreihenfolge zu editieren, müssen Sie den entsprechenden Modus über das letzte Icon der Werkzeuge-Toolbar aktivieren. Der normale Editiermodus kann durch einen Klick auf das linke Icon wiederhergestellt werden.</p>
+<div class="bildbox">
+<p><a name="IDAYZSQ"></a><a onClick="OpenWin('bilder/gui-taborder.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-taborder.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.10    </strong>Festlegen der Tabulatorreihenfolge</p>
+<p>Nachdem Sie in den Modus zur Festlegung der Tabulatorreihenfolge gewechselt sind, klicken Sie in der Reihenfolge auf die Widgets Ihres Dialogs, in der sie nachher beim Drücken der Tabulator-Taste den Eingabefokus bekommen sollen. Die aktuelle Position eines Widgets in der Tabulatorreihenfolge wird durch eine nicht zu übersehende Zahl über dem Widget verdeutlicht. Die Tabulatorreihenfolge unseres Hauptdialogs sieht so aus wie in <a href="#Rxx_ref181854016">Abbildung 24.11</a>.</p>
+<div class="bildbox">
+<p><a name="IDAB0SQ"></a><a onClick="OpenWin('bilder/gui-taborder2.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingui-taborder2.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 24.11    </strong>Tabulatorreihenfolge im Beispieldialog</p>
+<p>Nachdem auch die Tabulatorreihenfolge angepasst wurde, können wir uns endlich dem Schreiben der Anwendung widmen.</p><a id="mj07a1c3efb2f661d7025237efdab7d505" name="mj07a1c3efb2f661d7025237efdab7d505"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">24.3.2</span><span class="cfett"> Schreiben des Programms</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bevor wir uns an das Schreiben der eigentlichen Anwendung heranwagen können, muss noch ein Schritt erledigt werden. Der gespeicherte Hauptdialog ist in Form einer UI-Datei für unser Beispielprogramm nicht zu gebrauchen. Bevor es also losgeht, muss die UI-Datei in eine Python-Klasse umgewandelt werden. Diese Klasse kann dann im Beispielprogramm eingebunden und instanziiert werden. Das Konvertieren der UI-Datei in Python-Code geschieht mit dem Kommandozeilenprogramm <span class="clisting">pyuic4</span>, das mit PyQt installiert wurde und sich im Hauptverzeichnis von Python befindet.</p>
+<p>Das Programm <span class="clisting">pyuic4</span> bekommt den Pfad zu einer UI-Datei als Kommandozeilenparameter übergeben und gibt die daraus erstellte Python-Klasse standardmäßig auf dem Bildschirm aus. Um die Ausgabe in eine Programmdatei umzulenken, kann die Kommandozeilenoption <span class="clisting">-o</span> verwendet werden:</p>
+<div class="listing"><pre class="prettyprint">C:\Python25\pyuic4 -o hauptdialog.py hauptdialog.ui</pre></div>
+<p>Der obige Aufruf ist natürlich nur möglich, wenn das Projektverzeichnis als aktuelles Arbeitsverzeichnis ausgewählt ist und Python im Verzeichnis <span class="ckursiv">C:\Python25</span> installiert wurde. In anderen Fällen müssen Sie die Pfade entsprechend anpassen. Beachten Sie, dass das Programm <span class="clisting">pyuic4</span> bei vielen Linux-Distributionen nach der Installation über das Kommando <span class="clisting">pyuic4</span> direkt gestartet werden kann, also kein Pfad angegeben werden muss.</p>
+<p>Nachdem das Programm durchgelaufen ist, befindet sich die Programmdatei <span class="ckursiv">hauptdialog.py</span> im Projektverzeichnis. Wenn Sie diese Datei öffnen, werden Sie feststellen, dass eine Python-Klasse namens <span class="clisting">Ui_Hauptdialog</span> erzeugt wurde, die in zwei Methoden den Python-Code enthält, der zum Erstellen unseres Hauptdialogs vonnöten ist.</p>
+<p>Jetzt sind endlich alle Vorbereitungen erledigt, sodass wir die Programmdatei <span class="ckursiv">programm.py</span> erstellen und uns ganz dem Programmieren der Beispielanwendung widmen können. Das einfachste Programm, das unseren Hauptdialog einfach nur anzeigt und sonst keine weiteren Operationen durchführt, sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> sys<span class="cfett"> 
+from</span> PyQt4<span class="cfett"> import</span> QtGui<span class="cfett"> 
+from</span> hauptdialog<span class="cfett"> import</span> Ui_Hauptdialog<span class="cfett"> as</span> Dlg<br>
+<span class="cfett">class</span> MeinDialog(QtGui.QDialog, Dlg): 
+   <span class="cfett"> def</span> __init__(self): 
+        QtGui.QDialog.__init__(self) 
+        self.setupUi(self)<br>
+app = QtGui.QApplication(sys.argv) 
+dialog = MeinDialog() 
+dialog.show() 
+sys.exit(app.exec_())</pre></div>
+<p>Zunächst werden alle benötigten Module eingebunden. Das sind insbesondere die generierte Programmdatei <span class="ckursiv">hauptdialog.py</span> sowie das Modul <span class="clisting">QtGui</span>, in dem alle Klassen des Qt-Frameworks gekapselt sind, die thematisch mit grafischen Benutzeroberflächen zusammenhängen. Eine Übersicht darüber, welche Namensräume es innerhalb des Pakets <span class="clisting">PyQt4</span> gibt, finden Sie weiter unten.</p>
+<p>Danach wird die Klasse <span class="clisting">MeinDialog</span> erstellt, die zum einen von der Basisklasse aller Qt-Dialoge, <span class="clisting">QDialog,</span> und zum anderen von der in <span class="ckursiv">hauptdialog.py</span> implementierten Klasse <span class="clisting">Ui_Hauptdialog</span> abgeleitet wird. Beachten Sie, dass der Klasse <span class="clisting">Ui_Hauptdialog</span> beim Einbinden das Alias <span class="clisting">Dlg</span> verliehen wurde.</p>
+<p>Im Konstruktor der Klasse <span class="clisting">MeinDialog</span> muss der Konstruktor der Klasse <span class="clisting">QDialog</span> aufgerufen werden. Schließlich werden durch Aufruf der von <span class="clisting">Dlg</span> geerbten Methode <span class="clisting">setupUi</span> alle Steuerelemente des Hauptdialogs initialisiert.</p>
+<p>Im nun folgenden Codeblock wird eine Instanz der Klasse <span class="clisting">QApplication</span> erstellt, die den Rahmen einer Anwendung mit grafischer Benutzeroberfläche bereitstellt. Dazu gehört beispielsweise der sogenannte <span class="ckursiv">Main Event Loop</span>, die Hauptschleife der Anwendung. Dem Konstruktor der Klasse <span class="clisting">QApplication</span> werden die Kommandozeilenparameter <span class="clisting">sys.argv</span> übergeben. Beachten Sie, dass jede Qt-Anwendung immer nur eine einzige <span class="clisting">QApplication</span>-Instanz haben darf, unabhängig davon, wie viele Dialoge später angezeigt werden sollen.</p>
+<p>Nachdem der Rahmen für die Qt-Anwendung erstellt worden ist, kann der Hauptdialog erzeugt werden, indem die Klasse <span class="clisting">MeinDialog</span> instanziiert wird. Durch die von der Basisklasse <span class="clisting">QDialog</span> vererbte Methode <span class="clisting">show</span> wird der Dialog sichtbar. Zu guter Letzt muss der eben angesprochene Main Event Loop durch die Methode <span class="clisting">exec_</span> der <span class="clisting">QApplication</span>-Instanz gestartet werden. Da wir im Moment keine weiteren Operationen durchführen möchten, nachdem der Dialog vom Benutzer geschlossen wurde, geben wir den Rückgabewert von <span class="clisting">app.exec_</span> direkt an <span class="clisting">sys.exit</span> weiter und beenden damit das Beispielprogramm. Beachten Sie, dass das Programm nach Aufruf von <span class="clisting">app.exec_</span> in einer Endlosschleife läuft, bis der Benutzer den Hauptdialog schließt.</p>
+<p>Dieses zugegebenermaßen ziemlich simple Programm soll im Folgenden sinnvoll erweitert werden. So sollen die vom Benutzer eingegebenen Werte ausgelesen und in das neben der Benutzeroberfläche existierende Konsolenfenster geschrieben werden. Anhand der dazu notwendigen Erweiterungen wird im Folgenden das <span class="ckursiv">Signal-und-Slot-</span>Konzept von Qt erklärt.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_24_003.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="24.3 Entwicklungsprozess"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_24_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_24_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

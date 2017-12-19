@@ -1,0 +1,476 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 25.6 Unser Projekt wird öffentlich</title>
+<meta name="title" content="Galileo Computing :: Python - 25.6 Unser Projekt wird öffentlich">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 25.6 Unser Projekt wird öffentlich">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_25_005.htm">
+<link rel="next" href="python_kapitel_25_007.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_25_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_25_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141" class="navnav">25 Python als serverseitige Programmiersprache im WWW mit Django</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_001.htm#mjdd2204be5ba4b589f486242a81296d16" class="navnav">25.1 Installation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_002.htm#mj282c78d53879441971cf422f7721f36b" class="navnav">25.2 Konzepte und Besonderheiten im Überblick</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_003.htm#mje3062b1da2ff670ce178312184ec8595" class="navnav">25.3 Erstellen eines neuen Django-Projekts</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_004.htm#mjd017713d500039b7388cd6501ad75461" class="navnav">25.4 Erstellung der Applikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_005.htm#mjbec4cf343a331c2f9b5c108a6dba8c3b" class="navnav">25.5 Djangos Administrationsoberfläche</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj191bf16ca79b0cc7c1219aeea3c3f8ea" class="navh">25.6 Unser Projekt wird öffentlich</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_007.htm#mj1431bc22cc78c16b5a7d0e21d6379f28" class="navnav">25.7 Djangos Template-System</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_25_008.htm#mj9e4c615e6b781e13841677e90a85ec7f" class="navnav">25.8 Verarbeitung von Formulardaten</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj191bf16ca79b0cc7c1219aeea3c3f8ea" name="mj191bf16ca79b0cc7c1219aeea3c3f8ea"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">25.6</span><span class="cfett"> Unser Projekt wird öffentlich</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Bis hierher ist unser Projekt so weit gediehen, dass eine Datenbank mit News-Meldungen und Kommentaren erstellt worden ist. Außerdem können wir die Daten über ein bequemes Webinterface verwalten.</p>
+<p>In diesem Kapitel werden wir uns mit dem »Gesicht« unserer Seite beschäftigen, also dem, was der Besucher der Website zu sehen bekommen soll.</p>
+<p>Sie erinnern sich sicherlich noch an das Schema zum Aufbau der Model-View-Architektur im Kapitel zur Einführung von Django.</p>
+<p>Bildlich gesprochen haben wir uns in <a href="#Rxx_ref181942116">Abbildung 25.10</a> von links nach rechts genau bis zur Mitte vorangearbeitet, da wir uns bereits mit Modellen und Datenbanken, nicht aber mit den Views und der Benutzerschnittstelle beschäftigt haben. Wir werden uns nun um die rechte Seite des Schemas kümmern.</p>
+<div class="bildbox">
+<p><a name="IDACCSQ"></a><a onClick="OpenWin('bilder/django_model_view_bereitsbehandelt.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindjango_model_view_bereitsbehandelt.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 25.10    </strong>Den linken Teil kennen wir nun</p>
+<h4 class="t4"><span class="cfett">Views</span></h4>
+<p>Eine <span class="ckursiv">View</span> ist eine einfache Python-Funktion, die das zurückgibt, was im Browser des Besuchers angezeigt werden soll. Welche Art von Daten das genau ist, kann frei gewählt werden. Eine View kann beispielsweise HTML-Quelltext zurückgeben, aber auch einfacher Text oder sogar Binärdateien wie Bilder sind durchaus denkbar. In der Regel werden Sie für alles eine eigene View definieren, was Sie auf einer Website anzeigen wollen.</p>
+<p>Unser Beispielprojekt wird zwei Views haben: eine zum Anzeigen einer Meldungsübersicht und eine für die Ansicht einer einzelnen Meldung inklusive ihrer Kommentare. Die View-Funktion für die Meldungsübersicht bekommt von uns den Namen <span class="clisting">meldungen</span>, und die andere nennen wir <span class="clisting">meldungen_detail</span>.</p>
+<p>Da wir uns in diesem Abschnitt auf den prinzipiellen Umgang mit Views konzentrieren möchten, werden wir eine normale Text-Ausgabe verwenden. Wie Sie auch komfortabel HTML-Quellcode erzeugen können, zeigen wir dann im nächsten Abschnitt.</p>
+<p>Die Views einer Applikation werden üblicherweise in der Datei <span class="ckursiv">views.py</span> abgelegt. Eine <span class="ckursiv">views.py</span>, die eine View-Funktion <span class="clisting">meldungen</span> für die einfache Textausgabe unserer Meldungen enthält, kann folgendermaßen aussehen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> unser_projekt.news.models<span class="cfett"> import</span> Meldung, Kommentar<span class="cfett"> 
+from</span> django.http<span class="cfett"> import</span> HttpResponse 
+<span class="cfett"> 
+def</span> meldungen(request): 
+    zeilen = [] 
+   <span class="cfett"> for</span> m<span class="cfett"> in</span> Meldung.objects.all(): 
+        zeilen.append("Titel: '%s' vom %s" % (m.titel, 
+                                              m.zeitstempel)) 
+        zeilen.append("Text: %s" % m.text) 
+        zeilen.append("") 
+        zeilen.append("-" * 30) 
+        zeilen.append("") 
+ 
+    antwort = HttpResponse("\n".join(zeilen)) 
+    antwort["Content-Type"] = "text/plain" 
+   <span class="cfett"> return</span> antwort</pre></div>
+<p>Am Anfang binden wir per <span class="clisting">import</span> unsere beiden Model-Klassen aus der <span class="clisting">news</span>-Applikation des Projekts ein. Anschließend importieren wir eine Klasse namens <span class="clisting">HttpResponse</span> aus dem Modul <span class="clisting">django.http</span>, die wir in unseren Views benutzen, um das Ergebnis zurückzugeben.</p>
+<p>Die View-Funktion <span class="clisting">meldungen</span> bekommt von Django einen Parameter namens <span class="clisting">request</span> übergeben, mit dem wir auf bestimmte Informationen der Abfrage zugreifen können. Wir werden <span class="clisting">request</span> erst im nächsten Kapitel brauchen.</p>
+<p>Innerhalb von <span class="clisting">meldungen</span> verwalten wir eine Liste namens <span class="clisting">zeilen</span>, die alle Textzeilen des Ergebnisses speichert. In einer <span class="clisting">for</span>-Schleife iterieren wir über alle Meldungen in der Datenbank, die wir mit der Model-API auslesen, und fügen jeweils fünf Zeilen für jede Meldung in die Liste <span class="clisting">zeilen</span> ein.</p>
+<p>Am Ende erstellen wir eine Instanz des Datentyps <span class="clisting">HttpResponse</span>, dessen Konstruktor wir die Verkettung der Zeilen als Parameter übergeben. Wichtig ist, dass wir über den <span class="clisting">[]</span>-Operator den <span class="clisting">"Content-Type"</span> (dt. <span class="ckursiv">Inhaltstyp</span>) der Ausgabe mit <span class="clisting">"text/plain"</span> auf einfachen Text setzen, weil es sonst im Browser zu Darstellungsproblemen kommt. [Mit dem <span class="clisting">[]</span>-Operator von <span class="clisting">HttpResponse</span>-Instanzen können beliebige HTTP-Kopfdaten gesetzt werden.
+] </p>
+<p>Bevor wir uns das Ergebnis unserer Bemühungen im Browser ansehen können, müssen wir Django mitteilen, unter welcher Adresse die View zu erreichen sein soll.</p>
+<h4 class="t4"><span class="cfett">Adressen definieren</span></h4>
+<p>Wenn Sie schon selbst Webseiten erstellt haben, sind Sie es wahrscheinlich gewohnt, dass Sie Ihre Scripts (beispielsweise <span class="ckursiv">index.php</span>) und andere Dateien (wie beispielsweise Bilddateien) direkt über deren Adresse auf dem Server ansprechen können. Liegt beispielsweise eine Datei <span class="ckursiv">index.php</span> im Verzeichnis <span class="ckursiv">meine_seite/scripts/</span> relativ zum Wurzelverzeichnis des Webservers unter der Adresse http://www.server.de, können Sie es über die Adresse http://www.server.de/meine_seite/scripts/index.php ansprechen.</p>
+<p>Django geht einen anderen Weg, indem es vollständig von der Ordnerstruktur des Servers abstrahiert: Anstatt die Adressen der realen Dateien auf dem Server für den öffentlichen Zugang zu übernehmen, können Sie selbst angeben, über welche Adresse ein bestimmter Teil der Seite erreichbar sein soll. Dabei ist jede View einzeln ansprechbar und kann mit einer beliebigen Adresse verknüpft werden.</p>
+<p>Die Konfiguration der Adressen erfolgt über Regular Expressions [Details zu Regular Expressions (dt. <span class="ckursiv">regulären Ausdrücken</span>) können Sie in Abschnitt <a href="./python_kapitel_15_002.htm#Rxx_ref180772440">15.2</a> nachlesen.
+]  in der Datei <span class="ckursiv">urls.py</span> des Projekts. In der Datei <span class="ckursiv">urls.py</span> wird eine Variable namens <span class="clisting">urlpatterns</span> definiert, die in einer <span class="clisting">patterns</span>-Instanz eine Liste mit allen Adressen des Projekts enthält. Die Adressangaben selbst sind Tupel mit zwei Elementen, wobei das erste Element den regulären Ausdruck für die Adresse und das zweite Element den Importnamen der verknüpften View enthält. Eine typische <span class="ckursiv">urls.py</span>, die auch schon eine Adressangabe für unsere <span class="clisting">meldungen</span>-View enthält, sieht wie folgt aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> django.conf.urls.defaults<span class="cfett"> import</span> * 
+ 
+urlpatterns = patterns('', 
+    (r'^meldungen/$', 'unser_projekt.news.views.meldungen'), 
+ 
+    # Uncomment this for admin: 
+    (r'^admin/', include('django.contrib.admin.urls')), 
+)</pre></div>
+<p>Der reguläre Ausdruck <span class="clisting">r'^meldungen/$'</span> passt genau auf den String <span class="clisting">"meldungen"</span>. Wird nun eine Seite unseres Projekts aufgerufen, prüft Django der Reihe nach für alle Einträge der <span class="clisting">urlpatterns</span>-Liste, ob der reguläre Ausdruck auf den relativen Pfad der geforderten Adresse passt. Ist dies der Fall, wird die Funktion aufgerufen, die durch den String im zweiten Element des Tupels beschrieben wird. Läge unsere Anwendung auf einem Server mit der Adresse http://www.meinserver.de, würde mit http://www.meinserver.de/meldungen/ die View <span class="clisting">meldungen</span> aufgerufen.</p>
+<p>Ergänzen Sie die <span class="ckursiv">urls.py</span> um die Zeile <span class="clisting">(r'^meldungen/$', 'unser_projekt. news.views.meldungen')</span>, und rufen Sie dann die entsprechende Adresse http://127.0.0.1:8000/meldungen/ in Ihrem Browser auf. Das Ergebnis sollte so aussehen wie in <a href="#Rxx_ref181942389">Abbildung 25.11</a>.</p>
+<div class="bildbox">
+<p><a name="IDAVGSQ"></a><a onClick="OpenWin('bilder/django_views_urls1.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindjango_views_urls1.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 25.11    </strong>Unsere erste eigene Django-Seite im Browser</p>
+<p>Nun wollen wir auch eine Adresse und eine View für die Detailseite der Meldungen definieren.</p>
+<h4 class="t4"><span class="cfett">Parametrisierte Adressen</span></h4>
+<p>Wir wollen nun auch die Detailseite jeder Meldung für den Benutzer zugänglich machen. Dabei wäre es äußerst unschön, für jede Meldung eine eigene View-Funktion zu definieren, da wir einerseits den Programmcode mit redundantem Code aufblähen und andererseits die Anzahl möglicher Meldungen dadurch begrenzen würden, wie viele View-Funktionen wir implementieren.</p>
+<p>Wesentlich eleganter ist es, wenn wir eine View-Funktion definieren, die jede beliebige Meldung darstellen kann. Welche Meldung konkret angefordert wird, soll dabei über einen Parameter festgelegt werden, der die <span class="clisting">id</span> der gewünschten Meldung enthält.</p>
+<p>Django unterstützt die Parameterübergabe für Views über sogenannte <span class="ckursiv">benannte Gruppen</span>, die wir im Abschnitt über reguläre Ausdrücke (Abschnitt <a href="./python_kapitel_15_002.htm#Rxx_ref180772568">15.2.1</a>) behandeln. Mit benannten Gruppen können wir Teile aus einem String extrahieren und ihnen Namen geben, wenn ein bestimmter regulärer Ausdruck auf den String passt.</p>
+<p>Um die einzelnen Meldungen über Adressen wie http://www.server.de/meldungen/1/ und http://www.server.de/meldungen/2/ erreichbar zu machen, ergänzen wir in der <span class="ckursiv">urls.py</span> folgende Zeile:</p>
+<div class="listing"><pre class="prettyprint">(r'^meldungen/(?P&lt;meldungs_id&gt;\d+)/$', 'unser_projekt.news.views.meldung_detail'),</pre></div>
+<p>Wenn nun ein Besucher der Seite auf die Adresse http://www.server.de/meldungen/1/ zugreift, versucht Django, die Funktion <span class="clisting">unser_projekt.news. views.meldung_detail</span> aufzurufen. Dabei wird zusätzlich zu dem <span class="clisting">request</span>-Parameter ein Schlüsselwortparameter <span class="clisting">meldungs_id</span> mit dem Wert <span class="clisting">1</span> übergeben.</p>
+<p>Damit können wir einen ersten View-Prototyp <span class="clisting">meldung_detail</span> in die Datei <span class="ckursiv">views.py</span> schreiben:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">from</span> django.http<span class="cfett"> import</span> HttpResponse, Http404<span class="cfett"> 
+from</span> unser_projekt.news.models<span class="cfett"> import</span> Meldung 
+<span class="cfett"> 
+def</span> meldungen(request): 
+    ...<span class="cfett"> 
+ 
+def</span> meldung_detail(request, meldungs_id): 
+   <span class="cfett"> try</span>: 
+        m = Meldung.objects.get(id=meldungs_id) 
+   <span class="cfett"> except</span> Meldung.DoesNotExist: 
+       <span class="cfett"> raise</span> Http404 
+ 
+    zeilen = [ 
+        "Titel: '%s' vom %s" % (m.titel, m.zeitstempel), 
+        "Text: %s\n" % m.text, 
+        "-" * 30 + "", 
+        "Kommentare:", 
+        ""] 
+ 
+    zeilen += ["%s: %s" % (k.autor, k.text) 
+              <span class="cfett"> for</span> k<span class="cfett"> in</span> m.kommentar_set.all()] 
+ 
+    antwort = HttpResponse("\n".join(zeilen)) 
+    antwort["Content-Type"] = "text/plain" 
+   <span class="cfett"> return</span> antwort</pre></div>
+<p>Wir importieren zusätzlich die Exception <span class="clisting">Http404</span>, um einen Fehler an den Browser des Besuchers zu senden, falls er eine nicht vorhandene Meldung aufruft. Als Wert für den Parameter <span class="clisting">meldungs_id</span> bekommen wir bei jedem Aufruf der View den Wert übergeben, der in der Adresse angegeben wurde. In einer <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung versuchen wir, die passende Meldung auszugeben, und erzeugen bei Misserfolg den oben genannten <span class="clisting">Http404</span>-Fehler.</p>
+<p>Konnte die Meldung erfolgreich aus der Datenbank gelesen werden, speichern wir die Text-Zeilen für die Benutzerseite in der Liste <span class="clisting">zeilen</span> und erzeugen außerdem mittels einer List Comprehension Ausgaben für alle Kommentare der Meldung.</p>
+<p>Schlussendlich packen wir das Ganze auf gewohnte Weise in eine <span class="clisting">HttpResponse</span>-Instanz, die wir per <span class="clisting">return</span> zurückgeben.</p>
+<p>Die von <span class="clisting">meldung_detail</span> erzeugte Ausgabe sieht nun beispielsweise so aus wie in <a href="#Rxx_ref181942531">Abbildung 25.12</a>.</p>
+<div class="bildbox">
+<p><a name="IDAVRSQ"></a><a onClick="OpenWin('bilder/django_views_model_detail.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindjango_views_model_detail.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 25.12    </strong>Beispiel einer Meldungsdetailseite</p>
+<h4 class="t4"><span class="cfett">Shortcut-Funktionen</span></h4>
+<p>Wenn Sie Webanwendungen entwickeln, werden sich in Ihrem Code sehr oft ähnliche Strukturen wiederfinden. Beispielsweise ist es sehr gängig, einen Datensatz aus der Datenbank abzurufen und, wenn dieser nicht existiert, einen <span class="clisting">Http404</span>-Fehler zu erzeugen.</p>
+<p>Damit Sie nicht jedes Mal den kompletten Code eintippen müssen und dadurch Ihren Programmtext künstlich aufblasen, bietet Django sogenannte <span class="ckursiv">Shortcut-Funktionen</span> an, die häufig benötigte Aufgaben für Sie übernehmen. Alle Shortcut-Funktionen befinden sich im Modul <span class="clisting">django.shortcuts</span> und können bequem per <span class="clisting">import</span> eingebunden werden.</p>
+<p>Um beispielsweise einen Datensatz aus der Datenbank abzufragen und bei Misserfolg eine <span class="clisting">Http404</span>-Exception zu werfen, dient die Shortcut-Funktion <span class="clisting">get_object_or_404</span>. Die Funktion <span class="clisting">get_object_or_404</span> hat fast die gleiche Schnittstelle wie die <span class="clisting">get</span>-Methode der Model-API, mit der einzigen Ausnahme, dass als erster Parameter die Model-Klasse des gesuchten Datensatzes übergeben werden muss.</p>
+<p>Damit wird aus der umständlichen <span class="clisting">try</span>/<span class="clisting">except</span>-Anweisung eine schlanke Zuweisung (vergessen Sie nicht, <span class="clisting">get_object_or_404</span> aus <span class="clisting">django.shortcuts</span> zu importieren):</p>
+<div class="listing"><pre class="prettyprint">m = get_object_or_404(Meldung, id=meldungs_id)</pre></div>
+<p>Django definiert eine Reihe weiterer Shortcut-Funktionen, die wir hier nicht thematisieren werden. In der Dokumentation zu Django findet sich eine ausführliche Beschreibung aller verfügbaren Shortcuts.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_25_006.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="25.6 Unser Projekt wird öffentlich"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_25_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_25_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>

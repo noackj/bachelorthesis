@@ -1,0 +1,1137 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Python – 15.2 Reguläre Ausdrücke &#8211; re</title>
+<meta name="title" content="Galileo Computing :: Python - 15.2 Reguläre Ausdrücke &#8211; re">
+<meta name="author" content="Peter Kaiser, Johannes Ernesti">
+<meta name="publisher" content="Galileo Press 2008">
+<meta name="copyright" content="Galileo Press 2008">
+<meta name="Description" content="Python - Das umfassende Handbuch – 15.2 Reguläre Ausdrücke &#8211; re">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href="python_kapitel_15_001.htm">
+<link rel="next" href="python_kapitel_15_003.htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=oppy"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=oppy"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_01_001.htm#mj67a594b305e4109145454ddc0d55999c">1 Einleitung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_02_001.htm#mjddfab2e530e1ced3efb614b75430300d">2 Überblick über Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_03_001.htm#mj936060d19c41bd12bf740798a2280ed0">3 Die Arbeit mit Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_04_001.htm#mj4c3be3990be6964addc0f6d0dc22f9d8">4 Der interaktive Modus</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_05_001.htm#mjddf21128ad2999d9e2a37e5112a0af06">5 Grundlegendes zu Python-Programmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_06_001.htm#mj3c43dbe4a08e5559d01e50286484c126">6 Kontrollstrukturen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_07_001.htm#mj4ebbbff6e4edb4fe615e242a01d77f27">7 Das Laufzeitmodell</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_08_001.htm#mj5434917b0e68fc12d539b3d9f605c69d">8 Basisdatentypen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_09_001.htm#mj7db54ea5091e23f706b1786ead1a782f">9 Benutzerinteraktion und Dateizugriff</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_10_001.htm#mjf74b0a739c10c2f7132913c19e91246f">10 Funktionen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_11_001.htm#mj3e41238df9387de38f2c931eba1bfeb9">11 Modularisierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_12_001.htm#mjcd1790d94142bd3f3a263231dbf0e3f7">12 Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_13_001.htm#mj4ec2d9702da110e2dacd99679d3c813d">13 Weitere Spracheigenschaften</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_14_001.htm#mj22b60f53fd2027b93c076a524242b35b">14 Mathematik</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjca183f321ad76918bcff867c4ffe4fab">15 Strings</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_16_001.htm#mjbc5f03a28f08a0ff6fff3f6eafb13845">16 Datum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_17_001.htm#mj1ca63a01c44856e9ecf8daef9834ac38">17 Schnittstelle zum Betriebssystem</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_18_001.htm#mj9e2e147ec7c1c409ab62884ed2afaa21">18 Parallele Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_19_001.htm#mj5f8739be6f0fbee26d20565b4eeb8166">19 Datenspeicherung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_20_001.htm#mj6a610f312e2abfe628f8f50a8629087d">20 Netzwerkkommunikation</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_21_001.htm#mjd1f17b81729d3362ce1283c29a6064f5">21 Debugging</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_22_001.htm#mj7398fb17f09867fc123360d9b3066e94">22 Distribution von Python-Projekten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_23_001.htm#mj2213eb2f7fc258333f88f873ac4a8051">23 Optimierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_24_001.htm#mj0bdf563dc1f3ef7638dab0dfb6bdd753">24 Grafische Benutzeroberflächen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_25_001.htm#mjbea967a6f2023581a39d524b6d91a141">25 Python als serverseitige Programmiersprache im WWW mit Django</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_26_001.htm#mj43e9e45f2e92366984e5b113f832514f">26 Anbindung an andere Programmiersprachen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_27_001.htm#mj30bed08497d2de4e7e72cbdeefa9fc78">27 Insiderwissen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_28_001.htm#mj8586665aff70d4410c8ba7725befb825">28 Zukunft von Python</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="python_kapitel_A_001.htm#mjd7cca37a6c80d7ec0d715951f4148f05">A Anhang</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download.galileo-press.de/openbook/python/galileocomputing_python.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 4,8 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_15_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=oppy" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=oppy" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Python</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_15_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="buchtitel">Python</a><span class="autor"> von Peter Kaiser, Johannes Ernesti</span><br><span class="untertitel">Das umfassende Handbuch - Aktuell zu Python 2.5</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/1626?GPP=oppy" class="navnav"><img src="common/9783836211109.gif" border="0" alt="Buch: Python" title="Buch: Python"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/1626?GPP=oppy"><span class="autor"><strong>Python</strong><br>gebunden, mit CD<br>819 S., 39,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1110-9</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="python_kapitel_15_001.htm#mjca183f321ad76918bcff867c4ffe4fab" class="navnav">15 Strings</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_15_001.htm#mja4473ac1ba316915e0babca11a8da8bb" class="navnav">15.1 Arbeiten mit Zeichenketten &#8211; string</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_15_001.htm#mjffb3eaecf6f022fba9c382281039e1f4" class="navnav">15.1.1 Ein einfaches Template-System</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjfff4c0e49e3ce9cc0a8c9564481427d7" class="navh">15.2 Reguläre Ausdrücke &#8211; re</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj350df4bbe1fc40b2383902428f773443" class="navh">15.2.1 Syntax regulärer Ausdrücke</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mje2892cbdcf90c75a9fe751806a9aaee2" class="navh">15.2.2 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0f265a514db5f52d8a351509e27721a6" class="navh">15.2.3 Ein einfaches Beispielprogramm &#8211; Searching</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0cde82e9966520be22a4f0e68fb21b1b" class="navh">15.2.4 Ein komplexeres Beispielprogramm &#8211; Matching</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_15_003.htm#mjd5ef935d1adf28dba4334a71430462ea" class="navnav">15.3 Lokalisierung von Programmen &#8211; gettext</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_15_003.htm#mj4c1776a3aa44f85fc20003168f9f4f1e" class="navnav">15.3.1 Beispiel für die Verwendung von gettext</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_15_004.htm#mj87a84b7015cd8d0a141c5afe54900c1d" class="navnav">15.4 Hash-Funktionen &#8211; hashlib</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_15_004.htm#mjd834b0cbb61632e77231d6b49e4a92c4" class="navnav">15.4.1 Verwendung des Moduls</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="python_kapitel_15_004.htm#mj486d70e7dfe4371bd25cab78c02a8287" class="navnav">15.4.2 Beispiel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="python_kapitel_15_005.htm#mjb3dcfcf1eb0fa47456ec0ef65592aee4" class="navnav">15.5 Dateiinterface für Strings &#8211; StringIO</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjfff4c0e49e3ce9cc0a8c9564481427d7" name="mjfff4c0e49e3ce9cc0a8c9564481427d7"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">15.2</span><span class="cfett"> <a id="Rxx_ref180772440" name="Rxx_ref180772440"></a>Reguläre Ausdrücke &#8211; re</span>  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Das Modul <span class="clisting">re</span> der Standardbibliothek bietet umfangreiche Möglichkeiten zum Arbeiten mit sogenannten <span class="ckursiv">regulären Ausdrücken</span> (engl. <span class="ckursiv">regular expressions</span>). In einem solchen regulären Ausdruck wird durch eine spezielle Syntax ein Textmuster beschrieben, das dann auf verschiedene Texte oder Textfragmente angewendet werden kann. Grundsätzlich gibt es zwei große Anwendungsbereiche von regulären Ausdrücken.</p>
+<p>Im ersten Bereich, beim sogenannten <span class="ckursiv">Matching</span><span class="ckursiv">,</span> wird geprüft, ob ein Textabschnitt auf das Muster des regulären Ausdrucks passt oder nicht. Ein häufiges Beispiel für Matching wäre es zu testen, ob eine eingegebene E-Mail-Adresse syntaktisch gültig ist.</p>
+<p>Die zweite Einsatzmöglichkeit von regulären Ausdrücken ist das sogenannte <span class="ckursiv">Searching</span>, bei dem innerhalb eines größeren Textes nach Textfragmenten gesucht wird, die auf einen regulären Ausdruck passen. Es handelt sich dabei um eine eigene Disziplin, da dieses Verhalten vom Programmierer selbst nicht effizient durch Einsatz des Matchings implementiert werden kann. Ein Anwendungsbeispiel könnte der Syntax Highlighter Ihrer Python-Umgebung sein, der durch Searching nach speziellen Codeabschnitten wie Schlüsselwörtern oder Strings sucht, um diese grafisch hervorzuheben.</p>
+<p>Ein regulärer Ausdruck ist in Python ein String, der die entsprechenden Regeln enthält. Im Gegensatz zu manch anderen Programmiersprachen existiert hier kein eigenes Literal zu diesem Zweck.</p>
+<p>Sollten Sie sich mit regulären Ausdrücken bereits auskennen, sind Sie vielleicht gerade auf ein Problem aufmerksam geworden, denn der Backslash ist ein sehr wichtiges Zeichen zur Beschreibung regulärer Ausdrücke, und ausgerechnet dieses Zeichen trägt innerhalb eines Strings bereits Bedeutung. Normalerweise leitet ein Backslash eine Escape-Sequenz ein. Sie können nun entweder immer die Escape-Sequenz für einen Backslash (<span class="clisting">"\\"</span>) verwenden oder, was empfehlenswerter ist, auf Pythons Raw-Strings zurückgreifen, in denen keine Escape-Sequenzen möglich sind. Zur Erinnerung: Raw-Strings werden in Python durch ein vorangestelltes <span class="clisting">r</span> gekennzeichnet:</p>
+<p><span class="clisting">r"\Hallo Welt"</span></p>
+<p>Im Folgenden möchten wir Sie in die komplexe Syntax regulärer Ausdrücke einweihen. Allein zu diesem Thema sind bereits ganze Bücher erschienen, weswegen die Beschreibung hier vergleichsweise knapp, aber grundlegend ausfallen soll.</p>
+<p>Es gibt verschiedene Notationen zur Beschreibung regulärer Ausdrücke. Python hält sich an die Syntax, die in der Programmiersprache Perl verwendet wird.</p><a id="mj350df4bbe1fc40b2383902428f773443" name="mj350df4bbe1fc40b2383902428f773443"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">15.2.1</span><span class="cfett"> <a id="Rxx_ref180772568" name="Rxx_ref180772568"></a>Syntax regulärer Ausdrücke</span>  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Grundsätzlich ist der String</p>
+<div class="listing"><pre class="prettyprint">r"python"</pre></div>
+<p>bereits ein regulärer Ausdruck. Dieser würde exakt auf den String <span class="clisting">"python"</span> passen. Diese direkt angegebenen einzelnen Buchstaben werden <span class="ckursiv">Zeichenliteral</span><span class="ckursiv">e</span> genannt. Beachten Sie unbedingt, dass Zeichenliterale innerhalb regulärer Ausdrücke <span class="ckursiv">case sensitive</span> sind, das heißt, dass der obige Ausdruck nicht auf den String <span class="clisting">"Python"</span> passen würde.</p>
+<p>In regulären Ausdrücken können eine ganze Reihe von Steuerungszeichen verwendet werden, die den Ausdruck flexibler und mächtiger machen. Diese sollen im Folgenden besprochen werden.</p>
+<h4 class="t4"><span class="cfett">Beliebige Zeichen</span></h4>
+<p>Die einfachste Verallgemeinerung, die innerhalb eines regulären Ausdrucks verwendet werden kann, ist die Kennzeichnung eines beliebigen Zeichens durch einen Punkt. So passt der Ausdruck</p>
+<p><span class="clisting">r".ython"</span></p>
+<p>sowohl auf <span class="clisting">"python"</span>, <span class="clisting">"Python"</span> als auch auf <span class="clisting">"Jython"</span>, nicht jedoch auf <span class="clisting">"Blython"</span>, da es sich nur um ein einzelnes beliebiges Zeichen handelt. Ein durch einen Punkt gekennzeichnetes beliebiges Zeichen darf nicht weggelassen werden. Der obige Ausdruck würde demzufolge nicht auf <span class="clisting">"ython"</span> passen.</p>
+<h4 class="t4"><span class="cfett">Zeichenklassen</span></h4>
+<p>Abgesehen davon, ein Zeichen ausdrücklich als beliebig zu kennzeichnen, ist es auch möglich, eine Klasse von Zeichen vorzugeben, die an dieser Stelle vorkommen dürfen. Dazu werden die gültigen Zeichen in eckige Klammern an die entsprechende Position geschrieben:</p>
+<p><span class="clisting">r"[jp]ython"</span></p>
+<p>Dieser reguläre Ausdruck arbeitet ähnlich wie der des letzten Abschnitts, lässt jedoch nur die Buchstaben <span class="clisting">j</span> und <span class="clisting">p</span> als erstes Zeichen des Wortes zu. Damit passt der Ausdruck sowohl auf <span class="clisting">"jython"</span> als auch auf <span class="clisting">"python"</span>. Der Ausdruck passt aber nicht auf <span class="clisting">"Python"</span>, <span class="clisting">"jpython"</span> oder <span class="clisting">"ython"</span>. Um auch die jeweiligen Großbuchstaben im Wort zu erlauben, kann der Ausdruck folgendermaßen erweitert werden:</p>
+<p><span class="clisting">r"[jJpP]ython"</span></p>
+<p>Innerhalb einer Zeichenklasse ist es ebenfalls möglich, ganze Bereiche von Zeichen zuzulassen. Dadurch wird folgende Syntax verwendet:</p>
+<div class="listing"><pre class="prettyprint">r"[A-Z]ython"</pre></div>
+<p>Dieser reguläre Ausdruck lässt jeden Großbuchstaben als Anfangsbuchstaben des Wortes durch, beispielsweise aber keinen Kleinbuchstaben und keine Zahl. Um mehrere Bereiche zuzulassen, werden diese ganz einfach hintereinander geschrieben:</p>
+<div class="listing"><pre class="prettyprint">r"[A-Ra-r]ython"</pre></div>
+<p>Dieser reguläre Ausdruck passt beispielsweise sowohl auf <span class="clisting">"Qython"</span> als auch auf <span class="clisting">"qython"</span>, nicht aber auf <span class="clisting">"Sython"</span> oder <span class="clisting">"3ython"</span>.</p>
+<p>Auch Ziffernbereiche können als Zeichenklasse verwendet werden:</p>
+<div class="listing"><pre class="prettyprint">r"[0-9]ython"</pre></div>
+<p>Als letzte Möglichkeit, die eine Zeichengruppe bietet, können Zeichen oder Zeichenbereiche ausgeschlossen werden. Dazu wird zu Beginn der Zeichengruppe ein Zirkumflex (<span class="clisting">^</span>) geschrieben. So erlaubt der reguläre Ausdruck</p>
+<div class="listing"><pre class="prettyprint">r"[^pP]ython"</pre></div>
+<p>jedes Zeichen, abgesehen von einem großen oder kleinen »P«. Demzufolge würden sowohl <span class="clisting">"Sython"</span> als auch <span class="clisting">"wython"</span> passen, während <span class="clisting">"Python"</span> und <span class="clisting">"python"</span> außen vor bleiben müssten.</p>
+<p>Beachten Sie, dass es innerhalb einer Zeichenklasse, abgesehen vom Bindestrich und dem Zirkumflex, keine Zeichen mit spezieller Bedeutung gibt. Das heißt insbesondere, dass ein Punkt in einer Zeichenklasse tatsächlich das Zeichen <span class="clisting">.</span> bedeutet und nicht etwa ein beliebiges Zeichen.</p>
+<h4 class="t4"><span class="cfett">Quantoren</span></h4>
+<p>Bisher können wir in einem regulären Ausdruck bestimmte Regeln für einzelne Zeichen aufstellen. Wir würden allerdings vor einem Problem stehen, wenn wir an einer bestimmten Stelle des Wortes eine gewisse Anzahl oder gar beliebig viele dieser Zeichen erlauben wollten. Für diesen Zweck werden sogenannte <span class="ckursiv">Quantoren</span> eingesetzt. Das sind spezielle Zeichen, die hinter ein einzelnes Zeichenliteral oder eine Zeichenklasse geschrieben werden und kennzeichnen, wie oft diese auftreten dürfen. Die folgende Tabelle listet alle Quantoren auf und erläutert kurz ihre Bedeutung. Danach werden wir Beispiele für die Verwendung von Quantoren bringen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 15.2    </strong>Quantoren in regulären Ausdrücken
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Quantor</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">?</span></p>
+</td>
+<td class="tabellentext">
+<p>Das vorangegangene Zeichen bzw. die vorangegangene Zeichenklasse darf entweder keinmal oder einmal vorkommen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">*</span></p>
+</td>
+<td class="tabellentext">
+<p>Das vorangegangene Zeichen bzw. die vorangegangene Zeichenklasse darf beliebig oft hintereinander vorkommen, das heißt unter anderem, dass sie auch weggelassen werden kann.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">+</span></p>
+</td>
+<td class="tabellentext">
+<p>Das vorangegangene Zeichen bzw. die vorangegangene Zeichenklasse darf beliebig oft hintereinander vorkommen, mindestens aber einmal. Sie darf also nicht weggelassen werden.</p>
+</td>
+</tr>
+</table><br><p>Die folgenden drei Beispiele zeigen einen regulären Ausdruck mit je einem Quantor. Nachfolgend soll besprochen werden, wie sich diese auf die Bedeutung des Ausdrucks auswirken.</p>
+<ul class="gp">
+<li><span class="clisting">r"P[Yy]?thon"</span></li>
+</ul>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>Dieser reguläre Ausdruck erwartet an der zweiten Stelle des Wortes ein höchstens einmaliges Auftreten des großen oder kleinen »Y«. Damit passt der Ausdruck auf die Wörter <span class="clisting">"Python"</span> und <span class="clisting">"Pthon"</span>, beispielsweise jedoch nicht auf <span class="clisting">"Pyython"</span>.</li>
+</ul>
+</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">r"P[Yy]*thon"</span></li>
+</ul>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>Dieser reguläre Ausdruck erwartet an der zweiten Stelle des Wortes ein beliebig häufiges Auftreten des großen oder kleinen »Y«. Damit passt der Ausdruck auf die Wörter <span class="clisting">"Python"</span>, <span class="clisting">"Pthon"</span> und <span class="clisting">"PyyYYYyython"</span>, beispielsweise jedoch nicht auf <span class="clisting">"Pzthon"</span>.</li>
+</ul>
+</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">r"P[Yy]+thon"</span></li>
+</ul>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>Dieser reguläre Ausdruck erwartet an der zweiten Stelle des Wortes ein mindestens einmaliges Auftreten des großen oder kleinen »Y«. Damit passt der Ausdruck auf die Wörter <span class="clisting">"Python"</span>, <span class="clisting">"PYthon"</span> und <span class="clisting">"PyyYYYyython"</span>, beispielsweise jedoch nicht auf <span class="clisting">"Pthon"</span>.</li>
+</ul>
+</li>
+</ul>
+<p>Neben diesen allgemeinen Quantoren gibt es eine Syntax, die es ermöglicht, exakt anzugeben, wie viele Wiederholungen einer Zeichengruppe erlaubt sind. Dabei werden die Unter- und Obergrenzen für Wiederholungen in geschweifte Klammern hinter das entsprechende Zeichen bzw. die entsprechende Zeichengruppe geschrieben. Die folgende Tabelle listet die Möglichkeiten der Notation auf:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 15.3    </strong>Quantoren in regulären Ausdrücken
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Quantor</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">{anz}</span></p>
+</td>
+<td class="tabellentext">
+<p>Das vorangegangene Zeichen bzw. die vorangegangene Zeichenklasse muss exakt <span class="clisting">anz</span>-mal vorkommen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">{min,}</span></p>
+</td>
+<td class="tabellentext">
+<p>Das vorangegangene Zeichen bzw. die vorangegangene Zeichenklasse muss mindestens <span class="clisting">min</span>-mal vorkommen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">{,max}</span></p>
+</td>
+<td class="tabellentext">
+<p>Das vorangegangene Zeichen bzw. die vorangegangene Zeichenklasse darf maximal <span class="clisting">max</span>-mal vorkommen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">{min,max}</span></p>
+</td>
+<td class="tabellentext">
+<p>Das vorangegangene Zeichen bzw. die vorangegangene Zeichenklasse muss mindestens <span class="clisting">min</span>-mal und darf maximal <span class="clisting">max</span>-mal vorkommen.</p>
+</td>
+</tr>
+</table><br><p>Auch für diese Quantoren möchten wir das bisherige Beispiel abändern und untersuchen, was sie für Auswirkungen haben.</p>
+<ul class="gp">
+<li><span class="clisting">r"P[Yy]{2}thon"</span></li>
+</ul>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>Dieser reguläre Ausdruck erwartet an der zweiten Stelle des Wortes exakt zwei jeweils große oder kleine »Y«. Damit passt der Ausdruck auf die Wörter <span class="clisting">"Pyython"</span> oder <span class="clisting">"PYython"</span>, beispielsweise jedoch nicht auf <span class="clisting">"Pyyython"</span>.</li>
+</ul>
+</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">r"P[Yy]{2,}thon"</span></li>
+</ul>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>Dieser reguläre Ausdruck erwartet an der zweiten Stelle des Wortes mindestens zwei jeweils große oder kleine »Y«. Damit passt der Ausdruck auf die Wörter <span class="clisting">"Pyython"</span>, <span class="clisting">"PYython"</span> und <span class="clisting">"PyyYYYyython"</span>, beispielsweise jedoch nicht auf <span class="clisting">"Python"</span>.</li>
+</ul>
+</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">r"P[Yy]{,2}thon"</span></li>
+</ul>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>Dieser reguläre Ausdruck erwartet an der zweiten Stelle des Wortes maximal zwei jeweils große oder kleine »Y«. Damit passt der Ausdruck auf die Wörter <span class="clisting">"Python"</span>, <span class="clisting">"Pthon"</span> und <span class="clisting">"PYYthon"</span>, beispielsweise jedoch nicht auf <span class="clisting">"Pyyython"</span>.</li>
+</ul>
+</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">r"P[Yy]{1,2}thon"</span></li>
+</ul>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>Dieser reguläre Ausdruck erwartet an der zweiten Stelle des Wortes mindestens ein und maximal zwei große oder kleine »Y«. Damit passt der Ausdruck auf die Wörter <span class="clisting">"Python"</span> oder <span class="clisting">"PYython"</span>, beispielsweise jedoch nicht auf <span class="clisting">"Pthon"</span> oder <span class="clisting">"PYYYthon"</span>.</li>
+</ul>
+</li>
+</ul>
+<h4 class="t4"><span class="cfett">Vordefinierte Zeichenklassen</span></h4>
+<p>Damit nicht bei jedem regulären Ausdruck das Rad neu erfunden werden muss, existiert eine Reihe von vordefinierten Zeichenklassen, die beispielsweise alle Ziffern oder alle alphanumerischen Zeichen umfassen. Diese Zeichenklassen werden bei der Arbeit mit regulären Ausdrücken sehr häufig benötigt und können deswegen durch einen speziellen Code abgekürzt werden. Jeder dieser Codes beginnt mit einem Backslash. Die folgende Tabelle listet alle vordefinierten Zeichenklassen mit ihren Bedeutungen auf.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 15.4    </strong>Vordefinierte Zeichenklassen in regulären Ausdrücken
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Zeichenklasse</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\d</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt auf alle Zeichen, die Ziffern des Dezimalsystems sind. Äquivalent zu <span class="clisting">[0-9]</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\D</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt auf alle Zeichen, die nicht Ziffern des Dezimalsystems sind. Äquivalent zu <span class="clisting">[^0-9]</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\s</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt auf alle Whitespace-Zeichen. Äquivalent zu <span class="clisting">[ \t\n\r\f\v]</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\S</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt auf alle Zeichen, die kein Whitespace sind. Äquivalent zu <span class="clisting">[^ \t\n\r\f\v]</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\w</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt auf alle alphanumerischen Zeichen und den Unterstrich. Äquivalent zu <span class="clisting">[a-zA-z0-9_]</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\W</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt auf alle Zeichen, die nicht alphanumerisch und kein Unterstrich sind. Äquivalent zu <span class="clisting">[^a-zA-Z0-9_]</span>.</p>
+</td>
+</tr>
+</table><br><p>Diese vordefinierten Zeichenklassen können wie ein normales Zeichen im regulären Ausdruck verwendet werden. So passt der Ausdruck</p>
+<div class="listing"><pre class="prettyprint">r"P\w*th\dn"</pre></div>
+<p>auf die Wörter <span class="clisting">"Pyth0n"</span> oder <span class="clisting">"P_th1n"</span>, beispielsweise jedoch nicht auf <span class="clisting">"Python"</span>.</p>
+<p>Beachten Sie, dass die üblichen Escape-Sequenzen, die innerhalb eines Strings verwendet werden können, auch innerhalb eines regulären Ausdrucks &#8211; selbst wenn er in einem Raw-String geschrieben wird &#8211; ihre Bedeutung behalten und nicht mit den hier vorgestellten Zeichenklassen interferieren. Gebräuchlich sind hier vor allem <span class="clisting">\n</span>, <span class="clisting">\t</span>, <span class="clisting">\r</span> oder <span class="clisting">\\</span>, insbesondere aber auch <span class="clisting">\x</span>.</p>
+<p>Zudem ist es mit dem Backslash möglich, einem Sonderzeichen die spezielle Bedeutung zu nehmen, die es innerhalb eines regulären Ausdrucks trägt. Auf diese Weise kann zum Beispiel mit den Zeichen <span class="clisting">*</span> oder <span class="clisting">+</span> gearbeitet werden, ohne dass diese als Quantoren angesehen werden. So passt der folgende reguläre Ausdruck</p>
+<div class="listing"><pre class="prettyprint">r"\*Py\.\.\.on\*"</pre></div>
+<p>allein auf den String <span class="clisting">"*Py...on*"</span>.</p>
+<h4 class="t4"><span class="cfett">Weitere Sonderzeichen</span></h4>
+<p>Für gewisse Einsatzgebiete wird es unbedingt verlangt, Regeln aufstellen zu können, die über die bloße Zeichenebene hinausgehen. So wäre es beispielsweise interessant, einen regulären Ausdruck zu erschaffen, der nur passt, wenn sich das Wort am Ende oder Anfang einer Textzeile befindet. Für solche und ähnliche Fälle gibt es einen bestimmten Satz an zusätzlichen Sonderzeichen, die genau so angewendet werden können wie die vordefinierten Zeichenklassen.</p>
+<p>Die folgende Tabelle listet alle zusätzlichen Sonderzeichen auf und gibt zu jedem eine kurze Erklärung. In der Tabelle finden Sie einige Anmerkungen zu sogenannten Flags. Das sind Einstellungen, die entweder aktiviert oder deaktiviert werden können und die Auswertung eines regulären Ausdrucks beeinflussen. Näheres dazu, wie Sie diese Einstellungen setzen können, erfahren Sie im Laufe dieses Kapitels.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 15.5    </strong>Vordefinierte Zeichenklassen in regulären Ausdrücken
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Sonderzeichen</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\A</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt nur am Anfang eines Strings.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\b</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt nur am Anfang oder Ende eines Wortes. Ein Wort kann aus allen Zeichen der Klasse <span class="clisting">\w</span> bestehen und wird durch ein Zeichen der Klasse       <span class="clisting">\s</span> begrenzt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\B</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt nur, wenn es sich nicht um den Anfang oder das Ende eines Wortes handelt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">\Z</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt nur am Ende eines Strings.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">^</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt nur am Anfang eines Strings.</p>
+<p>Beachten Sie, dass das Zeichen <span class="clisting">^</span> zwei Bedeutungen hat und innerhalb einer Zeichenklasse die aufgelisteten Zeichen ausschließt.</p>
+<p>Wenn das <span class="clisting">MULTILINE</span>-Flag gesetzt wurde, passt <span class="clisting">^</span> auch direkt nach jedem Newline-Zeichen innerhalb des Strings.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">$</span></p>
+</td>
+<td class="tabellentext">
+<p>Passt nur am Ende eines Strings.</p>
+<p>Wenn das <span class="clisting">MULTILINE</span>-Flag gesetzt wurde, passt <span class="clisting">$</span> auch direkt vor jedem Newline-Zeichen innerhalb des Strings.</p>
+</td>
+</tr>
+</table><br><p>Im konkreten Beispiel passt also der reguläre Ausdruck</p>
+<div class="listing"><pre class="prettyprint">r"\APython\Z"</pre></div>
+<p>nur bei dem String <span class="clisting">"Python"</span>, nicht jedoch bei den Strings <span class="clisting">"abcPythonabc"</span> oder <span class="clisting">"Pythonabc"</span>.</p>
+<p>Die hier besprochenen Beispiele beziehen sich hauptsächlich auf das Matching von regulären Ausdrücken, weswegen Ihnen die Bedeutung dieser Sonderzeichen möglicherweise noch nicht ersichtlich ist. Diese Sonderzeichen sind aber gerade beim Searching von unerlässlicher Wichtigkeit. Stellen Sie sich einmal vor, Sie würden in einem Text nach allen Vorkommen einer bestimmten Zeichenkette am Zeilenanfang suchen wollen. Dies wäre nur durch Einsatz des Sonderzeichens <span class="clisting">^</span> möglich.</p>
+<h4 class="t4"><span class="cfett">Genügsame Quantoren</span></h4>
+<p>Wir haben bereits die Quantoren <span class="clisting">?</span>, <span class="clisting">*</span> und <span class="clisting">+</span> besprochen. Diese werden in der Terminologie regulärer Ausdrücke als »gefräßig« (engl. <span class="ckursiv">greedy</span>) bezeichnet. Diese Klassifizierung ist nur beim Searching von Bedeutung. Betrachten Sie dazu einmal folgenden regulären Ausdruck:</p>
+<div class="listing"><pre class="prettyprint">r"Py.*on"</pre></div>
+<p>Dieser Ausdruck passt auf jeden Teilstring, der mit <span class="clisting">Py</span> beginnt und mit <span class="clisting">on</span> endet. Dazwischen können beliebig viele, nicht näher spezifizierte Zeichen stehen. Behalten Sie im Hinterkopf, dass wir uns beim Searching befinden, der Ausdruck also dazu verwendet werden soll, aus einem längeren String verschiedene Teilstrings zu isolieren, die auf den regulären Ausdruck passen.</p>
+<p>Nun möchten wir den regulären Ausdruck gedanklich auf den folgenden String anwenden:</p>
+<div class="listing"><pre class="prettyprint">"Python Python Python"</pre></div>
+<p>Sie meinen, dass drei Ergebnisse gefunden werden? Irrtum, es handelt sich um exakt ein Ergebnis, nämlich den Teilstring <span class="clisting">"Python Python Python"</span>. Zur Erklärung: Es wurde der »gefräßige« Quantor <span class="clisting">*</span> eingesetzt. Ein solcher gefräßiger Quantor hat die Ambition, die maximal mögliche Anzahl Zeichen zu »verschlingen«. Beim Searching wird also, solange die »gefräßigen« Quantoren eingesetzt werden, stets der größtmögliche passende String gefunden.</p>
+<p>Dieses Verhalten kann umgekehrt werden, sodass immer der kleinstmögliche passende String gefunden wird. Dazu kann an jeden Quantor ein Fragezeichen angefügt werden. Dadurch wird der Quantor »genügsam« (engl. <span class="ckursiv">non-greedy</span>). Angenommen, das Searching auf dem obigen String wäre mit dem regulären Ausdruck</p>
+<div class="listing"><pre class="prettyprint">r"Py.*?on"</pre></div>
+<p>durchgeführt worden, so wäre als Ergebnis tatsächlich dreimal der Teilstring  <span class="clisting">"Python"</span> gefunden worden. Dies funktioniert für die Quantoren <span class="clisting">?</span>, <span class="clisting">*</span>, <span class="clisting">+</span> und <span class="clisting">{}</span>.</p>
+<h4 class="t4"><span class="cfett">Gruppen</span></h4>
+<p>Ein Teil eines regulären Ausdrucks kann durch runde Klammern zu einer sogenannten <span class="ckursiv">Gruppe</span> zusammengefasst werden. Eine solche Gruppierung hat im Wesentlichen drei Vorteile:</p>
+<ul class="gp">
+<li>Eine Gruppe kann als Einheit betrachtet und als solche natürlich auch mit einem Quantor versehen werden. Auf diese Weise lässt sich beispielsweise das mehrmalige Auftreten einer bestimmten Zeichenkette erlauben:</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint">r"( ?Python)+ ist gut"</pre></div>
+</blockquote>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>In diesem Ausdruck existiert eine Gruppe um den Teilausdruck <span class="clisting">r" ?Python"</span>. Dieser Teilausdruck passt auf den String <span class="clisting">"Python"</span> mit einem optionalen Leerzeichen zu Beginn. Die gesamte Gruppe kann nun beliebig oft vorkommen, womit der obige reguläre Ausdruck sowohl auf <span class="clisting">"Python ist gut"</span> als auch auf <span class="clisting">"Python Python Python ist gut"</span> passt.</li>
+</ul>
+</li>
+</ul>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>Beachten Sie das Leerzeichen zu Beginn der Gruppe, um die Funktionsweise des Ausdrucks zu verstehen.</li>
+</ul>
+</li>
+</ul>
+<ul class="gp">
+<li>Der zweite Vorteil einer Gruppe ist der, dass man auf sie zugreifen kann, nachdem das Searching bzw. Matching durchgeführt wurde. Das heißt, man könnte beispielsweise überprüfen, ob eine eingegebene URL gültig ist, und gleichzeitig Subdomain, Domain und TLD herausfiltern.</li>
+</ul>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>Näheres dazu, wie der Zugriff auf Gruppen funktioniert, erfahren Sie in Abschnitt <a href="#Rxx_ref175664030">15.2.2</a>, »<a href="#Rxx_ref175664030">Verwendung des Moduls</a>«.</li>
+</ul>
+</li>
+</ul>
+<ul class="gp">
+<li>Es gibt Gruppen, die in einem regulären Ausdruck häufiger gebraucht werden. Um diese nicht jedes Mal erneut schreiben zu müssen, werden Gruppen mit <span class="clisting">1</span> beginnend durchnummeriert und können dann anhand ihres Index referenziert werden. Eine solche Referenz besteht aus einem Backslash, gefolgt von dem Index der jeweiligen Gruppe, und passt auf den gleichen Teilstring, auf den die Gruppe gepasst hat. So passt der reguläre Ausdruck</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint"><span class="clisting">r"(Python) \1"</span></pre></div>
+</blockquote>
+<ul class="gpeg">
+<li>
+<ul class="eg">
+<li>auf <span class="clisting">"Python Python"</span>.</li>
+</ul>
+</li>
+</ul>
+<h4 class="t4"><span class="cfett">Alternativen</span></h4>
+<p>Eine weitere Möglichkeit, die die Syntax regulärer Ausdrücke vorsieht, sind sogenannte <span class="ckursiv">Alternativen</span>. Im Prinzip handelt es sich dabei um nichts anderes als um eine ODER-Verknüpfung zweier Zeichen oder Zeichengruppen, wie Sie sie bereits von dem Operator <span class="clisting">or</span> her kennen. Diese Verknüpfung wird durch den senkrechten Strich, auch <span class="ckursiv">Pipe</span> genannt, durchgeführt.</p>
+<div class="listing"><pre class="prettyprint">r"P(ython|eter)"</pre></div>
+<p>Dieser reguläre Ausdruck passt sowohl auf den String <span class="clisting">"Python"</span> als auch auf <span class="clisting">"Peter"</span>. Durch die Gruppe kann später ausgelesen werden, welche der beiden Alternativen aufgetreten ist.</p>
+<h4 class="t4"><span class="cfett">Extensions</span></h4>
+<p>Damit wäre die Syntax regulärer Ausdrücke beschrieben. Zusätzlich zu dieser mehr oder weniger standardisierten Syntax erlaubt Python die Verwendung sogenannter <span class="ckursiv">Extensions</span>. Eine Extension ist folgendermaßen aufgebaut:</p>
+<div class="listing"><pre class="prettyprint">(?...)</pre></div>
+<p>Die drei Punkte werden durch eine Kennung der gewünschten Extension und weitere extension-spezifische Angaben ersetzt. Diese Syntax wurde gewählt, da eine öffnende Klammer, gefolgt von einem Fragezeichen, keine syntaktisch sinnvolle Bedeutung hat und demzufolge »frei« war. Beachten Sie aber, dass eine Extension in der Regel keine neue Gruppe erzeugt, auch wenn die runden Klammern dies nahelegen. Nachfolgend möchten wir näher auf die Extensions eingehen, die in Pythons regulären Ausdrücken verwendet werden können.</p>
+<h5 class="t5"><span class="cfett">(?iLmsux)</span></h5>
+<p>Diese Extension erlaubt es, ein oder mehrere Flags für den gesamten regulären Ausdruck zu setzen. Der Begriff <span class="ckursiv">Flag</span> ist bereits verwendet worden und beschreibt eine bestimmte Einstellung, die entweder aktiviert oder deaktiviert werden kann. Ein Flag kann entweder im regulären Ausdruck selbst, eben durch diese Extension, oder durch einen Parameter der Funktion <span class="clisting">re.compile</span> gesetzt werden. Im Zusammenhang mit dieser Funktion werden wir näher darauf eingehen, welche Flags wofür stehen. Das Flag <span class="clisting">i</span> macht den regulären Ausdruck beispielsweise <span class="ckursiv">case insensitive</span>:</p>
+<div class="listing"><pre class="prettyprint">r"(?i)P"</pre></div>
+<p>Dieser Ausdruck passt sowohl auf <span class="clisting">"P"</span> als auch auf <span class="clisting">"p"</span>.</p>
+<h5 class="t5"><span class="cfett">(?:…)</span></h5>
+<p>Diese Extension kann wie normale runde Klammern verwendet werden, erzeugt dabei aber keine Gruppe. Das heißt, auf einen durch diese Extension eingeklammerten Teilausdruck kann später nicht zugegriffen werden. Ansonsten ist diese Syntax äquivalent zu runden Klammern:</p>
+<div class="listing"><pre class="prettyprint">r"(?:abc|def)"</pre></div>
+<h5 class="t5"><span class="cfett">(?P&lt;name&gt;…)</span></h5>
+<p>Diese Extension erzeugt eine Gruppe mit dem angegebenen Namen. Das Besondere an einer solchen benannten Gruppe ist, dass sie nicht allein über ihren Index, sondern auch über ihren Namen referenziert werden kann. Der Name muss ein gültiger Bezeichner sein:</p>
+<div class="listing"><pre class="prettyprint">r"(?P&lt;hallowelt&gt;abc|def)"</pre></div>
+<h5 class="t5"><span class="cfett">(?P=name)</span></h5>
+<p>Passt auf all das, auf das die bereits definierte Gruppe mit dem Namen <span class="ckursiv">name</span> gepasst hat. Diese Extension erlaubt es also, eine benannte Gruppe zu referenzieren.</p>
+<div class="listing"><pre class="prettyprint">r"(?P&lt;py&gt;[Pp]ython) ist, wie (?P=py) sein sollte"</pre></div>
+<p>Dieser reguläre Ausdruck passt auf den String <span class="clisting">"Python ist, wie Python sein sollte"</span>.</p>
+<h5 class="t5"><span class="cfett">(?#...)</span></h5>
+<p>Diese Extension stellt einen Kommentar dar. Der Inhalt der Klammern wird schlicht ignoriert:</p>
+<div class="listing"><pre class="prettyprint">r"Py(?#lalala)thon"</pre></div>
+<h5 class="t5"><span class="cfett">(?=…)</span></h5>
+<p>Passt nur dann, wenn der reguläre Ausdruck … als Nächstes passt. Diese Extension greift also vor, ohne in der Auswertung des Ausdrucks tatsächlich voranzuschreiten.</p>
+<p>Diese Extension ist vor allem beim Searching von Bedeutung.</p>
+<h5 class="t5"><span class="cfett">(?!…)</span></h5>
+<p>Passt nur dann, wenn der reguläre Ausdruck … als Nächstes nicht passt. Diese Extension ist das Gegenstück zu der vorherigen.</p>
+<p>Diese Extension ist vor allem beim Searching von Bedeutung.</p>
+<h5 class="t5"><span class="cfett">(?&lt;=…)</span></h5>
+<p>Passt nur, wenn der reguläre Ausdruck … zuvor gepasst hat. Diese Extension greift also auf bereits ausgewertete Teile des Strings zurück, ohne die Auswertung selbst zurückzuwerfen.</p>
+<p>Diese Extension ist vor allem beim Searching von Bedeutung.</p>
+<h5 class="t5"><span class="cfett">(?&lt;!...)</span></h5>
+<p>Passt nur, wenn der reguläre Ausdruck … zuvor nicht gepasst hat. Diese Extension ist damit das Gegenstück zu der vorherigen.</p>
+<p>Diese Extension ist vor allem beim Searching von Bedeutung.</p>
+<h5 class="t5"><span class="cfett">(?(id/name)yes-pattern|no-pattern)</span></h5>
+<p>Diese, recht kompliziert anmutende Extension kann in einem regulären Ausdruck als eine Art Fallunterscheidung verwendet werden. Abhängig davon, ob eine Gruppe mit dem angegebenen Index bzw. dem angegebenen Namen auf einen Teilstring gepasst hat, wird entweder (im positiven Fall) auf das <span class="ckursiv">yes-pattern</span> oder (im negativen Fall) auf das <span class="ckursiv">no-pattern</span> getestet. Das <span class="ckursiv">no-pattern</span> wird durch einen senkrechten Strich vom <span class="ckursiv">yes-pattern</span> getrennt, kann aber auch weggelassen werden. Vielleicht ist der Sinn dieser Extension noch nicht ganz klar geworden, deshalb folgendes Beispiel:</p>
+<div class="listing"><pre class="prettyprint">r"(?P&lt;klammer&gt;\()?Python(?(klammer)\))"</pre></div>
+<p>In diesem Ausdruck wird zunächst eine Gruppe namens <span class="clisting">klammer</span> erstellt, die maximal einmal vorkommen darf und aus einer öffnenden, runden Klammer besteht. Danach folgt die Zeichenkette <span class="clisting">Python</span>, und schlussendlich wird durch die Extension eine schließende Klammer gefordert, sofern zuvor eine öffnende aufgetreten ist, also sofern die Gruppe <span class="clisting">klammer</span> zuvor gepasst hat.</p>
+<p>Damit passt der reguläre Ausdruck auf die Strings <span class="clisting">"Python"</span> und <span class="clisting">"(Python)"</span>, beispielsweise aber nicht auf <span class="clisting">"(Python"</span>.</p>
+<p>Damit wäre den syntaktischen Regeln für reguläre Ausdrücke Genüge getan. Auch wenn dieser Abschnitt möglicherweise etwas trocken und theoretisch war, ist es durchaus wichtig, sich mit regulären Ausdrücken auseinanderzusetzen, denn in vielen Fällen ist der Einsatz regulärer Ausdrücke besonders elegant.</p>
+<p>In den folgenden Abschnitten möchten wir über die praktische Anwendung regulärer Ausdrücke in Python reden. Dazu gehört zunächst einmal die Verwendung des Moduls <span class="clisting">re</span>. Danach werden wir jeweils ein kleines Beispielprojekt zum Matching bzw. Searching bringen.</p><a id="mje2892cbdcf90c75a9fe751806a9aaee2" name="mje2892cbdcf90c75a9fe751806a9aaee2"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">15.2.2</span><span class="cfett"> Verwendung des Moduls</span>  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nachdem Sie in die unendlichen Weiten der regulären Ausdrücke eingeführt wurden, werden wir uns hier um ihre konkrete Verwendung in Python kümmern. Die Beispiele dieses Abschnitts werden im interaktiven Modus durchgeführt und setzen voraus, dass das Modul <span class="clisting">re</span> eingebunden wurde:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> re</pre></div>
+<h4 class="t4"><span class="cfett">Flags</span></h4>
+<p>Im vorherigen Abschnitt wurden mehrfach die sogenannten <span class="ckursiv">Flag</span><span class="ckursiv">s</span> angesprochen. Das sind bestimmte Einstellungen, die die Auswertung eines regulären Ausdrucks beeinflussen. Flags können entweder im Ausdruck selbst durch eine Extension oder als Parameter einer der im Modul <span class="clisting">re</span> verfügbaren Funktionen angegeben werden. Sie beeinflussen nur den Ausdruck, der aktuell verarbeitet wird, und verbleiben nicht nachhaltig im System. Jedes Flag ist als Konstante im Modul <span class="clisting">re</span> enthalten und kann über eine Lang- oder eine Kurzversion seines Namens angesprochen werden. Die folgende Tabelle listet alle Flags auf und erläutert ihre Bedeutung.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><strong>Tabelle 15.6    </strong>Flags
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Alias</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Name</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">re.I</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">re.IGNORECASE</span></p>
+</td>
+<td class="tabellentext">
+<p>Macht die Auswertung des regulären Ausdrucks <span class="ckursiv">case insensitive</span>, das heißt, dass die Zeichengruppe <span class="clisting">[A-Z]</span> sowohl auf Groß- als auch auf Kleinbuchstaben passen würde.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">re.L</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">re.LOCALE</span></p>
+</td>
+<td class="tabellentext">
+<p>Gibt an, dass bestimmte vordefinierte Zeichenklassen von der aktuellen Lokalisierung abhängig gemacht werden sollen. Das betrifft die Gruppen <span class="clisting">\w</span>, <span class="clisting">\W</span>, <span class="clisting">\b</span>, <span class="clisting">\B</span>, <span class="clisting">\s</span> und <span class="clisting">\S</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">re.M</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">re.MULTILINE</span></p>
+</td>
+<td class="tabellentext">
+<p>Wenn dieses Flag gesetzt wurde, passt <span class="clisting">^</span> sowohl zu Beginn des Strings als auch nach jedem Newline-Zeichen und <span class="clisting">$</span> vor jedem Newline-Zeichen.</p>
+<p>Normalerweise passen <span class="clisting">^</span> und <span class="clisting">$</span> nur am Anfang bzw. am Ende des Strings.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">re.S</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">re.DOTALL</span></p>
+</td>
+<td class="tabellentext">
+<p>Wenn dieses Flag gesetzt wurde, passt das Sonderzeichen <span class="clisting">.</span> tatsächlich auf jedes Zeichen. Normalerweise passt der Punkt auf jedes Zeichen außer auf das Newline-Zeichen <span class="clisting">\n</span>.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">re.U</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">re.UNICODE</span></p>
+</td>
+<td class="tabellentext">
+<p>Wenn dieses Flag gesetzt wurde, passen sich die vordefinierten Zeichenklassen dem Unicode-Standard an. Das heißt, dass dann auch Nicht-ASCII-Zeichen als Buchstabe oder Ziffer eingestuft werden.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">re.X</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">re.VERBOSE</span></p>
+</td>
+<td class="tabellentext">
+<p>Das Setzen dieses Flags erlaubt es Ihnen, einen regulären Ausdruck zu formatieren. Wenn es gesetzt wurde, werden Whitespace-Zeichen wie Leerzeichen, Tabulatoren oder Newline-Zeichen ignoriert, solange sie nicht durch einen Backslash eingeleitet werden. Zudem leitet ein <span class="clisting">#</span>-Zeichen einen Kommentar ein. Das heißt, alles hinter diesem Zeichen bis zu einem Newline-Zeichen wird ignoriert.</p>
+</td>
+</tr>
+</table><br><h4 class="t4"><span class="cfett">Funktionen</span></h4>
+<p>Neben den Flags sind im Modul <span class="clisting">re</span> noch einige Funktionen enthalten, die im Folgenden besprochen werden sollen.</p>
+<h5 class="t5"><span class="cfett">re.compile(pattern[, flags])</span></h5>
+<p>Kompiliert den regulären Ausdruck <span class="ckursiv">pattern</span> zu einem Regular-Expression-Objekt, im Folgenden <span class="ckursiv">RE-Objekt</span> genannt. Bei mehreren Operationen auf demselben regulären Ausdruck lohnt es sich, diesen zu kompilieren, da diese Operationen dann wesentlich schneller durchgeführt werden können. Zum Durchführen der Operationen bietet das RE-Objekt im Wesentlichen die gleiche Funktionalität wie das Modul <span class="clisting">re</span>.</p>
+<p>Um die Auswertung des Ausdrucks zu beeinflussen, können ein oder mehrere Flags angegeben werden. Wenn es sich um mehrere handelt, müssen diese durch das bitweise ODER <span class="clisting">|</span> getrennt werden.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; c1 = re.compile(r"P[yY]thon") 
+&gt;&gt;&gt; c2 = re.compile(r"P[y]thon", re.I) 
+&gt;&gt;&gt; c3 = re.compile(r"P[y]thon", re.I | re.S)</pre></div>
+<p>Die Angabe von Flags ist bei den meisten Funktionen des Moduls <span class="clisting">re</span> über den Parameter <span class="ckursiv">flags</span> möglich. Wir werden darauf in Zukunft nicht mehr eingehen.</p>
+<p>Näheres zum RE-Objekt folgt im nächsten Abschnitt.</p>
+<h5 class="t5"><span class="cfett">re.search(pattern, string[, flags])</span></h5>
+<p>Durchsucht den String <span class="ckursiv">string</span> nach einem Teilstring, auf den der reguläre Ausdruck <span class="ckursiv">pattern</span> passt. Der erste gefundene Teilstring wird in Form eines sogenannten <span class="ckursiv">Match-Objekt</span><span class="ckursiv">s</span> zurückgegeben. Näheres zur Verwendung des Match-Objekts erfahren Sie im entsprechenden Abschnitt.</p>
+<p>Wenn kein Ergebnis gefunden wurde, gibt die Funktion <span class="clisting">None</span> zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; re.search(r"P[Yy]thon", "Nimm doch Python") 
+&lt;_sre.SRE_Match object at 0xb7bd7f00&gt;</pre></div>
+<h5 class="t5"><span class="cfett">re.match(pattern, string[, flags])</span></h5>
+<p>Wenn null oder mehr Zeichen am Anfang des Strings <span class="ckursiv">string</span> auf den regulären Ausdruck <span class="ckursiv">pattern</span> passen, wird diese Übereinstimmung in Form eines Match-Objekts zurückgegeben. Wenn keine Übereinstimmung gefunden wurde, wird <span class="clisting">None</span> zurückgegeben.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> print</span> re.match(r"P[Yy]thon", "PYYthon") 
+None 
+&gt;&gt;&gt; re.match(r"P[Yy]thon", "PYthon") 
+&lt;_sre.SRE_Match object at 0xb7bd7f00&gt;</pre></div>
+<h5 class="t5"><span class="cfett">re.split(pattern, string[, maxsplit])</span></h5>
+<p>Der String <span class="ckursiv">string</span> wird nach Übereinstimmungen mit dem regulären Ausdruck <span class="ckursiv">pattern</span> durchsucht. Alle passenden Teilstrings werden als Trennzeichen angesehen, und die dazwischenliegenden Teile werden als Liste von Strings zurückgegeben.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; re.split(r"\s", "Python Python Python") 
+['Python', 'Python', 'Python']</pre></div>
+<p>Eventuell vorkommende Gruppen innerhalb des regulären Ausdrucks werden ebenfalls als Elemente dieser Liste zurückgegeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; re.split(r"\s(.*?)\s", "Python oder Python und Python") 
+['Python', 'oder', 'Python', 'und', 'Python']</pre></div>
+<p>In diesem regulären Ausdruck werden alle von zwei Whitespaces umgebenen Wörter als Trennzeichen behandelt.</p>
+<p>Wenn der Parameter <span class="clisting">maxsplit</span> angegeben wurde und ungleich <span class="clisting">0</span> ist, wird der String maximal <span class="clisting">maxsplit</span>-mal unterteilt. Der Reststring wird als letztes Element der Liste zurückgegeben.</p>
+<h5 class="t5"><span class="cfett">re.findall(pattern, string[, flags])</span></h5>
+<p>Sucht im String <span class="ckursiv">string</span> nach Übereinstimmungen mit dem regulären Ausdruck <span class="ckursiv">pattern</span>. Alle gefundenen, nicht überlappenden Übereinstimmungen werden in Form einer Liste von Strings zurückgegeben:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; re.findall(r"P[Yy]thon", "Python oder PYthon und Python") 
+['Python', 'PYthon', 'Python']</pre></div>
+<p>Wenn <span class="ckursiv">pattern</span> ein oder mehrere Gruppen enthält, werden diese anstelle der übereinstimmenden Teilstrings in die Ergebnisliste geschrieben.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; re.findall(r"P([Yy])thon", "Python oder PYthon und Python") 
+['y', 'Y', 'y'] 
+&gt;&gt;&gt; re.findall(r"P([Yy])th(.)n", "Python oder PYthon und Python") 
+[('y', 'o'), ('Y', 'o'), ('y', 'o')]</pre></div>
+<p>Bei mehreren Gruppen handelt es sich um eine Liste von Tupeln.</p>
+<h5 class="t5"><span class="cfett">re.finditer(pattern, string[, flags])</span></h5>
+<p>Sucht im String <span class="ckursiv">string</span> nach Übereinstimmungen mit dem regulären Ausdruck <span class="ckursiv">pattern</span>. Das Ergebnis ist ein Iterator, der über alle gefundenen, nicht überlappenden Übereinstimmungen jeweils als Match-Objekt iteriert.</p>
+<h5 class="t5"><span class="cfett">re.sub(pattern, repl, string[, flags])</span></h5>
+<p>Die Funktion <span class="ckursiv">sub</span> sucht im String <span class="ckursiv">string</span> nach nicht überlappenden Übereinstimmungen mit dem regulären Ausdruck <span class="ckursiv">pattern</span>. Es wird eine Kopie des Strings <span class="ckursiv">string</span> zurückgegeben, in dem alle passenden Teilstrings durch den String <span class="ckursiv">repl</span> ersetzt wurden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; re.sub(r"[Jj]a[Vv]a","Python", "Java oder java und jaVa") 
+'Python oder Python und Python'</pre></div>
+<p>Statt eines Strings kann für <span class="ckursiv">repl</span> auch ein Funktionsobjekt übergeben werden. Dieses wird für jede gefundene Übereinstimmung aufgerufen und bekommt das jeweilige Match-Objekt als einzigen Parameter. Der übereinstimmende Teilstring wird durch den Rückgabewert der Funktion ersetzt.</p>
+<p>Es ist möglich, durch die Schreibweisen <span class="clisting">\g&lt;name&gt;</span> oder <span class="clisting">\g&lt;index&gt;</span> Gruppen des regulären Ausdrucks zu referenzieren:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; re.sub(r"([Jj]ava)","Python statt \g&lt;1&gt;", "Nimm doch Java") 
+'Nimm doch Python statt Java'</pre></div>
+<p>Durch den optionalen Parameter <span class="ckursiv">count</span> kann die maximale Anzahl an Ersetzungen festgelegt werden, die vorgenommen werden dürfen.</p>
+<h5 class="t5"><span class="cfett">re.subn(pattern, repl, string[, flags])</span></h5>
+<p>Funktioniert ähnlich wie <span class="clisting">sub</span>, mit dem Unterschied, dass ein Tupel zurückgegeben wird, in dem zum einen der neue String und zum anderen die Anzahl der vorgenommenen Ersetzungen stehen:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; re.subn(r"([Jj]ava)","Python statt \g&lt;1&gt;", "Nimm doch Java") 
+('Nimm doch Python statt Java', 1)</pre></div>
+<h5 class="t5"><span class="cfett">re.escape(string)</span></h5>
+<p>Wandelt alle nicht-alphanumerischen Zeichen von <span class="ckursiv">string</span> in ihre entsprechende Escape-Sequenz um und gibt das Ergebnis als String zurück. Diese Funktion ist besonders dann sinnvoll, wenn man einen String in einen regulären Ausdruck einbetten möchte, aber nicht sicher sein kann, ob Sonderzeichen, beispielsweise ein Punkt, enthalten sind.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; re.escape("Funktioniert das wirklich? ... (ja!)") 
+'Funktioniert\\ das\\ wirklich\\?\\ \\.\\.\\.\\ \\(ja\\!\\)'</pre></div>
+<p>Beachten Sie, dass die Escape-Sequenzen im Stringliteral jeweils durch einen doppelten Backslash eingeleitet werden. Das liegt daran, dass das Ergebnis als String und nicht als Raw-String zurückgegeben wird.</p>
+<h4 class="t4"><span class="cfett">Das Regular-Expression-Objekt</span></h4>
+<p>Ein Regular-Expression-Objekt, im Folgenden RE-Objekt genannt, wird erzeugt, wenn ein regulärer Ausdruck kompiliert wurde. Das Kompilieren eines regulären Ausdrucks ist sinnvoll, wenn mehrere Operationen mit ihm durchgeführt werden sollen. Diese können dann zusammengenommen wesentlich schneller durchgeführt werden, als wenn man die Funktionen <span class="clisting">match</span> oder <span class="clisting">search</span> direkt aufrufen würde.</p>
+<p>Damit Searching- und Matching-Operationen mit einem kompilierten regulären Ausdruck durchgeführt werden können, besitzt das RE-Objekt eine Funktionalität, die deckungsgleich ist mit der des <span class="clisting">re</span>-Moduls. Das bedeutet, dass für das RE-Objekt größtenteils die Funktionen des <span class="clisting">re</span>-Moduls als Methoden implementiert sind, selbstverständlich mit gewissen Änderungen der Schnittstelle.</p>
+<p>Wir werden hier nicht genau auf die Funktionsweise der Methoden eingehen, sondern nur einen Vergleich zu den Funktionen des <span class="clisting">re</span>-Moduls ziehen. Dennoch ist es aufgrund der Änderungen bei den Schnittstellen wichtig, alle Methoden zu behandeln. Die Beispiele verstehen sich in folgendem Kontext:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> re 
+&gt;&gt;&gt; c = re.compile(r"P[Yy]th.n")</pre></div>
+<p>Das bedeutet: Es existiert ein RE-Objekt namens <span class="clisting">c</span>, dem der reguläre Ausdruck <span class="clisting">r"P[Yy]th.n"</span> zugrunde liegt.</p>
+<h5 class="t5"><span class="cfett">c.match(string[, pos[, endpos]])</span></h5>
+<p>Äquivalent zur Funktion <span class="clisting">re.match</span>. Die optionalen Parameter <span class="ckursiv">pos</span> und <span class="ckursiv">endpos</span> geben, wenn sie ungleich <span class="clisting">0</span> sind, zwei Indizes an, zwischen denen das Matching durchgeführt werden soll. Wenn sie nicht angegeben wurden, wird das Matching auf dem gesamten String durchgeführt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> print</span> c.match("Pythoon") 
+None 
+&gt;&gt;&gt; c.match("Python") 
+&lt;_sre.SRE_Match object at 0xb7c49e58&gt;</pre></div>
+<h5 class="t5"><span class="cfett">c.search(string[, pos[, endpos]])</span></h5>
+<p>Äquivalent zur Funktion <span class="clisting">re.search</span>. Die optionalen Parameter <span class="ckursiv">pos</span> und <span class="ckursiv">endpos</span> haben dieselbe Bedeutung wie bei der Methode <span class="clisting">match</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; c.search("Dies ist Python") 
+&lt;_sre.SRE_Match object at 0xb7c49e58&gt;</pre></div>
+<h5 class="t5"><span class="cfett">c.split(string[, maxsplit])</span></h5>
+<p>Äquivalent zur Funktion <span class="clisting">re.split</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; c.split("halloweltPythonhallowelt") 
+['hallowelt', 'hallowelt']</pre></div>
+<h5 class="t5"><span class="cfett">c.findall(string[, pos[, endpos]])</span></h5>
+<p>Äquivalent zur Funktion <span class="clisting">re.findall</span>. Die optionalen Parameter <span class="ckursiv">pos</span> und <span class="ckursiv">endpos</span> haben dieselbe Bedeutung wie bei der Methode <span class="clisting">match</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; c.findall("Python Python Python") 
+['Python', 'Python', 'Python']</pre></div>
+<h5 class="t5"><span class="cfett">c.finditer(string[, pos[, endpos]])</span></h5>
+<p>Äquivalent zur Funktion <span class="clisting">re.finditer</span>. Die optionalen Parameter <span class="ckursiv">pos</span> und <span class="ckursiv">endpos</span> haben dieselbe Bedeutung wie bei der Methode <span class="clisting">match</span>.</p>
+<h5 class="t5"><span class="cfett">c.sub(repl, string[, count])</span></h5>
+<p>Äquivalent zur Funktion <span class="clisting">re.sub</span>.</p>
+<h5 class="t5"><span class="cfett">c.subn(repl, string[, count])</span></h5>
+<p>Äquivalent zur Funktion <span class="clisting">re.subn</span>.</p>
+<p>Neben diesen Methoden enthält das RE-Objekt drei Attribute, die das Arbeiten mit dem Objekt erleichtern.</p>
+<h5 class="t5"><span class="cfett">c.flags</span></h5>
+<p>Das Attribut <span class="clisting">flags</span> ist eine ganze Zahl und enthält alle gesetzten Flags. Beachten Sie, dass Flags selbst auch ganze Zahlen sind und eine Kombination von Flags durch ihr bitweises ODER repräsentiert wird. Die zu setzenden Flags werden beim Erzeugen des RE-Objekts der Funktion <span class="clisting">re.compile</span> übergeben. Wenn kein Flag gesetzt wurde, ist der Wert des Attributs <span class="clisting">0</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; c.flags 
+0</pre></div>
+<p>Um zu testen, ob ein bestimmtes Flag gesetzt ist, kann das bitweise UND verwendet werden:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; c1 = re.compile(r"P[Yy]th.n", re.I) 
+&gt;&gt;&gt; c1.flags 
+2 
+&gt;&gt;&gt; c1.flags &amp; re.I 
+2 
+&gt;&gt;&gt; c1.flags &amp; re.M 
+0</pre></div>
+<p>Das bitweise UND zwischen dem Attribut <span class="clisting">flags</span> und einem nicht gesetzten Flag ergibt immer <span class="clisting">0</span>.</p>
+<h5 class="t5"><span class="cfett">c.groupindex</span></h5>
+<p>Das Attribut <span class="clisting">groupindex</span> ist ein Dictionary, das alle Namen benannter Gruppen als Schlüssel enthält und die Indizes dieser Gruppen als Werte. Eine benannte Gruppe wird durch die Extension <span class="clisting">(?P&lt;name&gt;…)</span> erzeugt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; c2 = re.compile(r"(?P&lt;gruppe1&gt;P[Yy])(?P&lt;gruppe2&gt;th.n)") 
+&gt;&gt;&gt; c2.groupindex 
+{'gruppe1': 1, 'gruppe2': 2}</pre></div>
+<h5 class="t5"><span class="cfett">c.pattern</span></h5>
+<p>Das Attribut <span class="clisting">pattern</span> ist ein String und enthält den regulären Ausdruck, der dem RE-Objekt zugrunde liegt.</p>
+<div class="listing"><pre class="prettyprint"><span class="clisting">&gt;&gt;&gt; c.pattern 
+'P[Yy]th.n'</span></pre></div>
+<h4 class="t4"><span class="cfett">Das Match-Objekt</span></h4>
+<p>Nachdem wir das RE-Objekt besprochen haben, wenden wir uns einem wesentlich interessanteren Objekt zu, dem Match-Objekt. Eine solche Instanz wird zurückgegeben, wenn eine Match- oder Search-Operation Übereinstimmungen gefunden hat. Das Match-Objekt enthält nähere Details zu diesen gefundenen Übereinstimmungen.</p>
+<p>Die Beispiele in diesem Unterkapitel verstehen sich in folgendem Kontext:</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt;<span class="cfett"> import</span> re 
+&gt;&gt;&gt; c = re.compile(r"(P[Yy])(th.n)")</pre></div>
+<p>Das Match-Objekt verfügt über folgende Methoden:</p>
+<h5 class="t5"><span class="cfett">m.expand(template)</span></h5>
+<p>Die Methode <span class="clisting">expand</span> erlaubt es, den String <span class="ckursiv">template</span> mit Informationen zu füllen, die aus der Matching- bzw. Searching-Operation stammen. So können über             <span class="clisting">\g&lt;index&gt;</span> und <span class="clisting">\g&lt;name&gt;</span> die Teilstrings eingefügt werden, die auf die jeweiligen Gruppen gepasst haben. Beachten Sie unbedingt, dass Sie <span class="ckursiv">template</span> wegen der Backslashs als Raw-String angeben sollten.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; m = c.match("Python") 
+&gt;&gt;&gt; m.expand(r"Hallo \g&lt;1&gt; Welt \g&lt;2&gt;") 
+'Hallo Py Welt thon'</pre></div>
+<h5 class="t5"><span class="cfett">m.group([group1, …])</span></h5>
+<p>Die Methode <span class="clisting">group</span> erlaubt einen komfortablen Zugriff auf die Teilstrings, die auf die verschiedenen Gruppen des regulären Ausdrucks gepasst haben. Wenn nur ein Argument übergeben wurde, ist der Rückgabewert ein String, ansonsten ein Tupel von Strings. Wenn eine Gruppe auf keinen Teilstring gepasst hat, wird für diese <span class="clisting">None</span> zurückgegeben. Ein Index von <span class="clisting">0</span> gibt alle Gruppen zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; m = c.match("Python") 
+&gt;&gt;&gt; m.group(0) 
+'Python' 
+&gt;&gt;&gt; m.group(1) 
+'Py' 
+&gt;&gt;&gt; m.group(1, 2) 
+('Py', 'thon')</pre></div>
+<h5 class="t5"><span class="cfett">m.groups([default])</span></h5>
+<p>Gibt ein Tupel zurück, das alle Teilstrings enthält, die auf eine der im regulären Ausdruck enthaltenen Gruppen gepasst haben. Der optionale Parameter <span class="ckursiv">default</span> erlaubt es, den Wert festzulegen, der in das Tupel geschrieben wird, wenn auf eine Gruppe kein Teilstring gepasst hat. Der Parameter ist mit <span class="clisting">None</span> vorbelegt.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; m = c.match("Python") 
+&gt;&gt;&gt; m.groups() 
+('Py', 'thon')</pre></div>
+<h5 class="t5"><span class="cfett">m.groupdict([default])</span></h5>
+<p>Gibt ein Dictionary zurück, das die Namen aller benannten Gruppen als Schlüssel und die jeweils passenden Teilstrings als Werte enthält. Der Parameter <span class="ckursiv">default</span> hat die gleiche Bedeutung wie bei der Methode <span class="clisting">groups</span>.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; c2 = re.compile(r"(?P&lt;gruppe&gt;P[Yy])(th.n)") 
+&gt;&gt;&gt; m2 = c2.match("Python") 
+&gt;&gt;&gt; m2.groupdict() 
+{'gruppe': 'Py'}</pre></div>
+<h5 class="t5"><span class="cfett">m.start([group]), end([group])</span></h5>
+<p>Gibt den Start- bzw. Endindex des Teilstrings zurück, der auf die Gruppe <span class="ckursiv">group</span> gepasst hat. Der optionale Parameter <span class="ckursiv">group</span> ist mit <span class="clisting">0</span> vorbelegt.</p>
+<div class="listing"><pre class="prettyprint">m = c.match("Python") 
+&gt;&gt;&gt; m.start(2) 
+2 
+&gt;&gt;&gt; m.end(2) 
+6</pre></div>
+<h5 class="t5"><span class="cfett">m.span([group])</span></h5>
+<p>Gibt das Tupel <span class="clisting">(start(group), end(group))</span> zurück.</p>
+<div class="listing"><pre class="prettyprint">&gt;&gt;&gt; m = c.match("Python") 
+&gt;&gt;&gt; m.span(2) 
+(2, 6)</pre></div>
+<p>Neben den soeben beschriebenen Methoden besitzt das Match-Objekt sechs Attribute, die im Folgenden beschrieben werden sollen.</p>
+<h5 class="t5"><span class="cfett">m.pos, m.endpos</span></h5>
+<p>Die Methoden <span class="clisting">match</span> und <span class="clisting">search</span> des RE-Objekts besitzen zwei Parameter namens <span class="ckursiv">pos</span> und <span class="ckursiv">endpos</span>. Die Attribute <span class="clisting">pos</span> und <span class="clisting">endpos</span> des Match-Objekts erlauben den Zugriff auf die dort zuletzt übergebenen Werte.</p>
+<h5 class="t5"><span class="cfett">m.lastindex</span></h5>
+<p>Der Index der Gruppe, die bei der Auswertung als Letzte auf einen Teilstring gepasst hat, oder <span class="clisting">None</span>, wenn keine Gruppe gepasst hat.</p>
+<h5 class="t5"><span class="cfett">m.lastgroup</span></h5>
+<p>Der Name der symbolischen Gruppe, die bei der Auswertung als Letzte auf einen Teilstring gepasst hat, oder <span class="clisting">None</span>, wenn keine Gruppe gepasst hat.</p>
+<h5 class="t5"><span class="cfett">m.re</span></h5>
+<p>Der ursprüngliche reguläre Ausdruck als String.</p>
+<h5 class="t5"><span class="cfett">m.string</span></h5>
+<p>Der String, der der <span class="clisting">match</span>- bzw. <span class="clisting">search</span>-Methode des RE-Objekts zuletzt übergeben wurde.</p><a id="mj0f265a514db5f52d8a351509e27721a6" name="mj0f265a514db5f52d8a351509e27721a6"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">15.2.3</span><span class="cfett"> Ein einfaches Beispielprogramm &#8211; Searching</span>  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bisher wurde sowohl die Syntax regulärer Ausdrücke als auch deren Verwendung durch das Modul <span class="clisting">re</span> der Standardbibliothek besprochen. Eigentlich ist die Thematik damit erschöpfend behandelt, doch wir möchten an dieser Stelle zwei kleine Beispielprojekte vorstellen, die stark auf reguläre Ausdrücke setzen, um auch einer praxisorientierten Einführung gerecht zu werden. Zunächst soll in diesem relativ einfach gehaltenen Programm das Searching und im nächsten, etwas komplexeren Beispiel das Matching erklärt werden.</p>
+<p>Mithilfe des Searchings können Muster innerhalb eines längeren Textes gefunden und herausgefiltert werden. In unserem Beispielprogramm soll das Searching dazu genutzt werden, alle Links aus einer beliebigen HTML-Datei mitsamt Beschreibung herauszulesen. Dazu müssen wir uns zunächst den Aufbau eines HTML-Links vergegenwärtigen:</p>
+<div class="listing"><pre class="prettyprint">&lt;a href="<span class="clistingk">URL</span>"&gt;<span class="clistingk">Beschreibung</span>&lt;/a&gt;</pre></div>
+<p>Dazu ist zu sagen, dass HTML nicht zwischen Groß- und Kleinschreibung unterscheidet, wir den regulären Ausdruck also mit dem <span class="clisting">IGNORECASE</span>-Flag verwenden sollten. Des Weiteren handelt es sich bei dem obigen Beispiel um die einfachste Form eines HTML-Links, denn neben der URL und der Beschreibung können noch weitere Angaben getätigt werden.</p>
+<p>Der folgende reguläre Ausdruck passt sowohl auf den oben beschriebenen als auch auf weitere, komplexere HTML-Links:</p>
+<div class="listing"><pre class="prettyprint">r"&lt;a.*href=[\"\'](.*?)[\"\'].*&gt;(.*?)&lt;/a&gt;"</pre></div>
+<p>Wichtig ist, dass der reguläre Ausdruck zwei Gruppen enthält, jeweils für die URL und die Beschreibung, sodass diese beiden Angaben später bequem ausgelesen werden können. Außerdem sollten Sie unbedingt beachten, dass innerhalb dieser Gruppen »genügsame« Quantoren eingesetzt wurden, da sonst mehrere Links fälschlicherweise zu einem zusammengefasst werden könnten.</p>
+<p>Doch nun zum Beispielprogramm:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">import</span> re<br>
+f = open("test.html", "r") 
+html = f.read() 
+f.close()<br>
+it = re.finditer(r"&lt;[a].*href=[\"\'](.*?)[\"\'].*&gt;(.*?)&lt;/[a]&gt;", 
+                 html, re.I)<span class="cfett"> 
+for</span> m<span class="cfett"> in</span> it: 
+   <span class="cfett"> print</span> "Name: %s, Link: %s" % (m.group(2), m.group(1))</pre></div>
+<p>Zunächst wird eine beliebige HTML-Datei, in diesem Fall <span class="ckursiv">test.html</span>, geöffnet und mithilfe der Methode <span class="clisting">read</span> des Dateiobjekts ausgelesen. Danach wird die Funktion <span class="clisting">finditer</span> des Moduls <span class="clisting">re</span> aufgerufen, um alle Übereinstimmungen mit dem vorhin besprochenen regulären Ausdruck im HTML-Code zu finden. Das Ergebnis wird als Iterator zurückgegeben und von <span class="clisting">it</span> referenziert.</p>
+<p>Schlussendlich wird über <span class="clisting">it</span> iteriert. In jedem Iterationsschritt ist die aktuelle Übereinstimmung als Match-Objekt <span class="clisting">m</span> verfügbar. Jetzt werden nur noch die Teilstrings ausgegeben, die auf die beiden Gruppen des regulären Ausdrucks gepasst haben.</p>
+<p>Sie können das Programm mit beliebigen HTML-Seiten testen. Besuchen Sie dazu im Internet eine möglichst komplexe Website, beispielsweise die eines Nachrichtenmagazins, und speichern Sie diese als HTML-Datei ab. Sie werden sehen, dass das Beispielprogramm auch hier die enthaltenen Links findet.</p>
+<p>Das hier vorgestellte Programm schreit geradezu danach, erweitert zu werden. Beispielsweise könnten neben Links noch andere Teile des HTML-Codes, wie enthaltene Bilder oder Überschriften, ausgelesen werden.</p><a id="mj0cde82e9966520be22a4f0e68fb21b1b" name="mj0cde82e9966520be22a4f0e68fb21b1b"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">15.2.4</span><span class="cfett"> Ein komplexeres Beispielprogramm &#8211; Matching</span>  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Es ist allgemein &#8211; und besonders im Web &#8211; ein häufiges Problem, eingegebene Formulardaten zu validieren und die wichtigen Informationen aus den Eingaben herauszufiltern. Dies ist selbstverständlich auch mit normalen String-Operationen möglich, doch mutiert der Code bei solchen Versuchen schnell zu einem unförmigen Batzen von Irgendwas. Das angesprochene Problem lässt sich durch reguläre Ausdrücke sehr elegant und nur mit geringem Quellcodeaufwand lösen. Unser Beispielprogramm soll aus einer Art elektronischer Visitenkarte alle relevanten Informationen auslesen und maschinenlesbar aufbereiten. Die Visitenkarte ist in einer Textdatei in folgendem Format gespeichert:</p>
+<div class="listing"><pre class="prettyprint">Name: Max Mustermann 
+Addr: Musterstr 123 
+      12345 Musterhausen 
+Tel:  +49 1234 56789</pre></div>
+<p>Das Programm soll nun diese Textdatei einlesen, die enthaltenen Informationen extrahieren und zu einem solchen Dictionary aufbereiten:</p>
+<div class="listing"><pre class="prettyprint">{ 
+'Tel': ('+49', '1234', '56789'), 
+'Name': ('Max', 'Mustermann'), 
+'Addr': ('Musterstr', '123', '12345', 'Musterhausen') 
+}</pre></div>
+<p>In der Textdatei soll dabei immer nur ein Datensatz stehen.</p>
+<p>Zunächst einmal möchten wir etwas detaillierter auf die Funktionsweise des Beispielprogramms eingehen. Die Visitenkarte besteht aus verschiedenen Informationen, denen immer eine Überschrift bzw. Kategorie gegeben wurde (»Name«, »Addr« und »Tel«). Die Kategorie von der Information zu trennen ist keine komplizierte Angelegenheit, da der Doppelpunkt innerhalb der Informationen nicht vorkommt und somit in jeder Zeile einzigartig ist. Ein Problem ist die dritte Zeile, da hier keine explizite Überschrift gegeben ist. In einem solchen Fall wird die Zeile an die Information der vorherigen Überschrift angehängt. Auf diese Weise lässt sich ein Dictionary erzeugen, das die Überschriften auf die jeweiligen Informationen mappt.</p>
+<p>Die Informationen werden allerdings zeilenweise aus der Datei ausgelesen. Das ist nicht optimal, da wir die Daten ausdrücklich maschinenlesbar einlesen wollten, das heißt insbesondere nach Einzelinformationen getrennt. Für diese Arbeit bieten sich reguläre Ausdrücke förmlich an.</p>
+<p>Kommen wir zur konkreten Implementierung. Dazu schreiben wir zunächst eine Funktion, die die Daten zeilenweise einliest und zu einem Dictionary aufbereitet:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> leseDatei(datei): 
+    d = {} 
+    f = open(datei) 
+   <span class="cfett"> for</span> zeile<span class="cfett"> in</span> f: 
+       <span class="cfett"> if</span> ":"<span class="cfett"> in</span> zeile: 
+            key, d[key] = (s.strip()<span class="cfett"> for</span> s<span class="cfett"> in</span> zeile.split(":")) 
+       <span class="cfett"> elif</span> "key"<span class="cfett"> in</span> locals(): 
+            d[key] += "\n%s" % zeile.strip() 
+    f.close() 
+   <span class="cfett"> return</span> d</pre></div>
+<p>Die Funktion <span class="clisting">leseDatei</span> bekommt den String <span class="clisting">datei</span> mit einer Pfadangabe übergeben. Innerhalb der Funktion wird die Datei zeilenweise eingelesen. Jede Zeile wird anhand des Doppelpunktes in die beiden Teile »Überschrift« und »Information« aufgeteilt und, durch Einsatz der Methode <span class="clisting">strip</span>, von überflüssigen Leerzeichen befreit. Danach werden Überschrift und Information in das Dictionary <span class="clisting">d</span> geschrieben und die jeweils aktuelle Überschrift zusätzlich durch <span class="clisting">key</span> referenziert.</p>
+<p>Wenn in einer Zeile kein Doppelpunkt vorkommt, wurde die Information auf mehrere Zeilen umgelegt. Das bedeutet für uns, dass wir zunächst auch die Methode <span class="clisting">strip</span> auf den kompletten Zeileninhalt anwenden und sie dann unter der Überschrift <span class="clisting">key</span> an den bereits bestehenden Wert im Dictionary anhängen. Damit dieses durchgeführt werden kann, muss die Referenz <span class="clisting">key</span> selbstverständlich existieren. Da diese erst innerhalb der <span class="clisting">if</span>-Anweisung angelegt wird, wird vorausgesetzt, dass eine Zeile mit Doppelpunkt vor einer Zeile ohne Doppelpunkt kommen muss. Obwohl es keine syntaktisch sinnvolle Datei gibt, in der das nicht gilt, überprüfen wir im <span class="clisting">elif</span>-Zweig explizit, ob die Referenz <span class="clisting">key</span> existiert.</p>
+<p>Das Resultat dieser Funktion ist ein Dictionary mit den Überschriften als Schlüssel und den dazugehörigen Informationen (in Form von Strings) als Werte. Die zweite Funktion des Beispiels soll die Daten mithilfe regulärer Ausdrücke analysieren und dann als Tupel im Dictionary ablegen. Dazu erzeugen wir zunächst ein Dictionary namens <span class="clisting">regexp</span>, das für jede Überschrift einen regulären Ausdruck bereitstellt, der verwendet werden kann, um die Information zu validieren:</p>
+<div class="listing"><pre class="prettyprint">regexp = { 
+         "Name" : r"([A-Za-z]+)\s([A-Za-z]+)", 
+         "Addr" : r"([A-Za-z]+)\s(\d+)\s*(\d{5})\s([A-Za-z]+)", 
+         "Tel"  : r"(\+\d{2})\s(\d{4})\s(\d{3,})" 
+         }</pre></div>
+<p>Diese regulären Ausdrücke verfügen über mehrere Gruppen, um das Aufteilen der Information in die verschiedenen Einzelinformationen zu erleichtern.</p>
+<p>Die Funktion, mit der die Daten analysiert werden, sieht folgendermaßen aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">def</span> analysiereDaten(daten, regexp): 
+   <span class="cfett"> for</span> key<span class="cfett"> in</span> daten: 
+        m = re.match(regexp[key], daten[key]) 
+       <span class="cfett"> if not</span> m: 
+           <span class="cfett"> return</span> False 
+        daten[key] = m.groups() 
+   <span class="cfett"> return</span> True</pre></div>
+<p>Die Funktion <span class="clisting">analysiereDaten</span> bekommt zwei Dictionarys als Parameter übergeben: zum einen das soeben erstellte Dictionary <span class="clisting">regexp</span> und zum anderen das, das von der vorherigen Funktion erstellt wurde und die eingelesenen Daten enthält.</p>
+<p>Die Funktion iteriert in einer <span class="clisting">for</span>-Schleife über das Dictionary <span class="clisting">daten</span> und wendet, jeweils passend zur aktuellen Überschrift, mithilfe der Funktion <span class="clisting">re.match</span> den regulären Ausdruck auf den eingelesenen String an. Das zurückgegebene Match-Objekt wird durch <span class="clisting">m</span> referenziert.</p>
+<p>Nachfolgend wird getestet, ob <span class="clisting">re.match None</span> zurückgegeben hat. Ist das der Fall, gibt die Funktion <span class="clisting">analysiereDaten</span> ihrerseits <span class="clisting">False</span> zurück. Andernfalls wird der aktuelle Wert des Dictionarys <span class="clisting">daten</span> mit den Teilstrings überschrieben, die auf die einzelnen Gruppen der regulären Ausdrücke gepasst haben. Die Methode <span class="clisting">group</span> des Match-Objekts gibt ein Tupel von Strings zurück. Nach dem Durchlaufen der Funktion <span class="clisting">analysiereDaten</span> enthält das Dictionary die gewünschten Daten in aufbereiteter Form.</p>
+<p>Zu guter Letzt fehlt noch der Code, der den Anstoß zum Einlesen und Aufbereiten der Daten gibt:</p>
+<div class="listing"><pre class="prettyprint">daten = leseDatei("id.txt")<span class="cfett"> 
+if</span> analysiereDaten(daten, regexp): 
+   <span class="cfett"> print</span> daten<span class="cfett"> 
+else</span>: 
+   <span class="cfett"> print</span> "Die Angaben sind fehlerhaft"</pre></div>
+<p>Je nachdem, welchen Wahrheitswert die Funktion <span class="clisting">analysiereDaten</span> zurückgegeben hat, werden die aufbereiteten Daten oder eine Fehlermeldung ausgegeben.</p>
+<p>Hoffentlich haben Ihnen die beiden Beispiele geholfen, einen praxisbezogenen Einstieg in die Welt der regulären Ausdrücke zu finden. Bleibt noch zu sagen, dass das dargebotene Programm zwar funktioniert, aber nicht perfekt ist. Fühlen Sie sich dazu ermutigt, es zu erweitern oder anzupassen. So erlauben die regulären Ausdrücke beispielsweise noch keine Umlaute oder Interpunktionszeichen im Straßennamen. Sie könnten beispielsweise auch Visitenkarte und Programm um die Angabe einer E-Mail-Adresse erweitern.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="http://www.galileocomputing.de/openbook/python/python_kapitel_15_002.htm"><input type="hidden" name="buchtitel" value="Python"><input type="hidden" name="Kapitel" value="15.2 Reguläre Ausdrücke &#8211; re"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="python_kapitel_15_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="python_kapitel_15_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" width="160">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">
+                            &nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor">
+                            <strong>Zum Katalog</strong></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2">
+                            <img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><a href="http://www.galileocomputing.de/1626?GPP=oppy">
+                                        <img src="common/1110_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Python" title="Zum Katalog: Python">
+                                        <br /><br /><br /><br /><br /><br /><br /><strong>Python</strong><br /><img src="common/pfeil_rechts5.gif" border="0" alt="">bestellen</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br /><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+                                    <br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=oppy" class="autor"><strong>Buchtipps</strong></a></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1579?GPP=oppy">
+                        <img src="common/9783836210904_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Linux" title="Zum Katalog: Linux"><br /><br /><br /><br /><br /><br /><br />&nbsp;Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1337?GPP=oppy">
+                        <img src="common/9783898428484_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Ubuntu GNU/Linux" title="Zum Katalog: Ubuntu GNU/Linux"><br /><br /><br /><br /><br /><br /><br>&nbsp;Ubuntu GNU/Linux</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1451?GPP=oppy">
+                        <img src="common/9783836210874_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Web 2.0" title="Zum Katalog: Praxisbuch Web 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Web 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1142?GPP=oppy">
+                        <img src="common/9783898427388_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: UML 2.0" title="Zum Katalog: UML 2.0"><br /><br /><br /><br /><br /><br /><br />&nbsp;UML 2.0</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/966?GPP=oppy">
+                        <img src="common/9783898426244_s.gif" width="94" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Praxisbuch Objektorientierung" title="Zum Katalog: Praxisbuch Objektorientierung"><br /><br /><br /><br /><br /><br /><br />&nbsp;Praxisbuch Objektorientierung</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1477?GPP=oppy">
+                        <img src="common/1039_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in SQL" title="Zum Katalog: Einstieg in SQL"><br /><br /><br /><br /><br /><br /><br />&nbsp;Einstieg in SQL</a><br /><br /></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+                        <a href="http://www.galileocomputing.de/1234?GPP=oppy">
+                        <img src="common/1015_90px.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: IT-Handbuch für Fachinformatiker" title="Zum Katalog: IT-Handbuch für Fachinformatiker"><br /><br /><br /><br /><br /><br /><br>&nbsp;IT-Handbuch für Fachinformatiker</a><br /><br /></td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+                        <td valign="top">
+                            <table cellspacing="3">
+                                <tr>
+                                    <td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br /><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=oppy"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br /><br /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center"><br><div align="center">
+<p class="standard"><b>Copyright © Galileo Press 2008</b><br>Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken. Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung, Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+
+</html>
